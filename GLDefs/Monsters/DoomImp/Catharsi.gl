@@ -1,0 +1,43 @@
+pointlight DMR_CATHBALL
+{
+    color 0.1 0.75 1.0
+    size 48
+	attenuate 1
+}
+
+flickerlight DMR_CATHBALL_X1
+{
+    color 0.1 0.75 1.0
+    size 56
+    secondarySize 64
+    chance 0.25
+	attenuate 1
+}
+
+flickerlight DMR_CATHBALL_X2
+{
+    color 0.1 0.55 0.7
+    size 60
+    secondarySize 72
+    chance 0.25
+	attenuate 1
+}
+
+flickerlight DMR_CATHBALL_X3
+{
+    color 0.1 0.15 0.3
+    size 64
+    secondarySize 80
+    chance 0.25
+	attenuate 1
+}
+
+object CatharsiBall 
+{
+    frame SDFBA { light DMR_CATHBALL }
+	
+    frame SDFBB { light DMR_CATHBALL_X1 }
+    frame SDFBC { light DMR_CATHBALL_X2 }
+    frame SDFBD { light DMR_CATHBALL_X2 }
+    frame SDFBE { light DMR_CATHBALL_X3 }
+}

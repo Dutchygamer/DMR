@@ -1,0 +1,38 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  XDeath Sprites: 	Eriance
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios	
+//	ZScript:	Dutchygamer
+//======================================================================
+
+Class DMR_BaronOfHell : BaronOfHell 
+{
+	Default
+	{
+		Tag "Baron of Hell";
+		BloodColor "green";
+		Gibhealth -40; //all higher tier monsters (baron -> archvile) have 40 gibhealth
+		Species "DMR_Goatman";
+		+DONTHARMSPECIES;
+		+NOINFIGHTSPECIES;
+	}
+	States 
+	{ 
+	Melee:
+	Missile:
+		BOSS EF 8 A_FaceTarget;
+		BOSS G 8 A_CustomComboAttack("BaronBall",32,random(20,60),"baron/melee");
+		goto See;
+	XDeath:
+		BOSS P 5;
+		BOSS Q 5 A_XScream;
+		BOSS R 5 A_NoBlocking;
+		BOSS STUVW 5;
+		BOSS X -1 A_BossDeath;
+		stop;
+	}
+}

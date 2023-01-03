@@ -1,0 +1,156 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Vader
+//	Sounds:		Blizzard Entertainment, Vader
+//  Sprites: 	Vader
+//	GLDEFs: 	Ghastly Dragon, Sandypaper (Brightmaps)
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class DMR_Shadow : DMR_DoomImp
+{
+	Default
+	{
+		Tag "Shadow";
+		Health 80;
+		PainChance 150;
+		+NOBLOOD;
+		+DONTGIB;
+		+NOICEDEATH;
+		RenderStyle "Translucent";
+		Alpha 0.7;
+		SeeSound "";
+		PainSound "Shadow/pain";
+		DeathSound "Shadow/death";
+		ActiveSound "Shadow/active";
+		Obituary "%o was assasinated by a shadow.";
+	}	
+	States
+	{
+	Spawn:
+		SHDW AB 10 A_Look;
+		Loop;
+	See:
+		SHDW A 15;
+		SHDW AAA 1 A_Chase;
+		SHDW A 1 {
+			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_Chase();
+		}
+		SHDW BBB 1 A_Chase;
+		SHDW B 1 {
+			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_Chase();
+		}
+		SHDW CCC 1 A_Chase;
+		SHDW C 1 {
+			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_Chase();
+		}
+		SHDW DDD 1 A_Chase;
+		SHDW D 1 {
+			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_Chase();
+		}
+		Goto See+1;
+	Melee:
+	Missile:
+		SHDW E 30 A_FaceTarget;
+		SHDW F 5;
+		SHDW G 5 BRIGHT A_SpawnProjectile("ShadowBall", 32, 0, 0);
+		SHDW F 5;
+		SHDW E 20;
+		SHDW E 1 A_SpidRefire;
+		Goto Missile+1;
+	Pain:
+		SHDW H 4;
+		SHDW H 4 A_Pain;
+		Goto See+1;
+	Death:
+		SHDW I 6 A_Scream;
+		SHDW J 5;
+		SHDW K 5 A_SpawnItemEx("Shadowtorso",0,0,16,0,0,0,16,SXF_SETMASTER|SXF_TRANSFERPOINTERS);
+		SHDW L 5 A_Fall;
+		SHDW MNO 6;
+		SHDW P -1;
+		Stop;
+	XDeath:
+		SHDX A 8;
+		SHDX B 6 A_Scream; //don't play the gib sound for XDeath
+		SHDX C 6;
+		SHDX D 6 A_Fall;
+ 		SHDX E 6;
+ 		SHDX F 6;
+		SHDX G -1;
+		Stop;
+	Raise:
+		TNT1 A 0 A_GiveToChildren("DMR_ResCounter",1);
+		SHDW M 8;
+		SHDW KLJI 8;
+		Goto See;
+	}
+}
+
+class ShadowBall : DMR_DoomImpBall
+{
+	Default
+	{
+		Speed 12;
+		DamageFunction(random(6,16));
+		RenderStyle "ADD";
+		Alpha 0.75;
+		SeeSound "Shadow/attack";
+	}
+    States
+    {
+    Spawn:
+        SBAL ABC 4 BRIGHT {
+			If(GetCvar("dmr_fancydoom")) { A_SpawnItemEx("DMR_ShadowTrail",0,0,0,0,0,0); }
+		}		
+        Loop;
+    Death:
+		SBAL C 5 Bright;
+		SBAL DEFGH 4 BRIGHT;
+        Stop;
+    }
+}
+
+//TODO hier iets generieks voor maken
+class ShadowTorso : Actor
+{
+	Default
+	{
+		Radius 12;
+		Height 15;
+		Mass 5000;
+		RenderStyle "Translucent";
+		Alpha 0.7;
+		Monster;
+		-ISMONSTER;
+		-COUNTKILL;
+		-SOLID;
+		-SHOOTABLE;
+		+NORADIUSDMG;
+		+DROPOFF;
+		+NOTELEPORT;
+		+NOTARGET;
+		+CORPSE;
+		+NODAMAGE;
+	}
+	States
+	{
+	Spawn:
+		SHDW QRS 5;
+		Goto Death;
+	Death:
+		SHDW T 5 A_NoBlocking;
+		SHDW U 5;
+    Looplet:
+		SHDW V 1 A_JumpIfInventory("DMR_ResCounter",1,"NULL");
+		Wait;
+	}
+}

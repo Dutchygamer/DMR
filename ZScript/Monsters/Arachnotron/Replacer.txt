@@ -1,0 +1,10 @@
+Class ArachnotronReplacer: RandomSpawner replaces Arachnotron
+{
+	Default
+	{
+		DropItem "DMR_Arachnotron", 255, 100;
+		DropItem "DakkaSpider", 255, 25;
+		DropItem "LaserSpider", 255, 20;
+		DropItem "AracKnight", 255, 8;
+	}
+}

@@ -1,0 +1,63 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  XDeath Sprites: 	Eriance
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios	
+//	ZScript:	Dutchygamer
+//======================================================================
+
+Class DMR_HellKnight : HellKnight 
+{
+	Default
+	{
+		Tag "Hell knight";
+		bloodcolor "green";
+		Gibhealth -30; ///all medium tier monsters (demon -> hellknight) have 30 gibhealth
+		Species "DMR_Goatman";
+		+DONTHARMSPECIES;
+		+NOINFIGHTSPECIES;
+	}
+	States 
+	{  
+	Melee:
+	Missile:
+		BOS2 EF 8 A_FaceTarget;
+		BOS2 G 8 A_CustomComboAttack("BaronBall",32,random(16,48),"baron/melee");
+		goto See;
+	XDeath:
+		BOS2 P 5;
+		BOS2 Q 5 A_XScream;
+		BOS2 R 5 A_NoBlocking;
+		BOS2 STUVW 5;
+		BOS2 X -1;
+		stop;
+	}
+}
+
+class DMR_BaronBall : BaronBall replaces BaronBall
+{
+	Default
+	{
+		DamageFunction(random(16,48));
+	}
+	states
+	{
+	Spawn:
+		BAL7 AABB 2 Bright {
+			If(GetCvar("dmr_fancydoom")) { A_SpawnItemEx("DMR_MediumGreenFireballTrail",-3,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); }
+		}
+		Loop;
+	Death:
+		TNT1 AAAA 0 {
+			If(GetCvar("dmr_fancydoom")) { 
+				A_SpawnItemEx("DMR_MediumGreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+				A_SpawnItemEx("DMR_MediumGreenFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			}
+		}
+		BAL7 CDE 6 Bright;
+		Stop;
+	}
+}

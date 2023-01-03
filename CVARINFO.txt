@@ -1,0 +1,8 @@
+// show fancy effects yes / no
+server int dmr_fancydoom = 1;
+
+// bosses drop dosh besides lootcrate
+server int dmr_generousbosses = 0;
+
+// replace CommanderKeen and / or WolfensteinSS with a specific monster for special mapsets that replace these
+server int dmr_mapcompmode = 0;

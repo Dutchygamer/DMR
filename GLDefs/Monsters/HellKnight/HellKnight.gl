@@ -1,0 +1,43 @@
+pointlight DMR_BARONBALL
+{
+    color 0.0 1.0 0.0
+    size 72
+	attenuate 1
+}
+
+flickerlight DMR_BARONBALL_X1
+{
+    color 0.1 0.9 0.1
+    size 96
+    secondarySize 112
+    chance 0.25
+	attenuate 1
+}
+
+flickerlight DMR_BARONBALL_X2
+{
+    color 0.05 0.6 0.05
+    size 104
+    secondarySize 128
+    chance 0.25
+	attenuate 1
+}
+
+flickerlight DMR_BARONBALL_X3
+{
+    color 0.0 0.3 0.0
+    size 112
+    secondarySize 144
+    chance 0.25
+	attenuate 1
+}
+
+object DMR_BaronBall
+{
+    frame BAL7A { light DMR_BARONBALL }
+    frame BAL7B { light DMR_BARONBALL }
+
+    frame BAL7C { light DMR_BARONBALL_X1 }
+    frame BAL7D { light DMR_BARONBALL_X2 }
+    frame BAL7E { light DMR_BARONBALL_X3 }
+}

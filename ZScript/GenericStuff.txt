@@ -1,0 +1,129 @@
+class DMR_ResCounter : Inventory
+{
+	Default
+	{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 1;
+	}
+}
+
+//ghostly afterimages
+class DMR_GhostAfterImage : Actor
+{   
+	Default
+	{
+		//Radius 2;
+		//Height 2;
+		//Speed 0;
+		//Projectile;
+		+NOINTERACTION;
+		RenderStyle "Translucent";
+		Alpha 0.5;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 3;
+		"----" A 3 A_FadeOut(0.10);
+		Wait; //Goto Spawn+1;
+	}
+}
+/*
+Actor GenericRushGhost
+{
+  +NOINTERACTION
+  Renderstyle Translucent
+  Alpha 0.9
+  States
+  {
+  Spawn:
+	TNT1 A 3
+	"----" A 2 A_FadeOut
+	Wait
+	}
+}
+*/
+//dropped shield
+Class DMR_DroppedShield: Actor
+{
+	Default
+	{
+		Radius 8;
+		Height 8;
+		Speed 6;
+		BounceType "Doom";
+		+DropOff;
+		+Missile;
+	}
+	States
+	{
+	Spawn:
+		HWSH ABCDEFGH 3;
+		Loop;
+	Death:
+		HWSH I -1;
+		Loop;
+	}
+}
+
+class DMR_RamImpactor : Actor
+{
+	Default
+	{
+		+NOBLOCKMAP;
+		+NOGRAVITY;
+		+PUFFONACTORS;
+		+BLOODLESSIMPACT;
+		-ALLOWPARTICLES;
+		ProjectileKickback 600;
+		SeeSound "mummy/attack2";
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 10;
+		Stop;
+	}
+}
+
+//======================================================================
+//  Credits
+//	Sounds:		EA Games
+//	ZScript:	Dutchygamer
+//	DustedPandomic for improvements to the ShieldWall logic
+//======================================================================
+
+//to make HellWarriors and Paladin's shield block a bit less annoying...
+class DMR_ShieldWall : Actor
+{	
+	Default
+	{
+		Radius 30; //just a tad wider then a hellknight is
+		Height 64; //same height
+		Health 125; //the damage the shield can take
+		Mass 9999; //don't get pushed around by shots
+		PainChance 256;
+		+NOBLOOD;
+		+SHOOTABLE;
+		+NOGRAVITY;
+		+NODAMAGETHRUST;
+		+NOTELEPORT;
+		+DONTRIP;
+		+THRUSPECIES;
+		Species "DMR_ShieldWall"; //so the shield projectiles can pass through the shield
+	}
+	States
+	{
+	Spawn: 
+		TNT1 A 1;
+		Loop;
+	Pain:
+		TNT1 A 1 {
+			A_PlaySound("shieldwall/pain",1);
+		}
+		Goto Spawn;
+	Death:
+		TNT1 A 1 A_DamageMaster(1,"DMR_ShieldBroken"); //on death deal a specific damagetype
+		Stop;
+ 	}
+}

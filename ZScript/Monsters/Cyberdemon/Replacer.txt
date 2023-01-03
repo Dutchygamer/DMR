@@ -1,0 +1,13 @@
+class CyberdemonReplacer : RandomSpawner replaces Cyberdemon
+{
+	Default
+	{
+		DropItem "DMR_Cyberdemon", 255, 100;
+		//DropItem "Annihilator" 255, 10
+		DropItem "Tiberdemon", 255, 25;
+		DropItem "Pyrodemon", 255, 25;
+		DropItem "Terminator", 255, 15;
+		DropItem "Hellsmith", 255, 15;
+		DropItem "CoreDefender", 255, 10;
+	}
+}

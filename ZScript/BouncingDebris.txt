@@ -1,0 +1,126 @@
+///////////////////////
+//base actors for FXs//
+///////////////////////
+//these should not be used by any projectile; they acts like the main definition and copy/paste example
+
+//bouncing FX
+class DMR_BouncingDebris : Actor
+{
+	Default
+	{
+		+MISSILE;
+		+THRUACTORS;
+		+NOTELEPORT;
+		+DONTSPLASH;
+		Height 2;
+		Radius 2;
+		Bouncetype "Doom";
+		BounceFactor 0.5;
+		Gravity 0.75;
+		RenderStyle "Add";
+	}
+	States
+	{
+	Spawn:
+		FFX1 ABCDEF 1 Bright {
+			A_FadeOut(0.045);
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}
+
+//bouncing flame debris
+class DMR_FireBouncingDebris : DMR_BouncingDebris
+{
+	Default
+	{
+		Scale 0.7;
+	}
+}
+
+class DMR_MediumFireBouncingDebris : DMR_FireBouncingDebris
+{
+	Default
+	{
+		Scale 1;
+	}
+}
+
+class DMR_LargeFireBouncingDebris : DMR_FireBouncingDebris
+{
+	Default
+	{
+		Scale 1.2;
+	}
+}
+
+class DMR_GreenFireBouncingDebris : DMR_BouncingDebris
+{
+	Default
+	{
+		Scale 0.7;
+	}
+	States
+	{
+	Spawn:
+		FFX2 ABCDEF 1 Bright {
+			A_FadeOut(0.045);
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}
+
+class DMR_MediumGreenFireBouncingDebris : DMR_GreenFireBouncingDebris
+{
+	Default
+	{
+		Scale 1.0;
+	}
+}
+
+class DMR_LargeGreenFireBouncingDebris : DMR_GreenFireBouncingDebris
+{
+	Default
+	{
+		Scale 1.2;
+	}
+}
+
+class DMR_PurpleFireBouncingDebris : DMR_BouncingDebris
+{
+	Default
+	{
+		Scale 0.7;
+	}
+	States
+	{
+	Spawn:
+		FFX3 ABCDEF 1 Bright {
+			A_FadeOut(0.045);
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}
+
+//bouncing gas debris
+class DMR_GasBouncingDebris : DMR_BouncingDebris
+{   
+	Default
+	{
+		ALPHA 0.4;
+		Gravity 0.04;
+		BounceFactor 0.9;
+	}
+	States
+	{
+	Spawn:
+		GAS2 DEFGHIJKLM 3 {
+			A_FadeOut(0.005);
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}

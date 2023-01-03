@@ -1,0 +1,146 @@
+version "4.2.1"
+
+/*
+  First learning Decorate, and then even ZScript?  The things I do for fun...  
+  Blame Guncaster for switching some stuff to ZScript.
+  At least ZScript looks very similar to Decorate.
+  Then again I'm only inherting existing stuff and tweaking it.  
+  Looking at how some stuff is done in Guncaster makes my respect for the GC crew increase even more.
+  Even as a developer in RL that code gives me a headache.
+*/
+
+#include "ZScript/Projectiles.txt"
+#include "ZScript/GenericStuff.txt"
+#include "ZScript/ProjectileTrail.txt"
+#include "ZScript/BouncingDebris.txt"
+#include "ZScript/Debris.txt"
+#include "ZScript/Smoke.txt"
+#include "ZScript/Explosions.txt"
+#include "ZScript/Events.txt"
+#include "ZScript/MonsterBase.txt"
+
+
+#include "ZScript/Monsters/Zombieman/Replacer.txt"
+#include "ZScript/Monsters/Zombieman/DMR_Zombieman.txt"
+#include "ZScript/Monsters/Zombieman/AssaultZombieman.txt"
+#include "ZScript/Monsters/Zombieman/PlasmaZombieman.txt"
+#include "ZScript/Monsters/Zombieman/SpecOpsZombieman.txt"
+#include "ZScript/Monsters/Zombieman/AssassinZombieman.txt"
+
+#include "ZScript/Monsters/ShotgunGuy/Replacer.txt"
+#include "ZScript/Monsters/ShotgunGuy/DMR_ShotgunGuy.txt"
+#include "ZScript/Monsters/ShotgunGuy/AssaultShotgunGuy.txt"
+#include "ZScript/Monsters/ShotgunGuy/QuadShotgunGuy.txt"
+#include "ZScript/Monsters/ShotgunGuy/SuperShotgunGuy.txt"
+#include "ZScript/Monsters/ShotgunGuy/SuicideGuy.txt"
+
+#include "ZScript/Monsters/ChaingunGuy/Replacer.txt"
+#include "ZScript/Monsters/ChaingunGuy/DMR_ChaingunGuy.txt"
+#include "ZScript/Monsters/ChaingunGuy/DoubleChaingunGuy.txt"
+#include "ZScript/Monsters/ChaingunGuy/RocketGuy.txt"
+#include "ZScript/Monsters/ChaingunGuy/BFGGuy.txt"
+#include "ZScript/Monsters/ChaingunGuy/PyroGuy.txt"
+#include "ZScript/Monsters/ChaingunGuy/VirusGirl.txt"
+
+#include "ZScript/Monsters/DoomImp/Replacer.txt"
+#include "ZScript/Monsters/DoomImp/DMR_DoomImp.txt"
+#include "ZScript/Monsters/DoomImp/Devil.txt"
+#include "ZScript/Monsters/DoomImp/Vulgar.txt"
+#include "ZScript/Monsters/DoomImp/PhaseImp.txt"
+#include "ZScript/Monsters/DoomImp/Netherling.txt"
+#include "ZScript/Monsters/DoomImp/Catharsi.txt"
+#include "ZScript/Monsters/DoomImp/Shadow.txt"
+
+#include "ZScript/Monsters/Demon/Replacer.txt"
+#include "ZScript/Monsters/Demon/DMR_Demon.txt"
+#include "ZScript/Monsters/Demon/Bloodfiend.txt"
+#include "ZScript/Monsters/Demon/CyberPinky.txt"
+#include "ZScript/Monsters/Demon/CyberFiend.txt"
+#include "ZScript/Monsters/Demon/Hellhound.txt"
+
+#include "ZScript/Monsters/Spectre/Replacer.txt"
+#include "ZScript/Monsters/Spectre/DMR_Spectre.txt"
+#include "ZScript/Monsters/Spectre/SpectralBloodfiend.txt"
+#include "ZScript/Monsters/Spectre/NightmareSpectre.txt"
+#include "ZScript/Monsters/Spectre/Slimeworm.txt"
+
+#include "ZScript/Monsters/HellKnight/Replacer.txt"
+#include "ZScript/Monsters/HellKnight/DMR_HellKnight.txt"
+#include "ZScript/Monsters/HellKnight/Satyr.txt"
+#include "ZScript/Monsters/HellKnight/HellWarrior.txt"
+#include "ZScript/Monsters/HellKnight/Afrit.txt"
+#include "ZScript/Monsters/HellKnight/CyberKnight.txt"
+
+#include "ZScript/Monsters/BaronOfHell/Replacer.txt"
+#include "ZScript/Monsters/BaronOfHell/DMR_BaronOfHell.txt"
+#include "ZScript/Monsters/BaronOfHell/CyBruiser.txt"
+#include "ZScript/Monsters/BaronOfHell/BruiserDemon.txt"
+#include "ZScript/Monsters/BaronOfHell/Apprentice.txt"
+#include "ZScript/Monsters/BaronOfHell/Paladin.txt"
+
+#include "ZScript/Monsters/Arachnotron/Replacer.txt"
+#include "ZScript/Monsters/Arachnotron/DMR_Arachnotron.txt"
+#include "ZScript/Monsters/Arachnotron/DakkaSpider.txt"
+#include "ZScript/Monsters/Arachnotron/AracKnight.txt"
+#include "ZScript/Monsters/Arachnotron/LaserSpider.txt"
+
+#include "ZScript/Monsters/Cacodemon/Replacer.txt"
+#include "ZScript/Monsters/Cacodemon/DMR_Cacodemon.txt"
+#include "ZScript/Monsters/Cacodemon/Infernal.txt"
+#include "ZScript/Monsters/Cacodemon/Cacolich.txt"
+
+#include "ZScript/Monsters/PainElemental/Replacer.txt"
+#include "ZScript/Monsters/PainElemental/DMR_PainElemental.txt"
+#include "ZScript/Monsters/PainElemental/HadesElemental.txt"
+#include "ZScript/Monsters/PainElemental/SteelSentinel.txt"
+#include "ZScript/Monsters/PainElemental/PlasmaElemental.txt"
+#include "ZScript/Monsters/PainElemental/TorturedSoul.txt"
+
+#include "ZScript/Monsters/LostSoul/Replacer.txt"
+#include "ZScript/Monsters/LostSoul/DMR_LostSoul.txt"
+#include "ZScript/Monsters/LostSoul/Phantom.txt"
+#include "ZScript/Monsters/LostSoul/HadesSphere.txt"
+#include "ZScript/Monsters/LostSoul/Guardian.txt"
+#include "ZScript/Monsters/LostSoul/ViralOne.txt"
+#include "ZScript/Monsters/LostSoul/Gorer.txt"
+
+#include "ZScript/Monsters/Mancubus/Replacer.txt"
+#include "ZScript/Monsters/Mancubus/DMR_Mancubus.txt"
+#include "ZScript/Monsters/Mancubus/Corpulent.txt"
+#include "ZScript/Monsters/Mancubus/Hectebus.txt"
+#include "ZScript/Monsters/Mancubus/ZombieTankBase.txt"
+#include "ZScript/Monsters/Mancubus/ZombiePlasmaTank.txt"
+#include "ZScript/Monsters/Mancubus/ZombieRocketTank.txt"
+
+#include "ZScript/Monsters/Archvile/Replacer.txt"
+#include "ZScript/Monsters/Archvile/DMR_Archvile.txt"
+#include "ZScript/Monsters/Archvile/DarkAcolyte.txt"
+#include "ZScript/Monsters/Archvile/Diabolist.txt"
+#include "ZScript/Monsters/Archvile/Intoxicanter.txt"
+
+#include "ZScript/Monsters/Revenant/Replacer.txt"
+#include "ZScript/Monsters/Revenant/DMR_Revenant.txt"
+#include "ZScript/Monsters/Revenant/BeamRevenant.txt"
+#include "ZScript/Monsters/Revenant/GhostRevenant.txt"
+#include "ZScript/Monsters/Revenant/Incarnate.txt"
+#include "ZScript/Monsters/Revenant/Draugr.txt"
+
+#include "ZScript/Monsters/Cyberdemon/Replacer.txt"
+#include "ZScript/Monsters/Cyberdemon/DMR_Cyberdemon.txt"
+#include "ZScript/Monsters/Cyberdemon/CoreDefender.txt"
+#include "ZScript/Monsters/Cyberdemon/Terminator.txt"
+#include "ZScript/Monsters/Cyberdemon/Tiberdemon.txt"
+#include "ZScript/Monsters/Cyberdemon/BlueTiberdemon.txt"
+#include "ZScript/Monsters/Cyberdemon/HellSmith.txt"
+#include "ZScript/Monsters/Cyberdemon/PyroDemon.txt"
+
+#include "ZScript/Monsters/SpiderMastermind/Replacer.txt"
+#include "ZScript/Monsters/SpiderMastermind/DMR_SpiderMastermind.txt"
+#include "ZScript/Monsters/SpiderMastermind/Overlord.txt"
+#include "ZScript/Monsters/SpiderMastermind/Mancutank.txt"
+
+#include "ZScript/Monsters/Special/SuperAfrit.txt"
+#include "ZScript/Monsters/Special/EvilMarine.txt"
+
+//cause GC 3.3 converted the gore to ZScript
+//#include "ZScript/GCPatch/BloodyHell.txt"

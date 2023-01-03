@@ -1,0 +1,172 @@
+//======================================================================
+//  Original credits
+//
+//======================================================================
+//  DECORATE: 	Eriance
+//	Sounds:		Raven Software, Eriance
+//  Sprites: 	Raven Software (edits by Eriance)
+//	GLDEFs: 	Ghastly Dragon
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+Class DarkAcolyte: DMR_Archvile
+{
+	Default
+	{
+		Tag "Dark Acolyte";
+		Obituary "An Acolyte was promoted for killing %o.";
+		Health 800;
+		SeeSound "monster/acosit";
+		PainSound "monster/acopai";
+		DeathSound "monster/acodth";
+		ActiveSound "monster/acoact";
+	}
+	States 
+	{ 
+	Spawn: 
+		ACOL AB 10 A_Look;
+		Loop;
+	See: 
+		ACOL AABBAABBAABB 2 A_VileChase;
+		Loop;
+	Missile:
+		TNT1 A 0 A_Jump(176, "VileAttack"); // large chance to use vile attack
+		TNT1 A 0 A_JumpIfCloser(448, "SpawnAttack"); // only spawn enemies when nearby
+		Goto VileAttack; // when not in range and initially not picking the vile attack, use vile attack anyway
+	SpawnAttack:
+		ACOL D 8 Bright A_FaceTarget;
+		ACOL E 5 Bright A_FaceTarget;
+		ACOL F 3 Bright A_SpawnProjectile("AcolyteSummoner",34,0,0,0);	
+		Goto See;
+	VileAttack:
+		TNT1 A 0 BRIGHT A_VileStart;
+		ACOL D 10 BRIGHT A_FaceTarget;
+		ACOL D 8 BRIGHT A_VileTarget;//("DarkAcolyteFire");
+		ACOL EEEEEE 8 BRIGHT A_FaceTarget;
+		ACOL F 8 BRIGHT A_VileAttack("vile/stop",50,30,70,1.0);
+		ACOL F 20 BRIGHT;
+		Goto See;
+	Heal:
+		ACOL EFE 10 BRIGHT;
+		Goto See;
+	Pain: 
+		ACOL C 2;
+		ACOL C 2 A_Pain;
+		TNT1 A 0 A_Jump(128, "SpawnAttack"); // chance to summon reinforcements
+		Goto See;
+	Death: 
+		ACOL G 8 Bright A_Scream; 
+		ACOL H 5 Bright;
+		ACOL I 5 Bright;
+		ACOL J 5 Bright A_NoBlocking ;
+		ACOL KLM 5 Bright;
+		ACOL N 5 A_SpawnProjectile("AcolFX1",54,0,0,0);
+		ACOL O 5;
+		ACOL P -1;
+		Stop;
+	} 
+}
+        
+class AcolyteSummoner: Actor
+{
+	Default
+	{
+		Radius 8;
+		Height 8;
+		Projectile;
+		Speed 18;
+		RenderStyle "ADD";
+		Alpha 0.75;
+		Gravity 0.6;
+		-NOGRAVITY;
+		BounceType "Doom";
+		BounceCount 3;
+		Seesound "weapons/smlbrn";
+		DeathSound "vile/firecrkl";
+		ProjectileKickBack 500;
+	}
+	States
+	{
+	Spawn:
+		SEF2 AABBCCDD 1 Bright;
+		loop;
+	Death:
+		FIRG A 3 Bright A_Explode(10, 96);
+		FIRG B 3 Bright;
+		TNT1 A 0 A_SpawnItem("AcolyteSummonerRandomizer",0,0);
+		FIRG CDEFGH 3 Bright;
+		Stop;
+	}
+}
+
+class AcolyteSummonerRandomizer: RandomSpawner
+{
+	Default
+	{
+		DropItem "Zombieman", 255;
+		DropItem "DoomImp", 255;
+		DropItem "Shotgunguy", 255;
+		DropItem "Chaingunguy", 255;
+		DropItem "LostSoul", 255;
+	}
+}
+
+class DarkAcolyteFire : ArchvileFire
+{
+	States
+	{
+	Spawn:
+		FIRG A 2 Bright A_StartFire;
+		FIRG BAB 2 Bright A_Fire;
+		FIRG C 2 Bright A_FireCrackle;
+		FIRG BCBCDCDCDEDED 2 Bright A_Fire;
+		FIRG E 2 Bright A_FireCrackle;
+		FIRG FEFEFGHGHGH 2 Bright A_Fire;
+		Stop;
+	}
+}
+
+//-------
+
+class AcolFX1: Actor
+{   
+	Default
+	{
+		Radius 0;
+		Height 2;
+		Speed 0;
+		PROJECTILE;
+		RENDERSTYLE "Translucent";
+		ALPHA 0.67;
+	}
+	States
+	{
+	Spawn:
+		ACOL QRSTUVW 4;
+		Stop;
+	}
+}
+
+class AcolFX2: actor
+{   
+	Default
+	{
+		Radius 2;
+		Height 2;
+		Speed 0;
+		Scale 0.90;
+		PROJECTILE;
+		RENDERSTYLE "Translucent";
+		ALPHA 0.90;
+	}
+	States
+	{
+	Spawn:
+		Null A 3;
+		ACOL A 5 A_FadeOut(0.10);
+		goto Spawn+1;
+	}
+}

@@ -1,0 +1,15 @@
+Class BaronOfHellReplacer: RandomSpawner replaces BaronOfHell
+{
+	Default
+	{
+		DropItem "DMR_BaronOfHell", 255, 100;
+		//DropItem "LordOfHeresy" 255, 3
+		DropItem "BruiserDemon", 255, 15;
+		////DropItem "SlaughtaurPack" 255, 2
+		//DropItem "HellstormArchon" 255, 1
+		//DropItem "ArchonOfhell" 255, 1
+		DropItem "Apprentice", 255, 15;
+		DropItem "CyBruiser", 255, 15;
+		DropItem "Paladin", 255, 15;
+	}
+}

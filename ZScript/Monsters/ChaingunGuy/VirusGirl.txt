@@ -1,0 +1,84 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	DavidRaven
+//	Sounds:		DavidRaven, Id software
+//  Sprites: 	Id Software (Zombieman), the Skulltag Team (Illucia, Player II), DavidRaven, ItsNatureToDie (altdeath)
+//	GLDEFs: 	DavidRaven
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios	
+//  Sprites:	Dutchygamer (modification of original sprites)
+//	ZScript:	Dutchygamer
+//======================================================================
+
+// own instance so we can do some shenenigens with the projectile
+class VirusZombie : DMR_ZombieBase
+{
+	Default
+	{
+		Tag "Virus";
+		Obituary "%o got infected by a Virus.";
+		Health 90;
+		PainChance 150;
+		SeeSound "fem/sight";
+		PainSound "fem/pain";
+		DeathSound "fem/death";
+		ActiveSound "fem/active";
+		+MISSILEMORE;
+		DamageFactor "VirusPoison", 0.0;
+		DamageFactor "ToxinCloud", 0.0;		
+		AttackSound "";
+		DropItem "";
+	}
+ 	States
+	{
+	Spawn:
+		ZOMW AB 10 A_Look;
+		Loop;
+	See:
+		ZOMW AABBCCDD 3 A_Chase;
+		Loop;
+	Missile:
+		ZOMW E 20 A_FaceTarget;
+		TNT1 A 0 A_PlaySound("Virus/FireDart");
+		ZOMW F 4 BRIGHT A_SpawnProjectile ("VirusDart", 32, 0);
+		ZOMW E 20;
+		goto See;
+	Pain:
+		ZOMW G 3;
+		ZOMW G 3 A_Pain;
+		Goto See;
+	Death:
+		ZOMW H 5;
+		ZOMW I 5 A_Scream;
+		ZOMW J 5 A_NoBlocking;
+		ZOMW KLM 5;
+		ZOMW N -1;
+		Stop;
+	XDeath:
+		ZOMW O 5;
+		ZOMW P 5 A_XScream;
+		ZOMW Q 5 A_NoBlocking;
+		ZOMW RSTUV 5;
+		ZOMW W -1;
+		Stop;
+	Raise:
+		ZOMW MLKJIH 5;
+		Goto See;
+	}
+}
+
+Class VirusDart : DMR_SlowBullet
+{
+	Default
+	{
+		Speed 65;
+		DamageFunction (random(25,35)); //don't use the default "random(1,8) x damage" formula
+		DamageType "VirusPoison";
+		+MTHRUSPECIES;
+		+EXTREMEDEATH; //always use explode death
+		Obituary "%o got infected by a Virus.";
+	}
+}

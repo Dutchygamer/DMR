@@ -1,0 +1,17 @@
+class SpiderMastermindReplacer : RandomSpawner replaces SpiderMastermind
+{
+	Default
+	{
+		DropItem "DMR_SpiderMastermind", 255, 100;
+		DropItem "Mancutank", 255, 20;
+		//DropItem "Demolisher" 255, 2
+		////DropItem "Sorcerer1" 255, 2
+		//DropItem "Apprentice" 255, 2
+		//DropItem "InfernalSpider" 255, 1
+		DropItem "Overlord", 255, 15;
+		////DropItem "Heresiarch" 255, 1
+		//DropItem "DarkAvatar" 255, 1
+		////DropItem "BossPack" 255, 1
+		//DropItem "Hellsmith" 255, 1
+	}
+}

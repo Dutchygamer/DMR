@@ -1,0 +1,74 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Tormentor667, Captain Toenail
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by Tormentor667, Captain Toenail)
+//	GLDEFs: 	Dreadopp
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class LaserSpider : DMR_Arachnotron
+{
+	Default
+	{
+		Tag "Opiliotron";
+		Health 450;
+		Obituary "%o was tagged by an Opiliotron.";
+	}
+	states
+	{
+	Spawn:
+		RSPI AB 10 A_Look;
+		Loop;
+	See:
+		RSPI A 20;
+		RSPI A 3 A_BabyMetal;
+		RSPI ABBCC 3 A_Chase;
+		RSPI D 3 A_BabyMetal;
+		RSPI DEEFF 3 A_Chase;
+		Goto See+1;
+	Missile:
+		RSPI G 20 A_FaceTarget;
+		RSPI H 10 Bright A_SpawnProjectile("LaserSpiderLaser",20,0,random(-3,3));
+		RSPI G 10;
+		Goto See+1;
+	Pain:
+		RSPI I 3;
+		RSPI I 3 A_Pain;
+		Goto See+1;
+	Death:
+		RSPI J 20 A_Scream;
+		RSPI K 7 A_Fall;
+		RSPI LMNO 7;
+		RSPI P -1 A_BossDeath;
+		Stop;
+    Raise:
+		RSPI P 5;
+		RSPI ONMLKJ 5;
+		Goto See+1;
+	}
+}
+
+class LaserSpiderLaser : DMR_LaserBase
+{
+	Default
+	{
+		DamageFunction(random(10,30));
+		Translation "112:127=176:191";
+		MissileType "LaserSpiderLaserTrail";
+		MissileHeight 10;
+	}
+}
+
+class LaserSpiderLaserTrail : DMR_LaserTrailBase
+{
+	Default
+	{
+		//Translation "192:207=176:191";
+	}
+}

@@ -1,0 +1,51 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Neoworm
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by Neoworm, Vader)
+//	GLDEFs: 	Ghastly Dragon
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Ghastly Dragon, Dutchygamer
+//======================================================================
+
+class Gorer : DMR_LostSoul
+{
+	Default
+	{
+		Health 100;
+		Speed 8;
+		DamageFunction(random(8,24));
+		Tag "Gorer";		
+		Obituary "%o got his soul crushed by a Gorer";
+		DamageFactor "lightning", 0;
+		+MISSILEEVENMORE
+		+NOBLOOD
+		+BRIGHT
+	}
+	States 
+	{
+	Spawn:
+		ETHS AB 10 A_Look;
+		Loop;
+	See:
+		ETHS ABCD 6 A_Chase;
+		Loop;
+	Missile:
+		ETHS C 10 A_FaceTarget;
+		ETHS E 4 A_SkullAttack(30);
+		ETHS EF 4;
+		Goto Missile+2;
+	Pain:
+		ETHS G 3;
+		ETHS G 3 A_Pain;
+		Goto See;
+	Death:	
+		ETHS H 6;
+		ETHS I 6 A_ScreamAndUnblock();
+		ETHS JKLMNO 6;
+		Stop;
+	} 
+}

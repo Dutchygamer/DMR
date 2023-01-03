@@ -1,0 +1,39 @@
+/*pointlight DMR_ARACHATK
+{
+    color 0.6 1.0 0.4
+    size 84
+	attenuate 1
+}
+
+object DMR_Arachnotron
+{
+    frame BSPIG { light DMR_ARACHATK }
+}*/
+
+pointlight DMR_ARACHPLAS
+{
+    color 0.6 1.0 0.4
+    size 84
+	attenuate 1
+}
+
+flickerlight DMR_ARACHPLAS_X1
+{
+    color 0.4 0.8 0.3
+    size 108
+    secondarySize 120
+    chance 0.3
+	attenuate 1
+}
+
+object DMR_ArachnotronPlasma
+{
+    frame APLSA { light DMR_ARACHPLAS }
+    frame APLSB { light DMR_ARACHPLAS }
+
+    frame APBXA { light DMR_ARACHPLAS_X1 }
+    frame APBXB { light DMR_ARACHPLAS_X2 }
+    frame APBXC { light DMR_ARACHPLAS_X2 }
+    frame APBXD { light DMR_ARACHPLAS_X3 }
+    frame APBXE { light DMR_ARACHPLAS_X4 }
+}

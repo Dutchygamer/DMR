@@ -1,0 +1,66 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Ben2k9/Virtue
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by Ben2k9/Virtue)
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class CyberKnight : DMR_HellKnight
+{
+	Default
+	{
+		Tag "Cyber Knight";
+		Health 750;
+		obituary "%o was splayed by a cyber knight";
+		hitobituary "%o was ripped to shreds by a cyber knight";
+	}
+	States
+	{
+	Spawn:
+		CBOS AB 10 A_Look;
+		loop;
+	See:
+		CBOS AABBCC 3 A_Chase;
+		CBOS D 3 A_Playsound("monster/bruwlk");
+		CBOS D 3 A_Chase;
+		loop;
+	Melee:
+		CBOS PQ 8 A_FaceTarget;
+		CBOS R 8 A_CustomComboAttack("BaronBall",32,random(16,48),"baron/melee");
+		Goto See;
+	Missile:
+		TNT1 A 0 A_Jump(128, "Rocket");
+		Goto Ball;
+	Ball:
+		CBOS PQ 8 A_FaceTarget;
+		CBOS R 8 A_CustomComboAttack("BaronBall",32,random(16,48),"baron/melee");
+		Goto See;
+	Rocket:
+		CBOS EE 10 A_FaceTarget;
+		CBOS F 10 Bright A_SpawnProjectile("DMR_SmallRocket",27,16,0,0);
+		CBOS E 10 A_FaceTarget;
+		Goto See;
+	Pain:
+		CBOS H 2;
+		CBOS H 2 A_Pain;
+		goto See;
+	Death:
+	XDeath:
+		CBOS I 8;
+		CBOS J 8 A_Scream;
+		CBOS K 8 bright A_Playsound("world/barrelx");
+		CBOS L 8 bright A_NoBlocking;
+		CBOS M 8 bright;
+		CBOS N 8 bright;
+		CBOS O -1;
+		stop;
+	Raise:
+		CBOS ONMLKJI 8;
+		Goto See;
+	}
+}

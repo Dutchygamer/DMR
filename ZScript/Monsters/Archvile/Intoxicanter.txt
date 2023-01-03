@@ -1,0 +1,116 @@
+//======================================================================
+//  Original credits
+//
+//======================================================================
+//  DECORATE: 	???
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by ZZYZX)
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class Intoxicanter : DMR_Archvile
+{
+	Default
+	{
+		Tag "Intoxicanter";
+		Obituary "%o's immune system was overwhelmed by the Intoxicanter.";
+		Health 1000;
+		BloodColor "Green";
+		+MISSILEMORE;
+		DamageFactor "ToxinCloud", 0.0;
+	}
+	States
+	{	
+	Spawn:
+		VIL1 AB 10 A_Look;
+		Loop;
+	See:
+		VIL1 AABBCCDDEEFF 2 A_VileChase;
+		Loop;
+	Missile:
+		TNT1 A 0 A_Jump (180,"VileAttack");
+		Goto VileAttack; //Flamebeam;
+	VileAttack:	
+		VIL2 G 0 BRIGHT A_VileStart;
+		VIL2 G 10 BRIGHT A_FaceTarget;
+		VIL2 H 8 BRIGHT A_VileTarget("IntoxicanterFire");
+		VIL2 IJKLMN 8 BRIGHT A_FaceTarget;
+		VIL2 O 8 BRIGHT {
+			A_VileAttack("gas/explode",20,40,70,0.5,"ToxinCloud");
+			if (A_JumpIfTargetInLOS("Null",360)) {
+				A_VileTarget("IntoxicanterFireBlast");
+			}
+		}
+		VIL2 P 20 BRIGHT;
+		Goto See;
+	/*
+	Flamewall:	
+		TNT1 A 0 BRIGHT A_VileStart;
+		DIAB G 10 BRIGHT A_FaceTarget;
+		DIAB H 8 BRIGHT A_VileTarget("DiabolistFire");
+		DIAB IHIHIHG 8 BRIGHT A_FaceTarget;
+		Goto See;*/
+	/*Flamebeam:
+		DIAB G 0 BRIGHT A_VileStart;
+		DIAB G 10 BRIGHT A_FaceTarget;
+		DIAB H 8 BRIGHT A_FaceTarget;
+		DIAB IJKLMN 8 BRIGHT A_FaceTarget;
+		DIAB OPOPOPOP 2 BRIGHT {
+			A_FaceTarget();
+			A_SpawnProjectile("DiabolistBeam",32,0,0);
+		}
+		DIAB OP 8 BRIGHT;
+		Goto See;*/
+	Heal:
+		VIL2 AAA 10 BRIGHT;
+		Goto See;
+	Pain:
+		SILE Q 5;
+		SILE Q 5 A_Pain;
+		Goto See;
+	Death:
+		SILE Q 7;
+		VIL3 R 7 A_Scream;
+		VIL3 S 7 A_NoBlocking;
+		VIL3 TUVW 7;
+		VIL3 XY 5;
+		VIL3 Z -1;
+		Stop;
+	}
+}
+
+class IntoxicanterFire : ArchvileFire
+{
+	States
+	{
+	Spawn:
+		FIRG A 2 Bright A_StartFire;
+		FIRG BAB 2 Bright A_Fire;
+		FIRG C 2 Bright A_FireCrackle;
+		FIRG BCBCDCDCDEDED 2 Bright A_Fire;
+		FIRG E 2 Bright A_FireCrackle;
+		FIRG FEFEFGHGHGH 2 Bright A_Fire;
+		Stop;
+	}
+}
+
+
+
+class IntoxicanterFireBlast : ArchvileFire
+{
+	States
+	{
+	Spawn:	
+		TNT1 A 0 NoDelay {		
+			A_SpawnItemEx("DMR_LargeGasCloud",0,0,-30,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_LargeGasCloud",0,0,-30,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+		}
+		stop;
+	}
+}

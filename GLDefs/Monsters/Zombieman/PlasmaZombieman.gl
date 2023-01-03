@@ -1,0 +1,4 @@
+object PlasmaZombieman
+{
+    frame ZMAYF { light DMR_ARACHATK }
+}

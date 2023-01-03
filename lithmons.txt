@@ -1,0 +1,6 @@
+// Documentation: https://github.com/marrub--/Lithium/blob/master/pk7/lithmons.txt
+
+"full" {
+   pre: Mancubus      type: mancubus    filter: "Corpulent";
+   pre: Mancubus      type: mancubus    filter: "Hectebus";   
+}

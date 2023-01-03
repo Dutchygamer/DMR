@@ -1,0 +1,105 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	DBJ87
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by DBJ87)
+//	GLDEFs: 	DBJ87
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//	Sounds:		Westwood Studios	
+//======================================================================
+
+class GhostRevenant : DMR_Revenant
+{
+	Default
+	{
+		Tag "Hollow";
+		Health 350;
+		HitObituary "%o got pummeled by a hollow.";
+		obituary "%o failed to dodge the hollow's fireball.";
+		PainChance 95;
+	}
+	States
+	{
+	Spawn:
+		GSKL AB 10 A_Look;
+		Loop;
+	See:
+		GSKL AABBCCDDEEFF 2 A_Chase;
+		Loop;
+	Melee:
+		GSKL G 0 A_FaceTarget;
+		GSKL G 6 A_SkelWhoosh;
+		GSKL H 6 A_FaceTarget;
+		GSKL I 6 A_CustomMeleeAttack(random(12,36),"skeleton/melee");
+		Goto See;
+	Missile:
+		GSKL J 20 Bright A_FaceTarget;
+		GSKL K 3 Bright A_SpawnProjectile("HollowTracer",56,-10);
+		GSKL K 3 Bright A_SpawnProjectile("HollowTracer",56,10);
+		GSKL K 15 A_FaceTarget;
+		Goto See;
+	Pain:
+		GSKL L 5;
+		GSKL L 5 A_Pain;
+		Goto See;
+	Death:
+	XDeath:
+		GSKL LM 7;
+		GSKL N 7 A_Scream;
+		GSKL O 7 A_NoBlocking;
+		GSKL P 7;
+		GSKL Q -1;
+		Stop;
+	Raise:
+		GSKL Q 5;
+		GSKL PONML 5;
+		Goto See;
+	}
+}
+
+class HollowTracer : DMR_RevenantTracer
+{
+	Default
+	{
+		DamageFunction(random(10,30));
+		Speed 11;
+		Scale 0.8;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_Jump(128,"Homing"); 
+		FATB AB 2 Bright {
+			If(GetCvar("dmr_fancydoom")) {				
+				A_SpawnItemEx("DMR_FireballTrail",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			}
+		}
+		Goto Spawn+1;
+	Homing:
+		FATB AB 2 Bright {
+			// 16.875 should be the same value as the vDoom Revenant fireball homing thingmajing
+			// however, we need to divide that by two again to account for the 50/50 chance of homing or not
+			A_SeekerMissile(1,8,SMF_PRECISE); 
+			If(GetCvar("dmr_fancydoom")) {
+				A_SpawnItemEx("DMR_FireballTrail",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			}
+			//always show the smoke, ignoring the config
+			A_SpawnItemEx("DMR_SmokeCloud",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+		}
+		Loop;
+	Death:
+		TNT1 AAA 0 {
+			If(GetCvar("dmr_fancydoom")) { 
+				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
+			}
+		}
+		FBXP A 8 Bright;
+		FBXP B 6 Bright;
+		FBXP C 4 Bright;
+		Stop;
+	}
+}

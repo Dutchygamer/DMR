@@ -1,0 +1,14 @@
+object BeamRevenantLaser
+{
+	frame BFE1A { light DMR_LASER_X1 }
+    frame BFE1B { light DMR_LASER_X2 }
+    frame BFE1C { light DMR_LASER_X2 }
+    frame BFE1D { light DMR_LASER_X2 }
+    frame BFE1E { light DMR_LASER_X3 }
+    frame BFE1F { light DMR_LASER_X3 }
+}
+
+object BeamRevenantLaserTrail
+{
+	frame TEFXB { light DMR_LASER }
+}

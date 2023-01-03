@@ -1,0 +1,34 @@
+//======================================================================
+//  Original credits
+//======================================================================
+
+Class DMR_PainElemental: PainElemental 
+{
+	Default
+	{
+		Tag "Pain Elemental";
+		// no gibhealth cause it already gibs
+		Species "DMR_Paaaain";
+		+DONTHARMSPECIES;
+		+NOINFIGHTSPECIES;
+	}
+	States
+	{
+	Missile:
+		PAIN D 5 A_FaceTarget;
+		PAIN E 5 A_FaceTarget;
+		PAIN F 4 BRIGHT A_FaceTarget;
+		PAIN F 1 BRIGHT A_PainAttack("DMR_LostSoul");
+		Goto See;
+	Death:
+		PAIN H 8 BRIGHT;
+		PAIN I 8 BRIGHT A_Scream;
+		PAIN JK 8 BRIGHT;
+		PAIN L 8 BRIGHT A_PainDie("DMR_LostSoul");
+		PAIN M 8 BRIGHT;
+		Stop;
+	// no rezzing pain elementals
+	Raise:
+		Stop;
+	}
+}

@@ -1,0 +1,30 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  XDeath Sprites: 	Eriance
+//======================================================================
+Class DMR_Demon : Demon
+{
+	Default
+	{
+		Tag "Demon";
+		Gibhealth -30; //all medium tier monsters (demon -> hellknight) have 30 gibhealth
+		Species "DMR_Demon";
+		+DONTHARMSPECIES;
+		+NOINFIGHTSPECIES;
+	}
+	States 
+	{ 
+	Melee:
+		SARG EF 8 Fast A_FaceTarget;
+		SARG G 8 Fast A_CustomMeleeAttack(random(8,24));
+		Goto See;
+	XDeath:
+	   SARG O 5;
+	   SARG P 5 A_XScream;
+	   SARG Q 5 A_NoBlocking;
+	   SARG RSTUV 5;
+	   SARG W -1;
+	   stop;
+	}
+}

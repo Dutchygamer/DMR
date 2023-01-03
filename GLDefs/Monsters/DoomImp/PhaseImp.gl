@@ -1,0 +1,43 @@
+pointlight DMR_DIMPBALL
+{
+    color 1.0 0.1 1.0
+    size 56
+	attenuate 1
+}
+
+flickerlight DMR_DIMPBALL_X1
+{
+    color 1.0 0.1 1.0
+    size 72
+    secondarySize 96
+    chance 0.25
+	attenuate 1
+}
+
+flickerlight DMR_DIMPBALL_X2
+{
+    color 0.7 0.1 0.6
+    size 88
+    secondarySize 104
+    chance 0.25
+	attenuate 1
+}
+
+flickerlight DMR_DIMPBALL_X3
+{
+    color 0.3 0.0 0.25
+    size 96
+    secondarySize 112
+    chance 0.25
+	attenuate 1
+}
+
+object DarkImpBall 
+{
+    frame DIMBA { light DMR_DIMPBALL }
+    frame DIMBB { light DMR_DIMPBALL }
+
+    frame DIMBC { light DMR_DIMPBALL_X1 }
+    frame DIMBD { light DMR_DIMPBALL_X2 }
+    frame DIMBE { light DMR_DIMPBALL_X3 }
+}

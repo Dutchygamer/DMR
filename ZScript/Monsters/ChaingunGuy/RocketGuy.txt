@@ -1,0 +1,72 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Graf Zahl
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by The Innocent Crew)
+//	GLDEFs: 	Dreadopp, Sandypaper (Brightmaps)
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios	
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class RocketGuy : DMR_ChaingunGuy
+{
+	Default
+	{
+		Tag "Rocketeer";
+		Health 90;
+		PainChance 150;
+		+MISSILEMORE;
+		+MISSILEEVENMORE;
+		AttackSound "";
+		DropItem "RocketAmmo";
+		DropItem "RocketLauncher", 10;
+		Obituary "%o was splattered by a rocketeer's rocket.";
+		//Species "RocketGuy"; //needed for infighting with other zombies
+		+DOHARMSPECIES; //zombies aren't rocket-proof
+		//+DONTHARMCLASS; //unless you wield a rocket-launcher yourself
+	}
+ 	States
+	{
+	Spawn:
+		MPOS AB 10 A_Look;
+		Loop;
+	See:
+		MPOS AABBCCDD 3 A_Chase;
+		Loop;
+	Missile:
+		MPOS EE 10 A_FaceTarget;
+		MPOS F 5 Bright;
+		MPOS G 13 A_SpawnProjectile("DMR_SmallRocket", 32, 0, 0);
+		Goto See;
+	Pain:
+		MPOS H 2;
+		MPOS H 2 A_Pain;
+		Goto See;
+	Death:
+		TNT1 A 0 A_Jump(64, "Kamikaze"); //small chance to summon a suicide zombie instead of dying
+		MPOS I 5;
+		MPOS J 5 A_Scream;
+		MPOS K 5;
+		MPOS L 5 A_Fall;
+		MPOS M -1;
+		Stop;
+	XDeath:
+		MPOS N 5;
+		MPOS O 5 A_XScream;
+		MPOS P 5;
+		MPOS Q 5 A_Fall;
+		MPOS RSTU 5;
+		MPOS V -1;
+		Stop;
+	Kamikaze:
+		TNT1 A 0 A_SpawnItemEx("SuicideGuyOmniscient",0,0,3,0,0,0,0,SXF_NOCHECKPOSITION);
+		Stop;
+	Raise:
+		MPOS MJKJI 5;
+		Goto See;
+	}
+}

@@ -1,0 +1,12 @@
+Class ChaingunGuyReplacer: RandomSpawner replaces Chaingunguy
+{
+	Default
+	{
+		DropItem "DMR_ChaingunGuy", 255, 100;
+		DropItem "DoubleChaingunGuy", 255, 20;
+		DropItem "RocketGuy", 255, 20;
+		DropItem "PyroGuy", 255, 10;
+		DropItem "VirusZombie", 255, 10;
+		DropItem "BFGGuy", 255, 4;
+	}
+}

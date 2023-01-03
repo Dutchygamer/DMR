@@ -1,0 +1,133 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Ghastly_Dragon
+//	Sounds:		Id Software, Logan MTM
+//  Sprites: 	Id Software, (edits by Logan MTM, Ghastly_Dragon, and Xim)
+//	GLDEFs: 	Ghastly_dragon
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class QuadShotgunGuy : DMR_ShotgunGuy
+{
+	Default
+	{
+		Tag "Quad-shotgun guy";
+		Health 90;
+		PainChance 155;
+		Obituary "%o was smeared by a quad-shotgun guy.";
+		DropItem "Shell";
+		DropItem "Shell", 128;
+		ATTACKSOUND "";
+	}
+	int shotsFired;
+	
+ 	States
+	{
+	Spawn:
+		QSZM AB 10 A_Look;
+		Loop;
+	See:
+		TNT1 A 0 {
+			if(shotsFired >= 4) {
+				return ResolveState("Reload");
+			}
+			else {
+				return ResolveState(null);
+			}
+		}	
+		QSZM AABBCCDD 3 A_Chase;
+		Loop;
+	Missile:
+		TNT1 A 0 { //if we are not fully loaded, use either single or super shot
+			if(shotsFired != 0) {
+				return ResolveState("SingleOrSuperShot");
+			}
+			else {
+				return ResolveState(null);
+			}
+		}
+		TNT1 A 0 A_JumpIfCloser(200, "CloseShot");
+		TNT1 A 0 A_Jump(40, "QuadShot");
+		TNT1 A 0 A_Jump(80, "SuperShot");
+		Goto SingleShot;
+	SingleOrSuperShot:
+		TNT1 A 0 { //if we only have one shot left, use single shot
+			if(shotsFired >= 3) {
+				return ResolveState("SingleShot");
+			}
+			else {
+				return ResolveState(null);
+			}
+		}
+		TNT1 A 0 A_Jump(80, "SuperShot");
+		Goto SingleShot;
+	CloseShot: //when player is close, have a larger chance to fire quad or super shot
+		GPOS E 0 A_Jump(196, "QuadShot");
+		GPOS E 0 A_Jump(196, "SuperShot");
+		Goto SingleShot;
+	SingleShot:
+		QSZM E 10 A_FaceTarget;
+		QSZM F 10 Bright {
+			A_PlaySound("QuadShotgunZombie/SingleFire");
+			A_CustomBulletAttack(22.5,7.1,5,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			shotsFired++; //expend a single shot
+		}
+		QSZM E 10;
+		Goto See;
+	SuperShot:
+		QSZM E 15 A_FaceTarget;
+		QSZM F 10 Bright {
+			A_PlaySound("weapons/sshotf");
+			A_CustomBulletAttack(22.5,7.1,10,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			shotsFired += 2; //expend 2 shots
+		}
+		QSZM E 10;
+		Goto See;
+	QuadShot:
+		QSZM E 20 {
+			A_FaceTarget();
+			A_PlaySound("QuadShotgunZombie/Reload3");
+		}
+		QSZM F 10 Bright {
+			A_PlaySound("QuadShotgunZombie/QuadFire");
+			A_CustomBulletAttack(22.5,7.1,20,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			shotsFired = 4; //expend 4 shots
+			A_Recoil(8); //recoil is a bitch
+		}
+		QSZM E 15;
+		Goto See;
+	Reload:
+		QSZM E 15 A_PlaySound("QuadShotgunZombie/Reload1");
+		QSZM A 21 A_PlaySound("QuadShotgunZombie/Reload2");
+		TNT1 A 0 {
+			shotsFired = 0; //all 4 shots loaded again
+		}
+		QSZM E 8 A_PlaySound("QuadShotgunZombie/Reload3");
+		Goto See;
+	Pain:
+		QSZM G 3;
+		QSZM G 3 A_Pain;
+        Goto See;
+	Death:
+		QSZM H 8;
+		QSZM I 8 A_Scream;
+		QSZM J 8 A_NoBlocking;
+		QSZM K 8;
+		QSZM L -1;
+        Stop;
+	XDeath:
+		QSZM M 5;
+		QSZM N 5 A_XScream;
+		QSZM O 5 A_NoBlocking;
+		QSZM PQRST 5;
+		QSZM U -1;
+        Stop;
+	Raise:
+		QSZM KJIH 5;
+        Goto See;
+	}
+}

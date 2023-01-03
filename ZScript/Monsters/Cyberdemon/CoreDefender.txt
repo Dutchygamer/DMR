@@ -1,0 +1,336 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	ProjectAngel
+//	Sounds:		Wirehead Studios, id Software, RavenSoftware, ProjectAngel
+//  Sprites: 	Rogue Entertainment, Monolith, Id Software, 3d Realms, Ghastly_Dragon (edits by Ichor, Ghastly_Dragon)
+//	GLDEFs: 	ProjectAngel
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class CoreDefender : DMR_Cyberdemon
+{
+	Default
+	{
+		Tag "Core defender";
+		Health 7000;
+		PainChance 5;
+		+NOBLOOD;
+		+DONTGIB;
+		SeeSound "darkinquisitor/laugh";
+		ActiveSound "darkinquisitor/active";
+		DeathSound "darkinquisitor/death";
+		PainSound "darkinquisitor/pain";
+		Obituary "%o was executed by a core defender.";		
+	}
+	int explode;
+	
+    States
+    {
+    Spawn:
+		ROB4 A 10 A_Look;
+		Loop;
+	See:
+		ROB4 BB 3 A_Chase;
+		ROB4 C 3 A_PlaySound("darkinquisitor/step");
+		ROB4 C 3 A_Chase;
+		ROB4 DD 3 A_Chase;
+		ROB4 EE 3 A_Chase;
+		ROB4 D 3 A_PlaySound("darkinquisitor/step");
+		ROB4 D 3 A_Chase;
+		ROB4 CC 3 A_Chase;
+		Goto See;
+	Missile:
+		TNT1 A 0 A_Jump(80,"Laser");
+		Goto ClusterMissile;
+	Laser:
+		TNT1 A 0 {
+			A_PlaySound("darkinquisitor/lasercharge");
+			A_SpawnItemEx("CoreDefenderLaserCharge",0,0,0,0,0,0,0,SXF_SETMASTER);
+		}
+		ROB4 CCCC 4 {
+			A_FaceTarget();
+			A_CustomRailgun(0,-42,"","",RGF_SILENT|RGF_NOPIERCING|RGF_FULLBRIGHT,0,0,"",0,0,0,0, 12, 0, "CoreDefenderTargettingLaser", 10);
+		}
+		ROB4 CCCCCCCC 2 {
+			A_FaceTarget();
+			A_CustomRailgun(0,-42,"","",RGF_SILENT|RGF_NOPIERCING|RGF_FULLBRIGHT,0,0,"",0,0,0,0, 12, 0, "CoreDefenderTargettingLaser2", 10);
+		}
+		ROB4 CCCCCCCCCCCCCCCC 1 {
+			A_FaceTarget();
+			A_CustomRailgun(0,-42,"","",RGF_SILENT|RGF_NOPIERCING|RGF_FULLBRIGHT,0,0,"",0,0,0,0, 12, 0, "CoreDefenderTargettingLaser3", 10);
+		}
+		ROB4 F 4 Bright A_SpawnProjectile("CoreDefenderLaser",64,-42,0);
+		ROB4 G 6;
+		Goto See;
+	ClusterMissile:
+		TNT1 A 0 A_JumpIfCloser(350, "Rocket"); //use dumbfire rockets when target is nearby
+		ROB4 A 6 A_FaceTarget;
+		ROB4 J 12 Bright A_SpawnProjectile("CoreDefenderClusterMissile",100,24,0);
+		ROB4 A 8 A_FaceTarget;
+		ROB4 J 12 Bright A_SpawnProjectile("CoreDefenderClusterMissile",100,-24,0);
+		Goto See;
+	Rocket:
+		ROB4 A 6 A_FaceTarget;
+		ROB4 J 10 Bright A_SpawnProjectile("CoreDefenderGrenade",100,24,0);
+		ROB4 A 8 A_FaceTarget;
+		ROB4 J 10 Bright A_SpawnProjectile("CoreDefenderGrenade",100,-24,0);
+		Goto See;
+	Pain:
+		TNT1 A 0 A_RemoveChildren(1,RMVF_EVERYTHING,"CoreDefenderLaserCharge");
+		ROB4 G 10 A_Pain;
+		Goto See;
+	Death:
+		TNT1 A 0 A_RemoveChildren(1,RMVF_EVERYTHING);
+		ROB4 L 10 A_Scream;
+		ROB4 LLLLLLLLLLLLLLL random(2,3) Bright {
+			explode = random(1,3);
+			if(explode > 1) //spawn explosion
+			{
+				A_SpawnItemEx("DMR_MonsterExplosion",random(25,-25),random(25,-25),random(20,120)); 
+			}
+		}	
+		ROB4 LL random(2,3) {
+			A_SpawnItemEx("DMR_SilentMonsterExplosion",random(25,-25),random(25,-25),random(20,120)); 
+			A_SpawnItemEx("DMR_SilentMonsterExplosion",random(25,-25),random(25,-25),random(20,120)); 
+			A_SpawnItemEx("DMR_SilentMonsterExplosion",random(25,-25),random(25,-25),random(20,120)); 
+			A_SpawnItemEx("DMR_SilentMonsterExplosion",random(25,-25),random(25,-25),random(20,120)); 
+			A_SpawnItemEx("DMR_SilentMonsterExplosion",random(25,-25),random(25,-25),random(20,120)); 
+		}	
+		ROB4 M random(2,3) {
+			A_NoBlocking();
+			A_SpawnItemEx("DMR_BossMonsterExplosion",0,0,0);
+			A_SpawnItemEx("DMR_SilentMonsterExplosion",random(25,-25),random(25,-25),random(20,120)); 
+			A_SpawnItemEx("DMR_SilentMonsterExplosion",random(25,-25),random(25,-25),random(20,120)); 
+			A_SpawnItemEx("DMR_SilentMonsterExplosion",random(25,-25),random(25,-25),random(20,120)); 
+			A_SpawnItemEx("DMR_SilentMonsterExplosion",random(25,-25),random(25,-25),random(20,120)); 
+			A_SpawnItemEx("DMR_SilentMonsterExplosion",random(25,-25),random(25,-25),random(20,120)); 
+		}
+		ROB4 M 50;
+		ROB4 M -1 A_BossDeath;
+		Stop;
+  }
+}
+
+//dumbfire grenades, half damage of Cybie rocket
+class CoreDefenderGrenade : DMR_GrenadeBase
+{
+	Default
+	{
+		DamageFunction(random(20,60));
+		SeeSound "darkinquisitor/grenade";
+		Scale 0.8;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			grenadeTimer = random(0,10);
+		}
+		SGRN A 1 Bright {
+			If(GetCvar("dmr_fancydoom")) {
+				A_SpawnItemEx("DMR_SmokeCloud",-17,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			}
+			//detonate if timer runs out
+			if (grenadeTimer >= 50)
+			{
+				return ResolveState("XDeath");
+			}
+			grenadeTimer += 1;
+			return ResolveState(null);
+		}
+		Goto Spawn+1;
+	//on ground, not hit anything, waiting for timer to run out
+	Death:
+		SGRN A 1 Bright {
+			//detonate if timer runs out
+			if (grenadeTimer >= 50)
+			{
+				return ResolveState("XDeath");
+			}
+			If(GetCvar("dmr_fancydoom")) {
+				A_SpawnItemEx("DMR_SmokeCloud",-17,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			}
+			grenadeTimer += 1;
+			return ResolveState(null);
+		}
+		Loop;
+	//actual explosion
+	XDeath:
+		TNT1 A 0 {
+			bNoGravity = true;
+			A_Stop();
+			A_PlaySound("weapons/rocklx",2);
+		}		
+		TNT1 AAAAAAAAAA 0 {
+			If(GetCvar("dmr_fancydoom")) { 
+				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
+			}
+		}
+		MISL B 8 Bright A_Explode(64, 96);
+		MISL C 6 Bright;
+		MISL D 4 Bright;
+		Stop;
+	}
+}
+
+//homing missile that breaks up in partially homing clusters near its target
+class CoreDefenderClusterMissile: Actor
+{
+	Default
+	{
+		Radius 11;
+		Height 8;
+		Speed 20;
+		DamageFunction(random(10,30));
+		Projectile;
+		+RANDOMIZE;
+		+SEEKERMISSILE;
+		SeeSound "darkinquisitor/cluster";
+		DeathSound "weapons/rocklx";
+		Obituary "$OB_MPROCKET"; // "%o rode %k's rocket."
+	}
+	States
+	{
+	Spawn:
+		HMIS A 1 Bright {
+			A_SeekerMissile(1,6,SMF_PRECISE); 
+			If(GetCvar("dmr_fancydoom")) {
+				A_SpawnItemEx("DMR_MediumFireballTrail",-25,0,5,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+				A_SpawnItemEx("DMR_MediumSmokeCloud",-25,0,5,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			}
+		}
+		HMIS A 0 A_JumpIfTracerCloser(180, "Death");
+		Loop;
+	Death:
+		TNT1 AAAAA 0 {
+			If(GetCvar("dmr_fancydoom")) {
+				A_SpawnItemEx("DMR_FireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+			}
+		}
+		TNT1 A 0 {
+			A_Stop();
+			//split up in subprojectiles, which can randomly home in or not
+			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
+			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
+			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
+			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
+			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
+		}
+		MISL B 8 Bright A_Explode(20, 64);
+		MISL C 6 Bright;
+		MISL D 4 Bright;
+		Stop;
+	}
+}
+
+class CoreDefenderSubProjectile : DMR_ClusterSubProjectile { }
+
+//laser projectile
+class CoreDefenderLaser : DMR_LaserBase
+{
+	Default
+	{
+		DamageFunction(random(100,300));
+		//this is just for this weapon
+		+EXTREMEDEATH;
+		+FORCERADIUSDMG;
+		RenderStyle "Add";
+		Alpha 0.75;
+		Translation "112:127=176:191";
+		MissileType "CoreDefenderLaserTrail";
+		MissileHeight 10;
+		SeeSound "darkinquisitor/laserfire";
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 1;
+		Loop;
+	Death:
+		BFE1 AB 8 Bright A_Explode(108,48);
+		BFE1 C 8 Bright;
+		BFE1 DEF 8 Bright;
+		Stop;
+	}
+}
+
+class CoreDefenderLaserTrail : DMR_LaserTrailBase
+{
+	Default
+	{
+		RenderStyle "Add";
+		Alpha 0.9;
+		//Translation "192:207=176:191";
+		Scale 0.3;
+	}
+}
+
+
+
+class CoreDefenderTargettingLaser : Actor
+{
+	Default
+	{
+		RenderStyle "Add";
+		//Translation "192:207=176:191";
+		Scale 0.1;
+		+NOINTERACTION;
+		+FLATSPRITE;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_SetPitch(90);
+		TEFX C 1;
+		Stop;
+	}
+}
+
+class CoreDefenderTargettingLaser2 : CoreDefenderTargettingLaser
+{
+	Default
+	{
+		Scale 0.15;
+	}
+}
+
+class CoreDefenderTargettingLaser3 : CoreDefenderTargettingLaser
+{
+	Default
+	{
+		Scale 0.2;
+	}
+}
+
+//TODO different sprite
+class CoreDefenderLaserCharge : DMR_ProjectileTrail
+{
+	Default
+	{
+		Scale 0.1;//0.2;
+		//Translation "192:207=176:191";
+	}
+	States
+	{
+	//BAL1 AAAAAAAAAAAAAAAAAA
+	Spawn:
+		TEFX CCCCCCCCCCCCCCCCCC 1 Bright Light("CoreDefenderLaserCharge") {
+			A_Warp(AAPTR_MASTER,10,-42,64,0,WARPF_NOCHECKPOSITION);
+			A_SetScale(Scale.X+0.08);		
+		}
+		TEFX CCCCCCCCCCCCCCCCCC 1 Bright Light("CoreDefenderLaserCharge2") {
+			A_Warp(AAPTR_MASTER,10,-42,64,0,WARPF_NOCHECKPOSITION);
+			A_SetScale(Scale.X+0.08);		
+		}
+		TEFX CCCCCCCCCCCCCCCCCC 1 Bright Light("CoreDefenderLaserCharge3") {
+			A_Warp(AAPTR_MASTER,10,-42,64,0,WARPF_NOCHECKPOSITION);
+			A_SetScale(Scale.X+0.08);		
+		}
+		Stop;
+	}
+}

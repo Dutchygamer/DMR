@@ -1,0 +1,141 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Vader
+//	Sounds:		Id Software, Vader
+//  Sprites: 	Id Software (edits by Vader)
+//	GLDEFs: 	n/a
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class Apprentice : DMR_BaronOfHell
+{
+	Default
+	{
+		Tag "Hellforge Apprentice";
+		Health 1300;
+		Speed 10;
+		PainChance 45;
+		Obituary "%o felt the wrath of a Hellforge Apprentice.";
+		HitObituary "%o got crushed by a Hellforge Apprentice.";
+		+MISSILEMORE;
+		SeeSound "LordOfHeresy/sight";
+		PainSound "LordOfHeresy/act";
+		DeathSound "LordOfHeresy/death";
+		Scale 0.7;
+		bloodcolor "red";
+	}
+	States
+	{
+	Spawn:
+		SMT1 AB 10 A_Look;
+		Loop;
+	See:
+		SMT1 AABBCCDD 3 A_Chase;
+		Loop;
+	Missile: 
+		SMT1 E 6 A_FaceTarget;
+		SMT1 H 6 A_PlaySound ("hellsmith/swing");
+		SMT1 I 12 {
+			A_PlaySound ("weapons/hellfi");
+			A_SpawnProjectile("ApprenticeHellshot",36,0,0);
+			A_SpawnProjectile("ApprenticeHellshot",36,0,-8);
+		}
+		TNT1 A 0 A_Jump (128,1);
+		Goto See;
+		SMT1 B 6;
+		SMT1 J 6 A_FaceTarget;
+		SMT1 M 6 A_PlaySound ("hellsmith/swing");
+		SMT1 N 12 {
+			A_PlaySound ("weapons/hellfi");
+			A_SpawnProjectile("ApprenticeHellshot",36,0,0);
+			A_SpawnProjectile("ApprenticeHellshot",36,0,-8);
+		}
+		Goto See;
+	Melee:
+		SMT1 E 6 A_FaceTarget;
+		SMT1 F 1 A_Playsound ("hellsmith/swing");
+		SMT1 F 5 A_FaceTarget;
+		SMT1 G 10 A_CustomMeleeAttack(random(20,60), "hellsmith/hit");
+		TNT1 A 0 A_Jump (192,1);
+		Goto See;
+		SMT1 J 6 A_FaceTarget;
+		SMT1 K 1 A_Playsound ("hellsmith/swing");
+		SMT1 K 5 A_FaceTarget;
+		SMT1 L 10 A_CustomMeleeAttack(random(20,60), "hellsmith/hit");
+		Goto See;
+	Pain:
+		SMT1 P 2;
+		SMT1 P 2 A_Pain;
+		Goto See;
+	Death:
+	XDeath:
+		SMT1 Q 6 A_SpawnItemEx("ApprenticeHammer", 0, -28, 82, 6, 0, 0, 30, SXF_SETMASTER);
+		SMT1 R 6 A_Scream;
+		SMT1 STU 6;
+		SMT1 V 6 A_NoBlocking;
+		SMT1 X 6;
+		SMT1 Y -1 A_BossDeath;
+		Stop;
+	Raise: 
+		SMT1 YXVUTSRQ 3;
+		Goto See;
+	}
+}
+
+//hellshot
+class ApprenticeHellshot : DMR_BaronBall
+{
+	Default
+	{
+		DamageFunction(random(20,60));
+		ALPHA 0.95;
+		DeathSound "weapons/hellex";
+		DamageType "Fire";
+		Scale 0.9;
+	}
+	States
+	{
+	Spawn: 
+		HBAL ABCD 3 Bright {
+			If(GetCvar("dmr_fancydoom")) { 
+				A_SpawnItemEx("DMR_RedPuffTrail",0,0,0,0,0,0);
+			}
+		}
+		loop;
+	Death:
+		TNT1 AAA 0 {
+			If(GetCvar("dmr_fancydoom")) { 
+				A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			}
+		}
+		HBAL E 3 Bright A_Explode(16,48);
+		HBAL FGHI 3 Bright;
+		stop;
+	}
+}
+
+//death
+class ApprenticeHammer : DMR_DroppedShield
+{
+	Default
+	{
+		+FORCEXYBILLBOARD; //TODO really neccesary?
+		DeathSound "hellsmith/hitfloor";
+		Scale 0.7;
+		Bouncefactor 0.5;
+	}
+	States
+	{
+	Spawn:
+		MAUL ABC 4;
+		Loop;
+	Death:
+		MAUL D -1 ;
+		stop;
+	}
+}

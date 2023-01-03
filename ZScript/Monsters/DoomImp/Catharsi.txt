@@ -1,0 +1,121 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Tormentor667
+//	Sounds:		Id Software
+//  Sprites: 	Id Software, LucasArts (edits by Rottking)
+//	GLDEFs: 	Ghastly Dragon, Sandypaper (Brightmaps)
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		EA Games
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class Catharsi : DMR_DoomImp
+{
+	Default
+	{
+		Tag "Catharsi";
+		Health 200;
+		PainChance 150;
+		Scale 1.1;
+		SeeSound "catharsi/sit";
+		PainSound "catharsi/pain";
+		DeathSound "catharsi/death";
+		ActiveSound "imp/active"; //TODO
+		Obituary "%o was frosted over by a catharsi.";
+		DamageFactor "Ice", 0;
+	}
+	States
+	{
+	Spawn:
+		SDDM AB 10 A_Look;
+		Loop;
+	See:
+		SDDM AABBCCDD 3 A_Chase;
+		Loop;
+	Melee:
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(418, "RapidFire");
+		Goto SingleShot;
+	SingleShot:
+		SDDM EE 6 A_FaceTarget;
+		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8);
+		SDDM E 5 A_FaceTarget;
+		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8);
+		SDDM E 5 A_FaceTarget;
+		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8);
+		SDDM E 2;
+		Goto See;
+	RapidFire:
+		SDDM EE 6 A_FaceTarget;
+		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8, random(-2,2));
+		SDDM E 2;
+		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8, random(-2,2));
+		SDDM E 2 A_FaceTarget;
+		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8, random(-2,2));
+		SDDM E 2;
+		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8, random(-2,2));
+		SDDM E 2 A_FaceTarget;
+		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8, random(-2,2));
+		SDDM E 2;
+		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8, random(-2,2));
+		SDDM E 2;
+		Goto See;
+	Pain:
+		SDDM G 3;
+		SDDM G 3 A_Pain;
+		Goto See;
+	Death:
+		SDDM H 5;
+		SDDM I 5 A_Scream;
+		SDDM J 5 A_NoBlocking;
+		SDDM KLM 5;
+		SDDM NNNN 12 A_PlaySound("catharsi/thermtick");
+		TNT1 A 0 {
+			A_PlaySound("catharsi/icespill");
+			A_SpawnItemEx("DMR_MediumIceCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumIceCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+		}
+		SDDM N -1;
+		Stop;
+	XDeath:
+		SDDM O 5;
+		SDDM P 5 A_XScream;
+		SDDM Q 5 A_NoBlocking;
+		TNT1 A 0 {
+			A_PlaySound("catharsi/icespill");
+			A_SpawnItemEx("DMR_MediumIceCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumIceCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+		}
+		SDDM RSTUV 5;
+		SDDM W -1;
+		Stop;
+	Raise:
+		SDDM NMLKJIH 5;
+		Goto See;
+	}
+}
+
+class CatharsiBall : DMR_DoomImpBall
+{
+	Default
+	{
+		Speed 15;
+		DamageFunction(random(4,12));
+		SEESOUND "catharsi/icerifle";
+		DEATHSOUND "catharsi/iceimpact";
+		DamageType "Ice";
+		Scale 0.8;
+	}
+	states
+	{
+	Spawn:
+		CTFX A 4 BRIGHT;
+		Loop;
+	Death:
+		CTFX BCDEF 3 BRIGHT;
+		stop;
+	}
+}

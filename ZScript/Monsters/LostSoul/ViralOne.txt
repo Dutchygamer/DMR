@@ -1,0 +1,59 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	MagicWazard
+//	Sounds:		Id Software, Midway Software
+//  Sprites: 	Id Software (edits by MagicWazard)
+//	GLDEFs: 	MagicWazard
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class PoisonSoul : DMR_LostSoul
+{
+	Default
+	{
+		Health 60;
+		Speed 12;
+		Tag "Viral One";		
+		Obituary "%o got his medicine from a viral one";
+		DamageFactor "ToxinCloud", 0;
+		BloodColor "green";
+		+MISSILEEVENMORE
+	}
+	States 
+	{
+	Spawn:
+		PHNT AB 10 A_Look;
+		Loop;
+	See:
+		PHNT AB 6 A_Chase;
+		Loop;
+	Missile:
+		PHNT C 10 BRIGHT A_FaceTarget;
+		PHNT D 4 BRIGHT A_SkullAttack;
+		PHNT CD 4 BRIGHT;
+		Goto Missile+2;
+	Pain:
+		PHNT E 3 Bright;
+		PHNT E 3 Bright A_Pain;
+		Goto See;
+	Death:
+		PHNT EEF 6 BRIGHT;
+		PHNT G 6 BRIGHT A_Scream;
+		TNT1 A 0 
+		{
+			A_PlaySound("gas/explode");
+			A_Explode(10,48, XF_NOTMISSILE);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+		}
+		PHNT H 6 Bright;
+		PHNT I 6 Bright A_Noblocking;
+		PHNT JK 6;
+		Stop;
+	} 
+}

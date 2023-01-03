@@ -1,0 +1,16 @@
+Class RevenantReplacer: RandomSpawner replaces Revenant
+{
+	Default
+	{
+		DropItem "DMR_Revenant", 255, 50;
+		DropItem "BeamRevenant", 255, 18;
+		DropItem "GhostRevenant", 255, 18;
+		DropItem "Draugr", 255, 9;
+		DropItem "Incarnate", 255, 5;
+		////DropItem "KnightDrop", 255, 4;
+		//DropItem "DuskKnight" 255, 11 //removed for now until it has something unique to offer
+		//DropItem "DuskWarlord" 255, 6 //will get remade as an Archie variant
+		////DropItem "Snake" 255, 3//Snakes... snakes everywhere...
+		////DropItem "MageBoss" 255, 1 //LULZ.
+	}
+}

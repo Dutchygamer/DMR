@@ -1,0 +1,98 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Tormentor667
+//	Sounds:		Id Software, Croteam
+//  Sprites: 	Id Software, Mark Quinn, Anthony Cole (edits by Tormentor667)
+//	GLDEFs: 	Dreadopp, Sandypaper (Brightmaps)
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class SuicideGuyExplosive : Actor //don't inherit from Zombieman (or related)
+{
+	Default
+	{
+		Tag "Zombie suicider";
+		Obituary "%o was killed by a zombie suicider.";
+		Radius 20;
+		Height 56;
+		Health 60;
+		Speed 18;
+		Painchance 20;
+		Seesound "suicide/sit";
+		Attacksound "shotguy/death";
+		Painsound "shotguy/pain";
+		Deathsound "shotguy/death";
+		Monster;
+		+FLOORCLIP;
+		+DONTHARMCLASS;
+		+AMBUSH; //for maximum annoyance, and less aaaaaaaaahh when they can't see you but did hear you
+		Species "Aaaaaaaaaaaah";
+	}
+ 	States
+	{
+	Spawn:
+		BMBE AB 10 A_Look;
+		Loop;
+	See:
+		BMBE AABBCCDD 2 A_Chase;
+		TNT1 A 0 A_PlaySound("suicide/scream");
+		Loop;
+	Melee:
+		BMBE A 0 A_Die;
+		stop;
+	Pain:
+		BMBE A 3;
+		BMBE A 3 A_Pain;
+		Goto See;
+	Death:
+	XDeath:
+		BMBE M 0 A_Explode (50, 128, XF_NOTMISSILE);
+		BMBE M 5 bright A_PlaySound ("weapons/rocklx");
+		BMBE N 5 bright A_XScream;
+		BMBE O 5 A_NoBlocking;
+		BMBE PQRST 5;
+		BMBE U -1;
+		Stop;
+	Raise:
+		BMBE TSRQPONM 5;
+		Goto See;
+	}
+}
+
+//less explosive damage, spawns gas clouds
+class SuicideGuyGas : SuicideGuyExplosive
+{
+	states
+	{
+	Death:
+	XDeath:
+		BMBE M 0 A_Explode (30, 96, XF_NOTMISSILE);
+		BMBE M 5 bright {
+			A_PlaySound("gas/explode");
+			A_SpawnItemEx("DMR_LargeGasCloud",0,0,0,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,0,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,0,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,0,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);
+		}
+		BMBE N 5 bright A_XScream;
+		BMBE O 5 A_NoBlocking;
+		BMBE PQRST 5;
+		BMBE U -1;
+		stop;
+	}
+}
+
+//spawned from RocketGuy or ZombieRocketTank
+//this way it will always immediately start attacking when spawned instead of having to both see and hear the player
+class SuicideGuyOmniscient : SuicideGuyExplosive
+{	
+	Default
+	{
+		-AMBUSH;
+		+LOOKALLAROUND;
+	}
+}

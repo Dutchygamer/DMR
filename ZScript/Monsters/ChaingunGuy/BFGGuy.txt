@@ -1,0 +1,67 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Scalliano
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by ItsNatureToDie and NeoWorm)
+//	GLDEFs: 	n/a
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class BFGGuy : DMR_ChaingunGuy
+{
+	Default
+	{
+		Tag "BFG commando";
+		obituary "%o was vaporized by a zombie's BFG9000.";
+		health 150;
+		painchance 100;	
+		AttackSound "";
+		dropitem "Cell";
+		dropitem "BFG9000", 10;
+		+DOHARMSPECIES; //zombies aren't BFG-ball-proof
+	}
+ 	States
+	{
+	Spawn:
+		BFGZ AB 10 A_Look;
+		Loop;
+	See:
+		BFGZ AABBCCDD 3 A_Chase;
+		Loop;
+	Missile:
+		TNT1 A 0 A_PlaySound ("weapons/bfgf");
+		BFGZ E 20 Light("DMR_BFGCHARGE1") A_FaceTarget;
+		BFGZ F 10 Bright Light("DMR_BFGCHARGE2") A_FaceTarget;
+		BFGZ F 10 Bright Light("DMR_BFGCHARGE2") {
+			A_FaceTarget();
+			A_SpawnProjectile("BFGBall", 32, 0);
+		}
+		BFGZ E 20;
+		goto See;
+	Pain:
+		BFGZ G 3;
+		BFGZ G 3 A_Pain;
+		Goto See;
+	Death:
+		BFGZ H 5;
+		BFGZ I 5 A_Scream;
+		BFGZ J 5 A_NoBlocking;
+		BFGZ KLM 5;
+		BFGZ N -1;
+		Stop;
+	XDeath:
+		BFGZ O 5;
+		BFGZ P 5 A_XScream;
+		BFGZ Q 5 A_NoBlocking;
+		BFGZ RS 5;
+		BFGZ T -1;
+		Stop;
+	Raise:
+		BFGZ NMLKJIH 5;
+		Goto See;
+	}
+}

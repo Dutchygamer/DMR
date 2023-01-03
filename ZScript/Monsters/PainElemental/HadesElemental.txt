@@ -1,0 +1,85 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Eriance, Blue Shadow, MagicWazard
+//	Sounds:		Banjo Software, Raven Software, Rogue Entertainment, Eriance
+//  Sprites: 	Eriance, Raven Software
+//	GLDEFs: 	Ghastly Dragon, Keksdose, Sandypaper (Brightmaps)
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class HadesElemental : DMR_PainElemental
+{
+	Default
+	{
+		Tag "Overlord";
+		Obituary "%o was electrocuted by an overlord.";
+		Health 650;
+		PainChance 64;
+		DamageFactor "lightning", 0.0;
+		SeeSound "monster/ovlsit";
+		PainSound "monster/ovlpai";
+		DeathSound "monster/ovldth";
+		ActiveSound "monster/ovlact";
+	}
+	States
+	{
+	Spawn:
+		HELE A 10 A_Look;
+		Loop;
+	See:
+		HELE AAAAAA 3 A_Chase;
+		Loop;
+	Missile: 
+		TNT1 A 0 A_Jump(128,"Balls");
+		Goto LostSoul;
+	LostSoul:
+		HELE BC 5 A_FaceTarget;
+		HELE D 5 Bright A_FaceTarget;
+		TNT1 A 0 A_PainAttack("Gorer");
+		Goto See;
+	Balls:
+		HELE EFG 5 Bright A_FaceTarget;
+		TNT1 A 0 {
+			A_SpawnProjectile("HadesBall",24,0,-10,0,0);
+			A_SpawnProjectile("HadesBall",24,0,0,0,0);
+			A_SpawnProjectile("HadesBall",24,0,10,0,0);
+		}
+		Goto See;
+	Pain:
+		HELE H 6;
+		HELE H 6 A_Pain;
+		Goto See;
+	Death:
+		HELE I 8 Bright;
+		HELE J 8 Bright A_Scream;
+		HELE KL 8 BRIGHT;
+		HELE M 8 BRIGHT A_PainDie("Gorer");
+		HELE NOP 5 BRIGHT;
+		HELE QRSTU 8;
+		HELE V -1 A_SetFloorClip;
+		Stop;
+	}
+}
+
+class HadesBall : DMR_CacodemonBall
+{
+	Default
+	{
+		DamageFunction(random(10,30));
+		Alpha 0.80;
+		DamageType "lightning";
+	}
+	States
+	{
+	Spawn:
+		HEFX AB 4 Bright;
+		Loop;
+	Death:
+		HEFX CDEFGH 3 bright;
+		Stop;
+	}
+}

@@ -1,0 +1,207 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	DBThanatos
+//	Sounds:		Blizzard (Diablo)
+//  Sprites: 	Id Software (edits by Jimmy)
+//	GLDEFs: 	Dreadopp, Virtue (Brightmaps)
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class Tiberdemon : DMR_Cyberdemon
+{
+	Default
+	{
+		Tag "Abomination";
+		Health 4000;
+		PainChance 15;
+		Scale 1.05;
+		Bloodcolor "green";
+		SeeSound "TiberDemon/sight";
+		PainSound "cyber/Pain";
+		DeathSound "TiberDemon/death";
+		ActiveSound "cyber/active"	;
+		Obituary "%o fell before an abomination.";
+	}
+	States
+	{
+	Spawn:
+		DCYB AB 10 A_Look;
+		Loop;
+	See:
+		DCYB A 3 {
+			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_Chase();
+			A_Hoof();
+		}
+		DCYB A 3 {
+			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_Chase();
+		}
+		DCYB BB 3 {
+			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_Chase();
+		}
+		DCYB CC 3 {
+			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_Chase();
+		}
+		DCYB D 3 {
+			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_Chase();
+			A_Metal();
+		}
+		DCYB D 3 {
+			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_Chase();
+		}
+		Loop;
+	Missile:
+		//normal launch coords are 56,-25
+		TNT1 A 0 A_Jump(192,"Flechette");
+		Goto SuperPlasma;
+	Flechette:
+		DCYB E 8 A_FaceTarget;
+		DCYB F 3 A_SpawnProjectile("TiberiumFlechette",56,-25,random(-2,2));
+		DCYB F 3 A_SpawnProjectile("TiberiumFlechette",56,-25,random(-2,2));
+		DCYB F 6 A_FaceTarget;
+		DCYB F 3 A_SpawnProjectile("TiberiumFlechette",56,-25,random(-2,2));
+		DCYB F 3 A_SpawnProjectile("TiberiumFlechette",56,-25,random(-2,2));
+		DCYB F 6 A_FaceTarget;
+		DCYB F 3 A_SpawnProjectile("TiberiumFlechette",56,-25,random(-2,2));
+		DCYB F 3 A_SpawnProjectile("TiberiumFlechette",56,-25,random(-2,2));
+		DCYB F 6 A_FaceTarget;
+		Goto See;
+	SuperPlasma:
+		DCYB E 24 {
+			A_FaceTarget();
+			A_PlaySound("weapons/bfgf");
+		}
+		DCYB E 1 A_FaceTarget;
+		DCYB F 12 A_SpawnProjectile("TiberiumSuperPlasma",56,-25,0);
+		Goto See;
+	Pain:
+		DCYB G 10 A_Pain;
+		Goto See;
+	Death:
+		TNT1 A 0 A_Jump(192,"DeathNormal"); // 3/4 times don't spawn blue tiberdemon
+		Goto DeathCardinal;
+	DeathNormal:
+		DCYB H 10;
+		DCYB I 6 Bright A_Scream;
+		DCYB JKL 6 Bright;
+		DCYB M 6 Bright A_NoBlocking;
+		DCYB NO 6 Bright;
+		DCYB P 50;
+		DCYB P -1 A_BossDeath; //only normal death triggers BossDeath
+		Stop;
+	DeathCardinal:
+		DCYB H 10;
+		DCYB I 6 Bright A_Scream;	
+		DCYB JK 6 Bright;
+		TNT1 A 0 A_SpawnItemEx("BlueTiberdemon",0,0,30,0,0,3,0,0);
+		DCYB L 6 Bright;
+		DCYB M 6 Bright A_NoBlocking;
+		DCYB NO 6 Bright;
+		DCYB P 6; //no special death, as Cardinal will use BossDeath
+		Stop;
+	}
+}
+
+//flechettes
+class TiberiumFlechette : DMR_Rocket
+{
+	Default
+	{
+		Speed 25;
+		DamageFunction(random(16,48));
+		poisondamage 5;
+		Alpha 0.9;
+		SeeSound "Thamuz/TibShard";
+		DeathSound "Thamuz/TibExpl";
+		Scale 0.9;
+	}
+	States
+	{
+	Spawn:
+		TSRD A 1 Bright {
+			If(GetCvar("dmr_fancydoom")) {
+				A_SpawnItemEx("TiberiumFlechetteTrail",-20,0,1); 
+			}
+		}
+		Loop;
+	Death:
+		TNT1 A 0 {
+			A_SetRenderStyle(1.0, STYLE_Add);
+			A_SetScale(1.5);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+		}
+		TSDE ABCDEFG 3 Bright;
+		Stop;
+	}
+}
+
+class TiberiumFlechetteTrail : DMR_ProjectileTrail
+{   
+	Default
+	{
+		RenderStyle "Add";
+		Alpha 0.6;
+		Scale 0.65;
+	}
+	States
+	{
+	Spawn:
+		TSRD A 1 Bright A_FadeOut(0.07);
+		Loop;
+	}
+}
+
+//BFG
+class TiberiumSuperPlasma : BFGBall
+{
+	Default
+	{
+		DamageFunction(random(60,180));
+		Speed 22;
+		+ExtremeDeath;
+		Alpha 1.0;
+		SeeSound "Thamuz/TibBall";
+		DeathSound "q2weapon/bfgballexplo";
+		Scale 3.0; //2.5
+		Decal "BFGLightning";
+	}
+	States
+	{
+	Spawn:
+		TBBL ABCDEFGHIJKLMN 2 Bright {
+			If(GetCvar("dmr_fancydoom")) { A_SpawnItemEx("TiberiumSuperPlasmaTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); }
+		}
+		Loop;
+	Death:
+		TNT1 A 0 A_SetScale(2.5);
+		ARCB J 3 Bright A_Explode(140,96);
+		ARCB KLMN 3 Bright;
+		Stop;
+	}
+}
+
+class TiberiumSuperPlasmaTrail : DMR_ProjectileTrail
+{   
+	Default
+	{
+		RenderStyle "Add";
+		Alpha 0.6;
+		Scale 0.35;
+	}
+	States
+	{
+	Spawn:
+		CBTS LMNOPQRSTUVW 2 Bright A_FadeOut;
+		Stop;
+	}
+}

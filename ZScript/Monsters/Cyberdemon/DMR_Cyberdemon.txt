@@ -1,0 +1,42 @@
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios	
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class DMR_Cyberdemon : Cyberdemon 
+{
+	Default
+	{
+		Tag "Cyberdemon";
+		+DONTHARMSPECIES;
+		+NOINFIGHTSPECIES;
+	}
+	States
+	{	
+	Missile:
+		CYBR E 6 A_FaceTarget;
+		CYBR F 12 Bright {
+			A_SpawnProjectile("DMR_Rocket",55,-25,0);
+		}
+		CYBR E 12 A_FaceTarget;
+		CYBR F 12 Bright {
+			A_SpawnProjectile("DMR_Rocket",55,-25,0);
+		}
+		CYBR E 12 A_FaceTarget;
+		CYBR F 12 Bright {
+			A_SpawnProjectile("DMR_Rocket",55,-25,0);
+		}
+		Goto See;
+	Death:
+		CYBR H 10;
+		CYBR I 6 Bright A_Scream;
+		CYBR JKL 6 Bright;
+		CYBR M 6 Bright A_NoBlocking;
+		CYBR NO 6 Bright;
+		CYBR P 50;
+		CYBR P -1 A_BossDeath;
+		Stop;
+	}
+}

@@ -1,0 +1,45 @@
+Class DMR_DoomImp : DoomImp 
+{
+	Default
+	{
+		Tag "Imp";
+		Gibhealth -20; //all lower tier monsters (zombies -> imp) have 20 gibhealth
+		Species "DMR_Imp";
+		+DONTHARMSPECIES;
+		+NOINFIGHTSPECIES;
+	}
+	States
+	{
+	 Missile:
+		TROO EF 8 A_FaceTarget;
+		TROO G 6 A_CustomComboAttack("DoomImpBall",32,random(6,16),"imp/melee");
+		goto See;
+	}
+}
+
+Class DMR_DoomImpBall : DoomImpBall replaces DoomImpBall
+{
+	Default
+	{
+		DamageFunction(random(6,16));
+	}
+	States
+	{
+	Spawn:
+		BAL1 AABB 2 Bright {
+			If(GetCvar("dmr_fancydoom")) { 
+				A_SpawnItemEx("DMR_FireballTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			}
+		}
+		Loop;
+	Death:
+		TNT1 AAA 0 {
+			If(GetCvar("dmr_fancydoom")) { 
+				A_SpawnItemEx("DMR_FireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			}
+		}
+		BAL1 CDE 6 Bright;
+		Stop;
+	}
+}

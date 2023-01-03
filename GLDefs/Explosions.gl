@@ -1,0 +1,33 @@
+
+object DMR_MonsterExplosion
+{
+    frame MISLB { light DMR_SROCKET_X1 }
+    frame MISLC { light DMR_SROCKET_X2 }
+    frame MISLD { light DMR_SROCKET_X3 }
+}
+
+object DMR_SilentMonsterExplosion
+{
+    frame MISLB { light DMR_SROCKET_X1 }
+    frame MISLC { light DMR_SROCKET_X2 }
+    frame MISLD { light DMR_SROCKET_X3 }
+}
+
+object DMR_BossMonsterExplosion
+{
+//TODO bigger effects
+    frame GRNEA { light DMR_ROCKET_X1 }
+    frame GRNEB { light DMR_ROCKET_X2 }
+    frame GRNEC { light DMR_ROCKET_X2 }
+    frame GRNED { light DMR_ROCKET_X2 }
+    frame GRNEE { light DMR_ROCKET_X2 }
+    frame GRNEF { light DMR_ROCKET_X2 }
+    frame GRNEG { light DMR_ROCKET_X2 }
+    frame GRNEH { light DMR_ROCKET_X2 }
+    frame GRNEI { light DMR_ROCKET_X2 }
+    frame GRNEJ { light DMR_ROCKET_X2 }
+    frame GRNEK { light DMR_ROCKET_X2 }
+    frame GRNEL { light DMR_ROCKET_X2 }
+    frame GRNEM { light DMR_ROCKET_X2 }
+    frame GRNEN { light DMR_ROCKET_X3 }
+}

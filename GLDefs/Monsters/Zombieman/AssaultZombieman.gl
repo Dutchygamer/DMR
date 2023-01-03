@@ -1,0 +1,4 @@
+object AssaultZombieman
+{
+    frame RFTRF { light DMR_ZOMBIEATK }
+}

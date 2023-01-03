@@ -1,0 +1,23 @@
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios	
+//======================================================================
+
+Class DMR_ChaingunGuy : ChaingunGuy 
+{
+	Default
+	{
+		Tag "Chaingunner";
+		Gibhealth -20; //all lower tier monsters (zombies -> imp) have 20 gibhealth
+		AttackSound "Chaingunner/Fire";
+	}
+	States
+	{
+	Missile:
+		CPOS E 10 A_FaceTarget;
+		CPOS FE 4 Light("DMR_ZOMBIEATK") Bright A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		CPOS F 1 A_CPosRefire;
+		Goto Missile+1;
+	}
+}

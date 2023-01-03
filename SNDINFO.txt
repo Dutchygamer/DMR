@@ -1,0 +1,1212 @@
+//////////////////////////////
+// Zombieman variant sounds //
+//////////////////////////////
+
+//Dune Warrior
+dune/sight DSDNWSIT
+dune/pain DSDNWPAI
+dune/death DSDNWDTH
+dune/active DSDNWACT
+dune/bounce BOUNCE2
+Zombies/DuneFire DNWRF
+Zombies/DuneThrow DNWRT
+Zombies/Stealth DNWRS
+
+// ZSpec ops
+Zombies/ZSpecFire ZSPCF
+Zombies/GrenadePrime ZSPCG
+
+//female zombie
+fem/sight FEMZSIT
+fem/pain FEMZPAIN
+fem/death FEMZDHT
+fem/active FEMZACT
+
+Virus/FireDart iviratta
+
+///////////////////////////////
+// Shotgunguy variant sounds //
+///////////////////////////////
+
+// Suicide guy
+suicide/scream dssuscrm
+suicide/sit dssusit
+
+// Autoshotgun Guy
+asgguy/asgfir dsasgfir
+asgguy/asgout dsasgout
+asgguy/asgin dsasgin
+asgguy/asgld1 dsasgld1
+
+// Quad-Shotgun Zombie
+$Random QuadShotgunZombie/SingleFire { QSGZFIR1 QSGZFIR2 }
+QSGZFIR1	QSGZFIR1
+QSGZFIR2	QSGZFIR2
+QuadShotgunZombie/QuadFire	QSGZFIR3
+QuadShotgunZombie/Reload1	QSGZREL1
+QuadShotgunZombie/Reload2	QSGZREL2
+QuadShotgunZombie/Reload3	QSGZREL3
+
+// Toxin Ghoul
+monster/ghlsit                  dsghlsit
+monster/ghlact                  dsghlact
+monster/ghlswg                  dsghlswg
+monster/ghlhit                  dsghlhit
+monster/ghlpai                  dsghlpai
+monster/ghldth                  dsghldth
+weapons/skulfi                  dsskulfi
+weapons/poof1                   dspoof1
+
+
+////////////////////////////////
+// Chaingunguy variant sounds //
+////////////////////////////////
+
+// Chaingunner
+Chaingunner/Fire CHNGNF
+
+// Rocket zombie
+smallrocket/launch SMRCKL
+
+
+////////////////////////
+// Imp variant sounds //
+////////////////////////
+
+// Soul Harvester
+$RANDOM harvester/sight { shsight1 shsight2 }
+shsight1 shsight1
+shsight2 shsight2
+
+$RANDOM harvester/death { shdeath1 shdeath2 }
+shdeath1 shdeath1
+shdeath2 shdeath2
+
+harvester/scream shfbscrm
+harvester/ghost shghscrm
+
+// Catharsi
+catharsi/sit DSSLSIT
+catharsi/death DSSLDETH
+catharsi/pain DSSLPAIN
+catharsi/shotsit DSSLSHOT
+catharsi/shotdth DSSLSHDT
+catharsi/thermdth DSSLTHMP
+catharsi/thermtick DSSLTHTI
+catharsi/icerifle ICERFL
+catharsi/iceimpact ICEIMP
+catharsi/icespill ICEEXP
+
+//Phase Imp
+neodarkimp/sight1			dsimpsi1
+neodarkimp/sight2			dsimpsi2
+$random neodarkimp/sight		{ neodarkimp/sight1  neodarkimp/sight2 }
+neodarkimp/active			dsimpact
+neodarkimp/pain			        dsimppai
+neodarkimp/melee			dsimpclw
+neodarkimp/death1			dsimpdt1
+neodarkimp/death2			dsimpdt2
+$random neodarkimp/death		{ neodarkimp/death1  neodarkimp/death2 }
+neodarkimp/attack			dsimpsht
+neodarkimp/shotx			dsimpxpl
+neodarkimp/teleport                     dsimptel
+
+// Devil Imp
+$RANDOM monster/dvlsit { monster/dvlsi1 monster/dvlsi2 }
+monster/dvlsi1 dsdvlsi1
+monster/dvlsi2 dsdvlsi2
+
+monster/dvlpai dsdvlpai
+$RANDOM monster/dvldth { monster/dvldt1 monster/dvldt2 }
+monster/dvldt1 dsdvldt1
+monster/dvldt2 dsdvldt2
+
+monster/dvlact dsdvlact
+
+// Vulgar
+$random monster/vulsit 		{ monster/vulsi1  monster/vulsi2  monster/vulsi3 }
+$random monster/vuldth 		{ monster/vuldt1  monster/vuldt2 }
+monster/vulsi1                  dsvulsi1
+monster/vulsi2                  dsvulsi2
+monster/vulsi3                  dsvulsi3
+monster/vulact                  dsvulact
+monster/vulpai                  dsvulpai
+monster/vuldt1                  dsvuldt1
+monster/vuldt2                  dsvuldt2
+monster/vulswg                  dsvulswg
+monster/vulhit                  dsvulhit
+poly/stmdr1                     dsstmdr1
+
+// Hellion
+monster/hlnsit                  dshlnsit
+monster/hlnact                  dshlnact
+monster/hlnpai                  dshlnpai
+monster/hlndth                  dshlndth
+monster/hlnatk                  dshlnatk
+monster/hlnexp                  dshlnexp
+
+// Shadow
+$random Shadow/active { act1 act2 }
+act1			SHDACT1
+act2			SHDACT2
+$random Shadow/pain { pain1 pain2 }
+pain1			SHDPAIN1
+pain2			SHDPAIN2
+Shadow/attack		SHDATTAK
+Shadow/death		SHDDEATH
+
+// Nightmare
+nightmare/see                 dsnitsit
+nightmare/active              dsnitact
+nightmare/swing               dsnitswg
+nightmare/attack              dsnitatk
+nightmare/pain                dsnitpai
+nightmare/death               dsnitdth
+
+
+//////////////////////////
+// Demon variant sounds //
+//////////////////////////
+
+// Cyber Pinky
+blooddemon/sight DSBLDSIT
+blooddemon/pain DSBLDPAI
+blooddemon/death DSBLDDTH
+blooddemon/active DSBLDACT
+blooddemon/melee DSBLDATK
+blooddemon/walk DSBLDWAL
+
+// Hellhound
+monster/dogsit dsdogsit
+monster/dogatk dsdogatk
+monster/dogbit dsdogbit
+monster/dogpai dsdogpai
+$RANDOM monster/dogdth { monster/dogdt1 monster/dogdt2 }
+monster/dogdt1 dsdogdt1
+monster/dogdt2 dsdogdt2
+
+monster/dogact dsdogact
+weapons/bigbrn dsbigbrn
+monster/dogsht dsdogsht
+monster/doghit dsdoghit
+weapons/flamethrower flamtnk1
+
+// Plasma Demon
+PlasmaDemon/pain		ds64pain
+PlasmaDemon/death		ds64tdth
+PlasmaDemon/sight		ds64tsit
+PlasmaDemon/melee     ds64tatk
+PlasmaDemon/active    ds64act
+
+// Cyber fiend
+CyberFiend/Sight	CYFNDSIT
+CyberFiend/Attack	CYFNDATK
+CyberFiend/Death	CYFNDDTH
+CyberFiend/Active	CYFNACTV
+CyberFiend/Step1	CYFNSTP1
+CyberFiend/Step2	CYFNSTP2
+$Random CyberFiend/Walk { CyberFiend/Step1 CyberFiend/Step2 }
+CyberFiend/Pain	CYFNPAIN
+
+
+////////////////////////////
+// Spectre variant sounds //
+////////////////////////////
+
+// Nightmare Demon
+nightmareDemon/sight dsndmsit
+nightmareDemon/melee dsndmatk
+nightmareDemon/pain dsndmow
+nightmareDemon/death dsndmdth
+
+64ball/shoot dsndmsht
+64ball/explode dsndmxpl
+
+// Slime worm
+DSVOMIT1	DSVOMIT1
+DSVOMIT2	DSVOMIT2
+DSVOMIT3	DSVOMIT2
+
+$random SlimeBall/Shoot		{ DSVOMIT1 DSVOMIT2 DSVOMIT3 }
+SlimeBall/Splat	DSSICKEX
+$limit SlimeBall/Splat 0
+
+DSWORMP1	DSWORMP1
+DSWORMP2	DSWORMP2
+
+$random slimeworm/pain		{ DSWORMP1 DSWORMP2 }
+slimeworm/sight		DSWORMSE
+slimeworm/melee		DSWORMAT
+slimeworm/death		DSWORMDI
+slimeworm/active	DSWORMID
+
+
+//////////////////////////////
+// Cacodemon variant sounds //
+//////////////////////////////
+
+caco/pain                     CACOPN
+
+// Fallen
+fallen/see                    dsfalsit
+fallen/death                  dsfaldth
+fallen/pain                   dsfalpai
+fallen/active                 dsfalact
+fallen/move                   dsfalwng
+weapons/firex5                dsfirex5
+
+// Nightshade
+$random nightshade/sight		{ nightshade/see11  nightshade/see12 }
+nightshade/see1                 dsnshsi1
+nightshade/see2                 dsnshsi2
+nightshade/active               dsnshact
+nightshade/pain                 dsnshpai
+nightshade/death                dsnshdth
+nightshade/missile              dsnshatk
+nightshade/explode              dsnshexp
+
+// Wicked
+wicked/sight                  dswiksit
+$random wicked/active		{ wicked/active1    wicked/active2 }
+wicked/active1                  dswikac1
+wicked/active2                  dswikac2
+wicked/attack                  dswikatk
+wicked/pain                  dswikpai
+wicked/death                  dswikdth
+wicked/torso1                  dstenpn1
+wicked/torso2                  dstenpn2
+
+// Cheshire Cacodemon
+chesSEE1	chesSEE1
+chesSEE2	chesSEE2
+chesSEE3	chesSEE3
+$random ches/see { chesSEE1 chesSEE2 chesSEE3}
+
+chesact1	chesact1
+chesact2	chesact2
+chesact3	chesact3
+$random ches/act { chesact1 chesact2 chesact3}
+
+ChesFire	chesfire
+ChesHit		cheshit
+ChesFlame	CHESFLME
+
+// Infernal
+infernal/see                  dsinfsit
+infernal/pain                 dsinfpai
+infernal/death                dsinfdth
+
+CacoLich/Sight 				INSSIT
+CacoLich/Active 			DSTRTACT
+CacoLich/Pain 				NESSPN
+CacoLich/Death 				DSDMDETH
+
+////////////////////////////////
+// Hell Knight variant sounds //
+////////////////////////////////
+
+knight/pain                   HKNIPN
+
+shieldwall/pain               SHLDHIT
+shieldwall/death              SHLDBRK
+
+// Paladin
+Paladin/Sight	HPALSIT
+Paladin/Active	HPALACT
+Paladin/Pain	HPALPAIN
+Paladin/Death	HPALDTH
+Paladin/XDeath	HPALXDTH
+Paladin/Swing	HPALSWG
+Paladin/Melee	HPALHIT
+Paladin/Shoot	HPALATK
+Paladin/Hit		HPALHIT2
+Paladin/Grenade	HPALGREN
+Paladin/Bounce	HPALBNC
+Paladin/Explode	HPALEXPL
+Paladin/Step	HPALSTEP
+
+// Afrit
+//TODO eh, which one is right?
+dragonfam/attack dsafrinf
+dragonfam/attack dfattack
+
+afrit/hellfire dsafrhel
+comet/launch cometlnc
+comet/explosion cometexp
+dragonfam/attack dfattack
+
+// Satyr
+satyr/sight dssatsit
+satyr/death dssatdth
+
+
+//////////////////////////
+// Baron variant sounds //
+//////////////////////////
+
+baron/pain                     BRUIPN
+
+// Bruiser demon
+monster/brusit dsbrusit
+monster/brudth dsbrudth
+monster/bruwlk dsbruwlk
+monster/brufir dsbrufir
+weapons/hellex dshellex
+
+// Archon Of Hell
+monster/ar2sit dsar2sit
+monster/ar2dth dsar2dth
+weapons/firbfi dsfirbfi
+weapons/hellex dshellex
+
+// Hellstorm Archon
+monster/arcsit dsarcsit
+monster/arcdth dsarcdth
+weapons/firbfi dsfirbfi
+weapons/hellex dshellex
+
+// Lord of Heresy
+LordOfHeresy/sight DSLOHSIT
+LordOfHeresy/act DSLOHACT
+LordOfHeresy/death DSLOHDTH
+
+// Super Baron
+superbaron/scream dssbsit
+superbaron/pain dssbpain
+superbaron/death dssbdth
+superbaron/act dssbact
+
+weapons/hellrune BLSSHT
+weapons/hellrunebig BLSHIT
+
+
+///////////////////////////////////
+// Pain Elemental variant sounds //
+///////////////////////////////////
+
+// Steel Sentinel
+sentinel/see                  dssensit
+sentinel/active               dssenact
+sentinel/pain                 dssenpai
+sentinel/death                dssendth
+weapons/boltfi                dsboltfi
+weapons/bigbrn                dsbigbrn
+weapons/smlbrn                dssmlbrn
+weapons/firex3                dsfirex3
+
+// Tortured soul
+torturedsoul/sight dstrtsit
+torturedsoul/pain dstrtpn
+torturedsoul/death dstrtdth
+torturedsoul/active dstrtact
+torturedsoul/attack dstrtatk
+torturedsoul/poison dstrtpsn
+
+// Overlord
+weapons/devexp                dsdevexp
+weapons/devzap                dsdevzap
+monster/ovlsit                dsovlsit
+monster/ovlact                dsovlact
+monster/ovlpai                dsovlpai
+monster/ovldth                dsovldth
+monster/hadsit                dshadsit
+monster/haddth                dshaddth
+monster/hadexp                dshadexp
+monster/hadtel                dshadtel
+monster/hadwlk                dshadwlk
+monster/heltel                  dsheltel
+caco/melee                    dsdembit
+weapons/gntidl                dsgntidl
+weapons/chaofi                dschaofi
+weapons/shock                 dsshock
+
+
+//////////////////////////////
+// Lost Soul variant sounds //
+//////////////////////////////
+
+// Phantom
+Phantom/Pain		PHTMPAIN
+Phantom/Death		PHTMDTH
+Phantom/Active		PHTMACT
+Phantom/Attack	PHTMATK
+Phantom/Hit			PHTMHIT
+
+// Guardian
+guardian/see                  dsguasit
+guardian/death                dsguadth
+guardian/active               dsguafly
+weapons/bounc1                dsbounc1
+weapons/firsfi                dsfirsfi
+weapons/maceex                dsmaceex
+
+// Hades Sphere
+monster/hadsit dshadsit
+monster/hadwlk dshadwlk
+monster/hadtel dshadtel
+monster/haddth dshaddth
+monster/hadexp dshadexp
+
+
+/////////////////////////////
+// Revenant variant sounds //
+/////////////////////////////
+
+skeleton/tracex               BNREXP
+
+// Deathknight
+deathknight/sight             dsdknsit
+deathknight/active            dsdknact
+deathknight/death             dsdkndth
+deathknight/pain              dsdknpai
+deathknight/dart              dsdkndrt
+deathknight/missile           dsdknmsl
+deathknight/hit               dsdknhit
+deathknight/swing             dsdknswg
+weapons/boom1                 dsboom1
+weapons/firex2                dsfirex2
+weapons/firex4                dsfirex4
+weapons/scorch                dsscorch
+
+// Beam Revenant
+BeamRevenant/Fire BMRVF
+
+// Incarnate
+monster/incsit dsincsit
+monster/incdth dsincdth
+monster/incact dsincact
+monster/incatk dsincatk
+monster/inchit dsinchit
+monster/incexp dsincexp
+
+
+/////////////////////////////
+// Mancubus variant sounds //
+/////////////////////////////
+
+// Hectebus (formerly Corpulent)
+corpulent/see                  dsma2sit
+corpulent/attack               dsma2atk
+corpulent/pain                 dsma2pai
+corpulent/death                dsma2dth      
+weapons/maceex                dsmaceex
+weapons/macefi                dsmacefi
+
+$Random gas/explode	{ GasExpl1 GasExpl2 }
+GasExpl1		GASEXP1
+GasExpl2		GASEXP2
+
+// Corpulent (formerly Hectebus)
+Hectebus/Sight		DSHECSIT
+Hectebus/Pain		DSHCPAIN
+Hectebus/Death		DSHECDTH
+Hectebus/Active		DSHECACT
+$Random hectebus/attack	{ HectAtk1 HectAtk2 }
+HectAtk1		DSHECATK
+HectAtk2		DSHCATK2
+$Random hectebus/step { HectStp1 HectStp2 HectStp3 HectStp4 HectStp5 }
+HectStp1		DSHECST1
+HectStp2		DSHECST2
+HectStp3		DSHECST3
+HectStp4		DSHECST4
+HectStp5		DSHECST5
+
+// Zombie tank
+ZombieTank/see DSZTANK1
+ZombieTank/attack DSZTPLAZ
+ZombieTank/pain DSZTANKP
+ZombieTank/death DSZTANKD
+ZombieTank/Run DSZTANK2
+ZombieTank/explode DSZTANKX
+
+
+////////////////////////////////
+// Arachnotron variant sounds //
+////////////////////////////////
+
+baby/pain                     DSBSPAIN
+
+// Spider
+spider2/sight SPISIT
+spider2/death SPIDTH
+spider2/pain SPIPAI
+spider2/active SPIACT
+spider2/land SPILND
+
+$random spider/step {spider/step1 spider/step2}
+spider/step1 SPIST1
+spider/step2 SPIST2
+
+// Fusion Arachnotron
+fusionspid/die FUSPDIE
+fusionspid/see FUSPSEE
+
+// Railgun Arachnotron
+baby/chargerailgun	DSRGCHRG
+
+// Arachnophyte
+arachnophyte/sight dsaphsit
+$RANDOM arachnophyte/pain { arachnophyte/pain1 arachnophyte/pain2 arachnophyte/pain3 }
+arachnophyte/pain1 dsaphpn1
+arachnophyte/pain2 dsaphpn2
+arachnophyte/pain3 dsaphpn3
+
+arachnophyte/death dsaphdth
+
+arachnophyte/engine dsapheng
+
+// Aracknight
+weapons/magic7                dsmagic7
+
+
+/////////////////////////////
+// Archvile variant sounds //
+/////////////////////////////
+
+// Diabolist
+monster/diasit dsdiasit
+monster/diapai dsdiapai
+monster/diadth dsdiadth
+monster/diaact dsdiaact
+weapons/firbfi dsfirbfi
+weapons/firmfi dsfirmfi
+weapons/firex4 dsfirex4
+weapons/diasht dsdiasht
+weapons/firex3 dsfirex3
+
+
+///////////////////////////////
+// Cyberdemon variant sounds //
+///////////////////////////////
+
+// Dark Inquisitor
+darkinquisitor/sight inqalert
+darkinquisitor/pain inqpain
+darkinquisitor/death inqdeath
+darkinquisitor/empfire inqempfi
+darkinquisitor/empdie inqempex
+darkinquisitor/bigdeathexpl inqbigxp
+darkinquisitor/deathexplosion inqdthxp
+darkinquisitor/step step2
+darkinquisitor/darkmatterdie inqdrkxp
+darkinquisitor/flight inqfly
+darkinquisitor/laugh laugh
+darkinquisitor/cluster samshot1
+darkinquisitor/grenade glnch4
+darkinquisitor/lasercharge lsrchrg
+darkinquisitor/laserfire obelray1
+
+inqv1 inqact1
+inqv2 inqact2
+inqv3 inqact3
+inqv4 inqact4
+inqv5 inqact5  
+inqv6 inqact6
+inqv7 inqact7  
+inqv8 inqact8  
+$RANDOM darkinquisitor/active { inqv1 inqv2 inqv3 inqv4 inqv5 inqv6 inqv7 inqv8 }
+
+darkinquisitor/darkmatterfire INQDRKFI
+
+shrapnel1 shrapnl1
+shrapnel2 shrapnl2
+shrapnel3 shrapnl3
+$RANDOM darkinquisitor/shrapnel { shrapnel1 shrapnel2 shrapnel3 }
+
+// Terminator
+monster/termsit tsight
+monster/termpin tpain1
+monster/termdth tdeath
+
+$random Terminator/termact { termact1 termact2 }
+termact1		dsteract
+termact2		dsteact2
+$random Terminator/terstepA { terstep1 terstep2 }
+terstep1		 dststep1
+terstep2		 dststep2
+Terminator/terstepB dststep3
+Terminator/tershotA dstshot1
+Terminator/tershotB dstshot2
+monster/brufir dsbrufir
+weapons/hellex dshellex
+
+// TibCyber
+TiberDemon/sight			TBCYBSIT
+TiberDemon/death			TBCYBDTH
+TiberDemon/cannon			TBCYBCNN
+
+Apocalypse/cast			apocast
+
+Thamuz/Attack			nakrula2
+Thamuz/death			nakruld1
+Thamuz/Pain				nakrulh1
+$random Thamuz/Idlesight	{ Thamuz/Idle1 Thamuz/Idle2 }
+Thamuz/Idle1			nakruls1
+Thamuz/Idle2			nakruls2
+Thamuz/death2			megad1
+Thamuz/TibShard			TIBSHRD
+Thamuz/TibExpl			TIBEXPL
+Thamuz/TibBall			TIBBLL
+
+q2weapon/bfgball			bfg_fire
+q2weapon/bfgballexplo		bfg__x1b
+q2weapon/rocketlauncherfire	rocklf1a
+q2weapon/rocketexplo		q2roklx1
+h2necromancer/magiccast		h2ncmagh
+comet/explosion			cometexp
+
+//A nnihilator
+monster/annsit dsannsit
+monster/anndth dsanndth
+monster/anhoof dsanhoof
+
+weapons/hrlexp dshrlexp
+weapons/hrlfir dshrlfir
+
+// Pyrodemon
+pyro/see BE-SEE
+pyro/idle BE-IDLE
+pyro/tele BE-TELE
+pyro/pain DE_PAIN_
+pyro/death BE-DEATH
+pyro/blast DP_ATTAC
+
+pyro/flame DSFLAMER
+pyro/explosion DSPIPEX1
+pyro/flamepoof DSHITW
+pyro/blastexplosion DSFRBXPL
+pyro/comet DSCMTLNC
+pyro/cometdeath DSCMTEXP
+pyro/bomb DSRDSHOT
+pyro/bombhit DSRDHIT
+
+// Hellsmith (Master & Apprentice)
+hellsmith/see                 dssmiths
+hellsmith/active              dssmitha
+hellsmith/attack              dssmitht
+hellsmith/pain                dssmithp
+hellsmith/death               dssmithd
+hellsmith/swing               dshamswg
+hellsmith/hitfloor            dshamflr
+hellsmith/hit                 dshamhit
+hellsmith/shoot               dshamsht
+hellsmith/dash                dsdash
+hellsmith/move                dsfihoof
+weapons/hellex	              dshellex
+weapons/hellfi		          dshellfi
+
+
+//////////////////////////////////////
+// Spider Mastermind variant sounds //
+//////////////////////////////////////
+
+// Spider Mastermind
+MamaSpider/FireBurst BIGGAT
+MamaSpider/Fire BIGGAT1
+
+// Mancutank
+MancuTank/Sight		MTANKSIG
+MancuTank/Active	MTANKACT
+MancuTank/Pain		MTANKPAI
+MancuTank/Death		MTANKDTH
+MancuTank/Tank		MTANKWLK
+
+// Emperor Overlord (formerly Hades Elemental)
+weapons/devzap                dsdevzap
+monster/hadsit                dshadsit
+monster/haddth                dshaddth
+monster/hadexp                dshadexp
+monster/hadtel                dshadtel
+monster/hadwlk                dshadwlk
+monster/helsit                dshelsit
+monster/helac1                dshelac1
+monster/helac2                dshelac2
+$random monster/helact 	      { monster/helac1 monster/helac2 }
+monster/helpai                dshelpai
+monster/heldth                dsheldth
+monster/heltel                dsheltel
+caco/melee                    dsdembit
+
+// Supreme Fiend
+fiend/hover		  DSHOVER
+fiend/see		  DSFIEND
+fiend/bfg		  DSFBFG1
+fiend/bfg2		  DSFBFG2
+fiend/bomb		  DSFBOMB
+//Prox Sounds (from Infernux Grand)
+prox/fire		  DSIGPRXF
+prox/beep		  DSIGPRXB
+//Bomb
+bomb/beep DSBEEEP
+
+
+///////////////////////////
+// Other & unused sounds //
+///////////////////////////
+
+monster/sg2sit dssg2sit
+monster/sg2atk dssg2atk
+
+monster/demsit dsdemsit
+monster/dematk dscannon
+monster/demdth dsdemdth
+
+weapons/bloodf dsbloodf
+weapons/bloodx dsbloodx
+
+//Dark Disciple
+monster/dissit			dsdissit
+monster/disact			dsdisact
+monster/disat1			dsdisat1
+monster/disat2			dsdisat2
+monster/disht1			dsdisht1
+monster/disht2			dsdisht2
+monster/disdth			dsdisdth
+monster/blur			dsblur
+
+//Dark Acolyte
+monster/acosit			dsacosit
+monster/acoact			dsacoact
+monster/acopai			dsacopai
+monster/acodth			dsacodth
+monster/acosht			dsacosht
+monster/acohit			dsacohit
+
+//Dark Cultist
+$random monster/culsit 		{ monster/culsi1  monster/culsi2  monster/culsi3 monster/culsi4 }
+$random monster/culact		{ monster/culac1  monster/culac2  }
+$random monster/culdth		{ monster/culdt1  monster/culdt2  }
+monster/culsi1			dsculsi1
+monster/culsi2			dsculsi2
+monster/culsi3			dsculsi3
+monster/culsi4			dsculsi4
+monster/culac1			dsculac1
+monster/culac2			dsculac2
+monster/culdt1			dsculdt1
+monster/culdt2			dsculdt2
+monster/culatk			dsculatk
+monster/culpai			dsculpai
+
+//Dark Avatar
+monster/avasit                  dsavasit
+monster/avaact                  dsavaact
+monster/avaatk                  dsavaatk
+monster/avapai                  dsavapai
+monster/avadth                  dsavadth
+weapons/bwoosh                  dsbwoosh
+weapons/firex2                  dsfirex2
+weapons/gnthit                  dsgnthit
+weapons/devzap                  dsdevzap
+weapons/devexp                  dsdevexp
+weapons/gntini                  dsgntini
+
+//Wraith
+spirit/active                 dsspract
+spirit/charge                 dsspratk
+spirit/attack                 dssprat2
+spirit/death                  dssprdth
+spirit/see                    dssprsit
+spirit/active                 dsspract
+spirit/pain                   dssprpai
+
+//Watcher
+watcher/see                   dswatsit
+watcher/active                dswatact
+watcher/pain                  dswatpai
+watcher/death                 dswatdth
+watcher/attack                dswatatk
+watcher/hit                   dswathit
+
+flamebringer/firefx DSFIREX4
+
+
+
+//
+//HERETIC STUFF...
+//
+$rolloff * custom 0 1600
+
+$pitchshiftrange 2
+
+//
+// Gargoyle
+//
+
+himp/sight          impsit
+himp/attack         impat1
+himp/pain           imppai
+himp/death          impdth
+himp/active         impsit
+himp/leaderattack       impat2
+
+//
+// Maulotaur
+//
+
+minotaur/sight          minsit
+minotaur/melee          stfhit
+minotaur/attack1        minat1
+minotaur/attack2        minat2
+minotaur/attack3        minat3
+minotaur/pain           minpai
+minotaur/death          mindth
+minotaur/active         minact
+minotaur/fx2hit         phohit
+minotaur/fx3hit         phohit
+
+//
+// Wizard
+//
+
+wizard/sight            wizsit
+wizard/attack           wizatk
+wizard/death            wizdth
+wizard/pain         wizpai
+wizard/active1          wizact
+$random wizard/active       { wizard/sight wizard/active1 }
+
+//
+// Golem
+//
+
+mummy/sight         mumsit
+mummy/attack1           mumat1
+mummy/attack2           mumat2
+mummy/pain          mumpai
+mummy/death         mumdth
+mummy/active            mumsit
+mummy/head          mumhed
+
+//
+// Weredragon
+//
+
+beast/sight         bstsit
+beast/attack            bstatk
+beast/pain          bstpai
+beast/death         bstdth
+beast/active            bstact
+
+//
+// Ophidian
+//
+
+snake/attack            snkatk
+snake/sight         snksit
+snake/pain          snkpai
+snake/death         snkdth
+snake/active            snkact
+
+//
+// Sabreclaw
+//
+
+clink/sight         clksit
+clink/attack            clkatk
+clink/pain          clkpai
+clink/death         clkdth
+clink/active            clkact
+
+//
+// Undead Warrior
+//
+
+hknight/sight           kgtsit
+hknight/attack          kgtatk
+hknight/melee           kgtat2
+hknight/pain            kgtpai
+hknight/death           kgtdth
+hknight/active          kgtsit
+hknight/hit         hrnhit
+hknight/axewhoosh       kgtatk
+
+misc/timebomb           phohit
+world/volcano/blast     lobhit
+world/volcano/shoot     bstatk
+
+//
+// Iron Lich
+//
+
+ironlich/sight          hedsit
+ironlich/attack1        hedat1
+ironlich/attack2        hedat2
+ironlich/attack3        hedat3
+ironlich/pain           hedpai
+ironlich/death          heddth
+ironlich/active         hedact
+
+//
+// D'Sparil
+//
+
+dsparilserpent/sight        bstsit
+dsparilserpent/attack       bstatk
+dsparilserpent/pain     sbtpai
+dsparilserpent/death        sbtdth
+dsparilserpent/active       sbtact
+
+dsparil/sight           sorsit
+dsparil/attack          soratk
+dsparil/pain            sorpai
+dsparil/active          soract
+dsparil/rise            sorrise
+dsparil/zap         sorzap
+dsparil/scream          sordsph
+dsparil/explode         sordexp
+dsparil/bones           sordbon
+
+//
+// Chicken
+//
+
+chicken/active          chicact
+chicken/attack          chicatk
+chicken/pain            chicpai
+chicken/death           chicdth
+chicken/peck1           chicpk1
+chicken/peck2           chicpk2
+chicken/peck3           chicpk3
+$random chicken/peck        { chicken/peck1  chicken/peck2  chicken/peck3 }
+
+//
+//HEXEN STUFF...
+//
+
+//
+//Bishop
+//
+BishopSight             syab2d
+BishopActive            stb1d
+BishopPain              bshpn1
+BishopAttack            pop
+BishopDeath             bishdth1
+BishopMissileExplode    bshhit2
+BishopBlur              blur6
+
+//
+//Centaur
+//
+CentaurSight            taur1
+CentaurActive           taur2
+CentaurPain             taur4
+CentaurAttack           centhit2
+CentaurDeath            cntdth1
+CentaurLeaderAttack     cntshld4
+CentaurMissileExplode   impact3
+
+//
+//Serpent
+//
+SerpentSight            wtrcrt7
+SerpentActive           srfc3
+SerpentPain             serppn1
+SerpentAttack           wtrswip
+SerpentMeleeHit         wtrhit
+SerpentDeath            srpdth1
+SerpentBirth            srfc1
+SerpentFXContinuous     glbhiss1
+SerpentFXHit            glbhit4
+
+//
+//Chaos Serpents
+//
+DemonSight              sbtsit5
+DemonActive             sbtsit5
+DemonPain               minact1
+DemonAttack             dematk2
+DemonDeath              sbtdth3
+DemonMissileFire        impfire2
+DemonMissileExplode     impact3
+
+//
+//Wraith
+//
+WraithSight             raith5a
+WraithActive            raith3
+WraithPain              raith4a
+WraithAttack            raith1b
+WraithDeath             rathdth2
+WraithMissileFire       impfire2
+WraithMissileExplode    impact3
+
+//
+//Maulotaur
+//
+MaulatorSight           minsit1
+MaulatorActive          minact2
+MaulatorPain            minpain4
+MaulatorHamSwing        hamblo8a
+MaulatorHamHit          hamfir1
+MaulatorMissileHit      impact3
+MaulatorDeath           mindth4
+
+//
+//Ettin
+//
+EttinSight              cent2
+EttinActive             cent2
+EttinPain               cent1
+EttinAttack             ethit1
+EttinDeath              cntdth1
+
+//
+//Fire Demon
+//
+FireDemonSpawn          spawn3
+FireDemonActive         fired5
+FireDemonPain           fired2
+FireDemonAttack         spit6
+FireDemonMissileHit     firedhit
+FireDemonDeath          fired3
+
+//
+//Wendigo
+//
+IceGuySight             frosty1
+IceGuyActive            frosty1
+IceGuyAttack            frosty2
+IceGuyMissileExplode    shards1b
+
+//
+//Heresiarch
+//
+SorcererSight           sorboss1
+SorcererActive          sorboss2
+SorcererPain            sorboss3
+SorcererSpellCast       woosh3
+SorcererBallWoosh       balls1
+SorcererDeathScream     sordie2
+SorcererBishopSpawn     bishapp
+SorcererBallPop         cork
+SorcererBallBounce      bounce2
+SorcererBallExplode     impact3
+SorcererBigBallExplode  sorblexp
+SorcererHeadScream      sorblexp
+
+//
+//Death Wyvern
+//
+DragonSight             dragsit1
+DragonActive            dragsit1
+DragonWingflap          wing1
+DragonAttack            mage4
+DragonPain              dragpn2
+DragonDeath             dragdie2
+DragonFireballExplode   mageball
+
+//
+//Korax
+//
+KoraxSight              korsit
+KoraxActive             koract
+KoraxPain               korpn1
+KoraxAttack             koratk
+KoraxCommand            korcom
+KoraxDeath              kordth1
+KoraxStep               step
+
+//
+//Korax Voice sounds
+//
+KoraxVoiceGreetings     grtngs1
+KoraxVoiceReady         ready1
+KoraxVoiceBlood         blood1
+KoraxVoiceGame          game1
+KoraxVoiceBoard         board1
+KoraxVoiceWorship       wrship1
+KoraxVoiceMaybe         maybe1
+KoraxVoiceStrong        strong1
+KoraxVoiceFace          face1
+
+//
+//Alternate monster pain sound (in gas cloud, lightning zapped, wraithverged)
+//
+PuppyBeat               pup4
+
+//
+//Player Sounds (for the three Hexen class bosses...)
+//
+
+PlayerFighterNormalDeath        fgtddth
+PlayerFighterCrazyDeath         fgtcdth
+PlayerFighterExtreme1Death      fgtxdth1
+PlayerFighterExtreme2Death      fgtxdth2
+PlayerFighterExtreme3Death      fgtxdth3
+
+PlayerClericNormalDeath         plrdth
+PlayerClericCrazyDeath          plrcdth
+PlayerClericExtreme1Death       clxdth1
+PlayerClericExtreme2Death       clxdth2
+PlayerClericExtreme3Death       clxdth3
+
+PlayerMageNormalDeath           mgdth
+PlayerMageCrazyDeath            mgcdth
+PlayerMageExtreme1Death         mgxdth1
+PlayerMageExtreme2Death         mgxdth2
+PlayerMageExtreme3Death         mgxdth3
+
+PlayerFighterPain               fgtpain
+PlayerClericPain                plrpain3
+PlayerMagePain                  mgpain
+
+PlayerFighterGrunt              fgtgrunt
+PlayerClericGrunt               grunt1
+PlayerMageGrunt                 mggrunt
+
+PlayerLand                      feet4
+PlayerPoisonCough               pois2
+
+PlayerFighterFallingScream      fgtfall
+PlayerClericFallingScream       fall1
+PlayerMageFallingScream         mgfall
+
+PlayerFallingSplat              fallhit
+
+PlayerFighterBurnDeath          plrburn
+PlayerClericBurnDeath           plrburn
+PlayerMageBurnDeath             plrburn
+
+PlayerFighterFailedUse          fgtgrunt
+PlayerClericFailedUse           grunt1
+PlayerMageFailedUse             mggrunt
+
+// Fighter
+
+FighterPunchMiss        punchmis
+FighterPunchHitWall     punch8
+FighterPunchHitThing    mumpun5
+FighterAxeHitThing      axe5
+FighterHammerMiss       hammis2
+FighterHammerHitWall    hamwal1
+FighterHammerHitThing   hmhit1a
+FighterHammerContinuous hamfly1
+FighterHammerExplode    impact3
+FighterSwordFire        sword2
+FighterSwordExplode     impact3
+FighterGrunt            gntmis1
+
+// Cleric
+
+ClericCStaffFire        spell1
+ClericCStaffExplode     glbhit4
+ClericCStaffHitThing    vamp5
+ClericFlameFire         strike3
+ClericFlameExplode      strike1
+ClericFlameCircle       firedhit
+HolySymbolFire          holy3
+SpiritActive            spirt7
+SpiritAttack            spirt5
+SpiritDie               spirts1
+
+// Mage
+
+MageWandFire            wand4
+MageLightningFire       lite2
+MageLightningContinuous gntpow
+MageLightningReady      wepele2
+MageLightningZap        gntact1
+MageShardsFire          cone3
+MageShardsExplode       shards1b
+MageStaffFire           mage4
+MageStaffExplode        mageball

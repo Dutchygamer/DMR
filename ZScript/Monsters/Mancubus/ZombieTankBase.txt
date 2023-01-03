@@ -1,0 +1,73 @@
+//basic setup for zombie tanks, so I don't have to duplicate this everywhere
+class DMR_ZombieTankBase : DMR_Fatso
+{
+	Default
+	{
+		Tag "Zombie Tank";
+		Painchance 55;
+		SeeSound "ZombieTank/see";
+		AttackSound "ZombieTank/attack";
+		PainSound "ZombieTank/pain";
+		DeathSound "ZombieTank/death"; 
+		ActiveSound ""; //no active sound
+		Obituary "%o was melted by a zombie in a plasma tank.";
+		+NOBLOOD;
+		+DONTGIB;
+	}
+	int spawnPilot;
+	States
+    {
+    Raise:
+        Stop; //no ressing for tanks!
+    }
+}
+
+class ZombieTankExplosion : DMR_MonsterDeathExplosion
+{
+	Default
+	{
+		RENDERSTYLE "ADD";
+		ALPHA 0.7;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_PlaySound("ZombieTank/explode",1);
+		TNT1 AAAAAAAAAAAAAA 0 {
+			If(GetCvar("dmr_fancydoom")) {
+				A_SpawnItemEx("DMR_LargeFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+			}
+		}
+		ZTXP ABCDEFGHIJKLM 2 BRIGHT;
+		ZTXP N 2 BRIGHT A_SetTranslucent(.7, 1);
+		ZTXP O 2 BRIGHT A_SetTranslucent(.65, 1);
+		ZTXP P 2 BRIGHT A_SetTranslucent(.6, 1);
+		ZTXP Q 2 BRIGHT A_SetTranslucent(.55, 1);
+		ZTXP R 2 BRIGHT A_SetTranslucent(.5, 1);
+		ZTXP S 2 BRIGHT A_SetTranslucent(.4, 1);
+		ZTXP T 2 BRIGHT A_SetTranslucent(.3, 1);
+		Stop;
+	}
+}
+
+//huhuhuh, what a mess!
+class ZombieTankPilotGore : DMR_BouncingDebris
+{
+	Default
+	{
+		Renderstyle "Normal";
+		Alpha 1;
+		BounceFactor 0.5;
+	}
+	States
+	{
+	Spawn:
+		POSS M 5;
+		POSS N 5 A_XScream;
+		POSS OPQRST 5;
+	Death:
+		POSS U -1;
+		Stop;
+	}
+}

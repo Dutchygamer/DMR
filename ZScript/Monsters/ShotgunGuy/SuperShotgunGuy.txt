@@ -1,0 +1,109 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Ghastly_Dragon
+//	Sounds:		Id Software, Logan MTM
+//  Sprites: 	Id Software, (edits by Logan MTM, Ghastly_Dragon, and Xim)
+//	GLDEFs: 	Ghastly_dragon
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class SuperShotgunGuy : DMR_ShotgunGuy
+{
+	Default
+	{
+		Tag "Super-shotgun guy";
+		Health 60;
+		PainChance 155;
+		Translation "112:127=16:47"; //recolour green parts to red
+		OBITUARY "%o was blown open by a super shotgunner!";
+		DropItem "Shell";
+		DropItem "SuperShotgun", 10;
+		Scale 0.9;
+		ATTACKSOUND "";
+	}
+	int shotsFired;
+	
+ 	States
+	{
+	Spawn:
+		GPOS AB 10 A_Look;
+		Loop;
+	See:
+		TNT1 A 0 {
+			if(shotsFired >= 2) {
+				return ResolveState("Reload");
+			}
+			else {
+				return ResolveState(null);
+			}
+		}	
+		GPOS AABBCCDD 4 A_Chase;
+		Loop;
+	Missile:
+		TNT1 A 0 { //if we are not fully loaded, use single shot
+			if(shotsFired != 0) {
+				return ResolveState("SingleOrSuperShot");
+			}
+			else {
+				return ResolveState(null);
+			}
+		}
+		TNT1 A 0 A_JumpIfCloser(200, "CloseSuperShot");
+		TNT1 A 0 A_Jump(80, "SuperShot");
+		Goto SingleShot;
+	CloseShot: //when player is close, have a larger chance to super shot
+		TNT1 A 0 A_Jump(160, "SuperShot");
+		Goto SingleShot;
+	SingleShot:
+		GPOS E 10 A_FaceTarget;
+		GPOS F 10 Bright {
+			A_PlaySound("QuadShotgunZombie/SingleFire");
+			A_CustomBulletAttack(22.5,7.1,5,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			shotsFired++; //expend a single shot
+		}
+		GPOS E 10;
+		Goto See;
+	SuperShot:
+		GPOS E 15 A_FaceTarget;
+		GPOS F 10 Bright {
+			A_PlaySound("weapons/sshotf");
+			A_CustomBulletAttack(22.5,7.1,10,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			shotsFired += 2; //expend 2 shots
+		}
+		GPOS E 10;
+		Goto See;
+	Reload:
+		GPOS E 14 A_PlaySound("weapons/sshoto");
+		GPOS A 15 A_PlaySound("weapons/sshotl");
+		TNT1 A 0 {
+			shotsFired = 0; //all 2 shots loaded again
+		}
+		GPOS E 7 A_PlaySound("weapons/sshotc");
+		Goto See;
+	Pain:
+		GPOS G 3;
+		GPOS G 3 A_Pain;
+        Goto See;
+	Death:
+		GPOS H 7;
+		GPOS I 7 A_Scream;
+		GPOS J 7 A_NoBlocking;
+		GPOS KLM 7;
+		GPOS N -1;
+        Stop;
+	XDeath:
+		GPOS O 5;
+		GPOS P 5 A_XScream;
+		GPOS Q 5 A_NoBlocking;
+		GPOS RS 5;
+		GPOS T -1;
+        Stop;
+	Raise:
+		GPOS MLKJIH 5;
+        Goto See;
+	}
+}

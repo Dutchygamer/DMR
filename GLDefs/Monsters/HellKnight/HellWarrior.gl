@@ -1,0 +1,43 @@
+pointlight DMR_HWARRBALL
+{
+    color 1.0 0.7 0.0
+    size 72
+	attenuate 1
+}
+
+flickerlight DMR_HWARRBALL_X1
+{
+    color 0.9 0.55 0.0
+    size 96
+    secondarySize 112
+    chance 0.25
+	attenuate 1
+}
+
+flickerlight DMR_HWARRBALL_X2
+{
+    color 0.5 0.25 0.0
+    size 104
+    secondarySize 128
+    chance 0.25
+	attenuate 1
+}
+
+flickerlight DMR_HWARRBALL_X3
+{
+    color 0.3 0.1 0.0
+    size 112
+    secondarySize 144
+    chance 0.25
+	attenuate 1
+}
+
+object HellWarriorBall
+{
+    frame HWFBA { light DMR_HWARRBALL }
+    frame HWFBB { light DMR_HWARRBALL }
+
+    frame HWFBC { light DMR_HWARRBALL_X1 }
+    frame HWFBD { light DMR_HWARRBALL_X2 }
+    frame HWFBE { light DMR_HWARRBALL_X3 }
+}

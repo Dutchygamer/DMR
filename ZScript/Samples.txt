@@ -1,0 +1,18 @@
+// Just some C/P samples for my own reference
+// Not actually included as a ZScript file as it isn't supposed to be one ;o
+
+// Monster Flamethrower
+	int attackloop;
+	
+	Missile:
+		HDOG G 10 A_FaceTarget;
+		TNT1 A 0 { attackloop = 0; }
+		TNT1 A 0 Bright A_PlaySound ("weapons/flamethrower");		
+	MissileLoop:
+		TNT1 A 0 A_JumpIf(attackloop >= 12,"See");
+		HDOG H 1 Bright {
+			A_FaceTarget();
+			attackloop++;
+			A_SpawnProjectile("DMR_FlamethrowerBall",28,0,random(-3,3));
+		}
+		Loop;

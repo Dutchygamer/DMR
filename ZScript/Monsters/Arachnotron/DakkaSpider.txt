@@ -1,0 +1,60 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Captain Toenail
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by Captain Toenail)
+//	GLDEFs: 	Sandypaper
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class DakkaSpider : DMR_Arachnotron
+{
+	Default
+	{
+		Tag "Solifutron";
+		obituary "%o was pumped full of lead by a Solifutron.";
+		health 550;
+	}
+	states
+	{
+	Spawn:
+		CSPI AB 10 A_Look;
+		loop;
+	See:
+		CSPI A 20;
+		CSPI A 3 A_BabyMetal;
+		CSPI ABBCC 3 A_Chase;
+		CSPI D 3 A_BabyMetal;
+		CSPI DEEFF 3 A_Chase;
+		goto See+1;
+	Missile:
+		CSPI A 20 bright A_FaceTarget;
+		CSPI G 4 bright {
+			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON);
+			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		}
+		CSPI H 4 bright {
+			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON);
+			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		}
+		TNT1 A 0 A_SpidRefire;
+		goto Missile+1;
+	Pain:
+		CSPI I 3;
+		CSPI I 3 A_Pain;
+		goto See+1;
+	Death:
+		CSPI J 20 A_Scream;
+		CSPI K 7 A_NoBlocking;
+		CSPI LMNO 7;
+		CSPI P -1 A_BossDeath;
+		stop;
+	Raise:
+		CSPI PONMLKJ 5;
+		goto See+1;
+	}
+}

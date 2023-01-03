@@ -1,0 +1,63 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Eriance
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by Eriance)
+//	GLDEFs: 	Ghastly Dragon, Sandypaper (Brightmaps)
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios	
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class DoubleChaingunGuy : DMR_ChaingunGuy
+{
+	Default
+	{
+		Tag "Double chaingunner";
+		Obituary "%o was reduced to bloody ribbons by a double chaingunner.";
+		Health 90;
+		PainChance 150;
+		DropItem "Chaingun";
+		DropItem "Chaingun", 10;
+		AttackSound "Chaingunner/Fire";
+	}
+ 	States
+	{
+	Spawn:
+		DPOS AB 10 A_Look;
+		Loop;
+	See:
+		DPOS AABBCCDD 3 A_Chase;
+		Loop;
+	Missile:
+		DPOS E 10 A_FaceTarget;
+		DPOS F 2 Light("DMR_ZOMBIEATK") Bright A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		DPOS F 2 Light("DMR_ZOMBIEATK") Bright A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		DPOS F 1 A_CPosRefire;
+		Goto Missile+1;
+	Pain:
+		DPOS G 3;
+		DPOS G 3 A_Pain;
+		Goto See;
+	Death:
+		DPOS H 5;
+		DPOS I 5 A_Scream;
+		DPOS J 5 A_NoBlocking;
+		DPOS KLM 5;
+		DPOS N -1;
+		Stop;
+	XDeath:
+		DPOS O 5;
+		DPOS P 5 A_XScream;
+		DPOS Q 5 A_NoBlocking;
+		DPOS RS 5;
+		DPOS T -1;
+		Stop;
+	Raise:
+		DPOS NMLKJIH 5;
+		Goto See;
+	}
+}

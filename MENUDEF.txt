@@ -1,0 +1,34 @@
+AddOptionMenu "OptionsMenu"
+{
+	StaticText ""
+	Submenu "DMR Options", "dmr_options"
+}
+
+OptionMenu "dmr_options"
+{
+	Title "DoomKrakken's Monster Randomizer Options"
+	StaticText " "
+	Option "Additional projectile particles", "dmr_fancydoom", "OnOff"
+	StaticText "Show additional projectile trail / impact particles. Disable for better performance.", white
+	StaticText " "
+	Option "WAD compatibilty", "dmr_mapcompmode", "mapcompmode"
+	StaticText "Perform additional replacers for specific WADs", white
+	StaticText "which replace CommanderKeen and/or WolfensteinSS.", white
+	StaticText "If the WAD you're playing is not supported here,", white
+	StaticText "switch to Vanilla.", white
+	StaticText " "
+	StaticText "Guncaster Patch Options"
+	StaticText "The following options only effect the Guncaster patch"
+	StaticText " "
+	Option "Additional boss loot", "dmr_generousbosses", "OnOff"
+	StaticText "Bosses drop additional loot on death.", white
+}
+
+OptionValue "mapcompmode"
+{
+    0, "Vanilla"
+	1, "DMR"
+	2, "Scythe 2"
+	3, "Epic 2"
+	4, "Resurgence"
+}

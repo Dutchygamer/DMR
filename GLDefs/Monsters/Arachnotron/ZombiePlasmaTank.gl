@@ -1,0 +1,60 @@
+/*pointlight PLASMASMALL
+{
+    color 0.6 1.0 0.4
+    size 56 //84
+	attenuate 1
+}
+
+flickerlight PLASMASMALL_X1
+{
+    color 0.4 0.8 0.3
+    size 84 //108
+    secondarySize 94 //120
+    chance 0.3
+	attenuate 1
+}
+
+flickerlight PLASMASMALL_X2
+{
+    color 0.6 0.6 0.3
+    size 132
+    secondarySize 144
+    chance 0.3
+	attenuate 1
+}
+
+flickerlight PLASMASMALL_X3
+{
+    color 0.4 0.4 0.2
+    size 72
+    secondarySize 48
+    chance 0.3
+	attenuate 1
+}
+
+flickerlight PLASMASMALL_X4
+{
+    color 0.2 0.2 0.1
+    size 16
+    secondarySize 24
+    chance 0.3
+	attenuate 1
+}
+*/
+/*
+object DMR_Arachnotron
+{
+    frame ZPTKD { light DMR_ARACHATK }
+}*/
+
+object ZombiePlasmaTankPlasma
+{
+    frame APLSA { light DMR_ARACHPLAS }
+    frame APLSB { light DMR_ARACHPLAS }
+
+    frame APBXA { light DMR_ARACHPLAS_X1 }
+    frame APBXB { light DMR_ARACHPLAS_X2 }
+    frame APBXC { light DMR_ARACHPLAS_X2 }
+    frame APBXD { light DMR_ARACHPLAS_X3 }
+    frame APBXE { light DMR_ARACHPLAS_X4 }
+}

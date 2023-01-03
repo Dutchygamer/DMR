@@ -1,0 +1,51 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//	ZScript: 	DustedPandemonic, modified by Dutchygamer
+//======================================================================
+
+//TODO errr when do we want to use it?
+// if we want to use it for the base monster of each type we need to redo the entire ZScript as we can't inherit from 2 classes
+Class DMR_MonsterBase : Actor
+{
+	Default
+	{
+		Monster;
+		+FLOORCLIP;
+	}
+
+	string spec2;
+	property Species2: spec2;
+
+	// check if the monster damaging us is part of the Species2
+	// if so, treat it like it is the same species
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		if(source && source.bISMONSTER == true && source is "DMR_MonsterBase")
+		{
+			let source2 = DMR_MonsterBase(source);
+			if(source.bDONTHARMSPECIES == true && spec2 != "None" && spec2 == source2.spec2)
+			{
+				return 0;
+			}
+		}
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+}
+
+Class DMR_ZombieBase : DMR_MonsterBase
+{
+	Default
+	{
+		Health 20;
+		Radius 20;
+		Height 56;
+		Speed 8;
+		PainChance 200;
+		SeeSound "grunt/sight";
+		AttackSound "grunt/attack";
+		PainSound "grunt/pain";
+		DeathSound "grunt/death";
+		ActiveSound "grunt/active";
+	}
+}

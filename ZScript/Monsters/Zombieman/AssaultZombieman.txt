@@ -1,0 +1,66 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Graf Zahl
+//	Sounds:		Id Software, Rogue Entertainment
+//  Sprites: 	Id Software, Raven Software (edits by NMN, Tormentor667)
+//	GLDEFs: 	Lights.pk3, Sandypaper (Brightmaps)
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class AssaultZombieman : DMR_Zombieman
+{
+	Default
+	{
+		Tag "Assault zombieman";
+		OBITUARY "%o was surprised by the zombie's weaponry.";
+		Health 35;
+		PainChance 185;
+		ATTACKSOUND "grunt/attack";
+		DropItem "Clip";
+		+MISSILEMORE
+	}
+ 	States
+	{
+	Spawn:
+		RFTR AB 10 A_Look;
+		Loop;
+	See:
+		RFTR AABBCCDD 4 A_Chase;
+		Loop;
+	Missile:
+		RFTR E 10 A_FaceTarget;
+		RFTR F 6 BRIGHT A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		RFTR E 4 A_FaceTarget;
+		RFTR F 6 BRIGHT A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		RFTR E 4 A_FaceTarget;
+		RFTR F 6 BRIGHT A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		RFTR E 4;
+		Goto See;
+	Pain:
+		RFTR G 3;
+		RFTR G 3 A_Pain;
+		Goto See;
+	Death:
+		RFTR H 5;
+		RFTR I 5 A_Scream;
+		RFTR J 5 A_NoBlocking;
+		RFTR K 5;
+		RFTR L -1;
+		Stop;
+	XDeath:
+		RFTR M 5;
+		RFTR N 5 A_XScream;
+		RFTR O 5 A_NoBlocking;
+		RFTR PQRST 5;
+		RFTR U -1;
+		Stop;
+	Raise:
+		RFTR K 5;
+		RFTR JIH 5;
+		Goto See;
+	}
+}

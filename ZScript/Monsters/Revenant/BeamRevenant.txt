@@ -1,0 +1,81 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Captain Ventris
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by Spectator)
+//	GLDEFs: 	Captain Ventris
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//	Sounds:		Westwood Studios
+//  Sprites:	Dutchygamer (recolour of original sprites)
+//======================================================================
+
+class BeamRevenant : DMR_Revenant
+{
+	Default
+	{
+		Tag "Dybbuk";
+		Health 275;
+		HitObituary "%o was punched by a dybbuk.";
+		obituary "%o was shafted by a dybbuk.";
+	}
+	States
+	{
+	Spawn:
+		RASK AB 10 A_Look;
+		Loop;
+	See:
+		RASK AABBCCDDEEFF 2 A_Chase;
+		Loop;
+	Melee:
+		RASK G 0 A_FaceTarget;
+		RASK G 6 A_SkelWhoosh;
+		RASK H 6 A_FaceTarget;
+		RASK I 6 A_CustomMeleeAttack(random(12,36),"skeleton/melee");
+		Goto See;
+	Missile:
+		RASK J 20 Bright A_FaceTarget;
+		RASK K 5 Bright A_SpawnProjectile("BeamRevenantLaser",65,13,random(-3,3));
+		RASK K 15 A_FaceTarget;
+		Goto See;
+	Pain:
+		RASK L 5;
+		RASK L 5 A_Pain;
+		Goto See;
+	Death:
+	XDeath:
+		RASK LM 7;
+		RASK N 7 A_Scream;
+		RASK O 7 A_NoBlocking;
+		RASK P 7;
+		RASK Q -1;
+		Stop;
+	Raise:
+		RASK Q 5;
+		RASK PONML 5;
+		Goto See;
+	}
+}
+
+//laser projectile
+class BeamRevenantLaser : DMR_LaserBase
+{
+	Default
+	{
+		DamageFunction(random(10,30));
+		Translation "112:127=176:191";
+		MissileType "BeamRevenantLaserTrail";
+		MissileHeight 10;
+	}
+}
+
+class BeamRevenantLaserTrail : DMR_LaserTrailBase
+{
+	Default
+	{
+		//Translation "192:207=176:191";
+	}
+}

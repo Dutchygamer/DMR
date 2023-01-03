@@ -1,0 +1,68 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Bouncy
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by Tormentor667, Captain Toenail, Ghastly Dragon)
+//	GLDEFs: 	Dreadopp
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class PlasmaZombieman : DMR_Zombieman
+{
+	Default
+	{
+		Tag "Plasma zombieman";
+		Health 55;
+		PainChance 100;
+		+MISSILEMORE
+		+DOHARMSPECIES //zombies are not plasma-proof
+		ATTACKSOUND "";
+		OBITUARY "%o got burned by a plasma zombie.";
+		DropItem "Cell";
+		DropItem "PlasmaRifle", 10;
+	}
+ 	States
+	{
+	Spawn:
+		ZMAY AB 10 A_Look;
+		Loop;
+	See:
+		ZMAY AABBCCDD 4 A_Chase;
+		Loop;
+	Missile:
+		ZMAY E 10 A_FaceTarget;
+		ZMAY F 4 BRIGHT A_SpawnProjectile("ArachnotronPlasma");
+		ZMAY E 4 A_FaceTarget;
+		ZMAY F 4 BRIGHT A_SpawnProjectile("ArachnotronPlasma");
+		ZMAY E 4 A_FaceTarget;
+		ZMAY F 4 BRIGHT A_SpawnProjectile("ArachnotronPlasma");
+		ZMAY E 4 A_FaceTarget;
+		ZMAY E 10 A_MonsterRefire(25, "See");
+		Goto Missile+1;
+	Pain:
+		ZMAY G 3;
+		ZMAY G 3 A_Pain;
+		Goto See;
+	Death:
+		ZMAY H 5;
+		ZMAY I 5 A_Scream;
+		ZMAY J 5 A_NoBlocking;
+		ZMAY K 5;
+		ZMAY L -1;
+		Stop;
+	XDeath:
+		ZMAY O 5;
+		ZMAY P 5 A_XScream;
+		ZMAY Q 5 A_NoBlocking;
+		ZMAY RSTU 5;
+		ZMAY V -1;
+		Stop;
+	Raise:
+		ZMAY KJIH 5;
+		Goto See;
+	}
+}

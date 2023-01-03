@@ -1,0 +1,9 @@
+Object DMR_RevenantTracer
+{
+	Frame FATBA { Light TRACER }
+	Frame FATBB { Light TRACER }
+
+	Frame FBXPA { Light TRACER_X1 }
+	Frame FBXPB { Light TRACER_X2 }
+	Frame FBXPC { Light TRACER_X3 }
+}

@@ -1,0 +1,11 @@
+Class DMR_Archvile : Archvile 
+{
+	Default
+	{
+		Tag "Archvile";
+		Gibhealth -40; ///all higher tier monsters (baron -> archvile) have 40 gibhealth
+		Species "DMR_Archie";
+		+DONTHARMSPECIES;
+		+NOINFIGHTSPECIES;
+	}
+}

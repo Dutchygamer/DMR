@@ -1,0 +1,176 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Vader, Tormentor667
+//	Sounds:		Id Software, Vader
+//  Sprites: 	Id Software (edits by Vader)
+//	GLDEFs: 	Ghastly Dragon, Sandypaper (Brightmaps)
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		EA Games
+//	ZScript:	Dutchygamer
+//  Sprites:	Dutchygamer (modification of original sprites)
+//	DustedPandomic for improvements to the ShieldWall logic
+//======================================================================
+
+Class HellWarrior : DMR_HellKnight
+{
+	Default
+	{
+		Tag "Enforcer";
+		Health 650;
+		SeeSound "Paladin/Sight";
+		PainSound "knight/pain";
+		DeathSound "knight/death";
+		ActiveSound "knight/active";
+		Obituary "%o was tagged by the enforcer's fireball.";
+		HitObituary "%o was torn apart by a enforcer.";		
+		PainChance "DMR_ShieldBroken", 256;
+	}
+	States
+	{
+	Spawn:
+		HWAR AB 10 A_Look;
+		Loop;
+	See:
+		HWAR AABBCCDD 3 A_Chase;
+		Loop;
+	Missile:
+		HWAR E 0 A_Jump(128, "Shield");
+		Goto ComboAttack;
+	Melee:
+	ComboAttack:
+		HWAR EF 8 A_FaceTarget;
+		HWAR G 8 A_CustomComboAttack("HellWarriorBall",44,random(16,48),"baron/melee");
+		Goto See;
+	Shield:
+		TNT1 A 0 {
+			A_SpawnItemEx("DMR_ShieldWall",0,0,0,0,0,0,0,SXF_SETMASTER);
+		}
+		HWAR H 4 A_FaceTarget;
+		HWAR HHHHH 4 {
+			A_FaceTarget();
+			A_SpawnItemEx("DMR_MediumFireballTrail",0,frandom(-1,1),frandom(25,27),0,0,0,0,SXF_SETMASTER);
+		}
+		HWAR I 8 Bright A_SpawnProjectile("HellWarriorShieldBall", 25, 0, 0);
+		TNT1 A 0 {
+			A_RemoveChildren(1,RMVF_EVERYTHING);
+		}
+		Goto See;
+	Pain.DMR_ShieldBroken: //upon suffering a broken shield, stay in this painstate for a bit
+		TNT1 A 0 {
+			bNoPain = true; //don't switch to the default pain state when we are in this one
+			A_PlaySound("shieldwall/death");
+		}
+		HWAR J 6 A_Pain;
+		HWAR J 6;
+		HWAR J 6 A_Pain;
+		HWAR J 6;
+		HWAR J 6 A_Pain;
+		HWAR J 6;
+		HWAR J 6 A_Pain;
+		HWAR J 6;
+		HWAR J 6 A_Pain;
+		HWAR J 6;
+		TNT1 A 0 {
+			bNoPain = false;
+		}
+		Goto See;
+	Pain:
+		HWAR J 2;
+		HWAR J 2 A_Pain;
+		TNT1 A 0 {
+			A_SpawnItemEx("DMR_ShieldWall",0,0,0,0,0,0,0,SXF_SETMASTER);
+		}
+		HWAR HHHHHHH random(4,6) A_FaceTarget;
+		TNT1 A 0 {
+			A_RemoveChildren(1,RMVF_EVERYTHING);
+		}
+		Goto See;
+	Death: 
+	XDeath:
+		TNT1 A 0 {
+			A_RemoveChildren(1,RMVF_EVERYTHING);
+		}
+		HWAE K 0 A_FaceTarget;
+		HWAR K 5 A_SpawnItemEx("HellWarriorShield", 0, 0, 25, 6, 0, 0, 60, SXF_SETMASTER);
+		HWAR L 5 A_Scream;
+		HWAR M 5;
+		HWAR N 5 A_NoBlocking;
+		HWAR OPQRS 5;
+		HWAR T -1;
+		Stop ;
+	Raise: 
+		HWAR QPONMLK 5 A_KillChildren;
+		Goto See;
+	} 
+}
+
+class HellWarriorBall : DMR_BaronBall
+{
+	Default
+	{
+		DamageFunction(random(16,48));
+	}
+	States
+	{
+	Spawn:
+		HWFB AABB 2 Bright {
+			If(GetCvar("dmr_fancydoom")) { A_SpawnItemEx("DMR_MediumFireballTrail",-3,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); }
+		}
+		Loop;
+	Death:
+		TNT1 AAAA 0 {
+			If(GetCvar("dmr_fancydoom")) { 
+				A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			}
+		}
+		HWFB CDE 5 Bright;
+		Stop;
+	}
+}
+
+class HellWarriorShieldBall : HellWarriorBall
+{
+	Default
+	{
+		+THRUSPECIES;
+		+SEEKERMISSILE
+		SeeSound "Paladin/Shoot";
+		DeathSound "Paladin/Hit";
+		Species "DMR_ShieldWall"; //so the shield projectiles can pass through the shield
+	}
+	States
+	{
+	Spawn:
+		HWFB AABB 2 Bright {
+			A_SeekerMissile(1, 1);
+			If(GetCvar("dmr_fancydoom")) { A_SpawnItemEx("DMR_MediumFireballTrail",-3,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); }
+		}
+		Loop;
+	Death:
+		TNT1 AAAA 0 {
+			If(GetCvar("dmr_fancydoom")) { 
+				A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			}
+		}
+		HWFB CDE 5 Bright;
+		Stop;
+	}
+}
+
+class HellWarriorShield : DMR_DroppedShield
+{
+	States
+	{
+	Spawn:
+		HWSH ABCDEFGH 3;
+		Loop;
+	Death:
+		HWSH I -1;
+		Loop;
+	}
+}

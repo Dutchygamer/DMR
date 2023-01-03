@@ -1,0 +1,104 @@
+
+class DMR_FireDebris : DMR_ProjectileTrail
+{
+	Default
+	{
+		Scale 0.35;
+	}
+	States
+	{
+	Spawn:
+		FFX1 ABCDEF 1 Bright;
+		Stop;
+	}
+}
+
+class DMR_MediumFireDebris : DMR_FireDebris
+{
+	Default
+	{
+		Scale 0.45;
+	}
+}
+
+class DMR_LargeFireDebris : DMR_FireDebris
+{
+	Default
+	{
+		Scale 0.55;
+	}
+}
+
+class DMR_GreenFireDebris : DMR_ProjectileTrail
+{
+	Default
+	{
+		Scale 0.35;
+	}
+	States
+	{
+	Spawn:
+		FFX2 ABCDEF 1 Bright;
+		Stop;
+	}
+}
+
+class DMR_MediumGreenFireDebris : DMR_GreenFireDebris
+{
+	Default
+	{
+		Scale 0.45;
+	}
+}
+
+class DMR_LargeGreenFireDebris : DMR_GreenFireDebris
+{
+	Default
+	{
+		Scale 0.55;
+	}
+}
+
+class DMR_PurpleFireDebris : DMR_ProjectileTrail
+{
+	Default
+	{
+		Scale 0.35;
+	}
+	States
+	{
+	Spawn:
+		FFX3 ABCDEF 1 Bright;
+		Stop;
+	}
+}
+
+
+class DMR_GasDebris : DMR_ProjectileTrail
+{   
+	Default
+	{
+		ALPHA 0.4;
+	}
+	States
+	{
+	Spawn:
+		GAS2 DEFGHIJKLM 3;
+		GAS2 DEFGHIJKLM 3;
+		Stop;
+	}
+}
+
+class DMR_LightningDebris : DMR_ProjectileTrail
+{
+	Default
+	{
+		Scale 0.65;
+	}
+	States
+	{
+	Spawn:
+		SKFX ABCABCABCABC 1 Bright;
+		Stop;
+	}
+}

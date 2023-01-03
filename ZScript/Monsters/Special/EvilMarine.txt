@@ -1,0 +1,108 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//	Sounds:		Id Software
+//  Sprites: 	Id Software
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class EvilMarine : WolfensteinSS
+{
+	Default
+	{
+		Tag "Corrupted Marine";
+		Health 250;
+		Gibhealth -20; //all lower tier monsters (zombies -> imp) have 20 gibhealth
+		Speed 12;
+		PainChance 50;
+		+MISSILEMORE;
+		SeeSound "grunt/sight";
+		PainSound "grunt/pain";
+		DeathSound "grunt/death";
+		ActiveSound "grunt/active";
+		OBITUARY "%o was defeated by a corrupted marine.";
+		DropItem "CellPack";
+		DropItem "PlasmaRifle", 10;
+	}
+ 	States
+	{
+	Spawn:
+		PLAY AB 10 A_Look;
+		Loop;
+	See:
+		PLAY ABCD 4 A_Chase;
+		Loop;
+	Missile:
+		PLAY E 10 A_FaceTarget;
+		PLAY F 2 BRIGHT A_SpawnProjectile("EvilMarinePlasmaBall");
+		PLAY E 2 A_FaceTarget;
+		PLAY F 2 BRIGHT A_SpawnProjectile("EvilMarinePlasmaBall");
+		PLAY E 2 A_FaceTarget;
+		PLAY F 2 BRIGHT A_SpawnProjectile("EvilMarinePlasmaBall");
+		PLAY E 2 A_FaceTarget;
+		PLAY F 2 BRIGHT A_SpawnProjectile("EvilMarinePlasmaBall");
+		PLAY E 2 A_FaceTarget;
+		PLAY E 10 A_MonsterRefire(25, "See");
+		Goto Missile+1;
+	Pain:
+		PLAY G 4;
+		PLAY G 4 A_Pain;
+		Goto See;
+	Death:
+		PLAY H 5;
+		PLAY I 5 A_Scream;
+		PLAY J 5 A_NoBlocking;
+		PLAY KLM 5;
+		PLAY N -1;
+		Stop;
+	XDeath:
+		PLAY O 5;
+		PLAY P 5 A_XScream;
+		PLAY Q 5 A_NoBlocking;
+		PLAY RSTUV 5;
+		PLAY W -1;
+		Stop;
+	Raise:
+		PLAY KJIH 5;
+		Goto See;
+	}
+}
+
+class EvilMarinePlasmaBall : Actor
+{
+	Default
+	{
+		Radius 13;
+		Height 8;
+		Speed 25;
+		DamageFunction(random(10,30));
+		Projectile;
+		+RANDOMIZE
+		+ZDOOMTRANS
+		RenderStyle "Add";
+		Alpha 0.75;
+		SeeSound "weapons/plasmaf";
+		DeathSound "weapons/plasmax";
+		Obituary "$OB_MPPLASMARIFLE";
+	}
+	States
+	{
+ 	Spawn:
+		PLSS AAABBB 2 Bright {
+			If(GetCvar("dmr_fancydoom")) { A_SpawnItemEx("DMR_EvilMarinePlasmaTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5)); }
+		}
+		Loop;
+	Death:
+		/*TNT1 AAAA 0 {
+			If(GetCvar("dmr_fancydoom")) { 
+				A_SpawnItemEx("MediumGreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+				A_SpawnItemEx("MediumGreenFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			}
+		}*/
+		PLSE ABCDE 4 Bright;
+		Stop;
+	}
+}

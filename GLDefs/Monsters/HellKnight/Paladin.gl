@@ -1,0 +1,13 @@
+object Paladin
+{
+    frame HPALJ { light DMR_ZOMBIEATK }
+}
+
+object PaladinGrenade
+{
+    //frame MISLA { light DMR_SROCKET }
+
+    frame MISLB { light DMR_SROCKET_X1 }
+    frame MISLC { light DMR_SROCKET_X2 }
+    frame MISLD { light DMR_SROCKET_X3 }
+}

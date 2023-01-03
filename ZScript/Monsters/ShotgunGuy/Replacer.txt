@@ -1,0 +1,21 @@
+Class ShotgunGuyReplacer: RandomSpawner replaces Shotgunguy
+{
+	Default
+	{
+		DropItem "DMR_ShotgunGuy", 255, 100;
+		DropItem "SuperShotgunGuy", 255, 20;
+		DropItem "AssaultShotgunGuy", 255, 20;
+		//DropItem "SuicideGuy", 255, 13;
+		DropItem "QuadShotgunGuy", 255, 8;
+	}
+}
+
+//suicide guy itself is a collection of suicide guy variants
+Class SuicideGuy : RandomSpawner
+{
+	Default
+	{
+		DropItem "SuicideGuyExplosive";
+		DropItem "SuicideGuyGas";
+	}
+}

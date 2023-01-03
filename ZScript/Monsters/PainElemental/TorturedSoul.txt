@@ -1,0 +1,86 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Xaser
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by Assmaster)
+//	GLDEFs: 	Dreadopp
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class TorturedSoul : DMR_PainElemental 
+{ 
+	Default
+	{
+		Tag "Tortured Soul";
+		Health 550;
+		PainChance 64;
+		SeeSound "torturedsoul/sight";
+		PainSound "torturedsoul/pain";
+		DeathSound "torturedsoul/death";
+		ActiveSound "torturedsoul/active";
+		Obituary "%o was tormented by the Tortured Soul.";
+	}
+	States 
+	{ 
+	Spawn: 
+		TORT AB 10 A_Look;
+		Loop;
+	See: 
+		TORT AABBCC 3 A_Chase;
+		Loop;
+	Missile: 
+		TNT1 A 0 A_Jump(256, "SpawnLostSoul", "SpawnPhantom", "SpawnGorer", "SpawnGuardian", "SpawnPoisonSoul");
+		Goto See;
+	SpawnLostSoul: 
+		TORT D 5 A_FaceTarget;
+		TORT E 5 A_FaceTarget;
+		TORT F 5 Bright A_FaceTarget;
+		TNT1 A 0 Bright A_PainAttack("DMR_LostSoul");
+		Goto See;
+	SpawnPhantom: 
+		TORT D 5 A_FaceTarget;
+		TORT E 5 A_FaceTarget;
+		TORT F 5 Bright A_FaceTarget;
+		TNT1 A 0 Bright A_PainAttack("Phantom");
+		Goto See;
+	SpawnGorer: 
+		TORT D 5 A_FaceTarget;
+		TORT E 5 A_FaceTarget;
+		TORT F 5 Bright A_FaceTarget;
+		TNT1 A 0 Bright A_PainAttack("Gorer");
+		Goto See;
+	SpawnGuardian: 
+		TORT D 5 A_FaceTarget;
+		TORT E 5 A_FaceTarget;
+		TORT F 5 Bright A_FaceTarget;
+		TNT1 A 0 Bright A_PainAttack("Guardian");
+		Goto See;
+	SpawnPoisonSoul: 
+		TORT D 5 A_FaceTarget;
+		TORT E 5 A_FaceTarget;
+		TORT F 5 Bright A_FaceTarget;
+		TNT1 A 0 Bright A_PainAttack("PoisonSoul");
+		Goto See;
+	Pain: 
+		TORT G 6;
+		TORT G 6 A_Pain;
+		Goto See;
+	Death: 
+		TORT H 8 Bright;
+		TORT I 8 Bright A_Scream;
+		TORT JK 8 Bright;
+		TORT L 8 Bright;
+		TORT M 8 Bright 
+		{
+			// spawns the vanilla LostSoul, which will get randomly replaced by the variants
+			A_PainDie(); 
+			A_PainDie();
+		}
+		TORT N 8 Bright;
+		Stop;
+	} 
+}

@@ -1,0 +1,52 @@
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Raven Software
+//	ZScript:	Dutchygamer
+//======================================================================
+Class DMR_Arachnotron : Arachnotron 
+{
+	Default
+	{
+		Tag "Arachnotron";
+		Gibhealth -30; ///all medium tier monsters (demon -> hellknight) have 30 gibhealth
+		Species "DMR_Spider";
+		+DONTHARMSPECIES;
+		+NOINFIGHTSPECIES;
+		Bloodcolor "purple";
+	}
+	States 
+	{ 
+	Missile:
+		BSPI A 20 bright A_FaceTarget;
+		BSPI G 4 bright A_SpawnProjectile("ArachnotronPlasma",20,0,0,0);
+		BSPI H 4 bright;
+		BSPI H 1 bright A_SpidRefire;
+		goto Missile+1;
+	}
+}
+
+class DMR_ArachnotronPlasma : ArachnotronPlasma replaces ArachnotronPlasma
+{
+	Default
+	{
+		DamageFunction(random(10,30));
+	}
+	states
+	{
+	Spawn:
+		APLS AAABBB 2 Bright  {
+			If(GetCvar("dmr_fancydoom")) { A_SpawnItemEx("DMR_PlasmaTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5)); }
+		}
+		Loop;
+	Death:
+		/*TNT1 AAAA 0 {
+			If(GetCvar("dmr_fancydoom")) { 
+				A_SpawnItemEx("MediumGreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+				A_SpawnItemEx("MediumGreenFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			}
+		}*/
+		APBX ABCDE 5 Bright;
+		Stop;
+	}
+}

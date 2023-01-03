@@ -1,0 +1,34 @@
+class DMR_ReplacerHandler : EventHandler
+{
+	override void CheckReplacement(ReplaceEvent a)
+	{
+		// replace CommanderKeen and/or WolfensteinSS with a specific monster, depending on the setting
+		// options currently are:
+		//0, "Vanilla"
+		//1, "DMR"
+		//2, "Scythe 2"
+		//3, "Epic 2"
+		//4, "Resurgence"
+		switch (a.Replacee.GetClassName()) 
+		{
+			case 'WolfensteinSS':
+				if(dmr_mapcompmode == 1)
+					{ a.Replacement = 'EvilMarine'; break; }
+				else if(dmr_mapcompmode == 2)
+					{ a.Replacement = 'EvilMarine'; break; }
+				//else if(dmr_mapcompmode == 3)
+				//	{ a.Replacement = 'Epic2Alien'; break; }
+				if(dmr_mapcompmode == 4)
+					{ a.Replacement = 'EvilMarine'; break; }
+			case 'CommanderKeen':
+				if(dmr_mapcompmode == 1)
+					{ a.Replacement = 'SuperAfrit'; break; }
+				else if(dmr_mapcompmode == 2)
+					{ a.Replacement = 'SuperAfrit'; break; }
+				//else if(dmr_mapcompmode == 3)
+				//	{ a.Replacement = 'Epic2Keen'; break; }
+				if(dmr_mapcompmode == 4)
+					{ a.Replacement = 'SuperAfrit'; break; }
+		}
+	}
+}

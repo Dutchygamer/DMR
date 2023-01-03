@@ -1,0 +1,141 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Captain Toenail
+//	Sounds:		Id Software (Quake 2, 4)
+//  Sprites: 	Freedoom (Fredrik Johanson), 3D Realms (Blake Stone)
+//	GLDEFs: 	Dreadopp
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class SlimeWorm : DMR_Demon
+{
+	Default
+	{
+		Tag "Slime worm";
+		Health 210;
+		PainChance 125;
+		PoisonDamage 15;
+		+MISSILEMORE;
+		+SHADOW;
+		RenderStyle "Subtract";
+		Alpha 0.25;
+		seesound "slimeworm/sight";
+		attacksound "slimeworm/melee";
+		painsound "slimeworm/pain";
+		deathsound "slimeworm/death";
+		activesound "slimeworm/active";
+		bloodcolor "yellow";
+		obituary "%o was dissolved by a slime worm.";
+		hitobituary "%o was digested by a slime worm.";
+		MaxTargetRange 296;	
+		MeleeThreshold 128;
+	}
+	States
+	{
+	Spawn:
+		WORM AB 10 A_Look;
+		Loop;
+	See:
+		WORM AABBCCDD 2 Fast A_Chase;
+		Loop;
+	Melee:
+		WORM EF 8 A_FaceTarget;
+		WORM G 8 A_CustomMeleeAttack(random(8,24),"slimeworm/melee","","Extreme");
+		Goto See;
+	Missile:
+		WORM EE 6 A_FaceTarget;
+		WORM F 8 {
+			A_PlaySound ("Weapons/bloodf");
+			A_SpawnProjectile ("SlimeBall1", 40, 0, random(-10,10), CMF_OFFSETPITCH, random(0,-10));
+			A_SpawnProjectile ("SlimeBall2", 40, 0, random(-10,10), CMF_OFFSETPITCH, random(0,-10));
+			A_SpawnProjectile ("SlimeBall3", 40, 0, random(-10,10), CMF_OFFSETPITCH, random(0,-10));
+			A_SpawnProjectile ("SlimeBall4", 40, 0, random(-10,10), CMF_OFFSETPITCH, random(0,-10));
+			A_SpawnProjectile ("SlimeBall5", 40, 0, random(-10,10), CMF_OFFSETPITCH, random(0,-10));
+		}
+		goto See;
+	Pain:
+		WORM H 2 Fast;
+		WORM H 2 Fast A_Pain;
+		Goto See;
+	Death:
+	XDeath:
+		WORM I 8;
+		WORM J 8 A_Scream;
+		WORM K 4;
+		WORM L 4 A_NoBlocking;
+		WORM M 4;
+		WORM N -1;
+		Stop;
+	Raise:
+		WORM NMLKJI 5;
+		Goto See;
+	}
+}
+
+class SlimeBall1 : Actor
+{
+	Default
+	{
+		Radius 4;
+		Height 4;
+		Speed 14;
+		Damage 2;
+		PoisonDamage 5;
+		Gravity 0.5;
+		Scale 0.5;
+		Projectile;
+		+RANDOMIZE;
+		-NOGRAVITY;
+		+EXTREMEDEATH;
+		RenderStyle "Add";
+		Alpha 1;
+		DeathSound "slimeball/splat";
+		Decal "PlasmaScorchLower";
+	}
+	states
+	{
+	Spawn:
+		BOGY ABC 2 bright;
+		loop;
+	Death:
+		BOGY D 0 bright A_NoGravity;
+		BOGY DEF 4 bright;
+		stop;
+	}
+}
+
+class SlimeBall2 : SlimeBall1
+{
+	Default
+	{
+		speed 16;
+	}
+}
+
+class SlimeBall3 : SlimeBall1
+{
+	Default
+	{
+		speed 19;
+	}
+}
+
+class SlimeBall4 : SlimeBall1
+{
+	Default
+	{
+		speed 20;
+	}
+}
+
+class SlimeBall5 : SlimeBall1
+{
+	Default
+	{
+		speed 22;
+	}
+}

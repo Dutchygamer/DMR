@@ -1,0 +1,4 @@
+object DMR_ShotgunGuy
+{
+    frame SPOSF { light DMR_ZOMBIEATK }
+}

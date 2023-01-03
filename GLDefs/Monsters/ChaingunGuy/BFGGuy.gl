@@ -1,0 +1,15 @@
+pointlight DMR_BFGCHARGE1
+{
+    color 0.5 1.0 0.5
+    size 64
+	attenuate 1
+}
+
+pointlight DMR_BFGCHARGE2
+{
+    color 0.3 1.0 0.3
+    size 88
+	attenuate 1
+}
+
+//use the lights in the ZScript itself so we can explictely use the lights when needed

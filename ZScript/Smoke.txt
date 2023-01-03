@@ -1,0 +1,85 @@
+
+//smoke trail
+class DMR_SmokeCloud : DMR_ProjectileTrail
+{
+	Default
+	{
+		RenderStyle "Translucent";
+		Scale 0.25;
+		Alpha 0.6;
+	}
+	States
+	{
+	Spawn:
+		SMOK ABCDEFGHIJ 2;
+		Stop;
+	}
+}
+
+class DMR_MediumSmokeCloud : DMR_SmokeCloud
+{
+	Default
+	{
+		Scale 0.35;
+	}
+}
+
+class DMR_LargeSmokeCloud : DMR_SmokeCloud
+{
+	Default
+	{
+		Scale 0.45;
+	}
+}
+
+class DMR_XLSmokeCloud : DMR_SmokeCloud
+{
+	Default
+	{
+		Scale 0.55;
+	}
+}
+
+//smoke with longer duration
+class DMR_SmokeLongCloud : DMR_ProjectileTrail
+{
+	Default
+	{
+		RenderStyle "Translucent";
+		Scale 0.25;
+		Alpha 0.6;
+	}
+	States
+	{
+	Spawn:
+		SMOK AB 2;
+		SMOK CDEFGH 8;
+		SMOK IJ 2;
+		Stop;
+	}
+}
+
+class DMR_MediumSmokeLongCloud : DMR_SmokeLongCloud
+{
+	Default
+	{
+		Scale 0.35;
+	}
+}
+
+class DMR_LargeSmokeLongCloud : DMR_SmokeLongCloud
+{
+	Default
+	{
+		Scale 0.45;
+	}
+}
+
+class DMR_XLSmokeLongCloud : DMR_SmokeLongCloud
+{
+	Default
+	{
+		Scale 0.55;
+	}
+}
+

@@ -1,0 +1,12 @@
+Class SpectreReplacer: RandomSpawner replaces Spectre
+{
+	Default
+	{
+		DropItem "DMR_Spectre", 255, 100;
+		DropItem "NightmareSpectre", 255, 25;
+		DropItem "SpectralBloodfiend", 255, 15;
+		DropItem "SlimeWorm", 255, 15;
+		//DropItem "Nightmare" 255, 1
+		//DropItem "Nightshade" 255, 1
+	}
+}
