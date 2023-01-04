@@ -71,12 +71,6 @@ Class SuperAfrit : Afrit
 			A_SpawnProjectile("AfritComet",44,0,10,0);
 		}
 		Goto See +2;
-	/*HellFire:
-		FRIT F 0 A_SpawnProjectile("DMR_HellFireFX", 44, 0, 0)
-		FRIT E 6 Bright A_FaceTarget
-		FRIT F 6 Bright A_SpawnProjectile("DMR_HellFireSpawner", 44, 0, 0)
-		FRIT G 6 Bright A_FaceTarget
-		Goto See +2*/
 	Pain:
 		FRIT H 4 Light("DMR_AFRIT");
 		FRIT H 4 Light("DMR_AFRIT") A_Pain;

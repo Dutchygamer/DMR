@@ -12,10 +12,6 @@ class DMR_GhostAfterImage : Actor
 {   
 	Default
 	{
-		//Radius 2;
-		//Height 2;
-		//Speed 0;
-		//Projectile;
 		+NOINTERACTION;
 		RenderStyle "Translucent";
 		Alpha 0.5;
@@ -25,24 +21,10 @@ class DMR_GhostAfterImage : Actor
 	Spawn:
 		TNT1 A 3;
 		"----" A 3 A_FadeOut(0.10);
-		Wait; //Goto Spawn+1;
+		Wait;
 	}
 }
-/*
-Actor GenericRushGhost
-{
-  +NOINTERACTION
-  Renderstyle Translucent
-  Alpha 0.9
-  States
-  {
-  Spawn:
-	TNT1 A 3
-	"----" A 2 A_FadeOut
-	Wait
-	}
-}
-*/
+
 //dropped shield
 Class DMR_DroppedShield: Actor
 {
@@ -66,6 +48,7 @@ Class DMR_DroppedShield: Actor
 	}
 }
 
+//monster ram impact 'projectile'
 class DMR_RamImpactor : Actor
 {
 	Default

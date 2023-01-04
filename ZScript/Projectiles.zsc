@@ -208,6 +208,7 @@ Class DMR_FlamethrowerBall: Actor
 		+THRUACTORS;
 		+BRIGHT
 		+NODAMAGETHRUST;
+		+DONTSPLASH;
 		VSpeed 0.5;
 	}
 	int dmgtic;
@@ -283,6 +284,7 @@ class DMR_FlamethrowerExplode : Actor
 		Gravity 0;
 		Speed 0;
 		Scale 0.7;
+		+DONTSPLASH;
 	}
 	States
 	{
@@ -356,6 +358,7 @@ class DMR_LaserTrailBase : Actor
 		Alpha 0.9;
 		+NOINTERACTION;
 		+NOGRAVITY;
+		+DONTSPLASH;
 	}
 	States
 	{
@@ -640,139 +643,6 @@ class DMR_SlowBullet : Actor
 		Stop;
 	XDeath:
 		TNT1 A 1;
-		Stop;
-	}
-}
-
-
-
-//hellfire, unsure if still used as we have DMR_BurningFire
-class DMR_HellFireFX : Actor
-{
-	Default
-	{
-		PROJECTILE;
-		RENDERSTYLE "ADD";
-		ALPHA 0.8;
-		Speed 1;
-		Damage 0;
-		Radius 6;
-		Height 8;
-	}
-	States
-	{
-	Spawn:
-		COMT I 0;
-		COMT I 3 Bright A_SetTranslucent(0.5);
-		COMT HGF 3 Bright A_SetTranslucent(0.8);
-		COMT E 3 Bright A_SetTranslucent(0.6);
-		COMT D 3 Bright A_SetTranslucent(0.4);
-		COMT C 3 Bright A_SetTranslucent(0.2);
-		Stop;
-	}
-}
-
-class DMR_HellFireSpawner : Actor
-{
-	Default
-	{
-		+NOBLOCKMAP;
-		+MISSILE;
-		+DROPOFF;
-		Speed 5;
-		Damage 0;
-		SeeSound "catharsi/shotdth";
-		DeathSound "dragonfam/attack";
-	}
-	States
-	{
-	Spawn:
-		TNT1 A 1;
-		Loop;
-	Death:
-		TNT1 A 0 A_SpawnProjectile("DMR_HellFireSpreader", 0, 0, -180);
-		TNT1 A 0 A_SpawnProjectile("DMR_HellFireSpreader", 0, 16, -175);
-		TNT1 A 0 A_SpawnProjectile("DMR_HellFireSpreader", 0, 32, -170);
-		TNT1 A 0 A_SpawnProjectile("DMR_HellFireSpreader", 0, -16, -185);
-		TNT1 A 0 A_SpawnProjectile("DMR_HellFireSpreader", 0, -32, -190);
-		Stop;
-	}
-}
-
-class DMR_HellFireSpreader : Actor
-{
-	Default
-	{
-		+NOCLIP;
-		+MISSILE;
-		+DROPOFF;
-		Speed 2;
-		Damage 2;
-	}
-	States
-	{
-	Spawn:
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, 0, 0);
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, 16, 0);
-		TNT1 A 0 A_PlaySound("dragonfam/attack");
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, -16, 0);
-		TNT1 A 0 A_PlaySound("dragonfam/attack");
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, 0, 0);
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, 16, 0);
-		TNT1 A 0 A_PlaySound("dragonfam/attack");
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, -16, 0);
-		TNT1 A 0 A_PlaySound("dragonfam/attack");
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, 0, 0);
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, 16, 0);
-		TNT1 A 0 A_PlaySound("dragonfam/attack");
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, -16, 0);
-		TNT1 A 0 A_PlaySound("dragonfam/attack");
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, 0, 0);
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, 16, 0);
-		TNT1 A 0 A_PlaySound("dragonfam/attack");
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, -16, 0);
-		TNT1 A 0 A_PlaySound("dragonfam/attack");
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, 0, 0);
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, 16, 0);
-		TNT1 A 0 A_PlaySound("dragonfam/attack");
-		TNT1 A 10 A_SpawnProjectile("DMR_HellFireDamage", 0, -16, 0);
-		TNT1 A 0 A_PlaySound("dragonfam/attack");
-		Stop;
-	}
-}
-
-class DMR_HellFireDamage : Actor
-{
-	Default
-	{
-		+NOCLIP;
-		+MISSILE;
-		+DROPOFF;
-		+RANDOMIZE;
-		Scale 1.5;
-		Speed 1;
-		Damage 2;
-		RENDERSTYLE "ADD";
-		ALPHA 0.67;
-		DeathSound "dragonfam/attack";
-	}
-	States
-	{
-	Spawn:
-		TNT1 A 8;
-		FRTF A 3 Bright;
-		FRTF A 0 A_Explode(3, 64);
-		FRTF B 3 Bright;
-		FRTF B 0 A_Explode(3, 64);
-		FRTF C 3 Bright;
-		FRTF C 0 A_Explode(3, 64);
-		FRTF C 0;
-		FRTF C 0 A_Jump(191,4);
-		FRTF C 0 A_SpawnProjectile("DMR_HellFireDamage", 0, 24, 0);
-		FRTF C 0 A_SpawnProjectile("DMR_HellFireDamage", 0, 0, 0);
-		FRTF C 0 A_SpawnProjectile("DMR_HellFireDamage", 0, -24, 0);
-		TNT1 A 0 A_PlaySound("afrit/hellfire");
-		FRTF DEFGHIJKLMNO 3 Bright;
 		Stop;
 	}
 }
