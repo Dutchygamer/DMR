@@ -16,3 +16,67 @@
 			A_SpawnProjectile("DMR_FlamethrowerBall",28,0,random(-3,3));
 		}
 		Loop;
+				
+		
+// grenade
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			grenadeTimer = random(0,10);
+		}
+		SGRN A 1 Bright {
+			If(GetCvar("dmr_fancydoom")) {
+				A_SpawnItemEx("SmokeCloud",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			}
+			grenadeTimer++;
+		}
+		Goto Spawn+1;
+	//on ground, not hit anything, waiting for timer to run out
+	Death:
+		SGRN A 1 Bright {
+			If(GetCvar("dmr_fancydoom")) {
+				A_SpawnItemEx("SmokeCloud",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			}
+			//detonate if timer runs out
+			if (grenadetimer >= 80)
+			{
+				return state("XDeath");
+			}
+			grenadeTimer++;
+			return state(0);
+		}
+		Loop;
+	//actual explosion
+	XDeath:
+		TNT1 A 0 {
+			A_ChangeFlag ("NoGravity", 1);
+			A_Stop;
+			A_PlaySound("weapons/rocklx",2); //"Paladin/Explode",2);
+		}		
+		TNT1 AAAAAAAAAA 0 {
+			If(GetCvar("dmr_fancydoom")) { 
+				A_SpawnItemEx("FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
+			}
+		}
+		MISL B 8 Bright A_Explode(72, 96);
+		MISL C 6 Bright;
+		MISL D 4 Bright;
+		Stop;
+	}
+
+// thrown grenade
+	States
+	{
+	Spawn:
+		THR2 A 4;
+		THR2 B 1 Bright;
+		Loop;
+	Death:
+		TNT1 A 0 A_ChangeFlag ("NoGravity", 1);
+		TNT1 A 0 A_Stop;
+		MISL B 8 Bright A_Explode(10, 64);
+		MISL C 6 Bright;
+		MISL D 4 Bright;
+		Stop;
+	}

@@ -9,9 +9,12 @@ class DMR_BouncingDebris : Actor
 	Default
 	{
 		+MISSILE;
+		+FORCEXYBILLBOARD;
 		+THRUACTORS;
 		+NOTELEPORT;
 		+DONTSPLASH;
+		+NOBLOCKMAP;
+		+DROPOFF;
 		Height 2;
 		Radius 2;
 		Bouncetype "Doom";

@@ -41,14 +41,8 @@ class DMR_XLSmokeCloud : DMR_SmokeCloud
 }
 
 //smoke with longer duration
-class DMR_SmokeLongCloud : DMR_ProjectileTrail
+class DMR_SmokeLongCloud : DMR_SmokeCloud
 {
-	Default
-	{
-		RenderStyle "Translucent";
-		Scale 0.25;
-		Alpha 0.6;
-	}
 	States
 	{
 	Spawn:
