@@ -110,10 +110,6 @@ class BlueTiberdemon : Tiberdemon
 //flechettes
 class TiberiumBlueFlechette : TiberiumFlechette
 {
-	Default
-	{
-		poisondamage 8;
-	}
 	States
 	{
 	Spawn:
@@ -127,7 +123,8 @@ class TiberiumBlueFlechette : TiberiumFlechette
 			A_SetScale(1.5);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 		}
-		BSDE ABCDEFG 3 Bright;
+		BSDE A 3 Bright A_Explode(48,96);
+		BSDE BCDEFG 3 Bright;
 		Stop;
 	}
 }

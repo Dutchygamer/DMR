@@ -17,7 +17,6 @@ class Hellsmith : DMR_Cyberdemon
 	{
 		Tag "Hellforge Master";
 		Health 5500;
-		Speed 16;
 		PainChance 10;
 		Obituary "%o was no match for the might of the hellforge master.";
 		HitObituary "%o was crushed under the hellforge master's hoof.";
@@ -135,7 +134,7 @@ class MasterHellshot : ApprenticeHellshot
 			A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
 			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
-		HELX A 3 Bright A_Explode(48,64);
+		HELX A 3 Bright A_Explode(64,96);
 		HELX BCDEFGHIJ 3 Bright;
 		stop;
 	}
