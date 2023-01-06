@@ -170,9 +170,8 @@ class CacolichToxinSpray : DMR_FlamethrowerBall
 	}
 	States
 	{
-	Death:
 	Spawn:
-		GAS2 ABCDEFGHIJKLMN 2 {
+		GAS2 AABBCCDDEEFFGGHHIIJJKKLLMMNN 1 {
 			A_SetScale(Scale.X + 0.03);
 			// only deal damage X amount of tics instead of every tick
 			dmgtic++;
@@ -182,6 +181,7 @@ class CacolichToxinSpray : DMR_FlamethrowerBall
 				dmgtic = 0;
 			}		
 		}
+		GAS2 KKLLMMNN 1;
 		Stop;
 	}
 }
