@@ -73,11 +73,9 @@ class ZombiePlasmaTank : DMR_ZombieTankBase
 			}
 		}	
 		TNT1 AAAAAAAAAA 0 {
-			If(GetCvar("dmr_fancydoom")) {
-				A_SpawnItemEx("DMR_LargeSmokeLongCloud",random(-2,2),random(-2,2),random(10,20),frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(1,3));
-				A_SpawnItemEx("DMR_LargeSmokeLongCloud",random(-2,2),random(-2,2),random(10,20),frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(1,3));
-				A_SpawnItemEx("DMR_XLSmokeLongCloud",random(-2,2),random(-2,2),random(10,20),frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(1,3)); 
-			}
+			A_SpawnItemEx("DMR_LargeSmokeLongCloud",random(-2,2),random(-2,2),random(10,20),frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(1,3));
+			A_SpawnItemEx("DMR_LargeSmokeLongCloud",random(-2,2),random(-2,2),random(10,20),frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(1,3));
+			A_SpawnItemEx("DMR_XLSmokeLongCloud",random(-2,2),random(-2,2),random(10,20),frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(1,3)); 
 		}	
         ZPTK K 8 A_Fall;
         ZPTK LMN 8;
@@ -97,7 +95,7 @@ class ZombiePlasmaTankPlasma : DMR_ArachnotronPlasma
 	{
 	Spawn:
 		APLS AABB 3 Bright  {
-			If(GetCvar("dmr_fancydoom")) { A_SpawnItemEx("DMR_PlasmaTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5)); }
+			A_SpawnItemEx("DMR_PlasmaTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5));
 		}
 		Loop;
 	Death:

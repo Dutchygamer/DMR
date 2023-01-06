@@ -12,9 +12,7 @@ class DMR_MonsterDeathExplosion : Actor
 	Spawn:
 		TNT1 A 0 NoDelay A_PlaySound("weapons/rocklx",1);
 		TNT1 AAAAAAAAAAAAAA 0 {
-			If(GetCvar("dmr_fancydoom")) {
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-			}
+			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 		}
 		MISL B 8 Bright;
 		MISL C 6 Bright;
@@ -34,9 +32,7 @@ class DMR_MonsterExplosion : DMR_MonsterDeathExplosion
 	Spawn:
 		TNT1 A 0 NoDelay A_PlaySound("weapons/rocklx",1);
 		TNT1 AAAAAAAAAAAAAA 0 {
-			If(GetCvar("dmr_fancydoom")) {
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-			}
+			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 		}
 		MISL B 8 Bright;
 		MISL C 6 Bright;
@@ -56,9 +52,7 @@ class DMR_SilentMonsterExplosion : DMR_MonsterDeathExplosion
 	{
 	Spawn:
 		TNT1 AAAAAAAAAAAAAA 0 {
-			If(GetCvar("dmr_fancydoom")) {
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-			}
+			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 		}
 		MISL B 8 Bright;
 		MISL C 6 Bright;
@@ -78,10 +72,8 @@ class DMR_BossMonsterExplosion : DMR_MonsterDeathExplosion
 	Spawn:
 		TNT1 A 0 NoDelay A_PlaySound("darkinquisitor/bigdeathexpl",1);
 		TNT1 AAAAAAAAAAAAAA 0 {
-			If(GetCvar("dmr_fancydoom")) {
-				A_SpawnItemEx("DMR_LargeFireBouncingDebris",random(-2,2),random(-2,2),random(2,4),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(2,4),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-			}
+			A_SpawnItemEx("DMR_LargeFireBouncingDebris",random(-2,2),random(-2,2),random(2,4),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(2,4),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 		}
 		GRNE ABCDEFGHIJKLMN 3 Bright A_BossDeath;
 		Stop;

@@ -91,7 +91,7 @@ class GuardShot : DoomImpBall
 	{
 	Spawn:
 		CBAL AB 3 Bright {
-			If(GetCvar("dmr_fancydoom")) { A_SpawnItemEx("CubePuff",0,0,0,0,0,0); }
+			A_SpawnItemEx("CubePuff",0,0,0,0,0,0);
 		}
 		loop;
 	Death:

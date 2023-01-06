@@ -30,17 +30,13 @@ class DMR_Rocket : Rocket
 	{
 	Spawn:
 		MISL A 1 Bright {
-			If(GetCvar("dmr_fancydoom")) {
-				A_SpawnItemEx("DMR_MediumFireballTrail",-25,0,5,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-				A_SpawnItemEx("DMR_MediumSmokeCloud",-25,0,5,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			}
+			A_SpawnItemEx("DMR_MediumFireballTrail",-25,0,5,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_MediumSmokeCloud",-25,0,5,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 		}
 		Loop;
 	Death:
 		TNT1 AAAAAAAAAAAAAA 0 {
-			If(GetCvar("dmr_fancydoom")) {
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-			}
+			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 		}
 		MISL B 8 Bright A_Explode(128,128);
 		MISL C 6 Bright;
@@ -61,18 +57,14 @@ class DMR_SmallRocket : DMR_Rocket
 	{
 	Spawn:
 		MISL A 1 Bright {
-			If(GetCvar("dmr_fancydoom")) {
-				A_SpawnItemEx("DMR_FireballTrail",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-				A_SpawnItemEx("DMR_SmokeCloud",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			}
+			A_SpawnItemEx("DMR_FireballTrail",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_SmokeCloud",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 		}
 		Loop;
 	Death:
 		TNT1 A 0 A_SetScale(1.0);
 		TNT1 AAAAAAAAAA 0 {
-			If(GetCvar("dmr_fancydoom")) {
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-			}
+			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 		}
 		MISL B 8 Bright A_Explode(96,96);
 		MISL C 6 Bright;
@@ -145,10 +137,8 @@ class DMR_ClusterSubProjectile : actor
 		}
 		TNT1 A 0 A_JumpIf(fuelLevel < 1,"Death");
 		HMIS A 1 Bright {
-			If(GetCvar("dmr_fancydoom")) {
-				If(fuelLevel > 20) { //stop fire exhaust if fuel is running low 
-					A_SpawnItemEx("DMR_FireballTrail",-25,0,1,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-				}
+			If(fuelLevel > 20) { //stop fire exhaust if fuel is running low 
+				A_SpawnItemEx("DMR_FireballTrail",-25,0,1,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 			}
 			fuelLevel = fuelLevel-1; //decrease fuel lifetime
 		}
@@ -161,12 +151,10 @@ class DMR_ClusterSubProjectile : actor
 		TNT1 A 0 A_JumpIf(fuelLevel < 1,"Death");
 		HMIS A 1 Bright { 
 			A_SeekerMissile(1,6,SMF_PRECISE); 
-			If(GetCvar("dmr_fancydoom")) {
-				If(fuelLevel > 20) { //stop fire exhaust if fuel is running low 
-					A_SpawnItemEx("DMR_FireballTrail",-25,0,1,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-				}
-				A_SpawnItemEx("DMR_SmokeCloud",-25,0,1,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			If(fuelLevel > 20) { //stop fire exhaust if fuel is running low 
+				A_SpawnItemEx("DMR_FireballTrail",-25,0,1,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 			}
+			A_SpawnItemEx("DMR_SmokeCloud",-25,0,1,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 			fuelLevel = fuelLevel-1; //decrease fuel lifetime
 		}
 		HMIS A 1 BRIGHT A_Weave(random(1,2), random(1,2), frandom(0.5,1.5), frandom(0.5,1.5));
@@ -177,9 +165,7 @@ class DMR_ClusterSubProjectile : actor
 			A_PlaySound("skeleton/tracex",2);
 		}
 		TNT1 AAA 0 {
-			If(GetCvar("dmr_fancydoom")) { 
-				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
-			}
+			A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
 		}
 		FBXP A 8 Bright;
 		FBXP B 6 Bright;

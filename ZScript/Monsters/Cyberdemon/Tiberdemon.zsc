@@ -129,9 +129,7 @@ class TiberiumFlechette : DMR_Rocket
 	{
 	Spawn:
 		TSRD A 1 Bright {
-			If(GetCvar("dmr_fancydoom")) {
-				A_SpawnItemEx("TiberiumFlechetteTrail",-20,0,1); 
-			}
+			A_SpawnItemEx("TiberiumFlechetteTrail",-20,0,1); 
 		}
 		Loop;
 	Death:
@@ -179,7 +177,7 @@ class TiberiumSuperPlasma : BFGBall
 	{
 	Spawn:
 		TBBL ABCDEFGHIJKLMN 2 Bright {
-			If(GetCvar("dmr_fancydoom")) { A_SpawnItemEx("TiberiumSuperPlasmaTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); }
+			A_SpawnItemEx("TiberiumSuperPlasmaTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}
 		Loop;
 	Death:

@@ -98,7 +98,7 @@ class BruiserPlasmaRune : BaronBall
 			A_SeekerMissile(1, 1);
 			A_Weave(frandom(1,2.5), frandom(1,2.5), frandom(0.7,1.2), frandom(0.7,1.2));
 			A_SetRoll(roll+15);
-			If(GetCvar("dmr_fancydoom")) { A_SpawnItemEx("DMR_PlasmaRuneTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5)); }			
+			A_SpawnItemEx("DMR_PlasmaRuneTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5));
 		}
 		Loop;
 	Death:

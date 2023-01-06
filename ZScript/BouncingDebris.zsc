@@ -3,13 +3,12 @@
 ///////////////////////
 //these should not be used by any projectile; they acts like the main definition and copy/paste example
 
-//bouncing FX
-class DMR_BouncingDebris : Actor
+// bouncing FX
+class DMR_BouncingDebris : DMR_FXBase
 {
 	Default
 	{
 		+MISSILE;
-		+FORCEXYBILLBOARD;
 		+THRUACTORS;
 		+NOTELEPORT;
 		+DONTSPLASH;

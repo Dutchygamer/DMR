@@ -77,10 +77,8 @@ class IncubatorToxinBall : CacolichToxinBall
 	{
 	Death:
 		TNT1 AAAA 0 {
-			If(GetCvar("dmr_fancydoom")) { 
-				A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_GasBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-			}
+			A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+			A_SpawnItemEx("DMR_GasBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
 		HECF C 4 Bright A_Explode(15,56);
 		TNT1 A 0 {		

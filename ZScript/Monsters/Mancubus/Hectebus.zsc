@@ -100,7 +100,7 @@ class HectebusBall : DMR_FatShot
 	{
 	Spawn:
 		FHED ABCD 3 Bright {
-			If(GetCvar("dmr_fancydoom")) { A_SpawnItemEx("DMR_RedPuffTrail",0,0,5); }
+			A_SpawnItemEx("DMR_RedPuffTrail",0,0,5);
 		}
 		loop;
 	Death:

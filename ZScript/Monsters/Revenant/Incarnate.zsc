@@ -98,19 +98,14 @@ class IncarnateTracer : DMR_RevenantTracer
 		FATB AB 2 Bright {
 			// 16.875 should be the same value as the vDoom Revenant fireball homing thingmajing
 			// however, we need to divide that by two again to account for the 50/50 chance of homing or not
-			A_SeekerMissile(1,8,SMF_PRECISE|SMF_CURSPEED); 
-			If(GetCvar("dmr_fancydoom")) {
-				A_SpawnItemEx("DMR_FireballTrail",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			}
-			//always show the smoke, ignoring the config
+			A_SeekerMissile(1,8,SMF_PRECISE|SMF_CURSPEED);
+			A_SpawnItemEx("DMR_FireballTrail",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 			
 			A_SpawnItemEx("DMR_SmokeCloud",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 		}
 		Loop;
 	Death:
 		TNT1 AAA 0 {
-			If(GetCvar("dmr_fancydoom")) { 
-				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
-			}
+			A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
 		}
 		FBXP A 8 Bright;
 		FBXP B 6 Bright;

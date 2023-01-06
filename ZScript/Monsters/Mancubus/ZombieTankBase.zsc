@@ -34,10 +34,8 @@ class ZombieTankExplosion : DMR_MonsterDeathExplosion
 	Spawn:
 		TNT1 A 0 NoDelay A_PlaySound("ZombieTank/explode",1);
 		TNT1 AAAAAAAAAAAAAA 0 {
-			If(GetCvar("dmr_fancydoom")) {
-				A_SpawnItemEx("DMR_LargeFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-			}
+			A_SpawnItemEx("DMR_LargeFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 		}
 		ZTXP ABCDEFGHIJKLM 2 BRIGHT;
 		ZTXP N 2 BRIGHT A_SetTranslucent(.7, 1);

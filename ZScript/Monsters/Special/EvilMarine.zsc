@@ -92,15 +92,13 @@ class EvilMarinePlasmaBall : Actor
 	{
  	Spawn:
 		PLSS AAABBB 2 Bright {
-			If(GetCvar("dmr_fancydoom")) { A_SpawnItemEx("DMR_EvilMarinePlasmaTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5)); }
+			A_SpawnItemEx("DMR_EvilMarinePlasmaTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5));
 		}
 		Loop;
 	Death:
 		/*TNT1 AAAA 0 {
-			If(GetCvar("dmr_fancydoom")) { 
-				A_SpawnItemEx("MediumGreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("MediumGreenFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-			}
+			A_SpawnItemEx("MediumGreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+			A_SpawnItemEx("MediumGreenFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}*/
 		PLSE ABCDE 4 Bright;
 		Stop;

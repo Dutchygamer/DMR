@@ -90,17 +90,13 @@ class NetherImpBall : DMR_DoomImpBall
     {
     Spawn:
         IBAL AABB 2 Bright {
-			If(GetCvar("dmr_fancydoom")) { 
-				A_SpawnItemEx("NetherImpBallTrail",-5,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			}
+			A_SpawnItemEx("NetherImpBallTrail",-5,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 		}		
         Loop;
     Death:
 		TNT1 AA 0 {
-			If(GetCvar("dmr_fancydoom")) { 
-				A_SpawnItemEx("DMR_GreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_GreenFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-			}
+			A_SpawnItemEx("DMR_GreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+			A_SpawnItemEx("DMR_GreenFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
         IBAL CDE 4 Bright;
         Stop;

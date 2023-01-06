@@ -95,22 +95,16 @@ class InfernalBall : DMR_CacodemonBall
 	{
 	Spawn: 
 		BAL3 AABB 2 {
-			If(GetCvar("dmr_fancydoom")) { 
-				A_SpawnItemEx("DMR_FireballTrail",-7,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
-				A_SpawnItemEx("DMR_RedPuffTrail",0,0,0,0,0,0,0,128,0);
-			}
+			A_SpawnItemEx("DMR_FireballTrail",-7,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
+			A_SpawnItemEx("DMR_RedPuffTrail",0,0,0,0,0,0,0,128,0);
 		}
 		loop;
 	Death:
 		TNT1 AAA 0 {
-			If(GetCvar("dmr_fancydoom")) { 
-				A_SpawnItemEx("DMR_FireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-			}
+			A_SpawnItemEx("DMR_FireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
 		}
 		TNT1 AAAAA 0 {
-			If(GetCvar("dmr_fancydoom")) { 
-				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-			}
+			A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
 		BAL3 C 5 A_Explode(20,64,0);
 		BAL3 DE 5;

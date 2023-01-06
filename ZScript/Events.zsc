@@ -32,3 +32,16 @@ class DMR_ReplacerHandler : EventHandler
 		}
 	}
 }
+
+class DMR_EffectHandler : EventHandler
+{
+	override void WorldThingSpawned(WorldEvent a)
+	{
+		// if fancy effects are disabled, nuke them when they spawn
+		// this is a generic catch-all instead of having to do every time we spawn, thus eating up more CPU
+		if (dmr_fancydoom == false && a.thing && a.thing is "DMR_FXBase")
+		{
+			a.thing.Destroy();
+		}
+	}
+}

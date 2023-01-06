@@ -1,4 +1,4 @@
 GameInfo
 {
-	AddEventHandlers = "DMR_ReplacerHandler"
+	AddEventHandlers = "DMR_ReplacerHandler", "DMR_EffectHandler"
 }

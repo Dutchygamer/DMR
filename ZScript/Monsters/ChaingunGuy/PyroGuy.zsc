@@ -100,19 +100,14 @@ Class PyroGuyShot : FatShot
 	{
 	Spawn:
 		SXAL ABC 4 Bright {
-			If(GetCvar("dmr_fancydoom")) 
-			{ 
-				A_SpawnItemEx("DMR_MediumFireballTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-				A_SpawnItemEx("DMR_FireballTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1));
-			}
+			A_SpawnItemEx("DMR_MediumFireballTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_FireballTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}
 		Loop;
 	Death:
 		TNT1 AAAAA 0 {
-			If(GetCvar("dmr_fancydoom")) { 
-				A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-			}
+			A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
 		SXAL DEFGH 3 Bright;
 		Stop;

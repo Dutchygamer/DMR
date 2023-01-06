@@ -91,7 +91,7 @@ class SoulHarvesterBall : Actor
 	{
 	Spawn:
 		TNT1 A 0 {
-			If(GetCvar("dmr_fancydoom")) { A_SpawnItemEx("DMR_SoulBallTrail",0,0,0,0,0,0,180); }
+			A_SpawnItemEx("DMR_SoulBallTrail",0,0,0,0,0,0,180);
 		}		
 		SHBA AB 2 Bright A_SeekerMissile(10,20);
 		Loop;

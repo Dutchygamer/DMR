@@ -85,17 +85,13 @@ class VulgarShot : DMR_DoomImpBall
 	{
 	Spawn:
 		FVUL AABB 2 Bright {
-			If(GetCvar("dmr_fancydoom")) { 
-				A_SpawnItemEx("DMR_SmallGasTrail",-2,0,3,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,0.5)); 
-			}
+			A_SpawnItemEx("DMR_SmallGasTrail",-2,0,3,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,0.5)); 
 		}
 		loop;
 	Death:
 		TNT1 AAA 0 {
-			If(GetCvar("dmr_fancydoom")) { 
-				A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_GasBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-			}
+			A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+			A_SpawnItemEx("DMR_GasBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
 		FVUL CDEF 4 Bright;
 		stop;
@@ -117,17 +113,13 @@ class VulgarGasShot : DMR_DoomImpBall
 	{
 	Spawn:
 		HECF AABB 2 Bright {
-			If(GetCvar("dmr_fancydoom")) { 
-				A_SpawnItemEx("DMR_SmallGasTrail",-2,0,3,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,0.5)); 
-			}
+			A_SpawnItemEx("DMR_SmallGasTrail",-2,0,3,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,0.5)); 
 		}
 		loop;
 	Death:
 		TNT1 AAAA 0 {
-			If(GetCvar("dmr_fancydoom")) { 
-				A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_GasBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-			}
+			A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+			A_SpawnItemEx("DMR_GasBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
 		HECF C 4 Bright A_Explode(8,56);
 		TNT1 A 0 {	

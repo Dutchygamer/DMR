@@ -3,13 +3,22 @@
 ///////////////////////
 //these should not be used by any projectile; they acts like the main definition and copy/paste example
 
-//non-blocking FX trail
-class DMR_ProjectileTrail : Actor
+
+// base class so we can do some creativity for all 'fancy' effects
+class DMR_FXBase : Actor
+{
+	Default
+	{
+		+FORCEXYBILLBOARD;
+	}
+}
+
+// non-blocking FX trail
+class DMR_ProjectileTrail : DMR_FXBase
 {
 	Default
 	{
 		+NOINTERACTION;
-		+FORCEXYBILLBOARD;
 		+DONTSPLASH;
 		RenderStyle "Add";
 	}
@@ -24,7 +33,7 @@ class DMR_ProjectileTrail : Actor
 	}
 }
 
-//fire trail
+// fire trail
 class DMR_FireballTrail : DMR_ProjectileTrail
 {
 	Default
