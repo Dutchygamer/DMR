@@ -185,12 +185,12 @@ Class DMR_FlamethrowerBall: Actor
 	{
 		Radius 4;
 		Height 4;
-		Speed 13; //16;
+		Speed 13;
 		Projectile;
 		RenderStyle "Add";
 		DamageType "Fire";
 		Alpha 0.67;
-		Scale 0.4; //0.7;
+		Scale 0.4;
 		+THRUACTORS;
 		+BRIGHT
 		+NODAMAGETHRUST;
@@ -212,7 +212,9 @@ Class DMR_FlamethrowerBall: Actor
 				dmgtic = 0;
 			}		
 		}
-		FRFX LLMMNNOO 1;
+		FRFX LLMMNNOO 1 {
+			A_SetScale(Scale.X + 0.03);
+		}
 		Stop;
 	}
 	
@@ -255,7 +257,9 @@ class DMR_FlamethrowerBallLarge : DMR_FlamethrowerBall
 				dmgtic = 0;
 			}		
 		}
-		FRFX LLMMNNOO 1;
+		FRFX LLMMNNOO 1 {
+			A_SetScale(Scale.X + 0.03);
+		}
 		Stop;
 	}
 }

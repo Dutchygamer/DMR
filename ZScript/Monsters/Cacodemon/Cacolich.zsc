@@ -129,7 +129,6 @@ class CacolichToxinBall : DMR_CacodemonBall
 	Default
 	{
 		DamageFunction(random(10,30));
-		//DamageFunction(random(12,36));
 		DamageType "ToxinCloud";
 		Scale 0.9;
 		Seesound "poly/stmdr1";
@@ -181,7 +180,9 @@ class CacolichToxinSpray : DMR_FlamethrowerBall
 				dmgtic = 0;
 			}		
 		}
-		GAS2 KKLLMMNN 1;
+		GAS2 KKLLMMNN 1 {
+			A_SetScale(Scale.X + 0.03);
+		}
 		Stop;
 	}
 }
