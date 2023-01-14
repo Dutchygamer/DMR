@@ -176,7 +176,7 @@ class CacolichToxinSpray : DMR_FlamethrowerBall
 			dmgtic++;
 			if(dmgtic >= 3)
 			{
-				A_Explode(2,32);
+				A_Explode(3,32);
 				dmgtic = 0;
 			}		
 		}
