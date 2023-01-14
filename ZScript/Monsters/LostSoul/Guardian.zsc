@@ -24,6 +24,8 @@ class Guardian : DMR_LostSoul
 		Obituary "%o got fried by a Guardian.";
 		+NOBLOOD;
 		+NOICEDEATH;
+		-ZDOOMTRANS;
+		+DONTHARMSPECIES;
 		SeeSound "guardian/see";
 		PainSound "weapons/bounc1";
 		Activesound "guardian/active";
