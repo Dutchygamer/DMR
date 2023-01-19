@@ -33,26 +33,16 @@ class Tiberdemon : DMR_Cyberdemon
 		DCYB AB 10 A_Look;
 		Loop;
 	See:
-		DCYB A 3 {
+		DCYB A 3 {		
 			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
-			A_Chase();
 			A_Hoof();
 		}
-		DCYB A 3 {
-			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
-			A_Chase();
-		}
-		DCYB BB 3 {
-			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
-			A_Chase();
-		}
-		DCYB CC 3 {
+		DCYB ABBCC 3 {
 			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
 			A_Chase();
 		}
 		DCYB D 3 {
 			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
-			A_Chase();
 			A_Metal();
 		}
 		DCYB D 3 {
