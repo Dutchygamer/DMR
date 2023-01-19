@@ -50,6 +50,9 @@ class SuicideGuyExplosive : Actor //don't inherit from Zombieman (or related)
 		Goto See;
 	Death:
 	XDeath:
+		TNT1 AAAAAAAAAA 0 {
+			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+		}
 		BMBE M 0 A_Explode (50, 128, XF_NOTMISSILE);
 		BMBE M 5 bright A_PlaySound ("weapons/rocklx");
 		BMBE N 5 bright A_XScream;
