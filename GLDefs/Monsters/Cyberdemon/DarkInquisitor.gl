@@ -1,4 +1,4 @@
-object CoreDefenderLaser
+object CoreDefenderObeliskLaser
 {
 	frame BFE1A { light DMR_LASER_X1 }
     frame BFE1B { light DMR_LASER_X2 }
@@ -8,7 +8,7 @@ object CoreDefenderLaser
     frame BFE1F { light DMR_LASER_X3 }
 }
 
-object CoreDefenderLaserTrail
+object CoreDefenderObeliskLaserTrail
 {
 	frame TEFXB { light DMR_LASER }
 }
