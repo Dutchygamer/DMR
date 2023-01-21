@@ -72,10 +72,4 @@ class BeamRevenantLaser : DMR_LaserBase
 	}
 }
 
-class BeamRevenantLaserTrail : DMR_LaserTrailBase
-{
-	Default
-	{
-		//Translation "192:207=176:191";
-	}
-}
+class BeamRevenantLaserTrail : DMR_LaserTrailBase { }

@@ -65,10 +65,4 @@ class LaserSpiderLaser : DMR_LaserBase
 	}
 }
 
-class LaserSpiderLaserTrail : DMR_LaserTrailBase
-{
-	Default
-	{
-		//Translation "192:207=176:191";
-	}
-}
+class LaserSpiderLaserTrail : DMR_LaserTrailBase { }
