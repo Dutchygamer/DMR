@@ -25,7 +25,7 @@ class CoreDefender : DMR_Cyberdemon
 		ActiveSound "darkinquisitor/active";
 		DeathSound "darkinquisitor/death";
 		PainSound "darkinquisitor/pain";
-		Obituary "%o was executed by a core defender.";		
+		Obituary "%o was made a slave to the system.";		
 	}
 	int explode;
 	
