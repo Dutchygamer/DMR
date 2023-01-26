@@ -105,6 +105,9 @@ class BlueTiberdemon : DMR_Cyberdemon
 		}
 		CARD D 12 A_SpawnProjectile("TiberiumBlueSuperPlasma",72,-25,0);
 		Goto See;
+	Pain:
+		CARD E 10 A_Pain;
+		Goto See;
 	Death:
 		TNT1 A 0 {
 			bFloatBob = false;
@@ -126,7 +129,7 @@ class TiberiumBlueFlechette : TiberiumFlechette
 	States
 	{
 	Spawn:
-		BSRD A 1 Bright {
+		BSRD A 1 Bright Light("DMR_BTIBSHARD") {
 			A_SpawnItemEx("TiberiumBlueFlechetteTrail",-20,0,1); 
 		}
 		Loop;
@@ -135,9 +138,10 @@ class TiberiumBlueFlechette : TiberiumFlechette
 			A_SetRenderStyle(1.0, STYLE_Add);
 			A_SetScale(1.5);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_Explode(48,96);
 		}
-		BSDE A 3 Bright A_Explode(48,96);
-		BSDE BCDEFG 3 Bright;
+		TSDE ABC 3 Bright Light("DMR_BTIBSHARD_X1"); 
+		TSDE EFG 3 Bright Light("DMR_BTIBSHARD_X2");
 		Stop;
 	}
 }
@@ -167,14 +171,20 @@ class TiberiumBlueSuperPlasma : TiberiumSuperPlasma
 	States
 	{
 	Spawn:
-		TBBL ABCDEFGHIJKLMN 2 Bright {
+		TBBL ABCDEFGHIJKLMN 2 Bright Light("DMR_BTIBBAL") {
 			A_SpawnItemEx("BlueTiberiumSuperPlasmaTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}
 		Loop;
 	Death:
-		TNT1 A 0 A_SetScale(2.5);
-		ARCB J 3 Bright A_Explode(160,96);
-		ARCB KLMN 3 Bright;
+		TNT1 A 0 {
+			A_SetScale(2.5);
+			A_Explode(160,96);
+		}
+		ARCB JJJ 1 Bright Light("DMR_BTIBBAL_X1");
+		ARCB KKK 1 Bright Light("DMR_BTIBBAL_X2");
+		ARCB LLL 1 Bright Light("DMR_BTIBBAL_X3");
+		ARCB MMM 1 Bright Light("DMR_BTIBBAL_X4");
+		ARCB NNN 1 Bright Light("DMR_BTIBBAL_X5");
 		Stop;
 	}
 }

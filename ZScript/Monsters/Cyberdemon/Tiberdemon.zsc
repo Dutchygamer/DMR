@@ -114,7 +114,7 @@ class TiberiumFlechette : DMR_Rocket
 	States
 	{
 	Spawn:
-		TSRD A 1 Bright {
+		TSRD A 1 Bright Light("DMR_TIBSHARD") {
 			A_SpawnItemEx("TiberiumFlechetteTrail",-20,0,1); 
 		}
 		Loop;
@@ -123,9 +123,10 @@ class TiberiumFlechette : DMR_Rocket
 			A_SetRenderStyle(1.0, STYLE_Add);
 			A_SetScale(1.5);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_Explode(32,64);
 		}
-		TSDE A 3 Bright A_Explode(32,64);
-		TSDE BCDEFG 3 Bright;
+		TSDE ABC 3 Bright Light("DMR_TIBSHARD_X1"); 
+		TSDE EFG 3 Bright Light("DMR_TIBSHARD_X2");
 		Stop;
 	}
 }
@@ -147,30 +148,39 @@ class TiberiumFlechetteTrail : DMR_ProjectileTrail
 }
 
 //BFG
-class TiberiumSuperPlasma : BFGBall
+class TiberiumSuperPlasma : DMR_Projectile
 {
 	Default
 	{
-		DamageFunction(random(60,180));
+		Radius 13;
+		Height 8;
 		Speed 22;
-		+ExtremeDeath;
-		Alpha 1.0;
+		DamageFunction(random(60,180));
+		+RANDOMIZE
+		+EXTREMEDEATH;
+		RenderStyle "Add";
 		SeeSound "Thamuz/TibBall";
 		DeathSound "q2weapon/bfgballexplo";
-		Scale 3.0; //2.5
+		Scale 3.0;
 		Decal "BFGLightning";
 	}
 	States
 	{
 	Spawn:
-		TBBL ABCDEFGHIJKLMN 2 Bright {
+		TBBL ABCDEFGHIJKLMN 2 Bright Light("DMR_TIBBAL") {
 			A_SpawnItemEx("TiberiumSuperPlasmaTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}
 		Loop;
 	Death:
-		TNT1 A 0 A_SetScale(2.5);
-		ARCB J 3 Bright A_Explode(140,96);
-		ARCB KLMN 3 Bright;
+		TNT1 A 0 {
+			A_SetScale(2.5);
+			A_Explode(140,96);
+		}
+		ARCB JJJ 1 Bright Light("DMR_TIBBAL_X1");
+		ARCB KKK 1 Bright Light("DMR_TIBBAL_X2");
+		ARCB LLL 1 Bright Light("DMR_TIBBAL_X3");
+		ARCB MMM 1 Bright Light("DMR_TIBBAL_X4");
+		ARCB NNN 1 Bright Light("DMR_TIBBAL_X5");
 		Stop;
 	}
 }

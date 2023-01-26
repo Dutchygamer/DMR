@@ -135,6 +135,9 @@ class TerminatorAutoCannon : DMR_Rocket
 		}
 		Loop;
 	Death:
+		TNT1 A 0 {
+			A_SetRenderStyle(1.0,STYLE_Add);
+		}
 		TNT1 AAAAAAAAAA 0 {			
 			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 		}
