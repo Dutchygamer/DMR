@@ -1,20 +1,10 @@
-//DMR_SmallRocket
-object DMR_SmallRocket 
-{
-    frame MISLA { light DMR_SROCKET }
-
-    frame MISLB { light DMR_SROCKET_X1 }
-    frame MISLC { light DMR_SROCKET_X2 }
-    frame MISLD { light DMR_SROCKET_X3 }
-}
-
 //DMR_FlamethrowerBall
 flickerlight DMR_FLAMETHROWER_X1
 {
     color 0.8 0.5 0.1
     size 40
     secondarySize 50
-    chance 32
+    chance 0.3
 }
 
 flickerlight DMR_FLAMETHROWER_X2
@@ -22,7 +12,7 @@ flickerlight DMR_FLAMETHROWER_X2
     color 0.8 0.5 0.1
     size 60
     secondarySize 72
-    chance 32
+    chance 0.3
 }
 
 flickerlight DMR_FLAMETHROWER_X3
@@ -30,7 +20,7 @@ flickerlight DMR_FLAMETHROWER_X3
     color 0.4 0.2 0.1
     size 50
     secondarySize 65
-    chance 32
+    chance 0.3
 }
 
 object DMR_FlamethrowerBall
@@ -58,7 +48,7 @@ flickerlight DMR_FLAMETHROWERLARGE_X1
     color 0.8 0.5 0.1
     size 50
     secondarySize 65
-    chance 32
+    chance 0.3
 }
 
 flickerlight DMR_FLAMETHROWERLARGE_X2
@@ -66,7 +56,7 @@ flickerlight DMR_FLAMETHROWERLARGE_X2
     color 0.8 0.5 0.1
     size 75
     secondarySize 90
-    chance 32
+    chance 0.3
 }
 
 flickerlight DMR_FLAMETHROWERLARGE_X3
@@ -74,7 +64,7 @@ flickerlight DMR_FLAMETHROWERLARGE_X3
     color 0.4 0.2 0.1
     size 65
     secondarySize 85
-    chance 32
+    chance 0.3
 }
 
 object DMR_FlamethrowerBallLarge
@@ -102,14 +92,14 @@ flickerlight DMR_HEAT_X1
     color 0.8 0.4 0.1
     size 60
     secondarySize 72
-    chance 32
+    chance 0.3
 }
 flickerlight DMR_HEAT_X2
 {
     color 1.0 0.5 0.1
     size 75
     secondarySize 90
-    chance 32
+    chance 0.3
 }
 
 flickerlight DMR_HEAT_X3
@@ -117,7 +107,7 @@ flickerlight DMR_HEAT_X3
     color 0.4 0.2 0.1
     size 50
     secondarySize 65
-    chance 32
+    chance 0.3
 }
 
 object DMR_FlamethrowerExplode
@@ -152,14 +142,14 @@ flickerlight DMR_HEATLARGE_X1
     color 0.8 0.4 0.1
     size 72
     secondarySize 90
-    chance 32
+    chance 0.3
 }
 flickerlight DMR_HEATLARGE_X2
 {
     color 1.0 0.5 0.1
     size 95
     secondarySize 115
-    chance 32
+    chance 0.3
 }
 
 flickerlight DMR_HEATLARGE_X3
@@ -167,7 +157,7 @@ flickerlight DMR_HEATLARGE_X3
     color 0.4 0.2 0.1
     size 70
     secondarySize 85
-    chance 32
+    chance 0.3
 }
 
 object DMR_FlamethrowerExplodeLarge
@@ -201,7 +191,6 @@ pointlight DMR_ROCKET
 {
     color 1.0 0.7 0.0
     size 84
-	attenuate 1
 }
 
 flickerlight DMR_ROCKET_X1
@@ -210,7 +199,6 @@ flickerlight DMR_ROCKET_X1
     size 96
     secondarySize 108
     chance 0.3
-	attenuate 1
 }
 
 flickerlight DMR_ROCKET_X2
@@ -219,7 +207,6 @@ flickerlight DMR_ROCKET_X2
     size 120
     secondarySize 132
     chance 0.3
-	attenuate 1
 }
 
 flickerlight DMR_ROCKET_X3
@@ -228,16 +215,6 @@ flickerlight DMR_ROCKET_X3
     size 144
     secondarySize 156
     chance 0.3
-	attenuate 1
-}
-
-object DMR_Rocket
-{
-    frame MISLA { light DMR_ROCKET }
-
-    frame MISLB { light DMR_ROCKET_X1 }
-    frame MISLC { light DMR_ROCKET_X2 }
-    frame MISLD { light DMR_ROCKET_X3 }
 }
 
 //smaller DMR_Rocket
@@ -245,7 +222,6 @@ pointlight DMR_SROCKET
 {
     color 1.0 0.7 0.0
     size 64
-	attenuate 1
 }
 
 flickerlight DMR_SROCKET_X1
@@ -254,7 +230,6 @@ flickerlight DMR_SROCKET_X1
     size 80
     secondarySize 96
     chance 0.3
-	attenuate 1
 }
 
 flickerlight DMR_SROCKET_X2
@@ -263,7 +238,6 @@ flickerlight DMR_SROCKET_X2
     size 120
     secondarySize 132
     chance 0.3
-	attenuate 1
 }
 
 flickerlight DMR_SROCKET_X3
@@ -272,7 +246,16 @@ flickerlight DMR_SROCKET_X3
     size 96
     secondarySize 156
     chance 0.3
-	attenuate 1
+}
+
+//DMR_SmallRocket
+object DMR_SmallRocket 
+{
+    frame MISLA { light DMR_SROCKET }
+
+    frame MISLB { light DMR_SROCKET_X1 }
+    frame MISLC { light DMR_SROCKET_X2 }
+    frame MISLD { light DMR_SROCKET_X3 }
 }
 
 //laser
@@ -280,28 +263,24 @@ pointlight DMR_LSRCHARGE1
 {
     color 0.6 0.1 0.1
     size 64
-	attenuate 1
 }
 
 pointlight DMR_LSRCHARGE2
 {
     color 0.8 0.05 0.05
     size 88
-	attenuate 1
 }
 
 pointlight DMR_LSRCHARGE3
 {
     color 1.0 0.0 0.0
     size 88
-	attenuate 1
 }
 
 pointlight DMR_LASER
 {
     color 1.0 0.0 0.0
     size 40
-	attenuate 1
 }
 
 flickerlight DMR_LASER_X1
@@ -310,7 +289,6 @@ flickerlight DMR_LASER_X1
     size 50
     secondarySize 80
     chance 0.25
-	attenuate 1
 }
 
 flickerlight DMR_LASER_X2
@@ -319,7 +297,6 @@ flickerlight DMR_LASER_X2
     size 65
     secondarySize 100
     chance 0.25
-	attenuate 1
 }
 
 flickerlight DMR_LASER_X3
@@ -328,5 +305,152 @@ flickerlight DMR_LASER_X3
     size 90
     secondarySize 135
     chance 0.25
-	attenuate 1
+}
+
+// TiberiumShard
+flickerlight DMR_TIBSHARD
+{
+    color 0.1 0.4 0.1
+    size 50
+    secondarySize 56
+    chance 0.3
+}
+
+flickerlight DMR_TIBSHARD_X1
+{
+    color 0.1 0.4 0.1
+    size 65
+    secondarySize 75
+    chance 0.3
+}
+
+flickerlight DMR_TIBSHARD_X2
+{
+    color 0.1 0.4 0.1
+    size 45
+    secondarySize 55
+    chance 0.3
+}
+
+// TiberiumSuperPlasma
+flickerlight DMR_TIBBAL
+{
+    color 0.5 1.0 0.5
+    size 90
+    secondarySize 100
+    chance 0.3
+}
+
+flickerlight DMR_TIBBAL_X1
+{
+    color 0.5 1.0 0.5
+    size 130
+    secondarySize 145
+    chance 0.3
+}
+
+flickerlight DMR_TIBBAL_X2
+{
+    color 0.6 1.0 0.6
+    size 115
+    secondarySize 125
+    chance 0.3
+}
+
+flickerlight DMR_TIBBAL_X3
+{
+    color 0.7 1.0 0.7
+    size 85
+    secondarySize 90
+    chance 0.3
+}
+
+flickerlight DMR_TIBBAL_X4
+{
+    color 0.4 0.7 0.4
+    size 75
+    secondarySize 85
+    chance 0.3
+}
+
+flickerlight DMR_TIBBAL_X5
+{
+    color 0.1 0.3 0.1
+    size 55
+    secondarySize 70
+    chance 0.3
+}
+
+// TiberiumBlueShard
+flickerlight DMR_BTIBSHARD
+{
+    color 0.1 0.1 0.4
+    size 50
+    secondarySize 56
+    chance 0.3
+}
+
+flickerlight DMR_BTIBSHARD_X1
+{
+    color 0.1 0.1 0.4
+    size 65
+    secondarySize 75
+    chance 0.3
+}
+
+flickerlight DMR_BTIBSHARD_X2
+{
+    color 0.1 0.1 0.4
+    size 45
+    secondarySize 55
+    chance 0.3
+}
+
+// TiberiumBlueSuperPlasma
+flickerlight DMR_BTIBBAL
+{
+    color 0.5 0.5 1.0
+    size 90
+    secondarySize 100
+    chance 0.3
+}
+
+flickerlight DMR_BTIBBAL_X1
+{
+    color 0.5 0.5 1.0
+    size 130
+    secondarySize 145
+    chance 0.3
+}
+
+flickerlight DMR_BTIBBAL_X2
+{
+    color 0.6 0.6 1.0
+    size 115
+    secondarySize 125
+    chance 0.3
+}
+
+flickerlight DMR_BTIBBAL_X3
+{
+    color 0.7 0.7 1.0
+    size 85
+    secondarySize 90
+    chance 0.3
+}
+
+flickerlight DMR_BTIBBAL_X4
+{
+    color 0.4 0.4 0.7
+    size 75
+    secondarySize 85
+    chance 0.3
+}
+
+flickerlight DMR_BTIBBAL_X5
+{
+    color 0.1 0.1 0.3
+    size 55
+    secondarySize 70
+    chance 0.3
 }
