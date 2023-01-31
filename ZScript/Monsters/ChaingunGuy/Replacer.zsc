@@ -7,6 +7,7 @@ Class ChaingunGuyReplacer: RandomSpawner replaces Chaingunguy
 		DropItem "RocketGuy", 255, 20;
 		DropItem "PyroGuy", 255, 10;
 		DropItem "VirusZombie", 255, 10;
+		DropItem "DemonPlasmaGuy", 255, 10;
 		DropItem "BFGGuy", 255, 4;
 	}
 }

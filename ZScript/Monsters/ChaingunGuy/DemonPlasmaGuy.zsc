@@ -1,0 +1,71 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Zrrion the insect
+//	Sounds:		DavidRaven, Id software
+//  Sprites: 	DE, Skulltag, Zrrion the insect
+//	GLDEFs: 	DavidRaven
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class DemonPlasmaGuy : DMR_ChaingunGuy
+{
+	Default
+	{
+		Tag "Plasma Commando";
+		Health 110;
+		PainChance 150;
+		+MISSILEMORE;
+		+MISSILEEVENMORE;
+		+DOHARMSPECIES //zombies are not plasma-proof
+		AttackSound "";
+		DropItem "Cell";
+		DropItem "PlasmaRifle", 10;
+		Obituary "%o was fried by a plasma commando.";
+	}
+ 	States
+	{
+	Spawn:
+		PNGZ AB 10 A_Look;
+		Loop;
+	See:
+		PNGZ AABBCCDD 4 A_Chase;
+		Loop;
+	Missile:
+		PNGZ E 10 A_FaceTarget;
+		PNGZ F 4 BRIGHT A_SpawnProjectile("AracKnightSpamPlasma");
+		PNGZ E 4 A_FaceTarget;
+		PNGZ F 4 BRIGHT A_SpawnProjectile("AracKnightSpamPlasma");
+		PNGZ E 4 A_FaceTarget;
+		PNGZ F 4 BRIGHT A_SpawnProjectile("AracKnightSpamPlasma");
+		PNGZ E 4 A_FaceTarget;
+		PNGZ F 4 BRIGHT A_SpawnProjectile("AracKnightSpamPlasma");
+		PNGZ E 4 A_FaceTarget;
+		PNGZ E 10 A_MonsterRefire(25, "See");
+		Goto Missile+1;
+	Pain:
+		PNGZ G 3;
+		PNGZ G 3 A_Pain;
+		Goto See;
+	Death:
+		PNGZ H 5;
+		PNGZ I 5 A_Scream;
+		PNGZ J 5 A_NoBlocking;
+		PNGZ K 5;
+		PNGZ L -1;
+		Stop;
+	XDeath:
+		PNGZ O 5;
+		PNGZ P 5 A_XScream;
+		PNGZ Q 5 A_NoBlocking;
+		PNGZ RSTU 5;
+		PNGZ V -1;
+		Stop;
+	Raise:
+		PNGZ KJIH 5;
+		Goto See;
+	}
+}

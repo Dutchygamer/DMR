@@ -41,6 +41,7 @@ version "4.2.1"
 #include "ZScript/Monsters/ChaingunGuy/BFGGuy.zsc"
 #include "ZScript/Monsters/ChaingunGuy/PyroGuy.zsc"
 #include "ZScript/Monsters/ChaingunGuy/VirusGirl.zsc"
+#include "ZScript/Monsters/ChaingunGuy/DemonPlasmaGuy.zsc"
 
 #include "ZScript/Monsters/DoomImp/Replacer.zsc"
 #include "ZScript/Monsters/DoomImp/DMR_DoomImp.zsc"
