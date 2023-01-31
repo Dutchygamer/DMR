@@ -17,7 +17,7 @@ class PlasmaZombieman : DMR_Zombieman
 	{
 		Tag "Plasma zombieman";
 		Health 55;
-		PainChance 100;
+		PainChance 185;
 		+MISSILEMORE
 		+DOHARMSPECIES //zombies are not plasma-proof
 		ATTACKSOUND "";
