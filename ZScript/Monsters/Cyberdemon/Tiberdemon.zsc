@@ -26,6 +26,7 @@ class Tiberdemon : DMR_Cyberdemon
 		DeathSound "TiberDemon/death";
 		ActiveSound "cyber/active"	;
 		Obituary "%o fell before an abomination.";
+		DamageFactor "ToxinCloud", 0.0;
 	}
 	States
 	{

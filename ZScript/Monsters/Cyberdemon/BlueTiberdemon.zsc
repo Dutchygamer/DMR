@@ -27,6 +27,7 @@ class BlueTiberdemon : DMR_Cyberdemon
 		DeathSound "TiberDemon/death";
 		ActiveSound "cyber/active";
 		Obituary "%o was destroyed by an enraged abomination.";
+		DamageFactor "ToxinCloud", 0.0;
 	}
 	States 
 	{ 
