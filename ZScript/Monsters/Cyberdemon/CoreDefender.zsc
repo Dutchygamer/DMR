@@ -208,7 +208,10 @@ class CoreDefenderObeliskLaser : DMR_LaserBase
 		TNT1 A 1;
 		Loop;
 	Death:
-		BFE1 A 8 Bright Light("DMR_LaserImpactBig_X1") A_Explode(108,48);
+		BFE1 A 8 Bright Light("DMR_LaserImpactBig_X1") {
+			A_Explode(108,48);
+			A_SpawnItemEx("DMR_LaserImpactFlareBig");
+		}
 		BFE1 BCD 8 Bright Light("DMR_LaserImpactBig_X2");
 		BFE1 EF 8 Bright Light("DMR_LaserImpactBig_X3");
 		Stop;
@@ -225,9 +228,9 @@ class CoreDefenderObeliskLaserTrail : DMR_LaserTrailBase
 	{
 	Spawn:
 		TNT1 A 0 NoDelay			A_SpawnItemEx("DMR_LaserFlareBig",0,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1));
-		TEFX C 1 bright Light("DMR_LaserTrailBig");
+		LASB A 1 bright Light("DMR_LaserTrailBig");
 	SpawnLoop:
-		TEFX C 1 bright Light("DMR_LaserTrailBig") A_FadeOut(0.1);
+		LASB A 1 bright Light("DMR_LaserTrailBig") A_FadeOut(0.1);
 		Loop;
 	}
 }

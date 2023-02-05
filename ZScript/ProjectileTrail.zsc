@@ -320,25 +320,75 @@ class DMR_LaserFlare : DMR_FlareBase
 	{
 	Spawn:
 		BFOF A 1 Bright {
-			A_FadeOut(0.06);
+			A_FadeOut(0.1);
 		}
 		Loop;
 	}
 }
-
 
 class DMR_LaserFlareBig : DMR_FlareBase
 {
 	Default
 	{
 		Alpha 0.5;
-		Scale 0.8;
+		Scale 0.6;
 	}
 	States
 	{
 	Spawn:
 		BFOF A 1 Bright {
-			A_FadeOut(0.06);
+			A_FadeOut(0.08);
+		}
+		Loop;
+	}
+}
+
+class DMR_BlueLaserFlareBig : DMR_FlareBase
+{
+	Default
+	{
+		Alpha 0.5;
+		Scale 0.6;
+	}
+	States
+	{
+	Spawn:
+		BFOF B 1 Bright {
+			A_FadeOut(0.08);
+		}
+		Loop;
+	}
+}
+
+class DMR_LaserImpactFlareBig : DMR_FlareBase
+{
+	Default
+	{
+		Alpha 0.75;
+		Scale 1.5;
+	}
+	States
+	{
+	Spawn:
+		BFOF A 1 Bright {
+			A_FadeOut(0.05);
+		}
+		Loop;
+	}
+}
+
+class DMR_BlueLaserImpactFlareBig : DMR_FlareBase
+{
+	Default
+	{
+		Alpha 0.75;
+		Scale 1.5;
+	}
+	States
+	{
+	Spawn:
+		BFOF B 1 Bright {
+			A_FadeOut(0.05);
 		}
 		Loop;
 	}
