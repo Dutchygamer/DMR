@@ -34,7 +34,7 @@ class LaserSpider : DMR_Arachnotron
 		Goto See+1;
 	Missile:
 		RSPI G 20 A_FaceTarget;
-		RSPI H 10 Bright A_SpawnProjectile("LaserSpiderLaser",20,0,random(-3,3));
+		RSPI H 10 Bright Light("DMR_LaserFire") A_SpawnProjectile("LaserSpiderLaser",20,0,random(-3,3));
 		RSPI G 10;
 		Goto See+1;
 	Pain:

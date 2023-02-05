@@ -259,52 +259,99 @@ object DMR_SmallRocket
 }
 
 //laser
-pointlight DMR_LSRCHARGE1
-{
-    color 0.6 0.1 0.1
-    size 64
-}
-
-pointlight DMR_LSRCHARGE2
-{
-    color 0.8 0.05 0.05
-    size 88
-}
-
-pointlight DMR_LSRCHARGE3
+flickerlight DMR_LaserFire
 {
     color 1.0 0.0 0.0
-    size 88
+    size 56
+    secondarySize 64
+    chance 0.3
 }
 
-pointlight DMR_LASER
+pointlight DMR_LaserTrail
 {
     color 1.0 0.0 0.0
     size 40
 }
 
-flickerlight DMR_LASER_X1
+flickerlight DMR_LaserImpact_X1
 {
-    color 0.8 0.0 0.0
-    size 50
-    secondarySize 80
-    chance 0.25
+    color 0.9 0.0 0.0
+    size 48
+    secondarySize 52
+    chance 0.3
 }
 
-flickerlight DMR_LASER_X2
+flickerlight DMR_LaserImpact_X2
 {
     color 1.0 0.0 0.0
-    size 65
-    secondarySize 100
-    chance 0.25
+    size 64
+    secondarySize 72
+    chance 0.3
 }
 
-flickerlight DMR_LASER_X3
+flickerlight DMR_LaserImpact_X3
+{
+    color 0.7 0.0 0.0
+    size 60
+    secondarySize 70
+    chance 0.3
+}
+
+//laser big
+pointlight DMR_LaserCharge1
+{
+    color 0.6 0.1 0.1
+    size 64
+}
+
+pointlight DMR_LaserCharge2
+{
+    color 0.8 0.05 0.05
+    size 88
+}
+
+pointlight DMR_LaserCharge3
 {
     color 1.0 0.0 0.0
-    size 90
-    secondarySize 135
-    chance 0.25
+    size 88
+}
+
+flickerlight DMR_LaserFireBig
+{
+    color 1.0 0.0 0.0
+    size 72
+    secondarySize 86
+    chance 0.3
+}
+
+pointlight DMR_LaserTrailBig
+{
+    color 1.0 0.0 0.0
+    size 75
+}
+
+flickerlight DMR_LaserImpactBig_X1
+{
+    color 0.9 0.0 0.0
+    size 78
+    secondarySize 92
+    chance 0.3
+}
+
+flickerlight DMR_LaserImpactBig_X2
+{
+    color 1.0 0.0 0.0
+    size 86
+    secondarySize 112
+    chance 0.3
+}
+
+flickerlight DMR_LaserImpactBig_X3
+{
+    color 0.7 0.0 0.0
+    size 82
+    secondarySize 108
+    chance 0.3
 }
 
 // TiberiumShard

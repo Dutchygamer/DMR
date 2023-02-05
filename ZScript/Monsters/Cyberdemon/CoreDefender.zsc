@@ -50,7 +50,7 @@ class CoreDefender : DMR_Cyberdemon
 			A_FaceTarget();
 			A_CustomRailgun(0,-42,"","",RGF_SILENT|RGF_NOPIERCING|RGF_FULLBRIGHT,0,0,"",0,0,0,0, 12, 0, "CoreDefenderTargettingLaser", 10);
 		}		
-		ROB4 FFF 6 Bright {
+		ROB4 FFF 6 Bright Light("DMR_LaserFire") {
 			A_FaceTarget();
 			A_SpawnProjectile("CoreDefenderSmallLaser",64,-42,0);			
 		}
@@ -73,7 +73,7 @@ class CoreDefender : DMR_Cyberdemon
 			A_FaceTarget();
 			A_CustomRailgun(0,-42,"","",RGF_SILENT|RGF_NOPIERCING|RGF_FULLBRIGHT,0,0,"",0,0,0,0, 12, 0, "CoreDefenderTargettingLaser3", 10);
 		}
-		ROB4 F 6 Bright A_SpawnProjectile("CoreDefenderObeliskLaser",64,-42,0);
+		ROB4 F 6 Bright Light("DMR_LaserFireBig") A_SpawnProjectile("CoreDefenderObeliskLaser",64,-42,0);
 		ROB4 G 6;
 		Goto See;
 	ClusterMissile:
@@ -208,9 +208,9 @@ class CoreDefenderObeliskLaser : DMR_LaserBase
 		TNT1 A 1;
 		Loop;
 	Death:
-		BFE1 AB 8 Bright A_Explode(108,48);
-		BFE1 C 8 Bright;
-		BFE1 DEF 8 Bright;
+		BFE1 A 8 Bright Light("DMR_LaserImpact_X1") A_Explode(108,48);
+		BFE1 BCD 8 Bright Light("DMR_LaserImpact_X2");
+		BFE1 EF 8 Bright Light("DMR_LaserImpact_X3");
 		Stop;
 	}
 }
@@ -219,9 +219,15 @@ class CoreDefenderObeliskLaserTrail : DMR_LaserTrailBase
 {
 	Default
 	{
-		RenderStyle "Add";
-		Alpha 0.9;
-		Scale 0.3;
+		Scale 0.4;
+	}
+	States
+	{
+	Spawn:
+		TEFX C 1 bright Light("DMR_LaserTrailBig");
+	SpawnLoop:
+		TEFX C 1 bright Light("DMR_LaserTrailBig") A_FadeOut(0.1);
+		Loop;
 	}
 }
 
@@ -239,7 +245,7 @@ class CoreDefenderTargettingLaser : Actor
 	{
 	Spawn:
 		TNT1 A 0 NoDelay A_SetPitch(90);
-		TEFX C 1;
+		TEFX C 1 Bright Light("DMR_LaserCharge1");
 		Stop;
 	}
 }
@@ -250,6 +256,13 @@ class CoreDefenderTargettingLaser2 : CoreDefenderTargettingLaser
 	{
 		Scale 0.15;
 	}
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_SetPitch(90);
+		TEFX C 1 Bright Light("DMR_LaserCharge2");
+		Stop;
+	}
 }
 
 class CoreDefenderTargettingLaser3 : CoreDefenderTargettingLaser
@@ -257,6 +270,13 @@ class CoreDefenderTargettingLaser3 : CoreDefenderTargettingLaser
 	Default
 	{
 		Scale 0.2;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_SetPitch(90);
+		TEFX C 1 Bright Light("DMR_LaserCharge3");
+		Stop;
 	}
 }
 
@@ -269,15 +289,15 @@ class CoreDefenderLaserCharge : DMR_ProjectileTrail
 	States
 	{
 	Spawn:
-		TEFX CCCCCCCCCCCCCCCCCC 1 Bright Light("CoreDefenderLaserCharge") {
+		TEFX CCCCCCCCCCCCCCCCCC 1 Bright Light("DMR_LaserCharge1") {
 			A_Warp(AAPTR_MASTER,10,-42,64,0,WARPF_NOCHECKPOSITION);
 			A_SetScale(Scale.X+0.08);		
 		}
-		TEFX CCCCCCCCCCCCCCCCCC 1 Bright Light("CoreDefenderLaserCharge2") {
+		TEFX CCCCCCCCCCCCCCCCCC 1 Bright Light("DMR_LaserCharge2") {
 			A_Warp(AAPTR_MASTER,10,-42,64,0,WARPF_NOCHECKPOSITION);
 			A_SetScale(Scale.X+0.08);		
 		}
-		TEFX CCCCCCCCCCCCCCCCCC 1 Bright Light("CoreDefenderLaserCharge3") {
+		TEFX CCCCCCCCCCCCCCCCCC 1 Bright Light("DMR_LaserCharge3") {
 			A_Warp(AAPTR_MASTER,10,-42,64,0,WARPF_NOCHECKPOSITION);
 			A_SetScale(Scale.X+0.08);		
 		}

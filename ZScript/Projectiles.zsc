@@ -354,7 +354,9 @@ class DMR_LaserBase : FastProjectile
 		TNT1 A 1;
 		Loop;
 	Death:
-		BFE1 ABCDEF 5 Bright;
+		BFE1 A 5 Bright Light("DMR_LaserImpact_X1");
+		BFE1 BCD 5 Bright Light("DMR_LaserImpact_X2");
+		BFE1 EF 5 Bright Light("DMR_LaserImpact_X3");
 		Stop;
 	}
 }
@@ -365,7 +367,7 @@ class DMR_LaserTrailBase : Actor
 	{
 		RenderStyle "Add";
 		Scale 0.2;
-		Alpha 0.9;
+		Alpha 1;
 		+NOINTERACTION;
 		+NOGRAVITY;
 		+DONTSPLASH;
@@ -373,8 +375,9 @@ class DMR_LaserTrailBase : Actor
 	States
 	{
 	Spawn:
-		TEFX C 1 bright;
-		TEFX C 1 bright A_FadeOut(0.1);
+		TEFX C 1 bright Light("DMR_LaserTrail");
+	SpawnLoop:
+		TEFX C 1 bright Light("DMR_LaserTrail") A_FadeOut(0.2);
 		Loop;
 	}
 }

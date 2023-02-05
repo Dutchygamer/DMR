@@ -38,7 +38,7 @@ class BeamRevenant : DMR_Revenant
 		Goto See;
 	Missile:
 		RASK J 20 Bright A_FaceTarget;
-		RASK K 5 Bright A_SpawnProjectile("BeamRevenantLaser",65,13,random(-3,3));
+		RASK K 5 Bright Light("DMR_LaserFire") A_SpawnProjectile("BeamRevenantLaser",65,13,random(-3,3));
 		RASK K 15 A_FaceTarget;
 		Goto See;
 	Pain:

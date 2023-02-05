@@ -31,7 +31,7 @@
 
 
 #include "GLDefs/Monsters/Revenant/Revenant.gl"
-#include "GLDefs/Monsters/Revenant/BeamRevenant.gl"
+//#include "GLDefs/Monsters/Revenant/BeamRevenant.gl"
 
 #include "GLDefs/Monsters/Arachnotron/Arachnotron.gl"
 #include "GLDefs/Monsters/Arachnotron/LaserSpider.gl"
@@ -39,4 +39,4 @@
 #include "GLDefs/Monsters/Arachnotron/ZombiePlasmaTank.gl"
 
 
-#include "GLDefs/Monsters/Cyberdemon/DarkInquisitor.gl"
+//#include "GLDefs/Monsters/Cyberdemon/DarkInquisitor.gl"
