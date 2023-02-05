@@ -42,7 +42,7 @@ class AssaultShotgunGuy : DMR_ShotgunGuy
 		Loop;
 	Missile:
 		ASGZ E 10 A_FaceTarget;
-        ASGZ F 10 Bright {
+        ASGZ F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("asgguy/asgfir");
 			A_CustomBulletAttack(22.5,0,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired = shotsFired +1; //expend a single shot
@@ -56,7 +56,7 @@ class AssaultShotgunGuy : DMR_ShotgunGuy
 				return ResolveState(null);
 			}
 		}	
-        ASGZ F 10 Bright {
+        ASGZ F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("asgguy/asgfir");
 			A_CustomBulletAttack(22.5,0,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired = shotsFired +1; //expend a single shot
@@ -70,7 +70,7 @@ class AssaultShotgunGuy : DMR_ShotgunGuy
 				return ResolveState(null);
 			}
 		}	
-        ASGZ F 10 Bright {
+        ASGZ F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("asgguy/asgfir");
 			A_CustomBulletAttack(22.5,0,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired = shotsFired +1; //expend a single shot

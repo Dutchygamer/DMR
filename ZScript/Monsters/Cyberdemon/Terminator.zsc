@@ -48,14 +48,14 @@ class Terminator : DMR_Cyberdemon
 		Goto See;
 	Autocannon:
 		TERM E 12 A_FaceTarget;
-		TERM F 8 Bright A_SpawnProjectile("TerminatorAutoCannon",57,25);
+		TERM F 8 Bright Light("DMR_RifleFire") A_SpawnProjectile("TerminatorAutoCannon",57,25);
 		TNT1 A 0 A_Jump(16, "See", "Missile"); //small chance to stop firing or possible switch to a different weapon	
 		TERM E 10 A_MonsterRefire(10,"See");
 		Goto Autocannon+1;
 	// spider momma has mega chaingun, this one has mega shotgun
 	Shotcannon:
 		TERM G 18 A_Facetarget;		
-		TERM HI 5 Bright {
+		TERM HI 5 Bright Light("DMR_RifleFire") {
 			A_Playsound("Terminator/tershotB");
 			for (boolet = 0;boolet<=2;boolet++) {
 				A_SpawnProjectile("DMR_SlowBullet",55,-22,frandom(-10,10),CMF_OFFSETPITCH,frandom(-5,5));

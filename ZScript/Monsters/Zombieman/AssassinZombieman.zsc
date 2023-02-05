@@ -71,7 +71,7 @@ class AssassinZombieman : DMR_Zombieman
         Goto StealthedSee;
 	Rifle:
 		ZHRT E 10 A_FaceTarget;		
-		ZHRT F 4 BRIGHT Light("DMR_ZOMBIEATK") {
+		ZHRT F 4 BRIGHT Light("DMR_RifleFire") {
 			A_PlaySound("Zombies/DuneFire", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 		}

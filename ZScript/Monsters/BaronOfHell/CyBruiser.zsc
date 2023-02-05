@@ -46,11 +46,11 @@ class CyBruiser : DMR_BaronOfHell
 		Goto Plasma;
 	Rockets:
 		BRU2 EE 8 A_FaceTarget;
-		BRU2 F 12 Bright A_SpawnProjectile("DMR_SmallRocket",39,16,0,0);
+		BRU2 F 12 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",39,16,0,0);
 		BRU2 E 12 A_FaceTarget;
-		BRU2 F 12 Bright A_SpawnProjectile("DMR_SmallRocket",39,16,0,0);
+		BRU2 F 12 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",39,16,0,0);
 		BRU2 E 12 A_FaceTarget;
-		BRU2 F 12 Bright A_SpawnProjectile("DMR_SmallRocket",39,16,0,0);
+		BRU2 F 12 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",39,16,0,0);
 		Goto See;
 	Plasma:
 		BRU2 EE 8 A_FaceTarget;

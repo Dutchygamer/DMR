@@ -43,12 +43,12 @@ class SpecOpsZombieman : DMR_Zombieman
 		Goto Rifle;
 	Rifle:
 		ZSP2 E 10 A_FaceTarget;		
-		ZSP2 F 4 BRIGHT Light("DMR_ZOMBIEATK") {
+		ZSP2 F 4 BRIGHT Light("DMR_RifleFire") {
 			A_PlaySound("Zombies/ZSpecFire", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 		}
 		ZSP2 E 4 A_FaceTarget;		
-		ZSP2 F 4 BRIGHT Light("DMR_ZOMBIEATK") {
+		ZSP2 F 4 BRIGHT Light("DMR_RifleFire") {
 			A_PlaySound("Zombies/ZSpecFire", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 		}

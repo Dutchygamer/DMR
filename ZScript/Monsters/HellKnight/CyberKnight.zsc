@@ -42,7 +42,7 @@ class CyberKnight : DMR_HellKnight
 		Goto See;
 	Rocket:
 		CBOS EE 10 A_FaceTarget;
-		CBOS F 10 Bright A_SpawnProjectile("DMR_SmallRocket",27,16,0,0);
+		CBOS F 10 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",27,16,0,0);
 		CBOS E 10 A_FaceTarget;
 		Goto See;
 	Pain:

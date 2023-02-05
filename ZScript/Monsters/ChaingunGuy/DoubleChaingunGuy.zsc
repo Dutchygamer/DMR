@@ -34,8 +34,8 @@ class DoubleChaingunGuy : DMR_ChaingunGuy
 		Loop;
 	Missile:
 		DPOS E 10 A_FaceTarget;
-		DPOS F 2 Light("DMR_ZOMBIEATK") Bright A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-		DPOS F 2 Light("DMR_ZOMBIEATK") Bright A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		DPOS F 2 Light("DMR_RifleFire") Bright A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		DPOS F 2 Light("DMR_RifleFire") Bright A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 		DPOS F 1 A_CPosRefire;
 		Goto Missile+1;
 	Pain:

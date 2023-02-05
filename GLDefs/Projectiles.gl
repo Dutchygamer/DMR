@@ -534,3 +534,13 @@ flickerlight DMR_BTIBBAL_X5
     secondarySize 70
     chance 0.3
 }
+
+// Zombies
+flickerlight DMR_RifleFire
+{
+    color 1.0 0.8 0.2
+    size 48
+    secondarySize 56
+    offset 0 40 0
+    chance 0.3
+}

@@ -21,7 +21,7 @@ class DMR_SpiderMastermind : SpiderMastermind
 	{	
 	Missile:
 		SPID A 20 BRIGHT A_FaceTarget;
-		SPID GGHH 2 Bright {
+		SPID GGHH 2 Bright Light("DMR_RifleFire") {
 			A_FaceTarget();
 			A_Playsound("MamaSpider/Fire");				
 			A_SpawnProjectile("SpiderSlowBullet",41,0,frandom(-12,12),CMF_OFFSETPITCH,frandom(-1,1));

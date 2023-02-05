@@ -71,7 +71,7 @@ class QuadShotgunGuy : DMR_ShotgunGuy
 		Goto SingleShot;
 	SingleShot:
 		QSZM E 10 A_FaceTarget;
-		QSZM F 10 Bright {
+		QSZM F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("QuadShotgunZombie/SingleFire");
 			A_CustomBulletAttack(22.5,7.1,5,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired++; //expend a single shot
@@ -80,7 +80,7 @@ class QuadShotgunGuy : DMR_ShotgunGuy
 		Goto See;
 	SuperShot:
 		QSZM E 15 A_FaceTarget;
-		QSZM F 10 Bright {
+		QSZM F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("weapons/sshotf");
 			A_CustomBulletAttack(22.5,7.1,10,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired += 2; //expend 2 shots
@@ -92,7 +92,7 @@ class QuadShotgunGuy : DMR_ShotgunGuy
 			A_FaceTarget();
 			A_PlaySound("QuadShotgunZombie/Reload3");
 		}
-		QSZM F 10 Bright {
+		QSZM F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("QuadShotgunZombie/QuadFire");
 			A_CustomBulletAttack(22.5,7.1,20,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired = 4; //expend 4 shots

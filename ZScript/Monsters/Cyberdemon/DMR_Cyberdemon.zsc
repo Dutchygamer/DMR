@@ -17,15 +17,15 @@ class DMR_Cyberdemon : Cyberdemon
 	{	
 	Missile:
 		CYBR E 6 A_FaceTarget;
-		CYBR F 12 Bright {
+		CYBR F 12 Bright Light("DMR_RifleFire") {
 			A_SpawnProjectile("DMR_Rocket",55,-25,0);
 		}
 		CYBR E 12 A_FaceTarget;
-		CYBR F 12 Bright {
+		CYBR F 12 Bright Light("DMR_RifleFire") {
 			A_SpawnProjectile("DMR_Rocket",55,-25,0);
 		}
 		CYBR E 12 A_FaceTarget;
-		CYBR F 12 Bright {
+		CYBR F 12 Bright Light("DMR_RifleFire") {
 			A_SpawnProjectile("DMR_Rocket",55,-25,0);
 		}
 		Goto See;

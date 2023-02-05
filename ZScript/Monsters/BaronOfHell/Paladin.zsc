@@ -69,7 +69,7 @@ class Paladin : DMR_BaronOfHell
 		Goto ShieldBlast;
 	Grenade:
 		HPAL II 8 A_FaceTarget;
-		HPAL J 8 Bright {
+		HPAL J 8 Bright Light("DMR_RifleFire") {
 			A_FaceTarget();
 			if (target && Distance3D(target) <= 750)
 			{

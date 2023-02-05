@@ -16,7 +16,7 @@ Class DMR_ChaingunGuy : ChaingunGuy
 	{
 	Missile:
 		CPOS E 10 A_FaceTarget;
-		CPOS FE 4 Light("DMR_ZOMBIEATK") Bright A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		CPOS FE 4 Light("DMR_RifleFire") Bright A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 		CPOS F 1 A_CPosRefire;
 		Goto Missile+1;
 	}

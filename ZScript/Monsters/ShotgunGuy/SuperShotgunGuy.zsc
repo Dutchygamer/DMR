@@ -60,7 +60,7 @@ class SuperShotgunGuy : DMR_ShotgunGuy
 		Goto SingleShot;
 	SingleShot:
 		GPOS E 10 A_FaceTarget;
-		GPOS F 10 Bright {
+		GPOS F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("QuadShotgunZombie/SingleFire");
 			A_CustomBulletAttack(22.5,7.1,5,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired++; //expend a single shot
@@ -69,7 +69,7 @@ class SuperShotgunGuy : DMR_ShotgunGuy
 		Goto See;
 	SuperShot:
 		GPOS E 15 A_FaceTarget;
-		GPOS F 10 Bright {
+		GPOS F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("weapons/sshotf");
 			A_CustomBulletAttack(22.5,7.1,10,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired += 2; //expend 2 shots
