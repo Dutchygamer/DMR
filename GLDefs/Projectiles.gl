@@ -265,6 +265,7 @@ flickerlight DMR_LaserFire
     size 56
     secondarySize 64
     chance 0.3
+    offset 0 40 0
 }
 
 pointlight DMR_LaserTrail
@@ -322,6 +323,7 @@ flickerlight DMR_LaserFireBig
     size 72
     secondarySize 86
     chance 0.3
+    offset 0 40 0
 }
 
 pointlight DMR_LaserTrailBig
@@ -539,6 +541,24 @@ flickerlight DMR_BTIBBAL_X5
 flickerlight DMR_RifleFire
 {
     color 1.0 0.8 0.2
+    size 48
+    secondarySize 56
+    offset 0 40 0
+    chance 0.3
+}
+
+flickerlight DMR_PlasmaFire
+{
+    color 0.3 0.3 1.0
+    size 48
+    secondarySize 56
+    offset 0 40 0
+    chance 0.3
+}
+
+flickerlight DMR_DemonPlasmaFire
+{
+    color 0.1 0.3 1.0
     size 48
     secondarySize 56
     offset 0 40 0

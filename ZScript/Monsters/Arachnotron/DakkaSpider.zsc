@@ -33,11 +33,11 @@ class DakkaSpider : DMR_Arachnotron
 		goto See+1;
 	Missile:
 		CSPI A 20 bright A_FaceTarget;
-		CSPI G 4 bright {
+		CSPI G 4 bright Light("DMR_RifleFire") {
 			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 		}
-		CSPI H 4 bright {
+		CSPI H 4 bright Light("DMR_RifleFire") {
 			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 		}

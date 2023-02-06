@@ -43,7 +43,7 @@ class VirusZombie : DMR_ZombieBase
 	Missile:
 		ZOMW E 20 A_FaceTarget;
 		TNT1 A 0 A_PlaySound("Virus/FireDart");
-		ZOMW F 4 BRIGHT A_SpawnProjectile ("VirusDart", 32, 0);
+		ZOMW F 4 A_SpawnProjectile ("VirusDart", 32, 0);
 		ZOMW E 20;
 		goto See;
 	Pain:

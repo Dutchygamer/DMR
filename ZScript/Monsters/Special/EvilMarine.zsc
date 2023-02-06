@@ -37,13 +37,13 @@ class EvilMarine : WolfensteinSS
 		Loop;
 	Missile:
 		PLAY E 10 A_FaceTarget;
-		PLAY F 2 BRIGHT A_SpawnProjectile("EvilMarinePlasmaBall");
+		PLAY F 2 BRIGHT Light("DMR_PlasmaFire") A_SpawnProjectile("EvilMarinePlasmaBall");
 		PLAY E 2 A_FaceTarget;
-		PLAY F 2 BRIGHT A_SpawnProjectile("EvilMarinePlasmaBall");
+		PLAY F 2 BRIGHT Light("DMR_PlasmaFire") A_SpawnProjectile("EvilMarinePlasmaBall");
 		PLAY E 2 A_FaceTarget;
-		PLAY F 2 BRIGHT A_SpawnProjectile("EvilMarinePlasmaBall");
+		PLAY F 2 BRIGHT Light("DMR_PlasmaFire") A_SpawnProjectile("EvilMarinePlasmaBall");
 		PLAY E 2 A_FaceTarget;
-		PLAY F 2 BRIGHT A_SpawnProjectile("EvilMarinePlasmaBall");
+		PLAY F 2 BRIGHT Light("DMR_PlasmaFire") A_SpawnProjectile("EvilMarinePlasmaBall");
 		PLAY E 2 A_FaceTarget;
 		PLAY E 10 A_MonsterRefire(25, "See");
 		Goto Missile+1;
@@ -81,7 +81,6 @@ class EvilMarinePlasmaBall : Actor
 		DamageFunction(random(10,30));
 		Projectile;
 		+RANDOMIZE
-		+ZDOOMTRANS
 		RenderStyle "Add";
 		Alpha 0.75;
 		SeeSound "weapons/plasmaf";

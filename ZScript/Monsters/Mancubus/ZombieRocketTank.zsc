@@ -30,9 +30,9 @@ class ZombieRocketTank : DMR_ZombieTankBase
         Loop;
     Missile:
         ZMTK A 20 A_FaceTarget;
-        ZMTK D 6 Bright A_SpawnProjectile("DMR_SmallRocket",50,-29,359,0);
+        ZMTK D 6 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",50,-29,359,0);
         ZMTK A 4 A_FaceTarget;
-        ZMTK E 6 Bright A_SpawnProjectile("DMR_SmallRocket",50,32,359,0);
+        ZMTK E 6 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",50,32,359,0);
         ZMTK AA 5 A_FaceTarget;
         Goto See;
     Pain:
