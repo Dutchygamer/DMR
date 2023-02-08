@@ -35,11 +35,11 @@ class PlasmaZombieman : DMR_Zombieman
 		Loop;
 	Missile:
 		ZMAY E 10 A_FaceTarget;
-		ZMAY F 4 BRIGHT A_SpawnProjectile("ArachnotronPlasma");
+		ZMAY F 4 BRIGHT Light("DMR_PlasmaFire") A_SpawnProjectile("DMR_ZombiePlasma");
 		ZMAY E 4 A_FaceTarget;
-		ZMAY F 4 BRIGHT A_SpawnProjectile("ArachnotronPlasma");
+		ZMAY F 4 BRIGHT Light("DMR_PlasmaFire") A_SpawnProjectile("DMR_ZombiePlasma");
 		ZMAY E 4 A_FaceTarget;
-		ZMAY F 4 BRIGHT A_SpawnProjectile("ArachnotronPlasma");
+		ZMAY F 4 BRIGHT Light("DMR_PlasmaFire") A_SpawnProjectile("DMR_ZombiePlasma");
 		ZMAY E 4 A_FaceTarget;
 		ZMAY E 10 A_MonsterRefire(25, "See");
 		Goto Missile+1;

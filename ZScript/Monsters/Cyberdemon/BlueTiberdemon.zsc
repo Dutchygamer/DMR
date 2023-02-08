@@ -130,7 +130,7 @@ class TiberiumBlueFlechette : TiberiumFlechette
 	States
 	{
 	Spawn:
-		BSRD A 1 Bright Light("DMR_BTIBSHARD") {
+		BSRD A 1 Bright {
 			A_SpawnItemEx("TiberiumBlueFlechetteTrail",-20,0,1); 
 		}
 		Loop;
@@ -141,8 +141,7 @@ class TiberiumBlueFlechette : TiberiumFlechette
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_Explode(48,96);
 		}
-		TSDE ABC 3 Bright Light("DMR_BTIBSHARD_X1"); 
-		TSDE EFG 3 Bright Light("DMR_BTIBSHARD_X2");
+		BSDE ABCDEFG 3 Bright;
 		Stop;
 	}
 }
@@ -172,7 +171,7 @@ class TiberiumBlueSuperPlasma : TiberiumSuperPlasma
 	States
 	{
 	Spawn:
-		TBBL ABCDEFGHIJKLMN 2 Bright Light("DMR_BTIBBAL") {
+		TBBL ABCDEFGHIJKLMN 2 Bright {
 			A_SpawnItemEx("BlueTiberiumSuperPlasmaTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}
 		Loop;
@@ -181,11 +180,11 @@ class TiberiumBlueSuperPlasma : TiberiumSuperPlasma
 			A_SetScale(2.5);
 			A_Explode(160,96);
 		}
-		ARCB JJJ 1 Bright Light("DMR_BTIBBAL_X1");
-		ARCB KKK 1 Bright Light("DMR_BTIBBAL_X2");
-		ARCB LLL 1 Bright Light("DMR_BTIBBAL_X3");
-		ARCB MMM 1 Bright Light("DMR_BTIBBAL_X4");
-		ARCB NNN 1 Bright Light("DMR_BTIBBAL_X5");
+		ARCB JJJ 1 Bright;
+		ARCB KKK 1 Bright;
+		ARCB LLL 1 Bright;
+		ARCB MMM 1 Bright;
+		ARCB NNN 1 Bright;
 		Stop;
 	}
 }

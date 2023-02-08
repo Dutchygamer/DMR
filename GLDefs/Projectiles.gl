@@ -86,6 +86,7 @@ object DMR_FlamethrowerBallLarge
 	frame FRFXO { light DMR_FLAMETHROWERLARGE_X3 }
 }
 
+
 //DMR_FlamethrowerExplode
 flickerlight DMR_HEAT_X1
 {
@@ -135,6 +136,7 @@ object DMR_FlamethrowerExplode
     frame NKXPU { light DMR_HEAT_X3 }
     frame NKXPV { light DMR_HEAT_X3 }
 }
+
 
 //DMR_FlamethrowerExplodeLARGE
 flickerlight DMR_HEATLARGE_X1
@@ -186,6 +188,7 @@ object DMR_FlamethrowerExplodeLarge
     frame NKXPV { light DMR_HEATLARGE_X3 }
 }
 
+
 //DMR_Rocket
 pointlight DMR_ROCKET
 {
@@ -216,6 +219,7 @@ flickerlight DMR_ROCKET_X3
     secondarySize 156
     chance 0.3
 }
+
 
 //smaller DMR_Rocket
 pointlight DMR_SROCKET
@@ -248,6 +252,7 @@ flickerlight DMR_SROCKET_X3
     chance 0.3
 }
 
+
 //DMR_SmallRocket
 object DMR_SmallRocket 
 {
@@ -258,284 +263,6 @@ object DMR_SmallRocket
     frame MISLD { light DMR_SROCKET_X3 }
 }
 
-//laser
-flickerlight DMR_LaserFire
-{
-    color 1.0 0.0 0.0
-    size 56
-    secondarySize 64
-    chance 0.3
-    offset 0 40 0
-}
-
-pointlight DMR_LaserTrail
-{
-    color 1.0 0.0 0.0
-    size 40
-}
-
-flickerlight DMR_LaserImpact_X1
-{
-    color 0.9 0.0 0.0
-    size 48
-    secondarySize 52
-    chance 0.3
-}
-
-flickerlight DMR_LaserImpact_X2
-{
-    color 1.0 0.0 0.0
-    size 64
-    secondarySize 72
-    chance 0.3
-}
-
-flickerlight DMR_LaserImpact_X3
-{
-    color 0.7 0.0 0.0
-    size 60
-    secondarySize 70
-    chance 0.3
-}
-
-//laser big
-pointlight DMR_LaserCharge1
-{
-    color 0.6 0.1 0.1
-    size 64
-}
-
-pointlight DMR_LaserCharge2
-{
-    color 0.8 0.05 0.05
-    size 88
-}
-
-pointlight DMR_LaserCharge3
-{
-    color 1.0 0.0 0.0
-    size 88
-}
-
-flickerlight DMR_LaserFireBig
-{
-    color 1.0 0.0 0.0
-    size 72
-    secondarySize 86
-    chance 0.3
-    offset 0 40 0
-}
-
-pointlight DMR_LaserTrailBig
-{
-    color 1.0 0.0 0.0
-    size 75
-}
-
-flickerlight DMR_LaserImpactBig_X1
-{
-    color 0.9 0.0 0.0
-    size 78
-    secondarySize 92
-    chance 0.3
-}
-
-flickerlight DMR_LaserImpactBig_X2
-{
-    color 1.0 0.0 0.0
-    size 86
-    secondarySize 112
-    chance 0.3
-}
-
-flickerlight DMR_LaserImpactBig_X3
-{
-    color 0.7 0.0 0.0
-    size 82
-    secondarySize 108
-    chance 0.3
-}
-
-// blue laser big
-pointlight DMR_BlueLaserTrailBig
-{
-    color 0.0 0.0 1.0
-    size 75
-}
-
-flickerlight DMR_BlueLaserImpactBig_X1
-{
-    color 0.0 0.0 0.9
-    size 78
-    secondarySize 92
-    chance 0.3
-}
-
-flickerlight DMR_BlueLaserImpactBig_X2
-{
-    color 0.0 0.0 1.0
-    size 86
-    secondarySize 112
-    chance 0.3
-}
-
-flickerlight DMR_BlueLaserImpactBig_X3
-{
-    color 0.0 0.0 0.7
-    size 82
-    secondarySize 108
-    chance 0.3
-}
-
-
-
-// TiberiumShard
-flickerlight DMR_TIBSHARD
-{
-    color 0.1 0.4 0.1
-    size 50
-    secondarySize 56
-    chance 0.3
-}
-
-flickerlight DMR_TIBSHARD_X1
-{
-    color 0.1 0.4 0.1
-    size 65
-    secondarySize 75
-    chance 0.3
-}
-
-flickerlight DMR_TIBSHARD_X2
-{
-    color 0.1 0.4 0.1
-    size 45
-    secondarySize 55
-    chance 0.3
-}
-
-// TiberiumSuperPlasma
-flickerlight DMR_TIBBAL
-{
-    color 0.5 1.0 0.5
-    size 90
-    secondarySize 100
-    chance 0.3
-}
-
-flickerlight DMR_TIBBAL_X1
-{
-    color 0.5 1.0 0.5
-    size 130
-    secondarySize 145
-    chance 0.3
-}
-
-flickerlight DMR_TIBBAL_X2
-{
-    color 0.6 1.0 0.6
-    size 115
-    secondarySize 125
-    chance 0.3
-}
-
-flickerlight DMR_TIBBAL_X3
-{
-    color 0.7 1.0 0.7
-    size 85
-    secondarySize 90
-    chance 0.3
-}
-
-flickerlight DMR_TIBBAL_X4
-{
-    color 0.4 0.7 0.4
-    size 75
-    secondarySize 85
-    chance 0.3
-}
-
-flickerlight DMR_TIBBAL_X5
-{
-    color 0.1 0.3 0.1
-    size 55
-    secondarySize 70
-    chance 0.3
-}
-
-// TiberiumBlueShard
-flickerlight DMR_BTIBSHARD
-{
-    color 0.1 0.1 0.4
-    size 50
-    secondarySize 56
-    chance 0.3
-}
-
-flickerlight DMR_BTIBSHARD_X1
-{
-    color 0.1 0.1 0.4
-    size 65
-    secondarySize 75
-    chance 0.3
-}
-
-flickerlight DMR_BTIBSHARD_X2
-{
-    color 0.1 0.1 0.4
-    size 45
-    secondarySize 55
-    chance 0.3
-}
-
-// TiberiumBlueSuperPlasma
-flickerlight DMR_BTIBBAL
-{
-    color 0.5 0.5 1.0
-    size 90
-    secondarySize 100
-    chance 0.3
-}
-
-flickerlight DMR_BTIBBAL_X1
-{
-    color 0.5 0.5 1.0
-    size 130
-    secondarySize 145
-    chance 0.3
-}
-
-flickerlight DMR_BTIBBAL_X2
-{
-    color 0.6 0.6 1.0
-    size 115
-    secondarySize 125
-    chance 0.3
-}
-
-flickerlight DMR_BTIBBAL_X3
-{
-    color 0.7 0.7 1.0
-    size 85
-    secondarySize 90
-    chance 0.3
-}
-
-flickerlight DMR_BTIBBAL_X4
-{
-    color 0.4 0.4 0.7
-    size 75
-    secondarySize 85
-    chance 0.3
-}
-
-flickerlight DMR_BTIBBAL_X5
-{
-    color 0.1 0.1 0.3
-    size 55
-    secondarySize 70
-    chance 0.3
-}
 
 // Zombies
 flickerlight DMR_RifleFire
@@ -550,6 +277,15 @@ flickerlight DMR_RifleFire
 flickerlight DMR_PlasmaFire
 {
     color 0.3 0.3 1.0
+    size 48
+    secondarySize 56
+    offset 0 40 0
+    chance 0.3
+}
+
+flickerlight DMR_ArachnotronFire
+{
+    color 0.6 1.0 0.4
     size 48
     secondarySize 56
     offset 0 40 0

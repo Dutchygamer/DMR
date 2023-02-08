@@ -19,24 +19,29 @@ Class DMR_Arachnotron : Arachnotron
 	{ 
 	Missile:
 		BSPI A 20 bright A_FaceTarget;
-		BSPI G 4 bright Light("DMR_PlasmaFire") A_SpawnProjectile("ArachnotronPlasma",20,0,0,0);
+		BSPI G 4 bright Light("DMR_ArachnotronFire") A_SpawnProjectile("ArachnotronPlasma",20,0,0,0);
 		BSPI H 4 bright;
 		BSPI H 1 bright A_SpidRefire;
 		goto Missile+1;
 	}
 }
 
-class DMR_ArachnotronPlasma : ArachnotronPlasma replaces ArachnotronPlasma
+class DMR_ArachnotronPlasma : DMR_ZombiePlasma replaces ArachnotronPlasma
 {
 	Default
 	{
+		Speed 25;
 		DamageFunction(random(10,30));
+		RenderStyle "Add";
+		Alpha 0.75;
+		SeeSound "baby/attack";
+		DeathSound "baby/shotx";
 	}
 	states
 	{
 	Spawn:
 		APLS AAABBB 2 Bright  {
-			A_SpawnItemEx("DMR_PlasmaTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5));
+			A_SpawnItemEx("DMR_ArachnotronPlasmaTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5));
 		}
 		Loop;
 	Death:

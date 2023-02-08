@@ -91,7 +91,7 @@ class EvilMarinePlasmaBall : Actor
 	{
  	Spawn:
 		PLSS AAABBB 2 Bright {
-			A_SpawnItemEx("DMR_EvilMarinePlasmaTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5));
+			A_SpawnItemEx("DMR_PlasmaTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5));
 		}
 		Loop;
 	Death:

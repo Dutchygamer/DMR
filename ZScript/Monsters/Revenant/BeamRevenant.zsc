@@ -38,7 +38,7 @@ class BeamRevenant : DMR_Revenant
 		Goto See;
 	Missile:
 		RASK J 20 Bright A_FaceTarget;
-		RASK K 5 Bright Light("DMR_LaserFire") A_SpawnProjectile("BeamRevenantLaser",65,13,random(-3,3));
+		RASK K 5 Bright Light("DMR_LaserFire") A_SpawnProjectile("SmallRedLaser",65,13,random(-3,3));
 		RASK K 15 A_FaceTarget;
 		Goto See;
 	Pain:
@@ -61,15 +61,15 @@ class BeamRevenant : DMR_Revenant
 }
 
 //laser projectile
-class BeamRevenantLaser : DMR_LaserBase
+class SmallRedLaser : DMR_LaserBase
 {
 	Default
 	{
 		DamageFunction(random(10,30));
 		Translation "112:127=176:191";
-		MissileType "BeamRevenantLaserTrail";
+		MissileType "SmallRedLaserTrail";
 		MissileHeight 10;
 	}
 }
 
-class BeamRevenantLaserTrail : DMR_LaserTrailBase { }
+class SmallRedLaserTrail : DMR_LaserTrailBase { }

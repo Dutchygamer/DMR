@@ -115,7 +115,7 @@ class TiberiumFlechette : DMR_Rocket
 	States
 	{
 	Spawn:
-		TSRD A 1 Bright Light("DMR_TIBSHARD") {
+		TSRD A 1 Bright {
 			A_SpawnItemEx("TiberiumFlechetteTrail",-20,0,1); 
 		}
 		Loop;
@@ -126,8 +126,7 @@ class TiberiumFlechette : DMR_Rocket
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_Explode(32,64);
 		}
-		TSDE ABC 3 Bright Light("DMR_TIBSHARD_X1"); 
-		TSDE EFG 3 Bright Light("DMR_TIBSHARD_X2");
+		TSDE ABCDEFG 3 Bright;
 		Stop;
 	}
 }
@@ -168,7 +167,7 @@ class TiberiumSuperPlasma : DMR_Projectile
 	States
 	{
 	Spawn:
-		TBBL ABCDEFGHIJKLMN 2 Bright Light("DMR_TIBBAL") {
+		TBBL ABCDEFGHIJKLMN 2 Bright {
 			A_SpawnItemEx("TiberiumSuperPlasmaTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}
 		Loop;
@@ -177,11 +176,11 @@ class TiberiumSuperPlasma : DMR_Projectile
 			A_SetScale(2.5);
 			A_Explode(140,96);
 		}
-		ARCB JJJ 1 Bright Light("DMR_TIBBAL_X1");
-		ARCB KKK 1 Bright Light("DMR_TIBBAL_X2");
-		ARCB LLL 1 Bright Light("DMR_TIBBAL_X3");
-		ARCB MMM 1 Bright Light("DMR_TIBBAL_X4");
-		ARCB NNN 1 Bright Light("DMR_TIBBAL_X5");
+		ARCB JJJ 1 Bright;
+		ARCB KKK 1 Bright;
+		ARCB LLL 1 Bright;
+		ARCB MMM 1 Bright;
+		ARCB NNN 1 Bright;
 		Stop;
 	}
 }

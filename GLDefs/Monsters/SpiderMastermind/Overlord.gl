@@ -1,0 +1,46 @@
+
+// blue laser big
+pointlight DMR_BlueLaserTrailBig
+{
+    color 0.0 0.0 1.0
+    size 75
+}
+
+flickerlight DMR_BlueLaserImpactBig_X1
+{
+    color 0.0 0.0 0.9
+    size 78
+    secondarySize 92
+    chance 0.3
+}
+
+flickerlight DMR_BlueLaserImpactBig_X2
+{
+    color 0.0 0.0 1.0
+    size 86
+    secondarySize 112
+    chance 0.3
+}
+
+flickerlight DMR_BlueLaserImpactBig_X3
+{
+    color 0.0 0.0 0.7
+    size 82
+    secondarySize 108
+    chance 0.3
+}
+
+object EmperorLaser
+{
+	frame BFE1A { light DMR_BlueLaserImpactBig_X1 }
+    frame BFE1B { light DMR_BlueLaserImpactBig_X2 }
+    frame BFE1C { light DMR_BlueLaserImpactBig_X2 }
+    frame BFE1D { light DMR_BlueLaserImpactBig_X2 }
+    frame BFE1E { light DMR_BlueLaserImpactBig_X3 }
+    frame BFE1F { light DMR_BlueLaserImpactBig_X3 }
+}
+
+object EmperorLaserTrail
+{
+	frame LASBB { light DMR_BlueLaserTrailBig }
+}

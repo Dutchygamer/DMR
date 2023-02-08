@@ -235,7 +235,7 @@ class DMR_PlasmaTrail : DMR_ProjectileTrail
 	States
 	{
 	Spawn:
-		APLS AB 1 Bright {
+		PLSS AB 1 Bright {
 			A_FadeOut(0.045);
 			A_SetScale(Scale.X-0.01);
 		}
@@ -243,12 +243,12 @@ class DMR_PlasmaTrail : DMR_ProjectileTrail
 	}
 }
 
-class DMR_EvilMarinePlasmaTrail : DMR_PlasmaTrail
+class DMR_ArachnotronPlasmaTrail : DMR_PlasmaTrail
 {
 	States
 	{
 	Spawn:
-		PLSS AB 1 Bright {
+		APLS AB 1 Bright {
 			A_FadeOut(0.045);
 			A_SetScale(Scale.X-0.01);
 		}

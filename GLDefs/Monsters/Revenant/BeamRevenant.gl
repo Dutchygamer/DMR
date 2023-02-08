@@ -1,14 +1,55 @@
-object BeamRevenantLaser
+
+//laser
+flickerlight DMR_LaserFire
 {
-	frame BFE1A { light DMR_LASER_X1 }
-    frame BFE1B { light DMR_LASER_X2 }
-    frame BFE1C { light DMR_LASER_X2 }
-    frame BFE1D { light DMR_LASER_X2 }
-    frame BFE1E { light DMR_LASER_X3 }
-    frame BFE1F { light DMR_LASER_X3 }
+    color 1.0 0.0 0.0
+    size 56
+    secondarySize 64
+    chance 0.3
+    offset 0 40 0
 }
 
-object BeamRevenantLaserTrail
+pointlight DMR_LaserTrail
 {
-	frame TEFXB { light DMR_LASER }
+    color 1.0 0.0 0.0
+    size 40
+}
+
+object SmallRedLaserTrail
+{
+	frame LASBA { light DMR_LaserTrail }
+}
+
+flickerlight DMR_LaserImpact_X1
+{
+    color 0.9 0.0 0.0
+    size 48
+    secondarySize 52
+    chance 0.3
+}
+
+flickerlight DMR_LaserImpact_X2
+{
+    color 1.0 0.0 0.0
+    size 64
+    secondarySize 72
+    chance 0.3
+}
+
+flickerlight DMR_LaserImpact_X3
+{
+    color 0.7 0.0 0.0
+    size 60
+    secondarySize 70
+    chance 0.3
+}
+
+object SmallRedLaser
+{
+	frame BFE1A { light DMR_LaserImpactBig_X1 }
+    frame BFE1B { light DMR_LaserImpactBig_X2 }
+    frame BFE1C { light DMR_LaserImpactBig_X2 }
+    frame BFE1D { light DMR_LaserImpactBig_X2 }
+    frame BFE1E { light DMR_LaserImpactBig_X3 }
+    frame BFE1F { light DMR_LaserImpactBig_X3 }
 }

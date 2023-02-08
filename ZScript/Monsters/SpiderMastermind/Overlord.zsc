@@ -210,8 +210,7 @@ class EmperorLaser : DMR_LaserBase
 			A_Explode(10,48);
 			A_SpawnItemEx("DMR_BlueLaserImpactFlareBig");
 		}
-		BFE1 BCD 6 Bright Light("DMR_BlueLaserImpactBig_X2");
-		BFE1 EF 6 Bright Light("DMR_BlueLaserImpactBig_X3");
+		BFE1 BCDEF 6 Bright;
 		Stop;
 	}
 }
@@ -228,9 +227,9 @@ class EmperorLaserTrail : DMR_LaserTrailBase
 	{
 	Spawn:
 		TNT1 A 0 NoDelay			A_SpawnItemEx("DMR_BlueLaserFlareBig",0,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1));
-		LASB B 1 bright Light("DMR_BlueLaserTrailBig");
+		LASB B 1 bright ;
 	SpawnLoop:
-		LASB B 1 bright Light("DMR_BlueLaserTrailBig") A_FadeOut(0.1);
+		LASB B 1 bright A_FadeOut(0.1);
 		Loop;
 	}
 }
