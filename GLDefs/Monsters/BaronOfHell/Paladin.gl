@@ -1,0 +1,13 @@
+
+object PaladinBall
+{
+	frame PLRNA { light DMR_DemonPlasmaRune }
+    frame PLRNB { light DMR_DemonPlasmaRune }
+	
+    frame PLRXA { light DMR_DemonPlasmaRune_X3 }
+    frame PLRXB { light DMR_DemonPlasmaRune_X3 }
+    frame PLRXC { light DMR_DemonPlasmaRune_X2 }
+    frame PLRXD { light DMR_DemonPlasmaRune_X2 }
+    frame PLRXE { light DMR_DemonPlasmaRune_X1 }
+    frame PLRXF { light DMR_DemonPlasmaRune_X1 }
+}

@@ -23,19 +23,24 @@
 
 #include "GLDefs/Monsters/HellKnight/HellKnight.gl"
 #include "GLDefs/Monsters/HellKnight/HellWarrior.gl"
-#include "GLDefs/Monsters/HellKnight/Paladin.gl"
 #include "GLDefs/Monsters/HellKnight/Afrit.gl"
 
 #include "GLDefs/Monsters/BaronOfHell/BruiserDemon.gl"
 #include "GLDefs/Monsters/BaronOfHell/Apprentice.gl"
+#include "GLDefs/Monsters/BaronOfHell/CyBruiser.gl"
+#include "GLDefs/Monsters/BaronOfHell/Paladin.gl"
 
 #include "GLDefs/Monsters/Revenant/Revenant.gl"
 #include "GLDefs/Monsters/Revenant/BeamRevenant.gl"
+#include "GLDefs/Monsters/Revenant/Draugr.gl"
+#include "GLDefs/Monsters/Revenant/GhostRevenant.gl"
 
 #include "GLDefs/Monsters/Arachnotron/Arachnotron.gl"
+#include "GLDefs/Monsters/Arachnotron/AracKnight.gl"
 //#include "GLDefs/Monsters/Arachnotron/LaserSpider.gl"
-#include "GLDefs/Monsters/Arachnotron/ZombieTank.gl"
-#include "GLDefs/Monsters/Arachnotron/ZombiePlasmaTank.gl"
+//#include "GLDefs/Monsters/Arachnotron/ZombieTank.gl"
+
+#include "GLDefs/Monsters/Mancubus/ZombiePlasmaTank.gl"
 
 #include "GLDefs/Monsters/Cyberdemon/Tiberdemon.gl"
 #include "GLDefs/Monsters/Cyberdemon/BlueTiberdemon.gl"

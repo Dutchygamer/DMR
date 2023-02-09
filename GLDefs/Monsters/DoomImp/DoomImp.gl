@@ -1,43 +1,41 @@
-pointlight DMR_IMPBALL
+flickerlight DMR_ImpBall
 {
     color 1.0 0.35 0.1
-    size 56
-	attenuate 1
+    size 48
+    secondarySize 56
+    chance 0.3
 }
 
-flickerlight DMR_IMPBALL_X1
+flickerlight DMR_ImpBall_X1
 {
     color 1.0 0.35 0.1
-    size 72
-    secondarySize 96
-    chance 0.25
-	attenuate 1
+    size 55
+    secondarySize 60
+    chance 0.3
 }
 
-flickerlight DMR_IMPBALL_X2
+flickerlight DMR_ImpBall_X2
 {
     color 0.7 0.25 0.1
-    size 88
-    secondarySize 104
-    chance 0.25
-	attenuate 1
+    size 60
+    secondarySize 65
+    chance 0.3
 }
 
-flickerlight DMR_IMPBALL_X3
+flickerlight DMR_ImpBall_X3
 {
     color 0.3 0.1 0.0
-    size 96
-    secondarySize 112
-    chance 0.25
-	attenuate 1
+    size 65
+    secondarySize 70
+    chance 0.3
 }
 
 object DMR_DoomImpBall 
 {
-    frame BAL1A { light DMR_IMPBALL }
-    frame BAL1B { light DMR_IMPBALL }
+    frame BAL1A { light DMR_ImpBall }
+    frame BAL1B { light DMR_ImpBall }
 
-    frame BAL1C { light DMR_IMPBALL_X1 }
-    frame BAL1D { light DMR_IMPBALL_X2 }
-    frame BAL1E { light DMR_IMPBALL_X3 }
+    frame BAL1C { light DMR_ImpBall_X1 }
+    frame BAL1D { light DMR_ImpBall_X2 }
+    frame BAL1E { light DMR_ImpBall_X3 }
 }

@@ -12,7 +12,7 @@ flickerlight DMR_LaserFire
 pointlight DMR_LaserTrail
 {
     color 1.0 0.0 0.0
-    size 40
+    size 48
 }
 
 object SmallRedLaserTrail
@@ -23,23 +23,23 @@ object SmallRedLaserTrail
 flickerlight DMR_LaserImpact_X1
 {
     color 0.9 0.0 0.0
-    size 48
-    secondarySize 52
+    size 55
+    secondarySize 60
     chance 0.3
 }
 
 flickerlight DMR_LaserImpact_X2
 {
     color 1.0 0.0 0.0
-    size 64
-    secondarySize 72
+    size 60
+    secondarySize 65
     chance 0.3
 }
 
 flickerlight DMR_LaserImpact_X3
 {
     color 0.7 0.0 0.0
-    size 60
+    size 65
     secondarySize 70
     chance 0.3
 }

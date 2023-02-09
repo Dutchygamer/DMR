@@ -1,47 +1,13 @@
-pointlight DMR_HSMITBALL
-{
-    color 1.0 0.0 0.0
-    size 72
-	attenuate 1
-}
-
-flickerlight DMR_HSMITBALL_X1
-{
-    color 0.9 0.1 0.1
-    size 96
-    secondarySize 112
-    chance 0.25
-	attenuate 1
-}
-
-flickerlight DMR_HSMITBALL_X2
-{
-    color 0.6 0.05 0.05
-    size 104
-    secondarySize 128
-    chance 0.25
-	attenuate 1
-}
-
-flickerlight DMR_HSMITBALL_X3
-{
-    color 0.3 0.0 0.0
-    size 112
-    secondarySize 144
-    chance 0.25
-	attenuate 1
-}
-
 object ApprenticeHellshot
 {
-    frame HBALA { light DMR_HSMITBALL }
-    frame HBALB { light DMR_HSMITBALL }
-    frame HBALC { light DMR_HSMITBALL }
-    frame HBALD { light DMR_HSMITBALL }
+    frame HBALA { light DMR_DevilBall }
+    frame HBALB { light DMR_DevilBall }
+    frame HBALC { light DMR_DevilBall }
+    frame HBALD { light DMR_DevilBall }
 
-    frame HBALE { light DMR_HSMITBALL_X1 }
-    frame HBALF { light DMR_HSMITBALL_X2 }
-    frame HBALG { light DMR_HSMITBALL_X2 }
-    frame HBALH { light DMR_HSMITBALL_X2 }
-    frame HBALI { light DMR_HSMITBALL_X3 }
+    frame HBALE { light DMR_DevilBall_X1 }
+    frame HBALF { light DMR_DevilBall_X2 }
+    frame HBALG { light DMR_DevilBall_X2 }
+    frame HBALH { light DMR_DevilBall_X2 }
+    frame HBALI { light DMR_DevilBall_X3 }
 }

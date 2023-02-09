@@ -1,36 +1,24 @@
-flickerlight DMR_AFRIT
-{
-    color 0.5 0.25 0.0
-    size 56
-    secondarySize 64
-    chance 0.25
-	attenuate 1
-	offset 0 24 0
-}
-//use the lights in the ZScript itself so we can explictely use the lights when needed
-//I find it silly when mods makes enemies always light up, even when idle
-//this makes ambushes a lot less ambush-y cause well, the enemy is already making itself visible ;o
-
 object AfritBall
 {
-    frame FRTMA { light DMR_HWARRBALL }
-    frame FRTMB { light DMR_HWARRBALL }
+    frame FRTMA { light DMR_ImpBall }
+    frame FRTMB { light DMR_ImpBall }
 
-    frame FRTMC { light DMR_HWARRBALL_X1 }
-    frame FRTMD { light DMR_HWARRBALL_X2 }
-    frame FRTME { light DMR_HWARRBALL_X3 }
+    frame FRTMC { light DMR_ImpBall_X1 }
+    frame FRTMD { light DMR_ImpBall_X2 }
+    frame FRTME { light DMR_ImpBall_X3 }
 }
+
 
 object AfritComet
 {
-    frame COMTA { light DMR_HWARRBALL }
-    frame COMTB { light DMR_HWARRBALL }
-    frame COMTC { light DMR_HWARRBALL }
+    frame COMTA { light DMR_HellWarriorBall }
+    frame COMTB { light DMR_HellWarriorBall }
+    frame COMTC { light DMR_HellWarriorBall }
 
-    frame COMTD { light DMR_HWARRBALL_X1 }
-    frame COMTE { light DMR_HWARRBALL_X2 }
-    frame COMTF { light DMR_HWARRBALL_X2 }
-    frame COMTG { light DMR_HWARRBALL_X2 }
-    frame COMTH { light DMR_HWARRBALL_X3 }
-    frame COMTI { light DMR_HWARRBALL_X3 }
+    frame COMTD { light DMR_HellWarriorBall_X1 }
+    frame COMTE { light DMR_HellWarriorBall_X2 }
+    frame COMTF { light DMR_HellWarriorBall_X2 }
+    frame COMTG { light DMR_HellWarriorBall_X2 }
+    frame COMTH { light DMR_HellWarriorBall_X3 }
+    frame COMTI { light DMR_HellWarriorBall_X3 }
 }

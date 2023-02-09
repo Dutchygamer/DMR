@@ -1,9 +1,41 @@
+flickerlight DMR_RevenantTracer
+{
+    color 1.0 0.5 0.2
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+flickerlight DMR_RevenantTracer_X1
+{
+    color 1.0 0.5 0.2
+    size 55
+    secondarySize 60
+    chance 0.3
+}
+
+flickerlight DMR_RevenantTracer_X2
+{
+    color 0.7 0.35 0.15
+    size 60
+    secondarySize 65
+    chance 0.3
+}
+
+flickerlight DMR_RevenantTracer_X3
+{
+    color 0.3 0.15 0.05
+    size 65
+    secondarySize 70
+    chance 0.3
+}
+
 Object DMR_RevenantTracer
 {
-	Frame FATBA { Light TRACER }
-	Frame FATBB { Light TRACER }
+	Frame FATBA { Light DMR_RevenantTracer }
+	Frame FATBB { Light DMR_RevenantTracer }
 
-	Frame FBXPA { Light TRACER_X1 }
-	Frame FBXPB { Light TRACER_X2 }
-	Frame FBXPC { Light TRACER_X3 }
+	Frame FBXPA { Light DMR_RevenantTracer_X1 }
+	Frame FBXPB { Light DMR_RevenantTracer_X2 }
+	Frame FBXPC { Light DMR_RevenantTracer_X3 }
 }

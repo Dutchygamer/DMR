@@ -1,39 +1,61 @@
-/*pointlight DMR_ARACHATK
+
+flickerlight DMR_ArachnotronFire
 {
     color 0.6 1.0 0.4
-    size 84
-	attenuate 1
-}
-
-object DMR_Arachnotron
-{
-    frame BSPIG { light DMR_ARACHATK }
-}*/
-
-pointlight DMR_ARACHPLAS
-{
-    color 0.6 1.0 0.4
-    size 84
-	attenuate 1
-}
-
-flickerlight DMR_ARACHPLAS_X1
-{
-    color 0.4 0.8 0.3
-    size 108
-    secondarySize 120
+    size 48
+    secondarySize 56
+    offset 0 40 0
     chance 0.3
-	attenuate 1
+}
+
+flickerlight DMR_ArachnotronBall
+{
+    color 0.6 1.0 0.4
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+flickerlight DMR_ArachnotronBall_X1
+{
+    color 0.45 0.9 0.15
+    size 55
+    secondarySize 60
+    chance 0.3
+}
+
+flickerlight DMR_ArachnotronBall_X2
+{
+    color 0.3 0.6 0.06
+    size 60
+    secondarySize 65
+    chance 0.3
+}
+
+flickerlight DMR_ArachnotronBall_X3
+{
+    color 0.1 0.3 0.0
+    size 65
+    secondarySize 70
+    chance 0.3
+}
+
+flickerlight DMR_ArachnotronBall_X4
+{
+    color 0.0 0.2 0.0
+    size 70
+    secondarySize 75
+    chance 0.3
 }
 
 object DMR_ArachnotronPlasma
 {
-    frame APLSA { light DMR_ARACHPLAS }
-    frame APLSB { light DMR_ARACHPLAS }
+    frame APLSA { light DMR_ArachnotronBall }
+    frame APLSB { light DMR_ArachnotronBall }
 
-    frame APBXA { light DMR_ARACHPLAS_X1 }
-    frame APBXB { light DMR_ARACHPLAS_X2 }
-    frame APBXC { light DMR_ARACHPLAS_X2 }
-    frame APBXD { light DMR_ARACHPLAS_X3 }
-    frame APBXE { light DMR_ARACHPLAS_X4 }
+    frame APBXA { light DMR_ArachnotronBall_X1 }
+    frame APBXB { light DMR_ArachnotronBall_X2 }
+    frame APBXC { light DMR_ArachnotronBall_X2 }
+    frame APBXD { light DMR_ArachnotronBall_X3 }
+    frame APBXE { light DMR_ArachnotronBall_X4 }
 }

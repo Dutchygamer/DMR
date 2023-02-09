@@ -1,69 +1,26 @@
 
-// Arachnotron Fireball
-pointlight ARACHPLAS
+object AracKnightPlasmaBolt
 {
-    color 0.6 1.0 0.4
-    size 84
-	attenuate 1
+	frame PLRNA { light DMR_DemonPlasmaRune }
+    frame PLRNB { light DMR_DemonPlasmaRune }
+	
+    frame PLRXH { light DMR_DemonPlasmaRune_X3 }
+    frame PLRXI { light DMR_DemonPlasmaRune_X3 }
+    frame PLRXJ { light DMR_DemonPlasmaRune_X2 }
+    frame PLRXK { light DMR_DemonPlasmaRune_X2 }
+    frame PLRXL { light DMR_DemonPlasmaRune_X1 }
+    frame PLRXM { light DMR_DemonPlasmaRune_X1 }
 }
 
-flickerlight ARACHPLAS_X1
+object AracKnightSpamPlasma
 {
-    color 0.4 0.8 0.3
-    size 108
-    secondarySize 120
-    chance 0.3
-	attenuate 1
-}
-
-flickerlight ARACHPLAS_X2
-{
-    color 0.6 0.6 0.3
-    size 132
-    secondarySize 144
-    chance 0.3
-	attenuate 1
-}
-
-flickerlight ARACHPLAS_X3
-{
-    color 0.4 0.4 0.2
-    size 72
-    secondarySize 48
-    chance 0.3
-	attenuate 1
-}
-
-flickerlight ARACHPLAS_X4
-{
-    color 0.2 0.2 0.1
-    size 36
-    secondarySize 24
-    chance 0.3
-	attenuate 1
-}
-
-
-object AracKnightPlasmaBolt 
-{
-    frame APLSA { light ARACHPLAS }
-    frame APLSB { light ARACHPLAS }
-
-    frame APBXA { light ARACHPLAS_X1 }
-    frame APBXB { light ARACHPLAS_X2 }
-    frame APBXC { light ARACHPLAS_X2 }
-    frame APBXD { light ARACHPLAS_X3 }
-    frame APBXE { light ARACHPLAS_X4 }
-}
-
-object AracKnightSpamPlasma  
-{
-    frame APLSA { light ARACHPLAS }
-    frame APLSB { light ARACHPLAS }
-
-    frame APBXA { light ARACHPLAS_X1 }
-    frame APBXB { light ARACHPLAS_X2 }
-    frame APBXC { light ARACHPLAS_X2 }
-    frame APBXD { light ARACHPLAS_X3 }
-    frame APBXE { light ARACHPLAS_X4 }
+	frame PLRNA { light DMR_DemonPlasmaRune }
+    frame PLRNB { light DMR_DemonPlasmaRune }
+	
+    frame PLRXA { light DMR_DemonPlasmaRune_X3 }
+    frame PLRXB { light DMR_DemonPlasmaRune_X3 }
+    frame PLRXC { light DMR_DemonPlasmaRune_X2 }
+    frame PLRXD { light DMR_DemonPlasmaRune_X2 }
+    frame PLRXE { light DMR_DemonPlasmaRune_X1 }
+    frame PLRXF { light DMR_DemonPlasmaRune_X1 }
 }

@@ -1,43 +1,9 @@
-pointlight DMR_NIMPBALL
-{
-    color 0.0 1.0 0.0
-    size 56
-	attenuate 1
-}
-
-flickerlight DMR_NIMPBALL_X1
-{
-    color 0.6 0.9 0.6
-    size 72
-    secondarySize 96
-    chance 0.25
-	attenuate 1
-}
-
-flickerlight DMR_NIMPBALL_X2
-{
-    color 0.45 0.6 0.45
-    size 88
-    secondarySize 104
-    chance 0.25
-	attenuate 1
-}
-
-flickerlight DMR_NIMPBALL_X3
-{
-    color 0.2 0.3 0.2
-    size 96
-    secondarySize 112
-    chance 0.25
-	attenuate 1
-}
-
 object NetherImpBall 
 {
-    frame IBALA { light DMR_NIMPBALL }
-    frame IBALB { light DMR_NIMPBALL }
+    frame IBALA { light DMR_BaronBall }
+    frame IBALB { light DMR_BaronBall }
 
-    frame IBALC { light DMR_NIMPBALL_X1 }
-    frame IBALD { light DMR_NIMPBALL_X2 }
-    frame IBALE { light DMR_NIMPBALL_X3 }
+    frame IBALC { light DMR_BaronBall_X1 }
+    frame IBALD { light DMR_BaronBall_X2 }
+    frame IBALE { light DMR_BaronBall_X3 }
 }

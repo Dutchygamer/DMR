@@ -1,100 +1,59 @@
-flickerlight DMR_BRUISER
-{
-    color 0.5 0.25 0.0
-    size 56
-    secondarySize 64
-    chance 0.25
-	attenuate 1
-	offset 0 24 0
-}
-//use the lights in the ZScript itself so we can explictely use the lights when needed
-//I find it silly when mods makes enemies always light up, even when idle
-//this makes ambushes a lot less ambush-y cause well, the enemy is already making itself visible ;o
-
-
 object BruiserBall
 {
-    frame BRBAA { light DMR_HWARRBALL }
-    frame BRBAB { light DMR_HWARRBALL }
+    frame BRBAA { light DMR_ImpBall }
+    frame BRBAB { light DMR_ImpBall }
 
-//TODO why so many frames????
-    frame BRBAK { light DMR_HWARRBALL_X1 }
-    frame BRBAL { light DMR_HWARRBALL_X2 }
-    frame BRBAM { light DMR_HWARRBALL_X2 }
-    frame BRBAN { light DMR_HWARRBALL_X2 }
-    frame BRBAO { light DMR_HWARRBALL_X2 }
-    frame BRBAP { light DMR_HWARRBALL_X2 }
-    frame BRBAQ { light DMR_HWARRBALL_X2 }
-    frame BRBAR { light DMR_HWARRBALL_X2 }
-    frame BRBAS { light DMR_HWARRBALL_X2 }
-    frame BRBAT { light DMR_HWARRBALL_X2 }
-    frame BRBAU { light DMR_HWARRBALL_X2 }
-    frame BRBAV { light DMR_HWARRBALL_X2 }
-    frame BRBAW { light DMR_HWARRBALL_X2 }
-    frame BRBAX { light DMR_HWARRBALL_X3 }
+    frame BRBAK { light DMR_ImpBall_X1 }
+    frame BRBAL { light DMR_ImpBall_X2 }
+    frame BRBAM { light DMR_ImpBall_X2 }
+    frame BRBAN { light DMR_ImpBall_X2 }
+    frame BRBAO { light DMR_ImpBall_X2 }
+    frame BRBAP { light DMR_ImpBall_X2 }
+    frame BRBAQ { light DMR_ImpBall_X2 }
+    frame BRBAR { light DMR_ImpBall_X2 }
+    frame BRBAS { light DMR_ImpBall_X2 }
+    frame BRBAT { light DMR_ImpBall_X2 }
+    frame BRBAU { light DMR_ImpBall_X2 }
+    frame BRBAV { light DMR_ImpBall_X2 }
+    frame BRBAW { light DMR_ImpBall_X2 }
+    frame BRBAX { light DMR_ImpBall_X3 }
 }
 
 object BruiserSpamBall
 {
-    frame BRB2A { light DMR_IMPBALL }
-    frame BRB2B { light DMR_IMPBALL }
+    frame BRB2A { light DMR_ImpBall }
+    frame BRB2B { light DMR_ImpBall }
 
-    frame BRBAC { light DMR_IMPBALL_X1 }
-    frame BRBAD { light DMR_IMPBALL_X2 }
-    frame BRBAE { light DMR_IMPBALL_X2 }
-    frame BRBAF { light DMR_IMPBALL_X2 }
-    frame BRBAG { light DMR_IMPBALL_X2 }
-    frame BRBAH { light DMR_IMPBALL_X2 }
-    frame BRBAI { light DMR_IMPBALL_X3 }
+    frame BRBAC { light DMR_ImpBall_X1 }
+    frame BRBAD { light DMR_ImpBall_X2 }
+    frame BRBAE { light DMR_ImpBall_X2 }
+    frame BRBAF { light DMR_ImpBall_X2 }
+    frame BRBAG { light DMR_ImpBall_X2 }
+    frame BRBAH { light DMR_ImpBall_X2 }
+    frame BRBAI { light DMR_ImpBall_X3 }
 }
 
 object BruiserFireSpawner
 {
-    frame XXBFA { light DMR_IMPBALL }
-    frame XXBFB { light DMR_IMPBALL }
+    frame XXBFA { light DMR_ImpBall }
+    frame XXBFB { light DMR_ImpBall }
 
-//TODO why so many frames????
-    frame XXBFC { light DMR_IMPBALL_X1 }
-    frame XXBFD { light DMR_IMPBALL_X1 }
-    frame XXBFE { light DMR_IMPBALL_X1 }
-    frame XXBFF { light DMR_IMPBALL_X2 }
-    frame XXBFG { light DMR_IMPBALL_X2 }
-    frame XXBFH { light DMR_IMPBALL_X2 }
-    frame XXBFI { light DMR_IMPBALL_X2 }
-    frame XXBFJ { light DMR_IMPBALL_X2 }
-    frame XXBFK { light DMR_IMPBALL_X2 }
-    frame XXBFL { light DMR_IMPBALL_X2 }
-    frame XXBFM { light DMR_IMPBALL_X2 }
-    frame XXBFN { light DMR_IMPBALL_X2 }
-    frame XXBFO { light DMR_IMPBALL_X2 }
-    frame XXBFP { light DMR_IMPBALL_X2 }
-    frame XXBFQ { light DMR_IMPBALL_X2 }
-    frame XXBFR { light DMR_IMPBALL_X3 }
-    frame XXBFS { light DMR_IMPBALL_X3 }
-    frame XXBFT { light DMR_IMPBALL_X3 }
-}
-
-object BruiserFire
-{
-    frame XXBFA { light DMR_IMPBALL }
-    frame XXBFB { light DMR_IMPBALL }
-
-//TODO why so many frames????
-    frame XXBFC { light DMR_IMPBALL_X1 }
-    frame XXBFD { light DMR_IMPBALL_X1 }
-    frame XXBFE { light DMR_IMPBALL_X1 }
-    frame XXBFF { light DMR_IMPBALL_X2 }
-    frame XXBFG { light DMR_IMPBALL_X2 }
-    frame XXBFH { light DMR_IMPBALL_X2 }
-    frame XXBFI { light DMR_IMPBALL_X2 }
-    frame XXBFJ { light DMR_IMPBALL_X2 }
-    frame XXBFK { light DMR_IMPBALL_X2 }
-    frame XXBFL { light DMR_IMPBALL_X2 }
-    frame XXBFM { light DMR_IMPBALL_X2 }
-    frame XXBFN { light DMR_IMPBALL_X2 }
-    frame XXBFO { light DMR_IMPBALL_X2 }
-    frame XXBFP { light DMR_IMPBALL_X2 }
-    frame XXBFQ { light DMR_IMPBALL_X2 }
-    frame XXBFR { light DMR_IMPBALL_X3 }
-    frame XXBFS { light DMR_IMPBALL_X3 }
+    frame XXBFC { light DMR_ImpBall_X1 }
+    frame XXBFD { light DMR_ImpBall_X1 }
+    frame XXBFE { light DMR_ImpBall_X1 }
+    frame XXBFF { light DMR_ImpBall_X2 }
+    frame XXBFG { light DMR_ImpBall_X2 }
+    frame XXBFH { light DMR_ImpBall_X2 }
+    frame XXBFI { light DMR_ImpBall_X2 }
+    frame XXBFJ { light DMR_ImpBall_X2 }
+    frame XXBFK { light DMR_ImpBall_X2 }
+    frame XXBFL { light DMR_ImpBall_X2 }
+    frame XXBFM { light DMR_ImpBall_X2 }
+    frame XXBFN { light DMR_ImpBall_X2 }
+    frame XXBFO { light DMR_ImpBall_X2 }
+    frame XXBFP { light DMR_ImpBall_X2 }
+    frame XXBFQ { light DMR_ImpBall_X2 }
+    frame XXBFR { light DMR_ImpBall_X3 }
+    frame XXBFS { light DMR_ImpBall_X3 }
+    frame XXBFT { light DMR_ImpBall_X3 }
 }

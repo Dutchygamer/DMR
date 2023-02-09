@@ -1,39 +1,11 @@
-/*pointlight DMR_ARACHATK
-{
-    color 0.6 1.0 0.4
-    size 84
-	attenuate 1
-}
-
-object DMR_Arachnotron
-{
-    frame BSPIG { light DMR_ARACHATK }
-}*/
-
-pointlight DMR_ARACHPLAS
-{
-    color 0.6 1.0 0.4
-    size 84
-	attenuate 1
-}
-
-flickerlight DMR_ARACHPLAS_X1
-{
-    color 0.4 0.8 0.3
-    size 108
-    secondarySize 120
-    chance 0.3
-	attenuate 1
-}
-
 object ZombiePlasmaTankPlasma
 {
-    frame PLSS { light DMR_ARACHPLAS }
-    frame PLSS { light DMR_ARACHPLAS }
+    frame PLSSA { light DMR_PlasmaBall }
+    frame PLSSB { light DMR_PlasmaBall }
 
-    frame PLSS { light DMR_ARACHPLAS_X1 }
-    frame PLSS { light DMR_ARACHPLAS_X2 }
-    frame PLSS { light DMR_ARACHPLAS_X2 }
-    frame PLSS { light DMR_ARACHPLAS_X3 }
-    frame PLSS { light DMR_ARACHPLAS_X4 }
+    frame PLSSA { light DMR_PlasmaBall_X1 }
+    frame PLSSB { light DMR_PlasmaBall_X2 }
+    frame PLSSC { light DMR_PlasmaBall_X2 }
+    frame PLSSD { light DMR_PlasmaBall_X3 }
+    frame PLSSE { light DMR_PlasmaBall_X4 }
 }

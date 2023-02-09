@@ -1,0 +1,49 @@
+
+flickerlight DMR_DemonPlasmaRune
+{
+    color 1.0 0.3 1.0
+    size 48
+    secondarySize 56
+    chance 0.3
+	subtractive 1
+}
+
+flickerlight DMR_DemonPlasmaRune_X1
+{
+    color 1.0 0.3 1.0
+    size 55
+    secondarySize 60
+    chance 0.3
+	subtractive 1
+}
+
+flickerlight DMR_DemonPlasmaRune_X2
+{
+    color 0.7 0.1 0.7
+    size 60
+    secondarySize 65
+    chance 0.3
+	subtractive 1
+}
+
+flickerlight DMR_DemonPlasmaRune_X3
+{
+    color 0.3 0.0 0.3
+    size 65
+    secondarySize 70
+    chance 0.3
+	subtractive 1
+}
+
+object BruiserPlasmaRune
+{
+	frame PLRNA { light DMR_DemonPlasmaRune }
+    frame PLRNB { light DMR_DemonPlasmaRune }
+	
+    frame PLRXA { light DMR_DemonPlasmaRune_X3 }
+    frame PLRXB { light DMR_DemonPlasmaRune_X3 }
+    frame PLRXC { light DMR_DemonPlasmaRune_X2 }
+    frame PLRXD { light DMR_DemonPlasmaRune_X2 }
+    frame PLRXE { light DMR_DemonPlasmaRune_X1 }
+    frame PLRXF { light DMR_DemonPlasmaRune_X1 }
+}
