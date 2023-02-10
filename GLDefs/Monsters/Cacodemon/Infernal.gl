@@ -1,0 +1,10 @@
+
+object InfernalBall
+{
+    frame BAL3A { light DMR_DevilBall }
+    frame BAL3B { light DMR_DevilBall }
+
+    frame BAL3C { light DMR_DevilBall_X1 }
+    frame BAL3D { light DMR_DevilBall_X2 }
+    frame BAL3E { light DMR_DevilBall_X3 }
+}

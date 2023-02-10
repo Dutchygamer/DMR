@@ -1,0 +1,22 @@
+
+object CacolichBall 
+{
+    frame FVULA { light DMR_VulgarShot }
+    frame FVULB { light DMR_VulgarShot }
+
+    frame FVULC { light DMR_VulgarShot_X1 }
+    frame FVULD { light DMR_VulgarShot_X2 }
+    frame FVULE { light DMR_VulgarShot_X2 }
+    frame FVULF { light DMR_VulgarShot_X3 }
+}
+
+
+object CacolichToxinBall 
+{
+    frame HECFA { light DMR_BaronBall }
+    frame HECFB { light DMR_BaronBall }
+
+    frame HECFC { light DMR_BaronBall_X1 }
+    frame HECFD { light DMR_BaronBall_X2 }
+    frame HECFE { light DMR_BaronBall_X3 }
+}

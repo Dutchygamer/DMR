@@ -1,0 +1,53 @@
+flickerlight DMR_VulgarShot
+{
+    color 0.2 1.0 0.2
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+flickerlight DMR_VulgarShot_X1
+{
+    color 0.15 0.9 0.15
+    size 55
+    secondarySize 60
+    chance 0.3
+}
+
+flickerlight DMR_VulgarShot_X2
+{
+    color 0.1 0.6 0.1
+    size 60
+    secondarySize 65
+    chance 0.3
+}
+
+flickerlight DMR_VulgarShot_X3
+{
+    color 0.05 0.3 0.05
+    size 65
+    secondarySize 70
+    chance 0.3
+}
+
+object VulgarShot 
+{
+    frame FVULA { light DMR_VulgarShot }
+    frame FVULB { light DMR_VulgarShot }
+
+    frame FVULC { light DMR_VulgarShot_X1 }
+    frame FVULD { light DMR_VulgarShot_X2 }
+    frame FVULE { light DMR_VulgarShot_X2 }
+    frame FVULF { light DMR_VulgarShot_X3 }
+}
+
+
+object VulgarGasShot 
+{
+    frame HECFA { light DMR_BaronBall }
+    frame HECFB { light DMR_BaronBall }
+
+    frame HECFC { light DMR_BaronBall_X1 }
+    frame HECFD { light DMR_BaronBall_X2 }
+    frame HECFE { light DMR_BaronBall_X3 }
+}

@@ -20,8 +20,13 @@
 #include "GLDefs/Monsters/DoomImp/PhaseImp.gl"
 #include "GLDefs/Monsters/DoomImp/Netherling.gl"
 #include "GLDefs/Monsters/DoomImp/Catharsi.gl"
+#include "GLDefs/Monsters/DoomImp/Vulgar.gl"
 
-#include "GLDefs/Monsters/HellKnight/HellKnight.gl"
+#include "GLDefs/Monsters/Cacodemon/DMR_Cacodemon.gl"
+#include "GLDefs/Monsters/Cacodemon/Infernal.gl"
+#include "GLDefs/Monsters/Cacodemon/Cacolich.gl"
+
+#include "GLDefs/Monsters/HellKnight/DMR_HellKnight.gl"
 #include "GLDefs/Monsters/HellKnight/HellWarrior.gl"
 #include "GLDefs/Monsters/HellKnight/Afrit.gl"
 
@@ -30,12 +35,12 @@
 #include "GLDefs/Monsters/BaronOfHell/CyBruiser.gl"
 #include "GLDefs/Monsters/BaronOfHell/Paladin.gl"
 
-#include "GLDefs/Monsters/Revenant/Revenant.gl"
+#include "GLDefs/Monsters/Revenant/DMR_Revenant.gl"
 #include "GLDefs/Monsters/Revenant/BeamRevenant.gl"
 #include "GLDefs/Monsters/Revenant/Draugr.gl"
 #include "GLDefs/Monsters/Revenant/GhostRevenant.gl"
 
-#include "GLDefs/Monsters/Arachnotron/Arachnotron.gl"
+#include "GLDefs/Monsters/Arachnotron/DMR_Arachnotron.gl"
 #include "GLDefs/Monsters/Arachnotron/AracKnight.gl"
 //#include "GLDefs/Monsters/Arachnotron/LaserSpider.gl"
 //#include "GLDefs/Monsters/Arachnotron/ZombieTank.gl"
