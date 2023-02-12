@@ -189,78 +189,89 @@ object DMR_FlamethrowerExplodeLarge
 }
 
 
-//DMR_Rocket
-pointlight DMR_ROCKET
+//rocket
+flickerlight DMR_Rocket
 {
     color 1.0 0.7 0.0
-    size 84
+    size 78
+    secondarySize 86
+    chance 0.3
 }
 
-flickerlight DMR_ROCKET_X1
+flickerlight DMR_Rocket_X1
 {
     color 1.0 0.6 0.1
-    size 96
-    secondarySize 108
+    size 90
+    secondarySize 100
     chance 0.3
 }
 
-flickerlight DMR_ROCKET_X2
+flickerlight DMR_Rocket_X2
 {
     color 0.65 0.3 0.0
-    size 120
-    secondarySize 132
+    size 100
+    secondarySize 110
     chance 0.3
 }
 
-flickerlight DMR_ROCKET_X3
+flickerlight DMR_Rocket_X3
 {
     color 0.3 0.1 0.0
-    size 144
-    secondarySize 156
+    size 110
+    secondarySize 120
     chance 0.3
 }
 
-
-//smaller DMR_Rocket
-pointlight DMR_SROCKET
+object DMR_Rocket 
 {
-    color 1.0 0.7 0.0
-    size 64
+    frame MISLA { light DMR_Rocket }
+
+    frame MISLB { light DMR_Rocket_X1 }
+    frame MISLC { light DMR_Rocket_X2 }
+    frame MISLD { light DMR_Rocket_X3 }
 }
 
-flickerlight DMR_SROCKET_X1
+
+//smaller rocket
+flickerlight DMR_SmallRocket
+{
+    color 1.0 0.7 0.0
+    size 72
+    secondarySize 80
+    chance 0.3
+}
+
+flickerlight DMR_SmallRocket_X1
 {
     color 1.0 0.6 0.1
     size 80
-    secondarySize 96
+    secondarySize 85
     chance 0.3
 }
 
-flickerlight DMR_SROCKET_X2
+flickerlight DMR_SmallRocket_X2
 {
     color 0.65 0.3 0.0
-    size 120
-    secondarySize 132
+    size 85
+    secondarySize 90
     chance 0.3
 }
 
-flickerlight DMR_SROCKET_X3
+flickerlight DMR_SmallRocket_X3
 {
     color 0.3 0.1 0.0
-    size 96
-    secondarySize 156
+    size 90
+    secondarySize 95
     chance 0.3
 }
 
-
-//DMR_SmallRocket
 object DMR_SmallRocket 
 {
-    frame MISLA { light DMR_SROCKET }
+    frame MISLA { light DMR_SmallRocket }
 
-    frame MISLB { light DMR_SROCKET_X1 }
-    frame MISLC { light DMR_SROCKET_X2 }
-    frame MISLD { light DMR_SROCKET_X3 }
+    frame MISLB { light DMR_SmallRocket_X1 }
+    frame MISLC { light DMR_SmallRocket_X2 }
+    frame MISLD { light DMR_SmallRocket_X3 }
 }
 
 

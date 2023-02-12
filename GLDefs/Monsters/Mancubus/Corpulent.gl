@@ -1,0 +1,84 @@
+flickerlight DMR_CorpulentBall
+{
+    color 0.2 1.0 0.2
+    size 72
+    secondarySize 80
+    chance 0.3
+}
+
+flickerlight DMR_CorpulentBall_X1
+{
+    color 0.15 0.9 0.15
+    size 80
+    secondarySize 85
+    chance 0.3
+}
+
+flickerlight DMR_CorpulentBall_X2
+{
+    color 0.1 0.6 0.1
+    size 85
+    secondarySize 90
+    chance 0.3
+}
+
+flickerlight DMR_CorpulentBall_X3
+{
+    color 0.05 0.3 0.05
+    size 90
+    secondarySize 95
+    chance 0.3
+}
+
+object CorpulentBall
+{
+    frame HECFA { light DMR_CorpulentBall }
+    frame HECFB { light DMR_CorpulentBall }
+
+    frame HECFC { light DMR_CorpulentBall_X1 }
+    frame HECFD { light DMR_CorpulentBall_X2 }
+    frame HECFE { light DMR_CorpulentBall_X2 }
+}
+
+
+flickerlight DMR_CorpulentToxinBall
+{
+    color 0.0 1.0 0.0
+    size 72
+    secondarySize 80
+    chance 0.3
+}
+
+flickerlight DMR_CorpulentToxinBall_X1
+{
+    color 0.1 0.9 0.1
+    size 80
+    secondarySize 85
+    chance 0.3
+}
+
+flickerlight DMR_CorpulentToxinBall_X2
+{
+    color 0.05 0.6 0.05
+    size 85
+    secondarySize 90
+    chance 0.3
+}
+
+flickerlight DMR_CorpulentToxinBall_X3
+{
+    color 0.0 0.3 0.0
+    size 90
+    secondarySize 95
+    chance 0.3
+}
+
+object CorpulentToxin 
+{
+    frame HECFA { light DMR_CorpulentToxinBall }
+    frame HECFB { light DMR_CorpulentToxinBall }
+
+    frame HECFC { light DMR_CorpulentToxinBall_X1 }
+    frame HECFD { light DMR_CorpulentToxinBall_X2 }
+    frame HECFE { light DMR_CorpulentToxinBall_X3 }
+}

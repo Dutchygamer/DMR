@@ -1,0 +1,42 @@
+flickerlight DMR_MacubusBall
+{
+    color 1.0 0.35 0.1
+    size 72
+    secondarySize 80
+    chance 0.3
+}
+
+flickerlight DMR_MacubusBall_X1
+{
+    color 1.0 0.35 0.1
+    size 80
+    secondarySize 85
+    chance 0.3
+}
+
+flickerlight DMR_MacubusBall_X2
+{
+    color 0.7 0.25 0.1
+    size 85
+    secondarySize 90
+    chance 0.3
+}
+
+flickerlight DMR_MacubusBall_X3
+{
+    color 0.3 0.1 0.0
+    size 90
+    secondarySize 95
+    chance 0.3
+}
+
+object DMR_FatShot
+{
+    frame MANFA { light DMR_MacubusBall }
+    frame MANFB { light DMR_MacubusBall }
+
+    frame MISLA { light DMR_MacubusBall_X1 }
+    frame MISLB { light DMR_MacubusBall_X2 }
+    frame MISLC { light DMR_MacubusBall_X2 }
+    frame MISLD { light DMR_MacubusBall_X3 }
+}

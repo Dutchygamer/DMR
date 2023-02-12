@@ -1,0 +1,46 @@
+
+flickerlight DMR_HectebusBall
+{
+    color 1.0 0.25 0.1
+    size 72
+    secondarySize 80
+    chance 0.3
+}
+
+flickerlight DMR_HectebusBall_X1
+{
+    color 1.0 0.25 0.1
+    size 80
+    secondarySize 85
+    chance 0.3
+}
+
+flickerlight DMR_HectebusBall_X2
+{
+    color 0.7 0.15 0.1
+    size 85
+    secondarySize 90
+    chance 0.3
+}
+
+flickerlight DMR_HectebusBall_X3
+{
+    color 0.3 0.0 0.0
+    size 90
+    secondarySize 95
+    chance 0.3
+}
+
+object HectebusBall
+{
+    frame FHEDA { light DMR_HectebusBall }
+    frame FHEDB { light DMR_HectebusBall }
+    frame FHEDC { light DMR_HectebusBall }
+    frame FHEDD { light DMR_HectebusBall }
+
+    frame RIP1D { light DMR_HectebusBall_X1 }
+    frame RIP1E { light DMR_HectebusBall_X2 }
+    frame RIP1F { light DMR_HectebusBall_X2 }
+    frame RIP1G { light DMR_HectebusBall_X2 }
+    frame RIP1H { light DMR_HectebusBall_X3 }
+}

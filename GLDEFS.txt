@@ -15,7 +15,7 @@
 #include "GLDefs/Monsters/ChaingunGuy/BFGGuy.gl"
 #include "GLDefs/Monsters/ChaingunGuy/PyroGuy.gl"
 
-#include "GLDefs/Monsters/DoomImp/DoomImp.gl"
+#include "GLDefs/Monsters/DoomImp/DMR_DoomImp.gl"
 #include "GLDefs/Monsters/DoomImp/Devil.gl"
 #include "GLDefs/Monsters/DoomImp/PhaseImp.gl"
 #include "GLDefs/Monsters/DoomImp/Netherling.gl"
@@ -42,9 +42,11 @@
 
 #include "GLDefs/Monsters/Arachnotron/DMR_Arachnotron.gl"
 #include "GLDefs/Monsters/Arachnotron/AracKnight.gl"
-//#include "GLDefs/Monsters/Arachnotron/LaserSpider.gl"
-//#include "GLDefs/Monsters/Arachnotron/ZombieTank.gl"
 
+#include "GLDefs/Monsters/Mancubus/DMR_Mancubus.gl"
+#include "GLDefs/Monsters/Mancubus/Corpulent.gl"
+#include "GLDefs/Monsters/Mancubus/Hectebus.gl"
+#include "GLDefs/Monsters/Mancubus/ZombieTank.gl"
 #include "GLDefs/Monsters/Mancubus/ZombiePlasmaTank.gl"
 
 #include "GLDefs/Monsters/Cyberdemon/Tiberdemon.gl"

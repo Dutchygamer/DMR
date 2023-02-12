@@ -1,0 +1,24 @@
+object ZombieTankExplosion
+{
+	//TODO bigger effects
+    frame ZTXPA { light DMR_Rocket_X1 }
+    frame ZTXPB { light DMR_Rocket_X2 }
+    frame ZTXPC { light DMR_Rocket_X2 }
+    frame ZTXPD { light DMR_Rocket_X2 }
+    frame ZTXPE { light DMR_Rocket_X2 }
+    frame ZTXPF { light DMR_Rocket_X2 }
+    frame ZTXPG { light DMR_Rocket_X2 }
+    frame ZTXPH { light DMR_Rocket_X2 }
+    frame ZTXPI { light DMR_Rocket_X2 }
+    frame ZTXPJ { light DMR_Rocket_X2 }
+    frame ZTXPK { light DMR_Rocket_X2 }
+    frame ZTXPL { light DMR_Rocket_X2 }
+    frame ZTXPM { light DMR_Rocket_X2 }
+    frame ZTXPN { light DMR_Rocket_X2 }
+    frame ZTXPO { light DMR_Rocket_X2 }
+    frame ZTXPP { light DMR_Rocket_X2 }
+    frame ZTXPQ { light DMR_Rocket_X2 }
+    frame ZTXPR { light DMR_Rocket_X2 }
+    frame ZTXPS { light DMR_Rocket_X2 }
+    frame ZTXPT { light DMR_Rocket_X3 }
+}
