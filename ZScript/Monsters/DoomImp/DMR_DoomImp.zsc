@@ -12,16 +12,25 @@ Class DMR_DoomImp : DoomImp
 	{
 	 Missile:
 		TROO EF 8 A_FaceTarget;
-		TROO G 6 A_CustomComboAttack("DoomImpBall",32,random(6,16),"imp/melee");
+		TROO G 6 A_CustomComboAttack("DMR_DoomImpBall",32,random(6,16),"imp/melee");
 		goto See;
 	}
 }
 
-Class DMR_DoomImpBall : DoomImpBall replaces DoomImpBall
+Class DMR_DoomImpBall : DMR_Projectile
 {
 	Default
 	{
+		Radius 6;
+		Height 8;
+		Speed 10;
+		FastSpeed 20;
 		DamageFunction(random(6,16));
+		+RANDOMIZE
+		RenderStyle "Add";
+		Alpha 1;
+		SeeSound "imp/attack";
+		DeathSound "imp/shotx";
 	}
 	States
 	{

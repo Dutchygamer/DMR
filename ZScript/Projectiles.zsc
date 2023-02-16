@@ -7,6 +7,15 @@ class DMR_Projectile : Actor
 	}
 }
 
+class DMR_FastProjectile : FastProjectile
+{
+	Default
+	{
+		Projectile;
+		+FORCEXYBILLBOARD;
+	}
+}
+
 
 class EmptyBulletPuff : Actor
 {
@@ -94,7 +103,7 @@ class DMR_SmallRocket : DMR_Rocket
 }
 
 //grenade
-Class DMR_GrenadeBase: Actor
+Class DMR_GrenadeBase : DMR_Projectile
 {
 	Default
 	{
@@ -102,7 +111,6 @@ Class DMR_GrenadeBase: Actor
 		Height 8;
 		Speed 25;
 		DamageFunction(random(16,48));
-		Projectile;
 		-NOGRAVITY
 		+THRUGHOST
 		BounceType "Doom";
@@ -133,7 +141,7 @@ class DMR_ThrownGrenade : DMR_GrenadeBase
 }
 
 //cluster missile
-class DMR_ClusterSubProjectile : actor
+class DMR_ClusterSubProjectile : DMR_Projectile
 {
 	Default
 	{
@@ -199,14 +207,13 @@ class DMR_ClusterSubProjectile : actor
 //======================================================================
 //	ZScript: 	DustedPandemonic, modified by Dutchygamer
 //======================================================================
-Class DMR_FlamethrowerBall: Actor
+Class DMR_FlamethrowerBall : DMR_Projectile
 {
 	Default
 	{
 		Radius 4;
 		Height 4;
 		Speed 13;
-		Projectile;
 		RenderStyle "Add";
 		DamageType "Fire";
 		Alpha 0.67;
@@ -325,7 +332,7 @@ class DMR_FlamethrowerExplodeLarge : DMR_FlamethrowerExplode
 }
 
 //laser
-class DMR_LaserBase : FastProjectile
+class DMR_LaserBase : DMR_FastProjectile
 {
 	Default
 	{
@@ -382,7 +389,7 @@ class DMR_LaserTrailBase : Actor
 }
 
 // plasma
-class DMR_ZombiePlasma : Actor
+class DMR_ZombiePlasma : DMR_Projectile
 {
 	Default
 	{		
@@ -390,7 +397,6 @@ class DMR_ZombiePlasma : Actor
 		Height 8;
 		Speed 25;
 		DamageFunction(random(10,30));
-		Projectile;
 		+RANDOMIZE
 		RenderStyle "Add";
 		Alpha 0.75;
@@ -666,7 +672,7 @@ class DMR_BurningFire : Actor
 }
 
 // a visible alternative to hitscan attacks
-class DMR_SlowBullet : Actor
+class DMR_SlowBullet : DMR_Projectile
 {
 	Default
 	{
@@ -674,7 +680,6 @@ class DMR_SlowBullet : Actor
 		Height 3;
 		Speed 60;
 		DamageFunction(random(6,16));
-		Projectile;
 		Scale 0.2;
 		Decal ""; //"BulletChip";
 		+BLOODSPLATTER;

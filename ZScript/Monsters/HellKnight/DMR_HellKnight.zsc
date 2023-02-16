@@ -25,7 +25,7 @@ Class DMR_HellKnight : HellKnight
 	Melee:
 	Missile:
 		BOS2 EF 8 A_FaceTarget;
-		BOS2 G 8 A_CustomComboAttack("BaronBall",32,random(16,48),"baron/melee");
+		BOS2 G 8 A_CustomComboAttack("DMR_BaronBall",32,random(16,48),"baron/melee");
 		goto See;
 	XDeath:
 		BOS2 P 5;
@@ -37,11 +37,21 @@ Class DMR_HellKnight : HellKnight
 	}
 }
 
-class DMR_BaronBall : BaronBall replaces BaronBall
+class DMR_BaronBall : DMR_Projectile
 {
 	Default
 	{
+		Radius 6;
+		Height 16;
+		Speed 15;
+		FastSpeed 20;
 		DamageFunction(random(16,48));
+		+RANDOMIZE
+		RenderStyle "Add";
+		Alpha 1;
+		SeeSound "baron/attack";
+		DeathSound "baron/shotx";
+		Decal "BaronScorch";
 	}
 	states
 	{

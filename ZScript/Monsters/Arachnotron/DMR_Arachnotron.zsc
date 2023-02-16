@@ -19,14 +19,14 @@ Class DMR_Arachnotron : Arachnotron
 	{ 
 	Missile:
 		BSPI A 20 bright A_FaceTarget;
-		BSPI G 4 bright Light("DMR_ArachnotronFire") A_SpawnProjectile("ArachnotronPlasma",20,0,0,0);
+		BSPI G 4 bright Light("DMR_ArachnotronFire") A_SpawnProjectile("DMR_ArachnotronPlasma",20,0,0,0);
 		BSPI H 4 bright;
 		BSPI H 1 bright A_SpidRefire;
 		goto Missile+1;
 	}
 }
 
-class DMR_ArachnotronPlasma : DMR_ZombiePlasma replaces ArachnotronPlasma
+class DMR_ArachnotronPlasma : DMR_ZombiePlasma
 {
 	Default
 	{

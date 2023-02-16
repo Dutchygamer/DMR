@@ -20,20 +20,20 @@ Class DMR_Fatso: Fatso
 		FATT G 20 A_FatRaise;
 		// A_FatAttack1 will shoot one shot straight ahead, and the second 11.25 degrees to its left.
 		FATT H 10 Bright {
-			A_SpawnProjectile("FatShot",18,-34,11.25);
-			A_SpawnProjectile("FatShot",18,34,0);
+			A_SpawnProjectile("DMR_FatShot",18,-34,11.25);
+			A_SpawnProjectile("DMR_FatShot",18,34,0);
 		}
 		FATT IG 5 A_FaceTarget;
 		// A_FatAttack2 will shoot one shot straight ahead, and the second 11.25 degrees to its right.
 		FATT H 10 Bright {
-			A_SpawnProjectile("FatShot",18,-34,0);
-			A_SpawnProjectile("FatShot",18,34,-11.25);
+			A_SpawnProjectile("DMR_FatShot",18,-34,0);
+			A_SpawnProjectile("DMR_FatShot",18,34,-11.25);
 		}
 		FATT IG 5 A_FaceTarget;
 		// A_FatAttack3 will shoot two shots, one 5.625 degrees to the left, and the other 5.625 degrees to the right. 
 		FATT H 10 Bright {
-			A_SpawnProjectile("FatShot",18,-34,5.625);
-			A_SpawnProjectile("FatShot",18,34,-5.625);
+			A_SpawnProjectile("DMR_FatShot",18,-34,5.625);
+			A_SpawnProjectile("DMR_FatShot",18,34,-5.625);
 		}
 		FATT IG 5 A_FaceTarget;
 		Goto See;
@@ -47,11 +47,19 @@ Class DMR_Fatso: Fatso
 	}
 }
 
-class DMR_FatShot : FatShot replaces FatShot
+class DMR_FatShot : DMR_Projectile
 {
 	Default
 	{
+		Radius 6;
+		Height 8;
+		Speed 20;
 		DamageFunction(random(16,48));
+		+RANDOMIZE
+		RenderStyle "Add";
+		Alpha 1;
+		SeeSound "fatso/attack";
+		DeathSound "fatso/shotx";
 	}
 	States
 	{
