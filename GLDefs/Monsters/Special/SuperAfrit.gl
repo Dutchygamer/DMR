@@ -1,0 +1,14 @@
+
+FlickerLight DMR_SuperAfrit
+{
+    color 0.8 0.5 0.1
+	Size 60
+	SecondarySize 70
+    chance 0.3
+	Offset 0 24 0
+}
+
+Object SuperAfrit
+{
+	Frame FRIT { Light DMR_SuperAfrit }
+}

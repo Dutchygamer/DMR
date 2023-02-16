@@ -1,3 +1,45 @@
+flickerlight DMR_BruiserDemon
+{
+    color 0.8 0.5 0.1
+    size 50
+    secondarySize 60
+    chance 0.3
+}
+
+object BruiserDemon
+{
+    frame BRUSA { light DMR_BruiserDemon }
+    frame BRUSB { light DMR_BruiserDemon }
+    frame BRUSC { light DMR_BruiserDemon }
+    frame BRUSD { light DMR_BruiserDemon }
+    frame BRUSE { light DMR_BruiserDemon }
+    frame BRUSF { light DMR_BruiserDemon }
+    frame BRUSG { light DMR_BruiserDemon }
+    frame BRUSH { light DMR_BruiserDemon }
+    frame BRUSI { light DMR_BruiserDemon }
+    frame BRUSJ { light DMR_BruiserDemon }
+	
+    frame BRUDA { light DMR_BruiserDemon }
+    frame BRUDB { light DMR_BruiserDemon }
+    frame BRUDC { light DMR_BruiserDemon }
+    frame BRUDD { light DMR_BruiserDemon }
+    frame BRUDE { light DMR_BruiserDemon }
+    frame BRUDF { light DMR_BruiserDemon }
+    frame BRUDG { light DMR_BruiserDemon }
+    frame BRUDH { light DMR_BruiserDemon }
+    frame BRUDI { light DMR_BruiserDemon }
+    frame BRUDJ { light DMR_BruiserDemon }
+    frame BRUDK { light DMR_BruiserDemon }
+    frame BRUDL { light DMR_BruiserDemon }
+    frame BRUDM { light DMR_BruiserDemon }
+    frame BRUDN { light DMR_BruiserDemon }
+    frame BRUDO { light DMR_BruiserDemon }
+    frame BRUDP { light DMR_BruiserDemon }
+    frame BRUDQ { light DMR_BruiserDemon }
+	// all other frames have no light
+}
+
+
 object BruiserBall
 {
     frame BRBAA { light DMR_ImpBall }
@@ -19,6 +61,7 @@ object BruiserBall
     frame BRBAX { light DMR_ImpBall_X3 }
 }
 
+
 object BruiserSpamBall
 {
     frame BRB2A { light DMR_ImpBall }
@@ -33,11 +76,11 @@ object BruiserSpamBall
     frame BRBAI { light DMR_ImpBall_X3 }
 }
 
+
 object BruiserFireSpawner
 {
-    frame XXBFA { light DMR_ImpBall }
-    frame XXBFB { light DMR_ImpBall }
-
+    frame XXBFA { light DMR_ImpBall_X1 }
+    frame XXBFB { light DMR_ImpBall_X1 }
     frame XXBFC { light DMR_ImpBall_X1 }
     frame XXBFD { light DMR_ImpBall_X1 }
     frame XXBFE { light DMR_ImpBall_X1 }
@@ -56,4 +99,10 @@ object BruiserFireSpawner
     frame XXBFR { light DMR_ImpBall_X3 }
     frame XXBFS { light DMR_ImpBall_X3 }
     frame XXBFT { light DMR_ImpBall_X3 }
+}
+
+
+object BruiserFire
+{
+    frame XXBF { light DMR_ImpBall }
 }

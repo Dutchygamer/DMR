@@ -54,3 +54,5 @@
 #include "GLDefs/Monsters/Cyberdemon/CoreDefender.gl"
 
 #include "GLDefs/Monsters/SpiderMastermind/Overlord.gl"
+
+#include "GLDefs/Monsters/Special/SuperAfrit.gl"

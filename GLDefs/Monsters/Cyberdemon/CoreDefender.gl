@@ -36,24 +36,40 @@ pointlight DMR_LaserTrailBig
 flickerlight DMR_LaserImpactBig_X1
 {
     color 0.9 0.0 0.0
-    size 78
-    secondarySize 92
+    size 110
+    secondarySize 120
     chance 0.3
 }
 
 flickerlight DMR_LaserImpactBig_X2
 {
     color 1.0 0.0 0.0
-    size 86
-    secondarySize 112
+    size 120
+    secondarySize 130
     chance 0.3
 }
 
 flickerlight DMR_LaserImpactBig_X3
 {
-    color 0.7 0.0 0.0
-    size 82
-    secondarySize 108
+    color 0.8 0.0 0.0
+    size 130
+    secondarySize 140
+    chance 0.3
+}
+
+flickerlight DMR_LaserImpactBig_X4
+{
+    color 0.65 0.0 0.0
+    size 85
+    secondarySize 90
+    chance 0.3
+}
+
+flickerlight DMR_LaserImpactBig_X5
+{
+    color 0.45 0.0 0.0
+    size 80
+    secondarySize 85
     chance 0.3
 }
 
@@ -61,10 +77,10 @@ object CoreDefenderObeliskLaser
 {
 	frame BFE1A { light DMR_LaserImpactBig_X1 }
     frame BFE1B { light DMR_LaserImpactBig_X2 }
-    frame BFE1C { light DMR_LaserImpactBig_X2 }
-    frame BFE1D { light DMR_LaserImpactBig_X2 }
-    frame BFE1E { light DMR_LaserImpactBig_X3 }
-    frame BFE1F { light DMR_LaserImpactBig_X3 }
+    frame BFE1C { light DMR_LaserImpactBig_X3 }
+    frame BFE1D { light DMR_LaserImpactBig_X3 }
+    frame BFE1E { light DMR_LaserImpactBig_X4 }
+    frame BFE1F { light DMR_LaserImpactBig_X5 }
 }
 
 object CoreDefenderObeliskLaserTrail

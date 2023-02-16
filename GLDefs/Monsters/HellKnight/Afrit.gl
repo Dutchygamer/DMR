@@ -1,3 +1,19 @@
+
+FlickerLight DMR_Afrit
+{
+	Color 0.7 0.4 0.0
+	Size 50
+	SecondarySize 60
+    chance 0.3
+	Offset 0 24 0
+}
+
+Object Afrit
+{
+	Frame FRIT { Light DMR_Afrit }
+}
+
+
 object AfritBall
 {
     frame FRTMA { light DMR_ImpBall }
