@@ -175,14 +175,25 @@ class BruiserFireSpawner : Actor
 		+BLOODLESSIMPACT;
 		-NOGRAVITY;
 		+DONTSPLASH;
+		+BRIGHT
 		DamageType "fire";
 		SeeSound "flamebringer/firefx";
-		DeathSound "weapons/rocklx";
+		DeathSound "weapons/rocklx";		
 	}
+	int dmgtic;
+	
 	States
 	{
 	Spawn:
-  		TNT1 A 1 Bright A_SpawnItem("BruiserFire",0,0);
+  		TNT1 A 1 Bright {
+			// only spawn fire X amount of tics instead of every tick
+			dmgtic++;
+			if(dmgtic >= 2)
+			{
+				A_SpawnItem("BruiserFire",0,0);
+				dmgtic = 0;
+			}	
+		}
 		Loop;
 	Death:
   		XXBF AB 3 Bright;

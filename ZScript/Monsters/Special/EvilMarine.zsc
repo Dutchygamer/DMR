@@ -71,18 +71,10 @@ class EvilMarine : WolfensteinSS
 	}
 }
 
-class EvilMarinePlasmaBall : Actor
+class EvilMarinePlasmaBall : DMR_ZombiePlasma
 {
 	Default
 	{
-		Radius 13;
-		Height 8;
-		Speed 25;
-		DamageFunction(random(10,30));
-		Projectile;
-		+RANDOMIZE
-		RenderStyle "Add";
-		Alpha 0.75;
 		SeeSound "weapons/plasmaf";
 		DeathSound "weapons/plasmax";
 		Obituary "$OB_MPPLASMARIFLE";

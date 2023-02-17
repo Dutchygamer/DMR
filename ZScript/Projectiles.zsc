@@ -136,7 +136,6 @@ class DMR_ThrownGrenade : DMR_GrenadeBase
 		DeathSound "Paladin/Explode";
 		BounceSound "dune/bounce";
 		Scale 0.75;
-		+FORCEXYBILLBOARD
 	}
 }
 

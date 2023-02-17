@@ -113,24 +113,8 @@ class SentinelBall : DMR_CacodemonBall
 	}
 }
 
-class GuardianSummoner : Actor
+class GuardianSummoner : AcolyteSummoner
 {
-	Default
-	{
-		Radius 8;
-		Height 8;
-		Projectile;
-		Speed 18;
-		RenderStyle "ADD";
-		Alpha 0.75;
-		Gravity 0.6;
-		-NOGRAVITY;
-		BounceType "Doom";
-		BounceCount 3;
-		Seesound "weapons/smlbrn";
-		DeathSound "vile/firecrkl";
-		ProjectileKickBack 500;
-	}
 	States
 	{
 	Spawn:
