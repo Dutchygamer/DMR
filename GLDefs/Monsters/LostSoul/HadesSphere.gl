@@ -1,0 +1,62 @@
+flickerlight DMR_HadesSphere
+{
+    color 1.0 0.0 0.0
+    size 35
+    secondarySize 40
+    chance 0.3
+}
+
+flickerlight DMR_HadesSphere_X1
+{
+    color 0.95 0.0 0.0
+    size 40
+    secondarySize 45
+    chance 0.3
+}
+
+flickerlight DMR_HadesSphere_X2
+{
+    color 0.85 0.0 0.0
+    size 45
+    secondarySize 50
+    chance 0.3
+}
+
+flickerlight DMR_HadesSphere_X3
+{
+    color 0.75 0.0 0.0
+    size 50
+    secondarySize 55
+    chance 0.3
+}
+
+flickerlight DMR_HadesSphere_X4
+{
+    color 0.5 0.0 0.0
+    size 55
+    secondarySize 60
+    chance 0.3
+}
+
+Object HadesSphere
+{
+	Frame HADEA { Light DMR_HadesSphere }
+	Frame HADEB { Light DMR_HadesSphere }
+	Frame HADEC { Light DMR_HadesSphere }
+	Frame HADED { Light DMR_HadesSphere }
+	
+	Frame HADEE { Light DMR_HadesSphere }
+	Frame HADEF { Light DMR_HadesSphere }
+	Frame HADEG { Light DMR_HadesSphere }
+	Frame HADEH { Light DMR_HadesSphere }
+	Frame HADEI { Light DMR_HadesSphere }
+	Frame HADEJ { Light DMR_HadesSphere }
+	Frame HADEK { Light DMR_HadesSphere }
+	Frame HADEL { Light DMR_HadesSphere }
+
+	Frame HADEM { Light DMR_HadesSphere_X1 }
+	Frame HADEN { Light DMR_HadesSphere_X2 }
+	Frame HADEO { Light DMR_HadesSphere_X2 }
+	Frame HADEP { Light DMR_HadesSphere_X3 }
+	Frame HADEQ { Light DMR_HadesSphere_X4 }
+}

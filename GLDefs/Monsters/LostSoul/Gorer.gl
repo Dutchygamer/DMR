@@ -1,0 +1,67 @@
+flickerlight DMR_Gorer
+{
+    color 0.7 0.7 0.7
+    size 35
+    secondarySize 40
+    chance 0.3
+}
+
+flickerlight DMR_GorerAttack
+{
+    color 0.9 0.9 0.9
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+flickerlight DMR_Gorer_X1
+{
+    color 0.65 0.65 0.65
+    size 40
+    secondarySize 45
+    chance 0.3
+}
+
+flickerlight DMR_Gorer_X2
+{
+    color 0.45 0.45 0.45
+    size 45
+    secondarySize 50
+    chance 0.3
+}
+
+flickerlight DMR_Gorer_X3
+{
+    color 0.25 0.25 0.25
+    size 45
+    secondarySize 50
+    chance 0.3
+}
+
+flickerlight DMR_Gorer_X4
+{
+    color 0.1 0.1 0.1
+    size 35
+    secondarySize 40
+    chance 0.3
+}
+
+Object Gorer
+{
+	Frame ETHSA { Light DMR_Gorer }
+	Frame ETHSB { Light DMR_Gorer }
+	Frame ETHSC { Light DMR_Gorer }
+	Frame ETHSD { Light DMR_Gorer }
+	Frame ETHSE { Light DMR_GorerAttack }
+	Frame ETHSF { Light DMR_GorerAttack }
+	Frame ETHSG { Light DMR_Gorer }
+
+	Frame ETHSH { Light DMR_Gorer }
+	Frame ETHSI { Light DMR_Gorer }
+	Frame ETHSJ { Light DMR_Gorer_X1 }
+	Frame ETHSK { Light DMR_Gorer_X2 }
+	Frame ETHSL { Light DMR_Gorer_X3 }
+	Frame ETHSM { Light DMR_Gorer_X4 }
+	Frame ETHSN { Light DMR_Gorer_X4 }
+	Frame ETHSO { Light DMR_Gorer_X4 }
+}

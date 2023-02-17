@@ -1,0 +1,63 @@
+flickerlight DMR_ViralOne
+{
+    color 0.0 0.95 0.0
+    size 35
+    secondarySize 40
+    chance 0.3
+}
+
+flickerlight DMR_ViralOneAttack
+{
+    color 0.0 1.0 0.0
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+flickerlight DMR_ViralOne_X1
+{
+    color 0.0 0.9 0.0
+    size 40
+    secondarySize 45
+    chance 0.3
+}
+
+flickerlight DMR_ViralOne_X2
+{
+    color 0.0 0.75 0.0
+    size 45
+    secondarySize 50
+    chance 0.3
+}
+
+flickerlight DMR_ViralOne_X3
+{
+    color 0.0 0.5 0.0
+    size 50
+    secondarySize 55
+    chance 0.3
+}
+
+flickerlight DMR_ViralOne_X4
+{
+    color 0.0 0.25 0.0
+    size 55
+    secondarySize 60
+    chance 0.3
+}
+
+Object PoisonSoul
+{
+	Frame PHNTA { Light DMR_ViralOne }
+	Frame PHNTB { Light DMR_ViralOne }
+	Frame PHNTC { Light DMR_ViralOneAttack }
+	Frame PHNTD { Light DMR_ViralOneAttack }
+	Frame PHNTE { Light DMR_ViralOne }
+	Frame PHNTF { Light DMR_ViralOne }
+	Frame PHNTG { Light DMR_ViralOne }
+
+	Frame PHNTH { Light DMR_ViralOne_X1 }
+	Frame PHNTI { Light DMR_ViralOne_X2 }
+	Frame PHNTJ { Light DMR_ViralOne_X3 }
+	Frame PHNTK { Light DMR_ViralOne_X4 }
+}

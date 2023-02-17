@@ -49,6 +49,11 @@
 #include "GLDefs/Monsters/Mancubus/ZombieTank.gl"
 #include "GLDefs/Monsters/Mancubus/ZombiePlasmaTank.gl"
 
+#include "GLDefs/Monsters/LostSoul/DMR_LostSoul.gl"
+#include "GLDefs/Monsters/LostSoul/ViralOne.gl"
+#include "GLDefs/Monsters/LostSoul/Gorer.gl"
+#include "GLDefs/Monsters/LostSoul/HadesSphere.gl"
+
 #include "GLDefs/Monsters/Cyberdemon/Tiberdemon.gl"
 #include "GLDefs/Monsters/Cyberdemon/BlueTiberdemon.gl"
 #include "GLDefs/Monsters/Cyberdemon/CoreDefender.gl"
