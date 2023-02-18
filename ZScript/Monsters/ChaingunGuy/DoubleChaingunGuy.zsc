@@ -22,7 +22,6 @@ class DoubleChaingunGuy : DMR_ChaingunGuy
 		PainChance 150;
 		DropItem "Chaingun";
 		DropItem "Chaingun", 10;
-		AttackSound "Chaingunner/Fire";
 	}
  	States
 	{
@@ -34,8 +33,14 @@ class DoubleChaingunGuy : DMR_ChaingunGuy
 		Loop;
 	Missile:
 		DPOS E 10 A_FaceTarget;
-		DPOS F 2 Light("DMR_RifleFire") Bright A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-		DPOS F 2 Light("DMR_RifleFire") Bright A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		DPOS F 2 Bright Light("DMR_RifleFire") {
+			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+		}
+		DPOS F 2 Bright Light("DMR_RifleFire") {
+			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+		}
 		DPOS F 1 A_CPosRefire;
 		Goto Missile+1;
 	Pain:

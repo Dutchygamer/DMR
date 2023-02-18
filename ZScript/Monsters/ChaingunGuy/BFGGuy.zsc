@@ -18,11 +18,12 @@ class BFGGuy : DMR_ChaingunGuy
 		Tag "BFG commando";
 		obituary "%o was vaporized by a zombie's BFG9000.";
 		health 150;
-		painchance 100;	
-		AttackSound "";
+		painchance 100;
+		Scale 1.1;
 		dropitem "Cell";
+		dropitem "Cell", 128;
 		dropitem "BFG9000", 10;
-		+DOHARMSPECIES; //zombies aren't BFG-ball-proof
+		+DOHARMSPECIES; // zombies aren't BFG-ball-proof
 	}
  	States
 	{
@@ -33,14 +34,19 @@ class BFGGuy : DMR_ChaingunGuy
 		BFGZ AABBCCDD 3 A_Chase;
 		Loop;
 	Missile:
-		TNT1 A 0 A_PlaySound ("weapons/bfgf");
+		TNT1 A 0 {
+			A_PlaySound ("weapons/bfgf", CHAN_WEAPON);
+			bNOPAIN = true;
+		}
 		BFGZ E 20 Light("DMR_BFGCHARGE1") A_FaceTarget;
 		BFGZ F 10 Bright Light("DMR_BFGCHARGE2") A_FaceTarget;
 		BFGZ F 10 Bright Light("DMR_BFGCHARGE2") {
 			A_FaceTarget();
 			A_SpawnProjectile("BFGBall", 32, 0);
 		}
-		BFGZ E 20;
+		BFGZ E 20 {
+			bNOPAIN = false;
+		}
 		goto See;
 	Pain:
 		BFGZ G 3;

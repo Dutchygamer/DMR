@@ -19,14 +19,10 @@ class RocketGuy : DMR_ChaingunGuy
 		Tag "Rocketeer";
 		Health 90;
 		PainChance 150;
-		+MISSILEMORE;
-		+MISSILEEVENMORE;
-		AttackSound "";
 		DropItem "RocketAmmo";
 		DropItem "RocketLauncher", 10;
 		Obituary "%o was splattered by a rocketeer's rocket.";
-		//Species "RocketGuy"; //needed for infighting with other zombies
-		+DOHARMSPECIES; //zombies aren't rocket-proof
+		+DOHARMSPECIES; // zombies aren't rocket-proof
 		//+DONTHARMCLASS; //unless you wield a rocket-launcher yourself
 	}
  	States

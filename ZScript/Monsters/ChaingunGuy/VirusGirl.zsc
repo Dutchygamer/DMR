@@ -13,24 +13,28 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-// own instance so we can do some shenenigens with the projectile
-class VirusZombie : DMR_ZombieBase
+// own instance so we can do some shenenigens with the projectile ignoring other Virusses (Virii?) but not other zombies
+class VirusZombie : DMR_MonsterBase
 {
 	Default
 	{
 		Tag "Virus";
-		Obituary "%o got infected by a Virus.";
 		Health 90;
+		Gibhealth -20; // all lower tier monsters (zombies -> imp) have 20 gibhealth
+		Species "DMR_Zambies";
+		Radius 20;
+		Height 56;
+		Mass 100;
+		Speed 8;
 		PainChance 150;
 		SeeSound "fem/sight";
 		PainSound "fem/pain";
 		DeathSound "fem/death";
 		ActiveSound "fem/active";
 		+MISSILEMORE;
+		+DOHARMSPECIES; // zombies aren't viral-proof
 		DamageFactor "VirusPoison", 0.0;
-		DamageFactor "ToxinCloud", 0.0;		
-		AttackSound "";
-		DropItem "";
+		DamageFactor "ToxinCloud", 0.0;
 	}
  	States
 	{
@@ -42,7 +46,7 @@ class VirusZombie : DMR_ZombieBase
 		Loop;
 	Missile:
 		ZOMW E 20 A_FaceTarget;
-		TNT1 A 0 A_PlaySound("Virus/FireDart");
+		TNT1 A 0 A_PlaySound("Virus/FireDart", CHAN_WEAPON);
 		ZOMW F 4 A_SpawnProjectile ("VirusDart", 32, 0);
 		ZOMW E 20;
 		goto See;
@@ -77,7 +81,6 @@ Class VirusDart : DMR_SlowBullet
 		Speed 65;
 		DamageFunction (random(25,35)); //don't use the default "random(1,8) x damage" formula
 		DamageType "VirusPoison";
-		+MTHRUSPECIES;
 		+EXTREMEDEATH; //always use explode death
 		Obituary "%o got infected by a Virus.";
 	}

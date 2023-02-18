@@ -22,9 +22,6 @@ class PyroGuy : DMR_ChaingunGuy
 		PainChance 150;
 		DamageFactor "Fire", 0.5;
 		DropItem "";
-		AttackSound "";
-		+MISSILEMORE;
-		+MISSILEEVENMORE;
 		+DOHARMSPECIES; //zombies aren't fire-proof
 	}
  	States
@@ -47,7 +44,7 @@ class PyroGuy : DMR_ChaingunGuy
 		goto See;
 	Flamethrower:
 		PYRZ E 10 A_FaceTarget;
-		TNT1 A 0 A_PlaySound ("weapons/flamethrower");
+		TNT1 A 0 A_PlaySound ("weapons/flamethrower", CHAN_WEAPON);
 		PYRZ F 1 Bright A_SpawnProjectile("DMR_FlamethrowerBall", 32, 0, random(-3,3));
 		PYRZ F 1 Bright A_SpawnProjectile("DMR_FlamethrowerBall", 32, 0, random(-3,3));
 		PYRZ F 1 Bright A_SpawnProjectile("DMR_FlamethrowerBall", 32, 0, random(-3,3));

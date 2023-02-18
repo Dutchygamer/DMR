@@ -18,12 +18,9 @@ class DemonPlasmaGuy : DMR_ChaingunGuy
 		Tag "Plasma Commando";
 		Health 110;
 		PainChance 150;
-		+MISSILEMORE;
-		+MISSILEEVENMORE;
-		+DOHARMSPECIES //zombies are not plasma-proof
-		AttackSound "";
 		DropItem "Cell";
-		DropItem "PlasmaRifle", 10;
+		DropItem "Cell", 128;
+		DropItem "Cell", 64;
 		Obituary "%o was fried by a plasma commando.";
 	}
  	States
