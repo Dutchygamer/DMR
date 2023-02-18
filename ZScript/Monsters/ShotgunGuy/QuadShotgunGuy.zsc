@@ -21,7 +21,7 @@ class QuadShotgunGuy : DMR_ShotgunGuy
 		Obituary "%o was smeared by a quad-shotgun guy.";
 		DropItem "Shell";
 		DropItem "Shell", 128;
-		ATTACKSOUND "";
+		DropItem "Shell", 64;
 	}
 	int shotsFired;
 	
@@ -72,7 +72,7 @@ class QuadShotgunGuy : DMR_ShotgunGuy
 	SingleShot:
 		QSZM E 10 A_FaceTarget;
 		QSZM F 10 Bright Light("DMR_RifleFire") {
-			A_PlaySound("QuadShotgunZombie/SingleFire");
+			A_PlaySound("QuadShotgunZombie/SingleFire", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,7.1,5,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired++; //expend a single shot
 		}
@@ -81,7 +81,7 @@ class QuadShotgunGuy : DMR_ShotgunGuy
 	SuperShot:
 		QSZM E 15 A_FaceTarget;
 		QSZM F 10 Bright Light("DMR_RifleFire") {
-			A_PlaySound("weapons/sshotf");
+			A_PlaySound("weapons/sshotf", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,7.1,10,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired += 2; //expend 2 shots
 		}
@@ -93,7 +93,7 @@ class QuadShotgunGuy : DMR_ShotgunGuy
 			A_PlaySound("QuadShotgunZombie/Reload3");
 		}
 		QSZM F 10 Bright Light("DMR_RifleFire") {
-			A_PlaySound("QuadShotgunZombie/QuadFire");
+			A_PlaySound("QuadShotgunZombie/QuadFire", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,7.1,20,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired = 4; //expend 4 shots
 			A_Recoil(8); //recoil is a bitch

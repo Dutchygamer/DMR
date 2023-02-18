@@ -11,26 +11,26 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class SuicideGuyExplosive : Actor //don't inherit from Zombieman (or related)
+// own instance for obvious reasons
+class SuicideGuyExplosive : DMR_MonsterBase 
 {
 	Default
 	{
 		Tag "Zombie suicider";
+		Health 60;
 		Obituary "%o was killed by a zombie suicider.";
 		Radius 20;
 		Height 56;
-		Health 60;
+		Mass 100;
 		Speed 18;
 		Painchance 20;
 		Seesound "suicide/sit";
 		Attacksound "shotguy/death";
 		Painsound "shotguy/pain";
 		Deathsound "shotguy/death";
-		Monster;
-		+FLOORCLIP;
 		+DONTHARMCLASS;
-		+AMBUSH; //for maximum annoyance, and less aaaaaaaaahh when they can't see you but did hear you
-		Species "Aaaaaaaaaaaah";
+		+AMBUSH; // for maximum annoyance, and less aaaaaaaaahh when they can't see you but did hear you
+		Species "DMR_Aaaaaaaaaaaah";
 	}
  	States
 	{
@@ -53,8 +53,10 @@ class SuicideGuyExplosive : Actor //don't inherit from Zombieman (or related)
 		TNT1 AAAAAAAAAA 0 {
 			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 		}
-		BMBE M 0 A_Explode (50, 128, XF_NOTMISSILE);
-		BMBE M 5 bright A_PlaySound ("weapons/rocklx");
+		BMBE M 5 bright {
+			A_Explode (50, 128, XF_NOTMISSILE);
+			A_PlaySound ("weapons/rocklx");			
+		}
 		BMBE N 5 bright A_XScream;
 		BMBE O 5 A_NoBlocking;
 		BMBE PQRST 5;
@@ -66,7 +68,7 @@ class SuicideGuyExplosive : Actor //don't inherit from Zombieman (or related)
 	}
 }
 
-//less explosive damage, spawns gas clouds
+// less explosive damage, spawns gas clouds
 class SuicideGuyGas : SuicideGuyExplosive
 {
 	states
@@ -89,8 +91,8 @@ class SuicideGuyGas : SuicideGuyExplosive
 	}
 }
 
-//spawned from RocketGuy or ZombieRocketTank
-//this way it will always immediately start attacking when spawned instead of having to both see and hear the player
+// spawned from RocketGuy or ZombieRocketTank
+// this way it will always immediately start attacking when spawned instead of having to both see and hear the player
 class SuicideGuyOmniscient : SuicideGuyExplosive
 {	
 	Default

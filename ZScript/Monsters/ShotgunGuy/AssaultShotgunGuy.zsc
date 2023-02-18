@@ -20,7 +20,7 @@ class AssaultShotgunGuy : DMR_ShotgunGuy
 		PainChance 155;
 		Obituary "%o got emmental'd by an auto-shotgun guy.";
 		DropItem "Shell";
-		ATTACKSOUND "";
+		DropItem "Shell", 128;
 	}
 	int shotsFired;
 	
@@ -43,7 +43,7 @@ class AssaultShotgunGuy : DMR_ShotgunGuy
 	Missile:
 		ASGZ E 10 A_FaceTarget;
         ASGZ F 10 Bright Light("DMR_RifleFire") {
-			A_PlaySound("asgguy/asgfir");
+			A_PlaySound("asgguy/asgfir", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,0,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired = shotsFired +1; //expend a single shot
 		}
@@ -57,7 +57,7 @@ class AssaultShotgunGuy : DMR_ShotgunGuy
 			}
 		}	
         ASGZ F 10 Bright Light("DMR_RifleFire") {
-			A_PlaySound("asgguy/asgfir");
+			A_PlaySound("asgguy/asgfir", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,0,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired = shotsFired +1; //expend a single shot
 		}
@@ -71,7 +71,7 @@ class AssaultShotgunGuy : DMR_ShotgunGuy
 			}
 		}	
         ASGZ F 10 Bright Light("DMR_RifleFire") {
-			A_PlaySound("asgguy/asgfir");
+			A_PlaySound("asgguy/asgfir", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,0,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired = shotsFired +1; //expend a single shot
 		}
