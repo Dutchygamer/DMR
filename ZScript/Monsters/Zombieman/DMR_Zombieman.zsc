@@ -8,6 +8,7 @@ Class DMR_Zombieman : DMR_MonsterBase
 		Species "DMR_Zambies";
 		Radius 20;
 		Height 56;
+		Mass 100;
 		Speed 8;
 		PainChance 200;
 		SeeSound "grunt/sight";
@@ -15,8 +16,8 @@ Class DMR_Zombieman : DMR_MonsterBase
 		DeathSound "grunt/death";
 		ActiveSound "grunt/active";
 		Obituary "$OB_ZOMBIE";
-		Tag "$FN_ZOMBIE";
 		DropItem "Clip";
+		+DOHARMSPECIES;
 	}
 	States
 	{
