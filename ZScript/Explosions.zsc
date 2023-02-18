@@ -10,7 +10,7 @@ class DMR_MonsterDeathExplosion : Actor
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay A_PlaySound("weapons/rocklx",1);
+		TNT1 A 0 NoDelay A_PlaySound("weapons/rocklx", CHAN_WEAPON);
 		TNT1 AAAAAAAAAAAAAA 0 {
 			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 		}
@@ -70,7 +70,7 @@ class DMR_BossMonsterExplosion : DMR_MonsterDeathExplosion
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay A_PlaySound("darkinquisitor/bigdeathexpl",1);
+		TNT1 A 0 NoDelay A_PlaySound("darkinquisitor/bigdeathexpl", CHAN_WEAPON);
 		TNT1 AAAAAAAAAAAAAA 0 {
 			A_SpawnItemEx("DMR_LargeFireBouncingDebris",random(-2,2),random(-2,2),random(2,4),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(2,4),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 

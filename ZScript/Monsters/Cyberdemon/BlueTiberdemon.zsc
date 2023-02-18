@@ -102,7 +102,7 @@ class BlueTiberdemon : DMR_Cyberdemon
 	SuperPlasma:
 		CARD C 24 {
 			A_FaceTarget();
-			A_PlaySound("weapons/bfgf");
+			A_PlaySound("weapons/bfgf", CHAN_WEAPON);
 		}
 		CARD D 12 A_SpawnProjectile("TiberiumBlueSuperPlasma",72,-25,0);
 		Goto See;

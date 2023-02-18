@@ -81,7 +81,7 @@ class Tiberdemon : DMR_Cyberdemon
 	SuperPlasma:
 		DCYB E 24 {
 			A_FaceTarget();
-			A_PlaySound("weapons/bfgf");
+			A_PlaySound("weapons/bfgf", CHAN_WEAPON);
 		}
 		DCYB F 12 A_SpawnProjectile("TiberiumSuperPlasma",56,-25,0);
 		Goto See;

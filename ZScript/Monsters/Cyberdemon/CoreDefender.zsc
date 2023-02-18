@@ -58,7 +58,7 @@ class CoreDefender : DMR_Cyberdemon
 		Goto See;
 	ObeliskLaser:
 		TNT1 A 0 {
-			A_PlaySound("darkinquisitor/lasercharge");
+			A_PlaySound("darkinquisitor/lasercharge", CHAN_WEAPON);
 			A_SpawnItemEx("CoreDefenderLaserCharge",0,0,0,0,0,0,0,SXF_SETMASTER);
 		}
 		ROB4 CCCC 4 {

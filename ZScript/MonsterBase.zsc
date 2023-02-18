@@ -21,10 +21,10 @@ Class DMR_MonsterBase : Actor
 	// if so, treat it like it is the same species
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
-		if(source && source.bISMONSTER == true && source is "DMR_MonsterBase")
+		if (source && source.bISMONSTER == true && source is "DMR_MonsterBase")
 		{
 			let source2 = DMR_MonsterBase(source);
-			if(source.bDONTHARMSPECIES == true && spec2 != "None" && spec2 == source2.spec2)
+			if (source.bDONTHARMSPECIES == true && spec2 != "None" && spec2 == source2.spec2)
 			{
 				return 0;
 			}
@@ -33,11 +33,13 @@ Class DMR_MonsterBase : Actor
 	}
 }
 
+//TODO ditch
 Class DMR_ZombieBase : DMR_MonsterBase
 {
 	Default
 	{
 		Health 20;
+		Gibhealth -20; // all lower tier monsters (zombies -> imp) have 20 gibhealth
 		Radius 20;
 		Height 56;
 		Speed 8;

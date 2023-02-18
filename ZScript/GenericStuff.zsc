@@ -102,7 +102,7 @@ class DMR_ShieldWall : Actor
 		Loop;
 	Pain:
 		TNT1 A 1 {
-			A_PlaySound("shieldwall/pain",1);
+			A_PlaySound("shieldwall/pain", CHAN_WEAPON);
 		}
 		Goto Spawn;
 	Death:

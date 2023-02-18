@@ -38,9 +38,9 @@ class Apprentice : DMR_BaronOfHell
 		Loop;
 	Missile: 
 		SMT1 E 6 A_FaceTarget;
-		SMT1 H 6 A_PlaySound ("hellsmith/swing");
+		SMT1 H 6 A_PlaySound ("hellsmith/swing", CHAN_WEAPON);
 		SMT1 I 12 {
-			A_PlaySound ("weapons/hellfi");
+			A_PlaySound ("weapons/hellfi", CHAN_WEAPON);
 			A_SpawnProjectile("ApprenticeHellshot",36,0,0);
 			A_SpawnProjectile("ApprenticeHellshot",36,0,-8);
 		}
@@ -48,9 +48,9 @@ class Apprentice : DMR_BaronOfHell
 		Goto See;
 		SMT1 B 6;
 		SMT1 J 6 A_FaceTarget;
-		SMT1 M 6 A_PlaySound ("hellsmith/swing");
+		SMT1 M 6 A_PlaySound ("hellsmith/swing", CHAN_WEAPON);
 		SMT1 N 12 {
-			A_PlaySound ("weapons/hellfi");
+			A_PlaySound ("weapons/hellfi", CHAN_WEAPON);
 			A_SpawnProjectile("ApprenticeHellshot",36,0,0);
 			A_SpawnProjectile("ApprenticeHellshot",36,0,-8);
 		}
