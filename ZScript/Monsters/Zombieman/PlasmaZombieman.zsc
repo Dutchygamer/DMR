@@ -11,16 +11,24 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class PlasmaZombieman : DMR_Zombieman
+// own instance so they can hurt other zombieman and each other
+class PlasmaZombieman : DMR_MonsterBase
 {
 	Default
 	{
-		Tag "Plasma zombieman";
+		Tag "Plasma zombieman";		
 		Health 55;
+		Gibhealth -20; // all lower tier monsters (zombies -> imp) have 20 gibhealth
+		Species "DMR_Zambies";
+		Radius 20;
+		Height 56;
+		Speed 8;
 		PainChance 185;
-		+MISSILEMORE
-		+DOHARMSPECIES //zombies are not plasma-proof
-		ATTACKSOUND "";
+		SeeSound "grunt/sight";
+		PainSound "grunt/pain";
+		DeathSound "grunt/death";
+		ActiveSound "grunt/active";
+		+DOHARMSPECIES // zombies are not plasma-proof
 		OBITUARY "%o got burned by a plasma zombie.";
 		DropItem "Cell";
 		DropItem "PlasmaRifle", 10;

@@ -19,9 +19,9 @@ class AssaultZombieman : DMR_Zombieman
 		OBITUARY "%o was surprised by the zombie's weaponry.";
 		Health 35;
 		PainChance 185;
-		ATTACKSOUND "grunt/attack";
-		DropItem "Clip";
 		+MISSILEMORE
+		DropItem "Clip";
+		DropItem "Clip", 64;
 	}
  	States
 	{
@@ -33,11 +33,20 @@ class AssaultZombieman : DMR_Zombieman
 		Loop;
 	Missile:
 		RFTR E 10 A_FaceTarget;
-		RFTR F 6 BRIGHT Light("DMR_RifleFire") A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		RFTR F 6 BRIGHT Light("DMR_RifleFire") {
+			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			A_PlaySound("grunt/attack", CHAN_WEAPON );
+		}
 		RFTR E 4 A_FaceTarget;
-		RFTR F 6 BRIGHT Light("DMR_RifleFire") A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		RFTR F 6 BRIGHT Light("DMR_RifleFire") {
+			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			A_PlaySound("grunt/attack", CHAN_WEAPON );
+		}
 		RFTR E 4 A_FaceTarget;
-		RFTR F 6 BRIGHT Light("DMR_RifleFire") A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		RFTR F 6 BRIGHT Light("DMR_RifleFire") {
+			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			A_PlaySound("grunt/attack", CHAN_WEAPON );
+		}
 		RFTR E 4;
 		Goto See;
 	Pain:
