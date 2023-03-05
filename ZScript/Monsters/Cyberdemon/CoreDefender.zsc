@@ -144,7 +144,7 @@ class CoreDefenderClusterMissile: DMR_Rocket
 	{
 	Spawn:
 		HMIS A 1 Bright Light("DMR_ROCKET") {
-			A_SeekerMissile(1,6,SMF_PRECISE); 
+			A_SeekerMissile(1,8,SMF_PRECISE); 
 			A_SpawnItemEx("DMR_MediumFireballTrail",-25,0,5,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 			A_SpawnItemEx("DMR_MediumSmokeCloud",-25,0,5,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 		}

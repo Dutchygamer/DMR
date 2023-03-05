@@ -74,8 +74,6 @@ class DMR_RevenantTracer : DMR_Projectile
 		Loop;
 	Homing:
 		FATB AB 2 Bright {
-			// 16.875 should be the same value as the vDoom Revenant fireball homing thingmajing
-			// however, we need to divide that by two again to account for the 50/50 chance of homing or not
 			A_SeekerMissile(1,8,SMF_PRECISE); 
 			A_SpawnItemEx("DMR_FireballTrail",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 			A_SpawnItemEx("DMR_SmokeCloud",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 

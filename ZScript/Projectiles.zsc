@@ -177,7 +177,7 @@ class DMR_ClusterSubProjectile : DMR_Projectile
 		}
 		TNT1 A 0 A_JumpIf(fuelLevel < 1,"Death");
 		HMIS A 1 Bright { 
-			A_SeekerMissile(1,6,SMF_PRECISE); 
+			A_SeekerMissile(2,8,SMF_PRECISE); 
 			If(fuelLevel > 20) { //stop fire exhaust if fuel is running low 
 				A_SpawnItemEx("DMR_FireballTrail",-25,0,1,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 			}
@@ -449,6 +449,7 @@ class DMR_GasCloudBase : actor
 		//note: with Scale 2.0, A_Explode should use 45 as radius
 	}
 	int lifetime;
+	int dmgtic;
 	
 	// the 'float down to lowest point' logic
 	// after waaay too many trial and errors with various combinations of actor flags, I realized it would be way easier to do this with Zscript overrides
@@ -482,28 +483,24 @@ class DMR_LargeGasCloud : DMR_GasCloudBase
 			lifetime = random(13,18); //should always be second, else it will run 1 time and die
 		}
 	SpawnLoop:
-		TNT1 A 0 A_JumpIf(lifetime < 1,"Death");
-		GGAS ABCDE 3 A_Explode(2,45,0);
-		TNT1 A 0 {
-			lifetime = lifetime-1;
+		TNT1 A 0 A_JumpIf(lifetime < 1,"Death");		
+		GGAS ABCDEFGHIJKLMN 3 {	
+			// only damage X amount of tics instead of every tick
+			dmgtic++;	
+			if(dmgtic >= 5)
+			{
+				A_Explode(5,45,0);
+				dmgtic = 0;
+			}	
 		}
-		GGAS FGHIJ 3 A_Explode(2,45,0);
 		TNT1 A 0 {
-			lifetime = lifetime-1;
-		}
-		GGAS KLMN 3 A_Explode(2,45,0);
-		TNT1 A 0 {
-			lifetime = lifetime-1;
+			lifetime = lifetime-3;
 		}
 		Loop;
 	Death: 
-		GGAS S 3 A_SetTranslucent(0.40);
-		TNT1 A 0 A_Explode(2,30,0);
-		GGAS T 3 A_SetTranslucent(0.30);
-		TNT1 A 0 A_Explode(2,20,0);
-		GGAS U 3 A_SetTranslucent(0.20);
-		TNT1 A 0 A_Explode(2,10,0);
-		GGAS VW 3 A_SetTranslucent(0.10);
+		GGAS STUVW 3 {
+			A_SetTranslucent(Alpha - 0.1);
+		}
 		Stop;
 	}
 }
@@ -522,28 +519,24 @@ class DMR_MediumGasCloud : DMR_GasCloudBase
 			lifetime = random(9,14); //should always be second, else it will run 1 time and die
 		}
 	SpawnLoop:
-		TNT1 A 0 A_JumpIf(lifetime < 1,"Death");
-		GGAS ABCDE 3 A_Explode(2,34,0);
-		TNT1 A 0 {
-			lifetime = lifetime-1;
+		TNT1 A 0 A_JumpIf(lifetime < 1,"Death");		
+		GGAS ABCDEFGHIJKLMN 3 {	
+			// only damage X amount of tics instead of every tick
+			dmgtic++;	
+			if(dmgtic >= 5)
+			{
+				A_Explode(5,34,0);
+				dmgtic = 0;
+			}	
 		}
-		GGAS FGHIJ 3 A_Explode(2,34,0);
 		TNT1 A 0 {
-			lifetime = lifetime-1;
-		}
-		GGAS KLMN 3 A_Explode(2,34,0);
-		TNT1 A 0 {
-			lifetime = lifetime-1;
+			lifetime = lifetime-3;
 		}
 		Loop;
 	Death: 
-		GGAS S 3 A_SetTranslucent(0.40);
-		TNT1 A 0 A_Explode(2,25,0);
-		GGAS T 3 A_SetTranslucent(0.30);
-		TNT1 A 0 A_Explode(2,18,0);
-		GGAS U 3 A_SetTranslucent(0.20);
-		TNT1 A 0 A_Explode(2,10,0);
-		GGAS VW 3 A_SetTranslucent(0.10);
+		GGAS STUVW 3 {
+			A_SetTranslucent(Alpha - 0.1);
+		}
 		Stop;
 	}
 }
@@ -558,28 +551,24 @@ class DMR_SmallGasCloud : DMR_GasCloudBase
 			lifetime = random(4,7); //should always be second, else it will run 1 time and die
 		}
 	SpawnLoop:
-		TNT1 A 0 A_JumpIf(lifetime < 1,"Death");
-		GGAS ABCDE 3 A_Explode(2,28,0);
-		TNT1 A 0 {
-			lifetime = lifetime-1;
+		TNT1 A 0 A_JumpIf(lifetime < 1,"Death");		
+		GGAS ABCDEFGHIJKLMN 3 {	
+			// only damage X amount of tics instead of every tick
+			dmgtic++;	
+			if(dmgtic >= 5)
+			{
+				A_Explode(5,28,0);
+				dmgtic = 0;
+			}	
 		}
-		GGAS FGHIJ 3 A_Explode(2,28,0);
 		TNT1 A 0 {
-			lifetime = lifetime-1;
-		}
-		GGAS KLMN 3 A_Explode(2,28,0);
-		TNT1 A 0 {
-			lifetime = lifetime-1;
+			lifetime = lifetime-3;
 		}
 		Loop;
 	Death: 
-		GGAS S 3 A_SetTranslucent(0.40);
-		TNT1 A 0 A_Explode(2,21,0);
-		GGAS T 3 A_SetTranslucent(0.30);
-		TNT1 A 0 A_Explode(2,15,0);
-		GGAS U 3 A_SetTranslucent(0.20);
-		TNT1 A 0 A_Explode(2,10,0);
-		GGAS VW 3 A_SetTranslucent(0.10);
+		GGAS STUVW 3 {
+			A_SetTranslucent(Alpha - 0.1);
+		}
 		Stop;
 	}
 }
@@ -598,28 +587,24 @@ class DMR_MediumIceCloud : DMR_MediumGasCloud
 			lifetime = random(9,14); //should always be second, else it will run 1 time and die
 		}
 	SpawnLoop:
-		TNT1 A 0 A_JumpIf(lifetime < 1,"Death");
-		GAS3 AB 3 A_Explode(2,34,0);
-		TNT1 A 0 {
-			lifetime = lifetime-1;
+		TNT1 A 0 A_JumpIf(lifetime < 1,"Death");		
+		GAS3 ABCDEFG 3 {	
+			// only damage X amount of tics instead of every tick
+			dmgtic++;	
+			if(dmgtic >= 3)
+			{
+				A_Explode(5,34,0);
+				dmgtic = 0;
+			}	
 		}
-		GAS3 CDE 3 A_Explode(2,34,0);
 		TNT1 A 0 {
-			lifetime = lifetime-1;
-		}
-		GAS3 FG 3 A_Explode(2,34,0);
-		TNT1 A 0 {
-			lifetime = lifetime-1;
+			lifetime = lifetime-3;
 		}
 		Loop;
 	Death: 
-		GAS3 L 3 A_SetTranslucent(0.40);
-		TNT1 A 0 A_Explode(2,25,0);
-		GAS3 M 3 A_SetTranslucent(0.30);
-		TNT1 A 0 A_Explode(2,18,0);
-		GAS3 N 3 A_SetTranslucent(0.20);
-		TNT1 A 0 A_Explode(2,10,0);
-		GAS3 O 3 A_SetTranslucent(0.10);
+		GAS3 LMNO 3 {
+			A_SetTranslucent(Alpha - 0.1);
+		}
 		Stop;
 	}
 }

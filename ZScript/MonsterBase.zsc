@@ -4,8 +4,6 @@
 //	ZScript: 	DustedPandemonic, modified by Dutchygamer
 //======================================================================
 
-//TODO errr when do we want to use it?
-// if we want to use it for the base monster of each type we need to redo the entire ZScript as we can't inherit from 2 classes
 Class DMR_MonsterBase : Actor
 {
 	Default
