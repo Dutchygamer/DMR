@@ -57,6 +57,8 @@
 #include "GLDefs/Monsters/Cyberdemon/Tiberdemon.gl"
 #include "GLDefs/Monsters/Cyberdemon/BlueTiberdemon.gl"
 #include "GLDefs/Monsters/Cyberdemon/CoreDefender.gl"
+#include "GLDefs/Monsters/Cyberdemon/Pyrodemon.gl"
+#include "GLDefs/Monsters/Cyberdemon/Hellsmith.gl"
 
 #include "GLDefs/Monsters/SpiderMastermind/Overlord.gl"
 

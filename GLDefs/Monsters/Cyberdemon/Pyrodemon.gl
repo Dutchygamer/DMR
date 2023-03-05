@@ -1,0 +1,45 @@
+flickerlight DMR_PyroDemonBall
+{
+    color 1.0 0.7 0.0
+    size 78
+    secondarySize 86
+    chance 0.3
+}
+
+flickerlight DMR_PyroDemonBall_X1
+{
+    color 1.0 0.6 0.1
+    size 90
+    secondarySize 100
+    chance 0.3
+}
+
+flickerlight DMR_PyroDemonBall_X2
+{
+    color 0.65 0.3 0.0
+    size 100
+    secondarySize 110
+    chance 0.3
+}
+
+flickerlight DMR_PyroDemonBall_X3
+{
+    color 0.3 0.1 0.0
+    size 110
+    secondarySize 120
+    chance 0.3
+}
+
+object PyroDemonBall
+{
+    frame COMTA { light DMR_PyroDemonBall }
+    frame COMTB { light DMR_PyroDemonBall }
+    frame COMTC { light DMR_PyroDemonBall }
+
+    frame COMTD { light DMR_PyroDemonBall_X1 }
+    frame COMTE { light DMR_PyroDemonBall_X1 }
+    frame COMTF { light DMR_PyroDemonBall_X2 }
+    frame COMTG { light DMR_PyroDemonBall_X2 }
+    frame COMTH { light DMR_PyroDemonBall_X2 }
+    frame COMTI { light DMR_PyroDemonBall_X3 }
+}
