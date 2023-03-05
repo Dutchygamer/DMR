@@ -27,11 +27,9 @@ class Incarnate : DMR_Revenant
 		AttackSound "monster/incatk";
 		Speed 12;
 	}
-	int reschance;
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay { reschance = 256; }
 		INCA AB 10 A_Look;
 		Loop;
 	See:
@@ -109,14 +107,5 @@ class IncarnateTracer : DMR_RevenantTracer
 		FBXP B 6 Bright;
 		FBXP C 4 Bright;
 		Stop;
-	}
-}
-
-class IncarnateResCounter : Inventory
-{
-	Default
-	{
-		Inventory.MaxAmount 3;
-		Inventory.Amount 1;
 	}
 }
