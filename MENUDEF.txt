@@ -11,20 +11,32 @@ OptionMenu "dmr_options"
 	Option "Additional projectile particles", "dmr_fancydoom", "OnOff"
 	StaticText "Show additional projectile trail / impact particles. Disable for better performance.", white
 	StaticText " "
-	Option "WAD compatibilty", "dmr_mapcompmode", "mapcompmode"
+	StaticText "WAD compatibility"
 	StaticText "Perform additional replacers for specific WADs", white
 	StaticText "which replace CommanderKeen and/or WolfensteinSS.", white
 	StaticText "If the WAD you're playing is not supported here,", white
 	StaticText "switch to Vanilla.", white
 	StaticText " "
+	Option "Wolfenstein SS replacer", "dmr_replace_ss", "dmr_replace_ss_options"
+	Option "Commander Keen replacer", "dmr_replace_keen", "dmr_replace_keen_options"
+	StaticText " "
 	StaticText "Guncaster Patch Options"
-	StaticText "The following options only effect the Guncaster patch"
+	StaticText "The following options only effect the Guncaster patch", white
 	StaticText " "
 	Option "Additional boss loot", "dmr_generousbosses", "OnOff"
 	StaticText "Bosses drop additional loot on death.", white
 }
 
-OptionValue "mapcompmode"
+OptionValue "dmr_replace_ss_options"
+{
+    0, "Vanilla"
+	1, "DMR"
+	2, "Scythe 2"
+	3, "Epic 2"
+	4, "Resurgence"
+}
+
+OptionValue "dmr_replace_keen_options"
 {
     0, "Vanilla"
 	1, "DMR"

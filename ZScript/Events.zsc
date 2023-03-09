@@ -12,22 +12,22 @@ class DMR_ReplacerHandler : EventHandler
 		switch (a.Replacee.GetClassName()) 
 		{
 			case 'WolfensteinSS':
-				if(dmr_mapcompmode == 1)
+				if(dmr_replace_ss == 1)
 					{ a.Replacement = 'EvilMarine'; break; }
-				else if(dmr_mapcompmode == 2)
+				else if(dmr_replace_ss == 2)
 					{ a.Replacement = 'EvilMarine'; break; }
-				//else if(dmr_mapcompmode == 3)
+				//else if(dmr_replace_ss == 3)
 				//	{ a.Replacement = 'Epic2Alien'; break; }
-				if(dmr_mapcompmode == 4)
+				if(dmr_replace_ss == 4)
 					{ a.Replacement = 'EvilMarine'; break; }
 			case 'CommanderKeen':
-				if(dmr_mapcompmode == 1)
+				if(dmr_replace_keen == 1)
 					{ a.Replacement = 'SuperAfrit'; break; }
-				else if(dmr_mapcompmode == 2)
+				else if(dmr_replace_keen == 2)
 					{ a.Replacement = 'SuperAfrit'; break; }
-				//else if(dmr_mapcompmode == 3)
+				//else if(dmr_replace_keen == 3)
 				//	{ a.Replacement = 'Epic2Keen'; break; }
-				if(dmr_mapcompmode == 4)
+				if(dmr_replace_keen == 4)
 					{ a.Replacement = 'SuperAfrit'; break; }
 		}
 	}
