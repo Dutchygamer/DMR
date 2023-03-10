@@ -143,6 +143,7 @@ version "4.2.1"
 #include "ZScript/Monsters/Special/SuperAfrit.zsc"
 #include "ZScript/Monsters/Special/EvilMarine.zsc"
 #include "ZScript/Monsters/Special/Belphegor.zsc"
+#include "ZScript/Monsters/Special/CyberdemonLord.zsc"
 
 //cause GC 3.3 converted the gore to ZScript
 //#include "ZScript/GCPatch/BloodyHell.zsc"

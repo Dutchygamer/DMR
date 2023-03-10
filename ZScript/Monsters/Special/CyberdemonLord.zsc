@@ -1,0 +1,82 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	???
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by ??? for Brutal Doom Hell On Earth starter pack)
+//	GLDEFs: 	n/a
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+Class Babel : DMR_Cyberdemon
+{
+	Default
+	{
+		Tag "Babel";
+		Health 10000;
+		Radius 130;
+		Height 460;
+		Speed 40;
+		Obituary "%o was smeared under Babel's iron hoof";
+		HitObituary "%o was smeared under the Babel's iron hoof";
+		+NOPAIN;
+		SeeSound "cyber/sight";
+		PainSound "cyber/pain";
+		DeathSound "cyber/death";
+		ActiveSound "cyber/active";
+		Scale 4.0;
+	}
+	States
+	{
+	Spawn:
+		CYBR AB 10 A_Look;
+		Loop;
+	See:
+		CYBR A 3 A_Hoof;
+		CYBR ABBCC 3 A_Chase;
+		CYBR D 3 A_Metal;
+		CYBR D 3 A_Chase;
+		Loop;
+	Missile:
+		TNT1 A 0 A_Jump(96, "ClusterBarrage");
+		Goto RocketBarrage;
+	RocketBarrage:
+		CYBR E 4 A_FaceTarget;
+		CYBR FFF 3 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("DMR_Rocket",220,-100,random(-5,5));
+		}
+		CYBR E 8 A_FaceTarget;
+		CYBR FFF 3 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("DMR_Rocket",220,-100,random(-5,5));
+		}
+		CYBR E 8 A_FaceTarget;
+		CYBR FFF 3 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("DMR_Rocket",220,-100,random(-5,5));
+		}
+		Goto See;
+	ClusterBarrage:
+		CYBR E 6 A_FaceTarget;
+		CYBR FFF 3 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("CoreDefenderClusterMissile",220,-100,random(-5,5));
+		}
+		Goto See;
+	Pain:
+		CYBR G 10 A_Pain;
+		Goto See;
+	Death:
+		CYBR H 10;
+		CYBR I 10 A_Scream;
+		CYBR JKL 10;
+		CYBR M 10 A_NoBlocking;
+		CYBR NO 10;
+		CYBR P 30;
+		CYBR P -1 A_BossDeath;
+		Stop;
+	}
+}
+
+// the actual replacer for Hell On Earth starter pack
+Class BrutalDoomBabel : Babel replaces CyberdemonLord { }
