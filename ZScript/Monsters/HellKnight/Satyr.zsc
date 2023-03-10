@@ -47,20 +47,12 @@ class Satyr : DMR_HellKnight
 			A_Recoil(-3);
 		}
 	ChargeLoop:
-		STYR AAABBB 1 {
+		STYR AAABBBCCCDDD 1 {
 			if(target && Distance3D(target) < 80 || vel.x == 0 && vel.y == 0) { return ResolveState("Ram"); }
 			A_FaceTarget(1.5,180);
 			A_Recoil(-3);
 			return ResolveState(null);
 		}
-		TNT1 A 0 A_PlaySound("blooddemon/walk");
-		STYR CCCDDD 1 {
-			if(target && Distance3D(target) < 80 || vel.x == 0 && vel.y == 0) { return ResolveState("Ram"); }
-			A_FaceTarget(1.5,180);
-			A_Recoil(-3);
-			return ResolveState(null);
-		}
-		TNT1 A 0 A_PlaySound("blooddemon/walk");
 		Loop;
 	Ram:
 		STYR E 2 A_FaceTarget(30,180);

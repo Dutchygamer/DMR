@@ -10,6 +10,7 @@
 //======================================================================
 //	ZScript:	Dutchygamer
 //======================================================================
+
 Class Belphegor : DMR_BaronOfHell
 {
 	Default
@@ -35,10 +36,43 @@ Class Belphegor : DMR_BaronOfHell
 	See:
 		BOS3 AABBCCDD 2 A_Chase;
 		Loop;
-	Melee:
 	Missile:
+		TNT1 A 0 A_Jump(256, "ExplosiveBall", "Clustershot", "Charge");
+		Goto See;
+	Melee:
+	ExplosiveBall:
 		BOS3 FG 8 A_FaceTarget;
-		BOS3 H 8 A_CustomComboAttack("BelphegorBall",45,random(40,120),"baron/melee");
+		BOS3 H 8 A_CustomComboAttack("BelphegorBall",45,random(30,90),"baron/melee");
+		Goto See;
+	Clustershot:
+		BOS3 FG 8 A_FaceTarget;
+		BOS3 H 3 Bright A_SpawnProjectile("DMR_BaronBall",39,0,-10,0);
+		BOS3 H 3 Bright A_SpawnProjectile("DMR_BaronBall",39,0,0,0);
+		BOS3 H 3 Bright A_SpawnProjectile("DMR_BaronBall",39,0,10,0);
+		Goto See;
+	Charge:
+		BOS3 AAAAAA 2 A_FaceTarget;
+		TNT1 A 0 {
+			A_PlaySound("baron/sight", CHAN_VOICE);
+			A_FaceTarget();
+			A_Recoil(-3);
+		}
+	ChargeLoop:
+		BOS3 AAABBBCCCDDD 1 {
+			if(target && Distance3D(target) < 80 || vel.x == 0 && vel.y == 0) { return ResolveState("Ram"); }
+			A_FaceTarget(1.5,180);
+			A_Recoil(-3);
+			return ResolveState(null);
+		}
+		Loop;
+	Ram:
+		BOS3 F 2 A_FaceTarget(30,180);
+		BOS3 G 6 {
+			A_FaceTarget(20,180);
+			A_CustomBulletAttack(0,0,1,random(34,102),"BelphegorRamImpactor",80,CBAF_NORANDOM|CBAF_AIMFACING);
+			A_Stop();
+		}
+		BOS3 A 2 A_FaceTarget;
 		Goto See;
 	Pain:
 		BOS3 E 2;
@@ -89,5 +123,14 @@ class BelphegorBall : DMR_BaronBall
 		BAL7 C 6 Bright A_Explode(64,96);
 		BAL7 DE 6 Bright;
 		Stop;
+	}
+}
+
+
+Class BelphegorRamImpactor : DMR_RamImpactor
+{
+	Default
+	{
+		ProjectileKickback 1500;
 	}
 }
