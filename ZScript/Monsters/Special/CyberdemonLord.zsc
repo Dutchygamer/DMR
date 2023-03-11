@@ -77,6 +77,3 @@ Class Babel : DMR_Cyberdemon
 		Stop;
 	}
 }
-
-// the actual replacer for Hell On Earth starter pack
-Class BrutalDoomBabel : Babel replaces CyberdemonLord { }

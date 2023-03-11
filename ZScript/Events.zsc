@@ -29,6 +29,14 @@ class DMR_ReplacerHandler : EventHandler
 				//	{ a.Replacement = 'Epic2Keen'; break; }
 				if(dmr_replace_keen == 4)
 					{ a.Replacement = 'SuperAfrit'; break; }
+		}		
+		
+		// mapset specific replacers
+		switch (a.Replacee.GetClassName()) 
+		{
+			// BD Hell on Earth
+			case 'BossBelphegor'	: a.Replacement = 'Belphegor'; break;
+			case 'CyberdemonLord'	: a.Replacement = 'Babel'; break;
 		}
 	}
 }

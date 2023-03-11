@@ -91,9 +91,6 @@ Class Belphegor : DMR_BaronOfHell
 	}
 }
 
-// the actual replacer for Hell On Earth starter pack
-Class BrutalDoomBelphegor : Belphegor replaces BossBelphegor { }
-
 class BelphegorBall : DMR_BaronBall
 {
 	Default
