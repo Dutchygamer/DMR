@@ -10,7 +10,7 @@ Class DMR_Archvile : DMR_MonsterBase
 	{
 		Tag "Archvile";
 		Health 700;
-		Gibhealth -40; ///all higher tier monsters (baron -> archvile) have 40 gibhealth
+		Gibhealth -40; // all higher tier monsters (baron -> archvile) have 40 gibhealth
 		Species "DMR_Archie";
 		Radius 20;
 		Height 56;

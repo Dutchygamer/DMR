@@ -10,7 +10,7 @@ Class DMR_DoomImp : DMR_MonsterBase
 	{
 		Tag "Imp";
 		Health 60;
-		Gibhealth -20; //all lower tier monsters (zombies -> imp) have 20 gibhealth
+		Gibhealth -20; // all lower tier monsters (zombies -> imp) have 20 gibhealth
 		Species "DMR_Imp";
 		Radius 20;
 		Height 56;

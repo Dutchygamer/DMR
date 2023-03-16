@@ -15,7 +15,7 @@ Class DMR_Revenant : DMR_MonsterBase
 	{
 		Tag "Revenant";
 		Health 300;
-		Gibhealth -30; ///all medium tier monsters (demon -> hellknight) have 30 gibhealth
+		Gibhealth -30; // all medium tier monsters (demon -> hellknight) have 30 gibhealth
 		Species "DMR_Skelly";
 		Radius 20;
 		Height 56;
@@ -23,7 +23,6 @@ Class DMR_Revenant : DMR_MonsterBase
 		Speed 10;
 		PainChance 100;
 		MeleeThreshold 196;
-		+MISSILEMORE 
 		SeeSound "skeleton/sight";
 		PainSound "skeleton/pain";
 		DeathSound "skeleton/death";
@@ -31,6 +30,7 @@ Class DMR_Revenant : DMR_MonsterBase
 		MeleeSound "skeleton/melee";
 		HitObituary "$OB_UNDEADHIT";
 		Obituary "$OB_UNDEAD";
+		+MISSILEMORE;
 		+DONTHARMSPECIES;
 		+NOINFIGHTSPECIES;
 	}

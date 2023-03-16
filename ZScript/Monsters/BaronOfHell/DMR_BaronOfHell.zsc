@@ -16,7 +16,7 @@ Class DMR_BaronOfHell : DMR_MonsterBase
 		Tag "Baron of Hell";
 		BloodColor "green";
 		Health 1000;
-		Gibhealth -40; //all higher tier monsters (baron -> archvile) have 40 gibhealth
+		Gibhealth -40; // all higher tier monsters (baron -> archvile) have 40 gibhealth
 		Species "DMR_Goatman";
 		Radius 24;
 		Height 64;

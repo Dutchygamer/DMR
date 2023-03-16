@@ -16,7 +16,7 @@ Class DMR_HellKnight : DMR_MonsterBase
 		Tag "Hell knight";
 		BloodColor "green";
 		Health 500;
-		Gibhealth -30; ///all medium tier monsters (demon -> hellknight) have 30 gibhealth
+		Gibhealth -30; // all medium tier monsters (demon -> hellknight) have 30 gibhealth
 		Species "DMR_Goatman";
 		Radius 24;
 		Height 64;

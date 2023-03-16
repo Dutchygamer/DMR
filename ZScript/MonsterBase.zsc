@@ -30,22 +30,3 @@ Class DMR_MonsterBase : Actor
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 	}
 }
-
-//TODO ditch
-Class DMR_ZombieBase : DMR_MonsterBase
-{
-	Default
-	{
-		Health 20;
-		Gibhealth -20; // all lower tier monsters (zombies -> imp) have 20 gibhealth
-		Radius 20;
-		Height 56;
-		Speed 8;
-		PainChance 200;
-		SeeSound "grunt/sight";
-		AttackSound "grunt/attack";
-		PainSound "grunt/pain";
-		DeathSound "grunt/death";
-		ActiveSound "grunt/active";
-	}
-}

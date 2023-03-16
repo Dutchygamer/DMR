@@ -12,7 +12,7 @@ Class DMR_Cacodemon: DMR_MonsterBase
 		Tag "Cacodemon";
 		bloodcolor "blue";
 		Health 400;
-		Gibhealth -30; ///all medium tier monsters (demon -> hellknight) have 30 gibhealth
+		Gibhealth -30; // all medium tier monsters (demon -> hellknight) have 30 gibhealth
 		Species "DMR_Caco";
 		Radius 31;
 		Height 56;

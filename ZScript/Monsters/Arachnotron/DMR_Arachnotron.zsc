@@ -12,7 +12,7 @@ Class DMR_Arachnotron : DMR_MonsterBase
 		Tag "Arachnotron";
 		Bloodcolor "purple";
 		Health 500;
-		Gibhealth -30; ///all medium tier monsters (demon -> hellknight) have 30 gibhealth
+		Gibhealth -30; // all medium tier monsters (demon -> hellknight) have 30 gibhealth
 		Species "DMR_Spider";
 		Radius 64;
 		Height 64;

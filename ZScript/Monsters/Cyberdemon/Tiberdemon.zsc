@@ -16,7 +16,7 @@ class Tiberdemon : DMR_Cyberdemon
 {
 	Default
 	{
-		Tag "Abomination";
+		Tag "Cyparius"; // Cyberdemon + Riparius
 		Health 5000;
 		PainChance 15;
 		Scale 1.05;
@@ -25,7 +25,7 @@ class Tiberdemon : DMR_Cyberdemon
 		PainSound "cyber/Pain";
 		DeathSound "TiberDemon/death";
 		ActiveSound "cyber/active"	;
-		Obituary "%o fell before an abomination.";
+		Obituary "%o fell before a cyparius.";
 		DamageFactor "ToxinCloud", 0.0;
 	}
 	States

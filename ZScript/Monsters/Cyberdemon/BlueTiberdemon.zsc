@@ -17,7 +17,7 @@ class BlueTiberdemon : DMR_Cyberdemon
 	Default
 	{
 		Translation "112:127=192:207";
-		Tag "Enraged abomination";
+		Tag "Cybifera"; // Cyberdemon + Vinifera
 		Health 5000;
 		PainChance 5;
 		Scale 1.05;
@@ -26,7 +26,7 @@ class BlueTiberdemon : DMR_Cyberdemon
 		PainSound "cyber/Pain";
 		DeathSound "TiberDemon/death";
 		ActiveSound "cyber/active";
-		Obituary "%o was destroyed by an enraged abomination.";
+		Obituary "%o was destroyed by a cybifera.";
 		DamageFactor "ToxinCloud", 0.0;
 	}
 	States 

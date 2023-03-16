@@ -30,7 +30,7 @@ class HadesSphere : DMR_LostSoul
 		+NOICEDEATH;
 		+NOTARGET;
 		+FORCEXYBILLBOARD;
-		+NOPAIN
+		+NOPAIN;
 	}
 	
 	int lifetime;	
@@ -106,36 +106,4 @@ class HadesSphere : DMR_LostSoul
 		HADE NOPQ 5;
 		Stop;
 	} 
-}
-
-// [MagicWazard] NOTES: +DONTHARMCLASS was originally enabled, but HS were still
-// able to damage each other with self-destructs due to way the self-destruct
-// was coded. Now that the self-destruct code has been changed, they are
-// invulnerable to each others' explosions if that flag is enabled. Keep
-// +DONTHARMCLASS disabled if you want the HS to be vunlerable to each others'
-// explosions! Remove the comments and enable the flag if you want the HS to be
-// immune to other HS' self-destruct damage.
-
-
-// [Blue Shadow] Depending on whether or not the Hades Sphere is currently flying
-// (due to A_SkullAttack), choose the appropriate "chase mode".
-class HS_SpecialChase : CustomInventory
-{
-	States
-	{
-	Pickup:
-		TNT1 A 0 {
-			if(bSkullFly == true) {
-				return ResolveState("ThrustChase");
-			}
-			else {
-				return ResolveState(null);
-			}
-		}
-		TNT1 A 0 A_Chase;
-		Stop;
-	ThrustChase:
-		TNT1 A 0 A_Chase(null,null);
-		Stop;
-	}
 }

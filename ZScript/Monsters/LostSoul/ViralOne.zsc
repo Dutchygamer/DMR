@@ -15,12 +15,12 @@ class PoisonSoul : DMR_LostSoul
 {
 	Default
 	{
-		Health 60;
-		Speed 12;
-		Tag "Viral One";		
-		Obituary "%o got his medicine from a viral one";
-		DamageFactor "ToxinCloud", 0;
+		Tag "Viral One";	
 		BloodColor "green";
+		Health 60;
+		Speed 12;	
+		DamageFactor "ToxinCloud", 0;
+		Obituary "%o got his medicine from a viral one";
 		+MISSILEEVENMORE
 	}
 	States 

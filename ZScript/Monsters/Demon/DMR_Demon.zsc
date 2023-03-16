@@ -14,7 +14,7 @@ Class DMR_Demon : DMR_MonsterBase
 	{
 		Tag "Demon";
 		Health 150;
-		Gibhealth -30; //all medium tier monsters (demon -> hellknight) have 30 gibhealth
+		Gibhealth -30; // all medium tier monsters (demon -> hellknight) have 30 gibhealth
 		Species "DMR_Demon";
 		Radius 30;
 		Height 56;

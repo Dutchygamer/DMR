@@ -20,16 +20,15 @@ class Guardian : DMR_LostSoul
 		Speed 6;
 		PainChance 180;
 		//Species "SentinelGuardian"; //TODO hier kunnen we Species2 gebruiken
-		HitObituary "%o got fried by a Guardian.";
-		Obituary "%o got fried by a Guardian.";
-		+NOBLOOD;
-		+NOICEDEATH;
-		-ZDOOMTRANS;
-		+DONTHARMSPECIES;
 		SeeSound "guardian/see";
 		PainSound "weapons/bounc1";
 		Activesound "guardian/active";
 		DeathSound "guardian/death";
+		HitObituary "%o got fried by a Guardian.";
+		Obituary "%o got fried by a Guardian.";
+		+NOBLOOD;
+		+NOICEDEATH;
+		+DONTHARMSPECIES;
 	}
 	States 
 	{
