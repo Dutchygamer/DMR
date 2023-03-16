@@ -50,7 +50,7 @@ class Netherling : DMR_DoomImp
         Goto See;
     BigBall:
         TRO4 EF 8 A_FaceTarget;
-		TRO4 G 8 Bright A_SpawnProjectile("BaronBall",32,0,0,0);
+		TRO4 G 8 Bright A_SpawnProjectile("DMR_BaronBall",32,0,0,0);
         Goto See;
 	Pain:
 		TRO4 H 2;

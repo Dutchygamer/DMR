@@ -5,22 +5,49 @@
 //======================================================================
 //  Additional credits
 //======================================================================
-//	ZScript:	Dutchygamer
-//	Sounds:		Westwood Studios	
+//	Sounds:		Westwood Studios
+//	ZScript:	Dutchygamer	
 //======================================================================
 
-Class DMR_Revenant : Revenant 
+Class DMR_Revenant : DMR_MonsterBase 
 {
 	Default
 	{
 		Tag "Revenant";
+		Health 300;
+		Gibhealth -30; ///all medium tier monsters (demon -> hellknight) have 30 gibhealth
 		Species "DMR_Skelly";
+		Radius 20;
+		Height 56;
+		Mass 500;
+		Speed 10;
+		PainChance 100;
+		MeleeThreshold 196;
+		+MISSILEMORE 
+		SeeSound "skeleton/sight";
+		PainSound "skeleton/pain";
+		DeathSound "skeleton/death";
+		ActiveSound "skeleton/active";
+		MeleeSound "skeleton/melee";
+		HitObituary "$OB_UNDEADHIT";
+		Obituary "$OB_UNDEAD";
 		+DONTHARMSPECIES;
 		+NOINFIGHTSPECIES;
-		Gibhealth -30; ///all medium tier monsters (demon -> hellknight) have 30 gibhealth
 	}
 	States
-	{		
+	{
+	Spawn:
+		SKEL AB 10 A_Look;
+		Loop;
+	See:
+		SKEL AABBCCDDEEFF 2 A_Chase;
+		Loop;
+	Melee:
+		SKEL G 0 A_FaceTarget;
+		SKEL G 6 A_SkelWhoosh;
+		SKEL H 6 A_FaceTarget;
+		SKEL I 6 A_CustomMeleeAttack(random(12,36),"skeleton/melee");
+		goto See;
 	Missile:
 		SKEL J 10 Bright A_FaceTarget;
 		TNT1 A 0 A_Jump(128,"MissileRight");
@@ -33,12 +60,17 @@ Class DMR_Revenant : Revenant
 		SKEL K 5 Bright A_SpawnProjectile("DMR_RevenantTracer",56,10);
 		SKEL K 15 A_FaceTarget;
 		Goto See;
-	Melee:
-		SKEL G 0 A_FaceTarget;
-		SKEL G 6 A_SkelWhoosh;
-		SKEL H 6 A_FaceTarget;
-		SKEL I 6 A_CustomMeleeAttack(random(12,36),"skeleton/melee");
-		goto See;
+	Pain:
+		SKEL L 5;
+		SKEL L 5 A_Pain;
+		Goto See;
+	Death:
+		SKEL LM 7;
+		SKEL N 7 A_Scream;
+		SKEL O 7 A_NoBlocking;
+		SKEL P 7;
+		SKEL Q -1;
+		Stop;
 	XDeath:
 		SKEL R 5;
 		SKEL S 5 A_XScream;
@@ -46,6 +78,10 @@ Class DMR_Revenant : Revenant
 		SKEL UVWX 5;
 		SKEL Y -1;
 		stop;
+	Raise:
+		SKEL Q 5;
+		SKEL PONML 5;
+		Goto See;
 	}
 }
 

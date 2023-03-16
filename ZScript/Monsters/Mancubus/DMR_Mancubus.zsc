@@ -1,21 +1,40 @@
 //======================================================================
-//  Original credits
+//  Additional credits
 //======================================================================
 //  XDeath Sprites: 	Dutchygamer
+//	ZScript:			Dutchygamer
 //======================================================================
 
-Class DMR_Fatso: Fatso 
+Class DMR_Fatso: DMR_MonsterBase 
 {
 	Default
 	{
 		Tag "Mancubus";
+		Health 600;
+		Gibhealth -40; // all higher tier monsters (baron -> archvile) have 40 gibhealth
 		Species "DMR_Fatso";
+		Radius 48;
+		Height 64;
+		Mass 1000;
+		Speed 8;
+		PainChance 80;
+		SeeSound "fatso/sight";
+		PainSound "fatso/pain";
+		DeathSound "fatso/death";
+		ActiveSound "fatso/active";
+		Obituary "$OB_FATSO";
+		+BOSSDEATH;
 		+DONTHARMSPECIES;
 		+NOINFIGHTSPECIES;
-		Gibhealth -40; // all higher tier monsters (baron -> archvile) have 40 gibhealth
 	}
 	States
-	{	
+	{
+	Spawn:
+		FATT AB 15 A_Look;
+		Loop;
+	See:
+		FATT AABBCCDDEEFF 4 A_Chase;
+		Loop;
 	Missile:
 		FATT G 20 A_FatRaise;
 		// A_FatAttack1 will shoot one shot straight ahead, and the second 11.25 degrees to its left.
@@ -37,6 +56,17 @@ Class DMR_Fatso: Fatso
 		}
 		FATT IG 5 A_FaceTarget;
 		Goto See;
+	Pain:
+		FATT J 3;
+		FATT J 3 A_Pain;
+		Goto See;
+	Death:
+		FATT K 6;
+		FATT L 6 A_Scream;
+		FATT M 6 A_NoBlocking;
+		FATT NOPQRS 6;
+		FATT T -1 A_BossDeath;
+		Stop;
 	XDeath:
 		FATX A 5;
 		FATX B 5 A_XScream;
@@ -44,6 +74,10 @@ Class DMR_Fatso: Fatso
 		FATX DEF 5;
 		FATX G -1;
 		stop;
+	 Raise:
+		FATT R 5;
+		FATT QPONMLK 5;
+		Goto See;
 	}
 }
 

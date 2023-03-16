@@ -9,24 +9,54 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-Class DMR_HellKnight : HellKnight 
+Class DMR_HellKnight : DMR_MonsterBase 
 {
 	Default
 	{
 		Tag "Hell knight";
-		bloodcolor "green";
+		BloodColor "green";
+		Health 500;
 		Gibhealth -30; ///all medium tier monsters (demon -> hellknight) have 30 gibhealth
 		Species "DMR_Goatman";
+		Radius 24;
+		Height 64;
+		Mass 1000;
+		Speed 8;
+		PainChance 50;
+		SeeSound "knight/sight";
+		ActiveSound "knight/active";
+		PainSound "knight/pain";
+		DeathSound "knight/death";
+		HitObituary "$OB_KNIGHTHIT";
+		Obituary "$OB_KNIGHT";
 		+DONTHARMSPECIES;
 		+NOINFIGHTSPECIES;
 	}
-	States 
-	{  
+	States
+	{
+	Spawn:
+		BOS2 AB 10 A_Look;
+		Loop;
+	See:
+		BOS2 AABBCCDD 3 A_Chase;
+		Loop;
 	Melee:
 	Missile:
 		BOS2 EF 8 A_FaceTarget;
 		BOS2 G 8 A_CustomComboAttack("DMR_BaronBall",32,random(16,48),"baron/melee");
 		goto See;
+	Pain:
+		BOS2 H  2;
+		BOS2 H  2 A_Pain;
+		Goto See;
+	Death:
+		BOS2 I  8;
+		BOS2 J  8 A_Scream;
+		BOS2 K  8;
+		BOS2 L  8 A_NoBlocking;
+		BOS2 MN 8;
+		BOS2 O -1;
+		Stop;
 	XDeath:
 		BOS2 P 5;
 		BOS2 Q 5 A_XScream;
@@ -34,6 +64,10 @@ Class DMR_HellKnight : HellKnight
 		BOS2 STUVW 5;
 		BOS2 X -1;
 		stop;
+	Raise:
+		BOS2 O 8;
+		BOS2 NMLKJI  8;
+		Goto See;
 	}
 }
 

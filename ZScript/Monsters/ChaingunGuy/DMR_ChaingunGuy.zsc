@@ -2,6 +2,7 @@
 //  Additional credits
 //======================================================================
 //	Sounds:		Westwood Studios	
+//	ZScript:	Dutchygamer
 //======================================================================
 
 Class DMR_ChaingunGuy : DMR_MonsterBase 

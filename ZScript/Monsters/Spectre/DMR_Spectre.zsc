@@ -3,9 +3,9 @@ Class DMR_Spectre : DMR_Demon
 	Default
 	{
 		Tag "Spectre";
-		+SHADOW;
 		RenderStyle "Translucent";
 		Alpha 0.25;
 		HitObituary "$OB_SPECTREHIT"; // "%o was eaten by a spectre."
+		+SHADOW;
 	}
 }

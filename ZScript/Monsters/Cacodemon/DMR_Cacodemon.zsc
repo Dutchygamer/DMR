@@ -1,28 +1,61 @@
 //======================================================================
-//  Original credits
+//  Additional credits
 //======================================================================
 //  XDeath Sprites: 	Dutchygamer
+//	ZScript:			Dutchygamer
 //======================================================================
 
-Class DMR_Cacodemon: Cacodemon 
+Class DMR_Cacodemon: DMR_MonsterBase 
 {
 	Default
 	{
 		Tag "Cacodemon";
 		bloodcolor "blue";
+		Health 400;
 		Gibhealth -30; ///all medium tier monsters (demon -> hellknight) have 30 gibhealth
 		Species "DMR_Caco";
+		Radius 31;
+		Height 56;
+		Mass 400;
+		Speed 8;
+		PainChance 128;
+		SeeSound "caco/sight";
+		PainSound "caco/pain";
+		DeathSound "caco/death";
+		ActiveSound "caco/active";
+		Obituary "$OB_CACO";
+		HitObituary "$OB_CACOHIT";
+		+FLOAT;
+		+NOGRAVITY;
 		+DONTHARMSPECIES;
 		+NOINFIGHTSPECIES;
 	}
-	States 
-	{ 
-	Melee:
+	States
+	{
+	Spawn:
+		HEAD A 10 A_Look;
+		Loop;
+	See:
+		HEAD A 3 A_Chase;
+		Loop;
 	Missile:
 		HEAD B 5 A_FaceTarget;
 		HEAD C 5 A_FaceTarget;
 		HEAD D 5 BRIGHT A_CustomComboAttack("DMR_CacodemonBall",32,random(20,60),"baron/melee");	
 		goto See;
+	Pain:
+		HEAD E 3;
+		HEAD E 3 A_Pain;
+		HEAD F 6;
+		Goto See;
+	Death:
+		HEAD G 8;
+		HEAD H 8 A_Scream;
+		HEAD I 8;
+		HEAD J 8;
+		HEAD K 8 A_NoBlocking;
+		HEAD L -1 A_SetFloorClip;
+		Stop;
 	XDeath:
 		HEAD M 5;
 		HEAD N 5 A_XScream;
@@ -30,6 +63,10 @@ Class DMR_Cacodemon: Cacodemon
 		HEAD PQRSTU 5;
 		HEAD V -1;
 		stop;
+	Raise:
+		HEAD L 8 A_UnSetFloorClip;
+		HEAD KJIHG 8;
+		Goto See;
 	}
 }
 

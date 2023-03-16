@@ -5,16 +5,43 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class DMR_Cyberdemon : Cyberdemon 
+class DMR_Cyberdemon : DMR_MonsterBase 
 {
 	Default
 	{
 		Tag "Cyberdemon";
+		Health 4000;
+		// no gibhealth cause it already gibs
+		Radius 40;
+		Height 110;
+		Mass 1000;
+		Speed 16;
+		PainChance 20;
+		MinMissileChance 160;
+		SeeSound "cyber/sight";
+		PainSound "cyber/pain";
+		DeathSound "cyber/death";
+		ActiveSound "cyber/active";
+		Obituary "$OB_CYBORG";
+		+BOSS 
+		+MISSILEMORE
+		+NORADIUSDMG
+		+DONTMORPH
+		+BOSSDEATH
 		+DONTHARMSPECIES;
 		+NOINFIGHTSPECIES;
 	}
 	States
-	{	
+	{
+	Spawn:
+		CYBR AB 10 A_Look;
+		Loop;
+	See:
+		CYBR A 3 A_Hoof;
+		CYBR ABBCC 3 A_Chase;
+		CYBR D 3 A_Metal;
+		CYBR D 3 A_Chase;
+		Loop;
 	Missile:
 		CYBR E 6 A_FaceTarget;
 		CYBR F 12 Bright Light("DMR_RifleFire") {
@@ -28,6 +55,9 @@ class DMR_Cyberdemon : Cyberdemon
 		CYBR F 12 Bright Light("DMR_RifleFire") {
 			A_SpawnProjectile("DMR_Rocket",55,-25,0);
 		}
+		Goto See;
+	Pain:
+		CYBR G 10 A_Pain;
 		Goto See;
 	Death:
 		CYBR H 10;

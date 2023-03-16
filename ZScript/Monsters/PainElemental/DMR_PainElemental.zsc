@@ -1,24 +1,48 @@
 //======================================================================
-//  Original credits
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
 //======================================================================
 
-Class DMR_PainElemental: PainElemental 
+Class DMR_PainElemental: DMR_MonsterBase 
 {
 	Default
 	{
 		Tag "Pain Elemental";
+		Health 400;
 		// no gibhealth cause it already gibs
 		Species "DMR_Paaaain";
+		Radius 31;
+		Height 56;
+		Mass 400;
+		Speed 8;
+		PainChance 128;
+		SeeSound "pain/sight";
+		PainSound "pain/pain";
+		DeathSound "pain/death";
+		ActiveSound "pain/active";
+		+FLOAT; 
+		+NOGRAVITY;
 		+DONTHARMSPECIES;
 		+NOINFIGHTSPECIES;
 	}
 	States
 	{
+	Spawn:
+		PAIN A 10 A_Look;
+		Loop;
+	See:
+		PAIN AABBCC 3 A_Chase;
+		Loop;
 	Missile:
 		PAIN D 5 A_FaceTarget;
 		PAIN E 5 A_FaceTarget;
 		PAIN F 4 BRIGHT A_FaceTarget;
 		PAIN F 1 BRIGHT A_PainAttack("DMR_LostSoul");
+		Goto See;
+	Pain:
+		PAIN G 6;
+		PAIN G 6 A_Pain;
 		Goto See;
 	Death:
 		PAIN H 8 BRIGHT;

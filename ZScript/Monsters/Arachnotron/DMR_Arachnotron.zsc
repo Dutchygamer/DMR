@@ -4,25 +4,62 @@
 //	Sounds:		Raven Software
 //	ZScript:	Dutchygamer
 //======================================================================
-Class DMR_Arachnotron : Arachnotron 
+
+Class DMR_Arachnotron : DMR_MonsterBase 
 {
 	Default
 	{
 		Tag "Arachnotron";
+		Bloodcolor "purple";
+		Health 500;
 		Gibhealth -30; ///all medium tier monsters (demon -> hellknight) have 30 gibhealth
 		Species "DMR_Spider";
+		Radius 64;
+		Height 64;
+		Mass 600;
+		Speed 12;
+		PainChance 128;
+		SeeSound "baby/sight";
+		PainSound "baby/pain";
+		DeathSound "baby/death";
+		ActiveSound "baby/active";
+		Obituary "$OB_BABY";
+		+BOSSDEATH
 		+DONTHARMSPECIES;
 		+NOINFIGHTSPECIES;
-		Bloodcolor "purple";
 	}
-	States 
-	{ 
+	States
+	{
+	Spawn:
+		BSPI AB 10 A_Look;
+		Loop;
+	See:
+		BSPI A 20;
+		BSPI A 3 A_BabyMetal;
+		BSPI ABBCC 3 A_Chase;
+		BSPI D 3 A_BabyMetal;
+		BSPI DEEFF 3 A_Chase;
+		Goto See+1;
 	Missile:
 		BSPI A 20 bright A_FaceTarget;
 		BSPI G 4 bright Light("DMR_ArachnotronFire") A_SpawnProjectile("DMR_ArachnotronPlasma",20,0,0,0);
 		BSPI H 4 bright;
 		BSPI H 1 bright A_SpidRefire;
 		goto Missile+1;
+	Pain:
+		BSPI I 3;
+		BSPI I 3 A_Pain;
+		Goto See+1;
+	Death:
+		BSPI J 20 A_Scream;
+		BSPI K 7 A_NoBlocking;
+		BSPI LMNO 7;
+		BSPI P -1 A_BossDeath;
+		Stop;
+	Raise:
+		BSPI P 5;
+		BSPI ONMLKJ 5;
+		Goto See+1;
 	}
 }
 

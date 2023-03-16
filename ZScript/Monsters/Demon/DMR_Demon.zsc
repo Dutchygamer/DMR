@@ -3,28 +3,67 @@
 //======================================================================
 //  XDeath Sprites: 	Eriance
 //======================================================================
-Class DMR_Demon : Demon
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+Class DMR_Demon : DMR_MonsterBase
 {
 	Default
 	{
 		Tag "Demon";
+		Health 150;
 		Gibhealth -30; //all medium tier monsters (demon -> hellknight) have 30 gibhealth
 		Species "DMR_Demon";
+		Radius 30;
+		Height 56;
+		Mass 400;
+		Speed 10;
+		PainChance 180;
+		SeeSound "demon/sight";
+		AttackSound "demon/melee";
+		PainSound "demon/pain";
+		DeathSound "demon/death";
+		ActiveSound "demon/active";
+		Obituary "$OB_DEMONHIT";
 		+DONTHARMSPECIES;
 		+NOINFIGHTSPECIES;
 	}
-	States 
-	{ 
+	States
+	{
+	Spawn:
+		SARG AB 10 A_Look;
+		Loop;
+	See:
+		SARG AABBCCDD 2 Fast A_Chase;
+		Loop;
 	Melee:
 		SARG EF 8 Fast A_FaceTarget;
 		SARG G 8 Fast A_CustomMeleeAttack(random(8,24));
 		Goto See;
+	Pain:
+		SARG H 2 Fast;
+		SARG H 2 Fast A_Pain;
+		Goto See;
+	Death:
+		SARG I 8;
+		SARG J 8 A_Scream;
+		SARG K 4;
+		SARG L 4 A_NoBlocking;
+		SARG M 4;
+		SARG N -1;
+		Stop;
 	XDeath:
-	   SARG O 5;
-	   SARG P 5 A_XScream;
-	   SARG Q 5 A_NoBlocking;
-	   SARG RSTUV 5;
-	   SARG W -1;
-	   stop;
+		SARG O 5;
+		SARG P 5 A_XScream;
+		SARG Q 5 A_NoBlocking;
+		SARG RSTUV 5;
+		SARG W -1;
+		stop;
+	Raise:
+		SARG N 5;
+		SARG MLKJI 5;
+		Goto See;
 	}
 }
