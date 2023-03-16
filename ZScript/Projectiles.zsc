@@ -234,7 +234,7 @@ Class DMR_FlamethrowerBall : DMR_Projectile
 			dmgtic++;
 			if(dmgtic >= 3)
 			{
-				A_Explode(3,32);
+				A_Explode(3,32,0,0,32);
 				dmgtic = 0;
 			}		
 		}
@@ -279,7 +279,7 @@ class DMR_FlamethrowerBallLarge : DMR_FlamethrowerBall
 			dmgtic++;
 			if(dmgtic >= 3)
 			{
-				A_Explode(3,64);
+				A_Explode(3,64,0,0,64);
 				dmgtic = 0;
 			}		
 		}
