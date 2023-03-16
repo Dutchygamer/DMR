@@ -19,6 +19,9 @@ class CyBruiser : DMR_BaronOfHell
 		Tag "Noble Praetorian";
 		Health 1300;
 		PainChance 35;
+		DropItem "RocketAmmo";
+		DropItem "RocketAmmo", 128;
+		DropItem "RocketAmmo", 128;
 		Obituary "%o was blown away by a noble praetorian.";
 		HitObituary "%o was smashed by a noble praetorian.";
 		+MISSILEMORE;

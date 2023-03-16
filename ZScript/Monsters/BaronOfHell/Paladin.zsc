@@ -21,6 +21,9 @@ class Paladin : DMR_BaronOfHell
 		Tag "Noble vanguard";
 		Health 1400;
 		PainChance 35;
+		DropItem "RocketAmmo";
+		DropItem "RocketAmmo", 128;
+		DropItem "RocketAmmo", 128;
 		Obituary "%o played dodgeball with a noble vanguard and lost.";
 		HitObituary "A noble vanguard blew %o away.";
 		SeeSound "Paladin/Sight";
