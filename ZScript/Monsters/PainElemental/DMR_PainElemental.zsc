@@ -4,7 +4,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-Class DMR_PainElemental: DMR_MonsterBase 
+Class DMR_PainElemental: DMR_FlyingMonsterBase 
 {
 	Default
 	{
@@ -21,8 +21,6 @@ Class DMR_PainElemental: DMR_MonsterBase
 		PainSound "pain/pain";
 		DeathSound "pain/death";
 		ActiveSound "pain/active";
-		+FLOAT; 
-		+NOGRAVITY;
 		+DONTHARMSPECIES;
 		+NOINFIGHTSPECIES;
 	}

@@ -300,6 +300,7 @@ CacoLich/Sight 				INSSIT
 CacoLich/Active 			DSTRTACT
 CacoLich/Pain 				NESSPN
 CacoLich/Death 				DSDMDETH
+CacoLich/Spray 				TXNSPR
 
 ////////////////////////////////
 // Hell Knight variant sounds //
@@ -578,6 +579,9 @@ weapons/firex3 dsfirex3
 ///////////////////////////////
 // Cyberdemon variant sounds //
 ///////////////////////////////
+
+// Rocket
+largerocket/launch LGRCKL
 
 // Dark Inquisitor
 darkinquisitor/sight inqalert

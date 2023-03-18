@@ -33,7 +33,11 @@ class EmptyBulletPuff : Actor
 	}
 }
 
-//rocket
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios
+//======================================================================
 class DMR_Rocket : DMR_Projectile
 {
 	Default
@@ -44,7 +48,7 @@ class DMR_Rocket : DMR_Projectile
 		DamageFunction(random(40,120));
 		+RANDOMIZE
 		+EXTREMEDEATH;
-		SeeSound "weapons/rocklf";
+		SeeSound "largerocket/launch";
 		DeathSound "weapons/rocklx";
 	}
 	States
@@ -69,6 +73,11 @@ class DMR_Rocket : DMR_Projectile
 	}
 }
 
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios
+//======================================================================
 class DMR_SmallRocket : DMR_Rocket
 {
 	Default

@@ -4,7 +4,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-Class DMR_LostSoul: DMR_MonsterBase 
+Class DMR_LostSoul: DMR_FlyingMonsterBase 
 {
 	Default
 	{
@@ -23,8 +23,6 @@ Class DMR_LostSoul: DMR_MonsterBase
 		DeathSound "skull/death";
 		ActiveSound "skull/active";
 		Obituary "$OB_SKULL";
-		+FLOAT;
-		+NOGRAVITY;
 		+MISSILEMORE;
 		+DONTFALL;
 		+NOICEDEATH;

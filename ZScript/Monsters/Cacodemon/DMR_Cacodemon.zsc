@@ -5,7 +5,7 @@
 //	ZScript:			Dutchygamer
 //======================================================================
 
-Class DMR_Cacodemon: DMR_MonsterBase 
+Class DMR_Cacodemon: DMR_FlyingMonsterBase 
 {
 	Default
 	{
@@ -25,8 +25,6 @@ Class DMR_Cacodemon: DMR_MonsterBase
 		ActiveSound "caco/active";
 		Obituary "$OB_CACO";
 		HitObituary "$OB_CACOHIT";
-		+FLOAT;
-		+NOGRAVITY;
 		+DONTHARMSPECIES;
 		+NOINFIGHTSPECIES;
 	}

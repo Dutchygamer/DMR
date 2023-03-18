@@ -30,3 +30,14 @@ Class DMR_MonsterBase : Actor
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 	}
 }
+
+
+Class DMR_FlyingMonsterBase : DMR_MonsterBase
+{
+	Default
+	{
+		-FLOORCLIP;
+		+FLOAT;
+		+NOGRAVITY;
+	}
+}

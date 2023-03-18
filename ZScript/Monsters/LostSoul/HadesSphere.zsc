@@ -27,7 +27,6 @@ class HadesSphere : DMR_LostSoul
 		+LOOKALLAROUND;
 		+NOBLOOD;
 		+DONTGIB;
-		+NOICEDEATH;
 		+NOTARGET;
 		+FORCEXYBILLBOARD;
 		+NOPAIN;
