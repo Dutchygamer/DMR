@@ -64,7 +64,7 @@ class Diabolist : DMR_Archvile
 		DIAB OP 8 BRIGHT;
 		Goto See;
 	Heal:
-		DIAB [\] 10 BRIGHT;
+		DIA2 ABC 10 BRIGHT;
 		Goto See;
 	Pain:
 		DIAB Q 5;

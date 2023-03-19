@@ -10,6 +10,9 @@ Class DMR_MonsterBase : Actor
 	{
 		Monster;
 		+FLOORCLIP;
+		
+		// set a default so we can damage each other as intended unless we are the same species here as well
+		DMR_MonsterBase.Species2 "None";
 	}
 
 	string spec2;
