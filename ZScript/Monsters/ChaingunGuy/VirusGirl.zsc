@@ -84,4 +84,61 @@ Class VirusDart : DMR_SlowBullet
 		+EXTREMEDEATH; //always use explode death
 		Obituary "%o got infected by a Virus.";
 	}
+	
+	States
+	{
+	Spawn:
+		SHLL A 1 Bright {
+			A_SpawnItemEx("VirusDartTrail",0,0,0,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,0.5)); 
+		}
+		Loop;
+	}	
+	
+	// apply damage debuff effect on target
+	override int DoSpecialDamage(actor target, int damage, name damagetype)
+	{
+		if (target)
+		{
+			target.GiveInventory("VirusDebuffGiver",1);
+		}
+		return Super.DoSpecialDamage(target,damage,damagetype);
+	}
+}
+
+
+class VirusDartTrail : DMR_SmallGasTrail
+{   
+	Default
+	{
+		ALPHA 0.3;
+		Scale 0.3;
+	}
+	States
+	{
+	Spawn:
+		GAS2 ABCDEFGHIJKLMN 1;
+		Stop;
+	}
+}
+
+class VirusDebuffGiver : PowerupGiver
+{
+	Default
+	{
+		Powerup.Type "VirusDebuffEffect";
+		Powerup.Duration -3;
+		Powerup.Color "00 BB 00", 0.33;
+		+INVENTORY.AUTOACTIVATE;
+		+INVENTORY.ALWAYSPICKUP;	
+	}
+}
+
+class VirusDebuffEffect : PowerDamage
+{
+	Default
+	{
+		Inventory.Icon "";
+		Damagefactor "normal", 0.5;
+		+INVENTORY.NOSCREENBLINK;
+	}
 }

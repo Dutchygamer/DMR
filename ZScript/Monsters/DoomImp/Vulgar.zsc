@@ -74,12 +74,8 @@ class VulgarShot : DMR_DoomImpBall
 {
 	Default
 	{
-		//Speed 12;
 		DamageFunction(random(8,24));
-		//ALPHA 0.67;
 		Scale 1.1;
-		//Seesound "poly/stmdr1";
-		//DeathSound "weapons/bloodx";
 	}
 	States
 	{
