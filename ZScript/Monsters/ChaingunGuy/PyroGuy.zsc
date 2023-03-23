@@ -65,13 +65,11 @@ class PyroGuy : DMR_ChaingunGuy
 	Death:
 		PYRZ H 5;
 		PYRZ I 5 A_Scream;
-		TNT1 A 0 A_SpawnProjectile("DMR_FlamethrowerExplode", 0, 0);
 		PYRZ J 5 A_NoBlocking;
 		PYRZ KLM 5;
 		PYRZ N -1;
 		Stop;
 	XDeath:
-		TNT1 A 0 A_SpawnProjectile("DMR_FlamethrowerExplode", 0, 0); //explode sooner when brutally killed
 		PYRZ O 5;
 		PYRZ P 5 A_XScream;
 		PYRZ Q 5 A_NoBlocking;

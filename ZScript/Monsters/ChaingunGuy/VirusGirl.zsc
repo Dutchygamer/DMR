@@ -13,7 +13,6 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-// own instance so we can do some shenenigens with the projectile ignoring other Virusses (Virii?) but not other zombies
 class VirusZombie : DMR_MonsterBase
 {
 	Default
