@@ -1,14 +1,3 @@
-object DevilBall 
-{
-    frame BAL3A { light DMR_ImpBall }
-    frame BAL3B { light DMR_ImpBall }
-
-    frame BAL3C { light DMR_ImpBall_X1 }
-    frame BAL3D { light DMR_ImpBall_X2 }
-    frame BAL3E { light DMR_ImpBall_X3 }
-}
-
-
 flickerlight DMR_DevilBall
 {
     color 1.0 0.25 0.1
@@ -39,14 +28,4 @@ flickerlight DMR_DevilBall_X3
     size 65
     secondarySize 70
     chance 0.3
-}
-
-object DevilExplosiveBall 
-{
-    frame BAL3A { light DMR_DevilBall }
-    frame BAL3B { light DMR_DevilBall }
-
-    frame BAL3C { light DMR_DevilBall_X1 }
-    frame BAL3D { light DMR_DevilBall_X2 }
-    frame BAL3E { light DMR_DevilBall_X3 }
 }

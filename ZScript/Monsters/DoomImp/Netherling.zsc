@@ -19,7 +19,7 @@ class Netherling : DMR_DoomImp
 		Tag "Netherling";
 		Health 180;
 		PainChance 130;		
-		Scale 1.1;
+		Scale 1.05;
 		SeeSound "neodarkimp/sight";
 		PainSound "neodarkimp/pain";
 		DeathSound "neodarkimp/death";
@@ -40,15 +40,20 @@ class Netherling : DMR_DoomImp
         TRO4 G 6 A_CustomComboAttack("NetherImpBall",34,random(10,30),"neodarkimp/melee");
         Goto See;
 	Missile:
-        TNT1 A 0 A_Jump (64, "BigBall");
-		Goto TriBall;
-    TriBall:
-        TRO4 EF 10 A_FaceTarget;
-		TRO4 G 1 Bright A_SpawnProjectile("NetherImpBall",32,0,-7,0);
-		TRO4 G 1 Bright A_SpawnProjectile("NetherImpBall",32,0,0,0);
-		TRO4 G 4 Bright A_SpawnProjectile("NetherImpBall",32,0,7,0);
+        TNT1 A 0 A_Jump(64,"BaronBall","TriBall");
+		Goto Ball;
+    Ball:
+        TRO4 EF 6 A_FaceTarget;
+		TRO4 G 4 Bright A_SpawnProjectile("NetherImpBall",32,0,0,0);
         Goto See;
-    BigBall:
+    TriBall:
+		TRO4 EEE 6 A_FaceTarget;
+        TRO4 F 6 A_FaceTarget;
+		TRO4 G 2 Bright A_SpawnProjectile("NetherImpBall",32,0,-7,0);
+		TRO4 G 2 Bright A_SpawnProjectile("NetherImpBall",32,0,0,0);
+		TRO4 G 2 Bright A_SpawnProjectile("NetherImpBall",32,0,7,0);
+        Goto See;
+    BaronBall:
         TRO4 EF 8 A_FaceTarget;
 		TRO4 G 8 Bright A_SpawnProjectile("DMR_BaronBall",32,0,0,0);
         Goto See;
