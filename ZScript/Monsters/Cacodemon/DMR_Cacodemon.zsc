@@ -5,7 +5,8 @@
 //	ZScript:			Dutchygamer
 //======================================================================
 
-Class DMR_Cacodemon: DMR_FlyingMonsterBase 
+// used to inherit from DMR_FlyingMonsterBase but this broke Project: Demolitionist Caco petting compatibility sadly
+Class DMR_Cacodemon : Cacodemon 
 {
 	Default
 	{
