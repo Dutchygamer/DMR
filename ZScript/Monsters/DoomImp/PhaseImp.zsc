@@ -16,7 +16,6 @@ class PhaseImp : DMR_DoomImp
 		Tag "Phaser";
 		Health 90;
 		Speed 12;
-		PainChance 150;		
 		SeeSound "neodarkimp/sight";
 		PainSound "neodarkimp/pain";
 		DeathSound "neodarkimp/death";
@@ -109,16 +108,14 @@ class DarkImpBall : DMR_DoomImpBall
 {
 	Default
 	{
-		DamageFunction(random(6,16));
 		+SEEKERMISSILE;
-		RenderStyle "Add";
 		Alpha 0.75;
 	}
     States
     {
     Spawn:
         DIMB AB 4 Bright {
-			A_SeekerMissile(3,3);
+			A_SeekerMissile(2,2);
 			A_SpawnItemEx("DMR_PurpleFireballTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 			A_SpawnItemEx("PhaseImpFireballTrail",0,0,0,0,0,0); 
 		}		

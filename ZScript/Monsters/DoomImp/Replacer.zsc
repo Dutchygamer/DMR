@@ -7,7 +7,7 @@ Class DoomImpReplacer: RandomSpawner replaces DoomImp
 		DropItem "PhaseImp", 255, 20;
 		DropItem "Devil", 255, 10;
 		DropItem "Netherling", 255, 10;
-		DropItem "DMR_Shadow", 255, 8;
+		//DropItem "DMR_Shadow", 255, 8;
 		////DropItem "Nightmare", 255, 8;
 		////DropItem "Hellion", 255, 4;
 		DropItem "Catharsi", 255, 6;

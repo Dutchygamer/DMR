@@ -37,29 +37,29 @@ class Catharsi : DMR_DoomImp
 		Loop;
 	Melee:
 	Missile:
-		TNT1 A 0 A_JumpIfCloser(418, "RapidFire");
+		TNT1 A 0 A_JumpIfCloser(418, "MissileClose");
 		Goto SingleShot;
+	MissileClose:
+		TNT1 A 0 A_Jump(256, "SingleShot","RapidFire");
 	SingleShot:
 		SDDM EE 6 A_FaceTarget;
 		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8);
-		SDDM E 5 A_FaceTarget;
-		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8);
-		SDDM E 5 A_FaceTarget;
-		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8);
-		SDDM E 2;
+		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8, random(-1,1));
 		Goto See;
 	RapidFire:
-		SDDM EE 6 A_FaceTarget;
-		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8, random(-2,2));
-		SDDM E 2;
+		SDDM EEE 6 A_FaceTarget;
 		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8, random(-2,2));
 		SDDM E 2 A_FaceTarget;
 		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8, random(-2,2));
-		SDDM E 2;
+		SDDM E 2 A_FaceTarget;
+		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8, random(-2,2));
+		TNT1 A 0 A_Jump(192,"See");
+		SDDM E 6 A_FaceTarget;
+		SDDM E 2 A_FaceTarget;
 		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8, random(-2,2));
 		SDDM E 2 A_FaceTarget;
 		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8, random(-2,2));
-		SDDM E 2;
+		SDDM E 2 A_FaceTarget;
 		SDDM F 2 BRIGHT A_SpawnProjectile("CatharsiBall", 35, 8, random(-2,2));
 		SDDM E 2;
 		Goto See;
@@ -103,7 +103,7 @@ class CatharsiBall : DMR_DoomImpBall
 	Default
 	{
 		Speed 15;
-		DamageFunction(random(4,12));
+		//DamageFunction(random(4,12));
 		SEESOUND "catharsi/icerifle";
 		DEATHSOUND "catharsi/iceimpact";
 		DamageType "Ice";
