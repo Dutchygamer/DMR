@@ -19,6 +19,13 @@ class CoreDefender : DMR_Cyberdemon
 		Tag "Core defender";
 		Health 7000;
 		PainChance 5;
+		DropItem "RocketBox", 256, 5;
+		DropItem "RocketBox", 256, 5;
+		DropItem "CellPack", 256, 100;
+		DropItem "CellPack", 128, 100;
+		DropItem "Cell", 128, 20;
+		DropItem "Cell", 128, 20;
+		DropItem "Cell", 128, 20;
 		+NOBLOOD;
 		+DONTGIB;
 		SeeSound "darkinquisitor/laugh";

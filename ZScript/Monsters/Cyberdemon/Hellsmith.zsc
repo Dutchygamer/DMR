@@ -18,6 +18,11 @@ class Hellsmith : DMR_Cyberdemon
 		Tag "Hellforge Master";
 		Health 5500;
 		PainChance 10;
+		DropItem "CellPack", 256, 100;
+		DropItem "CellPack", 128, 100;
+		DropItem "Cell", 128, 20;
+		DropItem "Cell", 128, 20;
+		DropItem "Cell", 128, 20;
 		Obituary "%o was no match for the might of the hellforge master.";
 		HitObituary "%o was crushed under the hellforge master's hoof.";
 		DamageFunction(random(30,90)); //for charging

@@ -18,6 +18,8 @@ class PyroDemon : DMR_Cyberdemon
 		Tag "Fireborne Archon";
 		Health 5000;
 		Scale 1.5;
+		DropItem "CellPack", 256, 100;
+		DropItem "CellPack", 128, 100;
 		Obituary "%o was burnt to a crisp by a Fireborne archon";
 		HitObituary "%o was melted my a Fireborne archon";
 		bloodcolor "orange";

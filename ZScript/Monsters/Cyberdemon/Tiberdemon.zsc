@@ -19,6 +19,9 @@ class Tiberdemon : DMR_Cyberdemon
 		Tag "Cyparius"; // Cyberdemon + Riparius
 		Health 5000;
 		PainChance 15;
+		DropItem "RocketBox", 256, 5;
+		DropItem "RocketBox", 128, 5;
+		DropItem "Cell", 128, 20;
 		Scale 1.05;
 		Bloodcolor "green";
 		SeeSound "TiberDemon/sight";

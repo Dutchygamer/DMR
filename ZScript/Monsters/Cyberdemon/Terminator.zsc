@@ -19,6 +19,9 @@ class Terminator : DMR_Cyberdemon
 		Tag "Terminator";
 		Health 5000;
 		PainChance 15;
+		DropItem "RocketBox", 256, 5;
+		DropItem "Cell", 128, 20;
+		DropItem "Cell", 128, 20;
 		Scale 1.4;
 		Obituary "%o was liquidated by a Terminator.";
 		SeeSound "monster/termsit";

@@ -20,6 +20,10 @@ class BlueTiberdemon : DMR_Cyberdemon
 		Tag "Cybifera"; // Cyberdemon + Vinifera
 		Health 5000;
 		PainChance 5;
+		DropItem "RocketBox", 256, 5;
+		DropItem "RocketBox", 256, 5;
+		DropItem "CellPack", 256, 100;
+		DropItem "CellPack", 128, 100;
 		Scale 1.05;
 		Bloodcolor "blue";
 		SeeSound "TiberDemon/sight";
