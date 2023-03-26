@@ -19,6 +19,9 @@ class Mancutank : DMR_SpiderMastermind
 		Health 4000;
 		Scale 1.1;
 		PainChance 35;
+		DropItem "RocketBox", 256, 5;
+		DropItem "RocketBox", 128, 5;
+		DropItem "RocketBox", 128, 5;
 		SeeSound "MancuTank/sight";
 		PainSound "MancuTank/pain";
 		DeathSound "MancuTank/death";

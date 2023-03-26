@@ -19,6 +19,10 @@ class Overlord : DMR_SpiderMastermind
 		Tag "Emperor overlord";
 		Health 4000;
 		PainChance 30;
+		DropItem "CellPack", 256, 100;
+		DropItem "Cell", 128, 20;
+		DropItem "Cell", 128, 20;
+		DropItem "Cell", 128, 20;
 		DamageFactor "lightning", 0.0;
 		Obituary "%o was smitten by the emperor overlord.";
 		HitObituary "The emperor overlord ate %o for lunch.";
