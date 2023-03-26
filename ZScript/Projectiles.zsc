@@ -299,6 +299,7 @@ class DMR_FlamethrowerBallLarge : DMR_FlamethrowerBall
 	}
 }
 
+//unused
 class DMR_FlamethrowerExplode : Actor
 {
 	Default
@@ -322,6 +323,7 @@ class DMR_FlamethrowerExplode : Actor
 	}
 }
 
+//unused
 class DMR_FlamethrowerExplodeLarge : DMR_FlamethrowerExplode
 {
 	Default

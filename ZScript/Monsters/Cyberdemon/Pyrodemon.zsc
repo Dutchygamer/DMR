@@ -15,17 +15,19 @@ class PyroDemon : DMR_Cyberdemon
 {
 	Default
 	{
-		Tag "Archon";
+		Tag "Fireborne Archon";
 		Health 5000;
 		Scale 1.5;
-		Obituary "%o was burnt to a crisp by an archon";
-		HitObituary "%o was melted my an archon";
-		Bloodcolor "75 25 00";
+		Obituary "%o was burnt to a crisp by a Fireborne archon";
+		HitObituary "%o was melted my a Fireborne archon";
+		bloodcolor "orange";
 		SeeSound "pyro/see";
 		PainSound "pyro/pain";
 		DeathSound "pyro/death";
 		ActiveSound "pyro/idle";
 	}
+	int attackLoop;
+	
 	States
 	{
 	Spawn:
@@ -40,7 +42,8 @@ class PyroDemon : DMR_Cyberdemon
 	Missile:
 		//TNT1 A 0 A_JumpIfCloser(350, "PyroBlast");
 		//TNT1 A 0 A_JumpIfCloser(500, "Comet");
-		//TNT1 A 0 A_Jump(32,"Teleport");
+		TNT1 A 0 A_Jump(72,"Comet");
+		TNT1 A 0 A_Jump(256,"FireShot","RapidFire");
 		//Goto FireShot;
 	FireShot:
 		PYRO EF 8 Bright A_FaceTarget;
@@ -56,15 +59,32 @@ class PyroDemon : DMR_Cyberdemon
 		}
 		PYRO L 4 Bright;
 		Goto See;
+	RapidFire:
+		PYRO E 8 Bright A_FaceTarget;
+		TNT1 A 0 { attackloop = 0; }
+	RapidFireLoop:
+		TNT1 A 0 A_JumpIf(attackloop >= 8,"See");
+		PYRO EF 3 Bright A_FaceTarget;
+		PYRO G 3 Bright {
+			A_SpawnProjectile("PyroDemonRapidBall",56,0,0,0);
+			attackloop++;
+		}
+		PYRO H 3 Bright;
+		PYRO IJ 3 Bright A_FaceTarget;	
+		PYRO K 3 Bright {
+			A_SpawnProjectile("PyroDemonRapidBall",56,0,0,0);
+			attackloop++;
+		}
+		PYRO L 3 Bright;
+		Loop;		
 	/*PyroBlast:
 		TNT1 A 0 A_Jump(128, "FireShot"); //chance to use the normal attack when in close range
 		TNT1 A 0 A_Jump(32, "Comet"); //small chance to use the comet attack when in close range
 		PYRO MN 8 Bright A_FaceTarget;
 		PYRO O 8 Bright A_SpawnProjectile("PyroDemonBlast",56,0,0,0);
 		PYRO P 6 Bright;
-		Goto See;
+		Goto See;*/
 	Comet:
-		TNT1 A 0 A_Jump(64, "FireShot"); //chance to use the normal attack when in close range
 		TNTA A 0 A_PlaySound("pyro/see");
 		PYRO MN 12 Bright A_FaceTarget;
 		PYRO O 8 Bright {
@@ -76,7 +96,7 @@ class PyroDemon : DMR_Cyberdemon
 			A_SpawnProjectile("PyroDemonCometSpawner",56,0,300,0);
 		}
 		PYRO P 6 Bright;
-		Goto See;*/
+		Goto See;
 	Pain:
 		PYRO Q 10 A_Pain;
 		Goto See;
@@ -118,10 +138,7 @@ class PyroDemonBall : DMR_Rocket
 			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}		
 		COMT D 3 Bright A_Explode(96,128);
-		COMT EFGHI 3 Bright;		
-		//MISL B 8 Bright A_Explode(96);
-		//MISL C 6 Bright;
-		//MISL D 4 Bright;
+		COMT EFGHI 3 Bright;
 		Stop;
 	}
 }
@@ -139,6 +156,38 @@ class PyroDemonBallTail : DMR_ProjectileTrail
 		Stop;
 	}
 }
+
+
+class PyroDemonRapidBall : DMR_SmallRocket
+{
+	Default
+	{
+		DamageFunction(random(20,60));
+		RenderStyle "Normal";
+		DamageType "Fire";
+		SeeSound "pyro/flame";
+		DeathSound "pyro/flamepoof";
+		Scale 0.8;
+	}
+	States
+	{
+	Spawn:
+		COMT AABB 2 BRIGHT {
+			A_SpawnItemEx("DMR_LargeFireballTrail",-5,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
+			//A_SpawnItemEx("PyroDemonBallTail",0,0,0,0,0,0);
+		}
+		Loop;
+	Death:
+		TNT1 AAAAAAAAAAAA 0 {
+			A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}		
+		COMT D 3 Bright A_Explode(72,96);
+		COMT EFGHI 3 Bright;
+		Stop;
+	}
+}
+
 
 class PyroDemonBlast : DMR_GrenadeBase
 {
@@ -216,6 +265,7 @@ class PyroDemonMushroomBall : Actor
 		Stop;
 	}
 }
+
 
 class PyroDemonCometSpawner : Actor
 {

@@ -1,3 +1,34 @@
+flickerlight DMR_PyroDemon
+{
+    color 0.8 0.5 0.1
+    size 80
+    secondarySize 90
+    chance 0.3
+}
+
+object PyroDemon
+{
+    frame PYROA { light DMR_BruiserDemon }
+    frame PYROB { light DMR_BruiserDemon }
+    frame PYROC { light DMR_BruiserDemon }
+    frame PYROD { light DMR_BruiserDemon }
+    frame PYROE { light DMR_BruiserDemon }
+    frame PYROF { light DMR_BruiserDemon }
+    frame PYROG { light DMR_BruiserDemon }
+    frame PYROH { light DMR_BruiserDemon }
+    frame PYROI { light DMR_BruiserDemon }
+    frame PYROJ { light DMR_BruiserDemon }
+    frame PYROK { light DMR_BruiserDemon }
+    frame PYROL { light DMR_BruiserDemon }
+    frame PYROM { light DMR_BruiserDemon }
+    frame PYRON { light DMR_BruiserDemon }
+    frame PYROO { light DMR_BruiserDemon }
+    frame PYROP { light DMR_BruiserDemon }
+    frame PYROQ { light DMR_BruiserDemon }
+	// all other frames have no light
+}
+
+
 flickerlight DMR_PyroDemonBall
 {
     color 1.0 0.7 0.0
@@ -42,4 +73,51 @@ object PyroDemonBall
     frame COMTG { light DMR_PyroDemonBall_X2 }
     frame COMTH { light DMR_PyroDemonBall_X2 }
     frame COMTI { light DMR_PyroDemonBall_X3 }
+}
+
+
+flickerlight DMR_PyroDemonRapidBall
+{
+    color 1.0 0.7 0.0
+    size 72
+    secondarySize 80
+    chance 0.3
+}
+
+flickerlight DMR_PyroDemonRapidBall_X1
+{
+    color 1.0 0.6 0.1
+    size 80
+    secondarySize 85
+    chance 0.3
+}
+
+flickerlight DMR_PyroDemonRapidBall_X2
+{
+    color 0.65 0.3 0.0
+    size 85
+    secondarySize 90
+    chance 0.3
+}
+
+flickerlight DMR_PyroDemonRapidBall_X3
+{
+    color 0.3 0.1 0.0
+    size 90
+    secondarySize 95
+    chance 0.3
+}
+
+object PyroDemonRapidBall
+{
+    frame COMTA { light DMR_PyroDemonRapidBall }
+    frame COMTB { light DMR_PyroDemonRapidBall }
+    frame COMTC { light DMR_PyroDemonRapidBall }
+
+    frame COMTD { light DMR_PyroDemonRapidBall_X1 }
+    frame COMTE { light DMR_PyroDemonRapidBall_X1 }
+    frame COMTF { light DMR_PyroDemonRapidBall_X2 }
+    frame COMTG { light DMR_PyroDemonRapidBall_X2 }
+    frame COMTH { light DMR_PyroDemonRapidBall_X2 }
+    frame COMTI { light DMR_PyroDemonRapidBall_X3 }
 }
