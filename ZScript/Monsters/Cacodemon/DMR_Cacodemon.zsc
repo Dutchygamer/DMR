@@ -5,8 +5,7 @@
 //	ZScript:			Dutchygamer
 //======================================================================
 
-// used to inherit from DMR_FlyingMonsterBase but this broke Project: Demolitionist Caco petting compatibility sadly
-Class DMR_Cacodemon : Cacodemon 
+Class DMR_Cacodemon : DMR_FlyingMonsterBase 
 {
 	Default
 	{
@@ -14,7 +13,7 @@ Class DMR_Cacodemon : Cacodemon
 		bloodcolor "blue";
 		Health 400;
 		Gibhealth -30; // all medium tier monsters (demon -> hellknight) have 30 gibhealth
-		Species "DMR_Caco";
+		Species "Caco"; // use 'Caco' instead of 'DMR_Caco' to maintain Project: Demolitionist Caco petting 
 		Radius 31;
 		Height 56;
 		Mass 400;
