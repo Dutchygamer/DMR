@@ -32,6 +32,7 @@ class BlueTiberdemon : DMR_Cyberdemon
 		ActiveSound "cyber/active";
 		Obituary "%o was destroyed by a cybifera.";
 		DamageFactor "ToxinCloud", 0.0;
+		+NODROPOFF; //don't yeet yourself off platforms	
 	}
 	States 
 	{ 
