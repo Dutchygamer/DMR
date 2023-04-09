@@ -44,7 +44,7 @@ Class DarkAcolyte: DMR_Archvile
 	VileAttack:
 		TNT1 A 0 BRIGHT A_VileStart;
 		ACOL D 10 BRIGHT A_FaceTarget;
-		ACOL D 8 BRIGHT A_VileTarget;//("DarkAcolyteFire");
+		ACOL D 8 BRIGHT A_VileTarget("DMR_ArchvileFire");//("DarkAcolyteFire");
 		ACOL EEEEEE 8 BRIGHT A_FaceTarget;
 		ACOL F 8 BRIGHT A_VileAttack("vile/stop",50,30,70,1.0);
 		ACOL F 20 BRIGHT;
