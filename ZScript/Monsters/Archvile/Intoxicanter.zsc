@@ -40,6 +40,7 @@ class Intoxicanter : DMR_Archvile
 		VIL2 IJKLMN 8 BRIGHT A_FaceTarget;
 		VIL2 O 8 BRIGHT {
 			A_VileAttack("gas/explode",20,40,70,0.5,"ToxinCloud");
+			// only spawn toxin gasses when target is in LoS
 			if (A_JumpIfTargetInLOS("Null",360)) {
 				A_VileTarget("IntoxicanterFireBlast");
 			}
@@ -82,7 +83,7 @@ class Intoxicanter : DMR_Archvile
 	}
 }
 
-class IntoxicanterFire : ArchvileFire
+class IntoxicanterFire : DMR_ArchvileFire
 {
 	States
 	{
@@ -99,7 +100,7 @@ class IntoxicanterFire : ArchvileFire
 
 
 
-class IntoxicanterFireBlast : ArchvileFire
+class IntoxicanterFireBlast : DMR_ArchvileFire
 {
 	States
 	{

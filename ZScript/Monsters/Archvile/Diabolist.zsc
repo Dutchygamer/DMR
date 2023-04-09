@@ -81,7 +81,7 @@ class Diabolist : DMR_Archvile
 	}
 }
 
-class DiabolistFire : ArchvileFire
+class DiabolistFire : DMR_ArchvileFire
 {
 	States
 	{
