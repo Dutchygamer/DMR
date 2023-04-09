@@ -88,17 +88,17 @@ object CoreDefenderObeliskLaserTrail
 	frame LASBA { light DMR_LaserTrailBig }
 }
 
-object CoreDefenderTargettingLaser
+object CoreDefenderLaserTargetter1
 {
 	frame LASBA { light DMR_LaserCharge1 }
 }
 
-object CoreDefenderTargettingLaser2
+object CoreDefenderLaserTargetter2
 {
 	frame LASBA { light DMR_LaserCharge2 }
 }
 
-object CoreDefenderTargettingLaser3
+object CoreDefenderLaserTargetter3
 {
 	frame LASBA { light DMR_LaserCharge3 }
 }
