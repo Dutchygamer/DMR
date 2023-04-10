@@ -12,7 +12,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class RocketGuy : DMR_ChaingunGuy
+class Rocketeer : DMR_ChaingunGuy
 {
 	Default
 	{

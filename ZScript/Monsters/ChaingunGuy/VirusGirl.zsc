@@ -13,7 +13,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class VirusZombie : DMR_MonsterBase
+class Virus : DMR_MonsterBase
 {
 	Default
 	{

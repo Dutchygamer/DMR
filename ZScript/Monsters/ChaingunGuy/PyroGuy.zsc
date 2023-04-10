@@ -12,7 +12,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class PyroGuy : DMR_ChaingunGuy
+class PyroTechnician : DMR_ChaingunGuy
 {
 	Default
 	{
@@ -35,11 +35,11 @@ class PyroGuy : DMR_ChaingunGuy
 	Missile:
 		TNT1 A 0 A_JumpIfCloser(256, "Flamethrower");
 		PYRZ E 10 A_FaceTarget;
-		PYRZ F 10 Bright A_SpawnProjectile("PyroGuyShot", 32, 0, 0);
+		PYRZ F 10 Bright A_SpawnProjectile("PyroTechnicianBall", 32, 0, 0);
 		PYRZ E 5 A_FaceTarget;
-		PYRZ F 10 Bright A_SpawnProjectile("PyroGuyShot", 32, 0, 5.625);
+		PYRZ F 10 Bright A_SpawnProjectile("PyroTechnicianBall", 32, 0, 5.625);
 		PYRZ E 5 A_FaceTarget;
-		PYRZ F 10 Bright A_SpawnProjectile("PyroGuyShot", 32, 0, -5.625);
+		PYRZ F 10 Bright A_SpawnProjectile("PyroTechnicianBall", 32, 0, -5.625);
 		PYRZ E 5;
 		goto See;
 	Flamethrower:
@@ -82,7 +82,7 @@ class PyroGuy : DMR_ChaingunGuy
 	}
 }
 
-Class PyroGuyShot : FatShot
+Class PyroTechnicianBall : DMR_FatShot
 {
 	Default
 	{

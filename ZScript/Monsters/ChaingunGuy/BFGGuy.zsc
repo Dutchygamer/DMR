@@ -11,7 +11,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class BFGGuy : DMR_ChaingunGuy
+class BFGCommando : DMR_ChaingunGuy
 {
 	Default
 	{

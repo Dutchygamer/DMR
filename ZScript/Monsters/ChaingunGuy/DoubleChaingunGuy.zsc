@@ -12,12 +12,12 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class DoubleChaingunGuy : DMR_ChaingunGuy
+class ChaingunCommando : DMR_ChaingunGuy
 {
 	Default
 	{
-		Tag "Double chaingunner";
-		Obituary "%o was reduced to bloody ribbons by a double chaingunner.";
+		Tag "Chaingun Commando";
+		Obituary "%o was reduced to bloody ribbons by a Chaingun Commando.";
 		Health 90;
 		PainChance 150;
 		DropItem "Chaingun";

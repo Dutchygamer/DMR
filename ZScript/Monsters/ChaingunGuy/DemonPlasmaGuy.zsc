@@ -11,7 +11,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class DemonPlasmaGuy : DMR_ChaingunGuy
+class PlasmaCommando : DMR_ChaingunGuy
 {
 	Default
 	{
