@@ -74,6 +74,7 @@ version "4.2.1"
 
 #include "ZScript/Monsters/BaronOfHell/Replacer.zsc"
 #include "ZScript/Monsters/BaronOfHell/DMR_BaronOfHell.zsc"
+#include "ZScript/Monsters/BaronOfHell/CyberBaron.zsc"
 #include "ZScript/Monsters/BaronOfHell/CyBruiser.zsc"
 #include "ZScript/Monsters/BaronOfHell/BruiserDemon.zsc"
 #include "ZScript/Monsters/BaronOfHell/Apprentice.zsc"
