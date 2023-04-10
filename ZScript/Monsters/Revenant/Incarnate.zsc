@@ -12,7 +12,7 @@
 //	Sounds:		Westwood Studios	
 //======================================================================
 
-class Incarnate : DMR_Revenant
+class Ghoul : DMR_Revenant
 {
 	Default
 	{
@@ -53,7 +53,7 @@ class Incarnate : DMR_Revenant
 		Goto See;
 	Missile:	
 		INCA J 10 Bright A_FaceTarget;
-		INCA U 5 Bright A_SpawnProjectile("IncarnateTracer",58,0);
+		INCA U 5 Bright A_SpawnProjectile("GhoulTracer",58,0);
 		INCA K 15 A_FaceTarget;
 		Goto See;
 	Pain:
@@ -82,7 +82,7 @@ class Incarnate : DMR_Revenant
 	}
 }
 
-class IncarnateTracer : DMR_RevenantTracer
+class GhoulTracer : DMR_RevenantTracer
 {
 	Default
 	{

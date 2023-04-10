@@ -12,7 +12,7 @@
 //	Sounds:		Westwood Studios	
 //======================================================================
 
-class GhostRevenant : DMR_Revenant
+class Hollow : DMR_Revenant
 {
 	Default
 	{

@@ -13,7 +13,7 @@
 //  Sprites:	Dutchygamer (recolour of original sprites)
 //======================================================================
 
-class BeamRevenant : DMR_Revenant
+class Dybbuk : DMR_Revenant
 {
 	Default
 	{
