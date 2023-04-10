@@ -5,7 +5,7 @@ Class HellKnightReplacer: RandomSpawner replaces HellKnight
 		DropItem "DMR_HellKnight", 255, 100;
 		DropItem "Satyr", 255, 20;
 		DropItem "CyberKnight", 255, 20;
-		DropItem "HellWarrior", 255, 15;
+		DropItem "HellServant", 255, 15;
 		DropItem "Afrit", 255, 11;
 		//DropItem, "HellsFury" 255, 11;
 	}
