@@ -12,7 +12,7 @@
 //  Sprites:	Dutchygamer (modification of original sprites)
 //======================================================================
 
-class CyBruiser : DMR_BaronOfHell
+class NoblePraetorian : DMR_BaronOfHell
 {
 	Default
 	{
@@ -57,9 +57,9 @@ class CyBruiser : DMR_BaronOfHell
 		Goto See;
 	Plasma:
 		BRU2 EE 8 A_FaceTarget;
-		BRU2 F 8 Bright Light("DMR_DemonPlasmaFire") A_SpawnProjectile("BruiserPlasmaRune",39,16,0,0);
+		BRU2 F 8 Bright Light("DMR_DemonPlasmaFire") A_SpawnProjectile("NoblePraetorianPlasmaRune",39,16,0,0);
 		BRU2 E 6 A_FaceTarget;
-		BRU2 F 8 Bright Light("DMR_DemonPlasmaFire") A_SpawnProjectile("BruiserPlasmaRune",39,16,0,0);		
+		BRU2 F 8 Bright Light("DMR_DemonPlasmaFire") A_SpawnProjectile("NoblePraetorianPlasmaRune",39,16,0,0);		
 		Goto See;
 	Melee:
 		BRU2 GH 8 A_FaceTarget;
@@ -83,7 +83,7 @@ class CyBruiser : DMR_BaronOfHell
 	}
 }
 
-class BruiserPlasmaRune : BaronBall
+class NoblePraetorianPlasmaRune : BaronBall
 {  
 	Default
 	{

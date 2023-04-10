@@ -11,11 +11,11 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class BruiserDemon : DMR_BaronOfHell
+class FireborneNoble : DMR_BaronOfHell
 {
 	Default
 	{
-		Tag "Fireborne";
+		Tag "Fireborne Noble";
 		Health 1500;
 		PainChance 40;
 		bloodcolor "orange";
@@ -24,8 +24,8 @@ class BruiserDemon : DMR_BaronOfHell
 		PainSound "superbaron/pain";
 		DeathSound "superbaron/death";
 		ActiveSound "superbaron/act";
-		Obituary "%o was slaughtered by a Fireborne.";
-		HitObituary "%o was cremated by a Fireborne.";
+		Obituary "%o was slaughtered by a Fireborne Noble.";
+		HitObituary "%o was cremated by a Fireborne Noble.";
 	}
 	States
 	{
@@ -41,41 +41,41 @@ class BruiserDemon : DMR_BaronOfHell
 		Goto Ball;
 	Ball:
 		BRUS EF 6 Bright A_FaceTarget;
-		BRUS G 6 Bright A_SpawnProjectile("BruiserBall",39,0,0,0);
+		BRUS G 6 Bright A_SpawnProjectile("FireborneNobleBall",39,0,0,0);
 		TNT1 A 0 Bright A_Jump(96, 1);
 		Goto See;
 		BRUS HI 6 Bright A_FaceTarget;
-		BRUS J 6 Bright A_SpawnProjectile("BruiserBall",39,0,0,0);
+		BRUS J 6 Bright A_SpawnProjectile("FireborneNobleBall",39,0,0,0);
 		Goto See;
 	Spam:
 		BRUS E 6 Bright A_FaceTarget;
 		BRUS F 4 Bright A_FaceTarget;
-		BRUS F 2 Bright A_SpawnProjectile("BruiserSpamBall",39,0,-40,0);
-		BRUS G 1 Bright A_SpawnProjectile("BruiserSpamBall",39,0,-30,0);
-		BRUS G 1 Bright A_SpawnProjectile("BruiserSpamBall",39,0,-20,0);
-		BRUS G 1 Bright A_SpawnProjectile("BruiserSpamBall",39,0,-10,0);
-		BRUS G 1 Bright A_SpawnProjectile("BruiserSpamBall",39,0,0,0);
-		BRUS G 1 Bright A_SpawnProjectile("BruiserSpamBall",39,0,10,0);
-		BRUS G 1 Bright A_SpawnProjectile("BruiserSpamBall",39,0,20,0);
+		BRUS F 2 Bright A_SpawnProjectile("FireborneNobleSpamBall",39,0,-40,0);
+		BRUS G 1 Bright A_SpawnProjectile("FireborneNobleSpamBall",39,0,-30,0);
+		BRUS G 1 Bright A_SpawnProjectile("FireborneNobleSpamBall",39,0,-20,0);
+		BRUS G 1 Bright A_SpawnProjectile("FireborneNobleSpamBall",39,0,-10,0);
+		BRUS G 1 Bright A_SpawnProjectile("FireborneNobleSpamBall",39,0,0,0);
+		BRUS G 1 Bright A_SpawnProjectile("FireborneNobleSpamBall",39,0,10,0);
+		BRUS G 1 Bright A_SpawnProjectile("FireborneNobleSpamBall",39,0,20,0);
 		TNT1 A 0 A_Jump(96, 1);
 		Goto See;
 		BRUS H 6 Bright A_FaceTarget;
 		BRUS I 4 Bright A_FaceTarget;
-		BRUS I 2 Bright A_SpawnProjectile("BruiserSpamBall",39,0,40,0);
-		BRUS J 1 Bright A_SpawnProjectile("BruiserSpamBall",39,0,30,0);
-		BRUS J 1 Bright A_SpawnProjectile("BruiserSpamBall",39,0,20,0);
-		BRUS J 1 Bright A_SpawnProjectile("BruiserSpamBall",39,0,10,0);
-		BRUS J 1 Bright A_SpawnProjectile("BruiserSpamBall",39,0,0,0);
-		BRUS J 1 Bright A_SpawnProjectile("BruiserSpamBall",39,0,-10,0);
-		BRUS J 1 Bright A_SpawnProjectile("BruiserSpamBall",39,0,-20,0);
+		BRUS I 2 Bright A_SpawnProjectile("FireborneNobleSpamBall",39,0,40,0);
+		BRUS J 1 Bright A_SpawnProjectile("FireborneNobleSpamBall",39,0,30,0);
+		BRUS J 1 Bright A_SpawnProjectile("FireborneNobleSpamBall",39,0,20,0);
+		BRUS J 1 Bright A_SpawnProjectile("FireborneNobleSpamBall",39,0,10,0);
+		BRUS J 1 Bright A_SpawnProjectile("FireborneNobleSpamBall",39,0,0,0);
+		BRUS J 1 Bright A_SpawnProjectile("FireborneNobleSpamBall",39,0,-10,0);
+		BRUS J 1 Bright A_SpawnProjectile("FireborneNobleSpamBall",39,0,-20,0);
 		Goto See;
 	FireWaves:
 		BRUS KL 6 Bright A_FaceTarget;
-		BRUS M 2 Bright A_SpawnProjectile("BruiserFireSpawner",16,0,0,0);
+		BRUS M 2 Bright A_SpawnProjectile("FireborneNobleFireSpawner",16,0,0,0);
 		Goto See;
 	Melee:
 		BRUS EF 6 Bright A_FaceTarget;
-		BRUS G 6 Bright A_CustomComboAttack("BruiserBall",39,random(22,66),"baron/melee");
+		BRUS G 6 Bright A_CustomComboAttack("FireborneNobleBall",39,random(22,66),"baron/melee");
 		Goto See;
 	Pain:
 		BRUS H 2 Bright;
@@ -96,7 +96,7 @@ class BruiserDemon : DMR_BaronOfHell
 	}
 }
 
-class BruiserBall : DMR_BaronBall
+class FireborneNobleBall : DMR_BaronBall
 {
 	Default
 	{
@@ -109,7 +109,7 @@ class BruiserBall : DMR_BaronBall
 	Spawn:
 		BRBA AABB 2 BRIGHT {
 			A_SpawnItemEx("DMR_LargeFireballTrail",-5,0,5,frandom(-1,0),frandom(-1,1),frandom(0,1));
-			A_SpawnItemEx("BruiserBallTrail",0,0,0,0,0,0);
+			A_SpawnItemEx("FireborneNobleBallTrail",0,0,0,0,0,0);
 		}
 		Loop;
 	Death:
@@ -122,7 +122,7 @@ class BruiserBall : DMR_BaronBall
 	}
 }
 
-class BruiserSpamBall : DMR_DoomImpBall
+class FireborneNobleSpamBall : DMR_DoomImpBall
 {
 	Default
 	{
@@ -147,7 +147,7 @@ class BruiserSpamBall : DMR_DoomImpBall
 	}
 }
 
-class BruiserBallTrail : DMR_ProjectileTrail
+class FireborneNobleBallTrail : DMR_ProjectileTrail
 {
 	Default
 	{
@@ -161,7 +161,7 @@ class BruiserBallTrail : DMR_ProjectileTrail
 	}
 }
 
-class BruiserFireSpawner : Actor
+class FireborneNobleFireSpawner : Actor
 {
 	Default
 	{
@@ -190,7 +190,7 @@ class BruiserFireSpawner : Actor
 			dmgtic++;
 			if(dmgtic >= 2)
 			{
-				A_SpawnItem("BruiserFire",0,0);
+				A_SpawnItem("FireborneNobleFloorFire",0,0);
 				dmgtic = 0;
 			}	
 		}
@@ -203,7 +203,7 @@ class BruiserFireSpawner : Actor
 	}
 }
 
-class BruiserFire: Actor
+class FireborneNobleFloorFire: Actor
 {
 	Default
 	{
