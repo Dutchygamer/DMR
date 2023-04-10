@@ -3,11 +3,9 @@ Class DemonReplacer: RandomSpawner replaces Demon
 	Default
 	{
 		DropItem "DMR_Demon", 255, 100;
-		DropItem "CyberPinky", 255, 25;
+		DropItem "DMR_Mauler", 255, 25;
 		DropItem "Bloodfiend", 255, 15;
-		//DropItem "PlasmaDemon", 255, 10;
 		DropItem "Hellhound", 255, 8;
-		DropItem "CyberFiend", 255, 4;
-		//DropItem "ToxinGhoul", 255, 3;
+		DropItem "Maulerfiend", 255, 4;
 	}
 }
