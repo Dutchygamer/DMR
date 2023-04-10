@@ -12,7 +12,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class Cacolich : DMR_Cacodemon
+class Witherer : DMR_Cacodemon
 {  
 	Default
 	{
@@ -44,12 +44,12 @@ class Cacolich : DMR_Cacodemon
 		goto Ball;
 	Ball:
 		CALI B 5 A_FaceTarget;
-		CALI C 5 BRIGHT A_SpawnProjectile("CacolichBall",35,0,0,0);
+		CALI C 5 BRIGHT A_SpawnProjectile("WithererBall",35,0,0,0);
 		CALI D 5;
 		goto See;
 	GasBall:
 		CALI EF 5 A_FaceTarget;
-		CALI G 5 BRIGHT A_SpawnProjectile("CacolichToxinBall",26,0,0,0);
+		CALI G 5 BRIGHT A_SpawnProjectile("WithererGasBall",26,0,0,0);
 		goto See;
 	ToxinSpray:
 		CALI EEF 8 A_FaceTarget;
@@ -98,7 +98,7 @@ class Cacolich : DMR_Cacodemon
 	} 
 }
 
-class CacolichBall : DMR_CacodemonBall
+class WithererBall : DMR_CacodemonBall
 {
 	Default
 	{
@@ -126,7 +126,7 @@ class CacolichBall : DMR_CacodemonBall
 	}
 }
 
-class CacolichToxinBall : DMR_CacodemonBall
+class WithererGasBall : DMR_CacodemonBall
 {
 	Default
 	{
