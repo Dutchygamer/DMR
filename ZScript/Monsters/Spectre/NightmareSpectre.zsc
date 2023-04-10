@@ -11,7 +11,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class NightmareSpectre : DMR_Spectre
+class DMR_Nightmare : DMR_Spectre
 {
 	Default
 	{

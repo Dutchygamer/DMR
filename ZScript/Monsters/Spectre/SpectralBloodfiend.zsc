@@ -1,12 +1,12 @@
-Class SpectralBloodfiend : Bloodfiend
+Class SpectralFiend : Bloodfiend
 {
 	Default
 	{
-		Tag "Spectral blood fiend";
+		Tag "Spectral fiend";
 		+SHADOW;
 		RenderStyle "Translucent";
 		Alpha 0.25;
-		OBITUARY "%o died from the toxic blood of a spectral blood fiend.";
-		HITOBITUARY "%o was eaten by a spectral blood fiend.";
+		OBITUARY "%o died from the toxic blood of a spectral fiend.";
+		HITOBITUARY "%o was eaten by a spectral fiend.";
 	}
 }
