@@ -4,7 +4,7 @@ Class ShotgunGuyReplacer: RandomSpawner replaces Shotgunguy
 	{
 		DropItem "DMR_ShotgunGuy", 255, 100;
 		DropItem "SuperShotgunGuy", 255, 20;
-		DropItem "AssaultShotgunGuy", 255, 20;
+		DropItem "AutoShotgunGuy", 255, 20;
 		//DropItem "SuicideGuy", 255, 13;
 		DropItem "QuadShotgunGuy", 255, 8;
 	}

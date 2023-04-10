@@ -15,11 +15,11 @@ class SuperShotgunGuy : DMR_ShotgunGuy
 {
 	Default
 	{
-		Tag "Super-shotgun guy";
+		Tag "Super shotgun guy";
 		Health 60;
 		PainChance 155;
 		Translation "112:127=16:47"; //recolour green parts to red
-		OBITUARY "%o was blown open by a super shotgunner!";
+		OBITUARY "%o was blown open by a super shotgunner.";
 		Scale 0.9;
 		DropItem "Shell";
 		DropItem "Shell", 128;
