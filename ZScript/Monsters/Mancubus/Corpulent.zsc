@@ -25,9 +25,6 @@ class Corpulent : DMR_Fatso
 		PainSound "Hectebus/Pain";
 		DeathSound "Hectebus/Death";
 		ActiveSound "Hectebus/Active";
-		+MissileMore;
-		+DontHarmClass;
-		+DontHarmSpecies;
 		Obituary "%o was dissolved by a corpulent";
 		DamageFactor "ToxinCloud", 0.0;
 	}
