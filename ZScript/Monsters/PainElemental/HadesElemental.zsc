@@ -11,12 +11,12 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class HadesElemental : DMR_PainElemental
+class ThunderElemental : DMR_PainElemental
 {
 	Default
 	{
-		Tag "Overlord";
-		Obituary "%o was electrocuted by an overlord.";
+		Tag "Thunder Elemental";
+		Obituary "%o was electrocuted by a Thunder Elemental.";
 		Health 650;
 		PainChance 64;
 		DamageFactor "lightning", 0.0;
@@ -44,9 +44,9 @@ class HadesElemental : DMR_PainElemental
 	Balls:
 		HELE EFG 5 Bright A_FaceTarget;
 		TNT1 A 0 {
-			A_SpawnProjectile("HadesBall",24,0,-10,0,0);
-			A_SpawnProjectile("HadesBall",24,0,0,0,0);
-			A_SpawnProjectile("HadesBall",24,0,10,0,0);
+			A_SpawnProjectile("OverlordBall",24,0,-10,0,0);
+			A_SpawnProjectile("OverlordBall",24,0,0,0,0);
+			A_SpawnProjectile("OverlordBall",24,0,10,0,0);
 		}
 		Goto See;
 	Pain:
@@ -65,7 +65,7 @@ class HadesElemental : DMR_PainElemental
 	}
 }
 
-class HadesBall : DMR_CacodemonBall
+class OverlordBall : DMR_CacodemonBall
 {
 	Default
 	{

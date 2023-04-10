@@ -11,14 +11,14 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class Incubator : DMR_PainElemental
+class ToxinElemental : DMR_PainElemental
 {
 	Default
 	{
-		Tag "Incubator";
+		Tag "Toxin Elemental";
 		Health 450;
 		PainChance 100;
-		Obituary "%o was infected by an incubator";
+		Obituary "%o was infected by an Toxin Elemental";
 		DamageFactor "ToxinCloud", 0.0;
 	}
 	States 
@@ -40,7 +40,7 @@ class Incubator : DMR_PainElemental
 	ToxinFire:
 		PLEM DE 5 A_FaceTarget;
 		PLEM F 5 Bright A_FaceTarget;
-		PLEM F 0 Bright A_SpawnProjectile("IncubatorToxinBall",24,0,0,0,0);
+		PLEM F 0 Bright A_SpawnProjectile("ToxinElementalGasBall",24,0,0,0,0);
 		Goto See;
 	Pain:
 		PLEM G 6;
@@ -64,7 +64,7 @@ class Incubator : DMR_PainElemental
 	} 
 }
 
-class IncubatorToxinBall : CacolichToxinBall
+class ToxinElementalGasBall : WithererGasBall
 {
 	Default
 	{

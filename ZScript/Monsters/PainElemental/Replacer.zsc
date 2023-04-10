@@ -3,9 +3,9 @@ Class PainElementalReplacer: RandomSpawner replaces PainElemental
 	Default
 	{
 		DropItem "DMR_PainElemental", 255, 100;
-		DropItem "Incubator", 255, 25;
-		DropItem "HadesElemental", 255, 18;
-		DropItem "SteelSentinel", 255, 11;
-		DropItem "TorturedSoul", 255, 10;
+		DropItem "ToxinElemental", 255, 25;
+		DropItem "ThunderElemental", 255, 18;
+		DropItem "GuardingElemental", 255, 11;
+		DropItem "TorturedElemental", 255, 10;
 	}
 }

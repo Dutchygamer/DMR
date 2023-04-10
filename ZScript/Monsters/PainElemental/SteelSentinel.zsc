@@ -11,12 +11,12 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class SteelSentinel : DMR_PainElemental
+class GuardingElemental : DMR_PainElemental
 {
 	Default
 	{
-		Tag "Sentinel";
-		obituary "%o couldn't get past the sentinel.";
+		Tag "Guarding Elemental";
+		obituary "%o couldn't get past the Guarding Elemental.";
 		health 600;
 		DropItem "Backpack", 10;
 		painchance 64;
@@ -50,7 +50,7 @@ class SteelSentinel : DMR_PainElemental
 		SENT A 5 A_FaceTarget;
 		SENT B 5 A_FaceTarget;
 		SENT F 5 A_FaceTarget;
-		TNT1 A 0 Bright A_SpawnProjectile("GuardianSummoner",24,0,0,0);
+		TNT1 A 0 Bright A_SpawnProjectile("GuardingElementalSummoner",24,0,0,0);
 		Goto See;*/
 	GuardianShot:
 		SENT D 5 A_FaceTarget;
@@ -64,18 +64,18 @@ class SteelSentinel : DMR_PainElemental
 	RegularMissile:
 		SENT A 8 A_FaceTarget;
 		SENT C 8 Bright {
-			A_SpawnProjectile("SentinelBall",52,12,0,1,0);
-			A_SpawnProjectile("SentinelBall",52,-12,0,1,0);
+			A_SpawnProjectile("GuardingElementalBall",52,12,0,1,0);
+			A_SpawnProjectile("GuardingElementalBall",52,-12,0,1,0);
 		}
 		SENT A 6 A_FaceTarget;
 		SENT C 8 Bright {
-			A_SpawnProjectile("SentinelBall",52,12,0,1,0);
-			A_SpawnProjectile("SentinelBall",52,-12,0,1,0);
+			A_SpawnProjectile("GuardingElementalBall",52,12,0,1,0);
+			A_SpawnProjectile("GuardingElementalBall",52,-12,0,1,0);
 		}
 		SENT A 8 A_FaceTarget;
 		SENT C 8 Bright {
-			A_SpawnProjectile("SentinelBall",52,12,0,1,0);
-			A_SpawnProjectile("SentinelBall",52,-12,0,1,0);
+			A_SpawnProjectile("GuardingElementalBall",52,12,0,1,0);
+			A_SpawnProjectile("GuardingElementalBall",52,-12,0,1,0);
 		}
 		goto See;
 	Pain:
@@ -92,7 +92,7 @@ class SteelSentinel : DMR_PainElemental
 	}
 }
 
-class SentinelBall : DMR_CacodemonBall
+class GuardingElementalBall : DMR_CacodemonBall
 {
 	Default
 	{
@@ -113,7 +113,7 @@ class SentinelBall : DMR_CacodemonBall
 	}
 }
 
-class GuardianSummoner : AcolyteSummoner
+class GuardingElementalSummoner : AcolyteSummoner
 {
 	States
 	{

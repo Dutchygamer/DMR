@@ -11,18 +11,18 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class TorturedSoul : DMR_PainElemental 
+class TorturedElemental : DMR_PainElemental 
 { 
 	Default
 	{
-		Tag "Tortured Soul";
+		Tag "Tortured Elemental";
 		Health 550;
 		PainChance 64;
 		SeeSound "torturedsoul/sight";
 		PainSound "torturedsoul/pain";
 		DeathSound "torturedsoul/death";
 		ActiveSound "torturedsoul/active";
-		Obituary "%o was tormented by the Tortured Soul.";
+		Obituary "%o was tormented by the Tortured Elemental.";
 	}
 	States 
 	{ 
