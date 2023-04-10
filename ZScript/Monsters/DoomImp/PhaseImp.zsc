@@ -9,7 +9,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class PhaseImp : DMR_DoomImp
+class Phaser : DMR_DoomImp
 {
 	Default
 	{
@@ -48,7 +48,7 @@ class PhaseImp : DMR_DoomImp
 			A_SetRenderStyle(1,STYLE_Normal);
 		}
         DIMP EF 8 A_FaceTarget;
-        DIMP G 6 A_CustomComboAttack("DarkImpBall",32,random(6,16),"imp/melee");
+        DIMP G 6 A_CustomComboAttack("PhaserBall",32,random(6,16),"imp/melee");
         Goto See;
 	GoStealthed:
 		DIMP A 0 {
@@ -104,7 +104,7 @@ class PhaseImp : DMR_DoomImp
 }
 
 
-class DarkImpBall : DMR_DoomImpBall
+class PhaserBall : DMR_DoomImpBall
 {
 	Default
 	{
@@ -117,7 +117,7 @@ class DarkImpBall : DMR_DoomImpBall
         DIMB AB 4 Bright {
 			A_SeekerMissile(2,2);
 			A_SpawnItemEx("DMR_PurpleFireballTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("PhaseImpFireballTrail",0,0,0,0,0,0); 
+			A_SpawnItemEx("PhaserFireballTrail",0,0,0,0,0,0); 
 		}		
         Loop;
     Death:
@@ -130,7 +130,7 @@ class DarkImpBall : DMR_DoomImpBall
     }
 }
 
-class PhaseImpFireballTrail : DMR_ProjectileTrail
+class PhaserFireballTrail : DMR_ProjectileTrail
 {
 	Default
 	{

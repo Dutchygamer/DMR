@@ -9,7 +9,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class Devil : DMR_DoomImp
+class Boggart : DMR_DoomImp
 {
 	Default
 	{

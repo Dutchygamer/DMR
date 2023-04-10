@@ -3,16 +3,13 @@ Class DoomImpReplacer: RandomSpawner replaces DoomImp
 	Default
 	{
 		DropItem "DMR_DoomImp", 255, 100;
-		////DropItem "SkulltagDarkImp", 255, 20;
-		DropItem "PhaseImp", 255, 20;
-		DropItem "Devil", 255, 10;
+		DropItem "Phaser", 255, 20;
+		DropItem "Boggart", 255, 10;
 		DropItem "Netherling", 255, 10;
 		//DropItem "DMR_Shadow", 255, 8;
-		////DropItem "Nightmare", 255, 8;
 		////DropItem "Hellion", 255, 4;
 		DropItem "Catharsi", 255, 6;
 		DropItem "Vulgar", 255, 6;
 		//DropItem "SoulHarvester", 255, 8;
-		////DropItem "ToxinGhoul", 255, 2;
 	}
 }

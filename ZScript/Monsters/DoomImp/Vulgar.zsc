@@ -38,11 +38,11 @@ class Vulgar : DMR_DoomImp
 		goto Ball;
 	Ball:
 		VULG EF 8 A_FaceTarget;
-		VULG G 6 A_CustomComboAttack("VulgarShot",37,random(8,24),"imp/melee");
+		VULG G 6 A_CustomComboAttack("VulgarBall",37,random(8,24),"imp/melee");
 		Goto See;
 	GasBall:
 		VULG EEEF 8 A_FaceTarget;
-		VULG G 10 A_CustomComboAttack("VulgarGasShot",37,random(8,24),"imp/melee");
+		VULG G 10 A_CustomComboAttack("VulgarGasBall",37,random(8,24),"imp/melee");
 		Goto See;
 	Pain:
 		VULG H 2;
@@ -70,7 +70,7 @@ class Vulgar : DMR_DoomImp
 	}
 }
 
-class VulgarShot : DMR_DoomImpBall
+class VulgarBall : DMR_DoomImpBall
 {
 	Default
 	{
@@ -94,7 +94,7 @@ class VulgarShot : DMR_DoomImpBall
 	}
 }
 
-class VulgarGasShot : DMR_DoomImpBall
+class VulgarGasBall : DMR_DoomImpBall
 {
 	Default
 	{
