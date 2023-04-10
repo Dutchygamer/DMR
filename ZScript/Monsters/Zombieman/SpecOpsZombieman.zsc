@@ -16,8 +16,8 @@ class SpecOpsZombieman : DMR_Zombieman
 {
 	Default
 	{
-		Tag "SpecOps gunner";
-		OBITUARY "%o was gunned down by a specops gunner.";
+		Tag "SpecOps zombieman";
+		OBITUARY "%o was gunned down by a specops zombieman.";
 		Health 90;
 		Speed 10;
 		PainChance 170;

@@ -18,7 +18,7 @@ class PlasmaZombieman : DMR_Zombieman
 		Tag "Plasma zombieman";		
 		Health 55;
 		PainChance 185;
-		OBITUARY "%o got burned by a plasma zombie.";
+		OBITUARY "%o got burned by a plasma zombieman.";
 		DropItem "Cell";
 		DropItem "PlasmaRifle", 10;
 	}
