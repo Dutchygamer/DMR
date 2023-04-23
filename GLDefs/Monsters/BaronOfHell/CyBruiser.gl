@@ -35,7 +35,7 @@ flickerlight DMR_DemonPlasmaRune_X3
 	subtractive 1
 }
 
-object BruiserPlasmaRune
+object NoblePraetorianPlasmaRune
 {
 	frame PLRNA { light DMR_DemonPlasmaRune }
     frame PLRNB { light DMR_DemonPlasmaRune }

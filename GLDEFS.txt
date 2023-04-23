@@ -7,10 +7,10 @@
 //#include "GLDefs/Monsters/Zombieman/AssaultZombieman.gl"
 #include "GLDefs/Monsters/Zombieman/PlasmaZombieman.gl"
 
-#include "GLDefs/Monsters/ShotgunGuy/DMR_ShotgunGuy.gl"
-#include "GLDefs/Monsters/ShotgunGuy/AssaultShotgunGuy.gl"
-#include "GLDefs/Monsters/ShotgunGuy/QuadShotgunGuy.gl"
-#include "GLDefs/Monsters/ShotgunGuy/SuperShotgunGuy.gl"
+//#include "GLDefs/Monsters/ShotgunGuy/DMR_ShotgunGuy.gl"
+//#include "GLDefs/Monsters/ShotgunGuy/AssaultShotgunGuy.gl"
+//#include "GLDefs/Monsters/ShotgunGuy/QuadShotgunGuy.gl"
+//#include "GLDefs/Monsters/ShotgunGuy/SuperShotgunGuy.gl"
 
 #include "GLDefs/Monsters/ChaingunGuy/BFGGuy.gl"
 #include "GLDefs/Monsters/ChaingunGuy/PyroGuy.gl"

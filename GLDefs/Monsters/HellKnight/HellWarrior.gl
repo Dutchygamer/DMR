@@ -30,7 +30,7 @@ flickerlight DMR_HellWarriorBall_X3
     chance 0.3
 }
 
-object HellWarriorBall
+object HellServantBall
 {
     frame HWFBA { light DMR_HellWarriorBall }
     frame HWFBB { light DMR_HellWarriorBall }

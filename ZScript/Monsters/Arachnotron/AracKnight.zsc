@@ -72,7 +72,7 @@ class AracKnight : DMR_Arachnotron
 	}
 }
 
-class AracKnightPlasmaBolt : BruiserPlasmaRune
+class AracKnightPlasmaBolt : NoblePraetorianPlasmaRune
 {  
 	Default
 	{
@@ -98,7 +98,7 @@ class AracKnightPlasmaBolt : BruiserPlasmaRune
 	}
 }
 
-class AracKnightSpamPlasma : BruiserPlasmaRune
+class AracKnightSpamPlasma : NoblePraetorianPlasmaRune
 {  
 	Default
 	{

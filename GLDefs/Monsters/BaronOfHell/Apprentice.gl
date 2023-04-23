@@ -1,4 +1,4 @@
-object ApprenticeHellshot
+object HellforgeApprenticeBall
 {
     frame HBALA { light DMR_DevilBall }
     frame HBALB { light DMR_DevilBall }

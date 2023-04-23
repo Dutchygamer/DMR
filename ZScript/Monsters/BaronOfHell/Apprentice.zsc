@@ -94,7 +94,6 @@ class HellforgeApprenticeBall : DMR_BaronBall
 		DamageFunction(random(20,60));
 		ALPHA 0.95;
 		DeathSound "weapons/hellex";
-		DamageType "Fire";
 		Scale 0.9;
 	}
 	States

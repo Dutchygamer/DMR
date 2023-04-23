@@ -6,7 +6,7 @@ flickerlight DMR_BruiserDemon
     chance 0.3
 }
 
-object BruiserDemon
+object FireborneNoble
 {
     frame BRUSA { light DMR_BruiserDemon }
     frame BRUSB { light DMR_BruiserDemon }
@@ -40,7 +40,7 @@ object BruiserDemon
 }
 
 
-object BruiserBall
+object FireborneNobleBall
 {
     frame BRBAA { light DMR_ImpBall }
     frame BRBAB { light DMR_ImpBall }
@@ -62,7 +62,7 @@ object BruiserBall
 }
 
 
-object BruiserSpamBall
+object FireborneNobleSpamBall
 {
     frame BRB2A { light DMR_ImpBall }
     frame BRB2B { light DMR_ImpBall }
@@ -77,7 +77,7 @@ object BruiserSpamBall
 }
 
 
-object BruiserFireSpawner
+object FireborneNobleFireSpawner
 {
     frame XXBFA { light DMR_ImpBall_X1 }
     frame XXBFB { light DMR_ImpBall_X1 }
@@ -102,7 +102,7 @@ object BruiserFireSpawner
 }
 
 
-object BruiserFire
+object FireborneNobleFloorFire
 {
     frame XXBF { light DMR_ImpBall }
 }

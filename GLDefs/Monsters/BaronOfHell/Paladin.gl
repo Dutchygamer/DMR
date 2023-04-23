@@ -1,5 +1,5 @@
 
-object PaladinBall
+object NobleVanguardPlasmaRune
 {
 	frame PLRNA { light DMR_DemonPlasmaRune }
     frame PLRNB { light DMR_DemonPlasmaRune }

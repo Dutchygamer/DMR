@@ -327,7 +327,7 @@ class PyroDemonFallingComet : AfritComet
 }
 
 //unused
-
+/*
 class PyroDemonBlastExplosion : Actor
 {
 	Default
@@ -451,3 +451,4 @@ class PyroDemonCometDeath : AfritCometDeath
 		Stop;
 	}
 }
+*/

@@ -30,7 +30,7 @@ flickerlight DMR_VulgarShot_X3
     chance 0.3
 }
 
-object VulgarShot 
+object VulgarBall
 {
     frame FVULA { light DMR_VulgarShot }
     frame FVULB { light DMR_VulgarShot }
@@ -42,7 +42,7 @@ object VulgarShot
 }
 
 
-object VulgarGasShot 
+object VulgarGasBall
 {
     frame HECFA { light DMR_BaronBall }
     frame HECFB { light DMR_BaronBall }

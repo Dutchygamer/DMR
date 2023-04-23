@@ -30,7 +30,7 @@ flickerlight DMR_DarkImpBall_X3
     chance 0.3
 }
 
-object DarkImpBall 
+object PhaserBall 
 {
     frame DIMBA { light DMR_DarkImpBall }
     frame DIMBB { light DMR_DarkImpBall }

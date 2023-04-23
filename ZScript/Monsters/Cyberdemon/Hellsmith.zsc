@@ -119,13 +119,16 @@ class Hellsmith : DMR_Cyberdemon
 }
 
 //hellshot projectile
-class MasterHellshot : ApprenticeHellshot
+//TODO fix me
+class MasterHellshot : DMR_Rocket //ApprenticeHellshot
 {
 	Default
 	{
 		Speed 22;
 		DamageFunction(random(30,90));
 		Scale 1.2;
+		SeeSound "";
+		DeathSound "weapons/hellex";
 	}
 	States
 	{

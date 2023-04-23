@@ -1,66 +1,12 @@
-flickerlight DMR_PYROATK
+object PyroTechnicianBall 
 {
-    color 0.8 0.5 0.1
-    size 40
-    secondarySize 50
-    chance 32
-}
+    frame SXALA { light DMR_ImpBall }
+    frame SXALB { light DMR_ImpBall }
+	frame SXALC { light DMR_ImpBall }
 
-flickerlight DMR_PYROBALL
-{
-    color 0.8 0.5 0.1
-    size 56
-	attenuate 1
-}
-
-pointlight DMR_IMPBALL
-{
-    color 0.8 0.5 0.1
-    size 56
-	attenuate 1
-}
-
-flickerlight DMR_PYROBALL_X1
-{
-    color 0.8 0.5 0.1
-    size 72
-    secondarySize 96
-    chance 0.25
-	attenuate 1
-}
-
-flickerlight DMR_PYROBALL_X2
-{
-    color 0.6 0.25 0.05
-    size 88
-    secondarySize 104
-    chance 0.25
-	attenuate 1
-}
-
-flickerlight DMR_PYROBALL_X3
-{
-    color 0.2 0.05 0.0
-    size 96
-    secondarySize 112
-    chance 0.25
-	attenuate 1
-}
-
-object PyroGuyShot 
-{
-    frame SXALA { light DMR_PYROBALL }
-    frame SXALB { light DMR_PYROBALL }
-	frame SXALC { light DMR_PYROBALL }
-
-    frame SXALD { light DMR_IMPBALL_X1 }
-    frame SXALE { light DMR_IMPBALL_X2 }
-    frame SXALF { light DMR_IMPBALL_X2 }
-    frame SXALG { light DMR_IMPBALL_X2 }
-    frame SXALH { light DMR_IMPBALL_X3 }
-}
-
-object PyroGuy
-{
-    frame PYRZF { light DMR_PYROATK }
+    frame SXALD { light DMR_ImpBall_X1 }
+    frame SXALE { light DMR_ImpBall_X2 }
+    frame SXALF { light DMR_ImpBall_X2 }
+    frame SXALG { light DMR_ImpBall_X2 }
+    frame SXALH { light DMR_ImpBall_X3 }
 }

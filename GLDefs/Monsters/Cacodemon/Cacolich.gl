@@ -1,5 +1,5 @@
 
-object CacolichBall 
+object WithererBall 
 {
     frame FVULA { light DMR_VulgarShot }
     frame FVULB { light DMR_VulgarShot }
@@ -11,7 +11,7 @@ object CacolichBall
 }
 
 
-object CacolichToxinBall 
+object WithererGasBall 
 {
     frame HECFA { light DMR_BaronBall }
     frame HECFB { light DMR_BaronBall }
