@@ -49,7 +49,6 @@ class CoreDefender : DMR_Cyberdemon
 		ROB4 DCC 3 A_Chase;
 		Goto See;
 	Missile:
-		Goto ObeliskLaser; //TODO temp
 		TNT1 A 0 A_Jump(80,"ObeliskLaser","ClusterMissile");
 		TNT1 A 0 A_Jump(256,"SmallLaser", "Rockets");
 		Goto See;
@@ -327,12 +326,13 @@ class CoreDefenderLaserTargetter1 : DMR_ArchvileFire
 {
 	Default
 	{
-		Alpha 0.75;
+		Alpha 0.2;
+		Scale 0.5;
 	}
 	States
 	{
 	Spawn:	
-		LASB AAAAAAAAA 2 Bright A_Warp(AAPTR_TRACER,30,0,55,0,WARPF_NOCHECKPOSITION|WARPF_INTERPOLATE);
+		LAST AAAAAAAAA 2 Bright A_Warp(AAPTR_TRACER,30,0,55,0,WARPF_NOCHECKPOSITION|WARPF_INTERPOLATE);
 		stop;
 	}
 }
@@ -341,7 +341,7 @@ class CoreDefenderLaserTargetter2 : CoreDefenderLaserTargetter1
 {
 	Default
 	{
-		Alpha 0.75;
+		Alpha 0.5;
 	}
 }
 
@@ -350,7 +350,7 @@ class CoreDefenderLaserTargetter3 : CoreDefenderLaserTargetter1
 {
 	Default
 	{
-		Alpha 0.75;
+		Alpha 0.8;
 	}
 }
 
