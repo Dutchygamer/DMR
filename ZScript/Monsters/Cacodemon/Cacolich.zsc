@@ -53,8 +53,10 @@ class Witherer : DMR_Cacodemon
 		goto See;
 	ToxinSpray:
 		CALI EEF 8 A_FaceTarget;
-		TNT1 A 0 { attackloop = 0; }
-		TNT1 A 0 Bright A_PlaySound ("CacoLich/Spray", CHAN_WEAPON);		
+		TNT1 A 0 { 
+			attackloop = 0;
+			A_PlaySound ("CacoLich/Spray", CHAN_WEAPON);		
+		}
 	ToxinSprayLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 9,"See");
 		CALI G 1 Bright {

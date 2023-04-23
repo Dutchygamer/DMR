@@ -24,6 +24,8 @@ class PyroTechnician : DMR_ChaingunGuy
 		DropItem "";
 		+DOHARMSPECIES; //zombies aren't fire-proof
 	}
+	int attackloop;
+	
  	States
 	{
 	Spawn:
@@ -43,21 +45,25 @@ class PyroTechnician : DMR_ChaingunGuy
 		PYRZ E 5;
 		goto See;
 	Flamethrower:
+		TNT1 A 0 {
+			if(target && Distance3D(target) > 300) SetStateLabel("Shotcannon");
+		}
 		PYRZ E 10 A_FaceTarget;
-		TNT1 A 0 A_PlaySound ("weapons/flamethrower", CHAN_WEAPON);
-		PYRZ F 1 Bright A_SpawnProjectile("DMR_FlamethrowerBall", 32, 0, random(-3,3));
-		PYRZ F 1 Bright A_SpawnProjectile("DMR_FlamethrowerBall", 32, 0, random(-3,3));
-		PYRZ F 1 Bright A_SpawnProjectile("DMR_FlamethrowerBall", 32, 0, random(-3,3));
-		PYRZ F 1 A_FaceTarget;
-		PYRZ F 1 Bright A_SpawnProjectile("DMR_FlamethrowerBall", 32, 0, random(-3,3));
-		PYRZ F 1 Bright A_SpawnProjectile("DMR_FlamethrowerBall", 32, 0, random(-3,3));
-		PYRZ F 1 Bright A_SpawnProjectile("DMR_FlamethrowerBall", 32, 0, random(-3,3));
-		PYRZ F 1 A_FaceTarget;
-		PYRZ F 1 Bright A_SpawnProjectile("DMR_FlamethrowerBall", 32, 0, random(-3,3));
-		PYRZ F 1 Bright A_SpawnProjectile("DMR_FlamethrowerBall", 32, 0, random(-3,3));
-		PYRZ F 1 Bright A_SpawnProjectile("DMR_FlamethrowerBall", 32, 0, random(-3,3));
-		PYRZ E 5;
-		goto See;
+		TNT1 A 0 { 
+			attackloop = 0; 
+			A_PlaySound ("weapons/flamethrower", CHAN_WEAPON);	
+		}
+	FlamethrowerLoop:
+		TNT1 A 0 A_JumpIf(attackloop >= 12,"FlamethrowerEnd");
+		PYRZ F 1 Bright {
+			A_FaceTarget();
+			attackloop++;
+			A_SpawnProjectile("DMR_FlamethrowerBall",32,0,random(-3,3));
+		}
+		Loop;
+	FlamethrowerEnd:
+		PYRZ E 5;	
+		Goto See;
 	Pain:
 		PYRZ G 3;
 		PYRZ G 3 A_Pain;
