@@ -38,11 +38,11 @@ class BFGCommando : DMR_ChaingunGuy
 			A_PlaySound ("weapons/bfgf", CHAN_WEAPON);
 			bNOPAIN = true;
 		}
-		BFGZ E 20 Light("DMR_BFGCHARGE1") A_FaceTarget;
-		BFGZ F 10 Bright Light("DMR_BFGCHARGE2") A_FaceTarget;
-		BFGZ F 10 Bright Light("DMR_BFGCHARGE2") {
+		BFGZ E 20 Light("DMR_BFGCharge_X1") A_FaceTarget;
+		BFGZ F 10 Bright Light("DMR_BFGCharge_X2") A_FaceTarget;
+		BFGZ F 10 Bright Light("DMR_BFGFire") {
 			A_FaceTarget();
-			A_SpawnProjectile("BFGBall", 32, 0);
+			A_SpawnProjectile("DMR_BFGBall", 32, 0);
 		}
 		BFGZ E 20 {
 			bNOPAIN = false;
@@ -69,5 +69,55 @@ class BFGCommando : DMR_ChaingunGuy
 	Raise:
 		BFGZ NMLKJIH 5;
 		Goto See;
+	}
+}
+
+class DMR_BFGBall : DMR_Projectile
+{
+	Default
+	{
+		Radius 13;
+		Height 8;
+		Speed 25;
+		DamageFunction (400); // don't use the default formula, just don't get hit by it ;o
+		Projectile;
+		+RANDOMIZE
+		+EXTREMEDEATH;
+		RenderStyle "Add";
+		Alpha 0.75;
+		DeathSound "weapons/bfgx";
+		Obituary "$OB_MPBFG_BOOM";
+		Decal "BFGLightning";
+	}
+	States
+	{
+	Spawn:
+		BFS1 AABB 2 Bright  {
+			A_SpawnItemEx("DMR_BFGBallTrail");
+		}
+		Loop;
+	Death:
+		BFE1 AB 8 Bright;
+		BFE1 C 8 Bright A_BFGSpray;
+		BFE1 DEF 8 Bright;
+		Stop;
+	}
+}
+
+class DMR_BFGBallTrail : DMR_ProjectileTrail
+{
+	Default
+	{
+		ALPHA 0.6;
+		Scale 0.9;
+	}
+	States
+	{
+	Spawn:
+		BFS1 AB 1 Bright {
+			A_FadeOut(0.045);
+			A_SetScale(Scale.X-0.05);
+		}
+		Loop;
 	}
 }

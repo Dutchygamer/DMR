@@ -1,6 +1,6 @@
 
 // TiberiumShard
-flickerlight DMR_TIBSHARD
+flickerlight DMR_TiberiumFlechette
 {
     color 0.1 0.4 0.1
     size 50
@@ -8,7 +8,7 @@ flickerlight DMR_TIBSHARD
     chance 0.3
 }
 
-flickerlight DMR_TIBSHARD_X1
+flickerlight DMR_TiberiumFlechette_X1
 {
     color 0.1 0.4 0.1
     size 65
@@ -16,7 +16,7 @@ flickerlight DMR_TIBSHARD_X1
     chance 0.3
 }
 
-flickerlight DMR_TIBSHARD_X2
+flickerlight DMR_TiberiumFlechette_X2
 {
     color 0.1 0.4 0.1
     size 45
@@ -26,85 +26,38 @@ flickerlight DMR_TIBSHARD_X2
 
 object TiberiumFlechette
 {
-	frame TSRDA { light DMR_TIBSHARD }
-    frame TSDEA { light DMR_TIBSHARD_X1 }
-    frame TSDEB { light DMR_TIBSHARD_X1 }
-    frame TSDEC { light DMR_TIBSHARD_X1 }
-    frame TSDED { light DMR_TIBSHARD_X2 }
-    frame TSDEE { light DMR_TIBSHARD_X2 }
-    frame TSDEF { light DMR_TIBSHARD_X2 }
-    frame TSDEG { light DMR_TIBSHARD_X2 }
-}
-
-
-// TiberiumSuperPlasma
-flickerlight DMR_TIBBAL
-{
-    color 0.5 1.0 0.5
-    size 90
-    secondarySize 100
-    chance 0.3
-}
-
-flickerlight DMR_TIBBAL_X1
-{
-    color 0.5 1.0 0.5
-    size 130
-    secondarySize 145
-    chance 0.3
-}
-
-flickerlight DMR_TIBBAL_X2
-{
-    color 0.6 1.0 0.6
-    size 115
-    secondarySize 125
-    chance 0.3
-}
-
-flickerlight DMR_TIBBAL_X3
-{
-    color 0.7 1.0 0.7
-    size 85
-    secondarySize 90
-    chance 0.3
-}
-
-flickerlight DMR_TIBBAL_X4
-{
-    color 0.4 0.7 0.4
-    size 75
-    secondarySize 85
-    chance 0.3
-}
-
-flickerlight DMR_TIBBAL_X5
-{
-    color 0.1 0.3 0.1
-    size 55
-    secondarySize 70
-    chance 0.3
-}
-
-object TiberiumSuperPlasma
-{
-    frame TBBLA { light DMR_TIBBAL }
-    frame TBBLB { light DMR_TIBBAL }
-    frame TBBLC { light DMR_TIBBAL }
-    frame TBBLD { light DMR_TIBBAL }
-    frame TBBLE { light DMR_TIBBAL }
-    frame TBBLF { light DMR_TIBBAL }
-    frame TBBLG { light DMR_TIBBAL }
-    frame TBBLH { light DMR_TIBBAL }
-    frame TBBLI { light DMR_TIBBAL }
-    frame TBBLJ { light DMR_TIBBAL }
-    frame TBBLK { light DMR_TIBBAL }
-    frame TBBLL { light DMR_TIBBAL }
-    frame TBBLN { light DMR_TIBBAL }
+	frame TSRDA { light DMR_TiberiumFlechette }
 	
-    frame ARCBJ { light DMR_TIBBAL_X1 }
-    frame ARCBK { light DMR_TIBBAL_X2 }
-    frame ARCBL { light DMR_TIBBAL_X3 }
-    frame ARCBM { light DMR_TIBBAL_X4 }
-    frame ARCBN { light DMR_TIBBAL_X5 }
+    frame TSDEA { light DMR_TiberiumFlechette_X1 }
+    frame TSDEB { light DMR_TiberiumFlechette_X1 }
+    frame TSDEC { light DMR_TiberiumFlechette_X1 }
+    frame TSDED { light DMR_TiberiumFlechette_X2 }
+    frame TSDEE { light DMR_TiberiumFlechette_X2 }
+    frame TSDEF { light DMR_TiberiumFlechette_X2 }
+    frame TSDEG { light DMR_TiberiumFlechette_X2 }
+}
+
+
+// TiberiumBFGBall
+object TiberiumBFGBall
+{
+    frame TBBLA { light DMR_BFGBall }
+    frame TBBLB { light DMR_BFGBall }
+    frame TBBLC { light DMR_BFGBall }
+    frame TBBLD { light DMR_BFGBall }
+    frame TBBLE { light DMR_BFGBall }
+    frame TBBLF { light DMR_BFGBall }
+    frame TBBLG { light DMR_BFGBall }
+    frame TBBLH { light DMR_BFGBall }
+    frame TBBLI { light DMR_BFGBall }
+    frame TBBLJ { light DMR_BFGBall }
+    frame TBBLK { light DMR_BFGBall }
+    frame TBBLL { light DMR_BFGBall }
+    frame TBBLN { light DMR_BFGBall }
+	
+    frame ARCBJ { light DMR_BFGBall_X1 }
+    frame ARCBK { light DMR_BFGBall_X2 }
+    frame ARCBL { light DMR_BFGBall_X3 }
+    frame ARCBM { light DMR_BFGBall_X4 }
+    frame ARCBN { light DMR_BFGBall_X5 }
 }

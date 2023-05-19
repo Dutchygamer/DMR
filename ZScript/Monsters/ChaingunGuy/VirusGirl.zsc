@@ -78,7 +78,7 @@ Class VirusDart : DMR_SlowBullet
 	Default
 	{
 		Speed 65;
-		DamageFunction (random(25,35)); //don't use the default "random(1,8) x damage" formula
+		DamageFunction (random(25,35)); // don't use the default formula
 		DamageType "VirusPoison";
 		+EXTREMEDEATH; //always use explode death
 		Obituary "%o got infected by a Virus.";
