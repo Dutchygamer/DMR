@@ -93,12 +93,53 @@ Class VirusDart : DMR_SlowBullet
 		Loop;
 	}	
 	
-	// apply damage debuff effect on target
 	override int DoSpecialDamage(actor target, int damage, name damagetype)
 	{
 		if (target)
 		{
-			target.GiveInventory("VirusDebuffGiver",1);
+			// inspired by Hexen's flechette.zs DoSpecialDamage()
+			// we need to take the target's damageFactors into account
+			// mainly to stop the projectile from spawning gas clouds when hitting a low-health Virus
+		
+			// Handle passive damage modifiers (e.g. PowerProtection)
+			damage = target.GetModifiedDamage(damagetype, damage, true);
+			// Modify with damage factors
+			damage = target.ApplyDamageFactor(damagetype, damage);
+			
+			// spawn gas clouds from target if target dies
+			if (damage > 0 && target.health < damage)
+			{
+				//TODO heb paar keer gezien dat ie een low-level enemy niet killed maar toch een gas cloud spawnt for some reason...
+				// wellicht een fluke, krijg het niet consequent gereproduceerd			
+			
+				target.A_PlaySound("gas/explode");				
+				
+				// number and size of gas clouds depends on original health
+				// always spawn at least one medium gas clouds
+				target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+				
+				if (target.GetMaxHealth() >= 100)
+				{
+					target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);				
+				}
+				if (target.GetMaxHealth() >= 300)
+				{
+					target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);				
+				}
+				if (target.GetMaxHealth() >= 600)
+				{
+					target.A_SpawnItemEx("DMR_LargeGasCloud",0,0,-30,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);			
+				}
+				if (target.GetMaxHealth() >= 1000)
+				{
+					target.A_SpawnItemEx("DMR_LargeGasCloud",0,0,-30,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);			
+				}
+			}
+			// apply damage debuff effect on target if still alive
+			else
+			{
+				target.GiveInventory("VirusDebuffGiver",1);
+			}			
 		}
 		return Super.DoSpecialDamage(target,damage,damagetype);
 	}
@@ -126,7 +167,7 @@ class VirusDebuffGiver : PowerupGiver
 	{
 		Powerup.Type "VirusDebuffEffect";
 		Powerup.Duration -3;
-		Powerup.Color "00 BB 00", 0.33;
+		Powerup.Colormap 0.95,1.0,0.95;
 		+INVENTORY.AUTOACTIVATE;
 		+INVENTORY.ALWAYSPICKUP;	
 	}
