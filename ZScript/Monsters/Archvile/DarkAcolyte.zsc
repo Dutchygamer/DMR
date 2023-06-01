@@ -12,11 +12,11 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-Class DarkAcolyte: DMR_Archvile
+Class Summoner : DMR_Archvile
 {
 	Default
 	{
-		Tag "Dark Acolyte";
+		Tag "Summoner";
 		Obituary "An Acolyte was promoted for killing %o.";
 		Health 800;
 		SeeSound "monster/acosit";
@@ -37,20 +37,22 @@ Class DarkAcolyte: DMR_Archvile
 		TNT1 A 0 A_JumpIfCloser(448, "SpawnAttack"); // only spawn enemies when nearby
 		Goto VileAttack; // when not in range and initially not picking the vile attack, use vile attack anyway
 	SpawnAttack:
-		ACOL D 8 Bright A_FaceTarget;
-		ACOL E 5 Bright A_FaceTarget;
-		ACOL F 3 Bright A_SpawnProjectile("AcolyteSummoner",34,0,0,0);	
+		ACOL D 8 Bright Light("DMR_ArchvileRes") A_FaceTarget;
+		ACOL E 5 Bright Light("DMR_ArchvileRes") A_FaceTarget;
+		ACOL F 3 Bright Light("DMR_ArchvileRes") A_SpawnProjectile("SummonerBall",34,0,0,0);	
 		Goto See;
 	VileAttack:
-		TNT1 A 0 BRIGHT A_VileStart;
-		ACOL D 10 BRIGHT A_FaceTarget;
-		ACOL D 8 BRIGHT A_VileTarget("DMR_ArchvileFire");//("DarkAcolyteFire");
-		ACOL EEEEEE 8 BRIGHT A_FaceTarget;
-		ACOL F 8 BRIGHT A_VileAttack("vile/stop",50,30,70,1.0);
-		ACOL F 20 BRIGHT;
+		ACOL D 0 BRIGHT A_VileStart;
+		ACOL D 10 BRIGHT Light("DMR_ArchvileCharge_X1") A_FaceTarget;
+		ACOL D 8 BRIGHT Light("DMR_ArchvileCharge_X2") A_VileTarget("SummonerFire");
+		ACOL EE 8 BRIGHT Light("DMR_ArchvileCharge_X3") A_FaceTarget;
+		ACOL EEE 8 BRIGHT Light("DMR_ArchvileCharge_X4") A_FaceTarget;
+		ACOL E 8 BRIGHT Light("DMR_ArchvileCharge_X5") A_FaceTarget;
+		ACOL F 8 BRIGHT Light("DMR_ArchvileCharge_X6") A_VileAttack("vile/stop",50,30,70,1.0);
+		ACOL F 20 BRIGHT Light("DMR_ArchvileCharge_X7");
 		Goto See;
 	Heal:
-		ACOL EFE 10 BRIGHT;
+		ACOL EFE 10 BRIGHT Light("DMR_ArchvileRes");
 		Goto See;
 	Pain: 
 		ACOL C 2;
@@ -63,22 +65,23 @@ Class DarkAcolyte: DMR_Archvile
 		ACOL I 5 Bright;
 		ACOL J 5 Bright A_NoBlocking ;
 		ACOL KLM 5 Bright;
-		ACOL N 5 A_SpawnProjectile("AcolFX1",54,0,0,0);
+		ACOL N 5 A_SpawnProjectile("SummonerGhost",54,0,0,0);
 		ACOL O 5;
 		ACOL P -1;
 		Stop;
 	} 
 }
         
-class AcolyteSummoner : DMR_Projectile
+class SummonerBall : DMR_Projectile
 {
 	Default
 	{
 		Radius 8;
 		Height 8;
 		Speed 18;
-		RenderStyle "ADD";
-		Alpha 0.75;
+		//RenderStyle "ADD";
+		//Alpha 0.75;
+		Scale 0.75;
 		Gravity 0.6;
 		-NOGRAVITY;
 		BounceType "Doom";
@@ -90,18 +93,18 @@ class AcolyteSummoner : DMR_Projectile
 	States
 	{
 	Spawn:
-		SEF2 AABBCCDD 1 Bright;
+		BOSF ABCD 2 Bright;
 		loop;
 	Death:
 		FIRE A 3 Bright A_Explode(10, 96);
 		FIRE B 3 Bright;
-		TNT1 A 0 A_SpawnItem("AcolyteSummonerRandomizer",0,0);
+		TNT1 A 0 A_SpawnItem("SummonerBallRandomizer",0,0);
 		FIRE CDEFGH 3 Bright;
 		Stop;
 	}
 }
 
-class AcolyteSummonerRandomizer: RandomSpawner
+class SummonerBallRandomizer : RandomSpawner
 {
 	Default
 	{
@@ -113,24 +116,22 @@ class AcolyteSummonerRandomizer: RandomSpawner
 	}
 }
 
-class DarkAcolyteFire : ArchvileFire
+class SummonerFire : DMR_ArchvileFire
 {
 	States
 	{
 	Spawn:
-		FIRG A 2 Bright A_StartFire;
-		FIRG BAB 2 Bright A_Fire;
-		FIRG C 2 Bright A_FireCrackle;
-		FIRG BCBCDCDCDEDED 2 Bright A_Fire;
-		FIRG E 2 Bright A_FireCrackle;
-		FIRG FEFEFGHGHGH 2 Bright A_Fire;
+		FIRE A 2 BRIGHT  A_StartFire;
+		FIRE BAB 2 BRIGHT  A_Fire;
+		FIRE C 2 BRIGHT  A_FireCrackle;
+		FIRE BCBCDCDCDEDED 2 BRIGHT  A_Fire;
+		FIRE E 2 BRIGHT  A_FireCrackle;
+		FIRE FEFEFGHGHGH 2 BRIGHT  A_Fire;
 		Stop;
 	}
 }
 
-//-------
-
-class AcolFX1: Actor
+class SummonerGhost : Actor
 {   
 	Default
 	{
@@ -146,26 +147,5 @@ class AcolFX1: Actor
 	Spawn:
 		ACOL QRSTUVW 4;
 		Stop;
-	}
-}
-
-class AcolFX2: actor
-{   
-	Default
-	{
-		Radius 2;
-		Height 2;
-		Speed 0;
-		Scale 0.90;
-		PROJECTILE;
-		RENDERSTYLE "Translucent";
-		ALPHA 0.90;
-	}
-	States
-	{
-	Spawn:
-		Null A 3;
-		ACOL A 5 A_FadeOut(0.10);
-		goto Spawn+1;
 	}
 }

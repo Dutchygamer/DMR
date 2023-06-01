@@ -3,7 +3,7 @@ Class ArchvileReplacer: RandomSpawner replaces Archvile
 	Default
 	{
 		DropItem "DMR_Archvile", 255, 100;
-		DropItem "DarkAcolyte", 255, 20;
+		DropItem "Summoner", 255, 20;
 		DropItem "Diabolist", 255, 15;
 		DropItem "Intoxicanter", 255, 10;
 	}

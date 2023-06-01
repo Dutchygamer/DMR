@@ -1,0 +1,166 @@
+
+flickerlight IntoxicanterFire_X1
+{
+    color 0.0 1.0 0.0
+    size 48
+    secondarySize 56
+    offset 0 8 0
+    chance 0.3
+}
+
+flickerlight IntoxicanterFire_X2
+{
+    color 0.0 1.0 0.0
+    size 72
+    secondarySize 80
+    offset 0 24 0
+    chance 0.3
+}
+
+flickerlight IntoxicanterFire_X3
+{
+    color 0.0 1.0 0.0
+    size 90
+    secondarySize 100
+    offset 0 32 0
+    chance 0.3
+}
+
+flickerlight IntoxicanterFire_X4
+{
+    color 0.0 1.0 0.0
+    size 110
+    secondarySize 120
+    offset 0 40 0
+    chance 0.3
+}
+
+flickerlight IntoxicanterFire_X5
+{
+    color 0.0 1.0 0.0
+    size 100
+    secondarySize 110
+    offset 0 48 0
+    chance 0.3
+}
+
+flickerlight IntoxicanterFire_X6
+{
+    color 0.0 1.0 0.0
+    size 78
+    secondarySize 86
+    offset 0 64 0
+    chance 0.3
+}
+
+flickerlight IntoxicanterFire_X7
+{
+    color 0.0 1.0 0.0
+    size 72
+    secondarySize 80
+    offset 0 72 0
+    chance 0.3
+}
+
+flickerlight IntoxicanterFire_X8
+{
+    color 0.0 1.0 0.0
+    size 48
+    secondarySize 56
+    offset 0 80 0
+    chance 0.3
+}
+
+object IntoxicanterFire
+{
+    frame FIREA { light IntoxicanterFire_X1 }
+    frame FIREB { light IntoxicanterFire_X2 }
+    frame FIREC { light IntoxicanterFire_X3 }
+    frame FIRED { light IntoxicanterFire_X4 }
+    frame FIREE { light IntoxicanterFire_X5 }
+    frame FIREF { light IntoxicanterFire_X6 }
+    frame FIREG { light IntoxicanterFire_X7 }
+    frame FIREH { light IntoxicanterFire_X8 }
+}
+
+
+flickerlight IntoxicanterCharge_X1
+{
+    color 0.0 1.0 0.0
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+flickerlight IntoxicanterCharge_X2
+{
+    color 0.0 1.0 0.0
+    size 72
+    secondarySize 80
+    chance 0.3
+}
+
+flickerlight IntoxicanterCharge_X3
+{
+    color 0.0 1.0 0.0
+    size 90
+    secondarySize 100
+    chance 0.3
+}
+
+flickerlight IntoxicanterCharge_X4
+{
+    color 0.0 1.0 0.0
+    size 100
+    secondarySize 110
+    chance 0.3
+}
+
+flickerlight IntoxicanterCharge_X5
+{
+    color 0.0 1.0 0.0
+    size 110
+    secondarySize 120
+    chance 0.3
+}
+
+flickerlight IntoxicanterCharge_X6
+{
+    color 0.0 1.0 0.0
+    size 120
+    secondarySize 130
+    chance 0.3
+}
+
+flickerlight IntoxicanterCharge_X7
+{
+    color 0.0 1.0 0.0
+    size 90
+    secondarySize 100
+    chance 0.3
+}
+
+
+flickerlight IntoxicanterRes
+{
+    color 0.3 0.6 0.3
+    size 78
+    secondarySize 86
+    chance 0.3
+}
+
+object Intoxicanter
+{
+    frame VIL2G { light IntoxicanterCharge_X1 }
+    frame VIL2H { light IntoxicanterCharge_X2 }
+    frame VIL2I { light IntoxicanterCharge_X3 }
+    frame VIL2J { light IntoxicanterCharge_X3 }
+    frame VIL2K { light IntoxicanterCharge_X4 }
+    frame VIL2L { light IntoxicanterCharge_X4 }
+    frame VIL2M { light IntoxicanterCharge_X4 }
+    frame VIL2N { light IntoxicanterCharge_X5 }
+    frame VIL2O { light IntoxicanterCharge_X6 }
+    frame VIL2P { light IntoxicanterCharge_X7 }
+	
+    frame VIL2A { light IntoxicanterRes }
+}

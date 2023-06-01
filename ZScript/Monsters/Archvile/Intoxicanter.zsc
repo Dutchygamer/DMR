@@ -47,24 +47,6 @@ class Intoxicanter : DMR_Archvile
 		}
 		VIL2 P 20 BRIGHT;
 		Goto See;
-	/*
-	Flamewall:	
-		TNT1 A 0 BRIGHT A_VileStart;
-		DIAB G 10 BRIGHT A_FaceTarget;
-		DIAB H 8 BRIGHT A_VileTarget("DiabolistFire");
-		DIAB IHIHIHG 8 BRIGHT A_FaceTarget;
-		Goto See;*/
-	/*Flamebeam:
-		DIAB G 0 BRIGHT A_VileStart;
-		DIAB G 10 BRIGHT A_FaceTarget;
-		DIAB H 8 BRIGHT A_FaceTarget;
-		DIAB IJKLMN 8 BRIGHT A_FaceTarget;
-		DIAB OPOPOPOP 2 BRIGHT {
-			A_FaceTarget();
-			A_SpawnProjectile("DiabolistBeam",32,0,0);
-		}
-		DIAB OP 8 BRIGHT;
-		Goto See;*/
 	Heal:
 		VIL2 AAA 10 BRIGHT;
 		Goto See;
@@ -97,8 +79,6 @@ class IntoxicanterFire : DMR_ArchvileFire
 		Stop;
 	}
 }
-
-
 
 class IntoxicanterFireBlast : DMR_ArchvileFire
 {

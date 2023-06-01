@@ -1,0 +1,14 @@
+
+object SummonerFire
+{
+    frame FIREA { light DMR_ArchvileFire_X1 }
+    frame FIREB { light DMR_ArchvileFire_X2 }
+    frame FIREC { light DMR_ArchvileFire_X3 }
+    frame FIRED { light DMR_ArchvileFire_X4 }
+    frame FIREE { light DMR_ArchvileFire_X5 }
+    frame FIREF { light DMR_ArchvileFire_X6 }
+    frame FIREG { light DMR_ArchvileFire_X7 }
+    frame FIREH { light DMR_ArchvileFire_X8 }
+}
+
+// Summon GLDef binding is all done within code

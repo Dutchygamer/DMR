@@ -112,7 +112,7 @@ class DiabolistFire : DMR_ArchvileFire
 	}
 }
 
-class DiabolistBeam : FastProjectile
+class DiabolistBeam : DMR_FastProjectile
 {	
 	Default
 	{
@@ -148,6 +148,7 @@ class DiabolistBeamTrail: actor
 		+NOINTERACTION;
 		+NOGRAVITY;
 		+FLOATBOB;
+		+DONTSPLASH;
 	}
 	States
 	{

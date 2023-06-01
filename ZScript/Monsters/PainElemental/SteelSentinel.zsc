@@ -113,12 +113,12 @@ class GuardingElementalBall : DMR_CacodemonBall
 	}
 }
 
-class GuardingElementalSummoner : AcolyteSummoner
+class GuardingElementalSummoner : SummonerBall
 {
 	States
 	{
 	Spawn:
-		SEF2 AABBCCDD 1 Bright;
+		BOSF ABCD 2 Bright;
 		loop;
 	Death:
 		FIRG A 3 Bright A_Explode(10, 96);

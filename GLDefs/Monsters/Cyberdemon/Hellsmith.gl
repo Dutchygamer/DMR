@@ -1,0 +1,97 @@
+flickerlight DMR_ForgemasterBall
+{
+    color 1.0 0.25 0.1
+    size 78
+    secondarySize 86
+    chance 0.3
+}
+
+flickerlight DMR_ForgemasterBall_X1
+{
+    color 1.0 0.25 0.1
+    size 90
+    secondarySize 100
+    chance 0.3
+}
+
+flickerlight DMR_ForgemasterBall_X2
+{
+    color 0.7 0.15 0.1
+    size 100
+    secondarySize 110
+    chance 0.3
+}
+
+flickerlight DMR_ForgemasterBall_X3
+{
+    color 0.3 0.0 0.0
+    size 110
+    secondarySize 120
+    chance 0.3
+}
+
+
+object ForgemasterBall
+{
+    frame HBALA { light DMR_ForgemasterBall }
+    frame HBALB { light DMR_ForgemasterBall }
+    frame HBALC { light DMR_ForgemasterBall }
+    frame HBALD { light DMR_ForgemasterBall }
+    frame HBALE { light DMR_ForgemasterBall }
+    frame HBALF { light DMR_ForgemasterBall }
+
+    frame HELXA { light DMR_ForgemasterBall_X1 }
+    frame HELXB { light DMR_ForgemasterBall_X2 }
+    frame HELXC { light DMR_ForgemasterBall_X2 }
+    frame HELXD { light DMR_ForgemasterBall_X2 }
+    frame HELXE { light DMR_ForgemasterBall_X2 }
+    frame HELXF { light DMR_ForgemasterBall_X2 }
+    frame HELXG { light DMR_ForgemasterBall_X2 }
+    frame HELXH { light DMR_ForgemasterBall_X3 }
+    frame HELXI { light DMR_ForgemasterBall_X3 }
+    frame HELXJ { light DMR_ForgemasterBall_X3 }
+}
+
+/*
+object ForgemasterClusterBall
+{
+    frame HELXA { light DMR_ForgemasterBall_X1 }
+    frame HELXB { light DMR_ForgemasterBall_X2 }
+    frame HELXC { light DMR_ForgemasterBall_X2 }
+    frame HELXD { light DMR_ForgemasterBall_X2 }
+    frame HELXE { light DMR_ForgemasterBall_X2 }
+    frame HELXF { light DMR_ForgemasterBall_X2 }
+    frame HELXG { light DMR_ForgemasterBall_X2 }
+    frame HELXH { light DMR_ForgemasterBall_X3 }
+    frame HELXI { light DMR_ForgemasterBall_X3 }
+    frame HELXJ { light DMR_ForgemasterBall_X3 }
+}*/
+
+
+object ForgemasterClusterBallTrail
+{
+	// only half of the frames else it is a discoball
+    frame HEPAA { light DMR_ForgemasterBall_X1 }
+    //frame HEPAB { light DMR_ForgemasterBall_X1 }
+    frame HEPAC { light DMR_ForgemasterBall_X2 }
+    //frame HEPAD { light DMR_ForgemasterBall_X2 }
+    frame HEPAE { light DMR_ForgemasterBall_X3 }
+    //frame HEPAF { light DMR_ForgemasterBall_X3 }
+}
+
+
+object ForgemasterClusterBallClusterTrail
+{
+	// only half of the frames else it is a discoball
+    frame FTRAA { light DMR_DevilBall_X1 }
+    //frame FTRAB { light DMR_DevilBall_X1 }
+    frame FTRAC { light DMR_DevilBall_X1 }
+    //frame FTRAD { light DMR_DevilBall_X2 }
+    frame FTRAE { light DMR_DevilBall_X2 }
+    //frame FTRAE { light DMR_DevilBall_X2 }
+    frame FTRAF { light DMR_DevilBall_X2 }
+    //frame FTRAG { light DMR_DevilBall_X2 }
+    frame FTRAH { light DMR_DevilBall_X3 }
+    //frame FTRAI { light DMR_DevilBall_X3 }
+    frame FTRAJ { light DMR_DevilBall_X3 }
+}

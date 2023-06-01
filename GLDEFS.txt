@@ -54,6 +54,11 @@
 #include "GLDefs/Monsters/LostSoul/Gorer.gl"
 #include "GLDefs/Monsters/LostSoul/HadesSphere.gl"
 
+#include "GLDefs/Monsters/Archvile/DMR_Archvile.gl"
+#include "GLDefs/Monsters/Archvile/DarkAcolyte.gl"
+#include "GLDefs/Monsters/Archvile/Diabolist.gl"
+#include "GLDefs/Monsters/Archvile/Intoxicanter.gl"
+
 #include "GLDefs/Monsters/Cyberdemon/Tiberdemon.gl"
 #include "GLDefs/Monsters/Cyberdemon/BlueTiberdemon.gl"
 #include "GLDefs/Monsters/Cyberdemon/CoreDefender.gl"

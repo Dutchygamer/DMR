@@ -1,0 +1,168 @@
+
+flickerlight DiabolistFire_X1
+{
+    color 1.0 0.25 0.1
+    size 48
+    secondarySize 56
+    offset 0 8 0
+    chance 0.3
+}
+
+flickerlight DiabolistFire_X2
+{
+    color 1.0 0.25 0.1
+    size 72
+    secondarySize 80
+    offset 0 24 0
+    chance 0.3
+}
+
+flickerlight DiabolistFire_X3
+{
+    color 1.0 0.25 0.1
+    size 90
+    secondarySize 100
+    offset 0 32 0
+    chance 0.3
+}
+
+flickerlight DiabolistFire_X4
+{
+    color 1.0 0.25 0.1
+    size 110
+    secondarySize 120
+    offset 0 40 0
+    chance 0.3
+}
+
+flickerlight DiabolistFire_X5
+{
+    color 1.0 0.25 0.1
+    size 100
+    secondarySize 110
+    offset 0 48 0
+    chance 0.3
+}
+
+flickerlight DiabolistFire_X6
+{
+    color 1.0 0.25 0.1
+    size 78
+    secondarySize 86
+    offset 0 64 0
+    chance 0.3
+}
+
+flickerlight DiabolistFire_X7
+{
+    color 1.0 0.25 0.1
+    size 72
+    secondarySize 80
+    offset 0 72 0
+    chance 0.3
+}
+
+flickerlight DiabolistFire_X8
+{
+    color 1.0 0.25 0.1
+    size 48
+    secondarySize 56
+    offset 0 80 0
+    chance 0.3
+}
+
+object DiabolistFire
+{
+    frame HLFRA { light DiabolistFire_X1 }
+    frame HLFRB { light DiabolistFire_X2 }
+    frame HLFRC { light DiabolistFire_X3 }
+    frame HLFRD { light DiabolistFire_X4 }
+    frame HLFRE { light DiabolistFire_X5 }
+    frame HLFRF { light DiabolistFire_X6 }
+    frame HLFRG { light DiabolistFire_X7 }
+    frame HLFRH { light DiabolistFire_X8 }
+}
+
+
+flickerlight DiabolistCharge_X1
+{
+    color 1.0 0.25 0.1
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+flickerlight DiabolistCharge_X2
+{
+    color 1.0 0.25 0.1
+    size 72
+    secondarySize 80
+    chance 0.3
+}
+
+flickerlight DiabolistCharge_X3
+{
+    color 1.0 0.25 0.1
+    size 90
+    secondarySize 100
+    chance 0.3
+}
+
+flickerlight DiabolistCharge_X4
+{
+    color 1.0 0.25 0.1
+    size 100
+    secondarySize 110
+    chance 0.3
+}
+
+flickerlight DiabolistCharge_X5
+{
+    color 1.0 0.25 0.1
+    size 110
+    secondarySize 120
+    chance 0.3
+}
+
+flickerlight DiabolistCharge_X6
+{
+    color 1.0 0.25 0.1
+    size 120
+    secondarySize 130
+    chance 0.3
+}
+
+flickerlight DiabolistCharge_X7
+{
+    color 1.0 0.25 0.1
+    size 90
+    secondarySize 100
+    chance 0.3
+}
+
+
+flickerlight DiabolistRes
+{
+    color 0.6 0.1 0.0
+    size 78
+    secondarySize 86
+    chance 0.3
+}
+
+object Diabolist
+{
+    frame DIABG { light DiabolistCharge_X1 }
+    frame DIABH { light DiabolistCharge_X2 }
+    frame DIABI { light DiabolistCharge_X3 }
+    frame DIABJ { light DiabolistCharge_X3 }
+    frame DIABK { light DiabolistCharge_X4 }
+    frame DIABL { light DiabolistCharge_X4 }
+    frame DIABM { light DiabolistCharge_X4 }
+    frame DIABN { light DiabolistCharge_X5 }
+    frame DIABO { light DiabolistCharge_X6 }
+    frame DIABP { light DiabolistCharge_X7 }
+	
+    frame DIA2A { light DiabolistRes }
+    frame DIA2B { light DiabolistRes }
+    frame DIA2C { light DiabolistRes }
+}
