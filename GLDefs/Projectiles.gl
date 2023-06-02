@@ -1,49 +1,50 @@
 //DMR_FlamethrowerBall
-flickerlight DMR_FLAMETHROWER_X1
+flickerlight DMR_FlamethrowerBall_X1
 {
     color 0.8 0.5 0.1
-    size 40
-    secondarySize 50
+    size 48
+    secondarySize 56
     chance 0.3
 }
 
-flickerlight DMR_FLAMETHROWER_X2
+flickerlight DMR_FlamethrowerBall_X2
 {
     color 0.8 0.5 0.1
     size 60
-    secondarySize 72
+    secondarySize 65
     chance 0.3
 }
 
-flickerlight DMR_FLAMETHROWER_X3
+flickerlight DMR_FlamethrowerBall_X3
 {
     color 0.4 0.2 0.1
-    size 50
-    secondarySize 65
+    size 78
+    secondarySize 86
     chance 0.3
 }
 
 object DMR_FlamethrowerBall
 {
-    frame FRFXA { light DMR_FLAMETHROWER_X1 }
-	frame FRFXB { light DMR_FLAMETHROWER_X1 }
-	frame FRFXC { light DMR_FLAMETHROWER_X2 }
-	frame FRFXD { light DMR_FLAMETHROWER_X2 }
-	frame FRFXE { light DMR_FLAMETHROWER_X2 }
-	frame FRFXF { light DMR_FLAMETHROWER_X2 }
-	frame FRFXG { light DMR_FLAMETHROWER_X2 }
-	frame FRFXH { light DMR_FLAMETHROWER_X2 }
-	frame FRFXI { light DMR_FLAMETHROWER_X2 }
-	frame FRFXJ { light DMR_FLAMETHROWER_X2 }
-	frame FRFXK { light DMR_FLAMETHROWER_X2 }
-	frame FRFXL { light DMR_FLAMETHROWER_X2 }
-	frame FRFXM { light DMR_FLAMETHROWER_X2 }
-	frame FRFXN { light DMR_FLAMETHROWER_X3 }
-	frame FRFXO { light DMR_FLAMETHROWER_X3 }
+    frame FRFXA { light DMR_FlamethrowerBall_X1 }
+	frame FRFXB { light DMR_FlamethrowerBall_X1 }
+	frame FRFXC { light DMR_FlamethrowerBall_X2 }
+	frame FRFXD { light DMR_FlamethrowerBall_X2 }
+	frame FRFXE { light DMR_FlamethrowerBall_X2 }
+	frame FRFXF { light DMR_FlamethrowerBall_X2 }
+	frame FRFXG { light DMR_FlamethrowerBall_X2 }
+	frame FRFXH { light DMR_FlamethrowerBall_X2 }
+	frame FRFXI { light DMR_FlamethrowerBall_X2 }
+	frame FRFXJ { light DMR_FlamethrowerBall_X2 }
+	frame FRFXK { light DMR_FlamethrowerBall_X2 }
+	frame FRFXL { light DMR_FlamethrowerBall_X2 }
+	frame FRFXM { light DMR_FlamethrowerBall_X2 }
+	frame FRFXN { light DMR_FlamethrowerBall_X3 }
+	frame FRFXO { light DMR_FlamethrowerBall_X3 }
 }
 
+
 //DMR_FlamethrowerBallLarge
-flickerlight DMR_FLAMETHROWERLARGE_X1
+flickerlight DMR_FlamethrowerBallLarge_X1
 {
     color 0.8 0.5 0.1
     size 50
@@ -51,7 +52,7 @@ flickerlight DMR_FLAMETHROWERLARGE_X1
     chance 0.3
 }
 
-flickerlight DMR_FLAMETHROWERLARGE_X2
+flickerlight DMR_FlamethrowerBallLarge_X2
 {
     color 0.8 0.5 0.1
     size 75
@@ -59,7 +60,7 @@ flickerlight DMR_FLAMETHROWERLARGE_X2
     chance 0.3
 }
 
-flickerlight DMR_FLAMETHROWERLARGE_X3
+flickerlight DMR_FlamethrowerBallLarge_X3
 {
     color 0.4 0.2 0.1
     size 65
@@ -69,123 +70,21 @@ flickerlight DMR_FLAMETHROWERLARGE_X3
 
 object DMR_FlamethrowerBallLarge
 {
-    frame FRFXA { light DMR_FLAMETHROWERLARGE_X1 }
-	frame FRFXB { light DMR_FLAMETHROWERLARGE_X1 }
-	frame FRFXC { light DMR_FLAMETHROWERLARGE_X2 }
-	frame FRFXD { light DMR_FLAMETHROWERLARGE_X2 }
-	frame FRFXE { light DMR_FLAMETHROWERLARGE_X2 }
-	frame FRFXF { light DMR_FLAMETHROWERLARGE_X2 }
-	frame FRFXG { light DMR_FLAMETHROWERLARGE_X2 }
-	frame FRFXH { light DMR_FLAMETHROWERLARGE_X2 }
-	frame FRFXI { light DMR_FLAMETHROWERLARGE_X2 }
-	frame FRFXJ { light DMR_FLAMETHROWERLARGE_X2 }
-	frame FRFXK { light DMR_FLAMETHROWERLARGE_X2 }
-	frame FRFXL { light DMR_FLAMETHROWERLARGE_X2 }
-	frame FRFXM { light DMR_FLAMETHROWERLARGE_X2 }
-	frame FRFXN { light DMR_FLAMETHROWERLARGE_X3 }
-	frame FRFXO { light DMR_FLAMETHROWERLARGE_X3 }
-}
-
-
-//DMR_FlamethrowerExplode
-flickerlight DMR_HEAT_X1
-{
-    color 0.8 0.4 0.1
-    size 60
-    secondarySize 72
-    chance 0.3
-}
-flickerlight DMR_HEAT_X2
-{
-    color 1.0 0.5 0.1
-    size 75
-    secondarySize 90
-    chance 0.3
-}
-
-flickerlight DMR_HEAT_X3
-{
-    color 0.4 0.2 0.1
-    size 50
-    secondarySize 65
-    chance 0.3
-}
-
-object DMR_FlamethrowerExplode
-{
-    frame NKXPA { light DMR_HEAT_X1 }
-    frame NKXPB { light DMR_HEAT_X1 }
-    frame NKXPC { light DMR_HEAT_X1 }
-    frame NKXPD { light DMR_HEAT_X2 }
-    frame NKXPE { light DMR_HEAT_X2 }
-    frame NKXPF { light DMR_HEAT_X2 }
-    frame NKXPG { light DMR_HEAT_X2 }
-    frame NKXPH { light DMR_HEAT_X2 }
-    frame NKXPI { light DMR_HEAT_X2 }
-    frame NKXPJ { light DMR_HEAT_X2 }
-    frame NKXPK { light DMR_HEAT_X2 }
-    frame NKXPL { light DMR_HEAT_X2 }
-    frame NKXPM { light DMR_HEAT_X2 }
-    frame NKXPN { light DMR_HEAT_X2 }
-    frame NKXPO { light DMR_HEAT_X2 }
-    frame NKXPP { light DMR_HEAT_X2 }
-    frame NKXPQ { light DMR_HEAT_X2 }
-    frame NKXPR { light DMR_HEAT_X2 }
-    frame NKXPS { light DMR_HEAT_X3 }
-    frame NKXPT { light DMR_HEAT_X3 }
-    frame NKXPU { light DMR_HEAT_X3 }
-    frame NKXPV { light DMR_HEAT_X3 }
-}
-
-
-//DMR_FlamethrowerExplodeLARGE
-flickerlight DMR_HEATLARGE_X1
-{
-    color 0.8 0.4 0.1
-    size 72
-    secondarySize 90
-    chance 0.3
-}
-flickerlight DMR_HEATLARGE_X2
-{
-    color 1.0 0.5 0.1
-    size 95
-    secondarySize 115
-    chance 0.3
-}
-
-flickerlight DMR_HEATLARGE_X3
-{
-    color 0.4 0.2 0.1
-    size 70
-    secondarySize 85
-    chance 0.3
-}
-
-object DMR_FlamethrowerExplodeLarge
-{
-    frame NKXPA { light DMR_HEATLARGE_X1 }
-    frame NKXPB { light DMR_HEATLARGE_X1 }
-    frame NKXPC { light DMR_HEATLARGE_X1 }
-    frame NKXPD { light DMR_HEATLARGE_X2 }
-    frame NKXPE { light DMR_HEATLARGE_X2 }
-    frame NKXPF { light DMR_HEATLARGE_X2 }
-    frame NKXPG { light DMR_HEATLARGE_X2 }
-    frame NKXPH { light DMR_HEATLARGE_X2 }
-    frame NKXPI { light DMR_HEATLARGE_X2 }
-    frame NKXPJ { light DMR_HEATLARGE_X2 }
-    frame NKXPK { light DMR_HEATLARGE_X2 }
-    frame NKXPL { light DMR_HEATLARGE_X2 }
-    frame NKXPM { light DMR_HEATLARGE_X2 }
-    frame NKXPN { light DMR_HEATLARGE_X2 }
-    frame NKXPO { light DMR_HEATLARGE_X2 }
-    frame NKXPP { light DMR_HEATLARGE_X2 }
-    frame NKXPQ { light DMR_HEATLARGE_X2 }
-    frame NKXPR { light DMR_HEATLARGE_X2 }
-    frame NKXPS { light DMR_HEATLARGE_X3 }
-    frame NKXPT { light DMR_HEATLARGE_X3 }
-    frame NKXPU { light DMR_HEATLARGE_X3 }
-    frame NKXPV { light DMR_HEATLARGE_X3 }
+    frame FRFXA { light DMR_FlamethrowerBall_X1 }
+	frame FRFXB { light DMR_FlamethrowerBall_X1 }
+	frame FRFXC { light DMR_FlamethrowerBall_X2 }
+	frame FRFXD { light DMR_FlamethrowerBall_X2 }
+	frame FRFXE { light DMR_FlamethrowerBall_X2 }
+	frame FRFXF { light DMR_FlamethrowerBall_X2 }
+	frame FRFXG { light DMR_FlamethrowerBall_X2 }
+	frame FRFXH { light DMR_FlamethrowerBall_X2 }
+	frame FRFXI { light DMR_FlamethrowerBall_X2 }
+	frame FRFXJ { light DMR_FlamethrowerBall_X2 }
+	frame FRFXK { light DMR_FlamethrowerBall_X2 }
+	frame FRFXL { light DMR_FlamethrowerBall_X2 }
+	frame FRFXM { light DMR_FlamethrowerBall_X2 }
+	frame FRFXN { light DMR_FlamethrowerBall_X3 }
+	frame FRFXO { light DMR_FlamethrowerBall_X3 }
 }
 
 

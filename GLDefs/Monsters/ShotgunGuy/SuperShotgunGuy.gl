@@ -1,4 +1,0 @@
-object SuperShotgunGuy
-{
-    frame GPOSF { light DMR_ZOMBIEATK }
-}

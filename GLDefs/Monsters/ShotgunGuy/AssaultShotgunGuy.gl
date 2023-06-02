@@ -1,4 +1,0 @@
-object AssaultShotgunGuy
-{
-    frame ASGZF { light DMR_ZOMBIEATK }
-}

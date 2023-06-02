@@ -1,0 +1,9 @@
+object ToxinElementalGasBall 
+{
+    frame HECFA { light DMR_CorpulentToxinBall }
+    frame HECFB { light DMR_CorpulentToxinBall }
+
+    frame HECFC { light DMR_CorpulentToxinBall_X1 }
+    frame HECFD { light DMR_CorpulentToxinBall_X2 }
+    frame HECFE { light DMR_CorpulentToxinBall_X3 }
+}

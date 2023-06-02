@@ -59,7 +59,7 @@ class Witherer : DMR_Cacodemon
 		}
 	ToxinSprayLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 9,"See");
-		CALI G 1 Bright {
+		CALI G 1 Light("DMR_WithererSpray") {
 			A_FaceTarget();
 			attackloop++;
 			A_SpawnProjectile("CacolichToxinSpray",26,0,random(-4,4));
@@ -170,6 +170,7 @@ class CacolichToxinSpray : DMR_FlamethrowerBall
 		DamageType "ToxinCloud";
 		RenderStyle "Translucent";
 		Alpha 0.5;
+		-BRIGHT;
 	}
 	States
 	{

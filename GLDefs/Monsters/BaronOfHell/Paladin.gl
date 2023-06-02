@@ -11,3 +11,21 @@ object NobleVanguardPlasmaRune
     frame PLRXE { light DMR_DemonPlasmaRune_X1 }
     frame PLRXF { light DMR_DemonPlasmaRune_X1 }
 }
+
+
+flickerlight DMR_NobleVanguardGrenade
+{
+    color 0.5 0.3 0.0
+    size 72
+    secondarySize 80
+    chance 0.3
+}
+
+object NobleVanguardGrenade
+{
+    frame SGRNA { light DMR_NobleVanguardGrenade }
+
+    frame MISLB { light DMR_SmallRocket_X1 }
+    frame MISLC { light DMR_SmallRocket_X2 }
+    frame MISLD { light DMR_SmallRocket_X3 }
+}

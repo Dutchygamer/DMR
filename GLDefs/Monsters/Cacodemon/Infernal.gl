@@ -1,6 +1,17 @@
 
 object InfernalBall
 {
+    frame BAL1A { light DMR_DevilBall }
+    frame BAL1B { light DMR_DevilBall }
+
+    frame BAL1C { light DMR_DevilBall_X1 }
+    frame BAL1D { light DMR_DevilBall_X2 }
+    frame BAL1E { light DMR_DevilBall_X3 }
+}
+
+
+object InfernalExplosiveBall
+{
     frame BAL3A { light DMR_DevilBall }
     frame BAL3B { light DMR_DevilBall }
 

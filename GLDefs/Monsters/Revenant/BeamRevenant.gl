@@ -1,5 +1,3 @@
-
-//laser
 flickerlight DMR_LaserFire
 {
     color 1.0 0.0 0.0
@@ -19,6 +17,7 @@ object SmallRedLaserTrail
 {
 	frame LASBA { light DMR_LaserTrail }
 }
+
 
 flickerlight DMR_LaserImpact_X1
 {

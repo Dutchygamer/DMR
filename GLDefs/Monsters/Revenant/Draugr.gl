@@ -2,9 +2,9 @@ Object DraugrTracer
 {
 	Frame FBRS { Light DMR_RevenantTracer }
 
-	Frame MISLA { Light DMR_RevenantTracer_X1 }
-	Frame MISLB { Light DMR_RevenantTracer_X2 }
-	Frame MISLC { Light DMR_RevenantTracer_X3 }
+    frame MISLB { light DMR_SmallRocket_X1 }
+    frame MISLC { light DMR_SmallRocket_X2 }
+    frame MISLD { light DMR_SmallRocket_X3 }
 }
 
 

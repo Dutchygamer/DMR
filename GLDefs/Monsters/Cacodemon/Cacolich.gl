@@ -13,10 +13,19 @@ object WithererBall
 
 object WithererGasBall 
 {
-    frame HECFA { light DMR_BaronBall }
-    frame HECFB { light DMR_BaronBall }
+    frame HECFA { light DMR_CorpulentToxinBall }
+    frame HECFB { light DMR_CorpulentToxinBall }
 
-    frame HECFC { light DMR_BaronBall_X1 }
-    frame HECFD { light DMR_BaronBall_X2 }
-    frame HECFE { light DMR_BaronBall_X3 }
+    frame HECFC { light DMR_CorpulentToxinBall_X1 }
+    frame HECFD { light DMR_CorpulentToxinBall_X2 }
+    frame HECFE { light DMR_CorpulentToxinBall_X3 }
+}
+
+
+flickerlight DMR_WithererSpray
+{
+    color 0.1 0.3 0.1
+    size 48
+    secondarySize 56
+    chance 0.3
 }

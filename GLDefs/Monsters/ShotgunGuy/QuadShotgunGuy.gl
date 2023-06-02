@@ -1,4 +1,0 @@
-object QuadShotgunGuy
-{
-    frame QSZMF { light DMR_ZOMBIEATK }
-}
