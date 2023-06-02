@@ -11,7 +11,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class PoisonSoul : DMR_LostSoul
+class ViralOne : DMR_LostSoul
 {
 	Default
 	{

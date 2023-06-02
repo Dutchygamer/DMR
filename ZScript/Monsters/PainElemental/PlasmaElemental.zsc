@@ -35,7 +35,7 @@ class ToxinElemental : DMR_PainElemental
 	LostSoul:
 		PLEM DE 5 A_FaceTarget;
 		PLEM F 5 Bright A_FaceTarget;
-		PLEM F 0 Bright A_PainAttack("PoisonSoul");
+		PLEM F 0 Bright A_PainAttack("ViralOne");
 		Goto See;
 	ToxinFire:
 		PLEM DE 5 A_FaceTarget;
@@ -50,7 +50,7 @@ class ToxinElemental : DMR_PainElemental
 		PLEM H 8;
 		PLEM I 8 A_Scream;
 		PLEM JK 8 BRIGHT;
-		PLEM L 8 BRIGHT A_PainDie("PoisonSoul");
+		PLEM L 8 BRIGHT A_PainDie("ViralOne");
 		TNT1 A 0 {
 			A_PlaySound("gas/explode");
 			A_SpawnItemEx("DMR_LargeGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);

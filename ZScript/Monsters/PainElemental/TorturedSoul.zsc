@@ -63,7 +63,7 @@ class TorturedElemental : DMR_PainElemental
 		TORT D 5 A_FaceTarget;
 		TORT E 5 A_FaceTarget;
 		TORT F 5 Bright A_FaceTarget;
-		TNT1 A 0 Bright A_PainAttack("PoisonSoul");
+		TNT1 A 0 Bright A_PainAttack("ViralOne");
 		Goto See;
 	Pain: 
 		TORT G 6;

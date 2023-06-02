@@ -44,9 +44,9 @@ class ThunderElemental : DMR_PainElemental
 	Balls:
 		HELE EFG 5 Bright A_FaceTarget;
 		TNT1 A 0 {
-			A_SpawnProjectile("OverlordBall",24,0,-10,0,0);
-			A_SpawnProjectile("OverlordBall",24,0,0,0,0);
-			A_SpawnProjectile("OverlordBall",24,0,10,0,0);
+			A_SpawnProjectile("ThunderElementalBall",24,0,-10,0,0);
+			A_SpawnProjectile("ThunderElementalBall",24,0,0,0,0);
+			A_SpawnProjectile("ThunderElementalBall",24,0,10,0,0);
 		}
 		Goto See;
 	Pain:
@@ -65,7 +65,7 @@ class ThunderElemental : DMR_PainElemental
 	}
 }
 
-class OverlordBall : DMR_CacodemonBall
+class ThunderElementalBall : DMR_CacodemonBall
 {
 	Default
 	{

@@ -33,13 +33,13 @@ class PlasmaCommando : DMR_ChaingunGuy
 		Loop;
 	Missile:
 		PNGZ E 10 A_FaceTarget;
-		PNGZ F 4 BRIGHT Light("DMR_DemonPlasmaFire") A_SpawnProjectile("AracKnightSpamPlasma");
+		PNGZ F 4 BRIGHT Light("DMR_DemonPlasmaFire") A_SpawnProjectile("MygalotronBall");
 		PNGZ E 4 A_FaceTarget;
-		PNGZ F 4 BRIGHT Light("DMR_DemonPlasmaFire") A_SpawnProjectile("AracKnightSpamPlasma");
+		PNGZ F 4 BRIGHT Light("DMR_DemonPlasmaFire") A_SpawnProjectile("MygalotronBall");
 		PNGZ E 4 A_FaceTarget;
-		PNGZ F 4 BRIGHT Light("DMR_DemonPlasmaFire") A_SpawnProjectile("AracKnightSpamPlasma");
+		PNGZ F 4 BRIGHT Light("DMR_DemonPlasmaFire") A_SpawnProjectile("MygalotronBall");
 		PNGZ E 4 A_FaceTarget;
-		PNGZ F 4 BRIGHT Light("DMR_DemonPlasmaFire") A_SpawnProjectile("AracKnightSpamPlasma");
+		PNGZ F 4 BRIGHT Light("DMR_DemonPlasmaFire") A_SpawnProjectile("MygalotronBall");
 		PNGZ E 4 A_FaceTarget;
 		PNGZ E 10 A_MonsterRefire(25, "See");
 		Goto Missile+1;

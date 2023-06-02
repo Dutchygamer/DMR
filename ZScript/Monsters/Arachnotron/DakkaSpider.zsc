@@ -11,7 +11,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class DakkaSpider : DMR_Arachnotron
+class Solifutron : DMR_Arachnotron
 {
 	Default
 	{

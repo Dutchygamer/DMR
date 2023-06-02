@@ -12,7 +12,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class LaserSpider : DMR_Arachnotron
+class Opiliotron : DMR_Arachnotron
 {
 	Default
 	{
@@ -53,16 +53,3 @@ class LaserSpider : DMR_Arachnotron
 		Goto See+1;
 	}
 }
-/*
-class LaserSpiderLaser : DMR_LaserBase
-{
-	Default
-	{
-		DamageFunction(random(10,30));
-		Translation "112:127=176:191";
-		MissileType "LaserSpiderLaserTrail";
-		MissileHeight 10;
-	}
-}
-
-class LaserSpiderLaserTrail : DMR_LaserTrailBase { }*/

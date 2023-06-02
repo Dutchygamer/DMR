@@ -46,7 +46,7 @@ flickerlight DMR_ViralOne_X4
     chance 0.3
 }
 
-Object PoisonSoul
+Object ViralOne
 {
 	Frame PHNTA { Light DMR_ViralOne }
 	Frame PHNTB { Light DMR_ViralOne }
