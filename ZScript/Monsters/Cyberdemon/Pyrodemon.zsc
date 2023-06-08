@@ -190,7 +190,79 @@ class PyroDemonRapidBall : DMR_SmallRocket
 	}
 }
 
+class PyroDemonCometSpawner : DMR_Projectile
+{
+	Default
+	{
+		Speed 15;
+		+CEILINGHUGGER;
+		+THRUACTORS;
+	}
+	
+	int fuelLevel;	
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			fuelLevel = random(75,100); // set fuel lifetime
+		}
+	SpawnLoop:
+		TNT1 A 1 {
+			if (fuelLevel < 1) {
+				SetStateLabel("Death");
+			}
+			fuelLevel--;
+			
+			A_Wander();
+			
+			if (fuelLevel % 10 == 1) {
+				A_SpawnProjectile("PyroDemonFallingComet",-24,random(0,128),random(0,360),2,random(1,89));
+			}			
+		}
+		Loop;
+	Death:
+		Stop;
+	}
+}
 
+class PyroDemonFallingComet : AfritComet
+{
+	Default
+	{
+		Speed 0;
+		//Damage 8;
+		-NoGravity;
+		-Float;
+		+SpawnCeiling;
+	}
+	States
+	{
+	Spawn:
+		COMT AABBCC 2 Bright { 
+			A_SpawnItemEx("AfritCometTrail",0,0,0);
+			A_SpawnItemEx("DMR_MediumFireballTrail",0,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+		}
+		Loop;
+	Death:
+		TNT1 A 0 {
+			A_SetScale(1);
+		}
+		TNT1 AAAAAA 0 {
+			A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		COMT D 3 Bright A_Explode(20,80);
+		COMT EFGHI 3 Bright;
+		Stop;
+	}
+}
+
+
+
+
+//unused
+/*
 class PyroDemonBlast : DMR_GrenadeBase
 {
 	Default
@@ -269,65 +341,6 @@ class PyroDemonMushroomBall : Actor
 }
 
 
-class PyroDemonCometSpawner : Actor
-{
-	Default
-	{
-		Radius 0;
-		Height 0;
-		Speed 8;
-		Projectile;
-		BounceType "Doom";
-		+Ripper;
-		+CeilingHugger;
-		+DontHarmSpecies;
-	}
-	States
-	{
-	Spawn:
-		TNT1 A 0 A_Jump(5,"Death"); //small chance to kill itself
-		TNT1 AAAAAA 1 A_Wander;
-		TNT1 A 8 A_SpawnProjectile("PyroDemonFallingComet",-24,random(0,128),random(0,360),2,random(1,89));
-		Loop;
-	Death:
-		Stop;
-	}
-}
-
-class PyroDemonFallingComet : AfritComet
-{
-	Default
-	{
-		Speed 0;
-		//Damage 8;
-		-NoGravity;
-		-Float;
-		+SpawnCeiling;
-	}
-	States
-	{
-	Spawn:
-		COMT AABBCC 2 Bright { 
-			A_SpawnItemEx("AfritCometTrail",0,0,0);
-			A_SpawnItemEx("DMR_MediumFireballTrail",0,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-		}
-		Loop;
-	Death:
-		TNT1 A 0 {
-			A_SetScale(1);
-		}
-		TNT1 AAAAAA 0 {
-			A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-		}
-		COMT D 3 Bright A_Explode(20,80);
-		COMT EFGHI 3 Bright;
-		Stop;
-	}
-}
-
-//unused
-/*
 class PyroDemonBlastExplosion : Actor
 {
 	Default
