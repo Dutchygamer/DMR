@@ -7,10 +7,12 @@ class DMR_SmokeCloud : DMR_ProjectileTrail
 		RenderStyle "Translucent";
 		Scale 0.25;
 		Alpha 0.6;
+		+ROLLSPRITE;
 	}
 	States
 	{
 	Spawn:
+		TNT1 A 1 NoDelay A_SetRoll(random(0,360));
 		SMOK ABCDEFGHIJ 2;
 		Stop;
 	}
@@ -46,6 +48,7 @@ class DMR_SmokeLongCloud : DMR_SmokeCloud
 	States
 	{
 	Spawn:
+		TNT1 A 1 NoDelay A_SetRoll(random(0,360));
 		SMOK AB 2;
 		SMOK CDEFGH 8;
 		SMOK IJ 2;
