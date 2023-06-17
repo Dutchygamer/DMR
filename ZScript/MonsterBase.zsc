@@ -19,6 +19,7 @@ Class DMR_MonsterBase : Actor
 	property Species2: spec2;
 	
 	int attackLoop;
+	int fxLoop;
 
 	// check if the monster damaging us is part of the Species2
 	// if so, treat it like it is the same species

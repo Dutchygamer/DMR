@@ -130,10 +130,13 @@ class MancutankRocket : DMR_SmallRocket
 		Loop;
 	Death:
 		TNT1 A 0 {
-			A_SetScale(1.0);			A_SpawnItemEx("DMR_BurningFire",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_ORIGINATOR|SXF_TRANSFERPOINTERS);
+			A_SetScale(1.0);
+			A_SpawnItemEx("DMR_BurningFire",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_ORIGINATOR|SXF_TRANSFERPOINTERS);
 		}
-		TNT1 AAAAAAAAAAAAAA 0 {
-			A_SpawnItemEx("DMR_FireBouncingDebris",0,0,0,frandom(-12,12),frandom(-12,12),frandom(-4,10)); 
+		TNT1 A 0 {
+			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
+				A_SpawnItemEx("DMR_FireBouncingDebris",0,0,0,frandom(-12,12),frandom(-12,12),frandom(-4,10)); 
+			}
 		}
 		MISL B 8 Bright Light("DMR_SROCKET_X1") A_Explode(20,64);
 		MISL C 6 Bright Light("DMR_SROCKET_X2");

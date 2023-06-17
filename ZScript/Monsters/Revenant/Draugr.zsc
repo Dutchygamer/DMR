@@ -116,8 +116,10 @@ class DraugrTracer : DMR_RevenantTracer
 		}
 		Loop;
 	Death:
-		TNT1 AAAA 0 {
-			A_SpawnItemEx("DMR_FireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+		TNT1 A 0 {
+			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
+				A_SpawnItemEx("DMR_FireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+			}
 		}
 		MISL B 8 Bright Light("DMR_SROCKET_X1") A_Explode(48, 48);
 		MISL C 6 Bright Light("DMR_SROCKET_X2");
@@ -126,7 +128,7 @@ class DraugrTracer : DMR_RevenantTracer
 	}
 }
 
-//homing missile that breaks up in partially homing clusters near its target
+// homing missile that breaks up in partially homing clusters near its target
 class DraugrClusterMissile : DMR_RevenantTracer
 {
 	Default
@@ -147,8 +149,10 @@ class DraugrClusterMissile : DMR_RevenantTracer
 		TNT1 A 0 A_JumpIfTracerCloser(120, "Death");
 		Loop;
 	Death:
-		TNT1 AAA 0 {
-			A_SpawnItemEx("DMR_FireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+		TNT1 A 0 {
+			for (fxLoop = 0;fxLoop <= 3;fxLoop++) {
+				A_SpawnItemEx("DMR_FireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+			}
 		}
 		TNT1 A 0 {
 			A_Stop();

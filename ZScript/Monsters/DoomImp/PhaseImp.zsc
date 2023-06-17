@@ -116,9 +116,11 @@ class PhaserBall : DMR_DoomImpBall
 		}		
         Loop;
     Death:
-		TNT1 AAA 0 {
-			A_SpawnItemEx("DMR_PurpleFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-			A_SpawnItemEx("DMR_PurpleFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		TNT1 A 0 {
+			for (fxLoop = 0;fxLoop <= 3;fxLoop++) {
+				A_SpawnItemEx("DMR_PurpleFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+				A_SpawnItemEx("DMR_PurpleFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			}
 		}
         DIMB CDE 6 Bright;
         Stop;

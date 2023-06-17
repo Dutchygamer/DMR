@@ -165,8 +165,10 @@ class CoreDefenderClusterMissile: DMR_Rocket
 		HMIS A 0 A_JumpIfTracerCloser(180, "Death");
 		Loop;
 	Death:
-		TNT1 AAAAA 0 {
-			A_SpawnItemEx("DMR_FireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+		TNT1 A 0 {
+			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
+				A_SpawnItemEx("DMR_FireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+			}
 		}
 		TNT1 A 0 {
 			A_Stop();
@@ -240,7 +242,7 @@ class CoreDefenderObeliskLaserTrail : DMR_LaserTrailBase
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay			A_SpawnItemEx("DMR_LaserFlareBig",0,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1));
+		TNT1 A 0 NoDelay A_SpawnItemEx("DMR_LaserFlareBig",0,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		LASB A 1 Bright;
 	SpawnLoop:
 		LASB A 1 Bright A_FadeOut(0.1);
