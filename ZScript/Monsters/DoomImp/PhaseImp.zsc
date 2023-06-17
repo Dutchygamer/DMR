@@ -51,13 +51,8 @@ class Phaser : DMR_DoomImp
         DIMP G 6 A_CustomComboAttack("PhaserBall",32,random(6,16),"imp/melee");
         Goto See;
 	GoStealthed:
-		DIMP A 0 {
-			if(isStealthed) {
-				return ResolveState("See");
-			}
-			else {
-				return ResolveState(null);
-			}
+		TNT1 A 0 {
+			if (isStealthed) { SetStateLabel("See"); }
 		}
 		DIMP E 5 {
 			isStealthed = true;

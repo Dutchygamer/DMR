@@ -90,7 +90,8 @@ class Corpulent : DMR_Fatso
 		HECT IG 5 A_FaceTarget;
 		Goto See;
 	Pain:
-		HECT J 8 A_Pain;
+		HECT J 3;
+		HECT J 3 A_Pain;
 		Goto See;
 	Death:
 	XDeath:

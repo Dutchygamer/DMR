@@ -200,19 +200,16 @@ class NobleVanguardGrenade : DMR_GrenadeBase
 			grenadeTimer++;
 		}
 		Wait;
-	//on ground, not hit anything, waiting for timer to run out
+	// on ground, not hit anything, waiting for timer to run out
 	Death:
 		SGRN A 1 {		
 			A_SpawnItemEx("DMR_SmokeCloud",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			//detonate if timer runs out
-			if(grenadeTimer >= 80) {
-				return ResolveState("XDeath");
-			}
+			// detonate if timer runs out
+			if (grenadeTimer >= 80) { SetStateLabel("XDeath"); }
 			grenadeTimer++;
-			return ResolveState(null);
 		}
 		Wait;
-	//actual explosion
+	// actual explosion
 	XDeath:
 		TNT1 A 0 {
 			bNoGravity = true;

@@ -57,7 +57,7 @@ class Draugr : DMR_Revenant
 	ClusterRocket:
 		TNT1 A 0 {
 			// cluster missiles suck at close range, so use normal rocket instead
-			if(target && Distance3D(target) < 300) SetStateLabel("BigRocket");
+			if (target && Distance3D(target) < 300) SetStateLabel("BigRocket");
 		}
 		SKE2 G 15 Bright A_FaceTarget;
 		SKE2 H 5 Bright A_SpawnProjectile("DraugrClusterMissile", 64, -14);
@@ -65,7 +65,7 @@ class Draugr : DMR_Revenant
 		Goto See;
 	Flamethrower:
 		TNT1 A 0 {
-			if(target && Distance3D(target) > 300) SetStateLabel("BigRocket");
+			if (target && Distance3D(target) > 300) SetStateLabel("BigRocket");
 		}
 		SKE2 GG 10 Bright A_FaceTarget;
 		TNT1 A 0 { attackloop = 0; }
@@ -145,7 +145,7 @@ class DraugrClusterMissile : DMR_RevenantTracer
 			A_SpawnItemEx("DMR_MediumFireballTrail",-18,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 			A_SpawnItemEx("DMR_MediumSmokeCloud",-18,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 		}
-		HMIS A 0 A_JumpIfTracerCloser(120, "Death");
+		TNT1 A 0 A_JumpIfTracerCloser(120, "Death");
 		Loop;
 	Death:
 		TNT1 AAA 0 {

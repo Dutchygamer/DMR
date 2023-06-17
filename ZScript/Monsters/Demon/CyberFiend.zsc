@@ -67,17 +67,15 @@ class MaulerFiend : DMR_Demon
 		}
 	ChargeLoop:
 		CYFN AAABBB 1 {
-			if(target && Distance3D(target) < 80 || vel.x == 0 && vel.y == 0) { return ResolveState("Ram"); }
+			if (target && Distance3D(target) < 80 || vel.x == 0 && vel.y == 0) { SetStateLabel("Ram"); }
 			A_FaceTarget(1.5,180);
 			A_Recoil(-3);
-			return ResolveState(null);
 		}
 		TNT1 A 0 A_PlaySound("blooddemon/walk");
 		CYFN CCCDDD 1 {
-			if(target && Distance3D(target) < 80 || vel.x == 0 && vel.y == 0) { return ResolveState("Ram"); }
+			if (target && Distance3D(target) < 80 || vel.x == 0 && vel.y == 0) { SetStateLabel("Ram"); }
 			A_FaceTarget(1.5,180);
 			A_Recoil(-3);
-			return ResolveState(null);
 		}
 		TNT1 A 0 A_PlaySound("blooddemon/walk");
 		Loop;

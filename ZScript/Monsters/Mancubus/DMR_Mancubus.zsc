@@ -72,7 +72,7 @@ Class DMR_Fatso: DMR_MonsterBase
 		FATX B 5 A_XScream;
 		FATX C 5 A_NoBlocking;
 		FATX DEF 5;
-		FATX G -1;
+		FATX G -1 A_BossDeath;
 		stop;
 	 Raise:
 		FATT R 5;

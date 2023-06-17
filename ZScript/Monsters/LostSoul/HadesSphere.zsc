@@ -51,12 +51,7 @@ class HadesSphere : DMR_LostSoul
 		TNT1 A 0 {
 			lifetime -= 1;
 			// [Blue Shadow] Don't bother trying to teleport out while "skull-flying"
-			if(bSkullFly == true) { 
-				return ResolveState("SeeLoop");
-			}
-			else {
-				return ResolveState(null);
-			}
+			if (bSkullFly == true) { SetStateLabel("SeeLoop"); }
 		}
 		TNT1 A 0 A_Jump(32, "TeleportOut");
 		Loop;

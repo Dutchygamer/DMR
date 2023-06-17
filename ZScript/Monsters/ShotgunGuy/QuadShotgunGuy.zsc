@@ -32,40 +32,25 @@ class QuadShotgunGuy : DMR_ShotgunGuy
 		Loop;
 	See:
 		TNT1 A 0 {
-			if(shotsFired >= 4) {
-				return ResolveState("Reload");
-			}
-			else {
-				return ResolveState(null);
-			}
+			if (shotsFired >= 4) { SetStateLabel("Reload"); }
 		}	
 		QSZM AABBCCDD 3 A_Chase;
 		Loop;
 	Missile:
-		TNT1 A 0 { //if we are not fully loaded, use either single or super shot
-			if(shotsFired != 0) {
-				return ResolveState("SingleOrSuperShot");
-			}
-			else {
-				return ResolveState(null);
-			}
+		TNT1 A 0 { // if we are not fully loaded, use either single or super shot
+			if (shotsFired != 0) { SetStateLabel("SingleOrSuperShot"); }
 		}
 		TNT1 A 0 A_JumpIfCloser(200, "CloseShot");
 		TNT1 A 0 A_Jump(40, "QuadShot");
 		TNT1 A 0 A_Jump(80, "SuperShot");
 		Goto SingleShot;
 	SingleOrSuperShot:
-		TNT1 A 0 { //if we only have one shot left, use single shot
-			if(shotsFired >= 3) {
-				return ResolveState("SingleShot");
-			}
-			else {
-				return ResolveState(null);
-			}
+		TNT1 A 0 { // if we only have one shot left, use single shot
+			if (shotsFired >= 3) { SetStateLabel("SingleShot"); }
 		}
 		TNT1 A 0 A_Jump(80, "SuperShot");
 		Goto SingleShot;
-	CloseShot: //when player is close, have a larger chance to fire quad or super shot
+	CloseShot: // when player is close, have a larger chance to fire quad or super shot
 		GPOS E 0 A_Jump(196, "QuadShot");
 		GPOS E 0 A_Jump(196, "SuperShot");
 		Goto SingleShot;
@@ -74,7 +59,7 @@ class QuadShotgunGuy : DMR_ShotgunGuy
 		QSZM F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("QuadShotgunZombie/SingleFire", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,7.1,5,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			shotsFired++; //expend a single shot
+			shotsFired++; // expend a single shot
 		}
 		QSZM E 10;
 		Goto See;
@@ -83,7 +68,7 @@ class QuadShotgunGuy : DMR_ShotgunGuy
 		QSZM F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("weapons/sshotf", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,7.1,10,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			shotsFired += 2; //expend 2 shots
+			shotsFired += 2; // expend 2 shots
 		}
 		QSZM E 10;
 		Goto See;
@@ -95,8 +80,8 @@ class QuadShotgunGuy : DMR_ShotgunGuy
 		QSZM F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("QuadShotgunZombie/QuadFire", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,7.1,20,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			shotsFired = 4; //expend 4 shots
-			A_Recoil(8); //recoil is a bitch
+			shotsFired = 4; // expend 4 shots
+			A_Recoil(8); // recoil is a bitch
 		}
 		QSZM E 15;
 		Goto See;
@@ -104,7 +89,7 @@ class QuadShotgunGuy : DMR_ShotgunGuy
 		QSZM E 15 A_PlaySound("QuadShotgunZombie/Reload1");
 		QSZM A 21 A_PlaySound("QuadShotgunZombie/Reload2");
 		TNT1 A 0 {
-			shotsFired = 0; //all 4 shots loaded again
+			shotsFired = 0; // all 4 shots loaded again
 		}
 		QSZM E 8 A_PlaySound("QuadShotgunZombie/Reload3");
 		Goto See;

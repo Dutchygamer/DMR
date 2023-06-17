@@ -286,12 +286,9 @@ class PyroDemonBlast : DMR_GrenadeBase
 		COMT AABBCC 2 Bright {
 			A_SpawnItemEx("DMR_LargeFireballTrail",-5,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
 			A_SpawnItemEx("PyroDemonBallTail",0,0,0,0,0,0);
-			//detonate if timer runs out
-			if(grenadeTimer >= 80) {
-				return ResolveState("XDeath");
-			}
-			grenadeTimer += 1;
-			return ResolveState(null);
+			// detonate if timer runs out
+			if (grenadeTimer >= 80) { SetStateLabel("XDeath"); }
+			grenadeTimer++;
 		}
 		Goto Spawn+1;
 	//stopped moving

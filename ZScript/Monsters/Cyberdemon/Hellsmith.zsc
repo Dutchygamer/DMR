@@ -240,15 +240,11 @@ class ForgemasterClusterBallCluster : Actor
 	{
 	Spawn:	
 		TNT1 A 1 {			
-			//stop if timer runs out
-			if (lifetime >= 50)
-			{
-				return ResolveState("Death");
-			}
-			lifetime += 1;
+			// stop if timer runs out
+			if (lifetime >= 50) { SetStateLabel("Death"); }
+			lifetime++;
 			A_CStaffMissileSlither();
 			A_SpawnItem("ForgemasterClusterBallClusterTrail",0,0);
-			return ResolveState(null);
 		}
 		Loop;
 	Death:

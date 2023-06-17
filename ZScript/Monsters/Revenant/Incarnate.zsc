@@ -71,7 +71,7 @@ class Ghoul : DMR_Revenant
 		INCX A 10 Bright A_Playsound("monster/incexp");
 		INCX BC 5 Bright;
 		INCX D 5 Bright A_NoBlocking;
-		INCX D 0 A_SpawnItem("HadesSphere",0,32);
+		TNT1 A 0 A_SpawnItem("HadesSphere",0,32);
 		INCX EFGHIJ 5 Bright;
 		INCX K -1;
 		Stop;

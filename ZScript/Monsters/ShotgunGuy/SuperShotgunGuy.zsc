@@ -18,7 +18,7 @@ class SuperShotgunGuy : DMR_ShotgunGuy
 		Tag "Super shotgun guy";
 		Health 60;
 		PainChance 155;
-		Translation "112:127=16:47"; //recolour green parts to red
+		Translation "112:127=16:47"; // recolour green parts to red
 		OBITUARY "%o was blown open by a super shotgunner.";
 		Scale 0.9;
 		DropItem "Shell";
@@ -34,28 +34,18 @@ class SuperShotgunGuy : DMR_ShotgunGuy
 		Loop;
 	See:
 		TNT1 A 0 {
-			if(shotsFired >= 2) {
-				return ResolveState("Reload");
-			}
-			else {
-				return ResolveState(null);
-			}
+			if (shotsFired >= 2) { SetStateLabel("Reload"); }
 		}	
 		GPOS AABBCCDD 4 A_Chase;
 		Loop;
 	Missile:
-		TNT1 A 0 { //if we are not fully loaded, use single shot
-			if(shotsFired != 0) {
-				return ResolveState("SingleOrSuperShot");
-			}
-			else {
-				return ResolveState(null);
-			}
+		TNT1 A 0 { // if we are not fully loaded, use single shot
+			if (shotsFired != 0) { SetStateLabel("SingleShot"); }
 		}
 		TNT1 A 0 A_JumpIfCloser(200, "CloseSuperShot");
 		TNT1 A 0 A_Jump(80, "SuperShot");
 		Goto SingleShot;
-	CloseShot: //when player is close, have a larger chance to super shot
+	CloseShot: // when player is close, have a larger chance to super shot
 		TNT1 A 0 A_Jump(160, "SuperShot");
 		Goto SingleShot;
 	SingleShot:
@@ -63,7 +53,7 @@ class SuperShotgunGuy : DMR_ShotgunGuy
 		GPOS F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("QuadShotgunZombie/SingleFire", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,7.1,5,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			shotsFired++; //expend a single shot
+			shotsFired++; // expend a single shot
 		}
 		GPOS E 10;
 		Goto See;
@@ -72,7 +62,7 @@ class SuperShotgunGuy : DMR_ShotgunGuy
 		GPOS F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("weapons/sshotf", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,7.1,10,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			shotsFired += 2; //expend 2 shots
+			shotsFired += 2; // expend 2 shots
 		}
 		GPOS E 10;
 		Goto See;
@@ -80,7 +70,7 @@ class SuperShotgunGuy : DMR_ShotgunGuy
 		GPOS E 14 A_PlaySound("weapons/sshoto");
 		GPOS A 15 A_PlaySound("weapons/sshotl");
 		TNT1 A 0 {
-			shotsFired = 0; //all 2 shots loaded again
+			shotsFired = 0; // all 2 shots loaded again
 		}
 		GPOS E 7 A_PlaySound("weapons/sshotc");
 		Goto See;
