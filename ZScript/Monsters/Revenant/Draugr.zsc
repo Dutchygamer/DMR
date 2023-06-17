@@ -29,7 +29,6 @@ class Draugr : DMR_Revenant
 		Painchance 80;
 		MeleeThreshold 0;
 	}
-	int attackloop;
 	
 	States 
 	{ 

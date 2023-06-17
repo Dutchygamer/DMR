@@ -30,7 +30,6 @@ class Terminator : DMR_Cyberdemon
 		ActiveSound "Terminator/termact";
 	}
 	int boolet;
-	int attackLoop;
 	bool goneBerserk;
 	
 	States

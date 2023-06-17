@@ -28,7 +28,6 @@ class PyroDemon : DMR_Cyberdemon
 		DeathSound "pyro/death";
 		ActiveSound "pyro/idle";
 	}
-	int attackLoop;
 	
 	States
 	{

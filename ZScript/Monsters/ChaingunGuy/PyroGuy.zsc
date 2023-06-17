@@ -24,7 +24,6 @@ class PyroTechnician : DMR_ChaingunGuy
 		DropItem "";
 		+DOHARMSPECIES; //zombies aren't fire-proof
 	}
-	int attackloop;
 	
  	States
 	{

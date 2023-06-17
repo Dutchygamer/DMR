@@ -29,7 +29,6 @@ class Hellhound : DMR_Demon
 		HitObituary "A hellhound had %o for dinner.";
 		DamageFactor "Fire", 0.5;
 	}
-	int attackloop;
 	
 	States
 	{

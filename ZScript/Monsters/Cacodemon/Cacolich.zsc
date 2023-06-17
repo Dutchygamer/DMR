@@ -28,7 +28,6 @@ class Witherer : DMR_Cacodemon
 		PainSound "CacoLich/Pain";
 		DeathSound "CacoLich/Death";
 	}
-	int attackloop;
 	
 	States 
 	{ 
