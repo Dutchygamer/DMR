@@ -120,17 +120,18 @@ class Overlord : DMR_SpiderMastermind
 		OVER M 10 bright A_Scream;
 		OVER N 6 bright A_NoBlocking;
 		OVER O 6 bright;
-		TNT1 AAAAA 0 {
-			A_SpawnProjectile("OverFlesh1",random(0,90),random(0,40),random(-180,180),2,random(-15,15));
-			A_SpawnProjectile("OverFlesh2",random(0,90),random(0,40),random(-180,180),2,random(-15,15));
-		}
-		TNT1 AAAAAAAAAA 0 {
-			A_SpawnProjectile("OverFlesh3",random(0,90),random(0,40),random(-180,180),2,random(-15,15));
-			A_SpawnProjectile("OverFlesh4",random(0,90),random(0,40),random(-180,180),2,random(-15,15));
-			A_SpawnProjectile("OverFlesh5",random(0,90),random(0,40),random(-180,180),2,random(-15,15));
-			A_SpawnProjectile("OverFlesh6",random(0,90),random(0,40),random(-180,180),2,random(-15,15));
-		}
 		TNT1 A 0 {
+			for (fxLoop = 0;fxLoop <= 5;fxLoop++) {
+				A_SpawnProjectile("OverFlesh1",random(0,90),random(0,40),random(-180,180),2,random(-15,15));
+				A_SpawnProjectile("OverFlesh2",random(0,90),random(0,40),random(-180,180),2,random(-15,15));
+			}
+			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
+				A_SpawnProjectile("OverFlesh3",random(0,90),random(0,40),random(-180,180),2,random(-15,15));
+				A_SpawnProjectile("OverFlesh4",random(0,90),random(0,40),random(-180,180),2,random(-15,15));
+				A_SpawnProjectile("OverFlesh5",random(0,90),random(0,40),random(-180,180),2,random(-15,15));
+				A_SpawnProjectile("OverFlesh6",random(0,90),random(0,40),random(-180,180),2,random(-15,15));
+			}
+			
 			A_SpawnProjectile("OverBigArm1",40,-40,-90,2,random(-1,1));
 			A_SpawnProjectile("OverBigArm2",40,40,90,2,random(-1,1));
 			A_SpawnProjectile("OverSmallArm1",100,-30,-90,2,random(-15,15));
@@ -141,7 +142,7 @@ class Overlord : DMR_SpiderMastermind
 			A_SpawnProjectile("OverHorn2",110,16,90,2,random(-15,15));
 			//A_PainDie("HadesSphere"); //TODO do we want this?
 		}
-		OVER PQRSTUV 6 bright;
+		OVER PQRSTUV 6 Bright;
 		TNT1 A 50;
 		TNT1 A 1 A_BossDeath;
 		stop;

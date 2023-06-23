@@ -102,9 +102,14 @@ class Tiberdemon : DMR_Cyberdemon
 	Death:
 		DCYB H 10;
 		DCYB I 6 Bright A_Scream;
-		DCYB JKL 6 Bright;
-		DCYB M 6 Bright A_NoBlocking;
-		DCYB NO 6 Bright;
+		DCYB JKL 6 Bright {
+			A_SpawnItemEx("DMR_CyberDeathExplosionSpawner");
+		}
+		TNT1 A 0 A_NoBlocking;
+		DCYB MN 6 Bright {
+			A_SpawnItemEx("DMR_CyberDeathExplosionSpawner");
+		}
+		DCYB O 6 Bright;
 		DCYB P 50;
 		DCYB P -1 A_BossDeath;
 		Stop;

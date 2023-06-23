@@ -48,7 +48,7 @@ class DMR_SpiderMastermind : DMR_MonsterBase
 		SPID A 20 BRIGHT A_FaceTarget;
 		SPID GGHH 2 Bright Light("DMR_RifleFire") {
 			A_FaceTarget();
-			A_Playsound("MamaSpider/Fire");				
+			A_Playsound("MamaSpider/Fire", CHAN_WEAPON);				
 			A_SpawnProjectile("SpiderSlowBullet",41,0,frandom(-12,12),CMF_OFFSETPITCH,frandom(-1,1));
 		}
 		TNT1 A 0 A_MonsterRefire(10,"See");
@@ -60,7 +60,9 @@ class DMR_SpiderMastermind : DMR_MonsterBase
 	Death:
 		SPID J 20 A_Scream;
 		SPID K 10 A_NoBlocking();
-		SPID LMNOPQR 6 Bright;
+		SPID LMNOPQR 6 Bright {
+			A_SpawnItemEx("DMR_MastermindDeathExplosionSpawner");		
+		}
 		SPID S 50;
 		SPID S -1 A_BossDeath;
 		Stop;

@@ -127,9 +127,14 @@ class BlueTiberdemon : DMR_Cyberdemon
 		}
 		CARD E 10 Bright;
 		CARD F 6 Bright A_Scream;
-		CARD GHI 6 Bright;
-		CARD J 6 Bright A_NoBlocking;
-		CARD KL 6 Bright;
+		CARD GHI 6 Bright {
+			A_SpawnItemEx("DMR_CybiferaDeathExplosionSpawner");
+		}
+		TNT1 A 0 A_NoBlocking;
+		CARD JK 6 Bright {
+			A_SpawnItemEx("DMR_CybiferaDeathExplosionSpawner");
+		}
+		CARD L 6 Bright;
 		TNT1 A 50;
 		TNT1 A 1 A_BossDeath;
 		Stop;

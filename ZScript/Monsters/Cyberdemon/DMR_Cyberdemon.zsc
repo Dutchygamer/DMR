@@ -62,9 +62,14 @@ class DMR_Cyberdemon : DMR_MonsterBase
 	Death:
 		CYBR H 10;
 		CYBR I 6 Bright A_Scream;
-		CYBR JKL 6 Bright;
-		CYBR M 6 Bright A_NoBlocking;
-		CYBR NO 6 Bright;
+		CYBR JKL 6 Bright {
+			A_SpawnItemEx("DMR_CyberDeathExplosionSpawner");
+		}
+		TNT1 A 0 A_NoBlocking;
+		CYBR MN 6 Bright {
+			A_SpawnItemEx("DMR_CyberDeathExplosionSpawner");
+		}
+		CYBR O 6 Bright;
 		CYBR P 50;
 		CYBR P -1 A_BossDeath;
 		Stop;
