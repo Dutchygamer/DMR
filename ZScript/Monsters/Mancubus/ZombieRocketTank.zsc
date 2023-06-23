@@ -40,44 +40,41 @@ class ZombieRocketTank : DMR_ZombieTankBase
         ZMTK F 3;
         Goto See;
     Death:
-    XDeath:
-		TNT1 A 0 A_FaceTarget; //else the debris won't line up 
-        ZMTK G 4;
-        ZMTK G 4 A_Scream;
-		TNT1 A 0 {
-			A_SpawnItemEx("ZombieRocketTankGun",-20,-20,47,frandom(-2.5,2.5),frandom(-2.5,-7.5),frandom(2.5,7.5));
-			A_SpawnItemEx("DMR_MonsterExplosion",-20,-20,47);
-		}
-        ZMTK HHHHH random(1, 2);
-		TNT1 A 0 {
-			A_SpawnItemEx("ZombieRocketTankGun",-20,20,47,frandom(-2.5,2.5),frandom(2.5,7.5),frandom(2.5,7.5));
-			A_SpawnItemEx("DMR_MonsterExplosion",-20,20,47);
-		}		
-        ZMTK I 8;
-		TNT1 A 0 {
-			A_SpawnItemEx("ZombieTankExplosion",0,0,0);
+    XDeath:	
+		TNT1 A 0 A_FaceTarget; // else the debris won't line up 
+        ZMTK G 6;
+        ZMTK H 6 {
+			A_Scream();
+			A_SpawnItemEx("ZombiePlasmaTankGun",-20,-20,47,frandom(-2.5,2.5),frandom(-2.5,-7.5),frandom(2.5,7.5));
+			A_SpawnItemEx("DMR_TankDeathExplosionSpawner");
 		}	
-        ZMTK J 8; 
-		TNT1 A 0 {
-			spawnPilot = random(1,3);
-			if(spawnPilot == 3) //pilot may evacuate
-			{
-				A_DropItem("SuicideGuyOmniscient"); //aaaaaaaaaahhhh
-			}
-			else //...or not
-			{
-				A_SpawnItemEx("ZombieTankPilotGore",0,0,0,frandom(-8,8),frandom(-8,8),frandom(4,8)); 
-			}
+        ZMTK I 6 {
+			A_SpawnItemEx("ZombiePlasmaTankGun",-20,20,47,frandom(-2.5,2.5),frandom(2.5,7.5),frandom(2.5,7.5));
+			A_SpawnItemEx("DMR_TankDeathExplosionSpawner");
 		}	
-		TNT1 A 0 {
+        ZMTK J 6 {
+			A_SpawnItemEx("DMR_TankDeathExplosionSpawner");
+		}	
+        ZMTK J 6 {
 			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
 				A_SpawnItemEx("DMR_LargeSmokeLongCloud",random(-2,2),random(-2,2),random(10,20),frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(1,3));
 				A_SpawnItemEx("DMR_LargeSmokeLongCloud",random(-2,2),random(-2,2),random(10,20),frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(1,3));
 				A_SpawnItemEx("DMR_XLSmokeLongCloud",random(-2,2),random(-2,2),random(10,20),frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(1,3)); 
 			}
+		}
+        ZMTK K 6 {
+			spawnPilot = random(1,3);
+			if (spawnPilot == 3) // pilot may evacuate
+			{
+				A_DropItem("SuicideGuyOmniscient"); 
+			}
+			else // ...or not
+			{
+				A_SpawnItemEx("ZombieTankPilotGore",0,0,0,frandom(-8,8),frandom(-8,8),frandom(4,8)); 
+			}
 		}	
-        ZMTK K 8 A_Fall;
-        ZMTK LMN 8;
+        ZMTK L 6 A_Fall;
+        ZMTK MN 6;
         ZMTK O -1 A_BossDeath;
         Stop;
     }

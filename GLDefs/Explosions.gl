@@ -1,33 +1,14 @@
 
-object DMR_MonsterExplosion
+object DMR_BossDeathExplosion
 {
     frame MISLB { light DMR_SmallRocket_X1 }
     frame MISLC { light DMR_SmallRocket_X2 }
     frame MISLD { light DMR_SmallRocket_X3 }
 }
 
-object DMR_SilentMonsterExplosion
+object DMR_MonsterDeathExplosion
 {
     frame MISLB { light DMR_SmallRocket_X1 }
     frame MISLC { light DMR_SmallRocket_X2 }
     frame MISLD { light DMR_SmallRocket_X3 }
-}
-
-object DMR_BossMonsterExplosion
-{
-//TODO bigger effects
-    frame GRNEA { light DMR_Rocket_X1 }
-    frame GRNEB { light DMR_Rocket_X2 }
-    frame GRNEC { light DMR_Rocket_X2 }
-    frame GRNED { light DMR_Rocket_X2 }
-    frame GRNEE { light DMR_Rocket_X2 }
-    frame GRNEF { light DMR_Rocket_X2 }
-    frame GRNEG { light DMR_Rocket_X2 }
-    frame GRNEH { light DMR_Rocket_X2 }
-    frame GRNEI { light DMR_Rocket_X2 }
-    frame GRNEJ { light DMR_Rocket_X2 }
-    frame GRNEK { light DMR_Rocket_X2 }
-    frame GRNEL { light DMR_Rocket_X2 }
-    frame GRNEM { light DMR_Rocket_X2 }
-    frame GRNEN { light DMR_Rocket_X3 }
 }

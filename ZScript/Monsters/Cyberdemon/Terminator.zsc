@@ -39,7 +39,7 @@ class Terminator : DMR_Cyberdemon
 		Loop;
 	See:
 		TNT1 A 0 {
-			if (!goneBerserk && health < 1000) { SetStateLabel("GoBeserk"); }
+			if (!goneBerserk && health < 1000) { SetStateLabel("GoBerserk"); }
 		}
 		TERM A 3 {
 			A_SetTerminatorTics(3,2);
@@ -58,7 +58,7 @@ class Terminator : DMR_Cyberdemon
 			A_Chase();
 		}
 		Loop;
-	GoBeserk:
+	GoBerserk:
 		TERM A 10 Light("TerminatorGoBerserk") {
 			A_PlaySound("monster/termpin", 7);
 			goneBerserk = true;
@@ -153,9 +153,12 @@ class Terminator : DMR_Cyberdemon
 	Death:	
 		TERM M 10;
 		TERM N 6 A_Scream;
-		TERM OPQ 5 Bright;
+		TERM OPQ 5 Bright {		
+			A_SpawnItemEx("DMR_CyberDeathExplosionSpawner");
+		}
 		TERM R 5 Bright {
 			A_NoBlocking();
+			A_SpawnItemEx("DMR_CyberDeathExplosionSpawner");
 			A_SpawnProjectile("TerminatorHead", 90, 15, -170, 0);
 			A_SpawnProjectile("TerminatorShoulder", 75, 60, -70, 0);
 			A_SpawnProjectile("TerminatorArm", 0, 60, -90, 0);

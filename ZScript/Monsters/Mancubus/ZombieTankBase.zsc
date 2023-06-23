@@ -1,4 +1,4 @@
-//basic setup for zombie tanks, so I don't have to duplicate this everywhere
+// basic setup for zombie tanks, so I don't have to duplicate this everywhere
 class DMR_ZombieTankBase : DMR_Fatso
 {
 	Default
@@ -18,11 +18,12 @@ class DMR_ZombieTankBase : DMR_Fatso
 	States
     {
     Raise:
-        Stop; //no ressing for tanks!
+        Stop; // no ressing for tanks!
     }
 }
 
-class ZombieTankExplosion : DMR_MonsterDeathExplosion
+//TODO unused?
+class ZombieTankExplosion : DMR_BossDeathExplosion
 {
 	Default
 	{
@@ -51,7 +52,7 @@ class ZombieTankExplosion : DMR_MonsterDeathExplosion
 	}
 }
 
-//huhuhuh, what a mess!
+// huhuhuh, what a mess!
 class ZombieTankPilotGore : DMR_BouncingDebris
 {
 	Default

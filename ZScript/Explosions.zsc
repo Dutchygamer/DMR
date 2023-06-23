@@ -1,7 +1,57 @@
-//EXPLOOOOOOOOOSIONS
-//these should not be used by any projectile; they acts like the main definition and copy/paste example
+// EXPLOOOOOOOOOSIONS
+// these should not be used by any projectile; they acts like the main definition and copy/paste example
 
-class DMR_MonsterDeathExplosion : Actor
+// spawners
+Class DMR_CyberDeathExplosionSpawner : DMR_FXBase
+{
+	Default
+	{
+		+NOINTERACTION;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 AAA 1 
+		{
+			A_SpawnItemEx("DMR_BossDeathExplosion",random(25,-25),random(25,-25),random(20,120)); 
+			A_SetTics(random(1,6));
+		}
+		Stop;
+	}
+}
+
+Class DMR_MastermindDeathExplosionSpawner : DMR_CyberDeathExplosionSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 AAA 1 
+		{
+			A_SpawnItemEx("DMR_BossDeathExplosion",random(60,-60),random(60,-60),random(20,70));
+			A_SetTics(random(1,6));
+		}
+		Stop;
+	}
+}
+
+Class DMR_TankDeathExplosionSpawner : DMR_CyberDeathExplosionSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 AA 1 
+		{
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(25,-25),random(30,-30),random(20,40));
+			A_SetTics(random(1,6));
+		}
+		Stop;
+	}
+}
+
+
+// individual explosions
+class DMR_BossDeathExplosion : Actor
 {
 	Default
 	{
@@ -18,14 +68,14 @@ class DMR_MonsterDeathExplosion : Actor
 				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 			}
 		}
-		MISL B 8 Bright;
-		MISL C 6 Bright;
-		MISL D 4 Bright;
+		MISL B 8 Bright Light("DMR_Rocket_X1");
+		MISL C 6 Bright Light("DMR_Rocket_X2");
+		MISL D 4 Bright Light("DMR_Rocket_X3");
 		Stop;
 	}
 }
 
-class DMR_MonsterExplosion : DMR_MonsterDeathExplosion
+class DMR_MonsterDeathExplosion : DMR_BossDeathExplosion
 {
 	Default
 	{
@@ -43,49 +93,6 @@ class DMR_MonsterExplosion : DMR_MonsterDeathExplosion
 		MISL B 8 Bright;
 		MISL C 6 Bright;
 		MISL D 4 Bright;
-		Stop;
-	}
-}
-
-class DMR_SilentMonsterExplosion : DMR_MonsterDeathExplosion
-{
-
-	Default
-	{
-		Scale 0.75;
-	}
-	States
-	{
-	Spawn:
-		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-			}
-		}
-		MISL B 8 Bright;
-		MISL C 6 Bright;
-		MISL D 4 Bright;
-		Stop;
-	}
-}
-
-class DMR_BossMonsterExplosion : DMR_MonsterDeathExplosion
-{
-	Default
-	{
-		Scale 1.5;
-	}
-	States
-	{
-	Spawn:
-		TNT1 A 0 NoDelay A_PlaySound("darkinquisitor/bigdeathexpl", CHAN_WEAPON);
-		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 14;fxLoop++) {
-				A_SpawnItemEx("DMR_LargeFireBouncingDebris",random(-2,2),random(-2,2),random(2,4),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(2,4),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-			}
-		}
-		GRNE ABCDEFGHIJKLMN 3 Bright A_BossDeath;
 		Stop;
 	}
 }
