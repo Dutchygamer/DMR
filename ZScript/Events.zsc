@@ -12,31 +12,33 @@ class DMR_ReplacerHandler : EventHandler
 		switch (a.Replacee.GetClassName()) 
 		{
 			case 'WolfensteinSS':
-				if(dmr_replace_ss == 1)
+				if (dmr_replace_ss == 1)
 					{ a.Replacement = 'EvilMarine'; break; }
-				else if(dmr_replace_ss == 2)
+				else if (dmr_replace_ss == 2)
 					{ a.Replacement = 'EvilMarine'; break; }
 				//else if(dmr_replace_ss == 3)
 				//	{ a.Replacement = 'Epic2Alien'; break; }
-				if(dmr_replace_ss == 4)
+				else if (dmr_replace_ss == 4)
 					{ a.Replacement = 'EvilMarine'; break; }
 			case 'CommanderKeen':
-				if(dmr_replace_keen == 1)
+				if (dmr_replace_keen == 1)
 					{ a.Replacement = 'SuperAfrit'; break; }
-				else if(dmr_replace_keen == 2)
+				else if (dmr_replace_keen == 2)
 					{ a.Replacement = 'SuperAfrit'; break; }
 				//else if(dmr_replace_keen == 3)
 				//	{ a.Replacement = 'Epic2Keen'; break; }
-				if(dmr_replace_keen == 4)
+				else if (dmr_replace_keen == 4)
 					{ a.Replacement = 'SuperAfrit'; break; }
 		}		
 		
-		// mapset specific replacers
+		// mapset / mod custom actor replacers
 		switch (a.Replacee.GetClassName()) 
 		{
-			// BD Hell on Earth
-			case 'BossBelphegor'	: a.Replacement = 'Belphegor'; break;
-			case 'CyberdemonLord'	: a.Replacement = 'Babel'; break;
+			// BD Hell on Earth mapset
+			case 'BossBelphegor'					: a.Replacement = 'Belphegor'; break;
+			case 'CyberdemonLord'					: a.Replacement = 'Babel'; break;
+			// Corruption Cards mod
+			case 'CCards_Actor_PilotedMechPlasma'	: a.Replacement = 'DMR_ArachnotronPlasma'; break;
 		}
 	}
 }
