@@ -129,9 +129,9 @@ class BlueTiberdemon : DMR_Cyberdemon
 		CARD F 6 Bright A_Scream;
 		CARD GHI 6 Bright;
 		CARD J 6 Bright A_NoBlocking;
-		CARD K 6 Bright;
-		CARD L 50 Bright;
-		CARD L 1 Bright A_BossDeath;
+		CARD KL 6 Bright;
+		TNT1 A 50;
+		TNT1 A 1 A_BossDeath;
 		Stop;
 	} 
 }
