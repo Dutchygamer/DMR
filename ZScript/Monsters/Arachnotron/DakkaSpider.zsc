@@ -49,7 +49,10 @@ class Solifutron : DMR_Arachnotron
 		goto See+1;
 	Death:
 		CSPI J 20 A_Scream;
-		CSPI K 7 A_NoBlocking;
+		CSPI K 7 {
+			A_NoBlocking();
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(10,-10),0,random(20,30));
+		}
 		CSPI LMNO 7;
 		CSPI P -1 A_BossDeath;
 		stop;

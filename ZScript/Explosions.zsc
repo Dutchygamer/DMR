@@ -14,7 +14,7 @@ Class DMR_CyberDeathExplosionSpawner : DMR_FXBase
 	Spawn:
 		TNT1 AAA 1 
 		{
-			A_SpawnItemEx("DMR_BossDeathExplosion",random(25,-25),random(25,-25),random(20,120)); 
+			A_SpawnItemEx("DMR_BossDeathExplosion",random(25,-25),0,random(20,120)); 
 			A_SetTics(random(1,6));
 		}
 		Stop;
@@ -34,7 +34,7 @@ Class DMR_TerminatorDeathExplosionSpawner : DMR_FXBase
 		TNT1 AAA 1 
 		{
 			// Term is a bit shorter then a Cybbie
-			A_SpawnItemEx("DMR_BossDeathExplosion",random(25,-25),random(25,-25),random(20,100)); 
+			A_SpawnItemEx("DMR_BossDeathExplosion",random(25,-25),0,random(20,100)); 
 			A_SetTics(random(1,6));
 		}
 		Stop;
@@ -54,7 +54,7 @@ Class DMR_CybiferaDeathExplosionSpawner : DMR_FXBase
 		TNT1 AAA 1 
 		{
 			// Fera doesn't have legs so spawn explosions higher then Cybbie
-			A_SpawnItemEx("DMR_BossDeathExplosion",random(25,-25),random(25,-25),random(50,120)); 
+			A_SpawnItemEx("DMR_BossDeathExplosion",random(25,-25),0,random(50,120)); 
 			A_SetTics(random(1,6));
 		}
 		Stop;
@@ -68,7 +68,7 @@ Class DMR_MastermindDeathExplosionSpawner : DMR_CyberDeathExplosionSpawner
 	Spawn:
 		TNT1 AAA 1 
 		{
-			A_SpawnItemEx("DMR_BossDeathExplosion",random(60,-60),random(60,-60),random(20,70));
+			A_SpawnItemEx("DMR_BossDeathExplosion",random(60,-60),0,random(20,70));
 			A_SetTics(random(1,6));
 		}
 		Stop;
@@ -82,7 +82,7 @@ Class DMR_TankDeathExplosionSpawner : DMR_CyberDeathExplosionSpawner
 	Spawn:
 		TNT1 AA 1 
 		{
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(25,-25),random(30,-30),random(20,40));
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(25,-25),0,random(20,40));
 			A_SetTics(random(1,6));
 		}
 		Stop;

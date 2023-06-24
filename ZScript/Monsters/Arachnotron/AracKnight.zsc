@@ -61,7 +61,10 @@ class Mygalotron : DMR_Arachnotron
 		Goto See+1;
 	Death:
 		ARAC J 20 A_Scream;
-		ARAC K 7 A_NoBlocking;
+		ARAC K 7 {
+			A_NoBlocking();
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(10,-10),0,random(20,30));
+		}
 		ARAC LMNO 7;
 		ARAC P -1 A_BossDeath;
 		Stop;

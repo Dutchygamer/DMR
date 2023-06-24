@@ -54,7 +54,9 @@ class CyberKnight : DMR_HellKnight
 	XDeath:
 		CBO2 I 8;
 		CBO2 J 8 A_Scream;
-		CBO2 K 8 bright A_Playsound("world/barrelx");
+		CBO2 K 8 bright {
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		}
 		CBO2 L 8 bright A_NoBlocking;
 		CBO2 M 8 bright;
 		CBO2 N 8 bright;

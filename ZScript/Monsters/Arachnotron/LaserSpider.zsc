@@ -43,7 +43,10 @@ class Opiliotron : DMR_Arachnotron
 		Goto See+1;
 	Death:
 		RSPI J 20 A_Scream;
-		RSPI K 7 A_Fall;
+		RSPI K 7 {
+			A_NoBlocking();
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(10,-10),0,random(20,30));
+		}
 		RSPI LMNO 7;
 		RSPI P -1 A_BossDeath;
 		Stop;

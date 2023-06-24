@@ -154,28 +154,39 @@ class NobleVanguard : DMR_BaronOfHell
 		TNT1 A 0 {
 			A_RemoveChildren(1,RMVF_EVERYTHING);
 		}
-		HPAL Q 7 A_Scream;
-		HPAL R 7 A_SpawnItemEx("NobleVanguardDroppedShield", 0, 0, 25, 6, 0, 0, 60, SXF_SETMASTER);
-		HPAL S 7;
-		HPAL T 7 A_NoBlocking;
-		HPAL UV 7;
-		HPAL W -1;
+		HPAL Q 8;
+		HPAL R 8 {
+			A_Scream();
+			A_SpawnItemEx("NobleVanguardDroppedShield", 0, 0, 25, 6, 0, 0, 60, SXF_SETMASTER);
+		}
+		HPAL S 8;
+		HPAL T 8 A_NoBlocking;
+		HPAL UV 8;
+		HPAL W -1 A_BossDeath;
 		Stop;
 	XDeath:
 		TNT1 A 0 {
 			A_RemoveChildren(1,RMVF_EVERYTHING);
 		}
-		HPLX A 6 A_PlaySound("Paladin/XDeath");
-		HPLX B 6 Bright A_SpawnItemEx("NobleVanguardDroppedShield", 0, 0, 25, 6, 0, 0, 60, SXF_SETMASTER);
-		HPLX CD 6 Bright;
-		HPLX E 6 Bright A_NoBlocking;
-		HPLX FGH 6 Bright;
-		HPLX I 6;
+		HPLX A 5;
+		HPLX B 5 Bright {
+			A_PlaySound("Paladin/XDeath");
+			A_SpawnItemEx("NobleVanguardDroppedShield", 0, 0, 25, 6, 0, 0, 60, SXF_SETMASTER);
+		}
+		HPLX C 5 Bright {
+			A_NoBlocking();
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		}
+		HPLX D 5 Bright {
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		}
+		HPLX EFGH 5 Bright;
+		HPLX I 5;
 		HPLX J -1;
 		Stop;
 	Raise: 
-		HPAL W 7 A_KillChildren;
-		HPAL VUTSRQ 7;
+		HPAL W 8 A_KillChildren;
+		HPAL VUTSRQ 8;
 		Goto See;
 	} 
 }

@@ -52,10 +52,12 @@ class CyberBaron : DMR_BaronOfHell
 		CBOS H 2 A_Pain;
 		goto See;
 	Death:
-	XDeath:
+	XDeath:	
 		CBOS I 8;
 		CBOS J 8 A_Scream;
-		CBOS K 8 bright A_Playsound("world/barrelx");
+		CBOS K 8 bright {
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		}
 		CBOS L 8 bright A_NoBlocking;
 		CBOS M 8 bright;
 		CBOS N 8 bright;
