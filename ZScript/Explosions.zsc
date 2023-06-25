@@ -96,6 +96,7 @@ class DMR_BossDeathExplosion : Actor
 	Default
 	{
 		+NOINTERACTION;
+		Renderstyle "Add";
 	}
 	int fxLoop;
 	
@@ -105,6 +106,7 @@ class DMR_BossDeathExplosion : Actor
 		TNT1 A 0 NoDelay A_PlaySound("weapons/rocklx", CHAN_WEAPON);
 		TNT1 A 0 {
 			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
+				//A_SpawnParticle("FFFFFF",SPF_FULLBRIGHT|SPF_RELATIVE,random(20,30),frandom(5,10),frandom(0,360),random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); //,-0.1,0,-0.05,1,-1,-0.2);
 				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 			}
 		}

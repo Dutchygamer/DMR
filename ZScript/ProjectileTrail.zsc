@@ -22,16 +22,17 @@ class DMR_ProjectileTrail : DMR_FXBase
 	{
 		+NOINTERACTION;
 		+DONTSPLASH;
+		+NOBLOCKMAP;
 		RenderStyle "Add";
 	}
 	States
 	{
 	Spawn:
-		FFX1 ABCDEF 1 Bright {
-			A_FadeOut(0.045);
+		FFX1 ABCDEFABCDEF 1 Bright {
+			A_FadeOut(0.06);
 			A_SetScale(Scale.X-0.01);
 		}
-		Loop;
+		Stop;
 	}
 }
 
@@ -45,11 +46,11 @@ class DMR_FireballTrail : DMR_ProjectileTrail
 	States
 	{
 	Spawn:
-		FFX1 ABCDEF 1 Bright {
-			A_FadeOut(0.045);
+		FFX1 ABCDEFABCDEF 1 Bright {
+			A_FadeOut(0.06);
 			A_SetScale(Scale.X-0.01);
 		}
-		Loop;
+		Stop;
 	}
 }
 
@@ -69,7 +70,7 @@ class DMR_LargeFireballTrail : DMR_FireballTrail
 	}
 }
 
-//green fire trail
+// green fire trail
 class DMR_GreenFireballTrail : DMR_ProjectileTrail
 {
 	Default
@@ -79,11 +80,11 @@ class DMR_GreenFireballTrail : DMR_ProjectileTrail
 	States
 	{
 	Spawn:
-		FFX2 ABCDEF 1 Bright {
-			A_FadeOut(0.045);
+		FFX2 ABCDEFABCDEF 1 Bright {
+			A_FadeOut(0.06);
 			A_SetScale(Scale.X-0.01);
 		}
-		Loop;
+		Stop;
 	}
 }
 
@@ -103,7 +104,7 @@ class DMR_LargeGreenFireballTrail : DMR_GreenFireballTrail
 	}
 }
 
-//purple fire trail
+// purple fire trail
 class DMR_PurpleFireballTrail : DMR_ProjectileTrail
 {
 	Default
@@ -113,11 +114,11 @@ class DMR_PurpleFireballTrail : DMR_ProjectileTrail
 	States
 	{
 	Spawn:
-		FFX3 ABCDEF 1 Bright {
-			A_FadeOut(0.045);
+		FFX3 ABCDEFABCDEF 1 Bright {
+			A_FadeOut(0.06);
 			A_SetScale(Scale.X-0.01);
 		}
-		Loop;
+		Stop;
 	}
 }
 
@@ -189,7 +190,9 @@ class DMR_GasTrail : DMR_ProjectileTrail
 	States
 	{
 	Spawn:
-		GAS2 ABCDEFGHIJKLMN 3;
+		GAS2 ABCDEFGHIJKLMN 3 {
+			A_FadeOut(0.01);
+		}
 		Stop;
 	}
 }
@@ -204,7 +207,9 @@ class DMR_SmallGasTrail : DMR_ProjectileTrail
 	States
 	{
 	Spawn:
-		GAS2 ABCDEFGHIJKLMN 2;
+		GAS2 ABCDEFGHIJKLMN 2 {
+			A_FadeOut(0.01);
+		}
 		Stop;
 	}
 }
@@ -224,20 +229,23 @@ class DMR_BloodTrail : DMR_ProjectileTrail
 	}
 }
 
-//plasma trail
+// plasma trail
 class DMR_PlasmaTrail : DMR_ProjectileTrail
 {
 	Default
 	{
-		ALPHA 0.5; //0.6
-		Scale 0.75;
+		ALPHA 0.5;
+		Scale 0.9;
 	}
 	States
 	{
 	Spawn:
+		// plasma trails need a small delay
+		TNT1 A 2;
+	SpawnLoop:
 		PLSS AB 1 Bright {
-			A_FadeOut(0.045);
-			A_SetScale(Scale.X-0.01);
+			A_FadeOut();
+			A_SetScale(Scale.X-0.05);
 		}
 		Loop;
 	}
@@ -248,35 +256,47 @@ class DMR_ArachnotronPlasmaTrail : DMR_PlasmaTrail
 	States
 	{
 	Spawn:
+		// plasma trails need a small delay
+		TNT1 A 2;
+	SpawnLoop:
 		APLS AB 1 Bright {
-			A_FadeOut(0.045);
-			A_SetScale(Scale.X-0.01);
+			A_FadeOut();
+			A_SetScale(Scale.X-0.05);
 		}
 		Loop;
 	}
 }
 
-class DMR_PlasmaRuneTrail : DMR_ProjectileTrail
+class DMR_PlasmaRuneTrail : DMR_PlasmaTrail
 {
 	Default
 	{
-		ALPHA 0.8; //0.5; //0.6
+		ALPHA 0.8;
 		Scale 0.75;
+		+ROLLSPRITE;
 	}
 	States
 	{
 	Spawn:
+		// plasma trails need a small delay
+		TNT1 A 2;
+	SpawnLoop:
 		PLRN AB 1 Bright {
-			A_SetRoll(roll+15);
-			A_FadeOut(0.045);
-			//A_SetScale(Scale.X-0.01);
+			A_FadeOut(0.05);
 		}
 		Loop;
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		A_SetRoll(random(0,360));
 	}
 }
 
 
-//lightningball trail
+//TODO unused
+// lightningball trail
 class DMR_LightningBallTrail : DMR_ProjectileTrail
 {
 	Default
@@ -294,102 +314,3 @@ class DMR_LightningBallTrail : DMR_ProjectileTrail
 	}
 }
 
-
-//===============
-// bright flares
-//===============
-class DMR_FlareBase : DMR_ProjectileTrail
-{
-	Default
-	{
-		+NOBLOCKMAP;
-		+BRIGHT;
-		+ROLLSPRITE;
-		RenderStyle "Add";
-	}
-}
-
-class DMR_LaserFlare : DMR_FlareBase
-{
-	Default
-	{
-		Alpha 0.3;
-		Scale 0.1;
-	}
-	States
-	{
-	Spawn:
-		BFOF A 1 Bright {
-			A_FadeOut(0.1);
-		}
-		Loop;
-	}
-}
-
-class DMR_LaserFlareBig : DMR_FlareBase
-{
-	Default
-	{
-		Alpha 0.5;
-		Scale 0.6;
-	}
-	States
-	{
-	Spawn:
-		BFOF A 1 Bright {
-			A_FadeOut(0.08);
-		}
-		Loop;
-	}
-}
-
-class DMR_BlueLaserFlareBig : DMR_FlareBase
-{
-	Default
-	{
-		Alpha 0.5;
-		Scale 0.6;
-	}
-	States
-	{
-	Spawn:
-		BFOF B 1 Bright {
-			A_FadeOut(0.08);
-		}
-		Loop;
-	}
-}
-
-class DMR_LaserImpactFlareBig : DMR_FlareBase
-{
-	Default
-	{
-		Alpha 0.75;
-		Scale 1.5;
-	}
-	States
-	{
-	Spawn:
-		BFOF A 1 Bright {
-			A_FadeOut(0.05);
-		}
-		Loop;
-	}
-}
-
-class DMR_BlueLaserImpactFlareBig : DMR_FlareBase
-{
-	Default
-	{
-		Alpha 0.75;
-		Scale 1.5;
-	}
-	States
-	{
-	Spawn:
-		BFOF B 1 Bright {
-			A_FadeOut(0.05);
-		}
-		Loop;
-	}
-}

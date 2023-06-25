@@ -21,23 +21,23 @@ class DMR_BouncingDebris : DMR_FXBase
 		Gravity 0.75;
 		RenderStyle "Add";
 	}
-	States
-	{
-	Spawn:
-		FFX1 ABCDEF 1 Bright {
-			A_FadeOut(0.045);
-			A_SetScale(Scale.X-0.01);
-		}
-		Loop;
-	}
 }
 
-//bouncing flame debris
+// bouncing flame debris
 class DMR_FireBouncingDebris : DMR_BouncingDebris
 {
 	Default
 	{
-		Scale 0.7;
+		Scale 0.45;
+	}
+	States
+	{
+	Spawn:
+		FFX1 ABCDEFABCDEF 1 Bright {
+			A_FadeOut(0.075);
+			A_SetScale(Scale.X-0.01);
+		}
+		Stop;
 	}
 }
 
@@ -45,7 +45,7 @@ class DMR_MediumFireBouncingDebris : DMR_FireBouncingDebris
 {
 	Default
 	{
-		Scale 1;
+		Scale 0.6;
 	}
 }
 
@@ -53,7 +53,7 @@ class DMR_LargeFireBouncingDebris : DMR_FireBouncingDebris
 {
 	Default
 	{
-		Scale 1.2;
+		Scale 0.8;
 	}
 }
 
@@ -61,16 +61,16 @@ class DMR_GreenFireBouncingDebris : DMR_BouncingDebris
 {
 	Default
 	{
-		Scale 0.7;
+		Scale 0.45;
 	}
 	States
 	{
 	Spawn:
-		FFX2 ABCDEF 1 Bright {
-			A_FadeOut(0.045);
+		FFX2 ABCDEFABCDEF 1 Bright {
+			A_FadeOut(0.075);
 			A_SetScale(Scale.X-0.01);
 		}
-		Loop;
+		Stop;
 	}
 }
 
@@ -78,7 +78,7 @@ class DMR_MediumGreenFireBouncingDebris : DMR_GreenFireBouncingDebris
 {
 	Default
 	{
-		Scale 1.0;
+		Scale 0.6;
 	}
 }
 
@@ -86,7 +86,7 @@ class DMR_LargeGreenFireBouncingDebris : DMR_GreenFireBouncingDebris
 {
 	Default
 	{
-		Scale 1.2;
+		Scale 0.8;
 	}
 }
 
@@ -94,35 +94,35 @@ class DMR_PurpleFireBouncingDebris : DMR_BouncingDebris
 {
 	Default
 	{
-		Scale 0.7;
+		Scale 0.45;
 	}
 	States
 	{
 	Spawn:
-		FFX3 ABCDEF 1 Bright {
-			A_FadeOut(0.045);
+		FFX3 ABCDEFABCDEF 1 Bright {
+			A_FadeOut(0.075);
 			A_SetScale(Scale.X-0.01);
 		}
-		Loop;
+		Stop;
 	}
 }
 
-//bouncing gas debris
+// bouncing gas debris
 class DMR_GasBouncingDebris : DMR_BouncingDebris
 {   
 	Default
 	{
-		ALPHA 0.4;
+		Alpha 0.4;
 		Gravity 0.04;
 		BounceFactor 0.9;
 	}
 	States
 	{
 	Spawn:
-		GAS2 DEFGHIJKLM 3 {
-			A_FadeOut(0.005);
+		GAS2 DEFGHIJKLM 3 Bright {
+			A_FadeOut(0.075);
 			A_SetScale(Scale.X-0.01);
 		}
-		Loop;
+		Stop;
 	}
 }

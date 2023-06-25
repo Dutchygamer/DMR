@@ -85,10 +85,9 @@ class DMR_ArachnotronPlasma : DMR_ZombiePlasma
 		}
 		Loop;
 	Death:
-		/*TNT1 AAAA 0 {
-			A_SpawnItemEx("MediumGreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-			A_SpawnItemEx("MediumGreenFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-		}*/
+		TNT1 A 0 {
+			A_SpawnItemEx("DMR_PlasmaImpactFlare");
+		}
 		APBX ABCDE 5 Bright;
 		Stop;
 	}
