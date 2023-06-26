@@ -454,6 +454,7 @@ monster/hadexp dshadexp
 /////////////////////////////
 
 skeleton/tracex               BNREXP
+skeleton/pain                 SKELPN
 
 // Deathknight
 deathknight/sight             dsdknsit
