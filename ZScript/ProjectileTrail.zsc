@@ -23,6 +23,7 @@ class DMR_ProjectileTrail : DMR_FXBase
 		+NOINTERACTION;
 		+DONTSPLASH;
 		+NOBLOCKMAP;
+		+ROLLSPRITE;
 		RenderStyle "Add";
 	}
 	States
@@ -33,6 +34,12 @@ class DMR_ProjectileTrail : DMR_FXBase
 			A_SetScale(Scale.X-0.01);
 		}
 		Stop;
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		A_SetRoll(random(0,360));
 	}
 }
 
@@ -273,7 +280,6 @@ class DMR_PlasmaRuneTrail : DMR_PlasmaTrail
 	{
 		ALPHA 0.8;
 		Scale 0.75;
-		+ROLLSPRITE;
 	}
 	States
 	{
@@ -285,12 +291,6 @@ class DMR_PlasmaRuneTrail : DMR_PlasmaTrail
 			A_FadeOut(0.05);
 		}
 		Loop;
-	}
-	
-	override void PostBeginPlay()
-	{
-		Super.PostBeginPlay();
-		A_SetRoll(random(0,360));
 	}
 }
 

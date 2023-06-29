@@ -2,13 +2,14 @@
 //===============
 // bright flares
 //===============
-class DMR_FlareBase : DMR_ProjectileTrail
+class DMR_FlareBase : DMR_FXBase
 {
 	Default
 	{
+		+NOINTERACTION;
+		+DONTSPLASH;
 		+NOBLOCKMAP;
 		+BRIGHT;
-		+ROLLSPRITE;
 		RenderStyle "Add";
 	}
 }

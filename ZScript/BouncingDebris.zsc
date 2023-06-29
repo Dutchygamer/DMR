@@ -14,12 +14,19 @@ class DMR_BouncingDebris : DMR_FXBase
 		+DONTSPLASH;
 		+NOBLOCKMAP;
 		+DROPOFF;
+		+ROLLSPRITE;
 		Height 2;
 		Radius 2;
 		Bouncetype "Doom";
 		BounceFactor 0.5;
 		Gravity 0.75;
 		RenderStyle "Add";
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		A_SetRoll(random(0,360));
 	}
 }
 
