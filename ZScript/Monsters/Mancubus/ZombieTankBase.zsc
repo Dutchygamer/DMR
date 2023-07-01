@@ -60,6 +60,7 @@ class ZombieTankPilotGore : DMR_BouncingDebris
 		Renderstyle "Normal";
 		Alpha 1;
 		BounceFactor 0.5;
+		-ROLLSPRITE;
 	}
 	States
 	{
