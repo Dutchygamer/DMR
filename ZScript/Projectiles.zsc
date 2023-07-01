@@ -57,8 +57,8 @@ class DMR_Rocket : DMR_Projectile
 	{
 	Spawn:
 		MISL A 1 Bright Light("DMR_ROCKET") {
-			A_SpawnItemEx("DMR_MediumFireballTrail",-25,0,5,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("DMR_MediumSmokeCloud",-25,0,5,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_MediumFireballTrail",-35,0,6,frandom(-1,0),frandom(-1,1),frandom(-1,0));
+			A_SpawnItemEx("DMR_MediumSmokeCloud",-35,0,6,frandom(-1,0));
 		}
 		Loop;
 	Death:
@@ -96,8 +96,8 @@ class DMR_SmallRocket : DMR_Rocket
 	{
 	Spawn:
 		MISL A 1 Bright Light("DMR_SROCKET") {
-			A_SpawnItemEx("DMR_FireballTrail",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("DMR_SmokeCloud",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_FireballTrail",-28,0,5,frandom(-1,0),frandom(-1,1),frandom(-1,0));
+			A_SpawnItemEx("DMR_SmokeCloud",-28,0,5,frandom(-1,0));
 		}
 		Loop;
 	Death:
@@ -117,7 +117,7 @@ class DMR_SmallRocket : DMR_Rocket
 	}
 }
 
-//grenade
+// grenade
 Class DMR_GrenadeBase : DMR_Projectile
 {
 	Default
@@ -154,18 +154,19 @@ class DMR_ThrownGrenade : DMR_GrenadeBase
 	}
 }
 
-//cluster missile
+// cluster missile
 class DMR_ClusterSubProjectile : DMR_Projectile
 {
 	Default
 	{
-		Radius 11;
-		Height 8;
+		Radius 9;
+		Height 7;
 		Speed 10;
 		DamageFunction(random(10,30));
-		Projectile;
+		+RANDOMIZE
 		+SEEKERMISSILE;
-		+RANDOMIZE;
+		SeeSound "largerocket/launch";
+		DeathSound "skeleton/tracex";
 		Scale 0.5;
 	}
 	int fuelLevel;
@@ -176,14 +177,14 @@ class DMR_ClusterSubProjectile : DMR_Projectile
 	Spawn:
 		TNT1 A 0 NoDelay A_Jump(128,"Homing"); 
 		TNT1 A 0 {
-			fuelLevel = random(75,100); //set fuel lifetime
+			fuelLevel = random(75,100); // set fuel lifetime
 		}
 		TNT1 A 0 A_JumpIf(fuelLevel < 1,"Death");
 		HMIS A 1 Bright {
-			If(fuelLevel > 20) { //stop fire exhaust if fuel is running low 
-				A_SpawnItemEx("DMR_FireballTrail",-25,0,1,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			If (fuelLevel > 20) { // stop fire exhaust if fuel is running low 
+				A_SpawnItemEx("DMR_FireballTrail",-25,0,0,frandom(-1,0),frandom(-1,1),frandom(-1,0));
 			}
-			fuelLevel = fuelLevel-1; //decrease fuel lifetime
+			fuelLevel--;
 		}
 		HMIS A 1 BRIGHT A_Weave(random(1,2), random(1,2), frandom(0.5,1.5), frandom(0.5,1.5));
 		Goto Spawn+2;
@@ -194,27 +195,28 @@ class DMR_ClusterSubProjectile : DMR_Projectile
 		TNT1 A 0 A_JumpIf(fuelLevel < 1,"Death");
 		HMIS A 1 Bright { 
 			A_SeekerMissile(2,8,SMF_PRECISE); 
-			If(fuelLevel > 20) { //stop fire exhaust if fuel is running low 
-				A_SpawnItemEx("DMR_FireballTrail",-25,0,1,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			If (fuelLevel > 20) { // stop fire exhaust if fuel is running low 
+				A_SpawnItemEx("DMR_FireballTrail",-25,0,0,frandom(-1,0),frandom(-1,1),frandom(-1,0));
 			}
-			A_SpawnItemEx("DMR_SmokeCloud",-25,0,1,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			fuelLevel = fuelLevel-1; //decrease fuel lifetime
+			A_SpawnItemEx("DMR_SmokeCloud",-25,0,0,frandom(-1,0));
+			fuelLevel--;
 		}
 		HMIS A 1 BRIGHT A_Weave(random(1,2), random(1,2), frandom(0.5,1.5), frandom(0.5,1.5));
 		Goto Homing+1;
 	Death:
 		TNT1 A 0 {
 			A_Stop();
-			A_PlaySound("skeleton/tracex",2);
+			A_SetRenderStyle(1.0,STYLE_Add);
+			A_SetScale(0.75);
 		}
 		TNT1 A 0 {
 			for (fxLoop = 0;fxLoop <= 3;fxLoop++) {
 				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
 			}
 		}
-		FBXP A 8 Bright;
-		FBXP B 6 Bright;
-		FBXP C 4 Bright;
+		MISL A 8 Bright;
+		MISL B 6 Bright;
+		MISL C 4 Bright;
 		Stop;
 	}
 }
@@ -628,7 +630,7 @@ class DMR_MediumIceCloud : DMR_MediumGasCloud
 	}
 }
 
-//fire field
+// fire field
 class DMR_BurningFire : Actor
 {
 	Default

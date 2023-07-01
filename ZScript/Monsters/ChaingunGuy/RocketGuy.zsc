@@ -36,7 +36,7 @@ class Rocketeer : DMR_ChaingunGuy
 	Missile:
 		MPOS EE 10 A_FaceTarget;
 		MPOS F 5 Bright;
-		MPOS G 13 A_SpawnProjectile("DMR_SmallRocket", 32, 0, 0);
+		MPOS G 13 A_SpawnProjectile("DMR_SmallRocket",35,0,0);
 		Goto See;
 	Pain:
 		MPOS H 2;

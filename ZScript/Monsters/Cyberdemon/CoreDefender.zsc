@@ -130,40 +130,41 @@ class CoreDefender : DMR_Cyberdemon
 }
 
 // homing missile that breaks up in partially homing clusters near its target
-class CoreDefenderClusterMissile: DMR_Rocket
+class CoreDefenderClusterMissile : DMR_Rocket
 {
 	Default
 	{
-		Speed 25;
 		DamageFunction(random(10,30));
 		+SEEKERMISSILE;
 		SeeSound "darkinquisitor/cluster";
 		DeathSound "weapons/rocklx";
+		Scale 1.2;
 	}
 	States
 	{
 	Spawn:
 		HMIS A 1 Bright Light("DMR_ROCKET") {
 			A_SeekerMissile(1,8,SMF_PRECISE); 
-			A_SpawnItemEx("DMR_MediumFireballTrail",-25,0,5,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("DMR_MediumSmokeCloud",-25,0,5,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_MediumFireballTrail",-35,0,4,frandom(-1,0),frandom(-1,1),frandom(-1,0));
+			A_SpawnItemEx("DMR_MediumSmokeCloud",-35,0,4,frandom(-1,0));
 		}
 		HMIS A 0 A_JumpIfTracerCloser(180, "Death");
 		Loop;
 	Death:
 		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
-				A_SpawnItemEx("DMR_FireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-			}
-		}
-		TNT1 A 0 {
 			A_Stop();
+			A_SetRenderStyle(1.0,STYLE_Add);
 			// split up in subprojectiles, which can randomly home in or not
 			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
 			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
 			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
 			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
 			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
+		}
+		TNT1 A 0 {
+			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
+				A_SpawnItemEx("DMR_FireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+			}
 		}
 		MISL B 8 Bright Light("DMR_ROCKET_X1") A_Explode(20, 64);
 		MISL C 6 Bright Light("DMR_ROCKET_X2");
@@ -194,7 +195,7 @@ class CoreDefenderObeliskLaser : DMR_LaserBase
 	Default
 	{
 		DamageFunction(random(100,300));
-		//this is just for this weapon
+		// this is just for this weapon
 		+EXTREMEDEATH;
 		+FORCERADIUSDMG;
 		RenderStyle "Add";
