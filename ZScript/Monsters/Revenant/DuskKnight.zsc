@@ -81,7 +81,6 @@ class DuskKnightAxe : DMR_RevenantTracer
 {
 	Default
 	{
-		//DamageFunction(random(10,30));
 		SeeSound "hknight/axewhoosh";
 		DeathSound "hknight/hit";
 		RenderStyle "Normal";
