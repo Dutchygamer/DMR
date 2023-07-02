@@ -29,18 +29,36 @@ class ZombiePlasmaTank : DMR_ZombieTankBase
         ZPTK AABBCCAABBCC 4 A_Chase;
         Loop;
     Missile:
-        ZPTK A 20 A_FaceTarget;
-        ZPTK D 2 BRIGHT Light("DMR_PlasmaFire") A_SpawnProjectile("ZombiePlasmaTankPlasma",60,32,359,0);
-        ZPTK D 2 BRIGHT Light("DMR_PlasmaFire") A_SpawnProjectile("ZombiePlasmaTankPlasma",50,32,359,0);
-        ZPTK A 4 A_FaceTarget;
-        ZPTK E 2 BRIGHT Light("DMR_PlasmaFire") A_SpawnProjectile("ZombiePlasmaTankPlasma",60,-29,359,0);
-        ZPTK E 2 BRIGHT Light("DMR_PlasmaFire") A_SpawnProjectile("ZombiePlasmaTankPlasma",50,-29,359,0);
-        ZPTK AA 5 A_FaceTarget;
-		TNT1 A 0 A_MonsterRefire(10,"See");
-        goto Missile+1;		
+        ZPTK A 20 {
+			A_FaceTarget();
+			//A_PlaySound("QuadShotgunZombie/Reload3"); //TODO WiP
+		}
+        ZPTK D 5 Bright Light("DMR_PlasmaFire") {
+			A_PlaySound("weapons/plasmaf");
+			A_SpawnProjectile("ZombiePlasmaTankPlasma",60,32,0);
+			A_SpawnProjectile("ZombiePlasmaTankPlasma",50,32,-5);
+		}
+        ZPTK E 5 Bright Light("DMR_PlasmaFire") {
+			A_PlaySound("weapons/plasmaf");
+			A_SpawnProjectile("ZombiePlasmaTankPlasma",60,-29,0);
+			A_SpawnProjectile("ZombiePlasmaTankPlasma",50,-29,5);
+		}
+        ZPTK A 10 A_FaceTarget;
+        ZPTK D 5 Bright Light("DMR_PlasmaFire") {
+			A_PlaySound("weapons/plasmaf");
+			A_SpawnProjectile("ZombiePlasmaTankPlasma",60,32,0);
+			A_SpawnProjectile("ZombiePlasmaTankPlasma",50,32,5);
+		}
+        ZPTK E 5 Bright Light("DMR_PlasmaFire") {
+			A_PlaySound("weapons/plasmaf");
+			A_SpawnProjectile("ZombiePlasmaTankPlasma",60,-29,0);
+			A_SpawnProjectile("ZombiePlasmaTankPlasma",50,-29,-5);
+		}
+        ZPTK A 10 A_FaceTarget;
+        Goto See;
     Pain:
-        ZPTK F 3 A_Pain;
         ZPTK F 3;
+        ZPTK F 3 A_Pain;
         Goto See;
     Death:
     XDeath:		
@@ -89,6 +107,7 @@ class ZombiePlasmaTankPlasma : DMR_ZombiePlasma
 	{
 		DamageFunction(random(8,24));
 		Scale 0.9;
+		SeeSound "";
 	}
 	States
 	{
