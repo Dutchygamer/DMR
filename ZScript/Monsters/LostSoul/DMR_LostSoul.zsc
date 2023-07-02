@@ -27,6 +27,7 @@ Class DMR_LostSoul: DMR_FlyingMonsterBase
 		+DONTFALL;
 		+NOICEDEATH;
 		+RETARGETAFTERSLAM;
+		-COUNTKILL;
 	}
 	States
 	{

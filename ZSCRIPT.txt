@@ -127,6 +127,7 @@ version "4.2.1"
 #include "ZScript/Monsters/Revenant/GhostRevenant.zsc"
 #include "ZScript/Monsters/Revenant/Incarnate.zsc"
 #include "ZScript/Monsters/Revenant/Draugr.zsc"
+#include "ZScript/Monsters/Revenant/DuskKnight.zsc"
 
 #include "ZScript/Monsters/Cyberdemon/Replacer.zsc"
 #include "ZScript/Monsters/Cyberdemon/DMR_Cyberdemon.zsc"

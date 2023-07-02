@@ -5,9 +5,9 @@ Class RevenantReplacer: RandomSpawner replaces Revenant
 		DropItem "DMR_Revenant", 255, 50;
 		DropItem "Dybbuk", 255, 18;
 		DropItem "Hollow", 255, 18;
+		DropItem "DuskKnight", 255, 11;
 		DropItem "Draugr", 255, 9;
 		DropItem "Ghoul", 255, 5;
-		//DropItem "DuskKnight" 255, 11 //removed for now until it has something unique to offer
 		//DropItem "DuskWarlord" 255, 6 //will get remade as an Archie variant
 	}
 }
