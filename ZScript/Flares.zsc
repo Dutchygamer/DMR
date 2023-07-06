@@ -116,3 +116,39 @@ class DMR_PlasmaImpactFlare : DMR_FlareBase
 		Loop;
 	}
 }
+
+class DMR_BFGImpactFlare : DMR_FlareBase
+{
+	Default
+	{
+		Alpha 0.75;
+		Scale 3.0;
+	}
+	States
+	{
+	Spawn:
+		BFOF C 1 Bright {
+			A_FadeOut();
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}
+
+class DMR_BlueBFGImpactFlare : DMR_FlareBase
+{
+	Default
+	{
+		Alpha 0.75;
+		Scale 3.0;
+	}
+	States
+	{
+	Spawn:
+		BFOF B 1 Bright {
+			A_FadeOut();
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}

@@ -116,7 +116,7 @@ class Tiberdemon : DMR_Cyberdemon
 	}
 }
 
-//flechettes
+// flechettes
 class TiberiumFlechette : DMR_Rocket
 {
 	Default
@@ -154,6 +154,7 @@ class TiberiumFlechetteTrail : DMR_ProjectileTrail
 		RenderStyle "Add";
 		Alpha 0.6;
 		Scale 0.65;
+		-ROLLSPRITE;
 	}
 	States
 	{
@@ -163,27 +164,20 @@ class TiberiumFlechetteTrail : DMR_ProjectileTrail
 	}
 }
 
-//BFG
-class TiberiumBFGBall : DMR_Projectile
+// BFG
+class TiberiumBFGBall : DMR_BFGBall
 {
 	Default
 	{
-		Radius 13;
-		Height 8;
-		Speed 25;
-		DamageFunction (400); // don't use the default formula, just don't get hit by it ;o
-		+RANDOMIZE
-		+EXTREMEDEATH;
-		RenderStyle "Add";
+		+ROLLSPRITE;
 		SeeSound "Thamuz/TibBall";
 		DeathSound "q2weapon/bfgballexplo";
-		Scale 3.0;
-		Decal "BFGLightning";
+		Scale 4.0;
 	}
 	States
 	{
 	Spawn:
-		TBBL ABCDEFGHIJKLMN 2 Bright {
+		TBBL ABCDEFGHIJKLMN 1 Bright {
 			A_SpawnItemEx("TiberiumBFGBallTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}
 		Loop;
@@ -191,9 +185,16 @@ class TiberiumBFGBall : DMR_Projectile
 		TNT1 A 0 {
 			A_SetScale(2.5);
 			A_Explode(196,196);
+			A_SpawnItemEx("DMR_BFGImpactFlare");
 		}
-		ARCB JKLMN 3 Bright;
+		ARCB JKLMN 8 Bright;
 		Stop;
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		A_SetRoll(random(0,360));
 	}
 }
 
@@ -201,14 +202,15 @@ class TiberiumBFGBallTrail : DMR_ProjectileTrail
 {   
 	Default
 	{
-		RenderStyle "Add";
-		Alpha 0.6;
-		Scale 0.35;
+		Scale 0.8;
+		Alpha 0.75;
 	}
 	States
 	{
 	Spawn:
-		CBTS LMNOPQRSTUVW 2 Bright A_FadeOut;
+		CBTS PQRSTUVW 1 Bright {
+			A_FadeOut(0.03);
+		}
 		Stop;
 	}
 }

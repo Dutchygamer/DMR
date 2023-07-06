@@ -92,11 +92,14 @@ class DMR_BFGBall : DMR_Projectile
 	States
 	{
 	Spawn:
-		BFS1 AABB 2 Bright  {
-			A_SpawnItemEx("DMR_BFGBallTrail");
+		BFS1 AAABBB 1 Bright  {
+			A_SpawnItemEx("DMR_BFGBallTrail",-30,0,15,frandom(-1,0),frandom(-1,1),frandom(-1,0));
 		}
 		Loop;
 	Death:
+		TNT1 A 0 {
+			A_SpawnItemEx("DMR_BFGImpactFlare");
+		}
 		BFE1 AB 8 Bright;
 		BFE1 C 8 Bright A_BFGSpray;
 		BFE1 DEF 8 Bright;
@@ -108,16 +111,15 @@ class DMR_BFGBallTrail : DMR_ProjectileTrail
 {
 	Default
 	{
-		ALPHA 0.6;
-		Scale 0.9;
+		Scale 0.8;
+		Alpha 0.75;
 	}
 	States
 	{
 	Spawn:
-		BFS1 AB 1 Bright {
-			A_FadeOut(0.045);
-			A_SetScale(Scale.X-0.05);
+		BFE2 ABCD 2 Bright {
+			A_FadeOut(0.06);
 		}
-		Loop;
+		Stop;
 	}
 }
