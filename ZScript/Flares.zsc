@@ -117,6 +117,23 @@ class DMR_PlasmaImpactFlare : DMR_FlareBase
 	}
 }
 
+class DMR_PlasmaRuneImpactFlare : DMR_FlareBase
+{
+	Default
+	{
+		Scale 0.6;
+	}
+	States
+	{
+	Spawn:
+		BFOF D 1 Bright {
+			A_FadeOut();
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}
+
 class DMR_BFGImpactFlare : DMR_FlareBase
 {
 	Default

@@ -108,6 +108,9 @@ class NoblePraetorianPlasmaRune : BaronBall
 		}
 		Loop;
 	Death:
+		TNT1 A 0 {
+			A_SpawnItemEx("DMR_PlasmaRuneImpactFlare");
+		}
 		PLRX ABCDEF 3 Bright;
 		Stop;
 	}

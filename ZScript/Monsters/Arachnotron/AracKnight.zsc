@@ -105,6 +105,9 @@ class MygalotronExplosiveBall : NoblePraetorianPlasmaRune
 		}
 		Loop;
 	Death:
+		TNT1 A 0 {
+			A_SpawnItemEx("DMR_PlasmaRuneImpactFlare");
+		}
 		PLRX G 3 Bright A_Explode(10,48);
 		PLRX HIJKLM 3 Bright;
 		Stop;
