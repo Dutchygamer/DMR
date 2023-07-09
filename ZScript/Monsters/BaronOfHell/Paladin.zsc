@@ -72,19 +72,7 @@ class NobleVanguard : DMR_BaronOfHell
 		Goto ShieldBlast;
 	Grenade:
 		HPAL II 8 A_FaceTarget;
-		HPAL J 8 Bright Light("DMR_RifleFire") {
-			A_FaceTarget();
-			if (target && Distance3D(target) <= 750)
-			{
-				A_SpawnProjectile("NobleVanguardGrenade",24,16,0,CMF_OFFSETPITCH,-5);
-				return;
-			}
-			else 
-			{
-				A_SpawnProjectile("NobleVanguardGrenade",24,16,0,CMF_OFFSETPITCH,-20);
-				return;
-			}
-		}
+		HPAL J 8 Bright Light("DMR_RifleFire") A_LobProjectile("NobleVanguardGrenade",32,16);
 		HPAL I 8;
 		Goto See;
 	ShieldBlast:

@@ -22,7 +22,7 @@ Class DMR_MonsterBase : Actor
 	int fxLoop;
 
 	// check if the monster damaging us is part of the Species2
-	// if so, treat it like it is the same species
+	// if so, treat it like it is the same species (unless DONTHARMSPECIES is false)
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
 		if (source && source.bISMONSTER == true && source is "DMR_MonsterBase")
@@ -34,6 +34,23 @@ Class DMR_MonsterBase : Actor
 			}
 		}
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	// variant of A_SpawnProjectile which adds a lob to the projectile's trajectory while taking the height difference between firer and target into account
+	action actor A_LobProjectile(class<Actor> MissileType, double SpawnHeight = 32, double SpawnOfs_XY = 0, double Angle = 0, int Flags = 0, double Pitch = 0, int Ptr = AAPTR_TARGET)
+	{
+		actor proj = A_SpawnProjectile(MissileType,SpawnHeight,SpawnOfs_XY,Angle,Flags,Pitch,Ptr);
+		actor other = GetPointer(Ptr);
+		if (proj)
+		{
+			if (other)
+			{
+				int ZDiff = int(other.Pos.Z + other.Height / 2 - Pos.Z - SpawnHeight);
+				proj.Vel.Z += (ZDiff + Distance2D(other)) / TICRATE * proj.GetGravity() / 2;
+			}
+			return proj;
+		}
+		return null;
 	}
 }
 
