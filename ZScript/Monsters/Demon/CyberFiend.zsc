@@ -44,21 +44,23 @@ class MaulerFiend : DMR_Demon
 	Melee:
 		CYFN EF 8 Fast A_FaceTarget;
 		CYFN G 8 Fast A_CustomMeleeAttack(random(8,24));
-		Goto See;
+		Goto See;		
 	Missile:
-		TNT1 E 0 A_Jumpifcloser(360, "Charge"); //only do the lunge if closer then this, but further away then MeleeThreshold
-		TNT1 A 0 A_JumpIfCloser(512, "BloodAttack"); //only start attacking when we are close
-		Goto See;
+		TNT1 A 0 A_Jump(128, "Charge");
 	BloodAttack:
+		TNT1 A 0 A_JumpIfCloser(256,1); // only start attacking when we are close
+		Goto See;
 		CYFN GF 6 Fast A_FaceTarget;
 		CYFN E 6 Fast {
-			A_PlaySound ("Weapons/bloodf", CHAN_WEAPON);
-			A_SpawnProjectile("BloodfiendShot",25,0,-1,0,0);
-			A_SpawnProjectile("BloodfiendShot",25,0,0,0,0);
-			A_SpawnProjectile("BloodfiendShot",25,0,1,0,0);
+			A_PlaySound("Weapons/bloodf", CHAN_WEAPON);
+			A_LobProjectile("BloodfiendShot",30,0,frandom(-1,-2));
+			A_LobProjectile("BloodfiendShot",30,0,0);
+			A_LobProjectile("BloodfiendShot",30,0,frandom(1,2));
 		}
 		Goto See;
 	Charge:
+		TNT1 A 0 A_JumpIfCloser(360,1); // only start attacking when we are close
+		Goto See;
 		CYFN E 10 A_FaceTarget;
 		TNT1 A 0 {
 			A_PlaySound("blooddemon/melee", CHAN_VOICE);
