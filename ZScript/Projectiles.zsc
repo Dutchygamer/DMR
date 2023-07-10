@@ -438,7 +438,7 @@ class DMR_ZombiePlasma : DMR_Projectile
 }
 
 
-//gas clouds
+// gas clouds
 class DMR_GasCloudBase : actor
 {
 	Default
@@ -460,7 +460,6 @@ class DMR_GasCloudBase : actor
 		+BLOODLESSIMPACT;
 		+FORCERADIUSDMG;
 		+NODAMAGETHRUST;
-		+PAINLESS; // else it WILL stunlock everything hit by gasclouds		
 		BounceType "Hexen";
 		BounceFactor 1.0;
 		WallBounceFactor 1.0;
@@ -505,7 +504,7 @@ class DMR_LargeGasCloud : DMR_GasCloudBase
 		GGAS ABCDEFGHIJKLMN 3 {	
 			// only damage X amount of tics instead of every tick
 			dmgtic++;	
-			if(dmgtic >= 5)
+			if (dmgtic >= 5)
 			{
 				A_Explode(5,45,0,0,45);
 				dmgtic = 0;
@@ -541,7 +540,7 @@ class DMR_MediumGasCloud : DMR_GasCloudBase
 		GGAS ABCDEFGHIJKLMN 3 {	
 			// only damage X amount of tics instead of every tick
 			dmgtic++;	
-			if(dmgtic >= 5)
+			if (dmgtic >= 5)
 			{
 				A_Explode(5,34,0,0,34);
 				dmgtic = 0;
@@ -573,7 +572,7 @@ class DMR_SmallGasCloud : DMR_GasCloudBase
 		GGAS ABCDEFGHIJKLMN 3 {	
 			// only damage X amount of tics instead of every tick
 			dmgtic++;	
-			if(dmgtic >= 5)
+			if (dmgtic >= 5)
 			{
 				A_Explode(5,28,0,0,28);
 				dmgtic = 0;
@@ -609,7 +608,7 @@ class DMR_MediumIceCloud : DMR_MediumGasCloud
 		GAS3 ABCDEFG 3 {	
 			// only damage X amount of tics instead of every tick
 			dmgtic++;	
-			if(dmgtic >= 3)
+			if (dmgtic >= 3)
 			{
 				A_Explode(5,34,0,0,34);
 				dmgtic = 0;
