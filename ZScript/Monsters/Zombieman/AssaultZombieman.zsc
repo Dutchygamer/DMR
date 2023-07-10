@@ -11,12 +11,12 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class AssaultZombieman : DMR_Zombieman
+class FormerAssaultTrooper : DMR_Zombieman
 {
 	Default
 	{
-		Tag "Assault zombieman";
-		OBITUARY "%o was surprised by the zombie's weaponry.";
+		Tag "Former Assault Trooper";
+		OBITUARY "%o was tagged by a Former Assault Trooper.";
 		Health 35;
 		PainChance 185;
 		+MISSILEMORE

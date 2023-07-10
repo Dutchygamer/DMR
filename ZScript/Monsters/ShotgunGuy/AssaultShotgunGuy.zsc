@@ -11,14 +11,14 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class AutoShotgunGuy : DMR_ShotgunGuy
+class FormerAssaultSargeant : DMR_ShotgunGuy
 {
 	Default
 	{
-		Tag "Auto-shotgun guy";
+		Tag "Former Assault Sargeant";
 		Health 50;
 		PainChance 155;
-		Obituary "%o got emmental'd by an auto shotgun guy.";
+		Obituary "%o was shredded by a Former Assault Sargeant.";
 		DropItem "Shell";
 		DropItem "Shell", 128;
 	}

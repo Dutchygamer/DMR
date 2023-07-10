@@ -87,7 +87,7 @@ class ZombiePlasmaTank : DMR_ZombieTankBase
 			spawnPilot = random(1,3);
 			if (spawnPilot == 3) // pilot may evacuate
 			{
-				A_DropItem("PlasmaZombieman"); 
+				A_DropItem("FormerPlasmagunner"); 
 			}
 			else // ...or not
 			{

@@ -11,17 +11,17 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class PlasmaCommando : DMR_ChaingunGuy
+class FormerPlasmaCommando : DMR_ChaingunGuy
 {
 	Default
 	{
-		Tag "Plasma Commando";
+		Tag "Former Plasma Commando";
 		Health 110;
 		PainChance 150;
 		DropItem "Cell";
 		DropItem "Cell", 128;
 		DropItem "Cell", 64;
-		Obituary "%o was fried by a plasma commando.";
+		Obituary "%o was fried by a Former Plasma Commando.";
 	}
  	States
 	{

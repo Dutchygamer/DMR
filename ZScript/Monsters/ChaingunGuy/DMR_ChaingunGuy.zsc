@@ -9,7 +9,7 @@ Class DMR_ChaingunGuy : DMR_MonsterBase
 {
 	Default
 	{
-		Tag "Chaingunner";
+		Tag "Former Heavy Gunner";
 		Health 70;
 		Gibhealth -20; // all lower tier monsters (zombies -> imp) have 20 gibhealth
 		Species "DMR_Zambies";
@@ -22,7 +22,7 @@ Class DMR_ChaingunGuy : DMR_MonsterBase
 		PainSound "chainguy/pain";
 		DeathSound "chainguy/death";
 		ActiveSound "chainguy/active";
-		Obituary "$OB_CHAINGUY";
+		Obituary "%o was mowed down by a Former Heavy Gunner.";
 		Dropitem "Chaingun";
 		+DOHARMSPECIES;
 	}

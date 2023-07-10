@@ -11,14 +11,14 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class QuadShotgunGuy : DMR_ShotgunGuy
+class FormerQuartermaster : DMR_ShotgunGuy
 {
 	Default
 	{
-		Tag "Quad shotgun guy";
+		Tag "Former Quartermaster";
 		Health 90;
 		PainChance 155;
-		Obituary "%o was smeared by a quad shotgun guy.";
+		Obituary "%o was pink-misted by a Former Quartermaster.";
 		DropItem "Shell";
 		DropItem "Shell", 128;
 		DropItem "Shell", 64;

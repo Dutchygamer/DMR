@@ -8,7 +8,7 @@ Class DMR_ShotgunGuy : DMR_MonsterBase
 {
 	Default
 	{
-		Tag "Shotgun zombie";
+		Tag "Former Sargeant";
 		Health 30;
 		Gibhealth -20; //all lower tier monsters (zombies -> imp) have 20 gibhealth
 		Species "DMR_Zambies";
@@ -21,7 +21,7 @@ Class DMR_ShotgunGuy : DMR_MonsterBase
 		PainSound "shotguy/pain";
 		DeathSound "shotguy/death";
 		ActiveSound "shotguy/active";
-		Obituary "$OB_SHOTGUY";
+		Obituary "%o was finished off by a Former Sargeant.";
 		DropItem "Shotgun";		
 		+DOHARMSPECIES;
 	}

@@ -12,12 +12,12 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class SpecOpsZombieman : DMR_Zombieman
+class FormerSpecOpsGunner : DMR_Zombieman
 {
 	Default
 	{
-		Tag "SpecOps zombieman";
-		OBITUARY "%o was gunned down by a specops zombieman.";
+		Tag "Former SpecOps Gunner";
+		OBITUARY "%o was gunned down by a Former SpecOps Gunner.";
 		Health 90;
 		Speed 10;
 		PainChance 170;

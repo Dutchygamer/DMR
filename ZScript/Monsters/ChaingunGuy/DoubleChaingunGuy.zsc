@@ -12,12 +12,12 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class ChaingunCommando : DMR_ChaingunGuy
+class FormerGunnerCommando : DMR_ChaingunGuy
 {
 	Default
 	{
-		Tag "Chaingun Commando";
-		Obituary "%o was reduced to bloody ribbons by a Chaingun Commando.";
+		Tag "Former Gunner Commando";
+		Obituary "%o was eviscerated by a Former Gunner Commando.";
 		Health 90;
 		PainChance 150;
 		DropItem "Chaingun";

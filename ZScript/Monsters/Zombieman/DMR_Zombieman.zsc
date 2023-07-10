@@ -8,7 +8,7 @@ Class DMR_Zombieman : DMR_MonsterBase
 {
 	Default
 	{
-		Tag "Zombieman";		
+		Tag "Former Trooper";		
 		Health 20;
 		Gibhealth -20; // all lower tier monsters (zombies -> imp) have 20 gibhealth
 		Species "DMR_Zambies";
@@ -21,7 +21,7 @@ Class DMR_Zombieman : DMR_MonsterBase
 		PainSound "grunt/pain";
 		DeathSound "grunt/death";
 		ActiveSound "grunt/active";
-		Obituary "$OB_ZOMBIE";
+		Obituary "%o was shot by a Former Trooper.";
 		DropItem "Clip";
 		+DOHARMSPECIES;
 	}

@@ -11,14 +11,14 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class PlasmaZombieman : DMR_Zombieman
+class FormerPlasmagunner : DMR_Zombieman
 {
 	Default
 	{
-		Tag "Plasma zombieman";		
+		Tag "Former Plasmagunner";
 		Health 55;
 		PainChance 185;
-		OBITUARY "%o got burned by a plasma zombieman.";
+		OBITUARY "%o got burned by a Former Plasmagunner.";
 		DropItem "Cell";
 		DropItem "PlasmaRifle", 10;
 	}

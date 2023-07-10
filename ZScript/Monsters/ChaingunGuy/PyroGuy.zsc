@@ -12,12 +12,12 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class PyroTechnician : DMR_ChaingunGuy
+class FormerPyroTechnician : DMR_ChaingunGuy
 {
 	Default
 	{
-		Tag "Pyro technician";
-		Obituary "%o was flambeed by a pyro technician.";
+		Tag "Former Pyro Technician";
+		Obituary "%o was flambeed by a Former Pyro Technician.";
 		Health 120;
 		PainChance 150;
 		DamageFactor "Fire", 0.5;

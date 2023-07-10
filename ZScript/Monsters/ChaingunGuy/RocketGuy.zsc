@@ -12,16 +12,16 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class Rocketeer : DMR_ChaingunGuy
+class FormerRocketeer : DMR_ChaingunGuy
 {
 	Default
 	{
-		Tag "Rocketeer";
+		Tag "Former Rocketeer";
 		Health 90;
 		PainChance 150;
 		DropItem "RocketAmmo";
 		DropItem "RocketLauncher", 10;
-		Obituary "%o was splattered by a rocketeer's rocket.";
+		Obituary "%o was splattered by a Former Rocketeer";
 		+DOHARMSPECIES; // zombies aren't rocket-proof
 		//+DONTHARMCLASS; //unless you wield a rocket-launcher yourself
 	}

@@ -13,11 +13,12 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class Virus : DMR_MonsterBase
+class FormerViralAgent : DMR_MonsterBase
 {
 	Default
 	{
-		Tag "Virus";
+		Tag "Former Viral Agent";
+		Obituary "%o was infected by a Former Viral Agent.";
 		Health 90;
 		Gibhealth -20; // all lower tier monsters (zombies -> imp) have 20 gibhealth
 		Species "DMR_Zambies";
@@ -81,7 +82,6 @@ Class VirusDart : DMR_SlowBullet
 		DamageFunction (random(25,35)); // don't use the default formula
 		DamageType "VirusPoison";
 		+EXTREMEDEATH; //always use explode death
-		Obituary "%o got infected by a Virus.";
 	}
 	
 	States

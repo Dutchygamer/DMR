@@ -16,9 +16,9 @@ class SuicideGuyExplosive : DMR_MonsterBase
 {
 	Default
 	{
-		Tag "Zombie suicider";
+		Tag "Former Pilot";
 		Health 60;
-		Obituary "%o was killed by a zombie suicider.";
+		Obituary "%o was booped by a Former Pilot.";
 		Radius 20;
 		Height 56;
 		Mass 100;

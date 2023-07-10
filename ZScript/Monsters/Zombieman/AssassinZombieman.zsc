@@ -12,12 +12,12 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class InfiltratorZombieman : DMR_Zombieman
+class FormerInfiltrator : DMR_Zombieman
 {
 	Default
 	{
-		Tag "Infiltrator Zombieman";
-		OBITUARY "%o was assasinated by an infiltrator zombieman.";
+		Tag "Former Infiltrator";
+		OBITUARY "%o was taken out by a Former Infiltrator.";
 		Health 45;
 		Speed 12;
 		PainChance 185;

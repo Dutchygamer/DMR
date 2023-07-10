@@ -11,12 +11,12 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class BFGCommando : DMR_ChaingunGuy
+class FormerBFGCommando : DMR_ChaingunGuy
 {
 	Default
 	{
-		Tag "BFG commando";
-		obituary "%o was vaporized by a zombie's BFG9000.";
+		Tag "Former BFG Commando";
+		obituary "%o was vaporized by a Former BFG Commando.";
 		health 150;
 		painchance 100;
 		Scale 1.1;
