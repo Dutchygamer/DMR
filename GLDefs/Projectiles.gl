@@ -88,7 +88,7 @@ object DMR_FlamethrowerBallLarge
 }
 
 
-//rocket
+// rocket
 flickerlight DMR_Rocket
 {
     color 1.0 0.7 0.0
@@ -131,7 +131,7 @@ object DMR_Rocket
 }
 
 
-//smaller rocket
+// smaller rocket
 flickerlight DMR_SmallRocket
 {
     color 1.0 0.7 0.0
@@ -238,7 +238,53 @@ object DMR_ZombiePlasma
 }
 
 
-flickerlight DMR_DemonPlasmaFire
+flickerlight DMR_HellRuneStart
+{
+    color 0.6 0.0 0.6
+    size 36
+    secondarySize 48
+    chance 0.3
+	subtractive 1
+}
+
+flickerlight DMR_HellRune
+{
+    color 1.0 0.3 1.0
+    size 48
+    secondarySize 56
+    chance 0.3
+	subtractive 1
+}
+
+flickerlight DMR_HellRune_X1
+{
+    color 1.0 0.3 1.0
+    size 55
+    secondarySize 60
+    chance 0.3
+	subtractive 1
+}
+
+flickerlight DMR_HellRune_X2
+{
+    color 0.7 0.1 0.7
+    size 60
+    secondarySize 65
+    chance 0.3
+	subtractive 1
+}
+
+flickerlight DMR_HellRune_X3
+{
+    color 0.3 0.0 0.3
+    size 65
+    secondarySize 70
+    chance 0.3
+	subtractive 1
+}
+
+
+flickerlight DMR_HellRuneFire
 {
     color 1.0 0.3 1.0
     size 48
@@ -247,3 +293,4 @@ flickerlight DMR_DemonPlasmaFire
     chance 0.3
 	subtractive 1
 }
+

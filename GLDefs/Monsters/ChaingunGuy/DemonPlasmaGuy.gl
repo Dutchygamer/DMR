@@ -1,5 +1,4 @@
-
-object NoblePraetorianHellRune
+object FormerPlasmaCommandoBall
 {
 	frame ARAXA { light DMR_HellRuneStart }
     frame ARAXB { light DMR_HellRuneStart }

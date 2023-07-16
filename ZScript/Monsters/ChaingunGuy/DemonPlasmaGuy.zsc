@@ -33,13 +33,13 @@ class FormerPlasmaCommando : DMR_ChaingunGuy
 		Loop;
 	Missile:
 		PNGZ E 10 A_FaceTarget;
-		PNGZ F 4 BRIGHT Light("DMR_DemonPlasmaFire") A_SpawnProjectile("MygalotronBall");
+		PNGZ F 4 BRIGHT Light("DMR_HellRuneFire") A_SpawnProjectile("FormerPlasmaCommandoBall");
 		PNGZ E 4 A_FaceTarget;
-		PNGZ F 4 BRIGHT Light("DMR_DemonPlasmaFire") A_SpawnProjectile("MygalotronBall");
+		PNGZ F 4 BRIGHT Light("DMR_HellRuneFire") A_SpawnProjectile("FormerPlasmaCommandoBall");
 		PNGZ E 4 A_FaceTarget;
-		PNGZ F 4 BRIGHT Light("DMR_DemonPlasmaFire") A_SpawnProjectile("MygalotronBall");
+		PNGZ F 4 BRIGHT Light("DMR_HellRuneFire") A_SpawnProjectile("FormerPlasmaCommandoBall");
 		PNGZ E 4 A_FaceTarget;
-		PNGZ F 4 BRIGHT Light("DMR_DemonPlasmaFire") A_SpawnProjectile("MygalotronBall");
+		PNGZ F 4 BRIGHT Light("DMR_HellRuneFire") A_SpawnProjectile("FormerPlasmaCommandoBall");
 		PNGZ E 4 A_FaceTarget;
 		PNGZ E 10 A_MonsterRefire(25, "See");
 		Goto Missile+1;
@@ -64,5 +64,15 @@ class FormerPlasmaCommando : DMR_ChaingunGuy
 	Raise:
 		PNGZ KJIH 5;
 		Goto See;
+	}
+}
+
+class FormerPlasmaCommandoBall : DMR_HellRune
+{  
+	Default
+	{
+		DamageFunction(random(8,24));
+		Speed 19;
+		Scale 0.8;
 	}
 }

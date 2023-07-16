@@ -3,6 +3,7 @@
 
 #include "GLDefs/Monsters/ChaingunGuy/BFGGuy.gl"
 #include "GLDefs/Monsters/ChaingunGuy/PyroGuy.gl"
+#include "GLDefs/Monsters/ChaingunGuy/DemonPlasmaGuy.gl"
 
 #include "GLDefs/Monsters/DoomImp/DMR_DoomImp.gl"
 #include "GLDefs/Monsters/DoomImp/Devil.gl"
@@ -28,6 +29,7 @@
 #include "GLDefs/Monsters/Revenant/BeamRevenant.gl"
 #include "GLDefs/Monsters/Revenant/Draugr.gl"
 #include "GLDefs/Monsters/Revenant/GhostRevenant.gl"
+#include "GLDefs/Monsters/Revenant/Ghoul.gl"
 
 #include "GLDefs/Monsters/Arachnotron/DMR_Arachnotron.gl"
 #include "GLDefs/Monsters/Arachnotron/AracKnight.gl"

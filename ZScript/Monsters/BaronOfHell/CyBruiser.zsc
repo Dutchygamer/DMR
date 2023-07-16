@@ -57,9 +57,9 @@ class NoblePraetorian : DMR_BaronOfHell
 		Goto See;
 	Plasma:
 		BRU2 EE 8 A_FaceTarget;
-		BRU2 F 8 Bright Light("DMR_DemonPlasmaFire") A_SpawnProjectile("NoblePraetorianPlasmaRune",39,16,0,0);
+		BRU2 F 8 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("NoblePraetorianHellRune",39,16,0,0);
 		BRU2 E 6 A_FaceTarget;
-		BRU2 F 8 Bright Light("DMR_DemonPlasmaFire") A_SpawnProjectile("NoblePraetorianPlasmaRune",39,16,0,0);		
+		BRU2 F 8 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("NoblePraetorianHellRune",39,16,0,0);
 		Goto See;
 	Melee:
 		BRU2 GH 8 A_FaceTarget;
@@ -86,32 +86,11 @@ class NoblePraetorian : DMR_BaronOfHell
 	}
 }
 
-class NoblePraetorianPlasmaRune : BaronBall
+class NoblePraetorianHellRune : DMR_HellRune
 {  
 	Default
 	{
 		DamageFunction(random(20,60));
 		Speed 18;
-		Alpha 1;
-		+SEEKERMISSILE
-		SeeSound "Paladin/Shoot";
-		DeathSound "weapons/hellrune";
-	}
-	States
-	{
-	Spawn:
-		PLRN AAABBB 2 Bright {
-			A_SeekerMissile(1, 1);
-			A_Weave(frandom(1,2.5), frandom(1,2.5), frandom(0.7,1.2), frandom(0.7,1.2));
-			A_SetRoll(roll+15);
-			A_SpawnItemEx("DMR_PlasmaRuneTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5));
-		}
-		Loop;
-	Death:
-		TNT1 A 0 {
-			A_SpawnItemEx("DMR_PlasmaRuneImpactFlare");
-		}
-		PLRX ABCDEF 3 Bright;
-		Stop;
 	}
 }
