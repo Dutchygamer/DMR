@@ -18,8 +18,7 @@ class Witherer : DMR_Cacodemon
 	{
 		Tag "Witherer";	
 		bloodcolor "Green";
-		Health 475;
-		PainChance 64;
+		Health 500;
 		HitObituary "%o's ended as dust in a witherer's stomache.";
 		Obituary "%o withered away.";
 		DamageFactor "ToxinCloud", 0.0;

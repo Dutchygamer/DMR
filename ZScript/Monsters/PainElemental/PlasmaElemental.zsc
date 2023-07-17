@@ -16,8 +16,7 @@ class ToxinElemental : DMR_PainElemental
 	Default
 	{
 		Tag "Toxin Elemental";
-		Health 450;
-		PainChance 100;
+		Health 475;
 		Obituary "%o was infected by an Toxin Elemental";
 		DamageFactor "ToxinCloud", 0.0;
 	}
