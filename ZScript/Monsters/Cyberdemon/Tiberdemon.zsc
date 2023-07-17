@@ -86,11 +86,11 @@ class Tiberdemon : DMR_Cyberdemon
 			A_PlaySound ("weapons/bfgf", CHAN_WEAPON);
 			bNOPAIN = true;
 		}
-		DCYB E 12 Light("DMR_BFGCharge_X1") A_FaceTarget;
-		DCYB E 12 Bright Light("DMR_BFGCharge_X2") A_FaceTarget;
-		DCYB F 6 Bright Light("DMR_BFGFire") {
+		DCYB E 12 Light("DMR_BlueBFGCharge_X1") A_FaceTarget;
+		DCYB E 12 Bright Light("DMR_BlueBFGCharge_X2") A_FaceTarget;
+		DCYB F 6 Bright Light("DMR_BlueBFGFire") {
 			A_FaceTarget();
-			A_SpawnProjectile("TiberiumBFGBall",56,-25,0);
+			A_SpawnProjectile("TiberiumBlueFlechette",56,-25,0);
 		}
 		DCYB F 6 {
 			bNOPAIN = false;
@@ -117,13 +117,12 @@ class Tiberdemon : DMR_Cyberdemon
 }
 
 // flechettes
-class TiberiumFlechette : DMR_Rocket
+class TiberiumFlechette : DMR_SmallRocket
 {
 	Default
 	{
-		Speed 28;
+		Speed 25;
 		DamageFunction(random(16,48));
-		Alpha 0.9;
 		SeeSound "Thamuz/TibShard";
 		DeathSound "Thamuz/TibExpl";
 		Scale 0.9;
@@ -140,7 +139,7 @@ class TiberiumFlechette : DMR_Rocket
 			A_SetRenderStyle(1.0, STYLE_Add);
 			A_SetScale(1.5);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_Explode(32,64);
+			A_Explode(24,64);
 		}
 		TSDE ABCDEFG 3 Bright;
 		Stop;
@@ -165,52 +164,53 @@ class TiberiumFlechetteTrail : DMR_ProjectileTrail
 }
 
 // BFG
-class TiberiumBFGBall : DMR_BFGBall
+class TiberiumBlueFlechette : TiberiumFlechette
 {
 	Default
 	{
-		+ROLLSPRITE;
+		Radius 13;
+		Height 8;
+		Speed 30;
+		DamageFunction (400); // don't use the default formula, just don't get hit by it ;o
+		+EXTREMEDEATH;
+		+FORCERADIUSDMG;
 		SeeSound "Thamuz/TibBall";
 		DeathSound "q2weapon/bfgballexplo";
-		Scale 4.0;
+		Decal "BFGLightning";
+		Scale 1.2;
 	}
 	States
 	{
 	Spawn:
-		TBBL ABCDEFGHIJKLMN 1 Bright {
-			A_SpawnItemEx("TiberiumBFGBallTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1));
+		BSRD A 1 Bright {
+			A_SpawnItemEx("TiberiumBlueFlechetteTrail",-20,0,1);
+			A_SpawnItemEx("TiberiumBlueLightningBolt",frandom(0,-20));
+			A_SpawnItemEx("TiberiumBlueLightningBolt",frandom(0,-20));
 		}
 		Loop;
 	Death:
 		TNT1 A 0 {
-			A_SetScale(2.5);
+			A_SetScale(1.5);
 			A_Explode(196,196);
 			A_SpawnItemEx("DMR_BFGImpactFlare");
+			A_SpawnItemEx("TiberiumBlueLightningBurst");
+			A_SetRenderStyle(1.0,STYLE_Add);
 		}
 		ARCB JKLMN 8 Bright;
 		Stop;
 	}
-	
-	override void PostBeginPlay()
-	{
-		Super.PostBeginPlay();
-		A_SetRoll(random(0,360));
-	}
 }
 
-class TiberiumBFGBallTrail : DMR_ProjectileTrail
-{   
+class TiberiumBlueFlechetteTrail : TiberiumFlechetteTrail
+{
 	Default
 	{
-		Scale 0.8;
-		Alpha 0.75;
+		Scale 0.9;
 	}
 	States
 	{
 	Spawn:
-		CBTS PQRSTUVW 1 Bright {
-			A_FadeOut(0.03);
-		}
-		Stop;
+		BSRD A 1 Bright A_FadeOut(0.06);
+		Loop;
 	}
 }

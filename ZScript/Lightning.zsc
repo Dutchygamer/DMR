@@ -1,0 +1,46 @@
+
+class DMR_LightningBase : DMR_FXBase
+{
+	Default
+	{
+		+NOINTERACTION;
+		+DONTSPLASH;
+		+NOBLOCKMAP;
+		+BRIGHT;
+		+ROLLSPRITE;
+		RenderStyle "Add";
+	}
+}
+
+Class TiberiumBlueLightningBolt : DMR_LightningBase
+{
+	Default
+	{
+		+FLATSPRITE;
+		Scale 0.5;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			A_SetRoll(random(0,360));
+			A_SetAngle(random(0,360));
+			A_SetPitch(random(0,360));
+		}
+		SHCK AA 1 A_SetScale(Scale.X+0.1,Scale.Y+0.3);
+		Stop;
+	}
+}
+
+Class TiberiumBlueLightningBurst : DMR_LightningBase
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			A_SetRoll(random(0,360));
+		}
+		SHCK BBBBBBBBBB 1 A_SetScale(frandom(0.8,1.0));
+		Stop;
+	}
+}

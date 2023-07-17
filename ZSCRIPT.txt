@@ -19,6 +19,7 @@ version "4.2.1"
 #include "ZScript/Events.zsc"
 #include "ZScript/MonsterBase.zsc"
 #include "ZScript/Flares.zsc"
+#include "ZScript/Lightning.zsc"
 
 
 #include "ZScript/Monsters/Zombieman/Replacer.zsc"

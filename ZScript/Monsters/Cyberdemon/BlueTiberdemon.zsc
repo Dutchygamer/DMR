@@ -95,13 +95,13 @@ class BlueTiberdemon : DMR_Cyberdemon
 		Goto See;
 	Flechette:
 		CARD C 8 A_FaceTarget;
-		CARD DD 3 A_SpawnProjectile("TiberiumBlueFlechette",72,-25,random(-2,2));
+		CARD DD 3 A_SpawnProjectile("TiberiumFlechette",72,-25,random(-2,2));
 		CARD D 5 A_FaceTarget;
-		CARD DD 3 A_SpawnProjectile("TiberiumBlueFlechette",72,-25,random(-2,2));
+		CARD DD 3 A_SpawnProjectile("TiberiumFlechette",72,-25,random(-2,2));
 		CARD D 5 A_FaceTarget;
-		CARD DD 3 A_SpawnProjectile("TiberiumBlueFlechette",72,-25,random(-2,2));
+		CARD DD 3 A_SpawnProjectile("TiberiumFlechette",72,-25,random(-2,2));
 		CARD D 5 A_FaceTarget;
-		CARD DD 3 A_SpawnProjectile("TiberiumBlueFlechette",72,-25,random(-2,2));
+		CARD DD 3 A_SpawnProjectile("TiberiumFlechette",72,-25,random(-2,2));
 		CARD D 5 A_FaceTarget;
 		Goto See;
 	BFGBall:
@@ -113,7 +113,7 @@ class BlueTiberdemon : DMR_Cyberdemon
 		CARD C 12 Bright Light("DMR_BlueBFGCharge_X2") A_FaceTarget;
 		CARD D 6 Bright Light("DMR_BlueBFGFire") {
 			A_FaceTarget();
-			A_SpawnProjectile("TiberiumBlueBFGBall",72,-25,0);
+			A_SpawnProjectile("TiberiumBlueFlechette",72,-25,0);
 		}
 		CARD D 6 {
 			bNOPAIN = false;
@@ -140,77 +140,4 @@ class BlueTiberdemon : DMR_Cyberdemon
 		TNT1 A 1 A_BossDeath;
 		Stop;
 	} 
-}
-
-// flechettes
-class TiberiumBlueFlechette : TiberiumFlechette
-{
-	States
-	{
-	Spawn:
-		BSRD A 1 Bright {
-			A_SpawnItemEx("TiberiumBlueFlechetteTrail",-20,0,1); 
-		}
-		Loop;
-	Death:
-		TNT1 A 0 {
-			A_SetRenderStyle(1.0, STYLE_Add);
-			A_SetScale(1.5);
-			A_SpawnItemEx("DMR_SmallGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_Explode(48,96);
-		}
-		BSDE ABCDEFG 3 Bright;
-		Stop;
-	}
-}
-
-class TiberiumBlueFlechetteTrail : TiberiumFlechetteTrail
-{
-	States
-	{
-	Spawn:
-		BSRD A 1 Bright A_FadeOut(0.06);
-		Loop;
-	}
-}
-
-// BFG
-class TiberiumBlueBFGBall : TiberiumBFGBall
-{
-	Default
-	{
-		Translation "112:127=192:207";	
-	}
-	States
-	{
-	Spawn:
-		TBBL ABCDEFGHIJKLMN 1 Bright {
-			A_SpawnItemEx("BlueTiberiumBFGBallTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1));
-		}
-		Loop;
-	Death:
-		TNT1 A 0 {
-			A_SetScale(2.5);
-			A_Explode(224,196);
-			A_SpawnItemEx("DMR_BlueBFGImpactFlare");
-		}
-		ARCB JKLMN 3 Bright;
-		Stop;
-	}
-}
-
-class BlueTiberiumBFGBallTrail : TiberiumBFGBallTrail
-{   
-	Default
-	{
-		Translation "112:127=192:207";	
-	}
-	States
-	{
-	Spawn:
-		CBTS PQRSTUVW 1 Bright {
-			A_FadeOut(0.03);
-		}
-		Stop;
-	}
 }
