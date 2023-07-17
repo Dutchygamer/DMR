@@ -46,6 +46,7 @@
 #include "GLDefs/Monsters/LostSoul/HadesSphere.gl"
 
 #include "GLDefs/Monsters/PainElemental/PlasmaElemental.gl"
+#include "GLDefs/Monsters/PainElemental/SteelSentinel.gl"
 
 #include "GLDefs/Monsters/Archvile/DMR_Archvile.gl"
 #include "GLDefs/Monsters/Archvile/DarkAcolyte.gl"

@@ -38,26 +38,91 @@ object TiberiumFlechette
 }
 
 
-// TiberiumBFGBall
-object TiberiumBFGBall
+// TiberiumBlueShard
+flickerlight DMR_BlueBFGCharge_X1
 {
-    frame TBBLA { light DMR_BFGBall }
-    frame TBBLB { light DMR_BFGBall }
-    frame TBBLC { light DMR_BFGBall }
-    frame TBBLD { light DMR_BFGBall }
-    frame TBBLE { light DMR_BFGBall }
-    frame TBBLF { light DMR_BFGBall }
-    frame TBBLG { light DMR_BFGBall }
-    frame TBBLH { light DMR_BFGBall }
-    frame TBBLI { light DMR_BFGBall }
-    frame TBBLJ { light DMR_BFGBall }
-    frame TBBLK { light DMR_BFGBall }
-    frame TBBLL { light DMR_BFGBall }
-    frame TBBLN { light DMR_BFGBall }
+    color 0.5 0.5 1.0 
+    size 48
+    secondarySize 56
+    offset 0 40 0
+    chance 0.3
+}
+
+flickerlight DMR_BlueBFGCharge_X2
+{
+    color 0.5 0.5 1.0
+    size 64
+    secondarySize 72
+    offset 0 40 0
+    chance 0.3
+}
+
+
+flickerlight DMR_BlueBFGFire
+{
+    color 0.5 0.5 1.0 
+    size 72
+    secondarySize 86
+    offset 0 40 0
+    chance 0.3
+}
+
+
+flickerlight DMR_BlueBFGBall
+{
+    color 0.5 0.5 1.0
+    size 96
+    secondarySize 112
+    chance 0.3
+}
+
+flickerlight DMR_BlueBFGBall_X1
+{
+    color 0.5 0.5 1.0
+    size 110
+    secondarySize 120
+    chance 0.3
+}
+
+flickerlight DMR_BlueBFGBall_X2
+{
+	Color 0.6 0.6 1.0
+    size 120
+    secondarySize 130
+    chance 0.3
+}
+
+flickerlight DMR_BlueBFGBall_X3
+{
+	Color 0.7 0.7 1.0
+    size 130
+    secondarySize 140
+    chance 0.3
+}
+
+flickerlight DMR_BlueBFGBall_X4
+{
+	Color 0.4 0.4 0.7
+    size 85
+    secondarySize 90
+    chance 0.3
+}
+
+flickerlight DMR_BlueBFGBall_X5
+{
+    Color 0.1 0.1 0.3
+    size 80
+    secondarySize 85
+    chance 0.3
+}
+
+object TiberiumBlueFlechette
+{
+	frame BSRDA { light DMR_BlueBFGBall }
 	
-    frame ARCBJ { light DMR_BFGBall_X1 }
-    frame ARCBK { light DMR_BFGBall_X2 }
-    frame ARCBL { light DMR_BFGBall_X3 }
-    frame ARCBM { light DMR_BFGBall_X4 }
-    frame ARCBN { light DMR_BFGBall_X5 }
+    frame ARCBJ { light DMR_BlueBFGBall_X1 }
+    frame ARCBK { light DMR_BlueBFGBall_X2 }
+    frame ARCBL { light DMR_BlueBFGBall_X3 }
+    frame ARCBM { light DMR_BlueBFGBall_X4 }
+    frame ARCBN { light DMR_BlueBFGBall_X5 }
 }

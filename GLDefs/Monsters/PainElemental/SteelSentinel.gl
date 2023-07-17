@@ -1,0 +1,24 @@
+
+object SmallTiberiumFlechette
+{
+	frame TSRDA { light DMR_TiberiumFlechette }
+	
+    frame TSDEA { light DMR_TiberiumFlechette_X1 }
+    frame TSDEB { light DMR_TiberiumFlechette_X1 }
+    frame TSDEC { light DMR_TiberiumFlechette_X1 }
+    frame TSDED { light DMR_TiberiumFlechette_X2 }
+    frame TSDEE { light DMR_TiberiumFlechette_X2 }
+    frame TSDEF { light DMR_TiberiumFlechette_X2 }
+    frame TSDEG { light DMR_TiberiumFlechette_X2 }
+}
+
+object SmallTiberiumBlueFlechette
+{
+	frame BSRDA { light DMR_BlueBFGBall }
+	
+    frame ARCBJ { light DMR_BlueBFGBall_X1 }
+    frame ARCBK { light DMR_BlueBFGBall_X2 }
+    frame ARCBL { light DMR_BlueBFGBall_X3 }
+    frame ARCBM { light DMR_BlueBFGBall_X4 }
+    frame ARCBN { light DMR_BlueBFGBall_X5 }
+}

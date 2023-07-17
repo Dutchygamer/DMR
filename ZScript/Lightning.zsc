@@ -12,12 +12,13 @@ class DMR_LightningBase : DMR_FXBase
 	}
 }
 
-Class TiberiumBlueLightningBolt : DMR_LightningBase
+Class BFGLightningBolt : DMR_LightningBase
 {
 	Default
 	{
 		+FLATSPRITE;
-		Scale 0.5;
+		XScale 0.4;
+		YScale 0.3;
 	}
 	States
 	{
@@ -27,12 +28,12 @@ Class TiberiumBlueLightningBolt : DMR_LightningBase
 			A_SetAngle(random(0,360));
 			A_SetPitch(random(0,360));
 		}
-		SHCK AA 1 A_SetScale(Scale.X+0.1,Scale.Y+0.3);
+		SHCK CC 1 A_SetScale(Scale.X+0.1,Scale.Y+0.3);
 		Stop;
 	}
 }
 
-Class TiberiumBlueLightningBurst : DMR_LightningBase
+Class BFGLightningBurst : DMR_LightningBase
 {
 	States
 	{
@@ -40,7 +41,40 @@ Class TiberiumBlueLightningBurst : DMR_LightningBase
 		TNT1 A 0 NoDelay {
 			A_SetRoll(random(0,360));
 		}
-		SHCK BBBBBBBBBB 1 A_SetScale(frandom(0.8,1.0));
+		SHCK DDDDDD 1 A_SetScale(frandom(0.6,0.8));
+		Stop;
+	}
+}
+
+Class TiberiumBlueLightningBolt : BFGLightningBolt
+{
+	Default
+	{
+		XScale 0.3;
+		YScale 0.2;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			A_SetRoll(random(0,360));
+			A_SetAngle(random(0,360));
+			A_SetPitch(random(0,360));
+		}
+		SHCK AA 1 A_SetScale(Scale.X+0.05,Scale.Y+0.1);
+		Stop;
+	}
+}
+
+Class TiberiumBlueLightningBurst : BFGLightningBurst
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			A_SetRoll(random(0,360));
+		}
+		SHCK BBBBBB 1 A_SetScale(frandom(0.6,0.8));
 		Stop;
 	}
 }
