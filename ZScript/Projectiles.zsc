@@ -149,7 +149,7 @@ class DMR_ThrownGrenade : DMR_GrenadeBase
 		Gravity 0.5;
 		SeeSound "";
 		DeathSound "Paladin/Explode";
-		BounceSound "dune/bounce";
+		BounceSound "handgrenade/bounce";
 		Scale 0.75;
 	}
 }

@@ -1,28 +1,38 @@
+///////////////////
+// Shared sounds //
+///////////////////
+
+// Small Rocket
+smallrocket/launch SMRCKL
+$rolloff smallrocket/launch 300 1300
+
+// Rocket
+largerocket/launch LGRCKL
+$rolloff largerocket/launch 500 1500
+
+// thrown grenade
+handgrenade/prime ZSPCG
+handgrenade/throw DNWRT
+handgrenade/bounce BOUNCE2
+
+// BFG
+weapons/bfgf DSBFG
+$rolloff weapons/bfgf 500 1500
+weapons/bfgx DSRXPLOD
+$rolloff weapons/bfgx 600 1600
+
+
 //////////////////////////////
 // Zombieman variant sounds //
 //////////////////////////////
 
 //Dune Warrior
-dune/sight DSDNWSIT
-dune/pain DSDNWPAI
-dune/death DSDNWDTH
-dune/active DSDNWACT
-dune/bounce BOUNCE2
-Zombies/DuneFire DNWRF
-Zombies/DuneThrow DNWRT
-Zombies/Stealth DNWRS
+Infiltrator/fire DNWRF
+Infiltrator/stealth DNWRS
 
 // ZSpec ops
-Zombies/ZSpecFire ZSPCF
-Zombies/GrenadePrime ZSPCG
+SpecOps/fire ZSPCF
 
-//female zombie
-fem/sight FEMZSIT
-fem/pain FEMZPAIN
-fem/death FEMZDHT
-fem/active FEMZACT
-
-Virus/FireDart iviratta
 
 ///////////////////////////////
 // Shotgunguy variant sounds //
@@ -47,16 +57,6 @@ QuadShotgunZombie/Reload1	QSGZREL1
 QuadShotgunZombie/Reload2	QSGZREL2
 QuadShotgunZombie/Reload3	QSGZREL3
 
-// Toxin Ghoul
-monster/ghlsit                  dsghlsit
-monster/ghlact                  dsghlact
-monster/ghlswg                  dsghlswg
-monster/ghlhit                  dsghlhit
-monster/ghlpai                  dsghlpai
-monster/ghldth                  dsghldth
-weapons/skulfi                  dsskulfi
-weapons/poof1                   dspoof1
-
 
 ////////////////////////////////
 // Chaingunguy variant sounds //
@@ -65,8 +65,12 @@ weapons/poof1                   dspoof1
 // Chaingunner
 Chaingunner/Fire CHNGNF
 
-// Rocket zombie
-smallrocket/launch SMRCKL
+// female zombie
+fem/sight FEMZSIT
+fem/pain FEMZPAIN
+fem/death FEMZDHT
+fem/active FEMZACT
+Virus/FireDart iviratta
 
 
 ////////////////////////
@@ -302,6 +306,7 @@ CacoLich/Pain 				NESSPN
 CacoLich/Death 				DSDMDETH
 CacoLich/Spray 				TXNSPR
 
+
 ////////////////////////////////
 // Hell Knight variant sounds //
 ////////////////////////////////
@@ -430,7 +435,7 @@ weapons/shock                 dsshock
 Phantom/Pain		PHTMPAIN
 Phantom/Death		PHTMDTH
 Phantom/Active		PHTMACT
-Phantom/Attack	PHTMATK
+Phantom/Attack		PHTMATK
 Phantom/Hit			PHTMHIT
 
 // Guardian
@@ -581,9 +586,6 @@ weapons/firex3 dsfirex3
 // Cyberdemon variant sounds //
 ///////////////////////////////
 
-// Rocket
-largerocket/launch LGRCKL
-
 // Dark Inquisitor
 darkinquisitor/sight inqalert
 darkinquisitor/pain inqpain
@@ -597,8 +599,10 @@ darkinquisitor/darkmatterdie inqdrkxp
 darkinquisitor/flight inqfly
 darkinquisitor/laugh laugh
 darkinquisitor/cluster samshot1
+$rolloff darkinquisitor/cluster 500 1500
 darkinquisitor/grenade glnch4
 darkinquisitor/lasercharge lsrchrg
+$rolloff darkinquisitor/lasercharge 1000 2500
 darkinquisitor/laserfire obelray1
 
 inqv1 inqact1
@@ -649,9 +653,17 @@ $random Thamuz/Idlesight	{ Thamuz/Idle1 Thamuz/Idle2 }
 Thamuz/Idle1			nakruls1
 Thamuz/Idle2			nakruls2
 Thamuz/death2			megad1
-Thamuz/TibShard			TIBSHRD
-Thamuz/TibExpl			TIBEXPL
-Thamuz/TibBall			TIBBLL
+
+Thamuz/TibShard			TSRHDATK
+$rolloff Thamuz/TibShard 300 1300
+Thamuz/TibExpl			TSHRDDTH
+
+Thamuz/BTibShard/Charge	BTIBCHRG
+$rolloff Thamuz/BTibShard/Charge 500 1500
+Thamuz/BTibShard		BSHRDATK
+$rolloff Thamuz/BTibShard 500 1500
+Thamuz/BTibExpl			BSHRDDTH
+$rolloff Thamuz/BTibExpl 600 1600
 
 q2weapon/bfgball			bfg_fire
 q2weapon/bfgballexplo		bfg__x1b
@@ -660,7 +672,7 @@ q2weapon/rocketexplo		q2roklx1
 h2necromancer/magiccast		h2ncmagh
 comet/explosion			cometexp
 
-//A nnihilator
+//Annihilator
 monster/annsit dsannsit
 monster/anndth dsanndth
 monster/anhoof dsanhoof

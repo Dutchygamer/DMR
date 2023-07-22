@@ -83,7 +83,7 @@ class Tiberdemon : DMR_Cyberdemon
 		Goto See;
 	BFGBall:
 		TNT1 A 0 {
-			A_PlaySound ("weapons/bfgf", CHAN_WEAPON);
+			A_PlaySound ("Thamuz/BTibShard/Charge", CHAN_WEAPON);
 			bNOPAIN = true;
 		}
 		DCYB E 12 Light("DMR_BlueBFGCharge_X1") A_FaceTarget;
@@ -174,8 +174,8 @@ class TiberiumBlueFlechette : TiberiumFlechette
 		DamageFunction (400); // don't use the default formula, just don't get hit by it ;o
 		+EXTREMEDEATH;
 		+FORCERADIUSDMG;
-		SeeSound "Thamuz/TibBall";
-		DeathSound "q2weapon/bfgballexplo";
+		SeeSound "Thamuz/BTibShard";
+		DeathSound "Thamuz/BTibExpl";
 		Decal "BFGLightning";
 		Scale 1.2;
 	}
