@@ -15,20 +15,21 @@ class Guardian : DMR_LostSoul
 {
 	Default
 	{
-		Tag "Guardian";
+		Tag "Ravager Spawn";
 		Health 100;
 		Speed 6;
 		PainChance 180;
-		//Species "SentinelGuardian"; //TODO hier kunnen we Species2 gebruiken
 		SeeSound "guardian/see";
 		PainSound "weapons/bounc1";
 		Activesound "guardian/active";
 		DeathSound "guardian/death";
-		HitObituary "%o got fried by a Guardian.";
-		Obituary "%o got fried by a Guardian.";
+		Obituary "%o got lacerated by a Ravager Spawn.";
+		// don't damage your masters
+		DMR_MonsterBase.Species2 "TiberiumCreature";
 		+NOBLOOD;
-		+NOICEDEATH;
 		+DONTHARMSPECIES;
+		+DONTGIB;
+		DamageFactor "ToxinCloud", 0.0;
 	}
 	States 
 	{
@@ -39,78 +40,25 @@ class Guardian : DMR_LostSoul
 		GARD ABCDEF 3 A_Chase;
 		Loop;
 	Missile: 
-		GARD G 8 Bright A_FaceTarget;
-		GARD H 4 Bright A_FaceTarget;
-		GARD I 4 BRIGHT {
-			A_SpawnProjectile("GuardShot",28,4,0,1);
-			A_SpawnProjectile("GuardShot",28,-4,0,1);
+		GARD G 5 Bright A_FaceTarget;
+		GARD H 5 Bright A_FaceTarget;
+		GARD I 5 BRIGHT {
+			A_SpawnProjectile("SmallTiberiumFlechette",28);
 		}
-		GARD H 4 Bright A_FaceTarget;
-		GARD I 4 BRIGHT {
-			A_SpawnProjectile("GuardShot",28,4,0,1);
-			A_SpawnProjectile("GuardShot",28,-4,0,1);
-		}
-		GARD H 4 Bright A_FaceTarget;
-		GARD I 4 BRIGHT {
-			A_SpawnProjectile("GuardShot",28,4,0,1);
-			A_SpawnProjectile("GuardShot",28,-4,0,1);
-		}
-		GARD H 4 Bright A_FaceTarget;
-		GARD I 4 BRIGHT {
-			A_SpawnProjectile("GuardShot",28,4,0,1);
-			A_SpawnProjectile("GuardShot",28,-4,0,1);
-		}
-		GARD G 8 Bright A_FaceTarget;
+		GARD G 5 Bright A_FaceTarget;
 		Goto See;
 	Pain: 
 		GARD J 3; 
 		GARD J 3 A_Pain;
 		Goto See;
 	Death:
-		GARD L 6 Bright;
+		GARD KL 6 BRIGHT;
 		GARD M 6 Bright A_Scream;
-		GARD N 6 Bright;
+		GARD N 6 Bright {
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(-12,12),0,random(-12,12));
+		}
 		GARD O 6 Bright A_NoBlocking;
 		GARD PQ 6 Bright;
 		Stop;
 	} 
-}
-
-class GuardShot : DoomImpBall
-{
-	Default
-	{
-		Speed 15;
-		DamageFunction(random(2,5));
-		DamageType "fire";
-		ALPHA 0.85;
-		Seesound "weapons/firsfi";
-		DeathSound "weapons/maceex";
-		Obituary "%o got fried by a Guardian.";
-	}
-	States
-	{
-	Spawn:
-		CBAL AB 3 Bright {
-			A_SpawnItemEx("CubePuff",0,0,0,0,0,0);
-		}
-		loop;
-	Death:
-		CBAL CDEFG 3 Bright;
-		stop;
-	}
-}
-
-class CubePuff : DMR_ProjectileTrail
-{   
-	Default
-	{
-		ALPHA 0.67;
-	}
-	States
-	{
-	Spawn:
-		CBAL HIJ 3 BRIGHT;
-		Stop;
-	}
 }
