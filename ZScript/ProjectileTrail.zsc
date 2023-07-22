@@ -3,7 +3,6 @@
 ///////////////////////
 //these should not be used by any projectile; they acts like the main definition and copy/paste example
 
-
 // base class so we can do some creativity for all 'fancy' effects
 class DMR_FXBase : Actor
 {
@@ -129,64 +128,7 @@ class DMR_PurpleFireballTrail : DMR_ProjectileTrail
 	}
 }
 
-class DMR_RedPuffTrail : DMR_ProjectileTrail
-{   
-	Default
-	{
-		ALPHA 0.85;
-	}
-	States
-	{
-	Spawn:
-		RPUF ABCDE 3 Bright;
-		Stop;
-	}
-}
-
-class DMR_BarbTrail : DMR_ProjectileTrail
-{   
-	Default
-	{
-		ALPHA 0.75;
-	}
-	States
-	{
-	Spawn:
-		SSFX ABCDEFG 2 Bright;
-		Stop;
-	}
-}
-
-class DMR_SoulBallTrail : DMR_ProjectileTrail
-{
-
-	Default
-	{
-		ALPHA 0.5;
-	}
-	States
-	{
-	Spawn:
-		SBTR H 6;
-		SBTR ABCDEFG 4 Bright;
-		Stop;
-	}
-}
-
-class DMR_ShadowTrail : DMR_ProjectileTrail
-{
-	Default
-	{
-		ALPHA 0.6;
-	}
-	States
-	{
-	Spawn:
-		SHTR ABCDEF 4 Bright;
-		Stop;
-	}
-}
-
+// gas trail
 class DMR_GasTrail : DMR_ProjectileTrail
 {   
 	Default
@@ -217,21 +159,6 @@ class DMR_SmallGasTrail : DMR_ProjectileTrail
 		GAS2 ABCDEFGHIJKLMN 2 {
 			A_FadeOut(0.01);
 		}
-		Stop;
-	}
-}
-
-class DMR_BloodTrail : DMR_ProjectileTrail
-{
-	Default
-	{
-		ALPHA 0.67;
-	}
-	States
-	{
-	Spawn:
-		TNT1 A 3;
-		FBLD FGH 3 BRIGHT;
 		Stop;
 	}
 }
@@ -291,6 +218,83 @@ class DMR_PlasmaRuneTrail : DMR_PlasmaTrail
 			A_FadeOut(0.05);
 		}
 		Loop;
+	}
+}
+
+
+
+
+
+class DMR_RedPuffTrail : DMR_ProjectileTrail
+{   
+	Default
+	{
+		ALPHA 0.85;
+	}
+	States
+	{
+	Spawn:
+		RPUF ABCDE 3 Bright;
+		Stop;
+	}
+}
+
+class DMR_BarbTrail : DMR_ProjectileTrail
+{   
+	Default
+	{
+		ALPHA 0.75;
+	}
+	States
+	{
+	Spawn:
+		SSFX ABCDEFG 2 Bright;
+		Stop;
+	}
+}
+
+class DMR_SoulBallTrail : DMR_ProjectileTrail
+{
+
+	Default
+	{
+		ALPHA 0.5;
+	}
+	States
+	{
+	Spawn:
+		SBTR H 6;
+		SBTR ABCDEFG 4 Bright;
+		Stop;
+	}
+}
+
+class DMR_ShadowTrail : DMR_ProjectileTrail
+{
+	Default
+	{
+		ALPHA 0.6;
+	}
+	States
+	{
+	Spawn:
+		SHTR ABCDEF 4 Bright;
+		Stop;
+	}
+}
+
+class DMR_BloodTrail : DMR_ProjectileTrail
+{
+	Default
+	{
+		ALPHA 0.67;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 3;
+		FBLD FGH 3 BRIGHT;
+		Stop;
 	}
 }
 

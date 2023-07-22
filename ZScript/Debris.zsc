@@ -84,7 +84,22 @@ class DMR_GasDebris : DMR_ProjectileTrail
 	{
 	Spawn:
 		GAS2 DEFGHIJKLM 3;
+		//GAS2 DEFGHIJKLM 3;
+		Stop;
+	}
+}
+
+class DMR_BlueGasDebris : DMR_GasDebris
+{   
+	Default
+	{
+		ALPHA 0.4;
+	}
+	States
+	{
+	Spawn:
 		GAS2 DEFGHIJKLM 3;
+		//GAS2 DEFGHIJKLM 3;
 		Stop;
 	}
 }

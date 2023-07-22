@@ -87,7 +87,10 @@ class Tiberdemon : DMR_Cyberdemon
 			bNOPAIN = true;
 		}
 		DCYB E 12 Light("DMR_BlueBFGCharge_X1") A_FaceTarget;
-		DCYB E 12 Bright Light("DMR_BlueBFGCharge_X2") A_FaceTarget;
+		DCYB EEEEEEEEEEEE 1 BRIGHT Light("DMR_BlueBFGCharge_X2") {
+			A_FaceTarget();
+			A_SpawnItemEx("TiberiumBlueLightningBolt",0,-25,56);
+		}
 		DCYB F 6 Bright Light("DMR_BlueBFGFire") {
 			A_FaceTarget();
 			A_SpawnProjectile("TiberiumBlueFlechette",56,-25,0);
