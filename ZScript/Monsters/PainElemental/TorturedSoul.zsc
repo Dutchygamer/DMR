@@ -33,7 +33,7 @@ class TorturedElemental : DMR_PainElemental
 		TORT AABBCC 3 A_Chase;
 		Loop;
 	Missile: 
-		TNT1 A 0 A_Jump(256, "SpawnLostSoul", "SpawnPhantom", "SpawnGorer", "SpawnRavagerSpawn", "SpawnPoisonSoul");
+		TNT1 A 0 A_Jump(256, "SpawnLostSoul", "SpawnGorer", "SpawnRavagerSpawn", "SpawnPoisonSoul"); //"SpawnPhantom", 
 		Goto See;
 	SpawnLostSoul: 
 		TORT D 5 A_FaceTarget;
@@ -41,12 +41,12 @@ class TorturedElemental : DMR_PainElemental
 		TORT F 5 Bright A_FaceTarget;
 		TNT1 A 0 Bright A_PainAttack("DMR_LostSoul");
 		Goto See;
-	SpawnPhantom: 
+	/*SpawnPhantom: 
 		TORT D 5 A_FaceTarget;
 		TORT E 5 A_FaceTarget;
 		TORT F 5 Bright A_FaceTarget;
 		TNT1 A 0 Bright A_PainAttack("Phantom");
-		Goto See;
+		Goto See;*/
 	SpawnGorer: 
 		TORT D 5 A_FaceTarget;
 		TORT E 5 A_FaceTarget;
