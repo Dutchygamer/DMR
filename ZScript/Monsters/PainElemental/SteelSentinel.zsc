@@ -11,7 +11,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class GuardingElemental : DMR_PainElemental
+class Ravager : DMR_PainElemental
 {
 	Default
 	{
@@ -79,7 +79,7 @@ class GuardingElemental : DMR_PainElemental
 		}
 		SENT H 6 BRIGHT A_Scream;
 		SENT IJ 6 BRIGHT;
-		SENT K 6 BRIGHT A_PainDie("Guardian");
+		SENT K 6 BRIGHT A_PainDie("RavagerSpawn");
 		SENT K -1 A_SetFloorClip;
 		Stop;
 	}

@@ -11,7 +11,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class Guardian : DMR_LostSoul
+class RavagerSpawn : DMR_LostSoul
 {
 	Default
 	{
