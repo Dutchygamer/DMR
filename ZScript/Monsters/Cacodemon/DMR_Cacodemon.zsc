@@ -36,10 +36,13 @@ Class DMR_Cacodemon : DMR_FlyingMonsterBase
 	See:
 		HEAD A 3 A_Chase;
 		Loop;
+	Melee: 
+		HEAD CD 5 A_FaceTarget;
+		HEAD B 5 A_CustomMeleeAttack(random(20,60),"baron/melee");
+		Goto See;
 	Missile:
-		HEAD B 5 A_FaceTarget;
-		HEAD C 5 A_FaceTarget;
-		HEAD D 5 BRIGHT A_CustomComboAttack("DMR_CacodemonBall",32,random(20,60),"baron/melee");	
+		HEAD BC 5 A_FaceTarget;
+		HEAD D 5 BRIGHT A_SpawnProjectile("DMR_CacodemonBall",26);	
 		goto See;
 	Pain:
 		HEAD E 3;
@@ -49,8 +52,7 @@ Class DMR_Cacodemon : DMR_FlyingMonsterBase
 	Death:
 		HEAD G 8;
 		HEAD H 8 A_Scream;
-		HEAD I 8;
-		HEAD J 8;
+		HEAD IJ 8;
 		HEAD K 8 A_NoBlocking;
 		HEAD L -1 A_SetFloorClip;
 		Stop;

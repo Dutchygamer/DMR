@@ -3,11 +3,11 @@ Class CacodemonReplacer: RandomSpawner replaces Cacodemon
 	Default
 	{
 		DropItem "DMR_Cacodemon", 255, 100;
-		//DropItem "Fallen", 255, 10;
-		//DropItem "Nightshade", 255, 10;
-		////DropItem "EnhancedCacodemon" 255, 8
 		DropItem "Infernal", 255, 25;
 		DropItem "Witherer", 255, 15;
+		DropItem "Cacofiend", 255, 15;
+		////DropItem "Nightshade", 255, 10;
+		////DropItem "EnhancedCacodemon" 255, 8
 		////DropItem "DarkDisciple" 255, 3
 		////DropItem "DarkAcolyte" 255, 3
 		////DropItem "Cheshire" 255, 2

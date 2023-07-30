@@ -26,8 +26,7 @@ class Witherer : DMR_Cacodemon
 		ActiveSound "CacoLich/Active";
 		PainSound "CacoLich/Pain";
 		DeathSound "CacoLich/Death";
-	}
-	
+	}	
 	States 
 	{ 
 	Spawn: 
@@ -36,18 +35,22 @@ class Witherer : DMR_Cacodemon
 	See: 
 		CALI A 3 A_Chase;
 		Loop;
+	Melee: 
+		CALI FG 5 A_FaceTarget;
+		CALI E 5 A_CustomMeleeAttack(random(20,60),"baron/melee");
+		Goto See;
 	Missile:
 		TNT1 A 0 A_JumpIfCloser(256, "ToxinSpray");
 		TNT1 A 0 A_Jump(96,"GasBall");
 		goto Ball;
 	Ball:
 		CALI B 5 A_FaceTarget;
-		CALI C 5 BRIGHT A_SpawnProjectile("WithererBall",35,0,0,0);
+		CALI C 5 BRIGHT A_SpawnProjectile("WithererBall",35);
 		CALI D 5;
 		goto See;
 	GasBall:
 		CALI EF 5 A_FaceTarget;
-		CALI G 5 BRIGHT A_SpawnProjectile("WithererGasBall",26,0,0,0);
+		CALI G 5 BRIGHT A_SpawnProjectile("WithererGasBall",26);
 		goto See;
 	ToxinSpray:
 		CALI EEF 8 A_FaceTarget;
@@ -63,10 +66,6 @@ class Witherer : DMR_Cacodemon
 			A_SpawnProjectile("CacolichToxinSpray",26,0,random(-4,4));
 		}
 		Loop;
-	Melee: 
-		CALI EF 5 A_FaceTarget;
-		CALI G 5 A_CustomMeleeAttack(random(20,60),"baron/melee");
-		Goto See;
 	Pain: 
 		CALI H 3;
 		CALI H 3 A_Pain;

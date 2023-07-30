@@ -92,6 +92,7 @@ version "4.2.1"
 #include "ZScript/Monsters/Cacodemon/DMR_Cacodemon.zsc"
 #include "ZScript/Monsters/Cacodemon/Infernal.zsc"
 #include "ZScript/Monsters/Cacodemon/Cacolich.zsc"
+#include "ZScript/Monsters/Cacodemon/Abbadon.zsc"
 
 #include "ZScript/Monsters/PainElemental/Replacer.zsc"
 #include "ZScript/Monsters/PainElemental/DMR_PainElemental.zsc"
