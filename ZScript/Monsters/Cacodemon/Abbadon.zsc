@@ -11,7 +11,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class Abbadon : DMR_Cacodemon
+class Cacofiend : DMR_Cacodemon
 {  
 	Default
 	{
