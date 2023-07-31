@@ -16,9 +16,9 @@ class RavagerSpawn : DMR_LostSoul
 	Default
 	{
 		Tag "Ravager Spawn";
-		Health 100;
+		Health 140;
 		Speed 6;
-		PainChance 180;
+		painchance 64;
 		SeeSound "guardian/see";
 		PainSound "weapons/bounc1";
 		Activesound "guardian/active";
@@ -29,6 +29,7 @@ class RavagerSpawn : DMR_LostSoul
 		+NOBLOOD;
 		+DONTHARMSPECIES;
 		+DONTGIB;
+		-RETARGETAFTERSLAM;
 		DamageFactor "ToxinCloud", 0.0;
 	}
 	States 
@@ -40,8 +41,7 @@ class RavagerSpawn : DMR_LostSoul
 		GARD ABCDEF 3 A_Chase;
 		Loop;
 	Missile: 
-		GARD G 5 Bright A_FaceTarget;
-		GARD H 5 Bright A_FaceTarget;
+		GARD GH 5 Bright A_FaceTarget;
 		GARD I 5 BRIGHT {
 			A_SpawnProjectile("SmallTiberiumFlechette",28);
 		}

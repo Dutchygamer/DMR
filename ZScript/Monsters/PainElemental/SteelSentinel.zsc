@@ -18,7 +18,6 @@ class Ravager : DMR_PainElemental
 		Tag "Ravager";
 		obituary "%o got shredded by a Ravager.";
 		health 700;
-		//DropItem "Backpack", 10;
 		painchance 64;
 		seesound "sentinel/see";
 		painsound "sentinel/pain";
@@ -85,7 +84,6 @@ class Ravager : DMR_PainElemental
 	}
 }
 
-
 // flechettes
 class SmallTiberiumFlechette : TiberiumFlechette
 {
@@ -129,7 +127,7 @@ class SmallTiberiumBlueFlechette : TiberiumBlueFlechette
 	Default
 	{
 		Speed 30;
-		DamageFunction (50); // don't use the default formula, just don't get hit by it ;o
+		DamageFunction(50); // don't use the default formula, just don't get hit by it ;o
 		Scale 0.9;
 	}
 	States
