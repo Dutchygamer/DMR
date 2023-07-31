@@ -161,7 +161,7 @@ class DraugrClusterMissile : DMR_Rocket
 		Obituary "%o couldn't dodge a draugr's clustermissile.";
 		Scale 0.8;
 		+SEEKERMISSILE;
-		SeeSound "darkinquisitor/cluster";
+		SeeSound "draugr/cluster";
 		DeathSound "weapons/rocklx";
 	}
 	States

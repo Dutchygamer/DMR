@@ -486,6 +486,7 @@ monster/incatk dsincatk
 monster/inchit dsinchit
 monster/incexp dsincexp
 
+draugr/cluster samshot1
 
 /////////////////////////////
 // Mancubus variant sounds //
