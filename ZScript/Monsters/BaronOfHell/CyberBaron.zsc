@@ -43,9 +43,11 @@ class CyberBaron : DMR_BaronOfHell
 		CBOS R 8 A_CustomComboAttack("DMR_BaronBall",32,random(20,60),"baron/melee");
 		Goto See;
 	Rocket:
-		CBOS EE 10 A_FaceTarget;
+		CBOS EE 8 A_FaceTarget;
 		CBOS F 10 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",27,16,0,0);
-		CBOS E 10 A_FaceTarget;
+		CBOS E 8 A_FaceTarget;
+		CBOS F 10 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",27,16,0,0);
+		CBOS E 8;
 		Goto See;
 	Pain:
 		CBOS H 2;
