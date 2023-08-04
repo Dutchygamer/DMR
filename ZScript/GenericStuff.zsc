@@ -7,7 +7,7 @@ class DMR_ResCounter : Inventory
 	}
 }
 
-//ghostly afterimages
+// ghostly afterimages
 class DMR_GhostAfterImage : Actor
 {   
 	Default
@@ -25,7 +25,7 @@ class DMR_GhostAfterImage : Actor
 	}
 }
 
-//dropped shield
+// dropped shield
 Class DMR_DroppedShield: Actor
 {
 	Default
@@ -48,7 +48,7 @@ Class DMR_DroppedShield: Actor
 	}
 }
 
-//monster ram impact 'projectile'
+// monster ram impact 'projectile'
 class DMR_RamImpactor : Actor
 {
 	Default
@@ -76,15 +76,15 @@ class DMR_RamImpactor : Actor
 //	DustedPandomic for improvements to the ShieldWall logic
 //======================================================================
 
-//to make HellWarriors and Paladin's shield block a bit less annoying...
+// to make HellWarriors and Paladin's shield block a bit less annoying...
 class DMR_ShieldWall : Actor
 {	
 	Default
 	{
-		Radius 30; //just a tad wider then a hellknight is
-		Height 64; //same height
-		Health 125; //the damage the shield can take
-		Mass 9999; //don't get pushed around by shots
+		Radius 30; // just a tad wider then a hellknight is
+		Height 64; // same height
+		Health 125; // the damage the shield can take
+		Mass 9999; // don't get pushed around by shots
 		PainChance 256;
 		+NOBLOOD;
 		+SHOOTABLE;
@@ -98,15 +98,16 @@ class DMR_ShieldWall : Actor
 	States
 	{
 	Spawn: 
-		TNT1 A 1;
+		TNT1 A 1 NoDelay A_Warp(AAPTR_MASTER,20,0,10);
 		Loop;
 	Pain:
 		TNT1 A 1 {
 			A_PlaySound("shieldwall/pain", CHAN_WEAPON);
+			A_Warp(AAPTR_MASTER,25,0,10);
 		}
 		Goto Spawn;
 	Death:
-		TNT1 A 1 A_DamageMaster(1,"DMR_ShieldBroken"); //on death deal a specific damagetype
+		TNT1 A 1 A_DamageMaster(1,"DMR_ShieldBroken"); // on death deal a specific damagetype
 		Stop;
  	}
 }
