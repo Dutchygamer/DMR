@@ -44,18 +44,18 @@ class Netherling : DMR_DoomImp
 		Goto Ball;
     Ball:
         TRO4 EF 6 A_FaceTarget;
-		TRO4 G 4 Bright A_SpawnProjectile("NetherImpBall",32,0,0,0);
+		TRO4 G 4 Bright A_SpawnProjectile("NetherImpBall",32);
         Goto See;
     TriBall:
 		TRO4 EEE 6 A_FaceTarget;
         TRO4 F 6 A_FaceTarget;
-		TRO4 G 2 Bright A_SpawnProjectile("NetherImpBall",32,0,-7,0);
-		TRO4 G 2 Bright A_SpawnProjectile("NetherImpBall",32,0,0,0);
-		TRO4 G 2 Bright A_SpawnProjectile("NetherImpBall",32,0,7,0);
+		TRO4 G 2 Bright A_SpawnProjectile("NetherImpBall",32,0,-7);
+		TRO4 G 2 Bright A_SpawnProjectile("NetherImpBall",32,0,0);
+		TRO4 G 2 Bright A_SpawnProjectile("NetherImpBall",32,0,7);
         Goto See;
     BaronBall:
         TRO4 EF 8 A_FaceTarget;
-		TRO4 G 8 Bright A_SpawnProjectile("DMR_BaronBall",32,0,0,0);
+		TRO4 G 8 Bright A_SpawnProjectile("DMR_BaronBall",32);
         Goto See;
 	Pain:
 		TRO4 H 2;
@@ -68,7 +68,7 @@ class Netherling : DMR_DoomImp
 		TRO4 L 6 A_NoBlocking;
 		TRO4 M -1;
 		Stop;
-	//for now use DoomImp XDeath sprites
+	// for now use DoomImp XDeath sprites
 	XDeath:
 		TROO N 5;
 		TROO O 5 A_XScream;
@@ -95,7 +95,7 @@ class NetherImpBall : DMR_DoomImpBall
     {
     Spawn:
         IBAL AABB 2 Bright {
-			A_SpawnItemEx("NetherImpBallTrail",-5,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_MediumGreenFireballTrail",-7,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}		
         Loop;
     Death:
@@ -108,18 +108,4 @@ class NetherImpBall : DMR_DoomImpBall
         IBAL CDE 4 Bright;
         Stop;
     }   
-}
-
-class NetherImpBallTrail : DMR_ProjectileTrail
-{
-	Default
-	{
-		Scale 0.1;
-	}
-    States
-    {
-    Spawn:
-        ITRL ABCDEFGHIJKLMN 1 Bright;
-        stop;
-    }
 }

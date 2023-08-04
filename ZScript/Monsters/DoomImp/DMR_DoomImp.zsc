@@ -84,7 +84,7 @@ Class DMR_DoomImpBall : DMR_Projectile
 	{
 	Spawn:
 		BAL1 AABB 2 Bright {
-			A_SpawnItemEx("DMR_FireballTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_FireballTrail",-7,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 		}
 		Loop;
 	Death:

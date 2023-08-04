@@ -95,12 +95,15 @@ class HectebusBall : DMR_FatShot
 		Speed 22;
 		Seesound "";
 		DeathSound "weapons/boom1";
+		Scale 1.2;
 	}
 	States
 	{
 	Spawn:
-		FHED ABCD 3 Bright {
-			A_SpawnItemEx("DMR_RedPuffTrail",0,0,5);
+		FHED AABBCCDD 2 Bright {
+			// use random X/Y/Z offset because projectile is so big
+			A_SpawnItemEx("DMR_LargeFireballTrail",frandom(-6,-8),frandom(-4,4),frandom(-4,4),frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_LargeFireballTrail",frandom(-6,-8),frandom(-4,4),frandom(-4,4),frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}
 		loop;
 	Death:

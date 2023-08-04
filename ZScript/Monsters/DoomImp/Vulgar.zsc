@@ -33,16 +33,22 @@ class Vulgar : DMR_DoomImp
 		VULG AABBCCDD 3 A_Chase;
 		Loop;
 	Melee:
+		VULG EF 8 A_FaceTarget;
+		VULG G 6 A_CustomComboAttack("VulgarBall",37,random(8,24),"imp/melee");
+		Goto See;
 	Missile:
 		TNT1 A 0 A_Jump(96,"GasBall");
 		goto Ball;
 	Ball:
 		VULG EF 8 A_FaceTarget;
-		VULG G 6 A_CustomComboAttack("VulgarBall",37,random(8,24),"imp/melee");
+		VULG G 6 {
+			A_SpawnProjectile("VulgarBall",37,0,-2);
+			A_SpawnProjectile("VulgarBall",37,0,2);
+		}
 		Goto See;
 	GasBall:
 		VULG EEEF 8 A_FaceTarget;
-		VULG G 10 A_CustomComboAttack("VulgarGasBall",37,random(8,24),"imp/melee");
+		VULG G 10 A_SpawnProjectile("VulgarGasBall",37);
 		Goto See;
 	Pain:
 		VULG H 2;
@@ -81,7 +87,7 @@ class VulgarBall : DMR_DoomImpBall
 	{
 	Spawn:
 		FVUL AABB 2 Bright {
-			A_SpawnItemEx("DMR_SmallGasTrail",-2,0,3,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,0.5)); 
+			A_SpawnItemEx("DMR_SmallGasTrail",-5,0,0,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,-0.5)); 
 		}
 		loop;
 	Death:

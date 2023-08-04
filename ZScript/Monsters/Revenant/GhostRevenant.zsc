@@ -74,14 +74,14 @@ class HollowTracer : DMR_RevenantTracer
 	Spawn:
 		TNT1 A 0 NoDelay A_Jump(128,"Homing"); 
 		FATB AB 2 Bright {
-			A_SpawnItemEx("DMR_FireballTrail",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_FireballTrail",-8,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}
 		Goto Spawn+1;
 	Homing:
 		FATB AB 2 Bright {
 			A_SeekerMissile(1,8,SMF_PRECISE); 
-			A_SpawnItemEx("DMR_FireballTrail",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("DMR_SmokeCloud",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_FireballTrail",-8,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
+			A_SpawnItemEx("DMR_SmokeCloud",-8,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}
 		Loop;
 	Death:

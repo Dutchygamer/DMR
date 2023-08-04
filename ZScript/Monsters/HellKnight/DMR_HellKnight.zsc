@@ -91,7 +91,7 @@ class DMR_BaronBall : DMR_Projectile
 	{
 	Spawn:
 		BAL7 AABB 2 Bright {
-			A_SpawnItemEx("DMR_MediumGreenFireballTrail",-3,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1));
+			A_SpawnItemEx("DMR_MediumGreenFireballTrail",-7,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}
 		Loop;
 	Death:

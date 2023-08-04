@@ -98,9 +98,10 @@ class DMR_FatShot : DMR_Projectile
 	States
 	{
 	Spawn:
-		MANF AB 3 Bright {
-			A_SpawnItemEx("DMR_LargeFireballTrail",-7,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("DMR_MediumFireballTrail",-7,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
+		MANF AABB 2 Bright {
+			// use random X/Y/Z offset because projectile is so big
+			A_SpawnItemEx("DMR_LargeFireballTrail",frandom(-6,-8),frandom(-4,4),frandom(-4,4),frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_LargeFireballTrail",frandom(-6,-8),frandom(-4,4),frandom(-4,4),frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}
 		Loop;
 	Death:

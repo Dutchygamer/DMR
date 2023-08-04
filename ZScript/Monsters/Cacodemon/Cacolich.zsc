@@ -112,7 +112,7 @@ class WithererBall : DMR_CacodemonBall
 	{
 	Spawn: 
 		FVUL AABB 2 {
-			A_SpawnItemEx("DMR_GasTrail",-7,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_GasTrail",-5,0,0,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,-0.5)); 
 		}
 		loop;
 	Death:
@@ -141,7 +141,7 @@ class WithererGasBall : DMR_CacodemonBall
 	{
 	Spawn: 
 		HECF AABB 2 {
-			A_SpawnItemEx("DMR_GasTrail",-7,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_GasTrail",-5,0,0,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,-0.5)); 
 		}
 		loop;
 	Death:

@@ -106,50 +106,6 @@ class FireborneNoble : DMR_BaronOfHell
 	}
 }
 
-//TODO unused
-class FireborneNobleBall : DMR_BaronBall
-{
-	Default
-	{
-		DamageFunction(random(20,60));
-		Speed 16;
-		Alpha 0.9;
-	}
-	States
-	{
-	Spawn:
-		BRBA AABB 2 BRIGHT {
-			A_SpawnItemEx("DMR_LargeFireballTrail",-5,0,5,frandom(-1,0),frandom(-1,1),frandom(0,1));
-			A_SpawnItemEx("FireborneNobleBallTrail",0,0,0,0,0,0);
-		}
-		Loop;
-	Death:
-		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
-				A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-			}
-		}
-		BRBA KLMNOPQRSTUVWX 3 Bright;
-		Stop;
-	}
-}
-
-//TODO unused
-class FireborneNobleBallTrail : DMR_ProjectileTrail
-{
-	Default
-	{
-		ALPHA 0.70;
-	}
-	States
-	{
-	Spawn:
-	 	BRBA CDEFGHIJ 4 Bright;
-	 	Stop;
-	}
-}
-
 class FireborneNobleSpamBall : DMR_DoomImpBall
 {
 	Default
@@ -162,7 +118,7 @@ class FireborneNobleSpamBall : DMR_DoomImpBall
 	{
 	Spawn:
 		BRB2 AB 6 BRIGHT {
-			A_SpawnItemEx("DMR_FireballTrail",0,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1));
+			A_SpawnItemEx("DMR_FireballTrail",-7,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}
 		Loop;
 	Death:		

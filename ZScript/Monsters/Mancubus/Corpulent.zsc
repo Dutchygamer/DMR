@@ -132,8 +132,11 @@ class CorpulentBall : DMR_FatShot
 	{
 	Spawn:
 		HECF AABB 2 Bright {
-			A_SpawnItemEx("DMR_LargeGreenFireballTrail",-7,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("DMR_MediumGreenFireballTrail",-7,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
+			// use random X/Y/Z offset because projectile is so big
+			A_SpawnItemEx("DMR_LargeGreenFireballTrail",frandom(-6,-8),frandom(-4,4),frandom(-4,4),frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_LargeGreenFireballTrail",frandom(-6,-8),frandom(-4,4),frandom(-4,4),frandom(-1,0),frandom(-1,1),frandom(0,1));
+			//A_SpawnItemEx("DMR_LargeGreenFireballTrail",-7,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			//A_SpawnItemEx("DMR_MediumGreenFireballTrail",-7,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		}
 		Loop;
 	Death:
@@ -162,7 +165,9 @@ class CorpulentToxin : DMR_FatShot
 	{
 	Spawn:
 		HECF AABB 2 Bright {
-			A_SpawnItemEx("DMR_GasTrail",-7,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			// use random X/Y/Z offset because projectile is so big
+			A_SpawnItemEx("DMR_GasTrail",frandom(-6,-8),frandom(-4,4),frandom(-4,4),frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,-0.5)); 
+			A_SpawnItemEx("DMR_GasTrail",frandom(-6,-8),frandom(-4,4),frandom(-4,4),frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,-0.5));
 		}
 		Loop;
 	Death:

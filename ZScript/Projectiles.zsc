@@ -349,7 +349,7 @@ class DMR_FlamethrowerExplodeLarge : DMR_FlamethrowerExplode
 	}
 }
 
-//laser
+// laser
 class DMR_LaserBase : DMR_FastProjectile
 {
 	Default
@@ -398,7 +398,7 @@ class DMR_LaserTrailBase : Actor
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay			A_SpawnItemEx("DMR_LaserFlare",0,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1));
+		TNT1 A 0 NoDelay A_SpawnItemEx("DMR_LaserFlare",0,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1));
 		LASB A 1 Bright;
 	SpawnLoop:
 		LASB A 1 Bright A_FadeOut(0.2);
