@@ -23,6 +23,7 @@ class FormerCyborg : DMR_ShotgunGuy
 		DropItem "ClipBox";
 		DropItem "ClipBox", 128;
 		+MISSILEMORE;
+		DamageFactor "ToxinCloud", 0.0;
 	}
  	States
 	{

@@ -24,6 +24,7 @@ class FormerCyborgCommando : DMR_ChaingunGuy
 		dropitem "CellPack", 128;
 		+DOHARMSPECIES; // zombies aren't BFG-ball-proof
 		+MISSILEMORE;
+		DamageFactor "ToxinCloud", 0.0;
 	}
  	States
 	{
