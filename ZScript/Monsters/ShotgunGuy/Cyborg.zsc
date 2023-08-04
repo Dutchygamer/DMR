@@ -1,0 +1,73 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	TheMightyHeracross
+//	Sounds:		Id Software
+//  Sprites: 	Rougue, id, Collin Portratz, RBCSkins (zirron the insect, TheMightyHeracross, Xim)
+//	GLDEFs: 	n/a
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class FormerCyborg : DMR_ShotgunGuy
+{
+	Default
+	{
+		Tag "Former Cyborg";
+		obituary "%o felt the pain of fighting a Former Cyborg.";
+		health 400;
+		painchance 50;
+		Scale 1.1;
+		DropItem "ClipBox";
+		DropItem "ClipBox", 128;
+		+MISSILEMORE;
+	}
+ 	States
+	{
+	Spawn:
+		GREB AA 10 A_Look;
+		Loop;
+	See:
+		GREB AABBCCDD 5 A_Chase;
+		Loop;
+	Missile:
+		GREB E 10 A_FaceTarget;
+		GREB FE 3 Bright Light("DMR_RifleFire") {
+			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON);
+		}
+		GREB FE 3 Bright Light("DMR_RifleFire") {
+			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON);
+		}
+		GREB E 3 A_CPosRefire;
+		Goto Missile+1;
+	Pain:
+		GREB G 3;
+		GREB G 3 A_Pain;
+		Goto See;
+	Death:
+		GREB HHH 5 {
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		}
+		GREB I 5 A_Scream;
+		GREB J 5 A_NoBlocking;
+		GREB KLM 5;
+		GREB N -1;
+		Stop;
+	XDeath:
+		GREB OOO 2 {
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		}
+		GREB P 5 A_XScream;
+		GREB Q 5 A_NoBlocking;
+		GREB RSTU 5;
+		GREB V -1;
+		Stop;
+	Raise:
+		MRBL NMLKJIH 5;
+		Goto See;
+	}
+}

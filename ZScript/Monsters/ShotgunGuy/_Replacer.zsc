@@ -5,12 +5,12 @@ Class ShotgunGuyReplacer: RandomSpawner replaces Shotgunguy
 		DropItem "DMR_ShotgunGuy", 255, 100;
 		DropItem "FormerStaffSargeant", 255, 20;
 		DropItem "FormerAssaultSargeant", 255, 20;
-		//DropItem "SuicideGuy", 255, 13;
 		DropItem "FormerQuartermaster", 255, 8;
+		DropItem "FormerCyborg", 255, 4;
 	}
 }
 
-//suicide guy itself is a collection of suicide guy variants
+// suicide guy itself is a collection of suicide guy variants
 Class SuicideGuy : RandomSpawner
 {
 	Default
