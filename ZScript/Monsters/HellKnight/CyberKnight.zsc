@@ -9,11 +9,11 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class CyberKnight : DMR_HellKnight
+class CyberHellKnight : DMR_HellKnight
 {
 	Default
 	{
-		Tag "Cyber Knight";
+		Tag "Cyber Hell Knight";
 		Health 750;
 		DropItem "RocketAmmo", 128;
 		DropItem "RocketAmmo", 128;
@@ -43,7 +43,7 @@ class CyberKnight : DMR_HellKnight
 		Goto See;
 	Rocket:
 		CBO2 EE 10 A_FaceTarget;
-		CBO2 F 10 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",27,16,0,0);
+		CBO2 F 10 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",27,16);
 		CBO2 E 10 A_FaceTarget;
 		Goto See;
 	Pain:

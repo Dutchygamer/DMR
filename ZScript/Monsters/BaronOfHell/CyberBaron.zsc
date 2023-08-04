@@ -10,15 +10,15 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class CyberBaron : DMR_BaronOfHell
+class CyberBaronOfHell : DMR_BaronOfHell
 {
 	Default
 	{
-		Tag "Cyber Baron";
+		Tag "Cyber Baron of Hell";
 		Health 1250;
 		DropItem "RocketAmmo", 128;
 		DropItem "RocketAmmo", 128;
-		obituary "%o was splayed by a cyber knight";
+		obituary "%o was blasted by a cyber baron";
 		hitobituary "%o was torn apart by a cyber baron";
 	}
 	States
@@ -44,9 +44,9 @@ class CyberBaron : DMR_BaronOfHell
 		Goto See;
 	Rocket:
 		CBOS EE 8 A_FaceTarget;
-		CBOS F 10 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",27,16,0,0);
+		CBOS F 10 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",27,16);
 		CBOS E 8 A_FaceTarget;
-		CBOS F 10 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",27,16,0,0);
+		CBOS F 10 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",27,16);
 		CBOS E 8;
 		Goto See;
 	Pain:
