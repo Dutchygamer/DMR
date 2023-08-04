@@ -32,15 +32,12 @@ flickerlight DMR_BlueLaserImpactBig_X3
 
 object EmperorLaser
 {
+	frame TNT1A { light DMR_BlueLaserTrailBig }
+	
 	frame BFE1A { light DMR_BlueLaserImpactBig_X1 }
     frame BFE1B { light DMR_BlueLaserImpactBig_X2 }
     frame BFE1C { light DMR_BlueLaserImpactBig_X2 }
     frame BFE1D { light DMR_BlueLaserImpactBig_X2 }
     frame BFE1E { light DMR_BlueLaserImpactBig_X3 }
     frame BFE1F { light DMR_BlueLaserImpactBig_X3 }
-}
-
-object EmperorLaserTrail
-{
-	frame LASBB { light DMR_BlueLaserTrailBig }
 }

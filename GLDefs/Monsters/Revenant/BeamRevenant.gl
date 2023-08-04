@@ -13,12 +13,6 @@ pointlight DMR_LaserTrail
     size 48
 }
 
-object SmallRedLaserTrail
-{
-	frame LASBA { light DMR_LaserTrail }
-}
-
-
 flickerlight DMR_LaserImpact_X1
 {
     color 0.9 0.0 0.0
@@ -45,6 +39,8 @@ flickerlight DMR_LaserImpact_X3
 
 object SmallRedLaser
 {
+	frame TNT1A { light DMR_LaserTrail }
+	
 	frame BFE1A { light DMR_LaserImpactBig_X1 }
     frame BFE1B { light DMR_LaserImpactBig_X2 }
     frame BFE1C { light DMR_LaserImpactBig_X2 }
