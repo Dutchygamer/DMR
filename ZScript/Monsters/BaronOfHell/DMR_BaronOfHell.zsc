@@ -42,6 +42,9 @@ Class DMR_BaronOfHell : DMR_MonsterBase
 		BOSS AABBCCDD 3 A_Chase;
 		Loop;
 	Melee:
+		BOSS EF 8 A_FaceTarget;
+		BOSS G 8 A_CustomComboAttack("DMR_BaronBall",32,random(20,60),"baron/melee");
+		goto See;
 	Missile:
 		BOSS EF 8 A_FaceTarget;
 		BOSS G 8 A_CustomComboAttack("DMR_BaronBall",32,random(20,60),"baron/melee");

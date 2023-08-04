@@ -42,11 +42,9 @@ class NobleVanguard : DMR_BaronOfHell
 		TNT1 A 0 {
 			A_RemoveChildren(1,RMVF_EVERYTHING);
 		}
-		HPAL AA 3 A_Chase;
-		HPAL BB 3 A_Chase;
+		HPAL AABB 3 A_Chase;
 		TNT1 A 0 A_PlaySound("Paladin/Step");
-		HPAL CC 3 A_Chase;
-		HPAL DD 3 A_Chase;
+		HPAL CCDD 3 A_Chase;
 		TNT1 A 0 A_PlaySound("Paladin/Step");
 		Goto See+1;
 	SeeShield:
