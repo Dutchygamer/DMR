@@ -1,4 +1,4 @@
-flickerlight DMR_PyroDemon
+flickerlight DMR_FireborneArchon
 {
     color 0.8 0.5 0.1
     size 80
@@ -6,7 +6,7 @@ flickerlight DMR_PyroDemon
     chance 0.3
 }
 
-object PyroDemon
+object FireborneArchon
 {
     frame PYROA { light DMR_BruiserDemon }
     frame PYROB { light DMR_BruiserDemon }
@@ -29,7 +29,7 @@ object PyroDemon
 }
 
 
-flickerlight DMR_PyroDemonBall
+flickerlight DMR_FireborneArchonBall
 {
     color 1.0 0.7 0.0
     size 78
@@ -37,7 +37,7 @@ flickerlight DMR_PyroDemonBall
     chance 0.3
 }
 
-flickerlight DMR_PyroDemonBall_X1
+flickerlight DMR_FireborneArchonBall_X1
 {
     color 1.0 0.6 0.1
     size 90
@@ -45,7 +45,7 @@ flickerlight DMR_PyroDemonBall_X1
     chance 0.3
 }
 
-flickerlight DMR_PyroDemonBall_X2
+flickerlight DMR_FireborneArchonBall_X2
 {
     color 0.65 0.3 0.0
     size 100
@@ -53,7 +53,7 @@ flickerlight DMR_PyroDemonBall_X2
     chance 0.3
 }
 
-flickerlight DMR_PyroDemonBall_X3
+flickerlight DMR_FireborneArchonBall_X3
 {
     color 0.3 0.1 0.0
     size 110
@@ -61,22 +61,22 @@ flickerlight DMR_PyroDemonBall_X3
     chance 0.3
 }
 
-object PyroDemonBall
+object FireborneArchonBall
 {
-    frame COMTA { light DMR_PyroDemonBall }
-    frame COMTB { light DMR_PyroDemonBall }
-    frame COMTC { light DMR_PyroDemonBall }
+    frame COMTA { light DMR_FireborneArchonBall }
+    frame COMTB { light DMR_FireborneArchonBall }
+    frame COMTC { light DMR_FireborneArchonBall }
 
-    frame COMTD { light DMR_PyroDemonBall_X1 }
-    frame COMTE { light DMR_PyroDemonBall_X1 }
-    frame COMTF { light DMR_PyroDemonBall_X2 }
-    frame COMTG { light DMR_PyroDemonBall_X2 }
-    frame COMTH { light DMR_PyroDemonBall_X2 }
-    frame COMTI { light DMR_PyroDemonBall_X3 }
+    frame COMTD { light DMR_FireborneArchonBall_X1 }
+    frame COMTE { light DMR_FireborneArchonBall_X1 }
+    frame COMTF { light DMR_FireborneArchonBall_X2 }
+    frame COMTG { light DMR_FireborneArchonBall_X2 }
+    frame COMTH { light DMR_FireborneArchonBall_X2 }
+    frame COMTI { light DMR_FireborneArchonBall_X3 }
 }
 
 
-flickerlight DMR_PyroDemonRapidBall
+flickerlight DMR_FireborneArchonRapidBall
 {
     color 1.0 0.7 0.0
     size 72
@@ -84,7 +84,7 @@ flickerlight DMR_PyroDemonRapidBall
     chance 0.3
 }
 
-flickerlight DMR_PyroDemonRapidBall_X1
+flickerlight DMR_FireborneArchonRapidBall_X1
 {
     color 1.0 0.6 0.1
     size 80
@@ -92,7 +92,7 @@ flickerlight DMR_PyroDemonRapidBall_X1
     chance 0.3
 }
 
-flickerlight DMR_PyroDemonRapidBall_X2
+flickerlight DMR_FireborneArchonRapidBall_X2
 {
     color 0.65 0.3 0.0
     size 85
@@ -100,7 +100,7 @@ flickerlight DMR_PyroDemonRapidBall_X2
     chance 0.3
 }
 
-flickerlight DMR_PyroDemonRapidBall_X3
+flickerlight DMR_FireborneArchonRapidBall_X3
 {
     color 0.3 0.1 0.0
     size 90
@@ -108,16 +108,16 @@ flickerlight DMR_PyroDemonRapidBall_X3
     chance 0.3
 }
 
-object PyroDemonRapidBall
+object FireborneArchonRapidBall
 {
-    frame COMTA { light DMR_PyroDemonRapidBall }
-    frame COMTB { light DMR_PyroDemonRapidBall }
-    frame COMTC { light DMR_PyroDemonRapidBall }
+    frame COMTA { light DMR_FireborneArchonRapidBall }
+    frame COMTB { light DMR_FireborneArchonRapidBall }
+    frame COMTC { light DMR_FireborneArchonRapidBall }
 
-    frame COMTD { light DMR_PyroDemonRapidBall_X1 }
-    frame COMTE { light DMR_PyroDemonRapidBall_X1 }
-    frame COMTF { light DMR_PyroDemonRapidBall_X2 }
-    frame COMTG { light DMR_PyroDemonRapidBall_X2 }
-    frame COMTH { light DMR_PyroDemonRapidBall_X2 }
-    frame COMTI { light DMR_PyroDemonRapidBall_X3 }
+    frame COMTD { light DMR_FireborneArchonRapidBall_X1 }
+    frame COMTE { light DMR_FireborneArchonRapidBall_X1 }
+    frame COMTF { light DMR_FireborneArchonRapidBall_X2 }
+    frame COMTG { light DMR_FireborneArchonRapidBall_X2 }
+    frame COMTH { light DMR_FireborneArchonRapidBall_X2 }
+    frame COMTI { light DMR_FireborneArchonRapidBall_X3 }
 }
