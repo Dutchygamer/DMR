@@ -52,6 +52,15 @@ Class DMR_MonsterBase : Actor
 		}
 		return null;
 	}
+	
+	// some creativity that for monster variants that can fly while the original monster doesn't (ie Afrit for HellKnight) they don't break certain Boom/ZDoom map things	
+	void A_BeginFloat()
+	{
+		A_NoGravity(); 
+		bFLOAT = true;
+		bFLOORCLIP = false;
+	}
+
 }
 
 
