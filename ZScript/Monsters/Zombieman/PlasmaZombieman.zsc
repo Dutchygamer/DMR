@@ -19,7 +19,7 @@ class FormerPlasmagunner : DMR_Zombieman
 		Health 55;
 		PainChance 185;
 		OBITUARY "%o got burned by a Former Plasmagunner.";
-		DropItem "Cell";
+		DropItem "Cell", 256, 20;
 		DropItem "PlasmaRifle", 10;
 	}
  	States

@@ -59,8 +59,7 @@ Class DMR_MonsterBase : Actor
 		A_NoGravity(); 
 		bFLOAT = true;
 		bFLOORCLIP = false;
-	}
-
+	}	
 }
 
 

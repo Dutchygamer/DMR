@@ -20,8 +20,8 @@ class FormerAssaultTrooper : DMR_Zombieman
 		Health 35;
 		PainChance 185;
 		+MISSILEMORE
-		DropItem "Clip";
-		DropItem "Clip", 64;
+		DropItem "Clip", 256, 5;
+		DropItem "Clip", 256, 5;
 	}
  	States
 	{

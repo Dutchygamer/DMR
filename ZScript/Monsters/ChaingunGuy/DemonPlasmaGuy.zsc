@@ -18,9 +18,9 @@ class FormerPlasmaCommando : DMR_ChaingunGuy
 		Tag "Former Plasma Commando";
 		Health 110;
 		PainChance 150;
-		DropItem "Cell";
-		DropItem "Cell", 128;
-		DropItem "Cell", 64;
+		DropItem "Cell", 256, 20;
+		DropItem "Cell", 128, 20;
+		DropItem "Cell", 64, 20;
 		Obituary "%o was fried by a Former Plasma Commando.";
 	}
  	States

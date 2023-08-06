@@ -19,9 +19,9 @@ class FormerQuartermaster : DMR_ShotgunGuy
 		Health 90;
 		PainChance 155;
 		Obituary "%o was pink-misted by a Former Quartermaster.";
-		DropItem "Shell";
-		DropItem "Shell", 128;
-		DropItem "Shell", 64;
+		DropItem "Shell", 256, 4;
+		DropItem "Shell", 128, 4;
+		DropItem "Shell", 64, 4;
 	}
 	int shotsFired;
 	

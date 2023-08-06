@@ -9,6 +9,6 @@ Class ChaingunGuyReplacer: RandomSpawner replaces Chaingunguy
 		DropItem "FormerViralAgent", 255, 10;
 		DropItem "FormerPlasmaCommando", 255, 10;
 		DropItem "FormerBFGCommando", 255, 4;
-		DropItem "FormerCyborgCommando", 255, 1;
+		DropItem "FormerCyborgCommando", 255, 2;
 	}
 }

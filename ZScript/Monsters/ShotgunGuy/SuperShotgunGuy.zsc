@@ -21,8 +21,8 @@ class FormerStaffSargeant : DMR_ShotgunGuy
 		Translation "112:127=16:47"; // recolour green parts to red
 		OBITUARY "%o was blown open by a Former Staff Sargeant.";
 		Scale 0.9;
-		DropItem "Shell";
-		DropItem "Shell", 128;
+		DropItem "Shell", 256, 4;
+		DropItem "Shell", 128, 4;
 		DropItem "SuperShotgun", 10;
 	}
 	int shotsFired;

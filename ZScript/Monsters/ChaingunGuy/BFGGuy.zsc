@@ -20,8 +20,8 @@ class FormerBFGCommando : DMR_ChaingunGuy
 		health 150;
 		painchance 100;
 		Scale 1.1;
-		dropitem "Cell";
-		dropitem "Cell", 128;
+		dropitem "Cell", 256, 20;
+		dropitem "Cell", 128, 20;
 		dropitem "BFG9000", 10;
 		+DOHARMSPECIES; // zombies aren't BFG-ball-proof
 	}

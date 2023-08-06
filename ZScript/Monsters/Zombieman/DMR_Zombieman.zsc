@@ -22,7 +22,7 @@ Class DMR_Zombieman : DMR_MonsterBase
 		DeathSound "grunt/death";
 		ActiveSound "grunt/active";
 		Obituary "%o was shot by a Former Trooper.";
-		DropItem "Clip";
+		DropItem "Clip", 256, 5;
 		+DOHARMSPECIES;
 	}
 	States

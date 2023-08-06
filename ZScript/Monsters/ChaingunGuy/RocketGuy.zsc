@@ -19,7 +19,7 @@ class FormerRocketeer : DMR_ChaingunGuy
 		Tag "Former Rocketeer";
 		Health 90;
 		PainChance 150;
-		DropItem "RocketAmmo";
+		DropItem "RocketAmmo", 256, 1;
 		DropItem "RocketLauncher", 10;
 		Obituary "%o was splattered by a Former Rocketeer";
 		+DOHARMSPECIES; // zombies aren't rocket-proof

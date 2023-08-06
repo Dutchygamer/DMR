@@ -24,7 +24,7 @@ class EvilMarine : WolfensteinSS
 		DeathSound "grunt/death";
 		ActiveSound "grunt/active";
 		OBITUARY "%o was defeated by a corrupted marine.";
-		DropItem "CellPack";
+		DropItem "CellPack", 256, 100;
 		DropItem "PlasmaRifle", 10;
 	}
  	States

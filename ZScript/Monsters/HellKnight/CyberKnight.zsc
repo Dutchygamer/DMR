@@ -15,8 +15,8 @@ class CyberHellKnight : DMR_HellKnight
 	{
 		Tag "Cyber Hell Knight";
 		Health 750;
-		DropItem "RocketAmmo", 128;
-		DropItem "RocketAmmo", 128;
+		DropItem "RocketAmmo", 128, 1;
+		DropItem "RocketAmmo", 128, 1;
 		obituary "%o was splayed by a cyber knight";
 		hitobituary "%o was ripped to shreds by a cyber knight";
 	}

@@ -19,8 +19,8 @@ class FormerAssaultSargeant : DMR_ShotgunGuy
 		Health 50;
 		PainChance 155;
 		Obituary "%o was shredded by a Former Assault Sargeant.";
-		DropItem "Shell";
-		DropItem "Shell", 128;
+		DropItem "Shell", 256, 4;
+		DropItem "Shell", 128, 4;
 	}
 	int shotsFired;
 	

@@ -49,8 +49,11 @@ class FormerInfiltrator : DMR_Zombieman
 			isStealthed = false;
 			A_SetRenderStyle(1,STYLE_Normal);
 		}
-		TNT1 A 0 A_JumpIfCloser(512, "Grenades"); // when close to target, we can use grenades
-		Goto Rifle; //else just use rifle fire
+		TNT1 A 0 A_JumpIfCloser(512, "MissileClose"); // only throw grenades when we are close
+		Goto Rifle;
+	MissileClose:
+		TNT1 A 0 A_Jump(64, "Grenades");
+		Goto Rifle;
 	GoStealthed:
 		TNT1 A 0 {
 			if (isStealthed) { SetStateLabel("See"); }
@@ -59,7 +62,7 @@ class FormerInfiltrator : DMR_Zombieman
 			isStealthed = true;
 			A_PlaySound("Infiltrator/stealth");
 		}
-		ZHRT EEEEE 1 { //to 0.0 alpha in total
+		ZHRT EEEEE 1 { // to 0.0 alpha in total
 			A_SetRenderStyle(Alpha-0.2,STYLE_Translucent);
 		}
 		TNT1 A 0 A_Chase(null,null, CHF_FASTCHASE);
@@ -74,11 +77,15 @@ class FormerInfiltrator : DMR_Zombieman
 		Goto See;
 	Grenades:
 		TNT1 A 0 A_JumpIfCloser(96, "Rifle"); // don't grenade yourself when standing in front of the target
-		TNT1 A 0 A_Jump(180, "Rifle"); // as we will always go here when in grenade-range, high chance to fire the rifle instead
-		TNT1 A 0 A_PlaySound("handgrenade/prime", CHAN_WEAPON);
-		ZHRT E 15 A_FaceTarget;
-		TNT1 A 0 A_PlaySound("handgrenade/throw", CHAN_WEAPON);
-		ZHRT F 5 A_SpawnProjectile("InfiltratorZombiemanGrenade",32,0,random(9,-9),CMF_OFFSETPITCH,random(-2,2));
+		TNT1 A 0 {
+			A_PlaySound("handgrenade/prime", CHAN_WEAPON);
+		}
+		ZHRT EEE 8 A_FaceTarget;
+		ZHRT F 5 {
+			A_PlaySound("handgrenade/throw", CHAN_WEAPON);
+			A_SpawnProjectile("InfiltratorZombiemanGrenade",32,0,random(9,-9),CMF_OFFSETPITCH,random(-2,2));
+		}
+		ZHRT E 4;
 		Goto See;
 	Pain:
 		TNT1 A 0 {
@@ -126,15 +133,22 @@ class InfiltratorZombiemanGrenade : DMR_ThrownGrenade
 		Loop;
 	Death:
 		TNT1 A 0 {
+			A_SetRenderStyle(1.0,STYLE_Add);
 			bNoGravity = true;
 			A_Stop();
 			A_SetScale(2.5);
 		}
+		TNT1 A 0 {
+			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
+				A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+				A_SpawnItemEx("DMR_GasBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			}
+		}	
 		FVUL C 4 {
 			A_PlaySound("gas/explode");
 			A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_Explode(8, 48);
+			A_Explode(8,48);
 		}
 		FVUL DEF 4;
 		Stop;
