@@ -11,17 +11,17 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class FormerCyborgCommando : DMR_ChaingunGuy
+class FormerCyborgCommando : FormerCyborg
 {
 	Default
 	{
 		Tag "Former Cyborg Commando";
-		obituary "%o realized the futility of fighting a Former Cyborg Commando.";
-		health 700;
+		obituary "%o realized the futility of resisting a Former Cyborg Commando.";
+		health 1000;
 		painchance 20;
 		Scale 1.2;
-		dropitem "CellPack";
-		dropitem "CellPack", 128;
+		dropitem "CellPack", 256, 100;
+		dropitem "CellPack", 128, 100;
 		+DOHARMSPECIES; // zombies aren't BFG-ball-proof
 		+MISSILEMORE;
 		DamageFactor "ToxinCloud", 0.0;
@@ -32,8 +32,22 @@ class FormerCyborgCommando : DMR_ChaingunGuy
 		MRBL AA 10 A_Look;
 		Loop;
 	See:
-		MRBL AABBCCDD 5 A_Chase;
+		TNT1 A 0 {
+			if (!criticalDamaged && health < 100) { SetStateLabel("CriticalDamage"); }
+		}
+		MRBL AABBCCDD 4 {
+			A_SetCyborgTics(4,8);
+			A_Chase();
+		}
 		Loop;
+	CriticalDamage: 
+		MRBL G 3;
+		MRBL G 3 A_Pain;
+		MRBL G 3 {
+			criticalDamaged = true;
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		}
+		Goto See;
 	Missile:
 		TNT1 A 0 A_Jump(256, "Plasma","HellRune","BFG");
 		Goto See;
@@ -95,22 +109,22 @@ class FormerCyborgCommando : DMR_ChaingunGuy
 		Goto See;
 	Death:
 	XDeath:
-		MRBL HHH 5 {
-			A_NoBlocking();
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
-		}
-		MRBL I 5 {
-			A_Scream();
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		MRBL G 10 A_Scream;
+		MRBL GGGHI 5 {
+			A_SpawnItemEx("DMR_BossDeathExplosion",random(8,-8),0,random(20,40));
 		}
 		MRBL J 5 {
 			A_NoBlocking();
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+			A_SpawnItemEx("DMR_BossDeathExplosion",random(8,-8),0,random(20,40));
 		}
 		MRBL KL 5;
 		MRBL L -1;
 		Stop;
 	Raise:
+		// when rezzed you get your legs back
+		TNT1 A 0 {			
+			criticalDamaged = false;
+		}
 		MRBL LKJIH 5;
 		Goto See;
 	}
