@@ -1,0 +1,12 @@
+
+object FormerCyborgCommandoPlasma
+{
+    frame PLSSA { light DMR_PlasmaBall }
+    frame PLSSB { light DMR_PlasmaBall }
+
+    frame PLSSA { light DMR_PlasmaBall_X1 }
+    frame PLSSB { light DMR_PlasmaBall_X2 }
+    frame PLSSC { light DMR_PlasmaBall_X2 }
+    frame PLSSD { light DMR_PlasmaBall_X3 }
+    frame PLSSE { light DMR_PlasmaBall_X4 }
+}

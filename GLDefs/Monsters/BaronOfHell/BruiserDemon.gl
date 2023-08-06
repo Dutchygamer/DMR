@@ -40,7 +40,7 @@ object FireborneNoble
 }
 
 
-object FireborneNobleBall
+/*object FireborneNobleBall
 {
     frame BRBAA { light DMR_ImpBall }
     frame BRBAB { light DMR_ImpBall }
@@ -59,7 +59,7 @@ object FireborneNobleBall
     frame BRBAV { light DMR_ImpBall_X2 }
     frame BRBAW { light DMR_ImpBall_X2 }
     frame BRBAX { light DMR_ImpBall_X3 }
-}
+}*/
 
 
 object FireborneNobleSpamBall
