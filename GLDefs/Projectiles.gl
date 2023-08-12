@@ -193,6 +193,15 @@ flickerlight DMR_PlasmaFire
     chance 0.3
 }
 
+
+flickerlight DMR_PlasmaBall
+{
+    color 0.3 0.3 1.0
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
 flickerlight DMR_PlasmaBall_X1
 {
     color 0.15 0.15 0.9

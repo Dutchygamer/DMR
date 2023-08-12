@@ -22,9 +22,9 @@ class FormerCyborgCommando : FormerCyborg
 		Scale 1.2;
 		dropitem "CellPack", 256, 100;
 		dropitem "CellPack", 128, 100;
-		+DOHARMSPECIES; // zombies aren't BFG-ball-proof
 		+MISSILEMORE;
 		DamageFactor "ToxinCloud", 0.0;
+		DMR_MonsterBase.Species2 "WolfSSReplacer";
 	}
  	States
 	{
@@ -49,42 +49,65 @@ class FormerCyborgCommando : FormerCyborg
 		}
 		Goto See;
 	Missile:
-		TNT1 A 0 A_Jump(256, "Plasma","HellRune","BFG");
-		Goto See;
+		TNT1 A 0 A_Jump(96,"BFG");
 	Plasma:
+		TNT1 A 0 A_JumpIfCloser(512, "PlasmaClose");
+		Goto PlasmaFar;
+	PlasmaFar:
 		MRBL E 8 A_FaceTarget;
-		MRBL F 3 BRIGHT Light("DMR_PlasmaFire") {
+		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
 			A_PlaySound ("weapons/plasmaf", CHAN_WEAPON);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,4);
 			A_SpawnProjectile("FormerCyborgCommandoPlasma",34);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,-4);
 		}
 		MRBL E 2 A_FaceTarget;
-		MRBL F 3 BRIGHT Light("DMR_PlasmaFire") {
+		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
 			A_PlaySound ("weapons/plasmaf", CHAN_WEAPON);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,4);
 			A_SpawnProjectile("FormerCyborgCommandoPlasma",34);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,-4);
 		}
 		MRBL E 2 A_FaceTarget;
-		MRBL F 3 BRIGHT Light("DMR_PlasmaFire") {
+		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
 			A_PlaySound ("weapons/plasmaf", CHAN_WEAPON);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,4);
 			A_SpawnProjectile("FormerCyborgCommandoPlasma",34);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,-4);
+		}
+		MRBL E 2 A_FaceTarget;
+		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
+			A_PlaySound ("weapons/plasmaf", CHAN_WEAPON);
+			A_SpawnProjectile("FormerCyborgCommandoPlasma",34);
+		}
+		MRBL E 2 A_FaceTarget;
+		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
+			A_PlaySound ("weapons/plasmaf", CHAN_WEAPON);
+			A_SpawnProjectile("FormerCyborgCommandoPlasma",34);
+		}
+		MRBL E 2 A_FaceTarget;
+		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
+			A_PlaySound ("weapons/plasmaf", CHAN_WEAPON);
+			A_SpawnProjectile("FormerCyborgCommandoPlasma",34);
 		}
 		MRBL E 2 A_FaceTarget;
 		Goto See;
-	HellRune:
+	PlasmaClose:
+		TNT1 A 0 A_Jump(96, "PlasmaFar");
 		MRBL E 8 A_FaceTarget;
-		MRBL F 3 BRIGHT Light("DMR_HellRuneFire") {
-			A_SpawnProjectile("FormerPlasmaCommandoBall",34,0,4);
-			A_SpawnProjectile("FormerPlasmaCommandoBall",34);
+		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
+			A_PlaySound ("weapons/plasmaf", CHAN_WEAPON);
+			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,4);
+			A_SpawnProjectile("FormerCyborgCommandoPlasma",34);
+			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,-4);
 		}
 		MRBL E 2 A_FaceTarget;
-		MRBL F 3 BRIGHT Light("DMR_HellRuneFire") {
-			A_SpawnProjectile("FormerPlasmaCommandoBall",34);
-			A_SpawnProjectile("FormerPlasmaCommandoBall",34,0,-4);
+		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
+			A_PlaySound ("weapons/plasmaf", CHAN_WEAPON);
+			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,4);
+			A_SpawnProjectile("FormerCyborgCommandoPlasma",34);
+			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,-4);
+		}
+		MRBL E 2 A_FaceTarget;
+		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
+			A_PlaySound ("weapons/plasmaf", CHAN_WEAPON);
+			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,4);
+			A_SpawnProjectile("FormerCyborgCommandoPlasma",34);
+			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,-4);
 		}
 		MRBL E 2 A_FaceTarget;
 		Goto See;
@@ -94,10 +117,10 @@ class FormerCyborgCommando : FormerCyborg
 			bNOPAIN = true;
 		}
 		MRBL E 20 Light("DMR_BFGCharge_X1") A_FaceTarget;
-		MRBL F 10 Bright Light("DMR_BFGCharge_X2") A_FaceTarget;
+		MRBL EF 10 Bright Light("DMR_BFGCharge_X2") A_FaceTarget;
 		MRBL F 10 Bright Light("DMR_BFGFire") {
 			A_FaceTarget();
-			A_SpawnProjectile("DMR_BFGBall",34);
+			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",34);
 		}
 		MRBL E 20 {
 			bNOPAIN = false;
@@ -135,5 +158,181 @@ class FormerCyborgCommandoPlasma : DMR_ZombiePlasma
 	Default
 	{		
 		SeeSound "";
+		Scale 0.2;
+	}
+	States
+	{
+	Spawn:
+		BFS1 AAABBB 2 Bright {
+			A_SpawnItemEx("FormerCyborgCommandoPlasmaTrail",-8,0,3); //,frandom(-0.5,0.5),frandom(-0.5,0.5));
+		}
+		Loop;
+	Death:
+		TNT1 A 0 {
+			A_SpawnItemEx("DMR_SmallBFGImpactFlare");
+		}
+		BFE1 ABCDEF 5 Bright;
+		Stop;
+	}
+}
+
+class FormerCyborgCommandoPlasmaTrail : DMR_ProjectileTrail
+{
+	Default
+	{
+		Scale 0.2;
+		Alpha 0.75;
+	}
+	States
+	{
+	Spawn:
+		BFE2 ABCD 2 Bright {
+			A_FadeOut(0.06);
+		}
+		Stop;
+	}
+}
+
+//======================================================================
+//  Original credits
+//======================================================================
+//	ZScript: 	PillowBlaster / Keksdose, modified by Dutchygamer
+//======================================================================
+class FormerCyborgCommandoChargedPlasma : DMR_Projectile
+{
+	Default
+	{
+		Radius 13;
+		Height 8;
+		Speed 15;
+		DamageFunction(200); // don't use the default formula, just don't get hit by it ;o
+		+RANDOMIZE;
+		+EXTREMEDEATH;
+		+MTHRUSPECIES;
+		+FORCERADIUSDMG;
+		+NODAMAGETHRUST;
+		RenderStyle "Add";
+		Alpha 0.9;
+		Obituary "$OB_MPBFG_BOOM";
+		Decal "BFGLightning";
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			// spawn the damaging rays
+			A_SpawnItemEx("FormerCyborgCommandoBFGRaySpawner",0,0,8,0,0,0,0,SXF_SETMASTER|SXF_ORIGINATOR|SXF_TRANSFERPOINTERS);
+		}
+	SpawnLoop:
+		BFS1 AAABBB 1 Bright  {
+			A_SpawnItemEx("DMR_BFGBallTrail",-30,0,15,frandom(-1,0),frandom(-1,1),frandom(-1,0));
+			A_SpawnItemEx("BFGLightningBolt");
+		}
+		Loop;
+	Death:
+		TNT1 A 0 {		
+			// stop the damaging rays
+			A_KillChildren("Normal",KILS_KILLMISSILES,"FormerCyborgCommandoBFGRaySpawner");
+		}
+		BFS1 A 3 Bright {
+			A_Explode(32,128);
+			A_SpawnItemEx("BFGLightningBolt");
+		}
+		BFS1 B 3 Bright {
+			A_SpawnItemEx("BFGLightningBolt");
+		}
+		BFS1 A 3 Bright {
+			A_Explode(32,128);
+			A_SpawnItemEx("BFGLightningBolt");
+		}
+		BFS1 B 3 Bright {
+			A_SpawnItemEx("BFGLightningBolt");
+		}
+		BFS1 A 3 Bright {
+			A_Explode(32,128);
+			A_SpawnItemEx("BFGLightningBolt");
+		}
+		BFS1 B 3 Bright {
+			A_SpawnItemEx("BFGLightningBolt");
+		}
+		BFS1 A 3 Bright {
+			A_Explode(32,128);
+			A_SpawnItemEx("BFGLightningBolt");
+		}
+		BFS1 B 3 Bright {
+			A_SpawnItemEx("BFGLightningBolt");
+		}
+		BFS1 A 3 Bright {
+			A_Explode(32,128);
+			A_SpawnItemEx("BFGLightningBolt");
+		}
+		BFS1 B 3 Bright {
+			A_SpawnItemEx("BFGLightningBolt");
+		}
+		TNT1 A 0 {
+			A_PlaySound("weapons/bfgx", CHAN_WEAPON);
+			A_SpawnItemEx("DMR_BFGImpactFlare");
+			A_SpawnItemEx("BFGLightningBurst");
+		}
+		BFE1 ABCDEF 8 Bright;
+		Stop;
+	}
+}
+
+class FormerCyborgCommandoBFGRaySpawner : Actor
+{
+	Default
+	{
+		Species "DMR_PartyBeams";
+		Projectile;
+		+SEEKERMISSILE;
+		+NOINTERACTION;
+		+NODAMAGETHRUST;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 1 {
+			// only attack when we have a master
+			if (master) {
+				// move along with the main projectile
+				SetOrigin(master.pos,false);
+				// find a target
+				A_SeekerMissile(20,90,SMF_LOOK,256,15);
+				// when we have a target and are within a reasonable range, act
+				if (tracer && CheckIfTargetInLOS(0,JLOSF_PROJECTILE,768)) {
+					// face target
+					A_FaceTracer();
+					// do the damage
+					A_CustomRailgun(random(6,8),random(5,-5),"","green",RGF_SILENT|RGF_NOPIERCING|RGF_FULLBRIGHT,0,2,"",0,0,780,10,1.0,1.0,"FormerCyborgCommandoBFGRayParticle");
+					// forget the target so we can target someone else
+					tracer = null;
+				}
+			}
+			// some safety nets so we can safely kill ourselves
+			if (IsPointerEqual(AAPTR_MASTER, AAPTR_NULL)) { 
+				Return ResolveState("Null"); 
+			}
+			Return ResolveState(Null);
+		}
+		Loop;
+	}
+}
+
+class FormerCyborgCommandoBFGRayParticle : Actor
+{
+	Default
+	{
+		Renderstyle "Add";
+		Scale 0.4;
+		+NOINTERACTION;
+	}
+
+	States
+	{
+	Spawn:
+		BFE2 DDD 1 BRIGHT A_SetScale(Scale.x - 0.25);
+		Stop;
 	}
 }

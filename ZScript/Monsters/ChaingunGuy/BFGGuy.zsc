@@ -79,9 +79,8 @@ class DMR_BFGBall : DMR_Projectile
 		Radius 13;
 		Height 8;
 		Speed 25;
-		DamageFunction (400); // don't use the default formula, just don't get hit by it ;o
-		Projectile;
-		+RANDOMIZE
+		DamageFunction(400); // don't use the default formula, just don't get hit by it ;o
+		+RANDOMIZE;
 		+EXTREMEDEATH;
 		RenderStyle "Add";
 		Alpha 0.75;

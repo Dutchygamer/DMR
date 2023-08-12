@@ -1,12 +1,83 @@
 
+// Zombies
+flickerlight DMR_SmallBFGFire
+{
+    color 0.5 1.0 0.5
+    size 48
+    secondarySize 56
+    offset 0 40 0
+    chance 0.3
+}
+
+flickerlight DMR_SmallBFGBall
+{
+    color 0.5 1.0 0.5
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+flickerlight DMR_SmallBFGBall_X1
+{
+    color 0.5 1.0 0.5
+    size 55
+    secondarySize 60
+    chance 0.3
+}
+
+flickerlight DMR_SmallBFGBall_X2
+{
+    color 0.6 1.0 0.6
+    size 60
+    secondarySize 65
+    chance 0.3
+}
+
+flickerlight DMR_SmallBFGBall_X3
+{
+    color 0.7 1.0 0.7
+    size 65
+    secondarySize 70
+    chance 0.3
+}
+
+flickerlight DMR_SmallBFGBall_X4
+{
+    color 0.4 0.7 0.4
+    size 70
+    secondarySize 75
+    chance 0.3
+}
+
+flickerlight DMR_SmallBFGBall_X5
+{
+    color 0.1 0.3 0.1
+    size 70
+    secondarySize 75
+    chance 0.3
+}
+
 object FormerCyborgCommandoPlasma
 {
-    frame PLSSA { light DMR_PlasmaBall }
-    frame PLSSB { light DMR_PlasmaBall }
+    frame BFS1A { light DMR_SmallBFGBall }
+    frame BFS1B { light DMR_SmallBFGBall }
 
-    frame PLSSA { light DMR_PlasmaBall_X1 }
-    frame PLSSB { light DMR_PlasmaBall_X2 }
-    frame PLSSC { light DMR_PlasmaBall_X2 }
-    frame PLSSD { light DMR_PlasmaBall_X3 }
-    frame PLSSE { light DMR_PlasmaBall_X4 }
+    frame BFE1A { light DMR_SmallBFGBall_X1 }
+    frame BFE1B { light DMR_SmallBFGBall_X2 }
+    frame BFE1C { light DMR_SmallBFGBall_X3 }
+    frame BFE1D { light DMR_SmallBFGBall_X4 }
+    frame BFE1E { light DMR_SmallBFGBall_X5 }
+}
+
+
+object FormerCyborgCommandoChargedPlasma
+{
+    frame BFS1A { light DMR_BFGBall }
+    frame BFS1B { light DMR_BFGBall }
+
+    frame BFE1A { light DMR_BFGBall_X1 }
+    frame BFE1B { light DMR_BFGBall_X2 }
+    frame BFE1C { light DMR_BFGBall_X3 }
+    frame BFE1D { light DMR_BFGBall_X4 }
+    frame BFE1E { light DMR_BFGBall_X5 }
 }
