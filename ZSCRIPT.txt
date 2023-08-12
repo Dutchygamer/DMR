@@ -147,6 +147,8 @@ version "4.2.1"
 #include "ZScript/Monsters/SpiderMastermind/Overlord.zsc"
 #include "ZScript/Monsters/SpiderMastermind/Mancutank.zsc"
 
+#include "ZScript/Monsters/WolfensteinSS/_Replacer.zsc"
+
 #include "ZScript/Monsters/Special/SuperAfrit.zsc"
 #include "ZScript/Monsters/Special/EvilMarine.zsc"
 #include "ZScript/Monsters/Special/Belphegor.zsc"

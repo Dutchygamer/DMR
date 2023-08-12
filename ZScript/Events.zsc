@@ -13,7 +13,7 @@ class DMR_ReplacerHandler : EventHandler
 		{
 			case 'WolfensteinSS':
 				if (dmr_replace_ss == 1)
-					{ a.Replacement = 'EvilMarine'; break; }
+					{ a.Replacement = 'WolfensteinSSReplacer'; break; }
 				else if (dmr_replace_ss == 2)
 					{ a.Replacement = 'EvilMarine'; break; }
 				//else if(dmr_replace_ss == 3)
