@@ -11,12 +11,18 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class RavagerSpawn : DMR_LostSoul
+// don't inherit from DMR_LostSoul as it works more like a normal flying enemy
+class RavagerSpawn : DMR_FlyingMonsterBase
 {
 	Default
 	{
 		Tag "Ravager Spawn";
 		Health 140;
+		// no gibhealth cause it already gibs
+		Species "DMR_Headbutt";
+		Radius 16;
+		Height 56;
+		Mass 50;
 		Speed 6;
 		painchance 64;
 		SeeSound "guardian/see";
@@ -26,10 +32,10 @@ class RavagerSpawn : DMR_LostSoul
 		Obituary "%o got lacerated by a Ravager Spawn.";
 		// don't damage your masters
 		DMR_MonsterBase.Species2 "TiberiumCreature";
-		+NOBLOOD;
 		+DONTHARMSPECIES;
+		+NOINFIGHTSPECIES;
+		+NOBLOOD;
 		+DONTGIB;
-		-RETARGETAFTERSLAM;
 		DamageFactor "ToxinCloud", 0.0;
 	}
 	States 
