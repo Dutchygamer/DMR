@@ -16,8 +16,10 @@ handgrenade/throw DNWRT
 handgrenade/bounce BOUNCE2
 
 // BFG
-weapons/bfgf DSBFG
-$rolloff weapons/bfgf 500 1500
+bfg/charge BFGCHR
+$rolloff bfg/charge 500 1500
+bfg/fire BFGFIR
+$rolloff bfg/fire 500 1500
 weapons/bfgx DSRXPLOD
 $rolloff weapons/bfgx 600 1600
 
@@ -57,6 +59,13 @@ QuadShotgunZombie/Reload1	QSGZREL1
 QuadShotgunZombie/Reload2	QSGZREL2
 QuadShotgunZombie/Reload3	QSGZREL3
 
+// Cyborg
+cyborg/sight 	CYBSIT
+$Random cyborg/pain { cyborg/pain1 cyborg/pain2 }
+cyborg/pain1 	CYBPAI1
+cyborg/pain2 	CYBPAI2
+cyborg/death 	CYBDTH
+
 
 ////////////////////////////////
 // Chaingunguy variant sounds //
@@ -71,6 +80,23 @@ fem/pain FEMZPAIN
 fem/death FEMZDHT
 fem/active FEMZACT
 Virus/FireDart iviratta
+
+// Cyborg commando
+cyborgcommando/sight 		CCYSIT
+cyborgcommando/bfg/taunt 	CCYATT
+$rolloff cyborgcommando/bfg/taunt 500 1500
+cyborgcommando/death 		CCYDTH
+
+cyborgcommando/fire 		CCYFIR
+$limit cyborgcommando/fire 8
+cyborgcommando/bfg/charge 	CCYCHR
+$rolloff cyborgcommando/bfg/charge 500 1500
+cyborgcommando/bfg/fire 	CCYBFIR
+$rolloff cyborgcommando/bfg/fire 500 1500
+$volume cyborgcommando/bfg/fire 0.8
+cyborgcommando/bfg/loop 	CCYBLP
+cyborgcommando/bfg/explode 	CCYBEX
+$rolloff cyborgcommando/bfg/explode 600 1600
 
 
 ////////////////////////
