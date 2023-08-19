@@ -8,6 +8,7 @@
 //======================================================================
 //  Additional credits
 //======================================================================
+//	Sounds:		Westwood Studios
 //	ZScript:	Dutchygamer
 //======================================================================
 
@@ -19,6 +20,9 @@ class FormerCyborg : DMR_ShotgunGuy
 		obituary "%o felt the pain of fighting a Former Cyborg.";
 		health 500;
 		painchance 50;
+		SeeSound "cyborg/sight";
+		PainSound "cyborg/pain";
+		DeathSound "cyborg/death";
 		Mass 500;
 		Scale 1.1;
 		DropItem "Shell", 256, 4;
@@ -26,6 +30,7 @@ class FormerCyborg : DMR_ShotgunGuy
 		DropItem "Shell", 128, 4;
 		DropItem "Shell", 64, 4;
 		+MISSILEMORE;
+		+DONTHARMCLASS; // don't kill yourself with your explosives
 		DamageFactor "ToxinCloud", 0.0;
 	}
 	
@@ -111,7 +116,7 @@ class FormerCyborg : DMR_ShotgunGuy
   	{
 		Super.Tick();
 		if (criticalDamaged && health > 0 && !IsFrozen() && random(0,3) == 3)
-		{		
+		{
 			A_SpawnItemEx("FormerCyborgCriticalDamagedSmokeCloud",-5,0,45,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 		}
   	}

@@ -35,13 +35,14 @@ class FormerBFGCommando : DMR_ChaingunGuy
 		Loop;
 	Missile:
 		TNT1 A 0 {
-			A_PlaySound ("weapons/bfgf", CHAN_WEAPON);
+			A_PlaySound ("bfg/charge", CHAN_WEAPON);
 			bNOPAIN = true;
 		}
 		BFGZ E 20 Light("DMR_BFGCharge_X1") A_FaceTarget;
 		BFGZ F 10 Bright Light("DMR_BFGCharge_X2") A_FaceTarget;
 		BFGZ F 10 Bright Light("DMR_BFGFire") {
 			A_FaceTarget();
+			A_PlaySound ("bfg/fire", CHAN_WEAPON);
 			A_SpawnProjectile("DMR_BFGBall", 32, 0);
 		}
 		BFGZ E 20 {
