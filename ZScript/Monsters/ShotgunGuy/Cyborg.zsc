@@ -23,6 +23,7 @@ class FormerCyborg : DMR_ShotgunGuy
 		SeeSound "cyborg/sight";
 		PainSound "cyborg/pain";
 		DeathSound "cyborg/death";
+		ActiveSound "cyborg/active";
 		Mass 500;
 		Scale 1.1;
 		DropItem "Shell", 256, 4;

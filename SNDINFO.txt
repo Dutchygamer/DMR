@@ -64,6 +64,10 @@ cyborg/sight 	CYBSIT
 $Random cyborg/pain { cyborg/pain1 cyborg/pain2 }
 cyborg/pain1 	CYBPAI1
 cyborg/pain2 	CYBPAI2
+$Random cyborg/active { cyborg/active1 cyborg/active2 cyborg/active3 }
+cyborg/active1 	CYBACT1
+cyborg/active2 	CYBACT2
+cyborg/active3 	CYBACT3
 cyborg/death 	CYBDTH
 
 

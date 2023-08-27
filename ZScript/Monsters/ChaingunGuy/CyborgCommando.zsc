@@ -23,6 +23,7 @@ class FormerCyborgCommando : FormerCyborg
 		SeeSound "cyborgcommando/sight";
 		PainSound "cyborg/pain";
 		DeathSound "cyborgcommando/death";
+		ActiveSound "cyborg/active";
 		Scale 1.2;
 		dropitem "CellPack", 256, 100;
 		dropitem "CellPack", 128, 100;
@@ -224,7 +225,6 @@ class FormerCyborgCommandoChargedPlasma : DMR_Projectile
 		+NODAMAGETHRUST;
 		RenderStyle "Add";
 		Alpha 0.9;
-		Obituary "$OB_MPBFG_BOOM";
 		Decal "BFGLightning";
 	}
 	States
