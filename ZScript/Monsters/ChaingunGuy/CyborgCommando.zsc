@@ -236,8 +236,8 @@ class FormerCyborgCommandoChargedPlasma : DMR_Projectile
 		}
 	SpawnLoop:
 		TNT1 A 0 A_PlaySound("cyborgcommando/bfg/loop", CHAN_VOICE);
-		BFS1 AAABBB 1 Bright  {
-			A_SpawnItemEx("DMR_BFGBallTrail",-30,0,15,frandom(-1,0),frandom(-1,1),frandom(-1,0));
+		TBBL AAABBBCCC 1 Bright  {
+			A_SpawnItemEx("FormerCyborgCommandoBFGBallTrail",-30,0,0,frandom(-1,0),frandom(-1,1),frandom(-1,0));
 			A_SpawnItemEx("BFGLightningBolt");
 		}
 		Loop;
@@ -246,43 +246,51 @@ class FormerCyborgCommandoChargedPlasma : DMR_Projectile
 			// stop the damaging rays
 			A_KillChildren("Normal",KILS_KILLMISSILES,"FormerCyborgCommandoBFGRaySpawner");
 		}
-		BFS1 A 3 Bright {
+		TBBL A 3 Bright {
 			A_Explode(32,128);
 			A_SpawnItemEx("BFGLightningBolt");
 		}
-		BFS1 B 3 Bright {
+		TBBL B 3 Bright {
 			A_SpawnItemEx("BFGLightningBolt");
 			A_PlaySound("cyborgcommando/bfg/loop", CHAN_VOICE);
 		}
-		BFS1 A 3 Bright {
+		TBBL C 3 Bright {
 			A_Explode(32,128);
 			A_SpawnItemEx("BFGLightningBolt");
 		}
-		BFS1 B 3 Bright {
+		TBBL A 3 Bright {
 			A_SpawnItemEx("BFGLightningBolt");
 			A_PlaySound("cyborgcommando/bfg/loop", CHAN_VOICE);
 		}
-		BFS1 A 3 Bright {
+		TBBL B 3 Bright {
 			A_Explode(32,128);
 			A_SpawnItemEx("BFGLightningBolt");
 		}
-		BFS1 B 3 Bright {
+		TBBL C 3 Bright {
 			A_SpawnItemEx("BFGLightningBolt");
 			A_PlaySound("cyborgcommando/bfg/loop", CHAN_VOICE);
 		}
-		BFS1 A 3 Bright {
+		TBBL A 3 Bright {
 			A_Explode(32,128);
 			A_SpawnItemEx("BFGLightningBolt");
 		}
-		BFS1 B 3 Bright {
+		TBBL B 3 Bright {
 			A_SpawnItemEx("BFGLightningBolt");
 			A_PlaySound("cyborgcommando/bfg/loop", CHAN_VOICE);
 		}
-		BFS1 A 3 Bright {
+		TBBL C 3 Bright {
 			A_Explode(32,128);
 			A_SpawnItemEx("BFGLightningBolt");
 		}
-		BFS1 B 3 Bright {
+		TBBL A 3 Bright {
+			A_SpawnItemEx("BFGLightningBolt");
+			A_PlaySound("cyborgcommando/bfg/loop", CHAN_VOICE);
+		}
+		TBBL B 3 Bright {
+			A_Explode(32,128);
+			A_SpawnItemEx("BFGLightningBolt");
+		}
+		TBBL C 3 Bright {
 			A_SpawnItemEx("BFGLightningBolt");
 			A_PlaySound("cyborgcommando/bfg/loop", CHAN_VOICE);
 		}
@@ -293,7 +301,7 @@ class FormerCyborgCommandoChargedPlasma : DMR_Projectile
 			A_SpawnItemEx("DMR_BFGImpactFlare");
 			A_SpawnItemEx("BFGLightningBurst");
 		}
-		BFE1 ABCDEF 8 Bright;
+		CBTS KLMNOPQRSTUVW 4 Bright;
 		Stop;
 	}
 }
@@ -352,6 +360,24 @@ class FormerCyborgCommandoBFGRayParticle : Actor
 	{
 	Spawn:
 		BFE2 DDD 1 BRIGHT A_SetScale(Scale.x - 0.25);
+		Stop;
+	}
+}
+
+class FormerCyborgCommandoBFGBallTrail : DMR_ProjectileTrail
+{
+	Default
+	{
+		Scale 0.9;
+		Alpha 0.75;
+	}
+	States
+	{
+	Spawn:
+		CBTS ABCD 1 Bright {
+			A_FadeOut(0.1);
+			A_SetScale(Scale.X-0.15);
+		}
 		Stop;
 	}
 }
