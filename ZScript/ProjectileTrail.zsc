@@ -221,6 +221,22 @@ class DMR_PlasmaRuneTrail : DMR_PlasmaTrail
 	}
 }
 
+class DMR_BloodTrail : DMR_ProjectileTrail
+{
+	Default
+	{
+		ALPHA 0.75;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 3;
+		FBLD FGH 3 BRIGHT {		
+			A_FadeOut(0.15);
+		}
+		Stop;
+	}
+}
 
 
 
@@ -282,22 +298,6 @@ class DMR_ShadowTrail : DMR_ProjectileTrail
 		Stop;
 	}
 }
-
-class DMR_BloodTrail : DMR_ProjectileTrail
-{
-	Default
-	{
-		ALPHA 0.67;
-	}
-	States
-	{
-	Spawn:
-		TNT1 A 3;
-		FBLD FGH 3 BRIGHT;
-		Stop;
-	}
-}
-
 
 //TODO unused
 // lightningball trail

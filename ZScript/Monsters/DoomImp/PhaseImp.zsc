@@ -22,7 +22,7 @@ class Phaser : DMR_DoomImp
 		ActiveSound "neodarkimp/active";
 		Obituary "%o was incinerated by a phaser.";
 		HitObituary "%o was scratched by a phaser.";	
-		+NODROPOFF; //don't yeet yourself off platforms	
+		+NODROPOFF; // don't yeet yourself off platforms	
 	}
 	bool isStealthed;
 	
@@ -98,13 +98,11 @@ class Phaser : DMR_DoomImp
 	}
 }
 
-
 class PhaserBall : DMR_DoomImpBall
 {
 	Default
 	{
 		+SEEKERMISSILE;
-		Alpha 0.75;
 	}
     States
     {
@@ -132,6 +130,7 @@ class PhaserFireballTrail : DMR_ProjectileTrail
 	Default
 	{
 		Alpha 0.5;
+		Scale 0.9;
 	}
 	States
 	{

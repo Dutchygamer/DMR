@@ -29,9 +29,9 @@ class SlimeWorm : DMR_Demon
 		activesound "slimeworm/active";
 		bloodcolor "yellow";
 		obituary "%o was dissolved by a slime worm.";
-		hitobituary "%o was digested by a slime worm.";
-		MaxTargetRange 296;	
+		hitobituary "%o was digested by a slime worm.";		
 		MeleeThreshold 128;
+		MaxTargetRange 500; // don't try and fire projectiles at range
 	}
 	States
 	{
@@ -49,11 +49,11 @@ class SlimeWorm : DMR_Demon
 		WORM EE 6 A_FaceTarget;
 		WORM F 8 {
 			A_PlaySound ("Weapons/bloodf", CHAN_WEAPON);
-			A_SpawnProjectile ("SlimeBall1", 40, 0, random(-10,10), CMF_OFFSETPITCH, random(0,-10));
-			A_SpawnProjectile ("SlimeBall2", 40, 0, random(-10,10), CMF_OFFSETPITCH, random(0,-10));
-			A_SpawnProjectile ("SlimeBall3", 40, 0, random(-10,10), CMF_OFFSETPITCH, random(0,-10));
-			A_SpawnProjectile ("SlimeBall4", 40, 0, random(-10,10), CMF_OFFSETPITCH, random(0,-10));
-			A_SpawnProjectile ("SlimeBall5", 40, 0, random(-10,10), CMF_OFFSETPITCH, random(0,-10));
+			A_LobProjectile("SlimeBall1",40,0,frandom(-8,8));
+			A_LobProjectile("SlimeBall2",40,0,frandom(-8,8));
+			A_LobProjectile("SlimeBall3",40,0,frandom(-8,8));
+			A_LobProjectile("SlimeBall4",40,0,frandom(-8,8));
+			A_LobProjectile("SlimeBall5",40,0,frandom(-8,8));
 		}
 		goto See;
 	Pain:
@@ -75,21 +75,15 @@ class SlimeWorm : DMR_Demon
 	}
 }
 
-class SlimeBall1 : DMR_Projectile
+class SlimeBall1 : BloodfiendShot
 {
 	Default
 	{
-		Radius 4;
-		Height 4;
 		Speed 14;
 		DamageFunction(random(2,5));
-		Gravity 0.5;
 		Scale 0.5;
-		+RANDOMIZE;
-		-NOGRAVITY;
 		+EXTREMEDEATH;
-		RenderStyle "Add";
-		Alpha 1;
+		SeeSound "";
 		DeathSound "slimeball/splat";
 		Decal "PlasmaScorchLower";
 	}
@@ -99,7 +93,10 @@ class SlimeBall1 : DMR_Projectile
 		BOGY ABC 2;
 		loop;
 	Death:
-		TNT1 A 0 A_NoGravity;
+		TNT1 A 0 {
+			A_SetRenderStyle(1.0,STYLE_Add);
+			A_NoGravity();
+		}
 		BOGY DEF 4;
 		stop;
 	}
@@ -109,7 +106,8 @@ class SlimeBall2 : SlimeBall1
 {
 	Default
 	{
-		speed 16;
+		Speed 16;
+		Gravity 0.22;
 	}
 }
 
@@ -117,7 +115,8 @@ class SlimeBall3 : SlimeBall1
 {
 	Default
 	{
-		speed 19;
+		Speed 18;
+		Gravity 0.25;
 	}
 }
 
@@ -125,7 +124,8 @@ class SlimeBall4 : SlimeBall1
 {
 	Default
 	{
-		speed 20;
+		Speed 20;
+		Gravity 0.27;
 	}
 }
 
@@ -133,6 +133,7 @@ class SlimeBall5 : SlimeBall1
 {
 	Default
 	{
-		speed 22;
+		Speed 22;
+		Gravity 0.3;
 	}
 }

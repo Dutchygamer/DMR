@@ -78,10 +78,12 @@ class BloodfiendShot : DMR_DoomImpBall
 {
 	Default
 	{
+		Radius 4;
+		Height 4;
 		Speed 15;
 		DamageFunction(random(4,12));
-		//RENDERSTYLE "TRANSLUCENT";
-		ALPHA 0.80;
+		RenderStyle "Normal";
+		SeeSound "";
 		DeathSound "weapons/bloodx";
 		-NOGRAVITY;
 		Gravity 0.2;
@@ -90,7 +92,7 @@ class BloodfiendShot : DMR_DoomImpBall
 	{
 	Spawn:
 		FBLD AABB 1 Bright {
-			A_SpawnItemEx("DMR_BloodTrail",0,0);
+			A_SpawnItemEx("DMR_BloodTrail",0,frandom(-0.5,0.5),frandom(-0.5,0.5));
 		}
 		loop;
 	Death:

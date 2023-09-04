@@ -102,7 +102,7 @@ class ShadowBall : DMR_DoomImpBall
 		Speed 12;
 		DamageFunction(random(6,16));
 		RenderStyle "ADD";
-		Alpha 0.75;
+		//Alpha 0.75;
 		SeeSound "Shadow/attack";
 	}
     States

@@ -103,7 +103,6 @@ class CatharsiBall : DMR_DoomImpBall
 	Default
 	{
 		Speed 15;
-		//DamageFunction(random(4,12));
 		SEESOUND "catharsi/icerifle";
 		DEATHSOUND "catharsi/iceimpact";
 		DamageType "Ice";
@@ -112,10 +111,34 @@ class CatharsiBall : DMR_DoomImpBall
 	states
 	{
 	Spawn:
-		CTFX A 4 BRIGHT;
+		CTFX A 2 BRIGHT {
+			A_SpawnItemEx("CatharsiBallTrail"); 
+		}
 		Loop;
 	Death:
 		CTFX BCDEF 3 BRIGHT;
 		stop;
+	}
+}
+
+class CatharsiBallTrail : DMR_ProjectileTrail
+{
+	Default
+	{
+		Alpha 0.5;
+		Scale 0.9;
+		-ROLLSPRITE;
+	}
+	States
+	{
+	Spawn:
+		// trails need a small delay
+		TNT1 A 2;
+	SpawnLoop:
+		CTFX A 2 {
+			A_FadeOut(0.10);
+			A_SetScale(Scale.X-0.05);
+		}
+		Loop;
 	}
 }
