@@ -7,7 +7,7 @@ class CyberdemonReplacer : RandomSpawner replaces Cyberdemon
 		DropItem "Tiberdemon", 255, 25;
 		DropItem "FireborneArchon", 255, 25;
 		DropItem "Terminator", 255, 15;
-		DropItem "Hellsmith", 255, 15;
+		DropItem "Forgemaster", 255, 15;
 		DropItem "CoreDefender", 255, 10;
 		DropItem "BlueTiberdemon", 255, 10;
 	}
