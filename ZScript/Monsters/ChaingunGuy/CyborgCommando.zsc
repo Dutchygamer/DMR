@@ -176,7 +176,7 @@ class FormerCyborgCommandoPlasma : DMR_ZombiePlasma
 	{
 	Spawn:
 		BFS1 AAABBB 2 Bright {
-			A_SpawnItemEx("FormerCyborgCommandoPlasmaTrail",-8,0,3); //,frandom(-0.5,0.5),frandom(-0.5,0.5));
+			A_SpawnItemEx("FormerCyborgCommandoPlasmaTrail",-8,0,3);
 		}
 		Loop;
 	Death:

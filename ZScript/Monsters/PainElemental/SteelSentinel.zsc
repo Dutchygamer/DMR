@@ -103,7 +103,6 @@ class SmallTiberiumFlechette : TiberiumFlechette
 	Death:
 		TNT1 A 0 {
 			A_SetRenderStyle(1.0, STYLE_Add);
-			//A_SetScale(1.5);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_Explode(32,64);
 		}

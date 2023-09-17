@@ -63,7 +63,7 @@ class FormerCyborg : DMR_ShotgunGuy
 		TNT1 A 0 A_Jump(96, "Grenade");
 	Shotgun:
 		GREB E 10 A_FaceTarget;
-		GREB FE 4 Bright Light("DMR_RifleFire") {
+		GREB FE 5 Bright Light("DMR_RifleFire") {
 			A_PlaySound("asgguy/asgfir", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,0,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 		}
@@ -122,7 +122,7 @@ class FormerCyborg : DMR_ShotgunGuy
 		}
   	}
 	
-	// replicate TS's cyborg behaviour where upon critical damage they lost their legs (in this case, become even slower)		
+	// replicate Tiberian Sun's cyborg behaviour where upon critical damage they lost their legs (in this case, become even slower)		
 	void A_SetCyborgTics(int normalTics, int damagedTics)
 	{
 		if (criticalDamaged) {
