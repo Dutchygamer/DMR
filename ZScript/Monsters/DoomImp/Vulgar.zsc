@@ -41,9 +41,12 @@ class Vulgar : DMR_DoomImp
 		goto Ball;
 	Ball:
 		VULG EF 8 A_FaceTarget;
-		VULG G 6 {
-			A_SpawnProjectile("VulgarBall",37,0,-2);
-			A_SpawnProjectile("VulgarBall",37,0,2);
+		VULG G 4 A_SpawnProjectile("VulgarBall",37);
+		VULG G 4 {
+			if (random(1,2) == 1)
+				A_SpawnProjectile("VulgarBall",37,0,-2);
+			else
+				A_SpawnProjectile("VulgarBall",37,0,2);
 		}
 		Goto See;
 	GasBall:
