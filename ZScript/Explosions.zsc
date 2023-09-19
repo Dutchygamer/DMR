@@ -53,7 +53,7 @@ Class DMR_CybiferaDeathExplosionSpawner : DMR_FXBase
 	Spawn:
 		TNT1 AAA 1 
 		{
-			// Fera doesn't have legs so spawn explosions higher then Cybbie
+			// 'Fera doesn't have legs so spawn explosions higher then Cybbie
 			A_SpawnItemEx("DMR_BossDeathExplosion",random(25,-25),0,random(50,120)); 
 			A_SetTics(random(1,6));
 		}
@@ -132,9 +132,60 @@ class DMR_MonsterDeathExplosion : DMR_BossDeathExplosion
 				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 			}
 		}
-		MISL B 8 Bright;
-		MISL C 6 Bright;
-		MISL D 4 Bright;
+		MISL B 8 Bright Light("DMR_Rocket_X1");
+		MISL C 6 Bright Light("DMR_Rocket_X2");
+		MISL D 4 Bright Light("DMR_Rocket_X3");
+		Stop;
+	}
+}
+
+class DMR_BossDeathFinalExplosion : Actor
+{
+	Default
+	{
+		+NOINTERACTION;
+		Renderstyle "Add";
+		Scale 1.1;
+	}
+	int fxLoop;
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_PlaySound("darkinquisitor/bigdeathexpl", CHAN_WEAPON);
+		TNT1 A 0 {
+			A_QuakeEx(6,6,6,15,0,800,0,QF_SCALEDOWN,0,0,0,500);
+			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
+				//A_SpawnParticle("FFFFFF",SPF_FULLBRIGHT|SPF_RELATIVE,random(20,30),frandom(5,10),frandom(0,360),random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); //,-0.1,0,-0.05,1,-1,-0.2);
+				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+			}
+		}
+		GRNE ABCDEFG 4 Bright Light("DMR_Rocket_X1");
+		GRNE HIJK 4 Bright Light("DMR_Rocket_X2");
+		GRNE LMN 4 Bright Light("DMR_Rocket_X3");
+		Stop;
+	}
+}
+
+class DMR_MonsterDeathFinalExplosion : DMR_BossDeathFinalExplosion
+{
+	Default
+	{
+		Scale 0.75;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_PlaySound("ZombieTank/explode",1);
+		TNT1 A 0 {
+			A_QuakeEx(2,2,2,8,0,400,0,QF_SCALEDOWN,0,0,0,200);
+			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
+				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+			}
+		}
+		GRNE ABCDEFG 2 Bright Light("DMR_Rocket_X1");
+		GRNE HIJK 2 Bright Light("DMR_Rocket_X2");
+		GRNE LMN 2 Bright Light("DMR_Rocket_X3");
 		Stop;
 	}
 }

@@ -122,6 +122,7 @@ class CoreDefender : DMR_Cyberdemon
 			A_SpawnItemEx("DMR_CyberDeathExplosionSpawner");
 		}
 		ROB4 M 50 {
+			A_SpawnItemEx("DMR_BossDeathFinalExplosion");
 			A_SpawnItemEx("DMR_CyberDeathExplosionSpawner");
 		}
 		ROB4 M -1 A_BossDeath;

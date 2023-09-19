@@ -87,7 +87,11 @@ class Mancutank : DMR_SpiderMastermind
 		TNT1 A 0 A_StopSound(CHAN_7);
 		BS1B A 6 A_Scream;
 		BS1B B 6 A_NoBlocking;
-		BS1B CDEFGHI 6 Bright {
+		BS1B CDEFGH 6 Bright {
+			A_SpawnItemEx("DMR_MastermindDeathExplosionSpawner");		
+		}
+		BS1B I 6 Bright {
+			A_SpawnItemEx("DMR_BossDeathFinalExplosion");
 			A_SpawnItemEx("DMR_MastermindDeathExplosionSpawner");		
 		}
 		BS1B JK 6;
