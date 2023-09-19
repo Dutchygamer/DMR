@@ -48,8 +48,8 @@ Class DMR_BaronOfHell : DMR_MonsterBase
 	Missile:
 		BOSS EF 8 A_FaceTarget;
 		BOSS G 8 A_CustomComboAttack("DMR_BaronBall",32,random(20,60),"baron/melee");
-		BOSS EF 8 A_FaceTarget;
-		BOSS G 8 A_CustomComboAttack("DMR_BaronBall",32,random(20,60),"baron/melee");
+		BOSS PQ 8 A_FaceTarget;
+		BOSS R 8 A_CustomComboAttack("DMR_BaronBall",32,random(20,60),"baron/melee");
 		goto See;
 	Pain:
 		BOSS H 2;
@@ -64,11 +64,11 @@ Class DMR_BaronOfHell : DMR_MonsterBase
 		BOSS O -1 A_BossDeath;
 		Stop;
 	XDeath:
-		BOSS P 5;
-		BOSS Q 5 A_XScream;
-		BOSS R 5 A_NoBlocking;
-		BOSS STUVW 5;
-		BOSS X -1 A_BossDeath;
+		BOSX A 5;
+		BOSX B 5 A_XScream;
+		BOSX C 5 A_NoBlocking;
+		BOSX DEFGH 5;
+		BOSX I -1 A_BossDeath;
 		stop;
 	Raise:
 		BOSS O 8;
