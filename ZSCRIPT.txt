@@ -154,5 +154,8 @@ version "4.2.1"
 #include "ZScript/Monsters/Special/Belphegor.zsc"
 #include "ZScript/Monsters/Special/CyberdemonLord.zsc"
 
+
+//#include "ZScript/CC/debugcard.zsc"
+
 //cause GC 3.3 converted the gore to ZScript
 //#include "ZScript/GCPatch/BloodyHell.zsc"

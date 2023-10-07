@@ -71,8 +71,8 @@ class DuskKnight : DMR_Revenant
 		XNIG R -1;
 		Stop;
 	Raise:
-		GSKL R 5;
-		GSKL QPONLM 5;
+		XNIG R 5;
+		XNIG QPONLM 5;
 		Goto See;
 	}
 }

@@ -1,0 +1,12 @@
+// This lump can be added to any wad/pk3 file to add or remove cards from the game and alter how the engine effects certain actors.
+
+// don't use / effect any of the following monsters
+
+
+newdeck DMR_TEST
+deckdescription DMR_TEST
+deckgraphic DECK05
+useallenchantments
+addcard CCard_RabbitCurseMonster
+nodifficultyscaling
+allowdupicatemonstercards
