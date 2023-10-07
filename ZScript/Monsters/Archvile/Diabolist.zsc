@@ -35,8 +35,8 @@ class Diabolist : DMR_Archvile
 		DIAB AABBCCDDEEFF 2 A_VileChase;
 		Loop;
 	Missile:
-		TNT1 A 0 A_Jump (180,"VileAttack");
-		Goto Flamebeam;
+		TNT1 A 0 A_Jump(96,"Flamebeam");
+		Goto VileAttack;
 	VileAttack:	
 		DIAB G 0 BRIGHT A_VileStart;
 		DIAB G 10 BRIGHT A_FaceTarget;
@@ -45,23 +45,13 @@ class Diabolist : DMR_Archvile
 		DIAB O 8 BRIGHT A_VileAttack("vile/stop",20,75,110,1.0,"Fire");
 		DIAB P 20 BRIGHT;
 		Goto See;
-	/*
-	Flamewall:	
-		TNT1 A 0 BRIGHT A_VileStart;
-		DIAB G 10 BRIGHT A_FaceTarget;
-		DIAB H 8 BRIGHT A_VileTarget("DiabolistFire");
-		DIAB IHIHIHG 8 BRIGHT A_FaceTarget;
-		Goto See;*/
 	Flamebeam:
-		DIAB G 0 BRIGHT A_VileStart;
-		DIAB G 10 BRIGHT A_FaceTarget;
-		DIAB H 8 BRIGHT A_FaceTarget;
-		DIAB IJKLMN 8 BRIGHT A_FaceTarget;
-		DIAB OPOPOPOP 2 BRIGHT {
+		DIAB KLMN 6 BRIGHT A_FaceTarget;
+		DIAB NONONONO 2 BRIGHT {
 			A_FaceTarget();
 			A_SpawnProjectile("DiabolistBeam",32,0,0);
 		}
-		DIAB OP 8 BRIGHT;
+		DIAB P 8 BRIGHT;
 		Goto See;
 	Heal:
 		DIA2 ABC 10 BRIGHT;
