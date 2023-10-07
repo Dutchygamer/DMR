@@ -30,7 +30,7 @@ class Terminator : DMR_Cyberdemon
 		ActiveSound "Terminator/termact";
 	}
 	int boolet;
-	bool goneBerserk;
+	bool criticalDamaged;
 	
 	States
 	{
@@ -39,7 +39,7 @@ class Terminator : DMR_Cyberdemon
 		Loop;
 	See:
 		TNT1 A 0 {
-			if (!goneBerserk && health < 1000) { SetStateLabel("GoBerserk"); }
+			if (!criticalDamaged && health < 1000) { SetStateLabel("GoBerserk"); }
 		}
 		TERM A 3 {
 			A_SetTerminatorTics(3,2);
@@ -57,28 +57,7 @@ class Terminator : DMR_Cyberdemon
 			A_SetTerminatorTics(3,2);
 			A_Chase();
 		}
-		Loop;
-	GoBerserk:
-		TERM A 10 Light("TerminatorGoBerserk") {
-			A_PlaySound("monster/termpin", 7);
-			goneBerserk = true;
-			bNOPAIN = true;
-		}
-		TNT1 A 0 {
-			A_PlaySound("monster/termsit", 7);
-		}
-		TERM AAAAAAAAAAAAAAAAAAAA 1 {
-			A_SpawnItemEx("TerminatorGoneBerserkSmokeCloud",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("TerminatorGoneBerserkSmokeCloud",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-		}
-		TERM A 10 Light("TerminatorGoBerserk");
-		TNT1 A 0 {
-			bNOPAIN = false;
-		}
-		Goto See;		
+		Loop;	
 	Missile:
 		TNT1 A 0 A_Jump(128, "RocketBurst", "Flamethrower");
 	Rockets:
@@ -96,7 +75,7 @@ class Terminator : DMR_Cyberdemon
 		}
 		TNT1 A 0 {
 			// when berserk, continue with this state
-			if (!goneBerserk) { SetStateLabel("See"); }
+			if (!criticalDamaged) { SetStateLabel("See"); }
 		}
 		TNT1 A 0 A_Jump(64, "See", "RocketBurst"); // 25% chance to stop firing or switch to other rockets attack
 		TNT1 A 0 A_MonsterRefire(10,"See");
@@ -108,7 +87,7 @@ class Terminator : DMR_Cyberdemon
 			A_SpawnProjectile("TerminatorWeaveRocket",56,25,0);
 		}
 		TNT1 A 0 {
-			if (!goneBerserk) { SetStateLabel("See"); }
+			if (!criticalDamaged) { SetStateLabel("See"); }
 		}
 		TNT1 A 0 A_Jump(64, "See", "Rockets"); // 25% chance to stop firing or switch to other rockets attack
 		TNT1 A 0 A_MonsterRefire(10,"See");
@@ -147,6 +126,27 @@ class Terminator : DMR_Cyberdemon
 		TNT1 A 0 A_Jump(128, "Autocannon", "Shotcannon"); //large chance to switch to a different weapon
 		TERM G 12 A_MonsterRefire(10,"See");
 		Goto Flamethrower;
+	CriticalDamage:
+		TNT1 A 0 { bNOPAIN = true; }
+		TERM A 10 Light("TerminatorGoBerserk") {
+			A_PlaySound("monster/termpin", 7);
+		}
+		TNT1 A 0 {
+			A_PlaySound("monster/termsit", 7);
+		}
+		TERM AAAAAAAAAAAAAAAAAAAA 1 {
+			A_SpawnItemEx("TerminatorGoneBerserkSmokeCloud",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("TerminatorGoneBerserkSmokeCloud",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+		}
+		TERM A 10 Light("TerminatorGoBerserk");
+		TNT1 A 0 {
+			criticalDamaged = true;
+			bNOPAIN = false;
+		}
+		Goto See;
 	Pain:
 		TERM L 10 A_Pain;
 		Goto See;
@@ -175,7 +175,11 @@ class Terminator : DMR_Cyberdemon
 	override void Tick()
   	{
 		Super.Tick();
-		if (goneBerserk && health > 0 && !IsFrozen())
+		if (!criticalDamaged && health > 0 && health < 1000 && bNOPAIN == false) 
+		{ 
+			SetStateLabel("CriticalDamage"); 
+		}
+		if (criticalDamaged && health > 0 && !IsFrozen())
 		{		
 			A_SpawnItemEx("TerminatorBerserkingSmokeCloud",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 		}
@@ -184,7 +188,7 @@ class Terminator : DMR_Cyberdemon
 	//TODO unsure if keep or just increase it's speed
 	void A_SetTerminatorTics(int normalTics, int berserkTics)
 	{
-		if (goneBerserk) {
+		if (criticalDamaged) {
 			A_SetTics(berserkTics);
 		}
 		else {

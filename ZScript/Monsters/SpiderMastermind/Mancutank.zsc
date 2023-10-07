@@ -30,9 +30,6 @@ class Mancutank : DMR_SpiderMastermind
 		BloodColor "Red";
 	}
 	
-	int explode;
-	int explosion;
-	
 	States
 	{
 	Spawn:
