@@ -40,6 +40,10 @@ class DMR_ReplacerHandler : EventHandler
 			// Corruption Cards mod
 			case 'CCards_Actor_PilotedMechPlasma'	: a.Replacement = 'DMR_ArachnotronPlasma'; break;
 		}
+		
+		// hacky revert / overwrite of SWWM's teleporter replacer as in some instances this can cause massive lag when triggered rapidly
+		// works under the impression that because this mod gets loaded after SWWM, this replacer will be used instead of SWWM's
+		if (a.Replacee is 'TeleportFog' ) a.Replacement = 'DMR_TeleportFog';
 	}
 }
 

@@ -111,3 +111,28 @@ class DMR_ShieldWall : Actor
 		Stop;
  	}
 }
+
+// basically carbon copy of the original TeleporterFog so we can replace SWWM's TeleporterFog replacer back with the vanilla-like one as that one can cause major slowdowns when triggered often
+class DMR_TeleportFog : Actor
+{
+	default
+	{
+		+NOBLOCKMAP
+		+NOTELEPORT
+		+NOGRAVITY
+		RenderStyle "Add";
+	}
+	States
+	{
+	Spawn:
+		TFOG ABABCDEFGHIJ 6 Bright;
+		Stop;
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay ();
+		A_StartSound ("misc/teleport", CHAN_BODY);
+	}
+	
+}
