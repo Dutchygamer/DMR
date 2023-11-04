@@ -35,6 +35,8 @@ class FormerPyroTechnician : DMR_ChaingunGuy
 		Loop;
 	Missile:
 		TNT1 A 0 A_JumpIfCloser(256, "Flamethrower");
+		goto Fireballs;
+	Fireballs:
 		PYRZ E 10 A_FaceTarget;
 		PYRZ F 10 Bright A_SpawnProjectile("PyroTechnicianBall", 32, 0, 0);
 		PYRZ E 5 A_FaceTarget;
@@ -45,7 +47,7 @@ class FormerPyroTechnician : DMR_ChaingunGuy
 		goto See;
 	Flamethrower:
 		TNT1 A 0 {
-			if(target && Distance3D(target) > 300) SetStateLabel("Shotcannon");
+			if(target && Distance3D(target) > 300) SetStateLabel("Fireballs");
 		}
 		PYRZ E 10 A_FaceTarget;
 		TNT1 A 0 { 

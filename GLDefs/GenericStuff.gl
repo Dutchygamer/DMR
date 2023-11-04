@@ -33,12 +33,12 @@ flickerlight DMR_TeleportFog_X4
 
 object DMR_TeleportFog
 {
-    frame TFOGA { light DTFOG1 }
-    frame TFOGB { light DTFOG2 }
-    frame TFOGC { light DTFOG2 }
-    frame TFOGD { light DTFOG2 }
-    frame TFOGE { light DTFOG3 }
-    frame TFOGF { light DTFOG4 }
-    frame TFOGI { light DTFOG4 }
-    frame TFOGJ { light DTFOG3 }
+    frame TFOGA { light DMR_TeleportFog_X1 }
+    frame TFOGB { light DMR_TeleportFog_X2 }
+    frame TFOGC { light DMR_TeleportFog_X2 }
+    frame TFOGD { light DMR_TeleportFog_X2 }
+    frame TFOGE { light DMR_TeleportFog_X3 }
+    frame TFOGF { light DMR_TeleportFog_X4 }
+    frame TFOGI { light DMR_TeleportFog_X4 }
+    frame TFOGJ { light DMR_TeleportFog_X3 }
 }
