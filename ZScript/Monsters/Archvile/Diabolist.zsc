@@ -35,7 +35,7 @@ class Diabolist : DMR_Archvile
 		DIAB AABBCCDDEEFF 2 A_VileChase;
 		Loop;
 	Missile:
-		TNT1 A 0 A_Jump(96,"Flamebeam");
+		TNT1 A 0 A_Jump(96,"Flamebeam", "Fireballs");
 		Goto VileAttack;
 	VileAttack:	
 		DIAB G 0 BRIGHT A_VileStart;
@@ -51,6 +51,25 @@ class Diabolist : DMR_Archvile
 			A_FaceTarget();
 			A_SpawnProjectile("DiabolistBeam",32,0,0);
 		}
+		DIAB P 8 BRIGHT;
+		Goto See;
+	Fireballs:
+		DIAB KLMN 6 BRIGHT A_FaceTarget;
+		DIAB O 6 BRIGHT {
+			A_FaceTarget();
+			A_SpawnProjectile("DiabolistBall",32,0,0);
+		}
+		DIAB N 6 BRIGHT A_FaceTarget;
+		DIAB O 6 BRIGHT {
+			A_FaceTarget();
+			A_SpawnProjectile("DiabolistBall",32,0,0);
+		}
+		DIAB N 6 BRIGHT A_FaceTarget;
+		DIAB O 6 BRIGHT {
+			A_FaceTarget();
+			A_SpawnProjectile("DiabolistBall",32,0,0);
+		}
+		DIAB N 6 BRIGHT A_FaceTarget;
 		DIAB P 8 BRIGHT;
 		Goto See;
 	Heal:
@@ -113,6 +132,7 @@ class DiabolistBeam : DMR_FastProjectile
 		DamageType "fire";
 		RenderStyle "Add";
 		Alpha 0.85;
+		Scale 1.5;
 		MissileType "DiabolistBeamTrail";
 		MissileHeight 8;
 		Seesound "weapons/firmfi";
@@ -129,21 +149,50 @@ class DiabolistBeam : DMR_FastProjectile
 	}
 }
 
-class DiabolistBeamTrail: actor
+class DiabolistBeamTrail : DMR_ProjectileTrail
 {
 	Default
 	{
-		RenderStyle "Add";
 		Alpha 0.67;
-		+NOINTERACTION;
-		+NOGRAVITY;
 		+FLOATBOB;
-		+DONTSPLASH;
+		-ROLLSPRITE;
 	}
 	States
 	{
 	Spawn:
 		FDFX ABCDEF 4 Bright;
+		Stop;
+	}
+}
+
+class DiabolistBall : DMR_SmallRocket
+{
+	Default
+	{
+		DamageFunction(random(10,30));
+		DamageType "Fire";
+		Scale 1.0;
+		RenderStyle "Add";
+		//ALPHA 0.67;
+		SeeSound "pyro/flame";
+		DeathSound "pyro/flamepoof";
+	}
+	States
+	{
+	Spawn: 
+		SEF1 AABBCC 2 {
+			A_SpawnItemEx("DMR_LargeFireballTrail",-5,0,0,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,-0.5)); 
+		}
+		loop;
+	Death:
+		TNT1 A 0 {
+			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
+				A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			}
+		}
+		TNT1 A 0 A_Explode(64,64);
+		SEF1 DEFGH 4;
 		Stop;
 	}
 }
