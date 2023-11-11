@@ -31,7 +31,7 @@ class ZombiePlasmaTank : DMR_ZombieTankBase
     Missile:
         ZPTK A 20 {
 			A_FaceTarget();
-			A_PlaySound("asgguy/asgld1");
+			A_PlaySound("heavyweapon/load");
 		}
         ZPTK D 5 Bright Light("DMR_PlasmaFire") {
 			A_PlaySound("weapons/plasmaf");

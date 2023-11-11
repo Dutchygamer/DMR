@@ -31,7 +31,7 @@ class ZombieRocketTank : DMR_ZombieTankBase
     Missile:
         ZMTK A 20 {
 			A_FaceTarget();
-			A_PlaySound("asgguy/asgld1");
+			A_PlaySound("heavyweapon/load");
 		}
         ZMTK D 5 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",50,-29,0);
         ZMTK E 5 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",50,32,7);
