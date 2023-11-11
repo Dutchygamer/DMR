@@ -46,10 +46,9 @@ class FormerCyborgCommando : FormerCyborg
 		Loop;
 	Missile:
 		TNT1 A 0 A_Jump(96,"BFG");
+		TNT1 A 0 A_Jump(256,"Plasma", "ChargedPlasma");
+		Stop;
 	Plasma:
-		TNT1 A 0 A_JumpIfCloser(512, "PlasmaClose");
-		Goto PlasmaFar;
-	PlasmaFar:
 		MRBL E 8 A_FaceTarget;
 		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
 			A_PlaySound ("cyborgcommando/fire", CHAN_WEAPON);
@@ -82,30 +81,23 @@ class FormerCyborgCommando : FormerCyborg
 		}
 		MRBL E 2 A_FaceTarget;
 		Goto See;
-	PlasmaClose:
-		TNT1 A 0 A_Jump(96, "PlasmaFar");
+	ChargedPlasma:
 		MRBL E 8 A_FaceTarget;
-		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
+		MRBL F 5 BRIGHT Light("DMR_SmallBFGFire") {
 			A_PlaySound ("cyborgcommando/fire", CHAN_WEAPON);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,4);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,-4);
+			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",34);
 		}
-		MRBL E 2 A_FaceTarget;
-		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
+		MRBL E 4 A_FaceTarget;
+		MRBL F 5 BRIGHT Light("DMR_SmallBFGFire") {
 			A_PlaySound ("cyborgcommando/fire", CHAN_WEAPON);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,4);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,-4);
+			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",34);
 		}
-		MRBL E 2 A_FaceTarget;
-		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
+		MRBL E 4 A_FaceTarget;
+		MRBL F 5 BRIGHT Light("DMR_SmallBFGFire") {
 			A_PlaySound ("cyborgcommando/fire", CHAN_WEAPON);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,4);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34,0,-4);
+			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",34);
 		}
-		MRBL E 2 A_FaceTarget;
+		MRBL E 12 A_FaceTarget;
 		Goto See;
 	BFG:
 		TNT1 A 0 {
@@ -116,12 +108,16 @@ class FormerCyborgCommando : FormerCyborg
 		TNT1 A 0 {
 			A_PlaySound("cyborgcommando/bfg/charge", CHAN_WEAPON);
 		}
-		MRBL E 15 Light("DMR_BFGCharge_X1") A_FaceTarget;
-		MRBL EF 10 Bright Light("DMR_BFGCharge_X2") A_FaceTarget;
+		MRBL EEEEE 3 Light("DMR_BFGCharge_X1") {
+			A_FaceTarget();	A_SpawnItemEx("FormerCyborgCommandoPlasmaTrail",random(-1,1),random(-1,1),34,frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		MRBL EEEEEFFFFF 2 Light("DMR_BFGCharge_X2") {
+			A_FaceTarget();	A_SpawnItemEx("FormerCyborgCommandoBFGBallTrail",random(-1,1),random(-1,1),34,frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
 		MRBL F 10 Bright Light("DMR_BFGFire") {
 			A_FaceTarget();
 			A_PlaySound("cyborgcommando/bfg/fire", CHAN_WEAPON);
-			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",34);
+			A_SpawnProjectile("FormerCyborgCommandoBFG",34);
 		}
 		MRBL E 20 {
 			bNOPAIN = false;
@@ -184,7 +180,7 @@ class FormerCyborgCommandoPlasma : DMR_ZombiePlasma
 {
 	Default
 	{		
-		SeeSound "";
+		SeeSound "cyborgcommando/fire";
 		Scale 0.2;
 	}
 	States
@@ -220,12 +216,61 @@ class FormerCyborgCommandoPlasmaTrail : DMR_ProjectileTrail
 	}
 }
 
-//======================================================================
-//  Original credits
-//======================================================================
-//	ZScript: 	PillowBlaster / Keksdose, modified by Dutchygamer
-//======================================================================
-class FormerCyborgCommandoChargedPlasma : DMR_Projectile
+
+class FormerCyborgCommandoChargedPlasma : DMR_Rocket
+{
+	Default
+	{
+		Speed 30;
+		+RANDOMIZE;
+		+EXTREMEDEATH;
+		RenderStyle "Add";
+		Alpha 0.9;
+		Scale 0.45;
+		SeeSound "cyborgcommando/fire";
+		DeathSound "weapons/bfgx";
+		Decal "BFGLightning";
+	}
+	States
+	{
+	Spawn:
+		TBBL AABBCC 1 Bright  {
+			A_SpawnItemEx("FormerCyborgCommandoChargedPlasmaTrail",-30,0,0,frandom(-1,0),frandom(-1,1),frandom(-1,0));
+			//A_SpawnItemEx("BFGLightningBolt");
+		}
+		Loop;
+	Death:
+		TNT1 A 0 {
+			A_SetScale(0.9);
+			A_Explode(128,128);
+			A_SpawnItemEx("DMR_BFGImpactFlare");
+			A_SpawnItemEx("BFGLightningBurst");
+		}
+		CBTS KLMNOPQRSTUVW 2 Bright;
+		Stop;
+	}
+}
+
+class FormerCyborgCommandoChargedPlasmaTrail : DMR_ProjectileTrail
+{
+	Default
+	{
+		Scale 0.70;
+		Alpha 0.75;
+	}
+	States
+	{
+	Spawn:
+		CBTS ABCD 1 Bright {
+			A_FadeOut(0.1);
+			A_SetScale(Scale.X-0.15);
+		}
+		Stop;
+	}
+}
+
+
+class FormerCyborgCommandoBFG : DMR_Projectile
 {
 	Default
 	{
@@ -245,22 +290,14 @@ class FormerCyborgCommandoChargedPlasma : DMR_Projectile
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay {
-			// spawn the damaging rays
-			A_SpawnItemEx("FormerCyborgCommandoBFGRaySpawner",0,0,8,0,0,0,0,SXF_SETMASTER|SXF_ORIGINATOR|SXF_TRANSFERPOINTERS);
-		}
-	SpawnLoop:
 		TNT1 A 0 A_PlaySound("cyborgcommando/bfg/loop", CHAN_VOICE);
 		TBBL AAABBBCCC 1 Bright  {
 			A_SpawnItemEx("FormerCyborgCommandoBFGBallTrail",-30,0,0,frandom(-1,0),frandom(-1,1),frandom(-1,0));
 			A_SpawnItemEx("BFGLightningBolt");
+			A_Explode(12,128);
 		}
 		Loop;
 	Death:
-		TNT1 A 0 {		
-			// stop the damaging rays
-			A_KillChildren("Normal",KILS_KILLMISSILES,"FormerCyborgCommandoBFGRaySpawner");
-		}
 		TBBL A 3 Bright {
 			A_Explode(32,128);
 			A_SpawnItemEx("BFGLightningBolt");
@@ -317,64 +354,6 @@ class FormerCyborgCommandoChargedPlasma : DMR_Projectile
 			A_SpawnItemEx("BFGLightningBurst");
 		}
 		CBTS KLMNOPQRSTUVW 4 Bright;
-		Stop;
-	}
-}
-
-class FormerCyborgCommandoBFGRaySpawner : Actor
-{
-	Default
-	{
-		Species "DMR_PartyBeams";
-		Projectile;
-		+SEEKERMISSILE;
-		+NOINTERACTION;
-		+NODAMAGETHRUST;
-	}
-	
-	States
-	{
-	Spawn:
-		TNT1 A 1 {
-			// only attack when we have a master
-			if (master) {
-				// move along with the main projectile
-				SetOrigin(master.pos,false);
-				// find a target
-				A_SeekerMissile(20,90,SMF_LOOK,256,15);
-				// when we have a target and are within a reasonable range, act
-				if (tracer && CheckIfTargetInLOS(0,JLOSF_PROJECTILE,768)) {
-					// face target
-					A_FaceTracer();
-					// do the damage
-					A_CustomRailgun(random(6,8),random(5,-5),"","green",RGF_SILENT|RGF_NOPIERCING|RGF_FULLBRIGHT,0,2,"",0,0,780,10,1.0,1.0,"FormerCyborgCommandoBFGRayParticle");
-					// forget the target so we can target someone else
-					tracer = null;
-				}
-			}
-			// some safety nets so we can safely kill ourselves
-			if (IsPointerEqual(AAPTR_MASTER, AAPTR_NULL)) { 
-				Return ResolveState("Null"); 
-			}
-			Return ResolveState(Null);
-		}
-		Loop;
-	}
-}
-
-class FormerCyborgCommandoBFGRayParticle : Actor
-{
-	Default
-	{
-		Renderstyle "Add";
-		Scale 0.4;
-		+NOINTERACTION;
-	}
-
-	States
-	{
-	Spawn:
-		BFE2 DDD 1 BRIGHT A_SetScale(Scale.x - 0.25);
 		Stop;
 	}
 }

@@ -81,7 +81,7 @@ class NobleVanguard : DMR_BaronOfHell
 		Goto See;
 	Plasma:
 		HPAL II 8 A_FaceTarget;
-		HPAL J 8 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("NoblePraetorianHellRune",32,16);
+		HPAL J 8 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("DMR_HellRune",32,16);
 		Goto See;
 	RaiseShield:
 		TNT1 A 0 {
@@ -226,11 +226,10 @@ Class NobleVanguardShieldWall : DMR_ShieldWall
 	}
 }
 
-Class NobleVanguardHellRune : DMR_HellRune
+Class NobleVanguardHellRune : DMR_HellRuneSmall
 {	
 	Default
-	{		
-		DamageFunction(random(10,30));
+	{
 		+THRUSPECIES;
 		Species "DMR_ShieldWall"; // so the shield projectiles can pass through the shield
 	}
