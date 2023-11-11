@@ -23,6 +23,9 @@ $rolloff bfg/fire 500 1500
 weapons/bfgx DSRXPLOD
 $rolloff weapons/bfgx 600 1600
 
+// heavy weapon prep
+heavyweapon/load dsasgld1
+
 
 //////////////////////////////
 // Zombieman variant sounds //
