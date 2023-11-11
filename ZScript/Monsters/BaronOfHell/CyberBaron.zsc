@@ -16,8 +16,8 @@ class CyberBaronOfHell : DMR_BaronOfHell
 	{
 		Tag "Cyber Baron of Hell";
 		Health 1250;
-		DropItem "RocketAmmo", 128;
-		DropItem "RocketAmmo", 128;
+		DropItem "RocketAmmo", 256, 1;
+		DropItem "RocketAmmo", 128, 1;
 		obituary "%o was blasted by a cyber baron";
 		hitobituary "%o was torn apart by a cyber baron";
 	}
@@ -41,16 +41,26 @@ class CyberBaronOfHell : DMR_BaronOfHell
 	Ball:
 		CBOS PQ 8 A_FaceTarget;
 		CBOS R 8 A_CustomComboAttack("DMR_BaronBall",32,random(20,60),"baron/melee");
-		TNT1 A 0 A_Jump(56, "Rocket");
+		TNT1 A 0 Bright A_Jump(96, "See");
+		CBOS E 10 A_FaceTarget;
+		CBOS F 10 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("DMR_SmallRocket",27,16);
+		}
 		Goto See;
 	Rocket:
-		CBOS EE 8 A_FaceTarget;
-		CBOS F 10 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",27,16);
-		CBOS E 8 A_FaceTarget;
+		CBOS EE 10 A_FaceTarget;
+		CBOS F 10 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("DMR_SmallRocket",27,16);
+		}
+		CBOS E 10 A_FaceTarget;
+		CBOS F 10 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("DMR_SmallRocket",27,16);
+		}
+		CBOS E 10 A_FaceTarget;
 		TNT1 A 0 Bright A_Jump(96, "See");
-		CBOS E 8 A_FaceTarget;
-		CBOS F 10 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",27,16);
-		CBOS E 8;
+		CBOS F 10 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("DMR_SmallRocket",27,16);
+		}
 		Goto See;
 	Pain:
 		CBOS H 2;
