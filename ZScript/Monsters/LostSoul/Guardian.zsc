@@ -47,11 +47,11 @@ class RavagerSpawn : DMR_FlyingMonsterBase
 		GARD ABCDEF 3 A_Chase;
 		Loop;
 	Missile: 
-		GARD GH 5 Bright A_FaceTarget;
-		GARD I 5 BRIGHT {
+		GARD GH 8 Bright A_FaceTarget;
+		GARD I 6 BRIGHT {
 			A_SpawnProjectile("SmallTiberiumFlechette",28);
 		}
-		GARD G 5 Bright A_FaceTarget;
+		GARD HG 6 A_FaceTarget;
 		Goto See;
 	Pain: 
 		GARD J 3; 
