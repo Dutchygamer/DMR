@@ -38,9 +38,15 @@ class Forgemaster : DMR_Cyberdemon
 		BSMT AB 10 A_Look;
 		Loop;
 	See: 
-		BSMT A 3 A_Playsound ("hellsmith/move");
+		BSMT A 3 {
+			A_Chase();
+			A_Playsound ("hellsmith/move");
+		}
 		BSMT ABB 3 A_Chase;
-		BSMT C 3 A_Playsound ("hellsmith/move");
+		BSMT C 3 {
+			A_Chase();
+			A_Playsound ("hellsmith/move");
+		}
 		BSMT CDD 3 A_Chase;
 		Loop;
 	Missile:
@@ -163,7 +169,7 @@ class ForgemasterClusterBall : Actor
 		Speed 22;
 		DamageFunction(random(30,90));
 		RenderStyle "ADD";
-		DamageType "fire";
+		//DamageType "fire";
 		Alpha 0.67;
 		PROJECTILE;
 		+FLOORHUGGER;

@@ -43,6 +43,7 @@ class Terminator : DMR_Cyberdemon
 		}
 		TERM A 3 {
 			A_SetTerminatorTics(3,2);
+			A_Chase();
 			A_Playsound("Terminator/terstepA");
 		}
 		TERM ABB 3 {		
@@ -51,6 +52,7 @@ class Terminator : DMR_Cyberdemon
 		}
 		TERM C 3 {
 			A_SetTerminatorTics(3,2);
+			A_Chase();
 			A_Playsound("Terminator/terstepA");
 		}
 		TERM CDD 3 {		
