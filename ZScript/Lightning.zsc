@@ -12,6 +12,7 @@ class DMR_LightningBase : DMR_FXBase
 	}
 }
 
+
 Class BFGLightningBolt : DMR_LightningBase
 {
 	Default
@@ -45,6 +46,20 @@ Class BFGLightningBurst : DMR_LightningBase
 		Stop;
 	}
 }
+
+Class MediumBFGLightningBurst : DMR_LightningBase
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			A_SetRoll(random(0,360));
+		}
+		SHCK DDDDDD 1 A_SetScale(frandom(0.35,0.5));
+		Stop;
+	}
+}
+
 
 Class TiberiumBlueLightningBolt : BFGLightningBolt
 {

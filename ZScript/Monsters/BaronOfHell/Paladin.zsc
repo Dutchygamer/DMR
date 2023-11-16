@@ -46,15 +46,15 @@ class NobleVanguard : DMR_BaronOfHell
 			A_RemoveChildren(1,RMVF_EVERYTHING);
 		}
 		HPAL AABB 3 A_Chase;
-		TNT1 A 0 A_PlaySound("Paladin/Step");
+		TNT1 A 0 A_PlaySound("noblebaron/step");
 		HPAL CCDD 3 A_Chase;
-		TNT1 A 0 A_PlaySound("Paladin/Step");
+		TNT1 A 0 A_PlaySound("noblebaron/step");
 		Loop;
 	SeeShield:
 		HPAL EEFF 5 A_Chase;
-		TNT1 A 0 A_PlaySound("Paladin/Step");
+		TNT1 A 0 A_PlaySound("noblebaron/step");
 		HPAL GGHH 5 A_Chase;
-		TNT1 A 0 A_PlaySound("Paladin/Step");
+		TNT1 A 0 A_PlaySound("noblebaron/step");
 		TNT1 A 0 A_Jump (96, "See"); // small chance to lower shield
 		Loop;
 	Melee:

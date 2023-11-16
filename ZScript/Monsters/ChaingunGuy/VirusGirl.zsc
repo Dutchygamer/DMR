@@ -110,7 +110,8 @@ Class VirusDart : DMR_SlowBullet
 			if (damage > 0 && target.health < damage)
 			{
 				//TODO heb paar keer gezien dat ie een low-level enemy niet killed maar toch een gas cloud spawnt for some reason...
-				// wellicht een fluke, krijg het niet consequent gereproduceerd			
+				// wellicht een fluke, krijg het niet consequent gereproduceerd		
+				// krijg het met een low-level player in SWWM wel voor elkaar; gas clouds worden gespawned maar er lijkt geen damage te worden gedaan?
 			
 				target.A_PlaySound("gas/explode");				
 				

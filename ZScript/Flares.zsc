@@ -187,3 +187,21 @@ class DMR_SmallBFGImpactFlare : DMR_FlareBase
 		Loop;
 	}
 }
+
+class DMR_MediumBFGImpactFlare : DMR_FlareBase
+{
+	Default
+	{
+		Alpha 0.75;
+		Scale 1.5;
+	}
+	States
+	{
+	Spawn:
+		BFOF C 1 Bright {
+			A_FadeOut();
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}

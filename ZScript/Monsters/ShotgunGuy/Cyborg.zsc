@@ -43,10 +43,16 @@ class FormerCyborg : DMR_ShotgunGuy
 		GREB AA 10 A_Look;
 		Loop;
 	See:
-		GREB AABBCCDD 4 {
+		GREB AABB 4 {
 			A_SetCyborgTics(4,8);
 			A_Chase();
 		}
+		TNT1 A 0 A_PlaySound("cyborg/step");
+		GREB CCDD 4 {
+			A_SetCyborgTics(4,8);
+			A_Chase();
+		}
+		TNT1 A 0 A_PlaySound("cyborg/step");
 		Loop;
 	Missile:
 		TNT1 A 0 A_Jump(96, "Grenade");

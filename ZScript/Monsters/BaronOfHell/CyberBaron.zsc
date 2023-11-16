@@ -28,7 +28,7 @@ class CyberBaronOfHell : DMR_BaronOfHell
 		loop;
 	See:
 		CBOS AABBCC 3 A_Chase;
-		TNT1 A 0 A_PlaySound("monster/bruwlk");
+		TNT1 A 0 A_PlaySound("cyknight/step");
 		CBOS DD 3 A_Chase;
 		loop;
 	Melee:

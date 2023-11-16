@@ -27,7 +27,7 @@ class CyberHellKnight : DMR_HellKnight
 		loop;
 	See:
 		CBO2 AABBCC 3 A_Chase;
-		TNT1 A 0 A_PlaySound("monster/bruwlk");
+		TNT1 A 0 A_PlaySound("cyknight/step");
 		CBO2 DD 3 A_Chase;
 		loop;
 	Melee:

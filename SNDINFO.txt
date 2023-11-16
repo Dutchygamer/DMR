@@ -25,6 +25,7 @@ $rolloff weapons/bfgx 600 1600
 
 // heavy weapon prep
 heavyweapon/load dsasgld1
+$rolloff smallrocket/launch 300 1300
 
 
 //////////////////////////////
@@ -72,6 +73,10 @@ cyborg/active1 	CYBACT1
 cyborg/active2 	CYBACT2
 cyborg/active3 	CYBACT3
 cyborg/death 	CYBDTH
+
+cyborg/step				HPALSTEP
+$pitchset cyborg/step 1.5
+$volume  cyborg/step 0.3
 
 
 ////////////////////////////////
@@ -349,6 +354,8 @@ knight/pain                   HKNIPN
 shieldwall/pain               SHLDHIT
 shieldwall/death              SHLDBRK
 
+cyknight/step				HPALSTEP
+
 // Paladin
 Paladin/Sight	HPALSIT
 Paladin/Active	HPALACT
@@ -362,7 +369,7 @@ Paladin/Hit		HPALHIT2
 Paladin/Grenade	HPALGREN
 Paladin/Bounce	HPALBNC
 Paladin/Explode	HPALEXPL
-Paladin/Step	HPALSTEP
+//Paladin/Step	HPALSTEP
 
 // Afrit
 //TODO eh, which one is right?
@@ -385,10 +392,12 @@ satyr/death dssatdth
 
 baron/pain                     BRUIPN
 
+noblebaron/step				HPALSTEP
+
 // Bruiser demon
 monster/brusit dsbrusit
 monster/brudth dsbrudth
-monster/bruwlk dsbruwlk
+//monster/bruwlk dsbruwlk
 monster/brufir dsbrufir
 weapons/hellex dshellex
 
