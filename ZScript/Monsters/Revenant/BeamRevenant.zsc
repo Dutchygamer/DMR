@@ -37,8 +37,16 @@ class Dybbuk : DMR_Revenant
 		RASK I 6 A_CustomMeleeAttack(random(12,36),"skeleton/melee");
 		Goto See;
 	Missile:
+		TNT1 A 0 A_Jump(96, "Laser");
+		Goto Ball;
+	Laser:
 		RASK J 20 Bright A_FaceTarget;
-		RASK K 5 Bright Light("DMR_LaserFire") A_SpawnProjectile("SmallRedLaser",65,13,random(-3,3));
+		RASK K 5 Bright Light("DMR_LaserFire") A_SpawnProjectile("SmallRedLaser",65,13,random(-2,2));
+		RASK K 15 A_FaceTarget;
+		Goto See;
+	Ball:
+		RASK J 20 Bright A_FaceTarget;
+		RASK KKK 8 Bright A_SpawnProjectile("DybbukTracer",65,13);
 		RASK K 15 A_FaceTarget;
 		Goto See;
 	Pain:
@@ -60,7 +68,7 @@ class Dybbuk : DMR_Revenant
 	}
 }
 
-//laser projectile
+// laser projectile
 class SmallRedLaser : DMR_LaserBase
 {
 	Default
@@ -73,3 +81,39 @@ class SmallRedLaser : DMR_LaserBase
 }
 
 class SmallRedLaserTrail : DMR_LaserTrailBase { }
+
+class DybbukTracer : DMR_RevenantTracer
+{
+	Default
+	{
+		DamageFunction(random(6,16));
+		Speed 15;
+		Scale 0.4;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_Jump(128,"Homing"); 
+		FATB AB 2 Bright {
+			A_SpawnItemEx("DMR_SmallFireballTrail",-8,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
+		}
+		Goto Spawn+1;
+	Homing:
+		FATB AB 2 Bright {
+			A_SeekerMissile(1,8,SMF_PRECISE); 
+			A_SpawnItemEx("DMR_SmallFireballTrail",-8,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
+			A_SpawnItemEx("DMR_SmallSmokeCloud",-8,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
+		}
+		Loop;
+	Death:
+		TNT1 A 0 {
+			for (fxLoop = 0;fxLoop <= 3;fxLoop++) {
+				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
+			}
+		}
+		FBXP A 8 Bright;
+		FBXP B 6 Bright;
+		FBXP C 4 Bright;
+		Stop;
+	}
+}

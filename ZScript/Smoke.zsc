@@ -15,6 +15,14 @@ class DMR_SmokeCloud : DMR_ProjectileTrail
 	}
 }
 
+class DMR_SmallSmokeCloud : DMR_SmokeCloud
+{
+	Default
+	{
+		Scale 0.15;
+	}
+}
+
 class DMR_MediumSmokeCloud : DMR_SmokeCloud
 {
 	Default

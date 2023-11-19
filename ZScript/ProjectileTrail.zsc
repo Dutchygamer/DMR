@@ -60,6 +60,14 @@ class DMR_FireballTrail : DMR_ProjectileTrail
 	}
 }
 
+class DMR_SmallFireballTrail : DMR_FireballTrail
+{
+	Default
+	{
+		Scale 0.25;
+	}
+}
+
 class DMR_MediumFireballTrail : DMR_FireballTrail
 {
 	Default
