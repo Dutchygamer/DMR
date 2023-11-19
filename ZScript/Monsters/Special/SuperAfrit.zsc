@@ -66,7 +66,7 @@ Class SuperAfrit : Afrit
 		}
 		Goto See;
 	Pain:
-		FRIT H 4 Light("DMR_AFRIT");
+		FRIT H 4;
 		FRIT H 4 A_Pain;
 		Goto See;
 	Death:
@@ -75,7 +75,7 @@ Class SuperAfrit : Afrit
 		FRIT I 6 A_Scream;
 		TNT1 A 0 A_PlaySound("dragonfam/attack");
 		FRIT J 5 A_NoBlocking;
-		FRIT KLMNOPQR 4 Light("DMR_AFRIT");
+		FRIT KLMNOPQR 4;
 		Stop;
 	Raise:
 		Stop; // no rezzing this one

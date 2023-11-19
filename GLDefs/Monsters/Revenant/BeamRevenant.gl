@@ -41,10 +41,10 @@ object SmallRedLaser
 {
 	frame TNT1A { light DMR_LaserTrail }
 	
-	frame BFE1A { light DMR_LaserImpactBig_X1 }
-    frame BFE1B { light DMR_LaserImpactBig_X2 }
-    frame BFE1C { light DMR_LaserImpactBig_X2 }
-    frame BFE1D { light DMR_LaserImpactBig_X2 }
-    frame BFE1E { light DMR_LaserImpactBig_X3 }
-    frame BFE1F { light DMR_LaserImpactBig_X3 }
+	frame BFE1A { light DMR_LaserImpact_X1 }
+    frame BFE1B { light DMR_LaserImpact_X2 }
+    frame BFE1C { light DMR_LaserImpact_X2 }
+    frame BFE1D { light DMR_LaserImpact_X2 }
+    frame BFE1E { light DMR_LaserImpact_X3 }
+    frame BFE1F { light DMR_LaserImpact_X3 }
 }

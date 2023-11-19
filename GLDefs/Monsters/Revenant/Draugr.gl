@@ -1,22 +1,29 @@
 Object DraugrTracer
 {
-	Frame FBRS { Light DMR_RevenantTracer }
+	Frame FBRS { Light DMR_SmallRocket }
 
     frame MISLB { light DMR_SmallRocket_X1 }
     frame MISLC { light DMR_SmallRocket_X2 }
     frame MISLD { light DMR_SmallRocket_X3 }
 }
 
+Object DraugrHomingTracer
+{
+	Frame FBRS { Light DMR_SmallRocket }
+
+    frame MISLB { light DMR_SmallRocket_X1 }
+    frame MISLC { light DMR_SmallRocket_X2 }
+    frame MISLD { light DMR_SmallRocket_X3 }
+}
 
 Object DraugrClusterMissile
 {
-	Frame HMISA { Light DMR_RevenantTracer }
+	Frame HMISA { Light DMR_SmallRocket }
 
-	Frame MISLA { Light DMR_RevenantTracer_X1 }
-	Frame MISLB { Light DMR_RevenantTracer_X2 }
-	Frame MISLC { Light DMR_RevenantTracer_X3 }
+	Frame MISLB { Light DMR_SmallRocket_X1 }
+	Frame MISLC { Light DMR_SmallRocket_X2 }
+	Frame MISLD { Light DMR_SmallRocket_X3 }
 }
-
 
 Object DraugrSubProjectile
 {

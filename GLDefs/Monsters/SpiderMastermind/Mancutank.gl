@@ -1,0 +1,9 @@
+
+object MancutankRocket 
+{
+    frame FBRSA { light DMR_SmallRocket }
+
+    frame MISLB { light DMR_SmallRocket_X1 }
+    frame MISLC { light DMR_SmallRocket_X2 }
+    frame MISLD { light DMR_SmallRocket_X3 }
+}

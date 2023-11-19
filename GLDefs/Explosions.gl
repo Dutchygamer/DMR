@@ -1,9 +1,9 @@
 
 object DMR_BossDeathExplosion
 {
-    frame MISLB { light DMR_SmallRocket_X1 }
-    frame MISLC { light DMR_SmallRocket_X2 }
-    frame MISLD { light DMR_SmallRocket_X3 }
+    frame MISLB { light DMR_Rocket_X1 }
+    frame MISLC { light DMR_Rocket_X2 }
+    frame MISLD { light DMR_Rocket_X3 }
 }
 
 object DMR_MonsterDeathExplosion
@@ -11,4 +11,40 @@ object DMR_MonsterDeathExplosion
     frame MISLB { light DMR_SmallRocket_X1 }
     frame MISLC { light DMR_SmallRocket_X2 }
     frame MISLD { light DMR_SmallRocket_X3 }
+}
+
+object DMR_BossDeathFinalExplosion
+{
+    frame GRNEA { light DMR_LargeRocket_X1 }
+    frame GRNEB { light DMR_LargeRocket_X1 }
+    frame GRNEC { light DMR_LargeRocket_X1 }
+    frame GRNED { light DMR_LargeRocket_X1 }
+    frame GRNEE { light DMR_LargeRocket_X1 }
+    frame GRNEF { light DMR_LargeRocket_X1 }
+    frame GRNEG { light DMR_LargeRocket_X1 }
+    frame GRNEH { light DMR_LargeRocket_X2 }
+    frame GRNEI { light DMR_LargeRocket_X2 }
+    frame GRNEJ { light DMR_LargeRocket_X2 }
+    frame GRNEK { light DMR_LargeRocket_X2 }
+    frame GRNEL { light DMR_LargeRocket_X3 }
+    frame GRNEM { light DMR_LargeRocket_X3 }
+    frame GRNEN { light DMR_LargeRocket_X3 }
+}
+
+object DMR_MonsterDeathFinalExplosion
+{
+    frame GRNEA { light DMR_Rocket_X1 }
+    frame GRNEB { light DMR_Rocket_X1 }
+    frame GRNEC { light DMR_Rocket_X1 }
+    frame GRNED { light DMR_Rocket_X1 }
+    frame GRNEE { light DMR_Rocket_X1 }
+    frame GRNEF { light DMR_Rocket_X1 }
+    frame GRNEG { light DMR_Rocket_X1 }
+    frame GRNEH { light DMR_Rocket_X2 }
+    frame GRNEI { light DMR_Rocket_X2 }
+    frame GRNEJ { light DMR_Rocket_X2 }
+    frame GRNEK { light DMR_Rocket_X2 }
+    frame GRNEL { light DMR_Rocket_X3 }
+    frame GRNEM { light DMR_Rocket_X3 }
+    frame GRNEN { light DMR_Rocket_X3 }
 }

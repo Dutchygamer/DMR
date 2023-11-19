@@ -1,4 +1,4 @@
-//DMR_FlamethrowerBall
+// DMR_FlamethrowerBall
 flickerlight DMR_FlamethrowerBall_X1
 {
     color 0.8 0.5 0.1
@@ -43,7 +43,7 @@ object DMR_FlamethrowerBall
 }
 
 
-//DMR_FlamethrowerBallLarge
+// DMR_FlamethrowerBallLarge
 flickerlight DMR_FlamethrowerBallLarge_X1
 {
     color 0.8 0.5 0.1
@@ -174,6 +174,74 @@ object DMR_SmallRocket
 }
 
 
+// large rocket
+flickerlight DMR_LargeRocket
+{
+    color 1.0 0.7 0.0
+    size 84
+    secondarySize 92
+    chance 0.3
+}
+
+flickerlight DMR_LargeRocket_X1
+{
+    color 1.0 0.6 0.1
+    size 100
+    secondarySize 110
+    chance 0.3
+}
+
+flickerlight DMR_LargeRocket_X2
+{
+    color 0.65 0.3 0.0
+    size 115
+    secondarySize 125
+    chance 0.3
+}
+
+flickerlight DMR_LargeRocket_X3
+{
+    color 0.3 0.1 0.0
+    size 130
+    secondarySize 140
+    chance 0.3
+}
+
+
+// red rocket
+flickerlight DMR_RedRocket
+{
+    color 1.0 0.3 0.0
+    size 78
+    secondarySize 86
+    chance 0.3
+}
+
+flickerlight DMR_RedRocket_X1
+{
+    color 1.0 0.2 0.1
+    size 90
+    secondarySize 100
+    chance 0.3
+}
+
+flickerlight DMR_RedRocket_X2
+{
+    color 0.65 0.0 0.0
+    size 100
+    secondarySize 110
+    chance 0.3
+}
+
+flickerlight DMR_RedRocket_X3
+{
+    color 0.3 0.0 0.0
+    size 110
+    secondarySize 120
+    chance 0.3
+}
+
+
 // Zombies
 flickerlight DMR_RifleFire
 {
@@ -292,6 +360,14 @@ flickerlight DMR_HellRune_X3
 	subtractive 1
 }
 
+flickerlight DMR_HellRune_X4
+{
+    color 0.1 0.0 0.1
+    size 70
+    secondarySize 75
+    chance 0.3
+}
+
 
 flickerlight DMR_HellRuneFire
 {
@@ -301,5 +377,51 @@ flickerlight DMR_HellRuneFire
     offset 0 40 0
     chance 0.3
 	subtractive 1
+}
+
+object DMR_HellRune
+{
+    frame ARAXA { light DMR_HellRuneStart }
+    frame ARAXB { light DMR_HellRuneStart }
+    frame PLRNA { light DMR_HellRune }
+    frame PLRNB { light DMR_HellRune }
+
+    frame PLRXA { light DMR_HellRune_X4 }
+    frame PLRXB { light DMR_HellRune_X3 }
+    frame PLRXC { light DMR_HellRune_X2 }
+    frame PLRXD { light DMR_HellRune_X2 }
+    frame PLRXE { light DMR_HellRune_X1 }
+    frame PLRXF { light DMR_HellRune_X1 }
+}
+
+object DMR_HellRuneSmall
+{
+    frame ARAXA { light DMR_HellRuneStart }
+    frame ARAXB { light DMR_HellRuneStart }
+    frame PLRNA { light DMR_HellRune }
+    frame PLRNB { light DMR_HellRune }
+
+    frame PLRXA { light DMR_HellRune_X4 }
+    frame PLRXB { light DMR_HellRune_X3 }
+    frame PLRXC { light DMR_HellRune_X2 }
+    frame PLRXD { light DMR_HellRune_X2 }
+    frame PLRXE { light DMR_HellRune_X1 }
+    frame PLRXF { light DMR_HellRune_X1 }
+}
+
+object DMR_HellRuneExplosive
+{
+    frame ARAXA { light DMR_HellRuneStart }
+    frame ARAXB { light DMR_HellRuneStart }
+    frame PLRNA { light DMR_HellRune }
+    frame PLRNB { light DMR_HellRune }
+
+    frame PLRXG { light DMR_HellRune_X4 }
+    frame PLRXH { light DMR_HellRune_X3 }
+    frame PLRXI { light DMR_HellRune_X3 }
+    frame PLRXJ { light DMR_HellRune_X2 }
+    frame PLRXK { light DMR_HellRune_X2 }
+    frame PLRXL { light DMR_HellRune_X1 }
+    frame PLRXM { light DMR_HellRune_X1 }
 }
 
