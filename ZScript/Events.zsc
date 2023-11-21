@@ -16,8 +16,8 @@ class DMR_ReplacerHandler : EventHandler
 					{ a.Replacement = 'WolfensteinSSReplacer'; break; }
 				else if (dmr_replace_ss == 2)
 					{ a.Replacement = 'EvilMarine'; break; }
-				//else if(dmr_replace_ss == 3)
-				//	{ a.Replacement = 'Epic2Alien'; break; }
+				else if(dmr_replace_ss == 3)
+					{ a.Replacement = 'AlienFighter'; break; }
 				else if (dmr_replace_ss == 4)
 					{ a.Replacement = 'EvilMarine'; break; }
 			case 'CommanderKeen':

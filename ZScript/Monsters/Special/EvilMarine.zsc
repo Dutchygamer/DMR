@@ -30,6 +30,8 @@ class EvilMarine : DMR_MonsterBase
 		OBITUARY "%o was defeated by a corrupted marine.";
 		DropItem "CellPack", 256, 100;
 		DropItem "PlasmaRifle", 10;
+		+DONTHARMSPECIES;
+		+NOINFIGHTSPECIES;
 		+MISSILEMORE;
 		+NODROPOFF; // don't yeet yourself off platforms	
 	}

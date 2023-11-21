@@ -1,0 +1,78 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Bouncy
+//	Sounds:		Id Software
+//  Sprites: 	The Innocent Crew
+//	GLDEFs: 	Dreadopp
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class AlienFighter : DMR_MonsterBase
+{
+	Default
+	{
+		Tag "???";
+		Health 75;
+		Gibhealth -20; // all lower tier monsters (zombies -> imp) have 20 gibhealth
+		Species "DMR_Lmao";
+		Radius 20;
+		Height 56;
+		Mass 100;
+		Speed 8;
+		PainChance 150;
+		SeeSound "grunt/sight"; //"shadow/sight";
+		PainSound "grunt/pain";
+		DeathSound "grunt/death"; //"shadow/death";
+		//ActiveSound "grunt/active";
+		OBITUARY "%o never got a clear picture of his killer.";
+		DropItem "Cell", 256, 20;
+		+DONTHARMSPECIES;
+		+NOINFIGHTSPECIES;
+	}
+	States
+	{
+	Spawn:
+		GMAN AB 10 A_Look;
+		Loop;
+	See:
+		GMAN AABBCCDD 2 A_Chase();
+		Loop;
+	Missile:
+		GMAN EF 5 A_FaceTarget;
+		GMAN G 3 BRIGHT Light("DMR_PlasmaFire") A_SpawnProjectile("EvilMarinePlasmaBall");
+		//GMAN G 1 A_CPosAttack;
+		GMAN F 4 A_FaceTarget;
+		GMAN G 3 BRIGHT Light("DMR_PlasmaFire") A_SpawnProjectile("EvilMarinePlasmaBall");
+		GMAN FE 5 A_FaceTarget;
+		Goto See;
+		//GMAN G 3 A_CPosAttack;
+		//GMAN F 1 A_CPosRefire;
+		//Loop;
+	Pain:
+		GMAN H 3;
+		GMAN H 3 A_Pain;
+		Goto See;
+	Death:
+		GMAN I 5;
+		GMAN J 5 A_Scream;
+		GMAN K 5 A_Fall;
+		GMAN L 5;
+		GMAN M -1;
+		Stop;
+	XDeath:
+		GMAN N 5 ;
+		GMAN O 5 A_XScream;
+		GMAN QRSTU 5;
+		GMAN V -1;
+		Stop;
+	Raise:
+		GMAN M 5;
+		GMAN LKJI 5;
+		Goto See;
+	}
+}
+
