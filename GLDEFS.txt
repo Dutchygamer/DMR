@@ -66,3 +66,4 @@
 #include "GLDefs/Monsters/SpiderMastermind/Mancutank.gl"
 
 #include "GLDefs/Monsters/Special/SuperAfrit.gl"
+#include "GLDefs/Monsters/Special/EvilMarine.gl"

@@ -800,9 +800,24 @@ prox/beep		  DSIGPRXB
 bomb/beep DSBEEEP
 
 
+// Special //
+
+
+alienfighter/sight 		DSGSSIT
+alienfighter/death 		DSGSDTH
+alienfighter/fire 		TESFIR
+
+
+
+
 ///////////////////////////
 // Other & unused sounds //
 ///////////////////////////
+
+
+
+
+
 
 monster/sg2sit dssg2sit
 monster/sg2atk dssg2atk
