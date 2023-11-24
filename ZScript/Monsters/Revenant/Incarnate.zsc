@@ -82,9 +82,12 @@ class Ghoul : DMR_Revenant
 		INCA Q -1;
 		Stop;
 	XDeath:
-		INCX A 10 Bright A_Playsound("monster/incexp");
+		INCX A 5 Bright A_Playsound("monster/incexp");
 		INCX BC 5 Bright;
-		INCX D 5 Bright A_NoBlocking;
+		INCX D 5 Bright {			
+			A_SpawnItemEx("GhoulDeathExplosion",0,0,56);
+			A_NoBlocking();
+		}
 		INCX EFGHIJ 5 Bright;
 		INCX K -1;
 		Stop;
@@ -96,13 +99,7 @@ class Ghoul : DMR_Revenant
 
 // basically the same as DMR_HellRune with more accurate homing
 class GhoulTracer : DMR_HellRune
-{  
-	//Default
-	//{
-		//Speed 10;
-		//DamageFunction(random(16,48));
-		//Scale 1.2;
-	//}
+{
 	States
 	{
 	Spawn:
@@ -123,6 +120,26 @@ class GhoulTracer : DMR_HellRune
 		Loop;
 	}
 }
+
+Class GhoulDeathExplosion : DMR_BossDeathExplosion
+{
+	Default
+	{
+		+NOINTERACTION;
+		Renderstyle "Add";
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_PlaySound("weapons/rocklx", CHAN_WEAPON);
+		MISL B 8 Bright Light("DMR_RedRocket_X1");
+		MISL C 6 Bright Light("DMR_RedRocket_X2");
+		MISL D 4 Bright Light("DMR_RedRocket_X3");
+		Stop;
+	}
+}
+
 
 //TODO unused
 class GhoulRapidBall : DMR_HellRune

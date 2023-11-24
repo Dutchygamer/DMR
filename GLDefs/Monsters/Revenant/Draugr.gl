@@ -1,6 +1,6 @@
 Object DraugrTracer
 {
-	Frame FBRS { Light DMR_SmallRocket }
+	Frame MISLA { Light DMR_SmallRocket }
 
     frame MISLB { light DMR_SmallRocket_X1 }
     frame MISLC { light DMR_SmallRocket_X2 }
@@ -9,7 +9,7 @@ Object DraugrTracer
 
 Object DraugrHomingTracer
 {
-	Frame FBRS { Light DMR_SmallRocket }
+	Frame FBRSA { Light DMR_SmallRocket }
 
     frame MISLB { light DMR_SmallRocket_X1 }
     frame MISLC { light DMR_SmallRocket_X2 }
