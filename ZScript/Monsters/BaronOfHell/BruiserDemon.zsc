@@ -148,7 +148,7 @@ class FireborneNobleFireSpawner : DMR_Projectile
 		+DONTSPLASH;
 		+BRIGHT
 		RenderStyle "Add";
-		DamageType "fire";
+		//DamageType "fire";
 		SeeSound "flamebringer/firefx";
 		DeathSound "weapons/rocklx";		
 	}
