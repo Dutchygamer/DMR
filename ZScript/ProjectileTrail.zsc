@@ -263,6 +263,7 @@ class DMR_RedPuffTrail : DMR_ProjectileTrail
 	}
 }
 
+//TODO unused
 class DMR_BarbTrail : DMR_ProjectileTrail
 {   
 	Default

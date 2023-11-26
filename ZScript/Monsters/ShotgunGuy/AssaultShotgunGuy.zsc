@@ -38,7 +38,7 @@ class FormerAssaultSargeant : DMR_ShotgunGuy
 	Missile:
 		ASGZ E 10 A_FaceTarget;
         ASGZ F 10 Bright Light("DMR_RifleFire") {
-			A_PlaySound("asgguy/asgfir", CHAN_WEAPON);
+			A_PlaySound("autoshotgun/fire", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,0,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired++; // expend a single shot
 		}
@@ -47,7 +47,7 @@ class FormerAssaultSargeant : DMR_ShotgunGuy
 			if (shotsFired >= 6) { SetStateLabel("Reload"); }
 		}	
         ASGZ F 10 Bright Light("DMR_RifleFire") {
-			A_PlaySound("asgguy/asgfir", CHAN_WEAPON);
+			A_PlaySound("autoshotgun/fire", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,0,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired++; // expend a single shot
 		}
@@ -56,19 +56,19 @@ class FormerAssaultSargeant : DMR_ShotgunGuy
 			if (shotsFired >= 6) { SetStateLabel("Reload"); }
 		}	
         ASGZ F 10 Bright Light("DMR_RifleFire") {
-			A_PlaySound("asgguy/asgfir", CHAN_WEAPON);
+			A_PlaySound("autoshotgun/fire", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,0,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired++; // expend a single shot
 		}
         ASGZ E 10;
 		Goto See;
 	Reload:
-		ASGZ E 14 A_PlaySound("asgguy/asgld1");
+		ASGZ E 14 A_PlaySound("autoshotgun/reload");
 		ASGZ A 15;
 		TNT1 A 0 {
 			shotsFired = 0; // all 6 shots loaded again
 		}
-		ASGZ E 7 A_PlaySound("asgguy/asgld1");
+		ASGZ E 7 A_PlaySound("autoshotgun/reload");
 		Goto See;
 	Pain:
         ASGZ G 3;

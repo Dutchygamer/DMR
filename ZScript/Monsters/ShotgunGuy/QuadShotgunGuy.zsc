@@ -57,7 +57,7 @@ class FormerQuartermaster : DMR_ShotgunGuy
 	SingleShot:
 		QSZM E 10 A_FaceTarget;
 		QSZM F 10 Bright Light("DMR_RifleFire") {
-			A_PlaySound("QuadShotgunZombie/SingleFire", CHAN_WEAPON);
+			A_PlaySound("quadshotgun/fire/single", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,7.1,5,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired++; // expend a single shot
 		}
@@ -78,7 +78,7 @@ class FormerQuartermaster : DMR_ShotgunGuy
 			A_PlaySound("QuadShotgunZombie/Reload3");
 		}
 		QSZM F 10 Bright Light("DMR_RifleFire") {
-			A_PlaySound("QuadShotgunZombie/QuadFire", CHAN_WEAPON);
+			A_PlaySound("quadshotgun/fire/quad", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,7.1,20,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired = 4; // expend 4 shots
 			A_Recoil(8); // recoil is a bitch
@@ -86,12 +86,12 @@ class FormerQuartermaster : DMR_ShotgunGuy
 		QSZM E 15;
 		Goto See;
 	Reload:
-		QSZM E 15 A_PlaySound("QuadShotgunZombie/Reload1");
-		QSZM A 21 A_PlaySound("QuadShotgunZombie/Reload2");
+		QSZM E 15 A_PlaySound("quadshotgun/reload/1");
+		QSZM A 21 A_PlaySound("quadshotgun/reload/2");
 		TNT1 A 0 {
 			shotsFired = 0; // all 4 shots loaded again
 		}
-		QSZM E 8 A_PlaySound("QuadShotgunZombie/Reload3");
+		QSZM E 8 A_PlaySound("quadshotgun/reload/3");
 		Goto See;
 	Pain:
 		QSZM G 3;

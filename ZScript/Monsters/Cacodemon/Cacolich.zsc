@@ -105,7 +105,7 @@ class WithererBall : DMR_CacodemonBall
 		DamageType "ToxinCloud";
 		Scale 1.5;
 		ALPHA 0.67;
-		Seesound "poly/stmdr1";
+		Seesound "vulgar/fire";
 		DeathSound "weapons/bloodx";
 	}
 	States
@@ -134,7 +134,7 @@ class WithererGasBall : DMR_CacodemonBall
 		DamageFunction(random(10,30));
 		DamageType "ToxinCloud";
 		Scale 0.9;
-		Seesound "poly/stmdr1";
+		Seesound "vulgar/fire";
 		DeathSound "weapons/bloodx";
 	}
 	States

@@ -25,18 +25,18 @@ $rolloff weapons/bfgx 600 1600
 
 // heavy weapon prep
 heavyweapon/load dsasgld1
-$rolloff smallrocket/launch 300 1300
+$rolloff heavyweapon/load 300 1300
 
 
 //////////////////////////////
 // Zombieman variant sounds //
 //////////////////////////////
 
-//Dune Warrior
+// Former Infiltrator
 Infiltrator/fire DNWRF
 Infiltrator/stealth DNWRS
 
-// ZSpec ops
+// Former SpecOps gunner
 SpecOps/fire ZSPCF
 
 
@@ -44,26 +44,24 @@ SpecOps/fire ZSPCF
 // Shotgunguy variant sounds //
 ///////////////////////////////
 
-// Suicide guy
-suicide/scream dssuscrm
-suicide/sit dssusit
+// Former Pilot
+kamikaze/sight dssusit
+kamikaze/scream dssuscrm
 
-// Autoshotgun Guy
-asgguy/asgfir dsasgfir
-asgguy/asgout dsasgout
-asgguy/asgin dsasgin
-asgguy/asgld1 dsasgld1
+// Former Assault Shotgunner
+autoshotgun/fire dsasgfir
+autoshotgun/reload dsasgld1
 
-// Quad-Shotgun Zombie
-$Random QuadShotgunZombie/SingleFire { QSGZFIR1 QSGZFIR2 }
-QSGZFIR1	QSGZFIR1
-QSGZFIR2	QSGZFIR2
-QuadShotgunZombie/QuadFire	QSGZFIR3
-QuadShotgunZombie/Reload1	QSGZREL1
-QuadShotgunZombie/Reload2	QSGZREL2
-QuadShotgunZombie/Reload3	QSGZREL3
+// Former Quatermaster
+$Random quadshotgun/fire/single { quadshotgun/fire/single1 quadshotgun/fire/single2 }
+quadshotgun/fire/single1 QSGZFIR1
+quadshotgun/fire/single2 QSGZFIR2
+quadshotgun/fire/quad	QSGZFIR3
+quadshotgun/reload/1	QSGZREL1
+quadshotgun/reload/2	QSGZREL2
+quadshotgun/reload/3	QSGZREL3
 
-// Cyborg
+// Former Cyborg
 cyborg/sight 	CYBSIT
 $Random cyborg/pain { cyborg/pain1 cyborg/pain2 }
 cyborg/pain1 	CYBPAI1
@@ -86,12 +84,12 @@ $volume  cyborg/step 0.3
 // Chaingunner
 Chaingunner/Fire CHNGNF
 
-// female zombie
-fem/sight FEMZSIT
-fem/pain FEMZPAIN
-fem/death FEMZDHT
-fem/active FEMZACT
-Virus/FireDart iviratta
+// Former Viral Agent
+virus/sight FEMZSIT
+virus/pain FEMZPAIN
+virus/death FEMZDHT
+virus/active FEMZACT
+virus/fire iviratta
 
 // Cyborg commando
 cyborgcommando/sight 		CCYSIT
@@ -115,6 +113,7 @@ $rolloff cyborgcommando/bfg/explode 600 1600
 // Imp variant sounds //
 ////////////////////////
 
+//TODO unused
 // Soul Harvester
 $RANDOM harvester/sight { shsight1 shsight2 }
 shsight1 shsight1
@@ -139,46 +138,43 @@ catharsi/icerifle ICERFL
 catharsi/iceimpact ICEIMP
 catharsi/icespill ICEEXP
 
-//Phase Imp
-neodarkimp/sight1			dsimpsi1
-neodarkimp/sight2			dsimpsi2
-$random neodarkimp/sight		{ neodarkimp/sight1  neodarkimp/sight2 }
-neodarkimp/active			dsimpact
-neodarkimp/pain			        dsimppai
-neodarkimp/melee			dsimpclw
-neodarkimp/death1			dsimpdt1
-neodarkimp/death2			dsimpdt2
-$random neodarkimp/death		{ neodarkimp/death1  neodarkimp/death2 }
-neodarkimp/attack			dsimpsht
-neodarkimp/shotx			dsimpxpl
-neodarkimp/teleport                     dsimptel
+// Phaser
+$random phaser/sight		{ phaser/sight1  phaser/sight2 }
+phaser/sight1			dsimpsi1
+phaser/sight2			dsimpsi2
+phaser/active			dsimpact
+phaser/pain			        dsimppai
+phaser/melee			dsimpclw
+$random phaser/death		{ phaser/death1  phaser/death2 }
+phaser/death1			dsimpdt1
+phaser/death2			dsimpdt2
+phaser/teleport                     dsimptel
 
-// Devil Imp
-$RANDOM monster/dvlsit { monster/dvlsi1 monster/dvlsi2 }
-monster/dvlsi1 dsdvlsi1
-monster/dvlsi2 dsdvlsi2
+// Boggart
+$RANDOM boggart/sight { boggart/sight1 boggart/sight2 }
+boggart/sight1 dsdvlsi1
+boggart/sight2 dsdvlsi2
 
-monster/dvlpai dsdvlpai
-$RANDOM monster/dvldth { monster/dvldt1 monster/dvldt2 }
-monster/dvldt1 dsdvldt1
-monster/dvldt2 dsdvldt2
+boggart/pain dsdvlpai
+$RANDOM boggart/death { boggart/death1 boggart/death2 }
+boggart/death1 dsdvldt1
+boggart/death2 dsdvldt2
 
-monster/dvlact dsdvlact
+boggart/active dsdvlact
 
 // Vulgar
-$random monster/vulsit 		{ monster/vulsi1  monster/vulsi2  monster/vulsi3 }
-$random monster/vuldth 		{ monster/vuldt1  monster/vuldt2 }
-monster/vulsi1                  dsvulsi1
-monster/vulsi2                  dsvulsi2
-monster/vulsi3                  dsvulsi3
-monster/vulact                  dsvulact
-monster/vulpai                  dsvulpai
-monster/vuldt1                  dsvuldt1
-monster/vuldt2                  dsvuldt2
-monster/vulswg                  dsvulswg
-monster/vulhit                  dsvulhit
-poly/stmdr1                     dsstmdr1
+$random vulgar/sight 		{ vulgar/sight1  vulgar/sight2  vulgar/sight3 }
+vulgar/sight1                  dsvulsi1
+vulgar/sight2                  dsvulsi2
+vulgar/sight3                  dsvulsi3
+vulgar/active                  dsvulact
+vulgar/pain                  dsvulpai
+$random vulgar/death 		{ vulgar/death1  vulgar/death2 }
+vulgar/death1                  dsvuldt1
+vulgar/death2                  dsvuldt2
+vulgar/fire                     dsstmdr1
 
+//TODO unused
 // Hellion
 monster/hlnsit                  dshlnsit
 monster/hlnact                  dshlnact
@@ -187,6 +183,7 @@ monster/hlndth                  dshlndth
 monster/hlnatk                  dshlnatk
 monster/hlnexp                  dshlnexp
 
+//TODO unused
 // Shadow
 $random Shadow/active { act1 act2 }
 act1			SHDACT1
@@ -197,6 +194,7 @@ pain2			SHDPAIN2
 Shadow/attack		SHDATTAK
 Shadow/death		SHDDEATH
 
+//TODO unused
 // Nightmare
 nightmare/see                 dsnitsit
 nightmare/active              dsnitact

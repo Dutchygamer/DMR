@@ -24,7 +24,7 @@ class SuicideGuyExplosive : DMR_MonsterBase
 		Mass 100;
 		Speed 18;
 		Painchance 20;
-		Seesound "suicide/sit";
+		Seesound "kamikaze/sight";
 		Attacksound "shotguy/death";
 		Painsound "shotguy/pain";
 		Deathsound "shotguy/death";
@@ -39,7 +39,7 @@ class SuicideGuyExplosive : DMR_MonsterBase
 		Loop;
 	See:
 		BMBE AABBCCDD 2 A_Chase;
-		TNT1 A 0 A_PlaySound("suicide/scream");
+		TNT1 A 0 A_PlaySound("kamikaze/scream");
 		Loop;
 	Melee:
 		BMBE A 0 A_Die;

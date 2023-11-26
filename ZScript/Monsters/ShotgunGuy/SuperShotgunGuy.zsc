@@ -51,7 +51,7 @@ class FormerStaffSargeant : DMR_ShotgunGuy
 	SingleShot:
 		GPOS E 10 A_FaceTarget;
 		GPOS F 10 Bright Light("DMR_RifleFire") {
-			A_PlaySound("QuadShotgunZombie/SingleFire", CHAN_WEAPON);
+			A_PlaySound("quadshotgun/fire/single", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,7.1,5,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired++; // expend a single shot
 		}

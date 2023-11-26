@@ -18,10 +18,10 @@ class Vulgar : DMR_DoomImp
 		hitobituary "A vulgar had %o for lunch.";
 		health 110;
 		painchance 150;
-		seesound "monster/vulsit";
-		painsound "monster/vulpai";
-		deathsound "monster/vuldth";
-		activesound "monster/vulact";
+		seesound "vulgar/sight";
+		painsound "vulgar/pain";
+		deathsound "vulgar/death";
+		activesound "vulgar/active";
 		damagefactor "ToxinCloud", 0;
 	}
 	States
@@ -113,7 +113,7 @@ class VulgarGasBall : DMR_DoomImpBall
 		DamageFunction(random(10,30));
 		Scale 0.7;
 		DamageType "ToxinCloud";
-		Seesound "poly/stmdr1";
+		Seesound "vulgar/fire";
 		DeathSound "weapons/bloodx";
 	}
 	States

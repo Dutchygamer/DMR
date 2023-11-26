@@ -18,10 +18,10 @@ class Boggart : DMR_DoomImp
 		hitobituary "%o was flayed by a boggart.";
 		health 90;
 		painchance 150;
-		seesound "monster/dvlsit";
-		painsound "monster/dvlpai";
-		deathsound "monster/dvldth";
-		activesound "monster/dvlact";
+		seesound "boggart/sight";
+		painsound "boggart/pain";
+		deathsound "boggart/death";
+		activesound "boggart/active";
 	}
 	States
 	{

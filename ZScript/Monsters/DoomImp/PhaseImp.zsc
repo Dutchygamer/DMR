@@ -16,10 +16,10 @@ class Phaser : DMR_DoomImp
 		Tag "Phaser";
 		Health 90;
 		Speed 12;
-		SeeSound "neodarkimp/sight";
-		PainSound "neodarkimp/pain";
-		DeathSound "neodarkimp/death";
-		ActiveSound "neodarkimp/active";
+		SeeSound "phaser/sight";
+		PainSound "phaser/pain";
+		DeathSound "phaser/death";
+		ActiveSound "phaser/active";
 		Obituary "%o was incinerated by a phaser.";
 		HitObituary "%o was scratched by a phaser.";	
 		+NODROPOFF; // don't yeet yourself off platforms	
@@ -56,7 +56,7 @@ class Phaser : DMR_DoomImp
 		}
 		DIMP E 5 {
 			isStealthed = true;
-			A_PlaySound("neodarkimp/teleport");
+			A_PlaySound("phaser/teleport");
 		}
 		DIMP EEEEE 1 { //to 0.5 alpha in total
 			A_SetRenderStyle(Alpha-0.1,STYLE_Subtract);

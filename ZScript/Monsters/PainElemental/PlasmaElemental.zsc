@@ -69,7 +69,7 @@ class ToxinElementalGasBall : WithererGasBall
 	{
 		DamageFunction(random(12,36));
 		Scale 1.0;
-		Seesound "poly/stmdr1";
+		Seesound "vulgar/fire";
 		DeathSound "weapons/bloodx";
 	}
 	States
