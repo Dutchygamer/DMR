@@ -20,11 +20,11 @@ class DMR_Nightmare : DMR_Spectre
 		Speed 12;
 		PainChance 150;		
 		RenderStyle "Subtract";
-		SeeSound "NightmareDemon/sight";
-		AttackSound "NightmareDemon/melee";
-		PainSound "NightmareDemon/pain";
-		DeathSound "NightmareDemon/death";
-		ActiveSound "NightmareDemon/active";
+		SeeSound "d64demon/sight";
+		AttackSound "d64demon/melee";
+		PainSound "d64demon/pain";
+		DeathSound "d64demon/death";
+		ActiveSound "cyfiend/active";
 		Alpha 0.10;
 		Obituary "%o was spooked by a nightmare.";
 	}

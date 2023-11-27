@@ -27,6 +27,7 @@ $rolloff weapons/bfgx 600 1600
 heavyweapon/load dsasgld1
 $rolloff heavyweapon/load 300 1300
 
+flamethrower/fire flamtnk1
 
 //////////////////////////////
 // Zombieman variant sounds //
@@ -209,44 +210,32 @@ nightmare/death               dsnitdth
 //////////////////////////
 
 // Cyber Pinky
-blooddemon/sight DSBLDSIT
-blooddemon/pain DSBLDPAI
-blooddemon/death DSBLDDTH
-blooddemon/active DSBLDACT
-blooddemon/melee DSBLDATK
-blooddemon/walk DSBLDWAL
+cypinky/sight DSBLDSIT
+cypinky/pain DSBLDPAI
+cypinky/death DSBLDDTH
+cypinky/active DSBLDACT
+cypinky/melee DSBLDATK
+cypinky/step DSBLDWAL
 
 // Hellhound
-monster/dogsit dsdogsit
-monster/dogatk dsdogatk
-monster/dogbit dsdogbit
-monster/dogpai dsdogpai
-$RANDOM monster/dogdth { monster/dogdt1 monster/dogdt2 }
-monster/dogdt1 dsdogdt1
-monster/dogdt2 dsdogdt2
-
-monster/dogact dsdogact
-weapons/bigbrn dsbigbrn
-monster/dogsht dsdogsht
-monster/doghit dsdoghit
-weapons/flamethrower flamtnk1
-
-// Plasma Demon
-PlasmaDemon/pain		ds64pain
-PlasmaDemon/death		ds64tdth
-PlasmaDemon/sight		ds64tsit
-PlasmaDemon/melee     ds64tatk
-PlasmaDemon/active    ds64act
+hellhound/sight dsdogsit
+hellhound/melee dsdogatk
+hellhound/melee/hit dsdogbit
+hellhound/pain dsdogpai
+$RANDOM hellhound/death { hellhound/death1 hellhound/death2 }
+hellhound/death1 dsdogdt1
+hellhound/death2 dsdogdt2
+hellhound/active dsdogact
 
 // Cyber fiend
-CyberFiend/Sight	CYFNDSIT
-CyberFiend/Attack	CYFNDATK
-CyberFiend/Death	CYFNDDTH
-CyberFiend/Active	CYFNACTV
-CyberFiend/Step1	CYFNSTP1
-CyberFiend/Step2	CYFNSTP2
-$Random CyberFiend/Walk { CyberFiend/Step1 CyberFiend/Step2 }
-CyberFiend/Pain	CYFNPAIN
+cyfiend/sight	CYFNDSIT
+cyfiend/melee	CYFNDATK
+cyfiend/death	CYFNDDTH
+cyfiend/active	CYFNACTV
+$Random cyfiend/step { cyfiend/Step1 cyfiend/Step2 }
+cyfiend/step1	CYFNSTP1
+cyfiend/step2	CYFNSTP2
+cyfiend/pain	CYFNPAIN
 
 
 ////////////////////////////
@@ -254,31 +243,21 @@ CyberFiend/Pain	CYFNPAIN
 ////////////////////////////
 
 // Nightmare Demon
-nightmareDemon/sight dsndmsit
-nightmareDemon/melee dsndmatk
-nightmareDemon/pain dsndmow
-nightmareDemon/death dsndmdth
-
-64ball/shoot dsndmsht
-64ball/explode dsndmxpl
+d64demon/sight dsndmsit
+d64demon/melee dsndmatk
+d64demon/pain dsndmow
+d64demon/death dsndmdth
 
 // Slime worm
-DSVOMIT1	DSVOMIT1
-DSVOMIT2	DSVOMIT2
-DSVOMIT3	DSVOMIT2
-
-$random SlimeBall/Shoot		{ DSVOMIT1 DSVOMIT2 DSVOMIT3 }
 SlimeBall/Splat	DSSICKEX
-$limit SlimeBall/Splat 0
-
-DSWORMP1	DSWORMP1
-DSWORMP2	DSWORMP2
-
-$random slimeworm/pain		{ DSWORMP1 DSWORMP2 }
+$limit SlimeBall/Splat 3
 slimeworm/sight		DSWORMSE
 slimeworm/melee		DSWORMAT
 slimeworm/death		DSWORMDI
 slimeworm/active	DSWORMID
+$random slimeworm/pain		{ slimeworm/pain1 slimeworm/pain2 }
+slimeworm/pain1	DSWORMP1
+slimeworm/pain2	DSWORMP2
 
 
 //////////////////////////////
