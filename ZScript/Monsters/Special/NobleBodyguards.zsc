@@ -1,0 +1,8 @@
+Class NobleBodyguards: RandomSpawner
+{
+	Default
+	{
+		DropItem "NoblePraetorian", 255, 15;
+		DropItem "NobleVanguard", 255, 15;
+	}
+}

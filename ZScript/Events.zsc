@@ -37,6 +37,14 @@ class DMR_ReplacerHandler : EventHandler
 			// BD Hell on Earth mapset
 			case 'BossBelphegor'					: a.Replacement = 'Belphegor'; break;
 			case 'CyberdemonLord'					: a.Replacement = 'Babel'; break;
+			
+			// Eviternity
+			//case 'AstralCaco'						: a.Replacement = 'Babel'; break;
+			//TODO unsure if this would work or it would break due to the A_KeenDie usage
+			case 'Annihilator'						: a.Replacement = 'NobleBodyguards'; break;
+			case 'FormerCaptain'					: a.Replacement = 'EvilMarine'; break;
+			//case 'NightmareDemon'					: a.Replacement = 'MaulerFiend'; break;			
+			
 			// Corruption Cards mod
 			case 'CCards_Actor_PilotedMechPlasma'	: a.Replacement = 'DMR_ArachnotronPlasma'; break;
 		}

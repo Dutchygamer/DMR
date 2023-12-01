@@ -154,6 +154,7 @@ version "4.2.1"
 #include "ZScript/Monsters/Special/AlienFighter.zsc"
 #include "ZScript/Monsters/Special/Belphegor.zsc"
 #include "ZScript/Monsters/Special/CyberdemonLord.zsc"
+#include "ZScript/Monsters/Special/NobleBodyguards.zsc"
 
 
 //#include "ZScript/CC/debugcard.zsc"
