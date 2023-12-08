@@ -95,45 +95,42 @@ Class VirusDart : DMR_SlowBullet
 	
 	override int DoSpecialDamage(actor target, int damage, name damagetype)
 	{
-		if (target)
+		// only modify the damage when target is a player or monster
+		if (target && (target.player || target.bIsMonster))
 		{
 			// inspired by Hexen's flechette.zs DoSpecialDamage()
 			// we need to take the target's damageFactors into account
 			// mainly to stop the projectile from spawning gas clouds when hitting a low-health Virus
-		
+			
 			// Handle passive damage modifiers (e.g. PowerProtection)
 			damage = target.GetModifiedDamage(damagetype, damage, true);
 			// Modify with damage factors
 			damage = target.ApplyDamageFactor(damagetype, damage);
-			
-			// spawn gas clouds from target if target dies
-			if (damage > 0 && target.health < damage)
+
+			// spawn gas clouds from target if target dies and bleeds
+			if (damage > 0 && (target.health - damage < 0) && !target.bNoBlood)
 			{
-				//TODO heb paar keer gezien dat ie een low-level enemy niet killed maar toch een gas cloud spawnt for some reason...
-				// wellicht een fluke, krijg het niet consequent gereproduceerd		
-				// krijg het met een low-level player in SWWM wel voor elkaar; gas clouds worden gespawned maar er lijkt geen damage te worden gedaan?
-			
-				target.A_PlaySound("gas/explode");				
+				int targetMaxHealth = target.GetMaxHealth();
 				
 				// number and size of gas clouds depends on original health
-				// always spawn at least one medium gas clouds
-				target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+				// always spawn at least one medium gas clouds				
+				target.A_PlaySound("gas/explode");				target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0);
 				
-				if (target.GetMaxHealth() >= 100)
+				if (targetMaxHealth >= 100)
 				{
-					target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);				
+					target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0);				
 				}
-				if (target.GetMaxHealth() >= 300)
+				if (targetMaxHealth >= 300)
 				{
-					target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);				
+					target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0);				
 				}
-				if (target.GetMaxHealth() >= 600)
+				if (targetMaxHealth >= 600)
 				{
-					target.A_SpawnItemEx("DMR_LargeGasCloud",0,0,-30,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);			
+					target.A_SpawnItemEx("DMR_LargeGasCloud",0,0,-30,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0);			
 				}
-				if (target.GetMaxHealth() >= 1000)
+				if (targetMaxHealth >= 1000)
 				{
-					target.A_SpawnItemEx("DMR_LargeGasCloud",0,0,-30,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);			
+					target.A_SpawnItemEx("DMR_LargeGasCloud",0,0,-30,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0);			
 				}
 			}
 			// apply damage debuff effect on target if still alive
@@ -142,6 +139,7 @@ Class VirusDart : DMR_SlowBullet
 				target.GiveInventory("VirusDebuffGiver",1);
 			}			
 		}
+		
 		return Super.DoSpecialDamage(target,damage,damagetype);
 	}
 }
