@@ -13,6 +13,7 @@
 //	DustedPandomic for the fix to prevent certain Boom/ZDoom map things from breaking with flying enemies (the first block in the 'See' state)
 //======================================================================
 
+// Meant to replace Scythe 2's Afrit
 Class SuperAfrit : Afrit
 {
 	Default

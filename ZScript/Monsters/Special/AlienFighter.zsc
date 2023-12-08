@@ -11,6 +11,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
+// Meant to replace Epic 2's AlienFighter
 class AlienFighter : DMR_MonsterBase
 {
 	Default

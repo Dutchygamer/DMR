@@ -9,6 +9,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
+// Meant to replace the EvilMarine of various mappacks
 class EvilMarine : DMR_MonsterBase
 {
 	Default

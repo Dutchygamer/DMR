@@ -11,6 +11,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
+// Meant to replace Hell On Earth starter pack's CyberdemonLord
 Class Babel : DMR_Cyberdemon
 {
 	Default
