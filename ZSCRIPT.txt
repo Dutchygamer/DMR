@@ -154,7 +154,10 @@ version "4.2.1"
 #include "ZScript/Monsters/Special/AlienFighter.zsc"
 #include "ZScript/Monsters/Special/Belphegor.zsc"
 #include "ZScript/Monsters/Special/CyberdemonLord.zsc"
-#include "ZScript/Monsters/Special/NobleBodyguards.zsc"
+#include "ZScript/Monsters/Special/NobleAnnihilator.zsc"
+#include "ZScript/Monsters/Special/AstralCaco.zsc"
+#include "ZScript/Monsters/Special/NightmareDemon.zsc"
+#include "ZScript/Monsters/Special/FormerCaptain.zsc"
 
 
 //#include "ZScript/CC/debugcard.zsc"

@@ -1,0 +1,62 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Bouncy
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by Tormentor667, Captain Toenail, Ghastly Dragon)
+//	GLDEFs: 	Dreadopp
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+// Meant to replace Eviternity's FormerCaptain
+// relies on Eviternity's sprite replacements to display properly, so don't use in other mapsets as it will just use the (mismatching) vanilla WolfensteiNSS sprites
+class DMR_FormerCaptain : DMR_ChaingunGuy
+{
+	Default
+	{
+		Tag "Former Plasmagunner";
+		Health 80;
+		PainChance 128;
+		OBITUARY "%o was destroyed by a Former Captain.";
+		DropItem "Cell", 256, 20;
+		DropItem "PlasmaRifle", 10;
+	}
+ 	States
+	{
+	Spawn:
+		SSWV AB 10 A_Look;
+		Loop;
+	See:
+		SSWV AABBCCDD 2 A_Chase;
+		Loop;
+	Missile:
+		SSWV E 10 A_FaceTarget;
+		SSWV FEFEF 3 BRIGHT Light("DMR_PlasmaFire") A_SpawnProjectile("DMR_ZombiePlasma");
+		SSWV E 8 A_FaceTarget;
+		Goto See;
+	Pain:
+		SSWV G 3;
+		SSWV G 3 A_Pain;
+		Goto See;
+	Death:
+		SSWV H 5;
+		SSWV I 5 A_Scream;
+		SSWV J 5 A_Fall;
+		SSWV KLM 5; 
+		SSWV N -1;
+		Stop;
+	XDeath:
+		SSWV O 5;
+		SSWV P 5 A_XScream;
+		SSWV Q 5 A_Fall;
+		SSWV RST 5;
+		SSWV U -1;
+		Stop;
+	Raise:
+		SSWV NMLKJIH 5;
+		Goto See;
+	}
+}

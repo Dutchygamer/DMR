@@ -1,0 +1,71 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//	ZScript: Bouncy, TheDarkArchon, Ghastly (ZScript conversion)
+//	Sprites: Vader
+//	Sounds: Raven Software
+//	GLDefs: Ghastly
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+// Meant to replace Eviternity's AstralCaco
+// relies on Eviternity's sprite replacements to display properly, so don't use in other mapsets as it will just use the (mismatching) vanilla CommanderKeen sprites
+class DMR_AstralCaco : DMR_Cacodemon
+{
+	Default
+	{
+		Tag "Astral Cacodemon";
+		Health 400;
+		Speed 16;
+		PainChance 20;
+		Mass 1000;
+		Obituary "%o was burned down by an Astral Cacodemon.";
+		HitObituary "%o was burned down by an Astral Cacodemon.";
+		SeeSound "vile/firestrt";
+		PainSound "keen/pain";
+		DeathSound "keen/death";
+	}
+	
+	States
+	{
+	Spawn:
+		KEEN A 10 A_Look;
+		Loop;
+	See:
+		KEEN A 3 A_Chase;
+		Loop;
+	Melee:
+		Goto See;
+	Missile: 
+		KEEN A 1 A_FaceTarget;
+		KEEN E 1 A_PlaySound("baby/active");
+		KEEN EEEEEEE 1 A_Chase;
+		KEEN F 5 A_FaceTarget;
+		KEEN G 3 {
+			A_SpawnProjectile("DMR_CacodemonBall",26);
+			A_SpawnProjectile("DMR_FatShot",18,-34,5.625);
+			A_SpawnProjectile("DMR_FatShot",18,34,-5.625);
+		}
+		Goto See;
+	Pain:
+		KEEN H 3;
+		KEEN I 3 A_Pain;
+		Goto See;
+	Death:
+	XDeath:
+		KEEN J 8;
+		KEEN K 8 A_Scream;
+		KEEN LMNO 8;
+		KEEN P 8;
+		KEEN Q 8 A_Fall;
+		KEEN R 8;
+		KEEN S -1; 
+		Stop;
+	Raise: 
+		KEEN SQPOMLK 5;
+		Goto See;
+	}
+}
