@@ -75,8 +75,8 @@ class Catharsi : DMR_DoomImp
 		SDDM NNNN 12 A_PlaySound("catharsi/thermtick", CHAN_WEAPON);
 		TNT1 A 0 {
 			A_PlaySound("catharsi/icespill", CHAN_WEAPON);
-			A_SpawnItemEx("DMR_MediumIceCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_MediumIceCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumIceCloud",0,0,5,frandom(-1,1),frandom(-1,1));
+			A_SpawnItemEx("DMR_MediumIceCloud",0,0,5,frandom(-1,1),frandom(-1,1));
 		}
 		SDDM N -1;
 		Stop;
@@ -86,8 +86,8 @@ class Catharsi : DMR_DoomImp
 		SDDM Q 5 A_NoBlocking;
 		TNT1 A 0 {
 			A_PlaySound("catharsi/icespill", CHAN_WEAPON);
-			A_SpawnItemEx("DMR_MediumIceCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_MediumIceCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumIceCloud",0,0,5,frandom(-1,1),frandom(-1,1));
+			A_SpawnItemEx("DMR_MediumIceCloud",0,0,5,frandom(-1,1),frandom(-1,1));
 		}
 		SDDM RSTUV 5;
 		SDDM W -1;

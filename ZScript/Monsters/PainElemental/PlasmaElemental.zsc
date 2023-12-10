@@ -52,11 +52,11 @@ class ToxinElemental : DMR_PainElemental
 		PLEM L 8 BRIGHT A_PainDie("ViralOne");
 		TNT1 A 0 {
 			A_PlaySound("gas/explode");
-			A_SpawnItemEx("DMR_LargeGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_LargeGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_MediumGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_MediumGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_MediumGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-1,1),frandom(-1,1));
+			A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-1,1),frandom(-1,1));
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1));
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1));
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1));
 		}
 		PLEM M 8;
 		Stop;
@@ -84,9 +84,9 @@ class ToxinElementalGasBall : WithererGasBall
 		HECF C 4 Bright A_Explode(15,56);
 		TNT1 A 0 {		
 			A_PlaySound("gas/explode");
-			A_SpawnItemEx("DMR_LargeGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 		}
 		HECF DE 4 Bright;
 		stop;

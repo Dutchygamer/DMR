@@ -146,8 +146,8 @@ class InfiltratorZombiemanGrenade : DMR_ThrownGrenade
 		}	
 		FVUL C 4 {
 			A_PlaySound("gas/explode");
-			A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_Explode(8,48);
 		}
 		FVUL DEF 4;

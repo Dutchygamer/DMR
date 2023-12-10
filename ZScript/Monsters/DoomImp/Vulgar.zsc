@@ -133,9 +133,9 @@ class VulgarGasBall : DMR_DoomImpBall
 		HECF C 4 Bright A_Explode(8,56);
 		TNT1 A 0 {	
 			A_PlaySound("gas/explode");	
-			A_SpawnItemEx("DMR_SmallGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_SmallGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_SmallGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 		}
 		HECF DE 4 Bright;
 		stop;

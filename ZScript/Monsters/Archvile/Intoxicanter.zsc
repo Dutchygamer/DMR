@@ -126,11 +126,11 @@ class IntoxicanterFireBlast : DMR_ArchvileFire
 	{
 	Spawn:	
 		TNT1 A 0 NoDelay {		
-			A_SpawnItemEx("DMR_LargeGasCloud",0,0,-30,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_LargeGasCloud",0,0,-30,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 		}
 		stop;
 	}

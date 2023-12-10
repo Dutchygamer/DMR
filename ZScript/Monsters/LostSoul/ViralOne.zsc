@@ -47,9 +47,9 @@ class ViralOne : DMR_LostSoul
 		{
 			A_PlaySound("gas/explode");
 			A_Explode(10,48, XF_NOTMISSILE);
-			A_SpawnItemEx("DMR_MediumGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_SmallGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_SmallGasCloud",0,0,0,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1));
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1));
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1));
 		}
 		PHNT H 6 Bright;
 		PHNT I 6 Bright A_Noblocking;
