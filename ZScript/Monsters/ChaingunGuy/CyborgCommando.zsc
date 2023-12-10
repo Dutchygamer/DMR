@@ -154,7 +154,6 @@ class FormerCyborgCommando : FormerCyborg
 		MRBL J 5 {
 			A_NoBlocking();
 			A_SpawnItemEx("DMR_MonsterDeathFinalExplosion");
-			A_SpawnItemEx("DMR_BossDeathExplosion",random(8,-8),0,random(20,40));
 		}
 		MRBL KL 5;
 		MRBL L -1;

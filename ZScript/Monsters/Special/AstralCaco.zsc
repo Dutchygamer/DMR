@@ -22,6 +22,7 @@ class DMR_AstralCaco : DMR_Cacodemon
 		Speed 16;
 		PainChance 20;
 		Mass 1000;
+		BloodColor "gray";
 		Obituary "%o was burned down by an Astral Cacodemon.";
 		HitObituary "%o was burned down by an Astral Cacodemon.";
 		SeeSound "vile/firestrt";
