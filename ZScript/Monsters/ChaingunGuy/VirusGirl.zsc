@@ -107,36 +107,40 @@ Class VirusDart : DMR_SlowBullet
 			// Modify with damage factors
 			damage = target.ApplyDamageFactor(damagetype, damage);
 
-			// spawn gas clouds from target if target dies and bleeds
-			if (damage > 0 && (target.health - damage < 0) && !target.bNoBlood)
+			// when we deal damage, either apply a debuff or spawn gas clouds
+			if (damage > 0)
 			{
-				int targetMaxHealth = target.GetMaxHealth();
-				
-				// number and size of gas clouds depends on original health
-				// always spawn at least one medium gas clouds				
-				target.A_PlaySound("gas/explode");				target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0);
-				
-				if (targetMaxHealth >= 100)
+				// spawn gas clouds from target if target dies and bleeds
+				if((target.health - damage < 0) && !target.bNoBlood)
 				{
-					target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0);				
+					int targetMaxHealth = target.GetMaxHealth();
+					
+					// number and size of gas clouds depends on original health
+					// always spawn at least one medium gas clouds				
+					target.A_PlaySound("gas/explode");				target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0);
+					
+					if (targetMaxHealth >= 100)
+					{
+						target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0);				
+					}
+					if (targetMaxHealth >= 300)
+					{
+						target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0);				
+					}
+					if (targetMaxHealth >= 600)
+					{
+						target.A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0);			
+					}
+					if (targetMaxHealth >= 1000)
+					{
+						target.A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0);			
+					}
 				}
-				if (targetMaxHealth >= 300)
+				// apply damage debuff effect on target if still alive
+				else
 				{
-					target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,-30,frandom(-1,1),frandom(-1,1),0,0);				
-				}
-				if (targetMaxHealth >= 600)
-				{
-					target.A_SpawnItemEx("DMR_LargeGasCloud",0,0,-30,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0);			
-				}
-				if (targetMaxHealth >= 1000)
-				{
-					target.A_SpawnItemEx("DMR_LargeGasCloud",0,0,-30,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0);			
-				}
-			}
-			// apply damage debuff effect on target if still alive
-			else
-			{
-				target.GiveInventory("VirusDebuffGiver",1);
+					target.GiveInventory("VirusDebuffGiver",1);
+				}		
 			}			
 		}
 		
@@ -172,6 +176,12 @@ class VirusDebuffGiver : PowerupGiver
 	}
 }
 
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//	DustedPandemonic for the Translation logic
+//======================================================================
 class VirusDebuffEffect : PowerDamage
 {
 	Default
@@ -179,5 +189,35 @@ class VirusDebuffEffect : PowerDamage
 		Inventory.Icon "";
 		Damagefactor "normal", 0.5;
 		+INVENTORY.NOSCREENBLINK;
+	}
+	
+	override void DoEffect()
+	{
+		// when applied on monsters apply a translation to the sprites
+		if (Owner && owner.bISMONSTER)
+		{
+			owner.A_SetTranslation("ViralInfection");
+		}
+		Super.DoEffect();
+	}
+
+	override void EndEffect()
+	{
+		// when applied on monsters reset the translation of the sprites
+		if (Owner && owner.bISMONSTER)
+		{
+			owner.translation = default.translation;
+		}
+		Super.EndEffect();
+	}
+
+	override void OwnerDied()
+	{
+		// when applied on monsters reset the translation of the sprites
+		if (Owner)
+		{
+			owner.translation = default.translation;
+		}
+		Destroy();
 	}
 }
