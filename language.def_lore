@@ -1,0 +1,20 @@
+[default]
+SWWM_LORETAG_DMRFORMERCYBORG = "Former Cyborg";
+SWWM_LORETAB_DMRFORMERCYBORG = "Lore";
+SWWM_LOREREL_DMRFORMERCYBORG = "n/a";
+SWWM_LORETXT_DMRFORMERCYBORG =
+"\cxName:\c-\n"
+"\cf Former Cyborg\c-\n"
+"\cxClassification:\c-\n"
+"\cf Heavy Human Infantry\c-\n"
+"\n"
+"Former Cyborgs are the result of a deal between \cfCABAL\c- and the demon forces. In its own universe CABAL relied on heavily armed and armoured cybernetic-enhanced humans to be the brunt of its forces. These humans had lost their free will and were loyal to the \cfBrotherhood of Nod\c- before CABAL broke off from this organization and took all cybernetic tech with it.\n"
+"\n"
+"Cyborgs were the most 'basic' tier of these cybernetic-enhanced humans. The process of turning a human into cyborgs was as brutal as it was efficient. All started as humans which were effected by \cfTiberium\c- related mutations. All original legs and arms were amputated, with the now-limbless torso being permanently encased into a suit of heavy armour, leaving only the head sticking out from it. Onto this suit mechanical replacement legs and weapon-arms were attached, which were forcefully attached to the human's nerve system. The neck and head were left bare but received sub-dermal armoured plates to increase their durability. The last action was also the most final one; the brain was partially replaced with an uplink, enabling them rudimentary control over their new limbs and ensuring the loyalty to their new masters.\n"
+"\n"
+"The end result was something that was more machine then human. Slow and lumbering, Cyborgs could shrug off most weapons that would incapitate or kill other humans. In return it could shred infantry with a heavy auto-shotgun on one arm and take on armoured targets with a grenade launcher on the other arm. While durable they would still suffer against sustainted fire, and their heavy armour also made them more vulnerable against anti-armour weaponry.\n"
+"\n"
+"A common quirk amongst Cyborgs was that the legs were usually the first thing to give up when suffering critical damage. It was not strange to see a Cyborg use it arms to crawl forward as its now-useless legs could no longer sustain it.\n"
+"\n"
+"\cxSaya's Note:\c-\n"
+"\cfSeems that the demons have found a way to make those poor zombies actually dangerous again. These boys... machines... whatever you want to call them can easily go toe-to-toe with the the lower echelons of demons and come out on top. Those nifty arm-cannons of them can shred anything within range, which includes you as well if you're not careful. At least they are slow and noisy. \c-";

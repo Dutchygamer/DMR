@@ -1,0 +1,22 @@
+TAG
+Former Cyborg
+TAB
+Lore
+REL
+n/a
+TXT
+\cxName:\c-
+\cf Former Cyborg\c-
+\cxClassification:\c-
+\cf Heavy Human Infantry\c-
+
+\cf Former Cyborgs are the result of a deal between *CABAL* and the demon forces. In its own universe CABAL relied on heavily armed and armoured cybernetic-enhanced humans to be the brunt of its forces. These humans had lost their free will and were loyal to the *Brotherhood of Nod* before CABAL broke off from this organization and took all cybernetic tech with it.\c-\n
+\n
+\cf Cyborgs were the most 'basic' tier of these cybernetic-enhanced humans. The process of turning a human into cyborgs was as brutal as it was efficient. All started as humans which were effected by *Tiberium* related mutations. All original legs and arms were amputated, with the now-limbless torso being permanently encased into a suit of heavy armour, leaving only the head sticking out from it. Onto this suit mechanical replacement legs and weapon-arms were attached, which were forcefully attached to the human's nerve system. The neck and head were left bare but received sub-dermal armoured plates to increase their durability. The last action was also the most final one; the brain was partially replaced with an uplink, enabling them rudimentary control over their new limbs and ensuring the loyalty to their new masters.\c-\n
+\n
+\cf The end result was something that was more machine then human. Slow and lumbering, Cyborgs could shrug off most weapons that would incapitate or kill other humans. In return it could shred infantry with a heavy auto-shotgun on one arm and take on armoured targets with a grenade launcher on the other arm. While durable they would still suffer against sustainted fire, and their heavy armour also made them more vulnerable against anti-armour weaponry.\c-\n
+\n
+\cf A common quirk amongst Cyborgs was that the legs were usually the first thing to give up when suffering critical damage. It was not strange to see a Cyborg use it arms to crawl forward as its now-useless legs could no longer sustain it.\c-
+
+\cxSaya's Notes:\c-
+\cfSeems that the demons have found a way to make those poor zombies actually dangerous again. These boys... machines... whatever you want to call them can easily go toe-to-toe with the the lower echelons of demons and come out on top. Those nifty arm-cannons of them can shred anything within range, which includes you as well if you're not careful. At least they are slow and noisy. \c-

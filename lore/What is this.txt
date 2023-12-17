@@ -1,0 +1,1 @@
+Basically a hook-in for Project Demolitionist's lore library. Each entry in the default folder needs a matching set of entries in language.def_lore else it won't show up.
