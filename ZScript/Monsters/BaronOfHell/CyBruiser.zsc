@@ -16,14 +16,14 @@ class NoblePraetorian : DMR_BaronOfHell
 {
 	Default
 	{
-		Tag "Noble Praetorian";
+		Tag "Kur Praetorian";
 		Health 1300;
 		PainChance 35;
 		DropItem "RocketAmmo", 256, 1;
 		DropItem "RocketAmmo", 128, 1;
 		DropItem "RocketAmmo", 128, 1;
-		Obituary "%o was blown away by a noble praetorian.";
-		HitObituary "%o was smashed by a noble praetorian.";
+		Obituary "%o was blown away by a kur praetorian.";
+		HitObituary "%o was smashed by a kur praetorian.";
 		+MISSILEMORE;
 		SeeSound "monster/brusit";
 		DeathSound "monster/brudth";

@@ -18,14 +18,14 @@ class NobleVanguard : DMR_BaronOfHell
 {
 	Default
 	{
-		Tag "Noble vanguard";
+		Tag "Kur vanguard";
 		Health 1400;
 		PainChance 35;
 		DropItem "RocketAmmo", 256, 1;
 		DropItem "RocketAmmo", 128, 1;
 		DropItem "RocketAmmo", 128, 1;
-		Obituary "%o played dodgeball with a noble vanguard and lost.";
-		HitObituary "A noble vanguard blew %o away.";
+		Obituary "%o played dodgeball with a kur vanguard and lost.";
+		HitObituary "A kur vanguard blew %o away.";
 		SeeSound "Paladin/Sight";
 		PainSound "Paladin/Pain"; 
 		DeathSound "Paladin/Death";
