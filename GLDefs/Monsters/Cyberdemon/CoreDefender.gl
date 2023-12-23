@@ -109,12 +109,3 @@ Object CoreDefenderClusterMissile
 	Frame MISLC { Light DMR_Rocket_X2 }
 	Frame MISLD { Light DMR_Rocket_X3 }
 }
-
-Object CoreDefenderSubProjectile
-{
-	Frame HMISA { Light DMR_RevenantTracer }
-
-	Frame FBXPA { Light DMR_RevenantTracer_X1 }
-	Frame FBXPB { Light DMR_RevenantTracer_X2 }
-	Frame FBXPC { Light DMR_RevenantTracer_X3 }
-}

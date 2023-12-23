@@ -179,9 +179,9 @@ class DraugrClusterMissile : DMR_Rocket
 			A_Stop();
 			A_SetRenderStyle(1.0,STYLE_Add);
 			// split up in subprojectiles, which can randomly home in or not
-			A_SpawnProjectile("DraugrSubProjectile",0,0,0+random(0,370));
-			A_SpawnProjectile("DraugrSubProjectile",0,0,0+random(0,370));
-			A_SpawnProjectile("DraugrSubProjectile",0,0,0+random(0,370));
+			A_SpawnProjectile("DMR_ClusterSubProjectile",0,0,0+random(0,370),0,CMF_TRACKOWNER);
+			A_SpawnProjectile("DMR_ClusterSubProjectile",0,0,0+random(0,370),0,CMF_TRACKOWNER);
+			A_SpawnProjectile("DMR_ClusterSubProjectile",0,0,0+random(0,370),0,CMF_TRACKOWNER);
 		}
 		TNT1 A 0 {
 			for (fxLoop = 0;fxLoop <= 3;fxLoop++) {
@@ -192,14 +192,5 @@ class DraugrClusterMissile : DMR_Rocket
 		MISL C 6 Bright;
 		MISL D 4 Bright;
 		Stop;
-	}
-}
-
-// exactly the same as DMR_ClusterSubProjectile, seperately so we can apply the custom damagetype in the Guncaster patch
-class DraugrSubProjectile : DMR_ClusterSubProjectile 
-{ 
-	Default
-	{
-		Obituary "%o couldn't dodge a draugr's clustermissile.";	
 	}
 }

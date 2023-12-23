@@ -162,11 +162,11 @@ class CoreDefenderClusterMissile : DMR_Rocket
 			A_Stop();
 			A_SetRenderStyle(1.0,STYLE_Add);
 			// split up in subprojectiles, which can randomly home in or not
-			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
-			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
-			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
-			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
-			A_SpawnProjectile("CoreDefenderSubProjectile", 0, 0, 0+random(0,370));
+			A_SpawnProjectile("DMR_ClusterSubProjectile",0,0,0+random(0,370),0,CMF_TRACKOWNER);
+			A_SpawnProjectile("DMR_ClusterSubProjectile",0,0,0+random(0,370),0,CMF_TRACKOWNER);
+			A_SpawnProjectile("DMR_ClusterSubProjectile",0,0,0+random(0,370),0,CMF_TRACKOWNER);
+			A_SpawnProjectile("DMR_ClusterSubProjectile",0,0,0+random(0,370),0,CMF_TRACKOWNER);
+			A_SpawnProjectile("DMR_ClusterSubProjectile",0,0,0+random(0,370),0,CMF_TRACKOWNER);
 		}
 		TNT1 A 0 {
 			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
@@ -179,23 +179,6 @@ class CoreDefenderClusterMissile : DMR_Rocket
 		Stop;
 	}
 }
-
-class CoreDefenderSubProjectile : DMR_ClusterSubProjectile { }
-
-/*
-class CoreDefenderSmallLaser : DMR_LaserBase
-{
-	Default
-	{
-		DamageFunction(random(10,30));
-		Translation "112:127=176:191";
-		MissileType "CoreDefenderSmallLaserTrail";
-		MissileHeight 10;
-	}
-}
-
-class CoreDefenderSmallLaserTrail : DMR_LaserTrailBase { }
-*/
 
 class CoreDefenderObeliskLaser : DMR_LaserBase
 {

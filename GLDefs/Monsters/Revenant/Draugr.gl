@@ -24,12 +24,3 @@ Object DraugrClusterMissile
 	Frame MISLC { Light DMR_SmallRocket_X2 }
 	Frame MISLD { Light DMR_SmallRocket_X3 }
 }
-
-Object DraugrSubProjectile
-{
-	Frame HMISA { Light DMR_RevenantTracer }
-
-	Frame FBXPA { Light DMR_RevenantTracer_X1 }
-	Frame FBXPB { Light DMR_RevenantTracer_X2 }
-	Frame FBXPC { Light DMR_RevenantTracer_X3 }
-}
