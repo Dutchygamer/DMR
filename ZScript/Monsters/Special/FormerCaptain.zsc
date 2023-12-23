@@ -17,7 +17,7 @@ class DMR_FormerCaptain : DMR_ChaingunGuy
 {
 	Default
 	{
-		Tag "Former Plasmagunner";
+		Tag "Former Elite Plasmagunner";
 		Health 80;
 		PainChance 128;
 		OBITUARY "%o was destroyed by a Former Captain.";
