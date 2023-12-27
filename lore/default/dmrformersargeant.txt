@@ -1,0 +1,24 @@
+TAG
+Former Sargeant
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Former Sargeant\c-
+\cxClassification:\c-
+\cf Human Infantry\c-
+\cxThreat:\c-
+\cf Low\c-
+
+Former Sargeant.
+
+FN_SHOTGUN_FUN1 = "Bald Zomb";
+FN_SHOTGUN_FUN2 = "Elmer Fudd";
+FN_SHOTGUN_FUN3 = "Baldy";
+FN_SHOTGUN_FUN4 = "Shottyboi";
+FN_SHOTGUN_FUN5 = "Baldo";
+
+\cxSaya's Notes:\c-
+\cf. \c-

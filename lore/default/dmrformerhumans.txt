@@ -1,0 +1,16 @@
+TAG
+Former Humans
+TAB
+Lore
+REL
+FormerTrooper
+TXT
+\cxName:\c-
+\cf Former Humans\c-
+\cxClassification:\c-
+\cf Possessed Human Troops\c-
+
+Former Humans.
+
+\cxSaya's Notes:\c-
+\cf. \c-

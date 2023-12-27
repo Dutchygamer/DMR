@@ -1,0 +1,19 @@
+TAG
+Icon of Sin
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Icon of Sin\c-
+\cxClassification:\c-
+\cf Demon General\c-
+\cxThreat:\c-
+\cf Extreme\c-
+
+Icon of Sin.
+
+
+\cxSaya's Notes:\c-
+\cf. \c-

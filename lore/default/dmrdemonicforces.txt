@@ -1,0 +1,19 @@
+TAG
+Demonic Forces
+TAB
+Lore
+REL
+Imp;Demon;Spectre;Cacodemon;LostSoul;HellKnight;BaronOfHell;Revanant;PainElemental;Arachnotron;Mancubus;Archvile;Cyberdemon;SpiderMastermind
+TXT
+\cxName:\c-
+\cf Demonic Forces\c-
+\cxClassification:\c-
+\cf Exactly what it says on the tin\c-
+
+Demonic forces.
+
+//Erebus Arthamuz
+//Akedas Aximal
+
+\cxSaya's Notes:\c-
+\cf. \c-

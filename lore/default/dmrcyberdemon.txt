@@ -1,0 +1,24 @@
+TAG
+Cyberdemon
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Cyberdemon\c-
+\cxClassification:\c-
+\cf Demon Field Commander\c-
+\cxThreat:\c-
+\cf Very High\c-
+
+Cyberdemon.
+
+FN_CYBER_FUN1 = "Dat Ass";
+FN_CYBER_FUN2 = "An Arm And A Leg";
+FN_CYBER_FUN3 = "My Goat Is Augmented";
+FN_CYBER_FUN4 = "Circlestrafe Practice";
+FN_CYBER_FUN5 = "Shoot At It Until It Dies";
+
+\cxSaya's Notes:\c-
+\cf. \c-

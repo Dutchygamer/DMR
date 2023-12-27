@@ -1,0 +1,24 @@
+TAG
+Cacodemon
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Cacodemon\c-
+\cxClassification:\c-
+\cf Good Meatball\c-
+\cxThreat:\c-
+\cf Medium\c-
+
+Cacodemon.
+
+FN_CACO_FUN1 = "Friend-Shaped Demon";
+FN_CACO_FUN2 = "Red Boi";
+FN_CACO_FUN3 = "Spicy Meatball";
+FN_CACO_FUN4 = "Good Boy";
+FN_CACO_FUN5 = "Made For Petting";
+
+\cxSaya's Notes:\c-
+\cf. \c-

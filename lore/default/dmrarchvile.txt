@@ -1,0 +1,25 @@
+TAG
+Archvile
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Archvile\c-
+\cxClassification:\c-
+\cf Demonic Fire Mage\c-
+\cxThreat:\c-
+\cf High\c-
+
+Archvile.
+
+FN_ARCH_FUN1 = "1000 Points Off";
+FN_ARCH_FUN2 = "Lanky Martian";
+FN_ARCH_FUN3 = "Pls No";
+FN_ARCH_FUN4 = "Fuck You";
+FN_ARCH_FUN5 = "Your Day Has Been Ruined";
+FN_ARCH_FUN6 = "Flaming Hot Cheeks";
+
+\cxSaya's Notes:\c-
+\cf. \c-

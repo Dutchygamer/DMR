@@ -1,0 +1,24 @@
+TAG
+Baron of Hell
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Baron of Hell\c-
+\cxClassification:\c-
+\cf Demon Captain\c-
+\cxThreat:\c-
+\cf High\c-
+
+Baron of Hell.
+
+FN_BARON_FUN1 = "Mr. Gruh";
+FN_BARON_FUN2 = "Door With Health";
+FN_BARON_FUN3 = "Hi How's It Going";
+FN_BARON_FUN4 = "Pissed Off Red Goat";
+FN_BARON_FUN5 = "Blocks Your Path";
+
+\cxSaya's Notes:\c-
+\cf. \c-

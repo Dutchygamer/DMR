@@ -1,0 +1,23 @@
+TAG
+Spectre
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Spectre\c-
+\cxClassification:\c-
+\cf Stealthy Melee Specialist Demon\c-
+\cxThreat:\c-
+\cf Low\c-
+
+Spectre.
+
+FN_SPECTRE_FUN1 = "Fuzzy Boi";
+FN_SPECTRE_FUN2 = "Camo Pinky";
+FN_SPECTRE_FUN3 = "Surprise Chompy";
+FN_SPECTRE_FUN4 = "Stealth Gorilla";
+
+\cxSaya's Notes:\c-
+\cf. \c-

@@ -1,0 +1,23 @@
+TAG
+Demon
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Demon\c-
+\cxClassification:\c-
+\cf Melee Specialist Demon\c-
+\cxThreat:\c-
+\cf Low\c-
+
+Demon.
+
+FN_DEMON_FUN1 = "Pinky Boi";
+FN_DEMON_FUN2 = "Shaved Gorilla";
+FN_DEMON_FUN3 = "All Mouth No Brains";
+FN_DEMON_FUN4 = "Chompy Boi";
+
+\cxSaya's Notes:\c-
+\cf. \c-

@@ -1,0 +1,24 @@
+TAG
+Revenant
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Revenant\c-
+\cxClassification:\c-
+\cf Angry Skeleton with rocket lauchers\c-
+\cxThreat:\c-
+\cf Medium\c-
+
+Former Trooper.
+
+FN_REVEN_FUN1 = "AAAAAAAAA";
+FN_REVEN_FUN2 = "Angry Boner";
+FN_REVEN_FUN3 = "Skellington";
+FN_REVEN_FUN4 = "Doot";
+FN_REVEN_FUN5 = "Rev Up Those Boners";
+
+\cxSaya's Notes:\c-
+\cf. \c-

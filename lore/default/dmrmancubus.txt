@@ -1,0 +1,24 @@
+TAG
+Mancubus
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Mancubus\c-
+\cxClassification:\c-
+\cf 'Heavy' 'Fire' support demon\c-
+\cxThreat:\c-
+\cf Medium\c-
+
+Mancubus.
+
+FN_MANCU_FUN1 = "He Thicc";
+FN_MANCU_FUN2 = "Lard Lad";
+FN_MANCU_FUN3 = "Fatass";
+FN_MANCU_FUN4 = "Hump Yo Mom";
+FN_MANCU_FUN5 = "Fat Bastard";
+
+\cxSaya's Notes:\c-
+\cf. \c-

@@ -1,0 +1,23 @@
+TAG
+Lost Soul
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Lost Soul\c-
+\cxClassification:\c-
+\cf Flying Headbutting Skull\c-
+\cxThreat:\c-
+\cf Low\c-
+
+Lost Soul.
+
+FN_LOST_FUN1 = "Fire Skully";
+FN_LOST_FUN2 = "Obnoxious Lil' Shit";
+FN_LOST_FUN3 = "Dumb Head";
+FN_LOST_FUN4 = "Idiot";
+
+\cxSaya's Notes:\c-
+\cf. \c-

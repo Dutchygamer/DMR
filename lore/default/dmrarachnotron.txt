@@ -1,0 +1,24 @@
+TAG
+Arachnotron
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Arachnotron\c-
+\cxClassification:\c-
+\cf Medium fire support demon\c-
+\cxThreat:\c-
+\cf Medium\c-
+
+Arachnotron.
+
+FN_ARACH_FUN1 = "Babby Spooder";
+FN_ARACH_FUN2 = "Bab";
+FN_ARACH_FUN3 = "Lil' Baby Man";
+FN_ARACH_FUN4 = "Krang";
+FN_ARACH_FUN5 = "Wrinkly Walker";
+
+\cxSaya's Notes:\c-
+\cf. \c-

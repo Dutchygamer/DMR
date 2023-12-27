@@ -1,0 +1,24 @@
+TAG
+Imp
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Imp\c-
+\cxClassification:\c-
+\cf Low-level Demon Trooper\c-
+\cxThreat:\c-
+\cf Pathetic\c-
+
+Imp.
+
+FN_IMP_FUN1 = "Spiky Boi";
+FN_IMP_FUN2 = "Brownie";
+FN_IMP_FUN3 = "Hell Twink";
+FN_IMP_FUN4 = "Mipmap";
+FN_IMP_FUN5 = "Sweet Cheeks";
+
+\cxSaya's Notes:\c-
+\cf. \c-

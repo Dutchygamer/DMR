@@ -1,0 +1,24 @@
+TAG
+Spider Mastermind
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Spider Mastermind\c-
+\cxClassification:\c-
+\cf Brain of operations\c-
+\cxThreat:\c-
+\cf High\c-
+
+Spider Mastermind.
+
+FN_SPIDER_FUN1 = "Mama Spooder";
+FN_SPIDER_FUN2 = "Big Momma";
+FN_SPIDER_FUN3 = "Oversized Krang";
+FN_SPIDER_FUN4 = "Not Mother Brain";
+FN_SPIDER_FUN5 = "Massive Nerd";
+
+\cxSaya's Notes:\c-
+\cf. \c-

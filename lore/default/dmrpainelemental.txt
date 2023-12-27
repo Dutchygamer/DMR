@@ -1,0 +1,24 @@
+TAG
+Pain Elemental
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Pain Elemental\c-
+\cxClassification:\c-
+\cf Obnoxious Meatball\c-
+\cxThreat:\c-
+\cf Medium\c-
+
+Pain Elemental.
+
+FN_PAIN_FUN1 = "Ass Pain";
+FN_PAIN_FUN2 = "Piece Of Shit";
+FN_PAIN_FUN3 = "Most Hated Demon";
+FN_PAIN_FUN4 = "Fun Time Is Over";
+FN_PAIN_FUN5 = "Shitball With Arms";
+
+\cxSaya's Notes:\c-
+\cf. \c-

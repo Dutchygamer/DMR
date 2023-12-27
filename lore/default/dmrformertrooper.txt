@@ -1,0 +1,24 @@
+TAG
+Former Trooper
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Former Trooper\c-
+\cxClassification:\c-
+\cf Human Infantry\c-
+\cxThreat:\c-
+\cf Pathetic\c-
+
+Former Trooper.
+
+FN_ZOMBIE_FUN1 = "Zomb";
+FN_ZOMBIE_FUN2 = "Dead Dude";
+FN_ZOMBIE_FUN3 = "Zomboni";
+FN_ZOMBIE_FUN4 = "Cannon Fodder";
+FN_ZOMBIE_FUN5 = "Loser";
+
+\cxSaya's Notes:\c-
+\cf. \c-

@@ -1,0 +1,24 @@
+TAG
+Former Heavy Gunner
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Former Heavy Gunner\c-
+\cxClassification:\c-
+\cf Human Infantry\c-
+\cxThreat:\c-
+\cf Medium\c-
+
+Former Heavy Gunner.
+
+FN_HEAVY_FUN1 = "Annoyance";
+FN_HEAVY_FUN2 = "Why Am I Losing Health?";
+FN_HEAVY_FUN3 = "Plutonia";
+FN_HEAVY_FUN4 = "Angery Dude";
+FN_HEAVY_FUN5 = "Hitscanning Scumbag";
+
+\cxSaya's Notes:\c-
+\cf. \c-

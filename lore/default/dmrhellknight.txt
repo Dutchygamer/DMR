@@ -1,0 +1,24 @@
+TAG
+Hell Knight
+TAB
+Enemy
+REL
+DemonInvasion
+TXT
+\cxName:\c-
+\cf Hell Knight\c-
+\cxClassification:\c-
+\cf Heavy Demon Trooper\c-
+\cxThreat:\c-
+\cf Medium\c-
+
+Hell Knight.
+
+FN_HELL_FUN1 = "Discount Baron";
+FN_HELL_FUN2 = "Brown Goat";
+FN_HELL_FUN3 = "Mr. Gruh's Wimpy Cousin";
+FN_HELL_FUN4 = "Door With Less Health";
+FN_HELL_FUN5 = "Budget Cuts";
+
+\cxSaya's Notes:\c-
+\cf. \c-
