@@ -88,7 +88,10 @@ class FormerCyborgCommando : FormerCyborg
 		MRBL E 2 A_FaceTarget;
 		Goto See;
 	ChargedPlasma:
-		MRBL E 8 A_FaceTarget;
+		TNT1 A 0 {
+			A_PlaySound ("bfg/charge", CHAN_WEAPON);
+		}
+		MRBL EEE 8 Light("DMR_BFGCharge_X1") A_FaceTarget;
 		MRBL F 5 BRIGHT Light("DMR_SmallBFGFire") {
 			A_PlaySound ("cyborgcommando/fire", CHAN_WEAPON);
 			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",36);
@@ -103,7 +106,7 @@ class FormerCyborgCommando : FormerCyborg
 			A_PlaySound ("cyborgcommando/fire", CHAN_WEAPON);
 			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",36);
 		}
-		MRBL E 12 A_FaceTarget;
+		MRBL E 20 A_FaceTarget;
 		Goto See;
 	BFG:
 		TNT1 A 0 {
