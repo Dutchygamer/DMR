@@ -84,21 +84,8 @@ Class DMR_DoomImpBall : DMR_Projectile
 	{
 	Spawn:
 		BAL1 AABB 2 Bright {
-			//A_SpawnItemEx("DMR_FireballTrail",-7,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			for (fxLoop = 0;fxLoop <= 3;fxLoop++) {
-				//lieftime(6,9)
-				//size(radius-1, radius+1)
-				//TODO zoek uit welke van deze drie nou in godsnaam hem voor de projectile spawnt
-				// lijkt iig niet X te zijn, dus dat werkt weer anders dan bij SpawnItemEX
-				//xoff(-radius, 0)
-				//yoff(-radius, radius)
-				//zoff(-radius, radius)
-			
-				//A_SpawnParticle("FCC03D",SPF_FULLBRIGHT|SPF_RELATIVE,random(6,9),frandom(5,7),frandom(0,360),frandom(-6,0),frandom(-6,6),frandom(-6,6),frandom(-1,1),0,frandom(-1,1));// ,-0.1,0,-0.05,1,-1,-0.2);
-				//A_SpawnParticle("FCC03D",SPF_FULLBRIGHT|SPF_RELATIVE,random(6,9),frandom(5,7),frandom(0,360), -15 , 0 , 0 ,frandom(-1,1),0,frandom(-1,1));// ,-0.1,0,-0.05,1,-1,-0.2);
-				A_SpawnParticle("FCC03D",SPF_FULLBRIGHT|SPF_RELATIVE,random(6,9),frandom(5,7),frandom(0,360), frandom(6,3),frandom(-6,6),frandom(-6,6) ,frandom(-1,1),0,frandom(-1,1));// ,-0.1,0,-0.05,1,-1,-0.2);
-				//A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(8,16),frandom(4,8),0,frandom(-6,0),frandom(-6,6),frandom(-6,6),frandom(-2,0),0,frandom(0,3),0,0,-0.03,1,-1,-0.6);
-			}
+			A_SpawnItemEx("DMR_FireballTrail",-7,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnParticle("FCC03D",SPF_FULLBRIGHT|SPF_RELATIVE,random(8,12),frandom(5,7),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,0,1,-1,-0.5);
 		}
 		Loop;
 	Death:
