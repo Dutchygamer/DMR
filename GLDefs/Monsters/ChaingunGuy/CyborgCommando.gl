@@ -72,12 +72,43 @@ object FormerCyborgCommandoPlasma
 
 object FormerCyborgCommandoChargedPlasma
 {
-    frame BFS1A { light DMR_BFGBall }
-    frame BFS1B { light DMR_BFGBall }
+    frame TBBLA { light DMR_BFGBall }
+    frame TBBLB { light DMR_BFGBall }
+    frame TBBLC { light DMR_BFGBall }
 
-    frame BFE1A { light DMR_BFGBall_X1 }
-    frame BFE1B { light DMR_BFGBall_X2 }
-    frame BFE1C { light DMR_BFGBall_X3 }
-    frame BFE1D { light DMR_BFGBall_X4 }
-    frame BFE1E { light DMR_BFGBall_X5 }
+    frame CBTSK { light DMR_BFGBall_X1 }
+    frame CBTSL { light DMR_BFGBall_X2 }
+    frame CBTSM { light DMR_BFGBall_X2 }
+    frame CBTSN { light DMR_BFGBall_X2 }
+    frame CBTSO { light DMR_BFGBall_X3 }
+    frame CBTSP { light DMR_BFGBall_X3 }
+    frame CBTSQ { light DMR_BFGBall_X3 }
+    frame CBTSR { light DMR_BFGBall_X3 }
+    frame CBTSS { light DMR_BFGBall_X4 }
+    frame CBTST { light DMR_BFGBall_X4 }
+    frame CBTSU { light DMR_BFGBall_X4 }
+    frame CBTSV { light DMR_BFGBall_X5 }
+    frame CBTSW { light DMR_BFGBall_X5 }
+}
+
+
+object FormerCyborgCommandoBFG
+{
+    frame TBBLA { light DMR_BFGBall }
+    frame TBBLB { light DMR_BFGBall }
+    frame TBBLC { light DMR_BFGBall }
+
+    frame CBTSK { light DMR_BFGBall_X1 }
+    frame CBTSL { light DMR_BFGBall_X2 }
+    frame CBTSM { light DMR_BFGBall_X2 }
+    frame CBTSN { light DMR_BFGBall_X2 }
+    frame CBTSO { light DMR_BFGBall_X3 }
+    frame CBTSP { light DMR_BFGBall_X3 }
+    frame CBTSQ { light DMR_BFGBall_X3 }
+    frame CBTSR { light DMR_BFGBall_X3 }
+    frame CBTSS { light DMR_BFGBall_X4 }
+    frame CBTST { light DMR_BFGBall_X4 }
+    frame CBTSU { light DMR_BFGBall_X4 }
+    frame CBTSV { light DMR_BFGBall_X5 }
+    frame CBTSW { light DMR_BFGBall_X5 }
 }

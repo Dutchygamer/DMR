@@ -1,0 +1,19 @@
+object AbbadonBall
+{
+    frame BAL2A { light DMR_CacodemonBall }
+    frame BAL2B { light DMR_CacodemonBall }
+
+    frame BAL2C { light DMR_CacodemonBall_X1 }
+    frame BAL2D { light DMR_CacodemonBall_X2 }
+    frame BAL2E { light DMR_CacodemonBall_X3 }
+}
+
+object AbbadonSmallBall
+{
+    frame BAL2A { light DMR_CacodemonBall }
+    frame BAL2B { light DMR_CacodemonBall }
+
+    frame BAL2C { light DMR_CacodemonBall_X1 }
+    frame BAL2D { light DMR_CacodemonBall_X2 }
+    frame BAL2E { light DMR_CacodemonBall_X3 }
+}
