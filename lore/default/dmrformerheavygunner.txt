@@ -14,6 +14,8 @@ TXT
 
 Former Heavy Gunner.
 
+"Geeze, weren't shotgun zombies bad enough? At least when you fade these jerks you get a cool chaingun."
+
 FN_HEAVY_FUN1 = "Annoyance";
 FN_HEAVY_FUN2 = "Why Am I Losing Health?";
 FN_HEAVY_FUN3 = "Plutonia";

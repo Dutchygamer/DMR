@@ -14,6 +14,8 @@ TXT
 
 Former Sargeant.
 
+"Same as the Former Humans, but much meaner, and tougher. These walking shotguns provide you with a few extra holes if you're not careful!"
+
 FN_SHOTGUN_FUN1 = "Bald Zomb";
 FN_SHOTGUN_FUN2 = "Elmer Fudd";
 FN_SHOTGUN_FUN3 = "Baldy";

@@ -3,7 +3,7 @@ Former Cyborg
 TAB
 Enemy
 REL
-DemonInvasion
+CABAL
 TXT
 \cxName:\c-
 \cf Former Cyborg\c-
@@ -12,7 +12,7 @@ TXT
 \cxThreat:\c-
 \cf Medium\c-
 
-Former Cyborgs are the result of a deal between *CABAL* and the demon forces. In its own universe CABAL relied on heavily armed and armoured cybernetic-enhanced humans to be the brunt of its forces. These humans had lost their free will and were loyal to the *Brotherhood of Nod* before CABAL broke off from this organization and took all cybernetic tech with it.
+Former Cyborgs are the result of a deal between **CABAL** and the demon forces. In its own universe CABAL relied on heavily armed and armoured cybernetic-enhanced humans to be the brunt of its forces. These humans had lost their free will and were loyal to the *Brotherhood of Nod* before CABAL broke off from this organization and took all cybernetic tech with it.
 
 Cyborgs were the most 'basic' tier of these cybernetic-enhanced humans. The process of turning a human into cyborgs was as brutal as it was efficient. All started as humans which were effected by *Tiberium* related mutations. All original legs and arms were amputated, with the now-limbless torso being permanently encased into a suit of heavy armour, leaving only the head sticking out from it. Onto this suit mechanical replacement legs and weapon-arms were attached, which were forcefully attached to the human's nerve system. The neck and head were left bare but received sub-dermal armoured plates to increase their durability. The last action was also the most final one; the brain was partially replaced with an uplink, enabling them rudimentary control over their new limbs and ensuring the loyalty to their new masters.
 

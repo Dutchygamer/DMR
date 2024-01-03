@@ -8,7 +8,7 @@ TXT
 \cxName:\c-
 \cf Mancubus\c-
 \cxClassification:\c-
-\cf 'Heavy' 'Fire' support demon\c-
+\cf Heavy fire support demon\c-
 \cxThreat:\c-
 \cf Medium\c-
 

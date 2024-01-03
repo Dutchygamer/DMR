@@ -1,0 +1,51 @@
+TAG
+Cyborgs
+TAB
+Lore
+REL
+FormerCyborg;FormerCyborgCommando;CABAL
+TXT
+\cxName:\c-
+\cf Demonic Forces\c-
+\cxClassification:\c-
+\cf Exactly what it says on the tin\c-
+
+Over the years more and more demons were enhanced with **Cybernetics** to improve their capabilities and endurance in battle. Of all their forces at their disposal, one group would always lack any type of cybernetic upgrades; the possessed human forces. At first the general assumption was that these troops were considered expendable and not worthy of receiving these upgrades.
+
+It was not until several years into the conflict that reports of cybernetics among the possessed humans were beginning to filter in. While initially limited to simple augmentics, eventually there were repeated sightings of possessed humans which rivalled the front-line demons in both durability and lethality.
+
+An inside source eventually revealed the embarrasing reasoning behind this apparent change of tactics. The source revealed that it was not that the demons didn't want to provide cybernetics to their former human forces, but that they simply lacked the know-how on how to perform this without killing the humans. It wasn't until they received help from an unexpected source that they were able to pull this trick off on their lowliest and most numerous forces as well.
+
+
+
+
+
+
+In their inter-dimensional expeditions the demonic forces had an encounter with an alternative universe of Earth. In this universe an AI known only as Khabal was waging a war of extermination against humankind. It relied on heavily armed and armoured cybernetic-enhanced humans to be the brunt of its forces. The forces it defeated were either turned into more cyborgs loyal only to the AI or exterminated.
+
+However not everything was going well for Khabal, as it had concluded that it was fighting a losing battle.
+
+
+
+
+
+The process of turning a human into cyborgs was as brutal as it was efficient. The original legs and arms were amputated, with the now-limbless torso being permanently encased into a suit of heavy armour, leaving only the head sticking out from it. Onto this suit mechanical replacement legs and weapon-arms were attached, which were forcefully attached to the human's nerve system. The neck and head were left bare but received sub-dermal armoured plates to increase their durability. The last action was also the most final one; the brain was partially replaced with an uplink, enabling them rudimentary control over their new limbs and ensuring the loyalty to their new masters.
+
+The end result was something that was more machine then human. Slow and lumbering, Cyborgs could shrug off most weapons that would incapitate or kill other humans. In return it could lay down heavy fire with its gun-arms.
+
+ shred infantry with a heavy auto-shotgun on one arm and take on armoured targets with a grenade launcher on the other arm. While durable they would still suffer against sustainted fire, and their heavy armour also made them more vulnerable against anti-armour weaponry.
+
+A common quirk amongst Cyborgs was that the legs were usually the first thing to give up when suffering critical damage. It was not strange to see a Cyborg use it arms to crawl forward as its now-useless legs could no longer sustain it.
+
+
+
+
+
+
+Demonic forces.
+
+//Erebus Arthamuz
+//Akedas Aximal
+
+\cxSaya's Notes:\c-
+\cf. \c-
