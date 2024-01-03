@@ -33,6 +33,24 @@ class FormerGunnerCommando : DMR_ChaingunGuy
 		Loop;
 	Missile:
 		DPOS E 10 A_FaceTarget;
+		TNT1 A 0 { attackloop = 0; }
+	// start of firing like a normal chaingunner
+	MissileLoopSlow:
+		TNT1 A 0 A_JumpIf(attackloop >= 8,"MissileLoopFast");
+		DPOS F 4 Bright Light("DMR_RifleFire") {
+			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+			attackloop++;
+		}
+		DPOS F 4 Bright Light("DMR_RifleFire") {
+			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+			attackloop++;
+		}
+		DPOS F 1 A_CPosRefire;
+		Loop;
+	// speed up after a couple of shots
+	MissileLoopFast:
 		DPOS F 2 Bright Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
@@ -42,7 +60,7 @@ class FormerGunnerCommando : DMR_ChaingunGuy
 			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
 		}
 		DPOS F 1 A_CPosRefire;
-		Goto Missile+1;
+		Loop;
 	Pain:
 		DPOS G 3;
 		DPOS G 3 A_Pain;
