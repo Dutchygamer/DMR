@@ -79,13 +79,14 @@ Class DMR_DoomImpBall : DMR_Projectile
 		Alpha 1;
 		SeeSound "imp/attack";
 		DeathSound "imp/shotx";
+		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States
 	{
 	Spawn:
 		BAL1 AABB 2 Bright {
 			A_SpawnItemEx("DMR_FireballTrail",-7,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnParticle("FCC03D",SPF_FULLBRIGHT|SPF_RELATIVE,random(8,12),frandom(5,7),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,0,1,-1,-0.5);
+			A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(8,12),frandom(5,7),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,0,1,-1,-0.5);
 		}
 		Loop;
 	Death:
