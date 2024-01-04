@@ -75,7 +75,7 @@ class FormerCyborg : DMR_ShotgunGuy
 			A_PlaySound("handgrenade/prime", CHAN_WEAPON);
 		}
 		GREB EEE 8 A_FaceTarget;
-		GREB F 5 Bright Light("DMR_RifleFire") A_LobProjectile("NobleVanguardGrenade",32);
+		GREB F 5 Bright Light("DMR_RifleFire") A_LobProjectile("FormerCyborgGrenade",32);
 		GREB E 4;
 		Goto See;
 	CriticalDamage: 
@@ -146,6 +146,33 @@ class FormerCyborg : DMR_ShotgunGuy
 		else {
 			A_SetTics(normalTics);
 		}
+	}
+}
+
+class FormerCyborgGrenade : NobleVanguardGrenade
+{
+	Default
+	{
+		Scale 0.75;
+	}
+	States
+	{	
+	// actual explosion
+	XDeath:
+		TNT1 A 0 {
+			bNoGravity = true;
+			A_Stop();
+			A_PlaySound("weapons/rocklx",2);
+		}		
+		TNT1 A 0 {
+			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
+				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
+			}
+		}
+		MISL B 8 Bright A_Explode(72,64);
+		MISL C 6 Bright;
+		MISL D 4 Bright;
+		Stop;
 	}
 }
 
