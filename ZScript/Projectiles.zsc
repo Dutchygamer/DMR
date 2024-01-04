@@ -138,7 +138,7 @@ class DMR_SmallRocket : DMR_Rocket
 				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 			}
 		}
-		MISL B 8 Bright A_Explode(96,96);
+		MISL B 8 Bright A_Explode(72,72);
 		MISL C 6 Bright;
 		MISL D 4 Bright;
 		Stop;
@@ -153,7 +153,7 @@ Class DMR_GrenadeBase : DMR_Projectile
 		Radius 8;
 		Height 8;
 		Speed 25;
-		DamageFunction(random(16,48));
+		DamageFunction(random(20,60));
 		-NOGRAVITY
 		+THRUGHOST
 		BounceType "Doom";
@@ -172,7 +172,7 @@ class DMR_ThrownGrenade : DMR_GrenadeBase
 	Default
 	{
 		Speed 20;
-		DamageFunction(random(10,30));
+		DamageFunction(random(16,48));
 		BounceFactor 0.75;
 		Gravity 0.5;
 		SeeSound "";

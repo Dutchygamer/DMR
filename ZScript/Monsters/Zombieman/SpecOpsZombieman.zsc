@@ -89,7 +89,6 @@ class SpecOpsGrenade : DMR_ThrownGrenade
 	Default
 	{
 		DamageType "ZombieGrenade";
-		DamageFunction(random(16,48));
 	}
 	States
 	{
@@ -108,7 +107,7 @@ class SpecOpsGrenade : DMR_ThrownGrenade
 				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 			}
 		}	
-		MISL B 8 Bright A_Explode(20, 64);
+		MISL B 8 Bright A_Explode(32,64);
 		MISL C 6 Bright;
 		MISL D 4 Bright;
 		Stop;

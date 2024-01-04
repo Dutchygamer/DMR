@@ -211,7 +211,7 @@ class NobleVanguardGrenade : DMR_GrenadeBase
 				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
 			}
 		}
-		MISL B 8 Bright A_Explode(72, 96);
+		MISL B 8 Bright A_Explode(96,96);
 		MISL C 6 Bright;
 		MISL D 4 Bright;
 		Stop;
