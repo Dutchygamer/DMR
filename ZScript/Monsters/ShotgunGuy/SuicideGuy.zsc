@@ -41,6 +41,23 @@ class SuicideGuyExplosive : DMR_MonsterBase
 		BMBE AABBCCDD 2 A_Chase;
 		TNT1 A 0 A_PlaySound("kamikaze/scream");
 		Loop;
+	Missile:
+		BMBE E 0 A_JumpIfCloser(360, "Charge"); //only do the lunge if closer then this, but further away then MeleeThreshold
+		Goto See;
+	Charge:
+		BMBE A 10 A_FaceTarget;
+		TNT1 A 0 {
+			A_FaceTarget();
+			A_Recoil(-3);
+		}
+	ChargeLoop:
+		BMBE AAABBBCCCDDD 1 {
+			if (target && Distance3D(target) < 80 || vel.x == 0 && vel.y == 0) { SetStateLabel("See"); }
+			A_FaceTarget(1.5,180);
+			A_Recoil(-3);
+		}
+		TNT1 A 0 A_PlaySound("kamikaze/scream");
+		Loop;
 	Melee:
 		BMBE A 0 A_Die;
 		stop;
