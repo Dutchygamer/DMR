@@ -1,0 +1,111 @@
+
+// projectile impact spawners
+Class DMR_FireballImpactSpawner : DMR_FXBase
+{
+	Default
+	{
+		+NOINTERACTION;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0;
+		TNT1 AAA 0
+		{			
+			A_SpawnItemEx("DMR_FireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+			A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		Stop;		
+	}
+}
+
+
+
+// monstead death explosion spawners
+Class DMR_CyberDeathExplosionSpawner : DMR_FXBase
+{
+	Default
+	{
+		+NOINTERACTION;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 AAA 1 
+		{
+			A_SpawnItemEx("DMR_BossDeathExplosion",random(25,-25),0,random(20,120)); 
+			A_SetTics(random(1,6));
+		}
+		Stop;
+	}
+}
+
+Class DMR_TerminatorDeathExplosionSpawner : DMR_FXBase
+{
+	Default
+	{
+		+NOINTERACTION;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 AAA 1 
+		{
+			// Term is a bit shorter then a Cybbie
+			A_SpawnItemEx("DMR_BossDeathExplosion",random(25,-25),0,random(20,100)); 
+			A_SetTics(random(1,6));
+		}
+		Stop;
+	}
+}
+
+Class DMR_CybiferaDeathExplosionSpawner : DMR_FXBase
+{
+	Default
+	{
+		+NOINTERACTION;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 AAA 1 
+		{
+			// 'Fera doesn't have legs so spawn explosions higher then Cybbie
+			A_SpawnItemEx("DMR_BossDeathExplosion",random(25,-25),0,random(50,120)); 
+			A_SetTics(random(1,6));
+		}
+		Stop;
+	}
+}
+
+Class DMR_MastermindDeathExplosionSpawner : DMR_CyberDeathExplosionSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 AAA 1 
+		{
+			A_SpawnItemEx("DMR_BossDeathExplosion",random(60,-60),0,random(20,70));
+			A_SetTics(random(1,6));
+		}
+		Stop;
+	}
+}
+
+Class DMR_TankDeathExplosionSpawner : DMR_CyberDeathExplosionSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 AA 1 
+		{
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(25,-25),0,random(20,40));
+			A_SetTics(random(1,6));
+		}
+		Stop;
+	}
+}
