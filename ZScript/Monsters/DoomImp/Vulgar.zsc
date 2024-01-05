@@ -85,19 +85,22 @@ class VulgarBall : DMR_DoomImpBall
 	{
 		DamageFunction(random(8,24));
 		Scale 1.1;
+		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
 	}
 	States
 	{
 	Spawn:
 		FVUL AABB 2 Bright {
 			A_SpawnItemEx("DMR_SmallGasTrail",-5,0,0,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,-0.5)); 
+			A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
 		}
 		loop;
 	Death:
 		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 3;fxLoop++) {
-				A_SpawnItemEx("DMR_GreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_GreenFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_GreenFireballImpactSpawner");
+			for (fxLoop = 0;fxLoop<=20;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
 		}
 		FVUL CDEF 4 Bright;
@@ -115,19 +118,22 @@ class VulgarGasBall : DMR_DoomImpBall
 		DamageType "ToxinCloud";
 		Seesound "vulgar/fire";
 		DeathSound "weapons/bloodx";
+		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
 	}
 	States
 	{
 	Spawn:
 		HECF AABB 2 Bright {
 			A_SpawnItemEx("DMR_SmallGasTrail",-2,0,3,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,0.5)); 
+			A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
 		}
 		loop;
 	Death:
 		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
-				A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_GasBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_GasBallImpactSpawner");
+			for (fxLoop = 0;fxLoop<=20;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
 		}
 		HECF C 4 Bright A_Explode(8,56);

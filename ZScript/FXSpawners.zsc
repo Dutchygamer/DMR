@@ -20,6 +20,67 @@ Class DMR_FireballImpactSpawner : DMR_FXBase
 	}
 }
 
+Class DMR_GreenFireballImpactSpawner : DMR_FXBase
+{
+	Default
+	{
+		+NOINTERACTION;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0;
+		TNT1 AAA 0
+		{			
+			A_SpawnItemEx("DMR_GreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+			A_SpawnItemEx("DMR_GreenFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		Stop;		
+	}
+}
+
+Class DMR_PurpleFireballImpactSpawner : DMR_FXBase
+{
+	Default
+	{
+		+NOINTERACTION;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0;
+		TNT1 AAA 0
+		{			
+			A_SpawnItemEx("DMR_PurpleFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+			A_SpawnItemEx("DMR_PurpleFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		Stop;		
+	}
+}
+
+
+
+Class DMR_GasBallImpactSpawner : DMR_FXBase
+{
+	Default
+	{
+		+NOINTERACTION;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0;
+		TNT1 AAAA 0
+		{			
+			A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+			A_SpawnItemEx("DMR_GasBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		Stop;		
+	}
+}
 
 
 // monstead death explosion spawners
