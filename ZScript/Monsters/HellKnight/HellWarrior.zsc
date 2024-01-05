@@ -115,19 +115,25 @@ class HellServantBall : DMR_BaronBall
 	Default
 	{
 		DamageFunction(random(16,48));
+		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States
 	{
 	Spawn:
 		HWFB AABB 2 Bright {
 			A_SpawnItemEx("DMR_MediumFireballTrail",-7,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1));
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 		}
 		Loop;
 	Death:
 		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
-				A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_MediumFireballImpactSpawner");
+			for (fxLoop = 0;fxLoop<=30;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
 		}
 		HWFB CDE 5 Bright;
@@ -144,6 +150,7 @@ class HellServantShieldBall : HellServantBall
 		SeeSound "Paladin/Shoot";
 		DeathSound "Paladin/Hit";
 		Species "DMR_ShieldWall"; //so the shield projectiles can pass through the shield
+		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States
 	{
@@ -151,13 +158,18 @@ class HellServantShieldBall : HellServantBall
 		HWFB AABB 2 Bright {
 			A_SeekerMissile(1, 1);
 			A_SpawnItemEx("DMR_MediumFireballTrail",-7,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1));
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 		}
 		Loop;
 	Death:
 		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
-				A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_MediumFireballImpactSpawner");
+			for (fxLoop = 0;fxLoop<=30;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
 		}
 		HWFB CDE 5 Bright;
