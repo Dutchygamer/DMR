@@ -98,6 +98,7 @@ class DMR_RevenantTracer : DMR_Projectile
 		SeeSound "skeleton/attack";
 		DeathSound "skeleton/tracex";
 		RenderStyle "Add";
+		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States
 	{
@@ -106,6 +107,10 @@ class DMR_RevenantTracer : DMR_Projectile
 	Normal:
 		FATB AB 2 Bright {
 			A_SpawnItemEx("DMR_FireballTrail",-9,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1));
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 		}
 		Loop;
 	Homing:
@@ -113,12 +118,18 @@ class DMR_RevenantTracer : DMR_Projectile
 			A_SeekerMissile(1,8,SMF_PRECISE); 
 			A_SpawnItemEx("DMR_FireballTrail",-9,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1));
 			A_SpawnItemEx("DMR_SmokeCloud",-9,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1));
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 		}
 		Loop;
 	Death:
-		TNT1 A 0 {		
-			for (fxLoop = 0;fxLoop <= 3;fxLoop++) {
-				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
+		TNT1 A 0 {	
+			A_SpawnItemEx("DMR_FireballImpactSpawner");
+			for (fxLoop = 0;fxLoop<=30;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
 		}
 		FBXP A 8 Bright;

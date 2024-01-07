@@ -96,6 +96,7 @@ class HectebusBall : DMR_FatShot
 		Seesound "";
 		DeathSound "weapons/boom1";
 		Scale 1.2;
+		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States
 	{
@@ -104,9 +105,19 @@ class HectebusBall : DMR_FatShot
 			// use random X/Y/Z offset because projectile is so big
 			A_SpawnItemEx("DMR_LargeFireballTrail",frandom(-6,-8),frandom(-4,4),frandom(-4,4),frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 			A_SpawnItemEx("DMR_LargeFireballTrail",frandom(-6,-8),frandom(-4,4),frandom(-4,4),frandom(-1,0),frandom(-1,1),frandom(0,1));
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 		}
 		loop;
 	Death:
+		TNT1 A 0 {
+			for (fxLoop = 0;fxLoop<=30;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
+			}
+		}
 		RIP1 DEFGH 3 Bright;
 		stop;
 	}
