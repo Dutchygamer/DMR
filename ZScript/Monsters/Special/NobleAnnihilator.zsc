@@ -50,15 +50,15 @@ class NobleAnnihilator : DMR_BaronOfHell
 	Rockets:
 		BOSS EE 8 A_FaceTarget;
 		BOSS F 10 Bright Light("DMR_RifleFire") {
-			A_SpawnProjectile("DMR_SmallRocket",39,16);
+			A_SpawnProjectile("DMR_SmallRocket",43,16);
 		}
 		BOSS E 8 A_FaceTarget;
 		BOSS F 10 Bright Light("DMR_RifleFire") {
-			A_SpawnProjectile("DMR_SmallRocket",39,16);
+			A_SpawnProjectile("DMR_SmallRocket",43,16);
 		}
 		BOSS E 8 A_FaceTarget;
 		BOSS F 10 Bright Light("DMR_RifleFire") {
-			A_SpawnProjectile("DMR_SmallRocket",39,16);
+			A_SpawnProjectile("DMR_SmallRocket",43,16);
 		}
 		TNT1 A 0 A_Jump(128, "Shotcannon");
 		BOSS E 8;
@@ -67,24 +67,24 @@ class NobleAnnihilator : DMR_BaronOfHell
         TNT1 A 0 A_PlaySound("heavyweapon/load");
 		BOSS EEE 10 A_FaceTarget;
 		BOSS F 8 Bright Light("DMR_RifleFire") {
-			A_SpawnProjectile("DMR_SmallRocket",39,16);
+			A_SpawnProjectile("DMR_SmallRocket",43,16);
 		}
 		BOSS E 2 A_FaceTarget;
 		BOSS F 8 Bright Light("DMR_RifleFire") {
-			A_SpawnProjectile("DMR_SmallRocket",39,16);
+			A_SpawnProjectile("DMR_SmallRocket",43,16);
 		}
 		BOSS E 2 A_FaceTarget;
 		BOSS F 8 Bright Light("DMR_RifleFire") {
-			A_SpawnProjectile("DMR_SmallRocket",39,16);
+			A_SpawnProjectile("DMR_SmallRocket",43,16);
 		}
 		TNT1 A 0 A_Jump(128, "Shotcannon");
 		BOSS E 8;
 		Goto See;
 	Plasma:
 		BOSS EE 8 A_FaceTarget;
-		BOSS F 8 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("DMR_HellRune",39,16);
+		BOSS F 8 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("DMR_HellRune",43,16);
 		BOSS E 6 A_FaceTarget;
-		BOSS F 8 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("DMR_HellRune",39,16);
+		BOSS F 8 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("DMR_HellRune",43,16);
 		TNT1 A 0 A_Jump(128, "Shotcannon");
 		Goto See;
 	Shotcannon:
@@ -93,7 +93,7 @@ class NobleAnnihilator : DMR_BaronOfHell
 		BOSS HIHIHI 5 Bright Light("DMR_RifleFire") {
 			A_Playsound("Terminator/tershotB");
 			for (boolet = 0;boolet<=2;boolet++) {
-				A_SpawnProjectile("DMR_SlowBullet",39,-16,frandom(-10,10),CMF_OFFSETPITCH,frandom(-5,5));
+				A_SpawnProjectile("DMR_SlowBullet",43,-16,frandom(-10,10),CMF_OFFSETPITCH,frandom(-5,5));
 			}	
 		}
 		Goto See;

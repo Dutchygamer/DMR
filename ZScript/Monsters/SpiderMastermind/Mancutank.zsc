@@ -56,25 +56,25 @@ class Mancutank : DMR_SpiderMastermind
 		Goto Chainguns+1;
 	Rockets:
 		BS1T A 16 A_FaceTarget;	
-		BS1T C 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",71,-49,random(-2,2));
-		BS1T C 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",71,49,random(-2,2));
+		BS1T C 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",75,-49,random(-2,2));
+		BS1T C 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",75,49,random(-2,2));
 		BS1T A 4 A_FaceTarget;
-		BS1T D 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",64,-49,random(-2,2));
-		BS1T D 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",64,49,random(-2,2));
+		BS1T D 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",68,-49,random(-2,2));
+		BS1T D 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",68,49,random(-2,2));
 		BS1T A 4 A_FaceTarget;
-		BS1T E 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",53,-49,random(-2,2));
-		BS1T E 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",53,49,random(-2,2));
+		BS1T E 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",57,-49,random(-2,2));
+		BS1T E 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",57,49,random(-2,2));
 		Goto See;
 	IncendiaryRockets:
 		BS1T A 16 A_FaceTarget;	
-		BS1T C 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("MancutankRocket",71,-49,random(-2,2));
-		BS1T C 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("MancutankRocket",71,49,random(-2,2));
+		BS1T C 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("MancutankRocket",75,-49,random(-2,2));
+		BS1T C 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("MancutankRocket",75,49,random(-2,2));
 		BS1T A 4 A_Facetarget;
-		BS1T D 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("MancutankRocket",64,-49,random(-2,2));
-		BS1T D 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("MancutankRocket",64,49,random(-2,2));
+		BS1T D 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("MancutankRocket",68,-49,random(-2,2));
+		BS1T D 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("MancutankRocket",68,49,random(-2,2));
 		BS1T A 4 A_Facetarget;
-		BS1T E 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("MancutankRocket",53,-49,random(-2,2));
-		BS1T E 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("MancutankRocket",53,49,random(-2,2));
+		BS1T E 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("MancutankRocket",57,-49,random(-2,2));
+		BS1T E 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("MancutankRocket",57,49,random(-2,2));
 		Goto See;
 	Pain:
 		BS1W A 3;
