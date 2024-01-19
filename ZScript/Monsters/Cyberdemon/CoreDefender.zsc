@@ -54,8 +54,8 @@ class CoreDefender : DMR_Cyberdemon
 		ROB4 DCC 3 A_Chase;
 		Goto See;
 	Missile:
-		TNT1 A 0 A_Jump(80,"ObeliskLaser","ClusterMissile");
-		TNT1 A 0 A_Jump(256,"SmallLaser", "Rockets");
+		TNT1 A 0 A_Jump(80,"ObeliskLaser");
+		TNT1 A 0 A_Jump(256,"SmallLaser", "Rockets","ClusterMissile");
 		Goto See;
 	SmallLaser:		
 		ROB4 CCCC 4 {
@@ -96,7 +96,7 @@ class CoreDefender : DMR_Cyberdemon
 		ROB4 G 6;
 		Goto See;
 	ClusterMissile:
-		TNT1 A 0 A_JumpIfCloser(350, "Rockets"); //use dumbfire rockets when target is nearby
+		TNT1 A 0 A_JumpIfCloser(350, "Rockets"); // use dumbfire rockets when target is nearby
 		ROB4 A 6 A_FaceTarget;
 		ROB4 J 12 Bright Light("DMR_RifleFire") A_SpawnProjectile("CoreDefenderClusterMissile",100,24,0);
 		ROB4 A 8 A_FaceTarget;
@@ -144,7 +144,7 @@ class CoreDefenderClusterMissile : DMR_Rocket
 		DamageFunction(random(10,30));
 		+SEEKERMISSILE;
 		SeeSound "darkinquisitor/cluster";
-		DeathSound "weapons/rocklx";
+		DeathSound "";
 		Scale 1.2;
 	}
 	States
@@ -155,25 +155,68 @@ class CoreDefenderClusterMissile : DMR_Rocket
 			A_SpawnItemEx("DMR_MediumFireballTrail",-35,0,4,frandom(-1,0),frandom(-1,1),frandom(-1,0));
 			A_SpawnItemEx("DMR_MediumSmokeCloud",-35,0,4,frandom(-1,0));
 		}
-		HMIS A 0 A_JumpIfTracerCloser(180, "Death");
+		HMIS A 0 A_JumpIfTracerCloser(150, "Death");
 		Loop;
 	Death:
 		TNT1 A 0 {
 			A_Stop();
-			A_SetRenderStyle(1.0,STYLE_Add);
-			// split up in subprojectiles, which can randomly home in or not
-			A_SpawnProjectile("DMR_ClusterSubProjectile",0,0,0+random(0,370),0,CMF_TRACKOWNER);
-			A_SpawnProjectile("DMR_ClusterSubProjectile",0,0,0+random(0,370),0,CMF_TRACKOWNER);
-			A_SpawnProjectile("DMR_ClusterSubProjectile",0,0,0+random(0,370),0,CMF_TRACKOWNER);
-			A_SpawnProjectile("DMR_ClusterSubProjectile",0,0,0+random(0,370),0,CMF_TRACKOWNER);
-			A_SpawnProjectile("DMR_ClusterSubProjectile",0,0,0+random(0,370),0,CMF_TRACKOWNER);
+			A_SetRenderStyle(1.0,STYLE_Add);	
+			A_PlaySound("weapons/rocklx",2);		
+			A_SpawnProjectile("CoreDefenderClusterSubProjectile",2,0,random(-5,-10),CMF_AIMDIRECTION|CMF_TRACKOWNER,random(0,-5));
+			A_SpawnProjectile("CoreDefenderClusterSubProjectile",2,0,random(-2,-5),CMF_AIMDIRECTION|CMF_TRACKOWNER,random(0,-5));
+			A_SpawnProjectile("CoreDefenderClusterSubProjectile",2,0,0,CMF_AIMDIRECTION|CMF_TRACKOWNER,random(0,-5));
+			A_SpawnProjectile("CoreDefenderClusterSubProjectile",2,0,random(2,5),CMF_AIMDIRECTION|CMF_TRACKOWNER,random(0,-5));						
+			A_SpawnProjectile("CoreDefenderClusterSubProjectile",2,0,random(5,10),CMF_AIMDIRECTION|CMF_TRACKOWNER,random(0,-5));
 		}
 		TNT1 A 0 {
 			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
 				A_SpawnItemEx("DMR_FireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 			}
 		}
-		MISL B 8 Bright A_Explode(20, 64);
+		MISL B 8 Bright A_Explode(20,64);
+		MISL C 6 Bright;
+		MISL D 4 Bright;
+		Stop;
+	}
+}
+
+// cluster missile sub-projectile
+class CoreDefenderClusterSubProjectile : NobleVanguardGrenade
+{
+	Default
+	{
+		Speed 12;
+		DamageFunction(random(10,30));
+		WallBounceFactor 0.4;
+		Scale 0.5;
+		SeeSound "";		
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			grenadeTimer = random(0,20);
+		}
+		SGRN A 1 {
+			A_SpawnItemEx("DMR_SmokeCloud",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			grenadeTimer++;
+		}
+		Wait;
+	// actual explosion
+	XDeath:
+		TNT1 A 0 {
+			A_SetRenderStyle(1.0,STYLE_Add);
+			bNoGravity = true;
+			A_Stop();
+			A_PlaySound("skeleton/tracex",2);
+		}
+		TNT1 A 0 {
+			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
+				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
+			}
+		}
+		MISL B 8 Bright A_Explode(48,64);
 		MISL C 6 Bright;
 		MISL D 4 Bright;
 		Stop;
