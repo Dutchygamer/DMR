@@ -118,7 +118,8 @@ class HectebusBall : DMR_FatShot
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
 		}
-		RIP1 DEFGH 3 Bright;
+		RIP1 DEF 6 Bright;
+		RIP1 GH 4 Bright;
 		stop;
 	}
 }
