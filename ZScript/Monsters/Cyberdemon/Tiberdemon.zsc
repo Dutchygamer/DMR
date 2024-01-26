@@ -129,12 +129,17 @@ class TiberiumFlechette : DMR_SmallRocket
 		SeeSound "Thamuz/TibShard";
 		DeathSound "Thamuz/TibExpl";
 		Scale 0.9;
+		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
 	}
 	States
 	{
 	Spawn:
 		TSRD A 1 Bright {
 			A_SpawnItemEx("TiberiumFlechetteTrail",-20,0,1); 
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-30,-26),frandom(-6,6),frandom(-5,5),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 		}
 		Loop;
 	Death:
@@ -142,7 +147,11 @@ class TiberiumFlechette : DMR_SmallRocket
 			A_SetRenderStyle(1.0, STYLE_Add);
 			A_SetScale(1.5);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_Explode(24,64);
+			A_Explode(40,72);
+			for (fxLoop = 0;fxLoop<=50;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,9),0,frandom(-7,7),frandom(0,7),0,frandom(-7,7),0,0,-0.1,1,-1,-0.6);
+			}
 		}
 		TSDE ABCDEFG 3 Bright;
 		Stop;
@@ -181,6 +190,7 @@ class TiberiumBlueFlechette : TiberiumFlechette
 		DeathSound "Thamuz/BTibExpl";
 		Decal "BFGLightning";
 		Scale 1.2;
+		DMR_Projectile.ParticleColors "#0055ab", "#0067cd", "#003e7d", "#004e9c";
 	}
 	States
 	{
@@ -189,6 +199,10 @@ class TiberiumBlueFlechette : TiberiumFlechette
 			A_SpawnItemEx("TiberiumBlueFlechetteTrail",-20,0,1);
 			A_SpawnItemEx("TiberiumBlueLightningBolt",frandom(0,-20));
 			A_SpawnItemEx("TiberiumBlueLightningBolt",frandom(0,-20));
+			for (fxLoop = 0;fxLoop<=3;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-35,-30),frandom(-6,6),frandom(-6,6),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 		}
 		Loop;
 	Death:
@@ -198,6 +212,14 @@ class TiberiumBlueFlechette : TiberiumFlechette
 			A_SpawnItemEx("DMR_BlueBFGImpactFlare");
 			A_SpawnItemEx("TiberiumBlueLightningBurst");
 			A_SetRenderStyle(1.0,STYLE_Add);
+			for (fxLoop = 0;fxLoop<=70;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(20,36),frandom(12,14),random(0,360),frandom(0,13),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
+			}
+			for (fxLoop = 0;fxLoop<=50;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(36,48),frandom(24,28),random(0,360),frandom(0,13),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
+			}
 		}
 		ARCB JKLMN 8 Bright;
 		Stop;

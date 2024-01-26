@@ -43,7 +43,7 @@ class FormerBFGCommando : DMR_ChaingunGuy
 		BFGZ F 10 Bright Light("DMR_BFGFire") {
 			A_FaceTarget();
 			A_PlaySound ("bfg/fire", CHAN_WEAPON);
-			A_SpawnProjectile("DMR_BFGBall", 32, 0);
+			A_SpawnProjectile("DMR_BFGBall",46);
 		}
 		BFGZ E 20 {
 			bNOPAIN = false;
@@ -87,20 +87,33 @@ class DMR_BFGBall : DMR_Projectile
 		Alpha 0.75;
 		DeathSound "weapons/bfgx";
 		Obituary "$OB_MPBFG_BOOM";
-		Decal "BFGLightning";
+		Decal "BFGLightning";		
+		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
 	}
 	States
 	{
 	Spawn:
 		BFS1 AAABBB 1 Bright  {
-			A_SpawnItemEx("DMR_BFGBallTrail",-30,0,15,frandom(-1,0),frandom(-1,1),frandom(-1,0));
+			A_SpawnItemEx("DMR_BFGBallTrail",-30,0,0,frandom(-1,0),frandom(-1,1),frandom(-1,0));
 			A_SpawnItemEx("BFGLightningBolt");
+			for (fxLoop = 0;fxLoop<=3;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-26,-13),frandom(-13,13),frandom(-13,13),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 		}
 		Loop;
 	Death:
 		TNT1 A 0 {
 			A_SpawnItemEx("DMR_BFGImpactFlare");
 			A_SpawnItemEx("BFGLightningBurst");
+			for (fxLoop = 0;fxLoop<=70;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(20,36),frandom(12,14),random(0,360),frandom(0,13),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
+			}
+			for (fxLoop = 0;fxLoop<=50;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(36,48),frandom(24,28),random(0,360),frandom(0,13),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
+			}
 		}
 		BFE1 AB 8 Bright;
 		BFE1 C 8 Bright A_BFGSpray;
