@@ -43,13 +43,12 @@ class ViralOne : DMR_LostSoul
 	Death:
 		PHNT EEF 6 BRIGHT;
 		PHNT G 6 BRIGHT A_Scream;
-		TNT1 A 0 
-		{
-			A_PlaySound("gas/explode");
-			A_Explode(10,48, XF_NOTMISSILE);
-			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1));
-			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1));
-			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1));
+		TNT1 A 0 {
+			A_Explode(10,48);
+			A_PlaySound("gas/explode");	
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 		}
 		PHNT H 6 Bright;
 		PHNT I 6 Bright A_Noblocking;

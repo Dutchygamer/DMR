@@ -184,8 +184,8 @@ class CorpulentToxin : DMR_FatShot
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
 		}
-		HECF C 8 Bright A_Explode(20,56);
-		TNT1 A 0 {		
+		HECF C 8 Bright {
+			A_Explode(24,72);
 			A_PlaySound("gas/explode");
 			A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);
 			A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-0.5,0.5),frandom(-0.5,0.5),0,0,SXF_ORIGINATOR);

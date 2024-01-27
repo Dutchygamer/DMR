@@ -81,9 +81,9 @@ class ToxinElementalGasBall : WithererGasBall
 				A_SpawnItemEx("DMR_GasBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 			}
 		}
-		HECF C 4 Bright A_Explode(15,56);
-		TNT1 A 0 {		
-			A_PlaySound("gas/explode");
+		HECF C 4 Bright {		
+			A_Explode(16,64);
+			A_PlaySound("gas/explode");	
 			A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
