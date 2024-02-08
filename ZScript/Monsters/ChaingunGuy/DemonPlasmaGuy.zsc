@@ -66,14 +66,3 @@ class FormerPlasmaCommando : DMR_ChaingunGuy
 		Goto See;
 	}
 }
-
-//TODO unused
-class FormerPlasmaCommandoBall : DMR_HellRune
-{  
-	Default
-	{
-		DamageFunction(random(8,24));
-		//Speed 19;
-		Scale 0.8;
-	}
-}

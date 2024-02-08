@@ -4,7 +4,6 @@
 
 #include "GLDefs/Monsters/ChaingunGuy/BFGGuy.gl"
 #include "GLDefs/Monsters/ChaingunGuy/PyroGuy.gl"
-#include "GLDefs/Monsters/ChaingunGuy/DemonPlasmaGuy.gl"
 #include "GLDefs/Monsters/ChaingunGuy/CyborgCommando.gl"
 
 #include "GLDefs/Monsters/DoomImp/DMR_DoomImp.gl"
