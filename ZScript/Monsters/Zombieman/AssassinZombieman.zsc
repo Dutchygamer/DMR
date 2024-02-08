@@ -125,6 +125,10 @@ class FormerInfiltrator : DMR_Zombieman
 
 class InfiltratorZombiemanGrenade : DMR_ThrownGrenade
 {
+	Default
+	{
+		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
+	}
 	States
 	{
 	Spawn:
@@ -137,18 +141,18 @@ class InfiltratorZombiemanGrenade : DMR_ThrownGrenade
 			bNoGravity = true;
 			A_Stop();
 			A_SetScale(2.5);
-		}
-		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
-				A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_GasBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_GasBallImpactSpawner");
+			for (fxLoop = 0;fxLoop<=30;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
 		}	
 		FVUL C 4 {
-			A_PlaySound("gas/explode");
+			A_Explode(10,48);
+			A_PlaySound("gas/explode");	
 			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_Explode(16,64);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 		}
 		FVUL DEF 4;
 		Stop;

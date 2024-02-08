@@ -22,7 +22,7 @@ class FormerPyroTechnician : DMR_ChaingunGuy
 		PainChance 150;
 		DamageFactor "Fire", 0.5;
 		DropItem "";
-		+DOHARMSPECIES; //zombies aren't fire-proof
+		+DOHARMSPECIES; // zombies aren't fire-proof
 	}
 	
  	States
@@ -43,7 +43,7 @@ class FormerPyroTechnician : DMR_ChaingunGuy
 		PYRZ F 10 Bright A_SpawnProjectile("PyroTechnicianBall", 32, 0, 5.625);
 		PYRZ E 5 A_FaceTarget;
 		PYRZ F 10 Bright A_SpawnProjectile("PyroTechnicianBall", 32, 0, -5.625);
-		PYRZ E 5;
+		PYRZ E 5 A_FaceTarget;
 		goto See;
 	Flamethrower:
 		TNT1 A 0 {
@@ -97,20 +97,26 @@ Class PyroTechnicianBall : DMR_FatShot
 		DamageFunction(random(14,42));
 		RenderStyle "Add";
 		Alpha 1;
+		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States
 	{
 	Spawn:
-		SXAL ABC 4 Bright {
+		SXAL AABBCC 2 Bright {
 			A_SpawnItemEx("DMR_MediumFireballTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 			A_SpawnItemEx("DMR_FireballTrail",-5,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1));
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 		}
 		Loop;
 	Death:
 		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
-				A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_MediumFireballImpactSpawner");
+			for (fxLoop = 0;fxLoop<=30;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
 		}
 		SXAL DEFGH 3 Bright;

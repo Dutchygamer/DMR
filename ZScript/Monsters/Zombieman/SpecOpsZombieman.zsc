@@ -89,6 +89,7 @@ class SpecOpsGrenade : DMR_ThrownGrenade
 	Default
 	{
 		DamageType "ZombieGrenade";
+		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States
 	{
@@ -101,10 +102,10 @@ class SpecOpsGrenade : DMR_ThrownGrenade
 			A_SetRenderStyle(1.0,STYLE_Add);
 			bNoGravity = true;
 			A_Stop();
-		}	
-		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 6;fxLoop++) {
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+			A_SpawnItemEx("DMR_MediumFireballLargeImpactSpawner");
+			for (fxLoop = 0;fxLoop<=30;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
 		}	
 		MISL B 8 Bright A_Explode(32,64);
