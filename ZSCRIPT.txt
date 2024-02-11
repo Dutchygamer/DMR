@@ -103,6 +103,7 @@ version "4.2.1"
 #include "ZScript/Monsters/PainElemental/SteelSentinel.zsc"
 #include "ZScript/Monsters/PainElemental/PlasmaElemental.zsc"
 #include "ZScript/Monsters/PainElemental/TorturedSoul.zsc"
+#include "ZScript/Monsters/PainElemental/InfernoElemental.zsc"
 
 #include "ZScript/Monsters/LostSoul/_Replacer.zsc"
 #include "ZScript/Monsters/LostSoul/DMR_LostSoul.zsc"

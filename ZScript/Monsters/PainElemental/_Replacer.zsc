@@ -5,6 +5,7 @@ Class PainElementalReplacer: RandomSpawner replaces PainElemental
 		DropItem "DMR_PainElemental", 255, 100;
 		DropItem "ToxinElemental", 255, 25;
 		DropItem "ThunderElemental", 255, 18;
+		DropItem "InfernoElemental", 255, 18;
 		DropItem "Ravager", 255, 11;
 		DropItem "TorturedElemental", 255, 10;
 	}
