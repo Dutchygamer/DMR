@@ -1,10 +1,10 @@
 //======================================================================
 //  Original credits
 //======================================================================
-//	ZScript: Skulltag, Gothic
-//	Sprites: Skulltag, 3DRealms (Octobrain bits), Midway (D64 Cacodemon bits), David G, Vader, Gothic
-//	Sounds: id Software (Doom 3)
-//	GLDefs: Skulltag, Gothic
+//	ZScript: Tormentor667
+//	Sprites: Id Software (edits by Tormentor667)
+//	Sounds: id Software
+//	GLDefs: Sandypaper (Brightmaps)
 //======================================================================
 //  Additional credits
 //======================================================================
@@ -29,58 +29,58 @@ class Cacofiend : DMR_Cacodemon
 	States 
 	{
 	Spawn:
-		HED3 A 10 A_Look;
+		ENCD A 10 A_Look;
 		Loop;
 	See:
-		HED3 A 3 A_Chase;
+		ENCD A 3 A_Chase;
 		Loop;
 	Melee: 
-		HED3 BC 5 A_FaceTarget;
-		HED3 D 5 A_CustomMeleeAttack(random(20,60),"baron/melee");
+		ENCD BC 5 A_FaceTarget;
+		ENCD D 5 A_CustomMeleeAttack(random(20,60),"baron/melee");
 		Goto See;
 	Missile:
 		TNT1 A 0 A_Jump(128,"SmallBalls1","SmallBalls2","Combi");
 		Goto Balls;
 	Balls:
-		HED3 CD 5 A_FaceTarget;
-		HED3 B 3 BRIGHT A_SpawnProjectile("AbbadonBall",26,0,-3);
-		HED3 B 3 BRIGHT A_SpawnProjectile("AbbadonBall",26,0,3);
+		ENCD BB 5 A_FaceTarget;
+		ENCD C 3 BRIGHT A_SpawnProjectile("AbbadonBall",26,0,-3);
+		ENCD C 3 BRIGHT A_SpawnProjectile("AbbadonBall",26,0,3);
 		goto See;
 	SmallBalls1:
-		HED3 CD 5 A_FaceTarget;
-		HED3 B 2 BRIGHT A_SpawnProjectile("AbbadonSmallBall",26,0,-7);
-		HED3 B 2 BRIGHT A_SpawnProjectile("AbbadonSmallBall",26,0);
-		HED3 B 2 BRIGHT A_SpawnProjectile("AbbadonSmallBall",26,0,7);
+		ENCD BB 5 A_FaceTarget;
+		ENCD C 2 BRIGHT A_SpawnProjectile("AbbadonSmallBall",26,0,-7);
+		ENCD C 2 BRIGHT A_SpawnProjectile("AbbadonSmallBall",26,0);
+		ENCD C 2 BRIGHT A_SpawnProjectile("AbbadonSmallBall",26,0,7);
 		goto See;
 	SmallBalls2:
-		HED3 CD 5 A_FaceTarget;
-		HED3 B 2 BRIGHT A_SpawnProjectile("AbbadonSmallBall",26,0,7);
-		HED3 B 2 BRIGHT A_SpawnProjectile("AbbadonSmallBall",26,0);
-		HED3 B 2 BRIGHT A_SpawnProjectile("AbbadonSmallBall",26,0,-7);
+		ENCD BB 5 A_FaceTarget;
+		ENCD C 2 BRIGHT A_SpawnProjectile("AbbadonSmallBall",26,0,7);
+		ENCD C 2 BRIGHT A_SpawnProjectile("AbbadonSmallBall",26,0);
+		ENCD C 2 BRIGHT A_SpawnProjectile("AbbadonSmallBall",26,0,-7);
 		goto See;
 	Combi:
-		HED3 CD 5 A_FaceTarget;
-		HED3 B 3 BRIGHT A_SpawnProjectile("AbbadonBall",26,0);
-		HED3 B 3 BRIGHT {
+		ENCD BB 5 A_FaceTarget;
+		ENCD C 3 BRIGHT A_SpawnProjectile("AbbadonBall",26,0);
+		ENCD C 3 BRIGHT {
 			A_SpawnProjectile("AbbadonSmallBall",26,0,-3);
 			A_SpawnProjectile("AbbadonSmallBall",26,0,3);
 		}
 		goto See;
 	Pain:
-		HED3 E 3;
-		HED3 E 3 A_Pain;
-		HED3 F 6;
+		ENCD D 3;
+		ENCD D 3 A_Pain;
+		ENCD D 6;
 		Goto See;
 	Death:
 	XDeath:
-		HED3 G 6 A_NoBlocking;
-		HED3 H 6 A_Scream;
-		HED3 IJKLMN 6;
-		HED3 O -1 A_SetFloorClip;
+		ENCD E 6 A_NoBlocking;
+		ENCD F 6 A_Scream;
+		ENCD GHI 6;
+		ENCD J -1 A_SetFloorClip;
 		Stop;
 	Raise:
-		HED3 O 6 A_UnSetFloorClip;
-		HED3 NMLKJIHG 6;
+		ENCD J 6 A_UnSetFloorClip;
+		ENCD IHGFE 6;
 		Goto See;
 	}
 }

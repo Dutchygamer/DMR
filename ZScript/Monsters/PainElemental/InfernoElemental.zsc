@@ -1,17 +1,17 @@
 //======================================================================
 //  Original credits
 //======================================================================
-//	ZScript: Skulltag, Gothic
-//	Sprites: Skulltag, 3DRealms (Octobrain bits), Midway (D64 Cacodemon bits), David G, Vader, Gothic
-//	Sounds: id Software (Doom 3)
-//	GLDefs: Skulltag, Gothic
+//  DECORATE: 	???
+//	Sounds:		???
+//  Sprites: 	??? (edits by ???)
+//	GLDEFs: 	n/a
 //======================================================================
 //  Additional credits
 //======================================================================
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class Infernal : DMR_Cacodemon
+class InfernoElemental : DMR_PainElemental
 {  
 	Default
 	{
@@ -20,52 +20,55 @@ class Infernal : DMR_Cacodemon
 		HitObituary "%o ended up in the stomach of an infernal.";
 		Obituary "%o got blasted by an infernal.";
 		DamageFactor "Fire", 0.5;
-		//SeeSound "infernal/see" ;
-		//PainSound "infernal/pain"; 
-		//DeathSound "infernal/death";
+		+DONTFALL;
+		+NOICEDEATH;
+		+BRIGHT;
+		SeeSound "infernal/see" ;
+		PainSound "infernal/pain"; 
+		DeathSound "infernal/death";
 		bloodcolor "orange";
 	}
 	States 
 	{ 
 	Spawn: 
-		HED3 A 10 A_Look;
+		INFR A 10 A_Look;
 		Loop;
 	See: 
-		HED3 A 3 A_Chase;
+		INFR BCD 3 A_Chase;
 		Loop;
 	Melee: 
-		HED3 BC 5 A_FaceTarget;
-		HED3 D 5 A_CustomMeleeAttack(random(20,60),"baron/melee");
+		INFR FG 5 A_FaceTarget;
+		INFR E 5 A_CustomMeleeAttack(random(20,60),"baron/melee");
 		Goto See;
 	Missile:
 		TNT1 A 0 A_Jump(128,"ExplosiveBall");
 		goto Balls;
 	Balls:
-		HED3 CD 5 A_FaceTarget;
-		HED3 B 5 A_SpawnProjectile("InfernalBall",24);
-		HED3 B 5 A_FaceTarget;
-		HED3 B 5 A_SpawnProjectile("InfernalBall",24);
+		INFR HI 5 A_FaceTarget;
+		INFR J 5 A_SpawnProjectile("InfernalBall",24);
+		INFR I 5 A_FaceTarget;
+		INFR J 5 A_SpawnProjectile("InfernalBall",24);
 		goto See;
 	ExplosiveBall:
-		HED3 CD 5 A_FaceTarget;
-		HED3 B 5 A_SpawnProjectile("InfernalExplosiveBall",24);
+		INFR HI 5 A_FaceTarget;
+		INFR J 5 A_SpawnProjectile("InfernalExplosiveBall",24);
 		goto See;
 	Pain: 
-		HED3 E 3;
-		HED3 E 3 A_Pain;
-		HED3 F 6;
+		INFR K 3;
+		INFR K 3 A_Pain;
+		INFR K 6;
 		Goto See;
 	Death: 
 	XDeath:
-		HED3 G 6 A_NoBlocking;
-		HED3 H 6 A_Scream;
-		HED3 IJKLMN 6;
-		HED3 O -1 A_SetFloorClip;
+		INFR L 6;
+		INFR M 6 A_Scream;
+		INFR N 6;
+		INFR O 6;
+		INFR P 6 A_NoBlocking;
+		INFR Q 6;
 		Stop;
-	Raise:
-		HED3 O 6 A_UnSetFloorClip;
-		HED3 NMLKJIHG 6;
-		Goto See;
+	Raise: // no raise as it explodes upon death
+		Stop;
 	} 
 }
 
