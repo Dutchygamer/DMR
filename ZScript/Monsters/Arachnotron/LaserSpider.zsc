@@ -81,4 +81,18 @@ class OpiliotronPlasma : DMR_ArachnotronPlasma
 		Scale 0.6;
 		SeeSound "";
 	}
+	states
+	{
+	Spawn:
+		LASB A 2 Bright {
+			A_SpawnItemEx("DMR_RedPlasmaTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5));
+		}
+		Loop;
+	Death:
+		TNT1 A 0 {
+			A_SpawnItemEx("DMR_RedPlasmaImpactFlare");
+		}
+		HPLB EFGHIJ 4 Bright;
+		Stop;
+	}
 }

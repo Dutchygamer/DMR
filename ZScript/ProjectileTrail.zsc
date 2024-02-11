@@ -229,6 +229,22 @@ class DMR_PlasmaRuneTrail : DMR_PlasmaTrail
 	}
 }
 
+class DMR_RedPlasmaTrail : DMR_PlasmaTrail
+{
+	States
+	{
+	Spawn:
+		// plasma trails need a small delay
+		TNT1 A 2;
+	SpawnLoop:
+		LASB A 1 Bright {
+			A_FadeOut();
+			A_SetScale(Scale.X-0.05);
+		}
+		Loop;
+	}
+}
+
 class DMR_BloodTrail : DMR_ProjectileTrail
 {
 	Default
