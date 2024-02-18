@@ -1,0 +1,94 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Ghastly_dragon
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by Captain Toenail)
+//	GLDEFs: 	Ghastly_dragon
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class ForgottenOne : DMR_LostSoul
+{
+	Default
+	{
+		Tag "Forgotten One";	
+		BloodColor "orange";
+		Health 60;
+		Obituary "%o got a fiery headbutt by a forgotten one";
+		Translation "168:191=208:223"; // recolour red parts to orange
+	}
+	
+	bool canSudoku;
+  
+	States 
+	{
+	Spawn:
+		FRGO AB 10 A_Look;
+		Loop;
+	See:
+		FRGO AB 6 A_Chase;
+		Loop;
+	Missile:
+		TNT1 A 0 A_Jump(64, "Sudoku");
+		Goto Charge;
+	Charge:
+		FRGO C 10 BRIGHT Light("DMR_ForgottenOneAttack") A_FaceTarget;
+		FRGO D 4 BRIGHT Light("DMR_ForgottenOneAttack") A_SkullAttack;
+		FRGO CD 4 BRIGHT Light("DMR_ForgottenOneAttack");
+		Goto Charge+2;
+	Sudoku:
+		TNT1 A 0 {
+			bNOPAIN = true;
+			canSudoku = 1;
+			A_PlaySound("skull/melee",1);
+		}
+		FRGO CDCDCDCDCDCDCDCDCDCD 2 Light("DMR_ForgottenOneSudoku"){
+			A_FaceTarget();
+			// use random X/Y/Z offset because skull is so big
+			A_SpawnItemEx("DMR_LargeFireballTrail",frandom(-6,-8),frandom(-4,4),frandom(-4,4),frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+		}
+		TNT1 A 0  {
+			A_PlaySound("skull/melee",2);
+			A_SkullAttack(50);
+		}
+		FRGO CD 4 Light("DMR_ForgottenOneSudoku");
+		Wait;
+	Pain:
+		FRGO E 3 Bright;
+		FRGO E 3 Bright A_Pain;
+		Goto See;
+	Death:
+		FRGO F 6 BRIGHT;
+		FRGO G 6 BRIGHT A_Scream;
+		FRGO H 6 Bright;
+		FRGO I 6 Bright A_Noblocking;
+		FRGO J 6;
+		Stop;
+	} 
+	
+	override bool Slam(Actor thing)
+	{
+		// if can sudoku and hitting a monster, explode and commit sudoku
+		if (canSudoku) {
+			
+			if (thing.bISMONSTER)
+				thing.Thrust(30,angle);
+				
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",0,0);
+			A_Explode(72,72,XF_NOTMISSILE);
+			A_DamageSelf(1,"None", DMSS_KILL);
+			
+			canSudoku = false;
+			
+			return Super.Slam(thing);
+		}
+		
+		// otherwise disable sudoku and just do normal slam
+		canSudoku = false;		
+		return Super.Slam(thing);
+	}
+}

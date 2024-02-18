@@ -39,7 +39,7 @@ class InfernoElemental : DMR_PainElemental
 	LostSoul:
 		INFR HI 5 A_FaceTarget;
 		INFR J 4 A_FaceTarget;
-		INFR J 1 A_PainAttack("DMR_LostSoul"); //TODO normal lost soul for now
+		INFR J 1 A_PainAttack("ForgottenOne");
 		goto See;
 	ExplosiveBall:
 		INFR HI 5 A_FaceTarget;
@@ -54,7 +54,7 @@ class InfernoElemental : DMR_PainElemental
 		INFR M 6 A_Scream;
 		INFR N 6;
 		INFR O 6;
-		INFR P 6 A_PainDie("DMR_LostSoul");
+		INFR P 6 A_PainDie("ForgottenOne");
 		INFR Q 6;
 		Stop;
 	} 

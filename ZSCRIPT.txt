@@ -112,6 +112,7 @@ version "4.2.1"
 #include "ZScript/Monsters/LostSoul/Guardian.zsc"
 #include "ZScript/Monsters/LostSoul/ViralOne.zsc"
 #include "ZScript/Monsters/LostSoul/Gorer.zsc"
+#include "ZScript/Monsters/LostSoul/ForgottenOne.zsc"
 
 #include "ZScript/Monsters/Mancubus/_Replacer.zsc"
 #include "ZScript/Monsters/Mancubus/DMR_Mancubus.zsc"

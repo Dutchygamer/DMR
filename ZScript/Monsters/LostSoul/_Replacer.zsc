@@ -5,6 +5,7 @@ Class LostSoulReplacer: RandomSpawner replaces LostSoul
 		DropItem "DMR_LostSoul", 255, 100;
 		DropItem "ViralOne", 255, 25;
 		//DropItem "Phantom", 255, 12;
+		DropItem "ForgottenOne", 255, 12;
 		DropItem "RavagerSpawn", 255, 8;
 		DropItem "Gorer", 255, 8;
 	}
