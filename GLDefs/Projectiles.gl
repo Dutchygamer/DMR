@@ -263,6 +263,7 @@ flickerlight DMR_RifleFire
     chance 0.3
 }
 
+
 flickerlight DMR_PlasmaFire
 {
     color 0.3 0.3 1.0
@@ -323,6 +324,56 @@ object DMR_ZombiePlasma
     frame PLSSC { light DMR_PlasmaBall_X2 }
     frame PLSSD { light DMR_PlasmaBall_X3 }
     frame PLSSE { light DMR_PlasmaBall_X4 }
+}
+
+
+flickerlight DMR_RedPlasmaFire
+{
+    color 1.0 0.4 0.4
+    size 48
+    secondarySize 56
+    offset 0 40 0
+    chance 0.3
+}
+
+flickerlight DMR_RedPlasmaBall
+{
+    color 1.0 0.4 0.4
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+flickerlight DMR_RedPlasmaBall_X1
+{
+    color 0.9 0.15 0.15
+    size 55
+    secondarySize 60
+    chance 0.3
+}
+
+flickerlight DMR_RedPlasmaBall_X2
+{
+    color 0.6 0.06 0.06
+    size 60
+    secondarySize 65
+    chance 0.3
+}
+
+flickerlight DMR_RedPlasmaBall_X3
+{
+    color 0.3 0.0 0.0
+    size 65
+    secondarySize 70
+    chance 0.3
+}
+
+flickerlight DMR_RedPlasmaall_X4
+{
+    color 0.2 0.0 0.0
+    size 70
+    secondarySize 75
+    chance 0.3
 }
 
 

@@ -35,6 +35,7 @@
 
 #include "GLDefs/Monsters/Arachnotron/DMR_Arachnotron.gl"
 #include "GLDefs/Monsters/Arachnotron/AracKnight.gl"
+#include "GLDefs/Monsters/Arachnotron/LaserSpider.gl"
 
 #include "GLDefs/Monsters/Mancubus/DMR_Mancubus.gl"
 #include "GLDefs/Monsters/Mancubus/Corpulent.gl"
@@ -46,6 +47,7 @@
 #include "GLDefs/Monsters/LostSoul/ViralOne.gl"
 #include "GLDefs/Monsters/LostSoul/Gorer.gl"
 #include "GLDefs/Monsters/LostSoul/HadesSphere.gl"
+#include "GLDefs/Monsters/LostSoul/ForgottenOne.gl"
 
 #include "GLDefs/Monsters/PainElemental/PlasmaElemental.gl"
 #include "GLDefs/Monsters/PainElemental/SteelSentinel.gl"

@@ -78,7 +78,7 @@ class OpiliotronPlasma : DMR_ArachnotronPlasma
 	{
 		Speed 35;		
 		DamageFunction(random(4,12));
-		Scale 0.6;
+		Scale 0.4;
 		SeeSound "";
 	}
 	states

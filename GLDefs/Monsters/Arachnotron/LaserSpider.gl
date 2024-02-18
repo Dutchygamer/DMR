@@ -1,0 +1,12 @@
+
+object OpiliotronPlasma
+{
+    frame LASBA { light DMR_ArachnotronBall }
+
+    frame HPLBE { light DMR_ArachnotronBall_X1 }
+    frame HPLBF { light DMR_ArachnotronBall_X2 }
+    frame HPLBG { light DMR_ArachnotronBall_X2 }
+    frame HPLBH { light DMR_ArachnotronBall_X3 }
+    frame HPLBI { light DMR_ArachnotronBall_X3 }
+    frame HPLBJ { light DMR_ArachnotronBall_X4 }
+}
