@@ -24,7 +24,7 @@ weapons/bfgx DSRXPLOD
 $rolloff weapons/bfgx 600 1600
 
 // heavy weapon prep
-heavyweapon/load dsasgld1
+heavyweapon/load HVYWPLD
 $rolloff heavyweapon/load 300 1300
 
 flamethrower/fire flamtnk1
