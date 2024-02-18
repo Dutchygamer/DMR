@@ -57,7 +57,7 @@ class Tiberdemon : DMR_Cyberdemon
 	Missile:
 		// normal launch coords are 56,-25
 		TNT1 A 0 A_Jump(128,"Flechette");
-		TNT1 A 0 A_Jump(96,"BFGBall");
+		TNT1 A 0 A_Jump(96,"BFGBall","ChemicalMissile");
 	Rockets:
 		DCYB E 6 A_FaceTarget;
 		DCYB F 10 Bright Light("DMR_RifleFire") {
@@ -97,6 +97,15 @@ class Tiberdemon : DMR_Cyberdemon
 		}
 		DCYB F 6 {
 			bNOPAIN = false;
+		}
+		Goto See;
+	ChemicalMissile:
+		DCYB E 18 {
+			A_FaceTarget();
+			A_PlaySound("heavyweapon/load");
+		}
+		DCYB F 12 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("TiberiumGasRocket",56,-25,0);
 		}
 		Goto See;
 	Pain:
@@ -237,5 +246,48 @@ class TiberiumBlueFlechetteTrail : TiberiumFlechetteTrail
 	Spawn:
 		BSRD A 1 Bright A_FadeOut(0.06);
 		Loop;
+	}
+}
+
+class TiberiumGasRocket : DMR_Rocket
+{
+	Default
+	{
+		Speed 25;
+		+SEEKERMISSILE;
+		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
+	}
+	States
+	{
+	Spawn:
+		MISL AAA 1 Bright {
+			A_SpawnItemEx("DMR_MediumGreenFireballTrail",-35,0,2,frandom(-1,0),frandom(-1,1),frandom(-1,0));
+			A_SpawnItemEx("DMR_GasTrail",-35,0,2,frandom(-1,0));
+			for (fxLoop = 0;fxLoop<=3;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-35,-30),frandom(-6,6),frandom(-6,6),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
+		}
+		TNT1 A 0 A_SeekerMissile(1,8,SMF_CURSPEED);
+		Loop;
+	Death:
+		TNT1 A 0 {
+			A_SetRenderStyle(1.0,STYLE_Add);
+			for (fxLoop = 0;fxLoop<=9;fxLoop++)
+			{
+				A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			}
+			for (fxLoop = 0;fxLoop <= 14;fxLoop++) {
+				A_SpawnItemEx("DMR_MediumGreenFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+			}
+			for (fxLoop = 0;fxLoop<=70;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
+			}
+		}
+		HECF C 8 Bright A_Explode(128,128);
+		HECF D 6 Bright;
+		HECF E 4 Bright;
+		Stop;
 	}
 }

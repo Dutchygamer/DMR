@@ -70,7 +70,7 @@ class BlueTiberdemon : DMR_Cyberdemon
 		Goto See;
 	Missile:
 		// normal launch coords are 72,-25
-		TNT1 A 0 A_Jump(128,"Flechette","BFGBall");
+		TNT1 A 0 A_Jump(128,"Flechette","BFGBall","ChemicalMissile");
 	Rockets:
 		CARD C 6 A_FaceTarget;
 		CARD D 8 Bright Light("DMR_RifleFire") {
@@ -106,7 +106,7 @@ class BlueTiberdemon : DMR_Cyberdemon
 		Goto See;
 	BFGBall:
 		TNT1 A 0 {
-			A_PlaySound ("weapons/bfgf", CHAN_WEAPON);
+			A_PlaySound ("Thamuz/BTibShard/Charge", CHAN_WEAPON);
 			bNOPAIN = true;
 		}
 		CARD C 12 Light("DMR_BlueBFGCharge_X1") A_FaceTarget;
@@ -121,6 +121,16 @@ class BlueTiberdemon : DMR_Cyberdemon
 		CARD D 6 {
 			bNOPAIN = false;
 		}
+		Goto See;
+	ChemicalMissile:
+		CARD C 18 {
+			A_FaceTarget();
+			A_PlaySound("heavyweapon/load");
+		}
+		CARD D 12 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("TiberiumGasRocket",72,-25,0);
+		}
+		TNT1 A 0 A_Jump(96,"ChemicalMissile");
 		Goto See;
 	Pain:
 		CARD E 10 A_Pain;
