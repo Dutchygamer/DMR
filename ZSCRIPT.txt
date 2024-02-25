@@ -9,6 +9,7 @@ version "4.2.1"
   Even as a developer in RL that code gives me a headache.
 */
 
+#include "ZScript/BaseActors.zsc"
 #include "ZScript/Projectiles.zsc"
 #include "ZScript/GenericStuff.zsc"
 #include "ZScript/ProjectileTrail.zsc"
@@ -17,7 +18,6 @@ version "4.2.1"
 #include "ZScript/Smoke.zsc"
 #include "ZScript/Explosions.zsc"
 #include "ZScript/Events.zsc"
-#include "ZScript/MonsterBase.zsc"
 #include "ZScript/Flares.zsc"
 #include "ZScript/Lightning.zsc"
 #include "ZScript/FXSpawners.zsc"

@@ -3,15 +3,6 @@
 ///////////////////////
 //these should not be used by any projectile; they acts like the main definition and copy/paste example
 
-// base class so we can do some creativity for all 'fancy' effects
-class DMR_FXBase : Actor
-{
-	Default
-	{
-		+FORCEXYBILLBOARD;
-	}
-}
-
 //=======================
 // non-blocking FX trail
 //=======================
