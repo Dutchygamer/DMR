@@ -125,14 +125,13 @@ class DuskKnightTracer : DMR_RevenantTracer
 	}
 }
 
-class DuskKnightFastTracer : DuskKnightAxe
+class DuskKnightFastTracer : DuskKnightTracer
 {
 	Default
 	{		
 		Speed 18;
 		Scale 1.2;
 		//Translation "16:31=192:207","32:47=192:207","176:191=192:207","168:175=192:199"; // recolour the red axe to blue
-		RenderStyle "Add";
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States

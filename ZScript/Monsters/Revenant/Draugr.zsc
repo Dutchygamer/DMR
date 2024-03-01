@@ -46,8 +46,8 @@ class Draugr : DMR_Revenant
 		SKE2 L 6 A_CustomMeleeAttack(random(12,36),"skeleton/melee");
 		Goto See;
 	Missile:
-		//TNT1 A 0 A_Jump(256, "ClusterRocket", "Flamethrower");
-		Goto ClusterRocket; //See;
+		TNT1 A 0 A_Jump(256, "ClusterRocket", "Flamethrower");
+		Goto See;
 	HERocket:
 		TNT1 A 0 A_Jump(128, "HomingRocket");
 	FastRocket:
@@ -176,6 +176,7 @@ class DraugrClusterMissile : DMR_Rocket
 		Loop;
 	Cluster:
 		TNT1 A 0 {
+			A_PlaySound("weaponssmallrocket/launch",1);
 			A_SpawnProjectile("CoreDefenderClusterSubProjectile",2,0,random(-5,-10),CMF_AIMDIRECTION|CMF_TRACKOWNER,random(0,-5));
 			A_SpawnProjectile("CoreDefenderClusterSubProjectile",2,0,0,CMF_AIMDIRECTION|CMF_TRACKOWNER,random(0,-5));
 			A_SpawnProjectile("CoreDefenderClusterSubProjectile",2,0,random(5,10),CMF_AIMDIRECTION|CMF_TRACKOWNER,random(0,-5));
@@ -184,8 +185,7 @@ class DraugrClusterMissile : DMR_Rocket
 		TNT1 A 0 {
 			A_Stop();
 			A_SetRenderStyle(1.0,STYLE_Add);	
-			//A_PlaySound("weapons/rocklx",2);
-			A_PlaySound("weaponssmallrocket/launch",2);
+			A_PlaySound("weapons/rocklx",2);
 		}
 		TNT1 A 0 {
 			for (fxLoop = 0;fxLoop <= 3;fxLoop++) {
