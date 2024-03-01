@@ -19,7 +19,7 @@ class DuskKnight : DMR_Revenant
 		Health 450;
 		Obituary "%o was slain by a dusk knight";
 		HitObituary "%o was axed by a dusk knight";
-		//PainChance 100;
+		PainChance 80;
 		//SeeSound "hknight/sight";
 		//AttackSound "hknight/attack";
 		//PainSound "hknight/pain";
@@ -35,7 +35,9 @@ class DuskKnight : DMR_Revenant
 		XNIG AABBCCDD 2 A_Chase;
 		Loop;
 	Melee:
-		XNIG EF 6 A_FaceTarget;
+		TNT1 A 0 A_FaceTarget;
+		XNIG E 6 A_SkelWhoosh;
+		XNIG F 6 A_FaceTarget;
 		XNIG G 6 A_CustomMeleeAttack(random(12,36),"hknight/melee");
 		Goto See;
 	Missile:
@@ -43,21 +45,21 @@ class DuskKnight : DMR_Revenant
 		TNT1 A 0 A_Jump(64, "CombiAxe");
 	Axe:
 		XNIG EF 5 A_FaceTarget;
-		XNIG G 10 A_SpawnProjectile("DuskKnightAxe",35);
+		XNIG G 10 A_SpawnProjectile("DuskKnightTracer",35);
 		XNIG G 10 A_FaceTarget;
 		Goto See;
 	FastAxe:
 		XNIG HI 8 A_FaceTarget;
-		XNIG J 10 A_SpawnProjectile("DuskKnightFastAxe",35);
+		XNIG J 10 A_SpawnProjectile("DuskKnightFastTracer",35);
 		XNIG G 10 A_FaceTarget;
 		Goto See;
 	CombiAxe:
 		XNIG EF 10 A_FaceTarget;
-		XNIG G 10 A_SpawnProjectile("DuskKnightAxe",35);
+		XNIG G 10 A_SpawnProjectile("DuskKnightTracer",35);
 		XNIG HI 5 A_FaceTarget;
-		XNIG J 10 A_SpawnProjectile("DuskKnightFastAxe",35);
+		XNIG J 10 A_SpawnProjectile("DuskKnightFastTracer",35);
 		XNIG EF 5 A_FaceTarget;
-		XNIG G 10 A_SpawnProjectile("DuskKnightAxe",35);
+		XNIG G 10 A_SpawnProjectile("DuskKnightTracer",35);
 		XNIG G 10 A_FaceTarget;
 		Goto See;
 	Pain:
@@ -79,82 +81,80 @@ class DuskKnight : DMR_Revenant
 	}
 }
 
-class DuskKnightAxe : DMR_RevenantTracer
+class DuskKnightTracer : DMR_RevenantTracer
 {
 	Default
 	{
 		SeeSound "hknight/axewhoosh";
 		DeathSound "hknight/hit";
-		RenderStyle "Normal";
+		RenderStyle "Add";
+		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States
 	{
 	Spawn:
 		TNT1 A 0 NoDelay A_Jump(128,"Homing"); 
-		SPAX ABC 2 Bright {
-			//A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
-			//A_SpawnItemEx("DMR_FireballTrail",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+		FX15 ABC 2 Bright {
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 		}
 		Goto Spawn+1;
 	Homing:
-		SPAX ABC 2 Bright {
+		FX15 ABC 2 Bright {
 			A_SeekerMissile(1,8,SMF_PRECISE); 
 			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
-			//A_SpawnItemEx("DMR_FireballTrail",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			//A_SpawnItemEx("DMR_SmokeCloud",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 		}
 		Loop;
 	Death:
-		TNT1 A 0 {
-			A_SetRenderStyle(1.0,STYLE_Add);
-		}
-		/*TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 3;fxLoop++) {
-				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
+		TNT1 A 0 {	
+			A_SpawnItemEx("DMR_FireballImpactSpawner");
+			for (fxLoop = 0;fxLoop<=30;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
-		}*/
-		SPAX D 8 Bright;
-		SPAX E 6 Bright;
-		SPAX F 4 Bright;
+		}
+		HPLB DE 4 Bright;
+		HPLB FG 3 Bright;
 		Stop;
 	}
 }
 
-class DuskKnightFastAxe : DuskKnightAxe
+class DuskKnightFastTracer : DuskKnightAxe
 {
 	Default
 	{		
 		Speed 18;
-		Translation "16:31=192:207","32:47=192:207","176:191=192:207","168:175=192:199"; // recolour the red axe to blue
+		Scale 1.2;
+		//Translation "16:31=192:207","32:47=192:207","176:191=192:207","168:175=192:199"; // recolour the red axe to blue
+		RenderStyle "Add";
+		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay A_Jump(128,"Homing"); 
-		RAXE AB 2 Bright {
-			//A_SpawnItemEx("DMR_FireballTrail",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-		}
-		Goto Spawn+1;
-	Homing:
-		RAXE AB 2 Bright {
-			A_SeekerMissile(1,5,SMF_PRECISE); 
-			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
-			//A_SpawnItemEx("DMR_FireballTrail",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			//A_SpawnItemEx("DMR_SmokeCloud",-12,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+		FX15 ABC 2 Bright {
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 		}
 		Loop;
 	Death:
-		TNT1 A 0 {
-			A_SetRenderStyle(1.0,STYLE_Add);
-		}
-		/*TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 3;fxLoop++) {
-				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
+		TNT1 A 0 {	
+			A_SpawnItemEx("DMR_FireballImpactSpawner");
+			for (fxLoop = 0;fxLoop<=30;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
-		}*/
-		RAXE C 8 Bright;
-		RAXE D 6 Bright;
-		RAXE E 4 Bright;
+		}
+		HPLB DE 4 Bright;
+		HPLB FG 3 Bright;
 		Stop;
 	}
 }
