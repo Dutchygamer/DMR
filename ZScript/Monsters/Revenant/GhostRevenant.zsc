@@ -20,7 +20,6 @@ class Hollow : DMR_Revenant
 		Health 350;
 		HitObituary "%o got pummeled by a hollow.";
 		obituary "%o failed to dodge the hollow's fireball.";
-		PainChance 95;
 	}
 	States
 	{
@@ -38,8 +37,8 @@ class Hollow : DMR_Revenant
 		Goto See;
 	Missile:
 		GSKL J 20 Bright A_FaceTarget;
-		GSKL K 3 Bright A_SpawnProjectile("HollowTracer",56,-10);
-		GSKL K 3 Bright A_SpawnProjectile("HollowTracer",56,10);
+		GSKL K 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("HollowTracer",56,-10);
+		GSKL K 3 Bright Light("DMR_RifleFire") A_SpawnProjectile("HollowTracer",56,10);
 		GSKL K 15 A_FaceTarget;
 		Goto See;
 	Pain:
