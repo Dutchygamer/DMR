@@ -35,6 +35,24 @@ class DMR_Projectile : Actor
 	{
 		return ParticleColor[random(0,ParticleColor.Size()-1)];
 	}
+	
+	// the 'float down to lowest point' logic
+	// after waaay too many trial and errors with various combinations of actor flags, I realized it would be way easier to do this with Zscript overrides
+	void GravityTick()
+	{
+		// check whether we are not on the floor
+		// double check it by comparing the z value and the dedicated TestMobjZ function
+		bool isInAir = ( (pos.z > floorz) && TestMobjZ() );
+		// if in air, set a z velocity so we float down slowly
+		if ( isInAir ) {
+			vel.z = -0.4;
+		// if not in the air, set our z velocity to 0
+		} else {
+			vel.z = 0;
+		}
+		Super.Tick();
+	}
+	
 }
 
 class DMR_FastProjectile : FastProjectile
