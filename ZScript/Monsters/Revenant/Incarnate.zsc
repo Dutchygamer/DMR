@@ -139,15 +139,3 @@ Class GhoulDeathExplosion : DMR_BossDeathExplosion
 		Stop;
 	}
 }
-
-
-//TODO unused
-class GhoulRapidBall : DMR_HellRune
-{  
-	Default
-	{
-		DamageFunction(random(8,24));
-		Speed 18;
-		Scale 0.8;
-	}
-}
