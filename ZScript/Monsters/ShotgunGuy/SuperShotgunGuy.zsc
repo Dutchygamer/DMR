@@ -58,7 +58,7 @@ class FormerStaffSargeant : DMR_ShotgunGuy
 		GPOS E 10;
 		Goto See;
 	SuperShot:
-		GPOS E 15 A_FaceTarget;
+		GPOS EE 10 A_FaceTarget;
 		GPOS F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("weapons/sshotf", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,7.1,10,random(6,12),"BulletPuff",0,CBAF_NORANDOM);

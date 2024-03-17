@@ -39,7 +39,7 @@ class FormerAssaultSargeant : DMR_ShotgunGuy
 		ASGZ E 10 A_FaceTarget;
         ASGZ F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("autoshotgun/fire", CHAN_WEAPON);
-			A_CustomBulletAttack(22.5,0,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			A_CustomBulletAttack(22.5,4,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired++; // expend a single shot
 		}
         ASGZ E 5;
