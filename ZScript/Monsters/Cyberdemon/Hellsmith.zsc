@@ -17,7 +17,6 @@ class Forgemaster : DMR_Cyberdemon
 	{
 		Tag "Forgemaster";
 		Health 5500;
-		PainChance 10;
 		DropItem "CellPack", 256, 100;
 		DropItem "CellPack", 128, 100;
 		DropItem "Cell", 128, 20;

@@ -33,6 +33,7 @@ class BlueTiberdemon : DMR_Cyberdemon
 		Obituary "%o was destroyed by a cybifera.";
 		DamageFactor "ToxinCloud", 0.0;
 		+NODROPOFF; //don't yeet yourself off platforms	
+		+MISSILEMORE;
 	}
 	States 
 	{ 
