@@ -28,6 +28,7 @@ class CoreDefender : DMR_Cyberdemon
 		DropItem "Cell", 128, 20;
 		+NOBLOOD;
 		+DONTGIB;
+		+MISSILEMORE;
 		SeeSound "darkinquisitor/laugh";
 		ActiveSound "darkinquisitor/active";
 		DeathSound "darkinquisitor/death";
@@ -55,16 +56,16 @@ class CoreDefender : DMR_Cyberdemon
 		Goto See;
 	Missile:
 		TNT1 A 0 A_Jump(80,"ObeliskLaser");
-		TNT1 A 0 A_Jump(256,"SmallLaser", "Rockets","ClusterMissile");
+		TNT1 A 0 A_Jump(256,"Plasma", "Rockets","ClusterMissile");
 		Goto See;
-	SmallLaser:		
-		ROB4 CCCC 4 {
+	Plasma:		
+		ROB4 C 6 A_FaceTarget;
+		ROB4 FFFF 8 Bright Light("DMR_LaserFire") {
 			A_FaceTarget();
-			A_CustomRailgun(0,-42,"","",RGF_SILENT|RGF_NOPIERCING|RGF_FULLBRIGHT,0,0,"",0,0,0,0, 12, 0, "CoreDefenderTargettingLaser", 10);
-		}		
-		ROB4 FFF 6 Bright Light("DMR_LaserFire") {
-			A_FaceTarget();
-			A_SpawnProjectile("SmallRedLaser",64,-42,0);			
+			A_PlaySound("baby/attack", CHAN_WEAPON);
+			A_SpawnProjectile("OpiliotronPlasma",64,-42,0);
+			A_SpawnProjectile("OpiliotronPlasma",64,-42,-2);
+			A_SpawnProjectile("OpiliotronPlasma",64,-42,2);
 		}
 		ROB4 G 6;
 		Goto See;
