@@ -1,8 +1,0 @@
-Class WolfensteinSSReplacer : RandomSpawner
-{
-	Default
-	{
-		DropItem "EvilMarine", 255, 100;
-		DropItem "FormerCyborgCommando", 255, 4;
-	}
-}

@@ -9,13 +9,13 @@ OptionMenu "dmr_options"
 	Title "DoomKrakken's Monster Randomizer Options"
 	StaticText " "
 	Option "Additional projectile particles", "dmr_fancydoom", "OnOff"
-	StaticText "Show additional projectile trail / impact particles. Disable for better performance.", white
+	StaticText "Show additional effects. Disable for better performance.", white
 	StaticText " "
-	StaticText "WAD compatibility"
-	StaticText "Perform additional replacers for specific WADs", white
-	StaticText "which replace CommanderKeen and/or WolfensteinSS.", white
-	StaticText "If the WAD you're playing is not supported here,", white
-	StaticText "switch to Vanilla.", white
+	StaticText "CommanderKeen / WolfensteinSS compatibility"
+	StaticText "Replace CommanderKeen and/or WolfensteinSS.", white
+	StaticText "Vanilla keeps them unmodified.", white
+	StaticText "Certain WAD specific replacers are supported.", white
+	StaticText "DMR options are for those looking for a challenge.", white
 	StaticText " "
 	Option "Wolfenstein SS replacer", "dmr_replace_ss", "dmr_replace_ss_options"
 	Option "Commander Keen replacer", "dmr_replace_keen", "dmr_replace_keen_options"
@@ -30,17 +30,19 @@ OptionMenu "dmr_options"
 OptionValue "dmr_replace_ss_options"
 {
     0, "Vanilla"
-	1, "DMR"
-	2, "Scythe 2"
-	3, "Epic 2"
-	4, "Resurgence"
+	1, "Scythe 2"
+	2, "Epic 2"
+	3, "Resurgence"
+	11, "DMR - Nazis (WiP)"
+	12, "DMR - Cyborgs"
+	13, "DMR - Nod"
 }
 
 OptionValue "dmr_replace_keen_options"
 {
     0, "Vanilla"
-	1, "DMR"
-	2, "Scythe 2"
-	3, "Epic 2"
-	4, "Resurgence"
+	1, "Scythe 2"
+	//2, "Epic 2"
+	3, "Resurgence"
+	11, "DMR (WiP)"
 }

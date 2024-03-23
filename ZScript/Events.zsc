@@ -2,36 +2,47 @@ class DMR_ReplacerHandler : EventHandler
 {
 	override void CheckReplacement(ReplaceEvent a)
 	{
-		// replace CommanderKeen and/or WolfensteinSS with a specific monster, depending on the setting
-		// options currently are:
-		//0, "Vanilla"
-		//1, "DMR"
-		//2, "Scythe 2"
-		//3, "Epic 2"
-		//4, "Resurgence"
+		// replace CommanderKeen and/or WolfensteinSS with a specific monster/random spawner, depending on the setting
 		switch (a.Replacee.GetClassName()) 
 		{
 			case 'WolfensteinSS':
+				// "Scythe 2"
 				if (dmr_replace_ss == 1)
-					{ a.Replacement = 'WolfensteinSSReplacer'; break; }
-				else if (dmr_replace_ss == 2)
 					{ a.Replacement = 'EvilMarine'; break; }
-				else if(dmr_replace_ss == 3)
+				// "Epic 2"
+				else if(dmr_replace_ss == 2)
 					{ a.Replacement = 'AlienFighter'; break; }
-				else if (dmr_replace_ss == 4)
+				// "Resurgence"
+				else if (dmr_replace_ss == 3)
 					{ a.Replacement = 'EvilMarine'; break; }
+					
+				// "DMR - Nazis"
+				else if (dmr_replace_ss == 11)
+					{ a.Replacement = 'SSReplacer_Nazi'; break; }
+				// "DMR - Cyborgs"
+				else if (dmr_replace_ss == 12)
+					{ a.Replacement = 'SSReplacer_Cyborgs'; break; }
+				// "DMR - Nod"
+				else if (dmr_replace_ss == 13)
+					{ a.Replacement = 'SSReplacer_Nod'; break; }
 			case 'CommanderKeen':
+				// "Scythe 2"
 				if (dmr_replace_keen == 1)
 					{ a.Replacement = 'SuperAfrit'; break; }
-				else if (dmr_replace_keen == 2)
-					{ a.Replacement = 'SuperAfrit'; break; }
-				//else if(dmr_replace_keen == 3)
+				// "Epic 2"
+				//else if(dmr_replace_keen == 2)
 				//	{ a.Replacement = 'Epic2Keen'; break; }
-				else if (dmr_replace_keen == 4)
+				// "Resurgence"
+				else if (dmr_replace_keen == 3)
+					{ a.Replacement = 'SuperAfrit'; break; }
+					
+				// "DMR"
+				else if (dmr_replace_keen == 11)
 					{ a.Replacement = 'SuperAfrit'; break; }
 		}		
 		
 		// mapset / mod custom actor replacers
+		// if a mapset replaces WolfensteinSS and/or CommanderKeen, it should not be done here
 		switch (a.Replacee.GetClassName()) 
 		{
 			// BD Hell on Earth mapset

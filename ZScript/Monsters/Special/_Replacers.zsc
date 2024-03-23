@@ -1,0 +1,38 @@
+// all kinds of replacers which you can select in the options
+
+Class SSReplacer_Nazi : RandomSpawner
+{
+	Default
+	{
+		DropItem "EvilMarine", 255, 100;
+		DropItem "FormerCyborgCommando", 255, 4;
+	}
+}
+
+Class SSReplacer_Cyborgs : RandomSpawner
+{
+	Default
+	{
+		DropItem "FormerCyborg", 255, 100;
+		DropItem "FormerCyborgCommando", 255, 4;
+	}
+}
+
+Class SSReplacer_Nod : RandomSpawner
+{
+	Default
+	{
+		// light infantry
+		DropItem "FormerAssaultTrooper", 255, 100;
+		DropItem "FormerInfiltrator", 255, 100;
+		DropItem "FormerSpecOpsGunner", 255, 100;
+		// rocket infantry
+		DropItem "FormerRocketeer", 255, 50;
+		// black hand
+		DropItem "FormerPyroTechnician", 255, 50;
+		// cyborg
+		DropItem "FormerCyborg", 255, 25;
+		// cyborg commando
+		DropItem "FormerCyborgCommando", 255, 10;
+	}
+}
