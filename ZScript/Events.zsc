@@ -51,7 +51,7 @@ class DMR_ReplacerHandler : EventHandler
 			
 			// Eviternity
 			case 'AstralCaco'						: a.Replacement = 'DMR_AstralCaco'; break;
-			case 'Annihilator'						: a.Replacement = 'NobleAnnihilator'; break;
+			case 'Annihilator'						: a.Replacement = 'DMR_Annihilator'; break;
 			case 'FormerCaptain'					: a.Replacement = 'DMR_FormerCaptain'; break;
 			case 'NightmareDemon'					: a.Replacement = 'DMR_NightmareDemon'; break;			
 			

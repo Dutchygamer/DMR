@@ -13,19 +13,20 @@
 
 // Meant to replace Eviternity's Annihilator
 // relies on Eviternity's sprite replacements to display properly, so don't use in other mapsets as it will just use the (mismatching) vanilla Baron sprites
-class NobleAnnihilator : DMR_BaronOfHell
+// compared to the NobleAnnihilator this one is more in line with how it is in the mapset instead of the powerhouse the other one is
+class DMR_Annihilator : DMR_BaronOfHell
 {
 	Default
 	{
-		Tag "Noble Annihilator";
+		Tag "Kur Annihilator Prototype";
 		Health 1300;
 		PainChance 20;
 		Speed 10;
 		DropItem "RocketAmmo", 256, 1;
 		DropItem "RocketAmmo", 128, 1;
 		DropItem "RocketAmmo", 128, 1;
-		Obituary "%o underestimated the firepower of a noble annihilator.";
-		HitObituary "%o was smashed by a noble annihilator.";
+		Obituary "%o underestimated the firepower of a kur annihilator prototype.";
+		HitObituary "%o was smashed by a kur annihilator prototype.";
 		+MISSILEMORE;
 		SeeSound "monster/brusit";
 		DeathSound "monster/brudth";
@@ -118,10 +119,10 @@ class NobleAnnihilator : DMR_BaronOfHell
 		BOSS NOPQ 5 Bright {
 			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
 		}
-		BOSS R -1 A_KeenDie; // the important one
+		BOSS R -1 A_KeenDie; // the important one for Eviternity
 		Stop;
 	Raise: 
-		BOSS TSRQPONMLK 5;
+		BOSS RQPONMLK 5;
 		Goto See;
 	}
 }

@@ -8,5 +8,6 @@ Class BaronOfHellReplacer: RandomSpawner replaces BaronOfHell
 		DropItem "Hellsmith", 255, 15;
 		DropItem "NoblePraetorian", 255, 15;
 		DropItem "NobleVanguard", 255, 15;
+		DropItem "NobleAnnihilator", 255, 8;
 	}
 }

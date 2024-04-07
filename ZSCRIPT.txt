@@ -84,6 +84,7 @@ version "4.2.1"
 #include "ZScript/Monsters/BaronOfHell/BruiserDemon.zsc"
 #include "ZScript/Monsters/BaronOfHell/Apprentice.zsc"
 #include "ZScript/Monsters/BaronOfHell/Paladin.zsc"
+#include "ZScript/Monsters/BaronOfHell/Cynihilator.zsc"
 
 #include "ZScript/Monsters/Arachnotron/_Replacer.zsc"
 #include "ZScript/Monsters/Arachnotron/DMR_Arachnotron.zsc"

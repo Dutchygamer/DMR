@@ -1,0 +1,141 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Eriance
+//	Sounds:		Id Software, Eriance
+//  Sprites: 	id Software, Raven Software, Wolfendoom, Blizzard Entertainment, Vader (edits by Eriance / Xaser)
+//	GLDEFs: 	Dreadopp, SandyPaper (Brightmaps)
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class NobleAnnihilator : DMR_BaronOfHell
+{
+	Default
+	{
+		Tag "Kur Annihilator";
+		Health 1800;
+		PainChance 15;
+		DropItem "RocketBox", 256, 5;
+		DropItem "RocketBox", 128, 5;
+		DropItem "RocketAmmo", 128, 1;
+		DropItem "RocketAmmo", 128, 1;
+		Obituary "%o underestimated the firepower of a Kur annihilator.";
+		+MISSILEMORE;
+		+MISSILEEVENMORE;
+		SeeSound "monster/brusit";
+		DeathSound "monster/brudth";
+		Scale 1.15;
+	}
+	int boolet;
+	
+	States
+	{
+	Spawn:
+		BRU3 AB 10 A_Look;
+		Loop;
+	See:
+		BRU3 AABB 3 A_Chase;
+		TNT1 A 0 A_PlaySound("noblebaron/step");
+		BRU3 CCDD 3 A_Chase;
+		TNT1 A 0 A_PlaySound("noblebaron/step");
+		Loop;
+	Melee:
+	Missile: 
+		TNT1 A 0 A_Jump(72, "Plasma");
+		TNT1 A 0 A_Jump(256, "Rockets", "RocketBurst");
+	Rockets:
+		BRU3 EE 8 A_FaceTarget;
+		BRU3 F 8 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("DMR_Rocket",43,16);
+		}
+		BRU3 E 8 A_FaceTarget;
+		BRU3 F 8 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("DMR_Rocket",43,16);
+		}
+		BRU3 E 8 A_FaceTarget;
+		BRU3 F 8 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("DMR_Rocket",43,16);
+		}
+		TNT1 A 0 A_Jump(128, "Grenades");
+		BRU3 E 8;
+		Goto See;
+	RocketBurst:
+        TNT1 A 0 {
+			A_PlaySound("heavyweapon/load");			
+			attackloop = 0;
+		}
+		BRU3 EE 10 A_FaceTarget;
+		BRU3 F 5 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("DMR_SmallRocket",43,16);
+			attackloop++;
+		}
+		BRU3 E 2 A_FaceTarget;
+		TNT1 A 0 A_JumpIf(attackloop >= 5,"RocketBurstEnd");
+		Goto RocketBurst+3;
+	RocketBurstEnd:
+		TNT1 A 0 A_Jump(128, "Grenades");
+		BRU3 E 8;
+		Goto See;
+	Plasma:
+        TNT1 A 0 {	
+			attackloop = 0;
+		}
+		BRU3 EE 8 A_FaceTarget;
+		BRU3 F 6 Bright Light("DMR_HellRuneFire") {
+			A_SpawnProjectile("DMR_HellRune",43,16);
+			attackloop++;
+		}
+		BRU3 E 6 A_FaceTarget;
+		TNT1 A 0 A_JumpIf(attackloop >= 3,"PlasmaEnd");
+		Goto Plasma+3;
+	PlasmaEnd:
+		BRU3 E 6 A_Jump(128, "Grenades");
+		Goto See;
+	Grenades:
+        TNT1 A 0 {
+			A_PlaySound("heavyweapon/load");			
+			attackloop = 0;
+		}
+		BRU3 GS 10 A_Facetarget;
+		BRU3 H 6 Bright Light("DMR_RifleFire") {
+			A_LobProjectile("NobleVanguardGrenade",43,-16);
+			attackloop++;
+		}
+		BRU3 S 6 A_Facetarget;
+		BRU3 I 6 Bright Light("DMR_RifleFire") {
+			A_LobProjectile("NobleVanguardGrenade",43,-16);
+			attackloop++;
+		}
+		BRU3 S 6 A_Facetarget;
+		TNT1 A 0 A_JumpIf(attackloop >= 4,"GrenadesEnd");
+		Goto Grenades+3;
+	GrenadesEnd:
+		BRU3 SG 8 A_Facetarget;
+		Goto See;
+	Pain:
+		BRU3 J 2;
+		BRU3 J 4 A_Pain;
+		Goto See;
+	Death:
+	XDeath:
+		BRU3 K 20 Bright A_Scream;
+		BRU3 LLLMMM 5 Bright {
+			A_SpawnItemEx("DMR_BossDeathExplosion",random(8,-8),0,random(20,40));
+		}
+		TNT1 A 0 {
+			A_NoBlocking();
+			A_SpawnItemEx("DMR_MonsterDeathFinalExplosion");
+		}
+		BRU3 NNOOPPQQ 3 Bright {
+			A_SpawnItemEx("DMR_BossDeathExplosion",random(8,-8),0,random(20,40));
+		}
+		BRU3 R -1 A_BossDeath;
+		Stop;
+	Raise: 
+		BRU3 RQPONMLK 5;
+		Goto See;
+	}
+}
