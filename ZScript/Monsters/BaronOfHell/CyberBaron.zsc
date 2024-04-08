@@ -68,14 +68,14 @@ class CyberBaronOfHell : DMR_BaronOfHell
 		goto See;
 	Death:
 	XDeath:	
-		CBOS I 8;
-		CBOS J 8 A_Scream;
-		CBOS K 8 bright {
+		CBOS I 15 A_Scream;
+		CBOS J 5;
+		CBOS K 5 bright {
 			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
 		}
-		CBOS L 8 bright A_NoBlocking;
-		CBOS M 8 bright;
-		CBOS N 8 bright;
+		CBOS L 5 bright A_NoBlocking;
+		CBOS M 5 bright;
+		CBOS N 5 bright;
 		CBOS O -1 A_BossDeath;
 		stop;
 	Raise:
