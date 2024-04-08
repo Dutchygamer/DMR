@@ -90,17 +90,17 @@ class NoblePraetorian : DMR_BaronOfHell
 		Goto See;
 	Death:
 	XDeath:
-		BRU2 K 6 Bright A_Scream;
-		BRU2 L 6 Bright;
-		BRU2 MN 6 Bright {
+		BRU2 K 15 Bright A_Scream;
+		BRU2 LMN 5 Bright {
 			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
 		}
-		BRU2 O 6 Bright A_NoBlocking;
-		BRU2 QRS 6 Bright;
+		BRU2 O 5 Bright A_NoBlocking;
+		BRU2 PQR 5 Bright;
+		BRU2 S 5;
 		BRU2 T -1 A_BossDeath;
 		Stop;
 	Raise: 
-		BRU2 TSRQPONMLK 5;
+		BRU2 SRQPONMLK 8;
 		Goto See;
 	}
 }

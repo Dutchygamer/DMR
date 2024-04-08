@@ -333,21 +333,6 @@ shieldwall/death              SHLDBRK
 
 cyknight/step				HPALSTEP
 
-// Paladin
-Paladin/Sight	HPALSIT
-Paladin/Active	HPALACT
-Paladin/Pain	HPALPAIN
-Paladin/Death	HPALDTH
-Paladin/XDeath	HPALXDTH
-Paladin/Swing	HPALSWG
-Paladin/Melee	HPALHIT
-Paladin/Shoot	HPALATK
-Paladin/Hit		HPALHIT2
-Paladin/Grenade	HPALGREN
-Paladin/Bounce	HPALBNC
-Paladin/Explode	HPALEXPL
-//Paladin/Step	HPALSTEP
-
 // Afrit
 //TODO eh, which one is right?
 dragonfam/attack dsafrinf
@@ -373,10 +358,25 @@ noblebaron/step				HPALSTEP
 
 // Bruiser demon
 monster/brusit dsbrusit
-monster/brudth dsbrudth
+monster/brudth DSBRUDTH
 //monster/bruwlk dsbruwlk
 monster/brufir dsbrufir
 weapons/hellex dshellex
+
+// Paladin
+Paladin/Sight	HPALSIT
+Paladin/Active	HPALACT
+Paladin/Pain	HPALPAIN
+Paladin/Death	HPALDTH //HPALXDTH //HPALDTH
+Paladin/XDeath	HPALXDTH
+Paladin/Swing	HPALSWG
+Paladin/Melee	HPALHIT
+Paladin/Shoot	HPALATK
+Paladin/Hit		HPALHIT2
+Paladin/Grenade	HPALGREN
+Paladin/Bounce	HPALBNC
+Paladin/Explode	HPALEXPL
+//Paladin/Step	HPALSTEP
 
 // Archon Of Hell
 monster/ar2sit dsar2sit

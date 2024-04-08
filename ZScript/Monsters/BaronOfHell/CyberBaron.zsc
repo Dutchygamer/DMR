@@ -76,7 +76,7 @@ class CyberBaronOfHell : DMR_BaronOfHell
 		CBOS L 8 bright A_NoBlocking;
 		CBOS M 8 bright;
 		CBOS N 8 bright;
-		CBOS O -1;
+		CBOS O -1 A_BossDeath;
 		stop;
 	Raise:
 		CBOS ONMLKJI 8;
