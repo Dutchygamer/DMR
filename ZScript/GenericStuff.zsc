@@ -26,6 +26,31 @@ class DMR_GhostAfterImage : Actor
 	}
 }
 
+//======================================================================
+//  Original credits
+//======================================================================
+//	ZScript: 	DustedPandemonic, modified by Dutchygamer
+//======================================================================
+class DMR_StencilledGhostAfterImage : DMR_GhostAfterImage
+{   
+	Default
+	{
+		Renderstyle "AddStencil";
+		+BRIGHT;
+		Alpha 0.08;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 3;
+		"----" A 1 {
+			A_FadeOut(0.05);
+			A_SetScale(Scale.X+0.01);
+		}
+		Wait;
+	}
+}
+
 // dropped shield
 Class DMR_DroppedShield: Actor
 {

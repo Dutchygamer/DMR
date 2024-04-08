@@ -205,7 +205,7 @@ Class DMR_LargeGasBallImpactSpawner : DMR_FXBase
 
 //-----------------------------------
 
-// monstead death explosion spawners
+// monster death explosion spawners
 Class DMR_CyberDeathExplosionSpawner : DMR_FXBase
 {
 	Default

@@ -14,6 +14,8 @@
 
 class Terminator : DMR_Cyberdemon
 {
+	Mixin DMR_BerserkingMonster;
+
 	Default
 	{
 		Tag "Terminator";
@@ -28,35 +30,35 @@ class Terminator : DMR_Cyberdemon
 		PainSound "monster/termpin";
 		DeathSound "monster/termdth";
 		ActiveSound "Terminator/termact";
+		StencilColor "Red";
 	}
 	int boolet;
-	bool criticalDamaged;
 	
 	States
 	{
 	Spawn:
+		TNT1 A 0 NoDelay {
+			berserkThreshold = 1000;
+		}
 		TERM AB 10 A_Look;
 		Loop;
 	See:
-		TNT1 A 0 {
-			if (!criticalDamaged && health < 1000) { SetStateLabel("GoBerserk"); }
-		}
 		TERM A 3 {
-			A_SetTerminatorTics(3,2);
+			A_SetBerserkerTics(3,2);
 			A_Chase();
 			A_Playsound("Terminator/terstepA");
 		}
 		TERM ABB 3 {		
-			A_SetTerminatorTics(3,2);
+			A_SetBerserkerTics(3,2);
 			A_Chase();
 		}
 		TERM C 3 {
-			A_SetTerminatorTics(3,2);
+			A_SetBerserkerTics(3,2);
 			A_Chase();
 			A_Playsound("Terminator/terstepA");
 		}
 		TERM CDD 3 {		
-			A_SetTerminatorTics(3,2);
+			A_SetBerserkerTics(3,2);
 			A_Chase();
 		}
 		Loop;	
@@ -172,30 +174,6 @@ class Terminator : DMR_Cyberdemon
 		TERM [ 50;
 		TERM [ -1 A_BossDeath;
 		Stop;
-	}
-	
-	override void Tick()
-  	{
-		Super.Tick();
-		if (!criticalDamaged && health > 0 && health < 1000 && bNOPAIN == false) 
-		{ 
-			SetStateLabel("CriticalDamage"); 
-		}
-		if (criticalDamaged && health > 0 && !IsFrozen())
-		{		
-			A_SpawnItemEx("TerminatorBerserkingSmokeCloud",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-		}
-  	}
-	
-	//TODO unsure if keep or just increase it's speed
-	void A_SetTerminatorTics(int normalTics, int berserkTics)
-	{
-		if (criticalDamaged) {
-			A_SetTics(berserkTics);
-		}
-		else {
-			A_SetTics(normalTics);
-		}
 	}
 }
 
