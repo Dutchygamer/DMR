@@ -17,20 +17,20 @@ class NobleAnnihilator : DMR_BaronOfHell
 
 	Default
 	{
-		Tag "Kur Annihilator";
+		Tag "Kur Praetorian";
 		Health 1800;
 		PainChance 15;
 		DropItem "RocketBox", 256, 5;
 		DropItem "RocketBox", 128, 5;
 		DropItem "RocketAmmo", 128, 1;
 		DropItem "RocketAmmo", 128, 1;
-		Obituary "%o underestimated the firepower of a Kur annihilator.";
+		Obituary "%o underestimated the firepower of a Kur Praetorian.";
 		+MISSILEMORE;
 		+MISSILEEVENMORE;
 		SeeSound "monster/brusit";
 		DeathSound "monster/brudth";
 		Scale 1.15;
-		StencilColor "Red";
+		StencilColor "Yellow";
 	}
 	int boolet;
 	
@@ -119,22 +119,23 @@ class NobleAnnihilator : DMR_BaronOfHell
 		}
 		BRU3 GS 10 A_Facetarget;
 		BRU3 H 6 Bright Light("DMR_RifleFire") {
-			A_LobProjectile("NobleVanguardGrenade",40,-10, frandom(-5,5));
+			A_LobProjectile("FormerCyborgGrenade",40,-10, frandom(-5,5));
 			attackloop++;
 		}
 		BRU3 S 6 A_Facetarget;
 		BRU3 I 6 Bright Light("DMR_RifleFire") {
-			A_LobProjectile("NobleVanguardGrenade",40,-10, frandom(-5,5));
+			A_LobProjectile("FormerCyborgGrenade",40,-10, frandom(-5,5));
 			attackloop++;
 		}
 		BRU3 S 6 A_Facetarget;
-		TNT1 A 0 A_JumpIf(attackloop >= 4,"GrenadesEnd");
+		TNT1 A 0 A_JumpIf(attackloop >= 6,"GrenadesEnd");
 		Goto Grenades+3;
 	GrenadesEnd:
 		BRU3 SG 8 A_Facetarget;
 		TNT1 A 0 {
 			// when berserk, continue with this state
 			if (!criticalDamaged) { SetStateLabel("See"); }
+			//TODO LoS check anders gaat ie oneindig door schieten ook al ziet ie je niet meer
 		}
 		TNT1 A 0 A_Jump(230, "Missile"); // 90% chance to keep attacking
 		Goto See;
