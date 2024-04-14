@@ -29,6 +29,7 @@ $rolloff heavyweapon/load 300 1300
 
 flamethrower/fire flamtnk1
 
+
 //////////////////////////////
 // Zombieman variant sounds //
 //////////////////////////////
@@ -331,7 +332,12 @@ knight/pain                   HKNIPN
 shieldwall/pain               SHLDHIT
 shieldwall/death              SHLDBRK
 
+cyknight/sight				CYKNISIT
+cyknight/pain				CYKNIPN
+cyknight/death				CYKNIDTH
 cyknight/step				HPALSTEP
+$pitchset cyknight/step 1.2
+
 
 // Afrit
 //TODO eh, which one is right?
@@ -354,6 +360,9 @@ satyr/death dssatdth
 
 baron/pain                     BRUIPN
 
+cybaron/sight				CYBRUSIT
+cybaron/pain				CYBRUPN
+cybaron/death				CYBRUDTH
 noblebaron/step				HPALSTEP
 
 // Bruiser demon

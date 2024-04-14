@@ -20,6 +20,9 @@ class CyberBaronOfHell : DMR_BaronOfHell
 		DropItem "RocketAmmo", 128, 1;
 		obituary "%o was blasted by a cyber baron";
 		hitobituary "%o was torn apart by a cyber baron";
+		SeeSound "cybaron/sight";
+		PainSound "cybaron/pain";
+		DeathSound "cybaron/death";
 	}
 	States
 	{
