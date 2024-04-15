@@ -56,7 +56,7 @@ class DMR_BossDeathFinalExplosion : DMR_FXBase
 	{
 		+NOINTERACTION;
 		Renderstyle "Add";
-		Scale 1.1;
+		Scale 1.15;
 	}
 	int fxLoop;
 	
