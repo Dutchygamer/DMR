@@ -108,7 +108,6 @@ version "4.2.1"
 
 #include "ZScript/Monsters/LostSoul/_Replacer.zsc"
 #include "ZScript/Monsters/LostSoul/DMR_LostSoul.zsc"
-#include "ZScript/Monsters/LostSoul/Phantom.zsc"
 #include "ZScript/Monsters/LostSoul/HadesSphere.zsc"
 #include "ZScript/Monsters/LostSoul/Guardian.zsc"
 #include "ZScript/Monsters/LostSoul/ViralOne.zsc"

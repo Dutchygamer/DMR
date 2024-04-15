@@ -335,8 +335,7 @@ shieldwall/death              SHLDBRK
 cyknight/sight				CYKNISIT
 cyknight/pain				CYKNIPN
 cyknight/death				CYKNIDTH
-cyknight/step				HPALSTEP
-$pitchset cyknight/step 1.2
+cyknight/step				CYKNIWLK
 
 
 // Afrit
@@ -360,16 +359,20 @@ satyr/death dssatdth
 
 baron/pain                     BRUIPN
 
+// Cyber Baron
 cybaron/sight				CYBRUSIT
 cybaron/pain				CYBRUPN
 cybaron/death				CYBRUDTH
-noblebaron/step				HPALSTEP
 
-// Bruiser demon
+// Cybruiser
 monster/brusit dsbrusit
 monster/brudth DSBRUDTH
-//monster/bruwlk dsbruwlk
 monster/brufir dsbrufir
+cybruiser/step				HPALSTEP
+
+// Cynihilator
+cynihilator/step				KUPRAWLK
+
 weapons/hellex dshellex
 
 // Paladin
