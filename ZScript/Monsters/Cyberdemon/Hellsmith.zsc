@@ -26,10 +26,10 @@ class Forgemaster : DMR_Cyberdemon
 		HitObituary "%o was crushed under the Forgemaster's hoof.";
 		DamageFunction(random(30,90)); //for charging
 		MeleeRange 86;
-		SeeSound "hellsmith/see";
-		PainSound "hellsmith/pain"; 
-		DeathSound "hellsmith/death";
-		ActiveSound "hellsmith/active";
+		SeeSound "forgemaster/see";
+		PainSound "forgemaster/pain"; 
+		DeathSound "forgemaster/death";
+		ActiveSound "forgemaster/active";
 	}
 	States 
 	{    
@@ -39,12 +39,12 @@ class Forgemaster : DMR_Cyberdemon
 	See: 
 		BSMT A 3 {
 			A_Chase();
-			A_Playsound ("hellsmith/move");
+			A_Playsound ("forgemaster/move");
 		}
 		BSMT ABB 3 A_Chase;
 		BSMT C 3 {
 			A_Chase();
-			A_Playsound ("hellsmith/move");
+			A_Playsound ("forgemaster/move");
 		}
 		BSMT CDD 3 A_Chase;
 		Loop;
@@ -53,7 +53,7 @@ class Forgemaster : DMR_Cyberdemon
 		TNT1 A 0 A_Jump(256,"Balls","Clustershot");
 		Goto See;
 	/*Charge:
-		BSMT O 1 A_Playsound ("hellsmith/dash");
+		BSMT O 1 A_Playsound ("forgemaster/dash");
 		BSMT OOOOOOOO 4 {
 			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
 			A_SkullAttack();
@@ -63,7 +63,7 @@ class Forgemaster : DMR_Cyberdemon
 		Goto See;*/
 	Balls:
 		BSMT E 6 A_FaceTarget;
-		BSMT H 6 A_PlaySound("hellsmith/swing", CHAN_WEAPON);
+		BSMT H 6 A_PlaySound("forgemaster/swing", CHAN_WEAPON);
 		BSMT I 12 {
 			A_PlaySound("weapons/hellfi", CHAN_WEAPON);
 			A_SpawnProjectile("ForgemasterBall",52,0,8);
@@ -74,7 +74,7 @@ class Forgemaster : DMR_Cyberdemon
 		Goto See;
 		BSMT B 6;
 		BSMT J 6 A_FaceTarget;
-		BSMT M 6 A_PlaySound("hellsmith/swing", CHAN_WEAPON);
+		BSMT M 6 A_PlaySound("forgemaster/swing", CHAN_WEAPON);
 		BSMT N 12 {
 			A_PlaySound("weapons/hellfi", CHAN_WEAPON);
 			A_SpawnProjectile("ForgemasterBall",52,0,8);
@@ -86,24 +86,24 @@ class Forgemaster : DMR_Cyberdemon
 	//Melee:
 	ClusterShot:
 		BSMT E 8 A_FaceTarget;
-		BSMT F 1 A_Playsound ("hellsmith/swing");
+		BSMT F 1 A_Playsound ("forgemaster/swing");
 		BSMT F 5 A_FaceTarget;
 		BSMT G 10 {
 			A_Quake(3,25,0,400);
 			A_Quake(2,25,0,700);
-			//A_Playsound("hellsmith/floor");
-			A_CustomComboAttack ("ForgemasterClusterBall",0,random(30,90),"hellsmith/hit"); //A_SpawnProjectile("ForgemasterClusterBall",0,0);
+			//A_Playsound("forgemaster/floor");
+			A_CustomComboAttack ("ForgemasterClusterBall",0,random(30,90),"forgemaster/hit"); //A_SpawnProjectile("ForgemasterClusterBall",0,0);
 		}
 		TNT1 A 0 A_Jump (128,1);
 		Goto See;
 		BSMT J 8 A_FaceTarget;
-		BSMT K 1 A_Playsound ("hellsmith/swing");
+		BSMT K 1 A_Playsound ("forgemaster/swing");
 		BSMT K 5 A_FaceTarget;
 		BSMT L 10 {
 			A_Quake(3,25,0,400);
 			A_Quake(2,25,0,700);
-			//A_Playsound("hellsmith/floor");
-			A_CustomComboAttack ("ForgemasterClusterBall",0,random(30,90),"hellsmith/hit"); //A_SpawnProjectile("ForgemasterClusterBall",0,0);
+			//A_Playsound("forgemaster/floor");
+			A_CustomComboAttack ("ForgemasterClusterBall",0,random(30,90),"forgemaster/hit"); //A_SpawnProjectile("ForgemasterClusterBall",0,0);
 		}
 		Goto See;		
 	Pain: 
@@ -289,7 +289,7 @@ class ForgemasterDroppedHammer : DMR_DroppedShield
 	Default
 	{
 		+FORCEXYBILLBOARD;
-		DeathSound "hellsmith/hitfloor";
+		DeathSound "forgemaster/hitfloor";
 		Bouncefactor 0.5;
 	}
 	States

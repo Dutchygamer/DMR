@@ -238,6 +238,12 @@ cyfiend/step1	CYFNSTP1
 cyfiend/step2	CYFNSTP2
 cyfiend/pain	CYFNPAIN
 
+// blood fiend
+monster/sg2sit dssg2sit
+monster/sg2atk dssg2atk
+weapons/bloodf dsbloodf
+weapons/bloodx dsbloodx
+
 
 ////////////////////////////
 // Spectre variant sounds //
@@ -373,7 +379,16 @@ cybruiser/step				HPALSTEP
 // Cynihilator
 cynihilator/step				KUPRAWLK
 
-weapons/hellex dshellex
+
+// Hellsmith
+Hellsmith/sight 	MINSIT
+Hellsmith/active 	MINACT
+Hellsmith/pain 		MINPAI
+Hellsmith/death 	MINDTH
+Hellsmith/swing		dshamswg
+Hellsmith/hitfloor 	dshamflr
+Hellsmith/hit      	dshamhit
+
 
 // Paladin
 Paladin/Sight	HPALSIT
@@ -394,13 +409,11 @@ Paladin/Explode	HPALEXPL
 monster/ar2sit dsar2sit
 monster/ar2dth dsar2dth
 weapons/firbfi dsfirbfi
-weapons/hellex dshellex
 
 // Hellstorm Archon
 monster/arcsit dsarcsit
 monster/arcdth dsarcdth
 weapons/firbfi dsfirbfi
-weapons/hellex dshellex
 
 // Lord of Heresy
 LordOfHeresy/sight DSLOHSIT
@@ -415,6 +428,8 @@ superbaron/act dssbact
 
 weapons/hellrune BLSSHT
 weapons/hellrunebig BLSHIT
+
+flamebringer/firefx DSFIREX4
 
 
 ///////////////////////////////////
@@ -519,6 +534,19 @@ monster/incexp dsincexp
 
 draugr/cluster samshot1
 
+// Dusk Warrior (old)
+hknight/sight           kgtsit
+hknight/attack          kgtatk
+hknight/melee           kgtat2
+hknight/pain            kgtpai
+hknight/death           kgtdth
+hknight/active          kgtsit
+hknight/hit         hrnhit
+hknight/axewhoosh       kgtatk
+
+
+
+
 /////////////////////////////
 // Mancubus variant sounds //
 /////////////////////////////
@@ -613,6 +641,14 @@ weapons/firex4 dsfirex4
 weapons/diasht dsdiasht
 weapons/firex3 dsfirex3
 
+//Dark Acolyte
+monster/acosit			dsacosit
+monster/acoact			dsacoact
+monster/acopai			dsacopai
+monster/acodth			dsacodth
+monster/acosht			dsacosht
+monster/acohit			dsacohit
+
 
 ///////////////////////////////
 // Cyberdemon variant sounds //
@@ -669,7 +705,7 @@ Terminator/terstepB dststep3
 Terminator/tershotA dstshot1
 Terminator/tershotB dstshot2
 monster/brufir dsbrufir
-weapons/hellex dshellex
+
 
 // TibCyber
 TiberDemon/sight			TBCYBSIT
@@ -729,18 +765,19 @@ pyro/cometdeath DSCMTEXP
 pyro/bomb DSRDSHOT
 pyro/bombhit DSRDHIT
 
-// Hellsmith (Master & Apprentice)
-hellsmith/see                 dssmiths
-hellsmith/active              dssmitha
-hellsmith/attack              dssmitht
-hellsmith/pain                dssmithp
-hellsmith/death               dssmithd
-hellsmith/swing               dshamswg
-hellsmith/hitfloor            dshamflr
-hellsmith/hit                 dshamhit
-hellsmith/shoot               dshamsht
-hellsmith/dash                dsdash
-hellsmith/move                dsfihoof
+// Forgemaster
+forgemaster/see                 dssmiths
+forgemaster/active              dssmitha
+forgemaster/attack              dssmitht
+forgemaster/pain                dssmithp
+forgemaster/death               dssmithd
+forgemaster/swing               dshamswg
+forgemaster/hitfloor            dshamflr
+forgemaster/hit                 dshamhit
+forgemaster/shoot               dshamsht
+forgemaster/dash                dsdash
+forgemaster/move                dsfihoof
+
 weapons/hellex	              dshellex
 weapons/hellfi		          dshellfi
 
@@ -796,481 +833,3 @@ alienfighter/sight 		DSGSSIT
 alienfighter/death 		DSGSDTH
 alienfighter/fire 		TESFIR
 
-
-
-
-///////////////////////////
-// Other & unused sounds //
-///////////////////////////
-
-
-
-
-
-
-monster/sg2sit dssg2sit
-monster/sg2atk dssg2atk
-
-monster/demsit dsdemsit
-monster/dematk dscannon
-monster/demdth dsdemdth
-
-weapons/bloodf dsbloodf
-weapons/bloodx dsbloodx
-
-//Dark Disciple
-monster/dissit			dsdissit
-monster/disact			dsdisact
-monster/disat1			dsdisat1
-monster/disat2			dsdisat2
-monster/disht1			dsdisht1
-monster/disht2			dsdisht2
-monster/disdth			dsdisdth
-monster/blur			dsblur
-
-//Dark Acolyte
-monster/acosit			dsacosit
-monster/acoact			dsacoact
-monster/acopai			dsacopai
-monster/acodth			dsacodth
-monster/acosht			dsacosht
-monster/acohit			dsacohit
-
-//Dark Cultist
-$random monster/culsit 		{ monster/culsi1  monster/culsi2  monster/culsi3 monster/culsi4 }
-$random monster/culact		{ monster/culac1  monster/culac2  }
-$random monster/culdth		{ monster/culdt1  monster/culdt2  }
-monster/culsi1			dsculsi1
-monster/culsi2			dsculsi2
-monster/culsi3			dsculsi3
-monster/culsi4			dsculsi4
-monster/culac1			dsculac1
-monster/culac2			dsculac2
-monster/culdt1			dsculdt1
-monster/culdt2			dsculdt2
-monster/culatk			dsculatk
-monster/culpai			dsculpai
-
-//Dark Avatar
-monster/avasit                  dsavasit
-monster/avaact                  dsavaact
-monster/avaatk                  dsavaatk
-monster/avapai                  dsavapai
-monster/avadth                  dsavadth
-weapons/bwoosh                  dsbwoosh
-weapons/firex2                  dsfirex2
-weapons/gnthit                  dsgnthit
-weapons/devzap                  dsdevzap
-weapons/devexp                  dsdevexp
-weapons/gntini                  dsgntini
-
-//Wraith
-spirit/active                 dsspract
-spirit/charge                 dsspratk
-spirit/attack                 dssprat2
-spirit/death                  dssprdth
-spirit/see                    dssprsit
-spirit/active                 dsspract
-spirit/pain                   dssprpai
-
-//Watcher
-watcher/see                   dswatsit
-watcher/active                dswatact
-watcher/pain                  dswatpai
-watcher/death                 dswatdth
-watcher/attack                dswatatk
-watcher/hit                   dswathit
-
-flamebringer/firefx DSFIREX4
-
-
-
-//
-//HERETIC STUFF...
-//
-$rolloff * custom 0 1600
-
-$pitchshiftrange 2
-
-//
-// Gargoyle
-//
-
-himp/sight          impsit
-himp/attack         impat1
-himp/pain           imppai
-himp/death          impdth
-himp/active         impsit
-himp/leaderattack       impat2
-
-//
-// Maulotaur
-//
-
-minotaur/sight          minsit
-minotaur/melee          stfhit
-minotaur/attack1        minat1
-minotaur/attack2        minat2
-minotaur/attack3        minat3
-minotaur/pain           minpai
-minotaur/death          mindth
-minotaur/active         minact
-minotaur/fx2hit         phohit
-minotaur/fx3hit         phohit
-
-//
-// Wizard
-//
-
-wizard/sight            wizsit
-wizard/attack           wizatk
-wizard/death            wizdth
-wizard/pain         wizpai
-wizard/active1          wizact
-$random wizard/active       { wizard/sight wizard/active1 }
-
-//
-// Golem
-//
-
-mummy/sight         mumsit
-mummy/attack1           mumat1
-mummy/attack2           mumat2
-mummy/pain          mumpai
-mummy/death         mumdth
-mummy/active            mumsit
-mummy/head          mumhed
-
-//
-// Weredragon
-//
-
-beast/sight         bstsit
-beast/attack            bstatk
-beast/pain          bstpai
-beast/death         bstdth
-beast/active            bstact
-
-//
-// Ophidian
-//
-
-snake/attack            snkatk
-snake/sight         snksit
-snake/pain          snkpai
-snake/death         snkdth
-snake/active            snkact
-
-//
-// Sabreclaw
-//
-
-clink/sight         clksit
-clink/attack            clkatk
-clink/pain          clkpai
-clink/death         clkdth
-clink/active            clkact
-
-//
-// Undead Warrior
-//
-
-hknight/sight           kgtsit
-hknight/attack          kgtatk
-hknight/melee           kgtat2
-hknight/pain            kgtpai
-hknight/death           kgtdth
-hknight/active          kgtsit
-hknight/hit         hrnhit
-hknight/axewhoosh       kgtatk
-
-misc/timebomb           phohit
-world/volcano/blast     lobhit
-world/volcano/shoot     bstatk
-
-//
-// Iron Lich
-//
-
-ironlich/sight          hedsit
-ironlich/attack1        hedat1
-ironlich/attack2        hedat2
-ironlich/attack3        hedat3
-ironlich/pain           hedpai
-ironlich/death          heddth
-ironlich/active         hedact
-
-//
-// D'Sparil
-//
-
-dsparilserpent/sight        bstsit
-dsparilserpent/attack       bstatk
-dsparilserpent/pain     sbtpai
-dsparilserpent/death        sbtdth
-dsparilserpent/active       sbtact
-
-dsparil/sight           sorsit
-dsparil/attack          soratk
-dsparil/pain            sorpai
-dsparil/active          soract
-dsparil/rise            sorrise
-dsparil/zap         sorzap
-dsparil/scream          sordsph
-dsparil/explode         sordexp
-dsparil/bones           sordbon
-
-//
-// Chicken
-//
-
-chicken/active          chicact
-chicken/attack          chicatk
-chicken/pain            chicpai
-chicken/death           chicdth
-chicken/peck1           chicpk1
-chicken/peck2           chicpk2
-chicken/peck3           chicpk3
-$random chicken/peck        { chicken/peck1  chicken/peck2  chicken/peck3 }
-
-//
-//HEXEN STUFF...
-//
-
-//
-//Bishop
-//
-BishopSight             syab2d
-BishopActive            stb1d
-BishopPain              bshpn1
-BishopAttack            pop
-BishopDeath             bishdth1
-BishopMissileExplode    bshhit2
-BishopBlur              blur6
-
-//
-//Centaur
-//
-CentaurSight            taur1
-CentaurActive           taur2
-CentaurPain             taur4
-CentaurAttack           centhit2
-CentaurDeath            cntdth1
-CentaurLeaderAttack     cntshld4
-CentaurMissileExplode   impact3
-
-//
-//Serpent
-//
-SerpentSight            wtrcrt7
-SerpentActive           srfc3
-SerpentPain             serppn1
-SerpentAttack           wtrswip
-SerpentMeleeHit         wtrhit
-SerpentDeath            srpdth1
-SerpentBirth            srfc1
-SerpentFXContinuous     glbhiss1
-SerpentFXHit            glbhit4
-
-//
-//Chaos Serpents
-//
-DemonSight              sbtsit5
-DemonActive             sbtsit5
-DemonPain               minact1
-DemonAttack             dematk2
-DemonDeath              sbtdth3
-DemonMissileFire        impfire2
-DemonMissileExplode     impact3
-
-//
-//Wraith
-//
-WraithSight             raith5a
-WraithActive            raith3
-WraithPain              raith4a
-WraithAttack            raith1b
-WraithDeath             rathdth2
-WraithMissileFire       impfire2
-WraithMissileExplode    impact3
-
-//
-//Maulotaur
-//
-MaulatorSight           minsit1
-MaulatorActive          minact2
-MaulatorPain            minpain4
-MaulatorHamSwing        hamblo8a
-MaulatorHamHit          hamfir1
-MaulatorMissileHit      impact3
-MaulatorDeath           mindth4
-
-//
-//Ettin
-//
-EttinSight              cent2
-EttinActive             cent2
-EttinPain               cent1
-EttinAttack             ethit1
-EttinDeath              cntdth1
-
-//
-//Fire Demon
-//
-FireDemonSpawn          spawn3
-FireDemonActive         fired5
-FireDemonPain           fired2
-FireDemonAttack         spit6
-FireDemonMissileHit     firedhit
-FireDemonDeath          fired3
-
-//
-//Wendigo
-//
-IceGuySight             frosty1
-IceGuyActive            frosty1
-IceGuyAttack            frosty2
-IceGuyMissileExplode    shards1b
-
-//
-//Heresiarch
-//
-SorcererSight           sorboss1
-SorcererActive          sorboss2
-SorcererPain            sorboss3
-SorcererSpellCast       woosh3
-SorcererBallWoosh       balls1
-SorcererDeathScream     sordie2
-SorcererBishopSpawn     bishapp
-SorcererBallPop         cork
-SorcererBallBounce      bounce2
-SorcererBallExplode     impact3
-SorcererBigBallExplode  sorblexp
-SorcererHeadScream      sorblexp
-
-//
-//Death Wyvern
-//
-DragonSight             dragsit1
-DragonActive            dragsit1
-DragonWingflap          wing1
-DragonAttack            mage4
-DragonPain              dragpn2
-DragonDeath             dragdie2
-DragonFireballExplode   mageball
-
-//
-//Korax
-//
-KoraxSight              korsit
-KoraxActive             koract
-KoraxPain               korpn1
-KoraxAttack             koratk
-KoraxCommand            korcom
-KoraxDeath              kordth1
-KoraxStep               step
-
-//
-//Korax Voice sounds
-//
-KoraxVoiceGreetings     grtngs1
-KoraxVoiceReady         ready1
-KoraxVoiceBlood         blood1
-KoraxVoiceGame          game1
-KoraxVoiceBoard         board1
-KoraxVoiceWorship       wrship1
-KoraxVoiceMaybe         maybe1
-KoraxVoiceStrong        strong1
-KoraxVoiceFace          face1
-
-//
-//Alternate monster pain sound (in gas cloud, lightning zapped, wraithverged)
-//
-PuppyBeat               pup4
-
-//
-//Player Sounds (for the three Hexen class bosses...)
-//
-
-PlayerFighterNormalDeath        fgtddth
-PlayerFighterCrazyDeath         fgtcdth
-PlayerFighterExtreme1Death      fgtxdth1
-PlayerFighterExtreme2Death      fgtxdth2
-PlayerFighterExtreme3Death      fgtxdth3
-
-PlayerClericNormalDeath         plrdth
-PlayerClericCrazyDeath          plrcdth
-PlayerClericExtreme1Death       clxdth1
-PlayerClericExtreme2Death       clxdth2
-PlayerClericExtreme3Death       clxdth3
-
-PlayerMageNormalDeath           mgdth
-PlayerMageCrazyDeath            mgcdth
-PlayerMageExtreme1Death         mgxdth1
-PlayerMageExtreme2Death         mgxdth2
-PlayerMageExtreme3Death         mgxdth3
-
-PlayerFighterPain               fgtpain
-PlayerClericPain                plrpain3
-PlayerMagePain                  mgpain
-
-PlayerFighterGrunt              fgtgrunt
-PlayerClericGrunt               grunt1
-PlayerMageGrunt                 mggrunt
-
-PlayerLand                      feet4
-PlayerPoisonCough               pois2
-
-PlayerFighterFallingScream      fgtfall
-PlayerClericFallingScream       fall1
-PlayerMageFallingScream         mgfall
-
-PlayerFallingSplat              fallhit
-
-PlayerFighterBurnDeath          plrburn
-PlayerClericBurnDeath           plrburn
-PlayerMageBurnDeath             plrburn
-
-PlayerFighterFailedUse          fgtgrunt
-PlayerClericFailedUse           grunt1
-PlayerMageFailedUse             mggrunt
-
-// Fighter
-
-FighterPunchMiss        punchmis
-FighterPunchHitWall     punch8
-FighterPunchHitThing    mumpun5
-FighterAxeHitThing      axe5
-FighterHammerMiss       hammis2
-FighterHammerHitWall    hamwal1
-FighterHammerHitThing   hmhit1a
-FighterHammerContinuous hamfly1
-FighterHammerExplode    impact3
-FighterSwordFire        sword2
-FighterSwordExplode     impact3
-FighterGrunt            gntmis1
-
-// Cleric
-
-ClericCStaffFire        spell1
-ClericCStaffExplode     glbhit4
-ClericCStaffHitThing    vamp5
-ClericFlameFire         strike3
-ClericFlameExplode      strike1
-ClericFlameCircle       firedhit
-HolySymbolFire          holy3
-SpiritActive            spirt7
-SpiritAttack            spirt5
-SpiritDie               spirts1
-
-// Mage
-
-MageWandFire            wand4
-MageLightningFire       lite2
-MageLightningContinuous gntpow
-MageLightningReady      wepele2
-MageLightningZap        gntact1
-MageShardsFire          cone3
-MageShardsExplode       shards1b
-MageStaffFire           mage4
-MageStaffExplode        mageball

@@ -22,9 +22,10 @@ class Hellsmith : DMR_BaronOfHell
 		Obituary "%o felt the wrath of a Hellsmith.";
 		HitObituary "%o got crushed by a Hellsmith.";
 		+MISSILEMORE;
-		SeeSound "LordOfHeresy/sight";
-		PainSound "LordOfHeresy/act";
-		DeathSound "LordOfHeresy/death";
+		SeeSound "Hellsmith/sight";
+		PainSound "Hellsmith/pain";
+		ActiveSound "Hellsmith/active";
+		DeathSound "Hellsmith/death";
 		Scale 0.7;
 		bloodcolor "red";
 	}
@@ -62,7 +63,7 @@ class Hellsmith : DMR_BaronOfHell
 		}
 		SMT1 JJJJJJ 2 A_FaceTarget;
 		TNT1 A 0 {
-			A_PlaySound("LordOfHeresy/sight", CHAN_VOICE);
+			A_PlaySound("Hellsmith/sight", CHAN_VOICE);
 			A_FaceTarget();
 			A_Recoil(-3);
 		}
