@@ -25,8 +25,9 @@ class NoblePraetorian : DMR_BaronOfHell
 		Obituary "%o was blown away by a Kur Triarii.";
 		HitObituary "%o was smashed by a Kur Triarii.";
 		+MISSILEMORE;
-		SeeSound "monster/brusit";
-		DeathSound "monster/brudth";
+		SeeSound "kurtriarii/sight";
+		PainSound "kurtriarii/pain";
+		DeathSound "kurtriarii/death";
 		Scale 1.05;
 	}
 	States

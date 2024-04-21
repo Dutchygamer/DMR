@@ -27,8 +27,9 @@ class NobleAnnihilator : DMR_BaronOfHell
 		Obituary "%o underestimated the firepower of a Kur Praetorian.";
 		+MISSILEMORE;
 		+MISSILEEVENMORE;
-		SeeSound "monster/brusit";
-		DeathSound "monster/brudth";
+		SeeSound "kurpraetorian/sight";
+		PainSound "kurpraetorian/pain";
+		DeathSound "kurpraetorian/death";
 		Scale 1.15;
 		StencilColor "Yellow";
 	}

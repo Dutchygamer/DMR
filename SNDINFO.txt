@@ -370,14 +370,22 @@ cybaron/sight				CYBRUSIT
 cybaron/pain				CYBRUPN
 cybaron/death				CYBRUDTH
 
-// Cybruiser
-monster/brusit dsbrusit
-monster/brudth DSBRUDTH
-monster/brufir dsbrufir
+// Kur Triarii (aka Cybruiser)
+kurtriarii/sight 	KUTRISIT
+kurtriarii/pain 	KUTRIPN
+kurtriarii/death 	KUTRIDTH
 cybruiser/step				HPALSTEP
 
-// Cynihilator
+// Kur Triarii (aka Paladin)
+kurlegionary/sight 	KULGNSIT
+kurlegionary/pain 	KULGNPN
+kurlegionary/death 	KULGNDTH
+
+// Kur Praetorian (aka CyNihilator)
 cynihilator/step				KUPRAWLK
+kurpraetorian/sight 	KUPRASIT
+kurpraetorian/pain 		KUPRAPN
+kurpraetorian/death 	KUPRADTH
 
 
 // Hellsmith
@@ -388,6 +396,12 @@ Hellsmith/death 	MINDTH
 Hellsmith/swing		dshamswg
 Hellsmith/hitfloor 	dshamflr
 Hellsmith/hit      	dshamhit
+
+
+weapons/hellrune BLSSHT
+weapons/hellrunebig BLSHIT
+
+flamebringer/firefx DSFIREX4
 
 
 // Paladin
@@ -426,10 +440,10 @@ superbaron/pain dssbpain
 superbaron/death dssbdth
 superbaron/act dssbact
 
-weapons/hellrune BLSSHT
-weapons/hellrunebig BLSHIT
-
-flamebringer/firefx DSFIREX4
+// Cybruiser
+monster/brusit dsbrusit
+monster/brudth DSBRUDTH
+monster/brufir dsbrufir
 
 
 ///////////////////////////////////
