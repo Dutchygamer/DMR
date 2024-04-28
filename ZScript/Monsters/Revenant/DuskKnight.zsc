@@ -15,10 +15,10 @@ class DuskKnight : DMR_Revenant
 {
 	Default
 	{
-		Tag "Dusk Knight";
+		Tag "Dusk Warrior";
 		Health 450;
-		Obituary "%o was slain by a dusk knight";
-		HitObituary "%o was axed by a dusk knight";
+		Obituary "%o was slain by a Dusk Warrior";
+		HitObituary "%o was axed by a Dusk Warrior";
 		PainChance 80;
 		//SeeSound "hknight/sight";
 		//AttackSound "hknight/attack";

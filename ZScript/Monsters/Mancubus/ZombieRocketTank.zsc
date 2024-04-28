@@ -15,9 +15,9 @@ class ZombieRocketTank : DMR_ZombieTankBase
 {
 	Default
 	{
-		Tag "Zombie Rocket Tank";
+		Tag "Former Rocket Tank";
 		Health 850;
-		Obituary "%o failed to dodge rockets from a zombie in a rocket tank.";
+		Obituary "%o failed to dodge rockets from a Former Rocket Tank.";
 	}
     States
     {

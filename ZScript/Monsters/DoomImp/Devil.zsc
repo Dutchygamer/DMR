@@ -14,8 +14,8 @@ class Boggart : DMR_DoomImp
 	Default
 	{
 		Tag "Boggart";
-		obituary "%o was fried by a boggart.";
-		hitobituary "%o was flayed by a boggart.";
+		obituary "%o was fried by a Boggart.";
+		hitobituary "%o was flayed by a Boggart.";
 		health 90;
 		painchance 150;
 		seesound "boggart/sight";

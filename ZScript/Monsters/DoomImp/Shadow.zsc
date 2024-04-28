@@ -27,7 +27,7 @@ class DMR_Shadow : DMR_DoomImp
 		PainSound "Shadow/pain";
 		DeathSound "Shadow/death";
 		ActiveSound "Shadow/active";
-		Obituary "%o was assasinated by a shadow.";
+		Obituary "%o was assasinated by a Shadow.";
 	}	
 	States
 	{

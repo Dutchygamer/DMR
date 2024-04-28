@@ -15,7 +15,7 @@ class SlimeWorm : DMR_Demon
 {
 	Default
 	{
-		Tag "Slime worm";
+		Tag "Slime Worm";
 		Health 210;
 		PainChance 125;
 		+MISSILEMORE;
@@ -28,8 +28,8 @@ class SlimeWorm : DMR_Demon
 		deathsound "slimeworm/death";
 		activesound "slimeworm/active";
 		bloodcolor "yellow";
-		obituary "%o was dissolved by a slime worm.";
-		hitobituary "%o was digested by a slime worm.";		
+		obituary "%o was dissolved by a Slime Worm.";
+		hitobituary "%o was digested by a Slime Worm.";		
 		MeleeThreshold 128;
 		MaxTargetRange 500; // don't try and fire projectiles at range
 	}

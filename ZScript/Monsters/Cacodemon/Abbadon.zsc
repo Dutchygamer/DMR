@@ -19,8 +19,8 @@ class Cacofiend : DMR_Cacodemon
 		bloodcolor "Red";
 		Health 600;
 		PainChance 96;
-		Obituary "%o was smitten by an Cacofiend.";
-		HitObituary "%o became food for an Cacofiend.";
+		Obituary "%o was smitten by a Cacofiend.";
+		HitObituary "%o became food for a Cacofiend.";
 		//SeeSound "CacoLich/Sight";
 		//ActiveSound "CacoLich/Active";
 		//PainSound "CacoLich/Pain";

@@ -147,10 +147,10 @@ class NobleAnnihilator : DMR_BaronOfHell
 	CriticalDamage:
 		TNT1 A 0 { bNOPAIN = true; }
 		BRU3 A 10 Light("TerminatorGoBerserk") {
-			A_PlaySound("monster/termpin", 7);
+			A_PlaySound("kurpraetorian/pain", 7);
 		}
 		TNT1 A 0 {
-			A_PlaySound("monster/termsit", 7);
+			A_PlaySound("kurpraetorian/sight", 7);
 		}
 		BRU3 AAAAAAAAAAAAAAAAAAAA 1 {
 			A_SpawnItemEx("TerminatorGoneBerserkSmokeCloud",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 

@@ -24,8 +24,8 @@ Class HellServant : DMR_HellKnight
 		PainSound "knight/pain";
 		DeathSound "knight/death";
 		ActiveSound "knight/active";
-		Obituary "%o was tagged by a hell servant's fireball.";
-		HitObituary "%o was torn apart by a hell servant.";		
+		Obituary "%o was tagged by a Hell Servant's fireball.";
+		HitObituary "%o was torn apart by a Hell Servant.";		
 		PainChance "DMR_ShieldBroken", 256;
 	}
 	

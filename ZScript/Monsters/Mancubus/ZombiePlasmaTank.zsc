@@ -15,9 +15,9 @@ class ZombiePlasmaTank : DMR_ZombieTankBase
 {
 	Default
 	{
-		Tag "Zombie Plasma Tank";
+		Tag "Former Plasma Tank";
 		Health 750;
-		Obituary "%o was melted by a zombie in a plasma tank.";
+		Obituary "%o was melted by a Former Plasma Tank.";
 	}
     States
     {

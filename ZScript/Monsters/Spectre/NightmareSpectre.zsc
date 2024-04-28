@@ -26,7 +26,7 @@ class DMR_Nightmare : DMR_Spectre
 		DeathSound "d64demon/death";
 		ActiveSound "cyfiend/active";
 		Alpha 0.10;
-		Obituary "%o was spooked by a nightmare.";
+		Obituary "%o was spooked by a Nightmare.";
 	}
 	States
 	{

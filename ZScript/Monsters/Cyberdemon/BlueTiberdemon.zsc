@@ -30,7 +30,7 @@ class BlueTiberdemon : DMR_Cyberdemon
 		PainSound "cyber/Pain";
 		DeathSound "TiberDemon/death";
 		ActiveSound "cyber/active";
-		Obituary "%o was destroyed by a cybifera.";
+		Obituary "%o was destroyed by a Cybifera.";
 		DamageFactor "ToxinCloud", 0.0;
 		+NODROPOFF; //don't yeet yourself off platforms	
 		+MISSILEMORE;

@@ -15,11 +15,11 @@ class HadesSphere : DMR_LostSoul
 {
 	Default
 	{		
-		Tag "Hades sphere";
+		Tag "Hades Sphere";
 		Health 35;
 		Damage 0; // no damage from ramming
 		Speed 10;
-		Obituary "%o was blown away by a hades sphere.";
+		Obituary "%o was blown away by a Hades Sphere.";
 		SeeSound "monster/hadsit";
 		AttackSound "monster/hadwlk";
 		DeathSound "monster/hadexp";

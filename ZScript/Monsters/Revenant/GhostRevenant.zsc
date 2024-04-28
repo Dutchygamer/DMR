@@ -18,8 +18,8 @@ class Hollow : DMR_Revenant
 	{
 		Tag "Hollow";
 		Health 350;
-		HitObituary "%o got pummeled by a hollow.";
-		obituary "%o failed to dodge the hollow's fireball.";
+		HitObituary "%o got pummeled by a Hollow.";
+		obituary "%o failed to dodge the Hollow's fireball.";
 	}
 	States
 	{

@@ -24,7 +24,7 @@ class Catharsi : DMR_DoomImp
 		PainSound "catharsi/pain";
 		DeathSound "catharsi/death";
 		ActiveSound "imp/active"; //TODO
-		Obituary "%o was frosted over by a catharsi.";
+		Obituary "%o was frosted over by a Catharsi.";
 		DamageFactor "Ice", 0;
 	}
 	States

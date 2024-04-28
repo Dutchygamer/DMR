@@ -19,7 +19,7 @@ class Hectebus : DMR_Fatso
 	{
 		Tag "Hectebus";
 		Health 750;
-		Obituary "%o was burned alive by a hectebus";
+		Obituary "%o was burned alive by a Hectebus";
 		SeeSound "corpulent/see";
 		PainSound "corpulent/pain";
 		DeathSound "corpulent/death";

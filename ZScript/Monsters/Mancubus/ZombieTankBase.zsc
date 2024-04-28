@@ -22,36 +22,6 @@ class DMR_ZombieTankBase : DMR_Fatso
     }
 }
 
-//TODO unused?
-class ZombieTankExplosion : DMR_BossDeathExplosion
-{
-	Default
-	{
-		RENDERSTYLE "ADD";
-		ALPHA 0.7;
-	}
-	States
-	{
-	Spawn:
-		TNT1 A 0 NoDelay A_PlaySound("ZombieTank/explode",1);
-		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 14;fxLoop++) {
-				A_SpawnItemEx("DMR_LargeFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-			}
-		}
-		ZTXP ABCDEFGHIJKLM 2 BRIGHT;
-		ZTXP N 2 BRIGHT A_SetTranslucent(.7, 1);
-		ZTXP O 2 BRIGHT A_SetTranslucent(.65, 1);
-		ZTXP P 2 BRIGHT A_SetTranslucent(.6, 1);
-		ZTXP Q 2 BRIGHT A_SetTranslucent(.55, 1);
-		ZTXP R 2 BRIGHT A_SetTranslucent(.5, 1);
-		ZTXP S 2 BRIGHT A_SetTranslucent(.4, 1);
-		ZTXP T 2 BRIGHT A_SetTranslucent(.3, 1);
-		Stop;
-	}
-}
-
 // huhuhuh, what a mess!
 class ZombieTankPilotGore : DMR_BouncingDebris
 {

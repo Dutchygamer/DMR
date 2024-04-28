@@ -16,7 +16,7 @@ class Overlord : DMR_SpiderMastermind
 {
 	Default
 	{
-		Tag "Emperor overlord";
+		Tag "Emperor Overlord";
 		Health 4000;
 		PainChance 30;
 		DropItem "CellPack", 256, 100;
@@ -24,8 +24,7 @@ class Overlord : DMR_SpiderMastermind
 		DropItem "Cell", 128, 20;
 		DropItem "Cell", 128, 20;
 		DamageFactor "lightning", 0.0;
-		Obituary "%o was smitten by the emperor overlord.";
-		HitObituary "The emperor overlord ate %o for lunch.";
+		Obituary "%o was erased by the Emperor Overlord.";
 		+NODROPOFF; // don't yeet yourself off platforms
 		SeeSound "monster/helsit";
 		PainSound "monster/helpai";

@@ -26,8 +26,8 @@ Class Afrit : DMR_HellKnight
 		ActiveSound "knight/active";
 		bloodcolor "orange";
 		+BRIGHT;
-		Obituary "%o was scorched by an afrit";
-		HitObituary "%o found the afrit too hot to handle.";
+		Obituary "%o was scorched by an Afrit";
+		HitObituary "%o found the Afrit too hot to handle.";
 	}
 	States
 	{

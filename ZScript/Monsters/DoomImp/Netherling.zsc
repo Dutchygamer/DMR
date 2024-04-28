@@ -24,8 +24,8 @@ class Netherling : DMR_DoomImp
 		PainSound "neodarkimp/pain";
 		DeathSound "neodarkimp/death";
 		ActiveSound "neodarkimp/active";
-		Obituary "%o was blasted by a netherling.";
-		HitObituary "%o was sliced by a netherling.";
+		Obituary "%o was blasted by a Netherling.";
+		HitObituary "%o was sliced by a Netherling.";
 	}
 	States
 	{

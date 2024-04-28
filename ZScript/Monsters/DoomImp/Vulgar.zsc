@@ -14,8 +14,8 @@ class Vulgar : DMR_DoomImp
 	Default
 	{
 		Tag "Vulgar";
-		obituary "%o was poisoned by a vulgar.";
-		hitobituary "A vulgar had %o for lunch.";
+		obituary "%o was poisoned by a Vulgar.";
+		hitobituary "A Vulgar had %o for lunch.";
 		health 110;
 		painchance 150;
 		seesound "vulgar/sight";

@@ -18,8 +18,8 @@ class Dybbuk : DMR_Revenant
 	Default
 	{
 		Tag "Dybbuk";
-		HitObituary "%o was punched by a dybbuk.";
-		obituary "%o was shafted by a dybbuk.";
+		HitObituary "%o was punched by a Dybbuk.";
+		obituary "%o was shafted by a Dybbuk.";
 	}
 	States
 	{

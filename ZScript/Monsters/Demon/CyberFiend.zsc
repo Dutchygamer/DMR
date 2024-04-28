@@ -25,8 +25,8 @@ class MaulerFiend : DMR_Demon
 		PainSound "cyfiend/pain";
 		DeathSound "cyfiend/death";
 		ActiveSound "cyfiend/active";
-		Obituary "%o was violated by a maulerfiend.";
-		HitObituary "%o became the maulerfiend's dinner.";
+		Obituary "%o was violated by a Maulerfiend.";
+		HitObituary "%o became the Maulerfiend's dinner.";
 		MeleeThreshold 64;
 		Scale 1.1;
 	}

@@ -17,7 +17,7 @@ Class Summoner : DMR_Archvile
 	Default
 	{
 		Tag "Summoner";
-		Obituary "An Acolyte was promoted for killing %o.";
+		Obituary "%o was unsummoned by a Summoner.";
 		Health 800;
 		SeeSound "monster/acosit";
 		PainSound "monster/acopai";

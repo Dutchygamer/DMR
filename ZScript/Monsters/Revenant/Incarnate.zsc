@@ -19,8 +19,8 @@ class Ghoul : DMR_Revenant
 		Tag "Ghoul";
 		Health 500;
 		PainChance 80;
-		Obituary "%o was haunted by a ghoul.";
-		HitObituary "%o was smashed by a ghoul.";
+		Obituary "%o was haunted by a Ghoul.";
+		HitObituary "%o was smashed by a Ghoul.";
 		SeeSound "monster/incsit";
 		DeathSound "monster/incdth";
 		ActiveSound "monster/incact";

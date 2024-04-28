@@ -20,7 +20,7 @@ class ViralOne : DMR_LostSoul
 		Health 60;
 		Speed 12;	
 		DamageFactor "ToxinCloud", 0;
-		Obituary "%o got his medicine from a viral one";
+		Obituary "%o got his medicine from a Viral One";
 		+MISSILEEVENMORE
 	}
 	States 

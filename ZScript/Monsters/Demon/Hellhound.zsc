@@ -25,8 +25,8 @@ class Hellhound : DMR_Demon
 		PainSound "hellhound/pain";
 		DeathSound "hellhound/death";
 		ActiveSound "hellhound/active";
-		Obituary "%o burned alive by a hellhound.";
-		HitObituary "A hellhound had %o for dinner.";
+		Obituary "%o burned alive by a Hellhound.";
+		HitObituary "A Hellhound has torn %o apart.";
 		DamageFactor "Fire", 0.5;
 	}
 	

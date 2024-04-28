@@ -17,8 +17,8 @@ class Infernal : DMR_Cacodemon
 	{
 		Tag "Infernal";	
 		Health 450;
-		HitObituary "%o ended up in the stomach of an infernal.";
-		Obituary "%o got blasted by an infernal.";
+		Obituary "%o got blasted by an Infernal.";
+		HitObituary "%o was chewed up by an Infernal.";
 		DamageFactor "Fire", 0.5;
 		//SeeSound "infernal/see" ;
 		//PainSound "infernal/pain"; 

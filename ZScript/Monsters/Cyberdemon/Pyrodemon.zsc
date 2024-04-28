@@ -20,8 +20,8 @@ class FireborneArchon : DMR_Cyberdemon
 		Scale 1.5;
 		DropItem "CellPack", 256, 100;
 		DropItem "CellPack", 128, 100;
-		Obituary "%o was burnt to a crisp by a Fireborne archon";
-		HitObituary "%o was melted my a Fireborne archon";
+		Obituary "%o was burnt to a crisp by a Fireborne Archon";
+		HitObituary "%o was melted my a Fireborne Archon";
 		bloodcolor "orange";
 		SeeSound "pyro/see";
 		PainSound "pyro/pain";

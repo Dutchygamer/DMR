@@ -18,8 +18,8 @@ class CyberBaronOfHell : DMR_BaronOfHell
 		Health 1250;
 		DropItem "RocketAmmo", 256, 1;
 		DropItem "RocketAmmo", 128, 1;
-		obituary "%o was blasted by a cyber baron";
-		hitobituary "%o was torn apart by a cyber baron";
+		obituary "%o was blasted by a Cyber Baron of Hell";
+		hitobituary "%o was torn apart by a Cyber Baron of Hell";
 		SeeSound "cybaron/sight";
 		PainSound "cybaron/pain";
 		DeathSound "cybaron/death";

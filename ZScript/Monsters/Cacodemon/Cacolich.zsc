@@ -19,8 +19,8 @@ class Witherer : DMR_Cacodemon
 		Tag "Witherer";	
 		bloodcolor "Green";
 		Health 500;
-		HitObituary "%o's ended as dust in a witherer's stomache.";
 		Obituary "%o withered away.";
+		HitObituary "%o's ended as dust in a Witherer's stomache.";
 		DamageFactor "ToxinCloud", 0.0;
 		SeeSound "CacoLich/Sight";
 		ActiveSound "CacoLich/Active";

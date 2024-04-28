@@ -18,7 +18,7 @@ class ForgottenOne : DMR_LostSoul
 		Tag "Forgotten One";	
 		BloodColor "orange";
 		Health 60;
-		Obituary "%o got a fiery headbutt by a forgotten one";
+		Obituary "%o got a fiery headbutt by a Forgotten One";
 		Translation "168:191=208:223"; // recolour red parts to orange
 	}
 	

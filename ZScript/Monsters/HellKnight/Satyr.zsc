@@ -24,8 +24,8 @@ class Satyr : DMR_HellKnight
 		PainSound "knight/pain";
 		DeathSound "satyr/death";
 		ActiveSound "knight/active";
-		Obituary "%o was mauled by a satyr.";
-		HitObituary "%o was mauled by a satyr.";
+		Obituary "%o was mauled by a Satyr.";
+		HitObituary "%o was mauled by a Satyr.";
 		MeleeThreshold 100;
 	}
 	States
