@@ -27,7 +27,7 @@ class Tiberdemon : DMR_Cyberdemon
 		PainSound "cyber/Pain";
 		DeathSound "TiberDemon/death";
 		ActiveSound "cyber/active"	;
-		Obituary "%o fell before a cyparius.";
+		Obituary "%o fell before a Cyparius.";
 		DamageFactor "ToxinCloud", 0.0;
 	}
 	States
@@ -253,6 +253,7 @@ class TiberiumGasRocket : DMR_Rocket
 	Default
 	{
 		Speed 25;
+		Scale 1.2;
 		+SEEKERMISSILE;
 		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
 	}
@@ -271,10 +272,16 @@ class TiberiumGasRocket : DMR_Rocket
 		Loop;
 	Death:
 		TNT1 A 0 {
-			A_SetRenderStyle(1.0,STYLE_Add);
-			for (fxLoop = 0;fxLoop<=9;fxLoop++)
-			{
-				A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SetRenderStyle(1.0,STYLE_Add);	
+			A_FaceTracer();
+			for (fxLoop = 0;fxLoop<=360;fxLoop = fxLoop+60) {
+				let ball = A_SpawnProjectile("TiberiumGasRocketCluster",0,0,fxLoop,CMF_TRACKOWNER|CMF_AIMDIRECTION);
+				if (ball) {
+					ball.bNOGRAVITY = false;
+					ball.vel.x = ball.vel.x*frandom(0.2,0.4);
+					ball.vel.y = ball.vel.y*frandom(0.2,0.4);
+					ball.vel.z = ball.vel.z+frandom(6,12);
+				}
 			}
 			for (fxLoop = 0;fxLoop <= 14;fxLoop++) {
 				A_SpawnItemEx("DMR_MediumGreenFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
@@ -288,5 +295,19 @@ class TiberiumGasRocket : DMR_Rocket
 		HECF D 6 Bright;
 		HECF E 4 Bright;
 		Stop;
+	}
+}
+
+
+class TiberiumGasRocketCluster : WithererGasBall
+{
+	Default
+	{
+		//DamageFunction(random(16,48));
+		//RenderStyle "Add";
+		//Alpha 1;
+		//DamageType "ToxinCloud";
+		Scale 1.0;
+		//DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
 	}
 }
