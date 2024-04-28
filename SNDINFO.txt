@@ -521,22 +521,13 @@ monster/hadexp dshadexp
 skeleton/tracex               BNREXP
 skeleton/pain                 SKELPN
 
-// Deathknight
-deathknight/sight             dsdknsit
-deathknight/active            dsdknact
-deathknight/death             dsdkndth
-deathknight/pain              dsdknpai
-deathknight/dart              dsdkndrt
-deathknight/missile           dsdknmsl
-deathknight/hit               dsdknhit
-deathknight/swing             dsdknswg
-weapons/boom1                 dsboom1
-weapons/firex2                dsfirex2
-weapons/firex4                dsfirex4
-weapons/scorch                dsscorch
-
 // Beam Revenant
 BeamRevenant/Fire BMRVF
+
+// Dusk Warrior
+DuskWarrior/Sight 	DSKNISIG
+DuskWarrior/Pain 	DSKNIPN
+DuskWarrior/Death 	DSKNIDTH
 
 // Incarnate
 monster/incsit dsincsit
@@ -557,6 +548,20 @@ hknight/death           kgtdth
 hknight/active          kgtsit
 hknight/hit         hrnhit
 hknight/axewhoosh       kgtatk
+
+// Deathknight (old)
+deathknight/sight             dsdknsit
+deathknight/active            dsdknact
+deathknight/death             dsdkndth
+deathknight/pain              dsdknpai
+deathknight/dart              dsdkndrt
+deathknight/missile           dsdknmsl
+deathknight/hit               dsdknhit
+deathknight/swing             dsdknswg
+weapons/boom1                 dsboom1
+weapons/firex2                dsfirex2
+weapons/firex4                dsfirex4
+weapons/scorch                dsscorch
 
 
 

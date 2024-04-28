@@ -20,11 +20,10 @@ class DuskKnight : DMR_Revenant
 		Obituary "%o was slain by a Dusk Warrior";
 		HitObituary "%o was axed by a Dusk Warrior";
 		PainChance 80;
-		//SeeSound "hknight/sight";
-		//AttackSound "hknight/attack";
-		//PainSound "hknight/pain";
-		//DeathSound "hknight/death";
-		//ActiveSound "hknight/active";
+		SeeSound "DuskWarrior/Sight";
+		PainSound "DuskWarrior/Pain";
+		DeathSound "DuskWarrior/Death";
+		ActiveSound ""; //TODO for now //"hknight/active";
 	}
 	States
 	{
