@@ -103,6 +103,7 @@ class CatharsiBall : DMR_DoomImpBall
 	Default
 	{
 		Speed 15;
+		FastSpeed 25;
 		SEESOUND "catharsi/icerifle";
 		DEATHSOUND "catharsi/iceimpact";
 		DamageType "Ice";

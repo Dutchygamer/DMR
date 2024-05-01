@@ -88,6 +88,8 @@ class NetherImpBall : DMR_DoomImpBall
 {
 	Default
 	{
+		Speed 15;
+		FastSpeed 25;
 		DamageFunction(random(6,16));
 		Scale 0.7;
 		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";

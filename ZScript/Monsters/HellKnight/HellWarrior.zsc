@@ -114,6 +114,8 @@ class HellServantBall : DMR_BaronBall
 {
 	Default
 	{
+		Speed 18;
+		FastSpeed 25;
 		DamageFunction(random(16,48));
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
@@ -145,6 +147,8 @@ class HellServantShieldBall : HellServantBall
 {
 	Default
 	{
+		Speed 20;
+		FastSpeed 30;
 		+THRUSPECIES;
 		+SEEKERMISSILE
 		SeeSound "Paladin/Shoot";

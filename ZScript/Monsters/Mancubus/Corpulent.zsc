@@ -119,6 +119,7 @@ class CorpulentBall : DMR_FatShot
 {
 	Default
 	{
+		Speed 22;
 		DamageFunction(random(16,48));
 		RenderStyle "Add";
 		Alpha 0.8;

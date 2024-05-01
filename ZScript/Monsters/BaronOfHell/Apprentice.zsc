@@ -122,6 +122,8 @@ class HellsmithBall : DMR_BaronBall
 {
 	Default
 	{
+		Speed 20;
+		FastSpeed 30;
 		DamageFunction(random(20,60));
 		//ALPHA 0.95;
 		SeeSound "";

@@ -73,6 +73,8 @@ class InfernalBall : DMR_CacodemonBall
 {
 	Default
 	{
+		Speed 12;
+ 		FastSpeed 25;
 		DamageFunction(random(10,30));
 		+BRIGHT;
 		Scale 1.3;

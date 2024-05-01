@@ -92,7 +92,7 @@ class HectebusBall : DMR_FatShot
 	Default
 	{
 		DamageFunction(random(16,48));
-		Speed 22;
+		Speed 23;
 		Seesound "";
 		DeathSound "weapons/boom1";
 		Scale 1.2;

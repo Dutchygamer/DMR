@@ -110,7 +110,6 @@ class FireborneNobleSpamBall : DMR_DoomImpBall
 {
 	Default
 	{
-		Speed 10;
 		DamageFunction(random(6,16));
 		Alpha 0.9;
 	}

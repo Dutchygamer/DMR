@@ -94,8 +94,8 @@ class AbbadonSmallBall : DMR_CacodemonBall
 {
 	Default
 	{
-		Speed 15;
- 		FastSpeed 25;
+		Speed 20;
+ 		FastSpeed 30;
 		DamageFunction(random(6,16));
 		Scale 0.8;
 	}

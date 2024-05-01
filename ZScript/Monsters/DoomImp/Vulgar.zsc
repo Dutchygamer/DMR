@@ -83,6 +83,8 @@ class VulgarBall : DMR_DoomImpBall
 {
 	Default
 	{
+		Speed 15;
+		FastSpeed 25;
 		DamageFunction(random(8,24));
 		Scale 1.1;
 		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
@@ -112,7 +114,6 @@ class VulgarGasBall : DMR_DoomImpBall
 {
 	Default
 	{
-		Speed 15;
 		DamageFunction(random(10,30));
 		Scale 0.7;
 		DamageType "ToxinCloud";

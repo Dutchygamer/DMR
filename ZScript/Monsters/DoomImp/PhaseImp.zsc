@@ -102,6 +102,8 @@ class PhaserBall : DMR_DoomImpBall
 {
 	Default
 	{
+		Speed 12;
+		FastSpeed 25;
 		+SEEKERMISSILE;
 		DMR_Projectile.ParticleColors "#710071", "#870087", "#c300c3", "#c800c8";
 	}

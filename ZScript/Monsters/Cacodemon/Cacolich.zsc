@@ -101,6 +101,8 @@ class WithererBall : DMR_CacodemonBall
 {
 	Default
 	{
+		Speed 15;
+ 		FastSpeed 25;
 		DamageFunction(random(10,30));
 		DamageType "ToxinCloud";
 		Scale 1.5;
