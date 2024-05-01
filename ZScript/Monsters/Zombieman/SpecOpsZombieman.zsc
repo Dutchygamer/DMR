@@ -99,9 +99,10 @@ class SpecOpsGrenade : DMR_ThrownGrenade
 		Loop;
 	Death:
 		TNT1 A 0 {
-			A_SetRenderStyle(1.0,STYLE_Add);
 			bNoGravity = true;
 			A_Stop();
+			A_SetRenderStyle(1.0,STYLE_Add);
+			A_PlaySound("weapons/rocklx",2);
 			A_SpawnItemEx("DMR_MediumFireballLargeImpactSpawner");
 			for (fxLoop = 0;fxLoop<=30;fxLoop++)
 			{

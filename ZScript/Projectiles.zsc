@@ -124,10 +124,10 @@ Class DMR_GrenadeBase : DMR_Projectile
 		+THRUGHOST
 		+CANBOUNCEWATER;
 		BounceType "Doom";
-		BounceFactor 0.75;
+		BounceFactor 0.45;
+		WallBounceFactor 0.45;
 		Gravity 0.5;
 		SeeSound "Paladin/Grenade";
-		DeathSound "Paladin/Bounce";
 		BounceSound "Paladin/Bounce";
 	}
 	
@@ -140,10 +140,10 @@ class DMR_ThrownGrenade : DMR_GrenadeBase
 	{
 		Speed 20;
 		DamageFunction(random(16,48));
-		BounceFactor 0.75;
+		BounceFactor 0.3;
+		WallBounceFactor 0.3;
 		Gravity 0.5;
-		SeeSound "";
-		DeathSound "Paladin/Explode";
+		SeeSound "handgrenade/throw";
 		BounceSound "handgrenade/bounce";
 		Scale 0.75;
 	}

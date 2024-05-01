@@ -137,10 +137,11 @@ class InfiltratorZombiemanGrenade : DMR_ThrownGrenade
 		Loop;
 	Death:
 		TNT1 A 0 {
-			A_SetRenderStyle(1.0,STYLE_Add);
 			bNoGravity = true;
 			A_Stop();
+			A_SetRenderStyle(1.0,STYLE_Add);
 			A_SetScale(2.5);
+			A_PlaySound("gas/explode");	
 			A_SpawnItemEx("DMR_GasBallImpactSpawner");
 			for (fxLoop = 0;fxLoop<=30;fxLoop++)
 			{
@@ -149,7 +150,6 @@ class InfiltratorZombiemanGrenade : DMR_ThrownGrenade
 		}	
 		FVUL C 4 {
 			A_Explode(10,48);
-			A_PlaySound("gas/explode");	
 			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);

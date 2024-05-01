@@ -155,8 +155,6 @@ class NobleVanguardGrenade : DMR_GrenadeBase
 {
 	Default
 	{
-		BounceFactor 0.45;
-		WallBounceFactor 0.45;
 		+EXTREMEDEATH;
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
