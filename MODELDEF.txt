@@ -1,0 +1,23 @@
+/*
+  Each actor that uses a models needs its own unique entry. Even if the actor inherits from another which has an entry here, it still needs its own entry else the model won't be displayed.
+*/
+
+Model DMR_SlowBullet
+{ 
+    Path "Models"
+    Skin 0 "tracer1.tga"
+    Model 0 "Tracer.md3"
+    Scale 1.0 1.0 1.0
+    PITCHFROMMOMENTUM
+    FrameIndex TRCR A 0 0
+}
+
+Model SpiderSlowBullet
+{ 
+    Path "Models"
+    Skin 0 "tracer1.tga"
+    Model 0 "Tracer.md3"
+    Scale 1.0 1.0 1.0
+    PITCHFROMMOMENTUM
+    FrameIndex TRCR A 0 0
+}
