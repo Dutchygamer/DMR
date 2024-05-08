@@ -40,7 +40,6 @@
 #include "GLDefs/Monsters/Mancubus/DMR_Mancubus.gl"
 #include "GLDefs/Monsters/Mancubus/Corpulent.gl"
 #include "GLDefs/Monsters/Mancubus/Hectebus.gl"
-#include "GLDefs/Monsters/Mancubus/ZombieTank.gl"
 #include "GLDefs/Monsters/Mancubus/ZombiePlasmaTank.gl"
 
 #include "GLDefs/Monsters/LostSoul/DMR_LostSoul.gl"
