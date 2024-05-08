@@ -74,9 +74,9 @@ cyborg/active2 	CYBACT2
 cyborg/active3 	CYBACT3
 cyborg/death 	CYBDTH
 
-cyborg/step				HPALSTEP
+cyborg/step				CYKNIWLK
 $pitchset cyborg/step 1.5
-$volume  cyborg/step 0.3
+$volume  cyborg/step 0.4
 
 
 ////////////////////////////////
@@ -101,14 +101,26 @@ cyborgcommando/death 		CCYDTH
 
 cyborgcommando/fire 		CCYFIR
 $limit cyborgcommando/fire 8
+
+cyborgcommando/fire2 		CCYFIR
+//$limit cyborgcommando/fire2 8
+$pitchset cyborgcommando/fire2 0.8
+
 cyborgcommando/bfg/charge 	CCYCHR
 $rolloff cyborgcommando/bfg/charge 500 1500
+
 cyborgcommando/bfg/fire 	CCYBFIR
 $rolloff cyborgcommando/bfg/fire 500 1500
 $volume cyborgcommando/bfg/fire 0.8
+
 cyborgcommando/bfg/loop 	CCYBLP
+
 cyborgcommando/bfg/explode 	CCYBEX
 $rolloff cyborgcommando/bfg/explode 600 1600
+
+cyborgcommando/step				KUPRAWLK
+$pitchset cyborgcommando/step 1.5
+$volume  cyborgcommando/step 0.35
 
 
 ////////////////////////
