@@ -28,9 +28,9 @@ class Terminator : DMR_Cyberdemon
 		Obituary "%o was shown true discipline by a Kur Centurion.";
 		-MISSILEMORE;
 		+MISSILEEVENMORE;
-		SeeSound "monster/termsit";
-		PainSound "monster/termpin";
-		DeathSound "monster/termdth";
+		SeeSound "terminator/sight";
+		PainSound "terminator/pain";
+		DeathSound "terminator/death";
 		ActiveSound "Terminator/termact";
 		StencilColor "Yellow";
 	}
@@ -48,7 +48,7 @@ class Terminator : DMR_Cyberdemon
 		TERM A 3 {
 			A_SetBerserkerTics(3,2);
 			A_Chase();
-			A_Playsound("Terminator/terstepA");
+			A_Playsound("Terminator/step");
 		}
 		TERM ABB 3 {		
 			A_SetBerserkerTics(3,2);
@@ -57,7 +57,7 @@ class Terminator : DMR_Cyberdemon
 		TERM C 3 {
 			A_SetBerserkerTics(3,2);
 			A_Chase();
-			A_Playsound("Terminator/terstepA");
+			A_Playsound("Terminator/step");
 		}
 		TERM CDD 3 {		
 			A_SetBerserkerTics(3,2);
@@ -175,10 +175,10 @@ class Terminator : DMR_Cyberdemon
 	CriticalDamage:
 		TNT1 A 0 { bNOPAIN = true; }
 		TERM A 10 Light("TerminatorGoBerserk") {
-			A_PlaySound("monster/termpin", 7);
+			A_PlaySound("terminator/pain", 7);
 		}
 		TNT1 A 0 {
-			A_PlaySound("monster/termsit", 7);
+			A_PlaySound("terminator/sight", 7);
 		}
 		TERM AAAAAAAAAAAAAAAAAAAA 1 {
 			A_SpawnItemEx("TerminatorGoneBerserkSmokeCloud",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
@@ -213,7 +213,7 @@ class Terminator : DMR_Cyberdemon
 		TERM W 4;
 		TERM X 6 A_NoBlocking;
 		TERM Y 6;
-		TERM Z 6 A_Playsound("Terminator/terstepA");
+		TERM Z 6 A_Playsound("Terminator/step");
 		TERM [ 50;
 		TERM [ -1 A_BossDeath;
 		Stop;

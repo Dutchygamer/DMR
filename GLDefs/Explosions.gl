@@ -1,10 +1,10 @@
 
-object DMR_BossDeathExplosion
-{
-    frame MISLB { light DMR_Rocket_X1 }
-    frame MISLC { light DMR_Rocket_X2 }
-    frame MISLD { light DMR_Rocket_X3 }
-}
+//object DMR_BossDeathExplosion
+//{
+//    frame MISLB { light DMR_Rocket_X1 }
+//    frame MISLC { light DMR_Rocket_X2 }
+//    frame MISLD { light DMR_Rocket_X3 }
+//}
 
 object DMR_MonsterDeathExplosion
 {

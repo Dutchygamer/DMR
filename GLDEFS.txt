@@ -1,5 +1,5 @@
 #include "GLdefs/Projectiles.gl"
-#include "GLdefs/Explosions.gl"
+//#include "GLdefs/Explosions.gl"
 #include "GLdefs/GenericStuff.gl"
 
 #include "GLDefs/Monsters/ChaingunGuy/BFGGuy.gl"

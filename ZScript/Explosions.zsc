@@ -1,29 +1,42 @@
 // EXPLOOOOOOOOOSIONS
 // these should not be used by any projectile; they acts like the main definition and copy/paste example
+// inherits from DMR_Projectile (instead of DMR_FXBase) so we can use particles and they don't get removed by the fancy effects config
 
-// individual explosions
-class DMR_BossDeathExplosion : DMR_FXBase
+//======================================================================
+//  Original credits
+//======================================================================
+//  Sprites: 	Westwood Studios
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+class DMR_BossDeathExplosion : DMR_Projectile
 {
 	Default
 	{
 		+NOINTERACTION;
+		+BRIGHT;
 		Renderstyle "Add";
+		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
-	int fxLoop;
 	
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay A_PlaySound("weapons/rocklx");
+		TNT1 A 0 NoDelay A_PlaySound("boss/deathexplosion");
 		TNT1 A 0 {
 			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
-				//A_SpawnParticle("FFFFFF",SPF_FULLBRIGHT|SPF_RELATIVE,random(20,30),frandom(5,10),frandom(0,360),random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); //,-0.1,0,-0.05,1,-1,-0.2);
 				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 			}
+			for (fxLoop = 0;fxLoop<=50;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
+			}
 		}
-		MISL B 8 Bright;
-		MISL C 6 Bright;
-		MISL D 4 Bright;
+		XPL0 ABCDE 1 Light("DMR_Rocket_X1");
+		XPL0 FGHIJ 1 Light("DMR_Rocket_X2");
+		XPL0 KLMNO 1 Light("DMR_Rocket_X3") A_FadeOut(0.15);
 		Stop;
 	}
 }
@@ -39,41 +52,48 @@ class DMR_MonsterDeathExplosion : DMR_BossDeathExplosion
 	Spawn:
 		TNT1 A 0 NoDelay A_PlaySound("weapons/rocklx",1);
 		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
+			for (fxLoop = 0;fxLoop <= 8;fxLoop++) {
 				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 			}
+			for (fxLoop = 0;fxLoop<=30;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
+			}
 		}
-		MISL B 8 Bright;
-		MISL C 6 Bright;
-		MISL D 4 Bright;
+		XPL0 ABCDE 1 Light("DMR_SmallRocket_X1");
+		XPL0 FGHIJ 1 Light("DMR_SmallRocket_X2");
+		XPL0 KLMNO 1 Light("DMR_SmallRocket_X3") A_FadeOut(0.15);
 		Stop;
 	}
 }
 
-class DMR_BossDeathFinalExplosion : DMR_FXBase
+class DMR_BossDeathFinalExplosion : DMR_BossDeathExplosion
 {
 	Default
 	{
-		+NOINTERACTION;
-		Renderstyle "Add";
 		Scale 1.15;
 	}
-	int fxLoop;
 	
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay A_PlaySound("darkinquisitor/bigdeathexpl");
+		TNT1 A 0 NoDelay A_PlaySound("boss/deathexplosion/final",1);
 		TNT1 A 0 {
 			A_QuakeEx(6,6,6,15,0,800,0,QF_SCALEDOWN,0,0,0,500);
 			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
-				//A_SpawnParticle("FFFFFF",SPF_FULLBRIGHT|SPF_RELATIVE,random(20,30),frandom(5,10),frandom(0,360),random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); //,-0.1,0,-0.05,1,-1,-0.2);
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+				A_SpawnItemEx("DMR_LargeFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
+			}
+			for (fxLoop = 0;fxLoop<=100;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
 			}
 		}
-		GRNE ABCDEFG 4 Bright;
-		GRNE HIJK 4 Bright;
-		GRNE LMN 4 Bright;
+		//GRNE ABCDEFG 4 Light("DMR_LargeRocket_X1");
+		//GRNE HIJK 4 Light("DMR_LargeRocket_X2");
+		//GRNE LMN 4 Light("DMR_LargeRocket_X2");
+		GRNE ABCDE 2 Light("DMR_LargeRocket_X1");
+		GRNE FGHIJ 3 Light("DMR_LargeRocket_X2");
+		GRNE KLMN 3 Light("DMR_LargeRocket_X2");
 		Stop;
 	}
 }
@@ -93,10 +113,17 @@ class DMR_MonsterDeathFinalExplosion : DMR_BossDeathFinalExplosion
 			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
 				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
 			}
+			for (fxLoop = 0;fxLoop<=50;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
+			}
 		}
-		GRNE ABCDEFG 2 Bright;
-		GRNE HIJK 2 Bright;
-		GRNE LMN 2 Bright;
+		//GRNE ABCDEFG 2 Light("DMR_Rocket_X1");
+		//GRNE HIJK 2 Light("DMR_Rocket_X2");
+		//GRNE LMN 2 Light("DMR_Rocket_X2");
+		GRNE ABCDE 1 Light("DMR_Rocket_X1");
+		GRNE FGHIJ 2 Light("DMR_Rocket_X2");
+		GRNE KLMN 2 Light("DMR_Rocket_X2");
 		Stop;
 	}
 }

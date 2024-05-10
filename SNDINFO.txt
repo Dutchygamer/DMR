@@ -29,6 +29,11 @@ $rolloff heavyweapon/load 300 1300
 
 flamethrower/fire flamtnk1
 
+// explosions
+boss/deathexplosion 		inqdthxp
+boss/deathexplosion/final 	inqbigxp
+$rolloff boss/deathexplosion/final 600 1600
+
 
 //////////////////////////////
 // Zombieman variant sounds //
@@ -685,24 +690,21 @@ monster/acohit			dsacohit
 // Cyberdemon variant sounds //
 ///////////////////////////////
 
-// Dark Inquisitor
-darkinquisitor/sight inqalert
-darkinquisitor/pain inqpain
-darkinquisitor/death inqdeath
-darkinquisitor/empfire inqempfi
-darkinquisitor/empdie inqempex
-darkinquisitor/bigdeathexpl inqbigxp
-darkinquisitor/deathexplosion inqdthxp
-darkinquisitor/step step2
-darkinquisitor/darkmatterdie inqdrkxp
-darkinquisitor/flight inqfly
-darkinquisitor/laugh laugh
-darkinquisitor/cluster samshot1
-$rolloff darkinquisitor/cluster 500 1500
-darkinquisitor/grenade glnch4
-darkinquisitor/lasercharge lsrchrg
-$rolloff darkinquisitor/lasercharge 1000 2500
-darkinquisitor/laserfire obelray1
+// Cyberdemon
+cyber/pain 	DSCYBPN
+
+
+// Core Defender
+coredefender/sight 		laugh
+coredefender/pain 		inqpain
+coredefender/death 		inqdeath
+coredefender/step 		step2
+
+coredefender/cluster 		samshot1
+$rolloff coredefender/cluster 500 1500
+coredefender/lasercharge 	lsrchrg
+$rolloff coredefender/lasercharge 1000 2500
+coredefender/laserfire 		obelray1
 
 inqv1 inqact1
 inqv2 inqact2
@@ -712,30 +714,20 @@ inqv5 inqact5
 inqv6 inqact6
 inqv7 inqact7  
 inqv8 inqact8  
-$RANDOM darkinquisitor/active { inqv1 inqv2 inqv3 inqv4 inqv5 inqv6 inqv7 inqv8 }
+$RANDOM coredefender/active { inqv1 inqv2 inqv3 inqv4 inqv5 inqv6 inqv7 inqv8 }
 
-darkinquisitor/darkmatterfire INQDRKFI
-
-shrapnel1 shrapnl1
-shrapnel2 shrapnl2
-shrapnel3 shrapnl3
-$RANDOM darkinquisitor/shrapnel { shrapnel1 shrapnel2 shrapnel3 }
 
 // Terminator
-monster/termsit tsight
-monster/termpin tpain1
-monster/termdth tdeath
+terminator/sight 	tsight
+terminator/pain 	tpain1
+terminator/death 	tdeath
 
+$random Terminator/step { terstep1 terstep2 }
+terstep1		 dststep1
+terstep2		 dststep2
 $random Terminator/termact { termact1 termact2 }
 termact1		dsteract
 termact2		dsteact2
-$random Terminator/terstepA { terstep1 terstep2 }
-terstep1		 dststep1
-terstep2		 dststep2
-Terminator/terstepB dststep3
-Terminator/tershotA dstshot1
-Terminator/tershotB dstshot2
-monster/brufir dsbrufir
 
 
 // TibCyber
@@ -771,6 +763,7 @@ q2weapon/rocketexplo		q2roklx1
 h2necromancer/magiccast		h2ncmagh
 comet/explosion			cometexp
 
+
 //Annihilator
 monster/annsit dsannsit
 monster/anndth dsanndth
@@ -778,6 +771,7 @@ monster/anhoof dsanhoof
 
 weapons/hrlexp dshrlexp
 weapons/hrlfir dshrlfir
+
 
 // Pyrodemon
 pyro/see BE-SEE
@@ -795,6 +789,7 @@ pyro/comet DSCMTLNC
 pyro/cometdeath DSCMTEXP
 pyro/bomb DSRDSHOT
 pyro/bombhit DSRDHIT
+
 
 // Forgemaster
 forgemaster/see                 dssmiths
@@ -818,8 +813,9 @@ weapons/hellfi		          dshellfi
 //////////////////////////////////////
 
 // Spider Mastermind
-MamaSpider/FireBurst BIGGAT
-MamaSpider/Fire BIGGAT1
+MamaSpider/FireBurst 	BIGGAT
+MamaSpider/Fire 		BIGGAT1
+
 
 // Mancutank
 MancuTank/Sight		MTANKSIG
@@ -827,6 +823,7 @@ MancuTank/Active	MTANKACT
 MancuTank/Pain		MTANKPAI
 MancuTank/Death		MTANKDTH
 MancuTank/Tank		MTANKWLK
+
 
 // Emperor Overlord (formerly Hades Elemental)
 weapons/devzap                dsdevzap
@@ -843,6 +840,7 @@ monster/helpai                dshelpai
 monster/heldth                dsheldth
 monster/heltel                dsheltel
 caco/melee                    dsdembit
+
 
 // Supreme Fiend
 fiend/hover		  DSHOVER
