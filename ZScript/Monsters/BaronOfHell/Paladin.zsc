@@ -55,34 +55,47 @@ class NobleVanguard : DMR_BaronOfHell
 		TNT1 A 0 A_PlaySound("cybruiser/step");
 		HPAL GGHH 5 A_Chase;
 		TNT1 A 0 A_PlaySound("cybruiser/step");
-		TNT1 A 0 A_Jump (96, "See"); // small chance to lower shield
+		TNT1 A 0 A_Jump(96,"ShieldBlast");
 		Loop;
 	Melee:
-		TNT1 A 0 {
-			A_RemoveChildren(1,RMVF_EVERYTHING);
-		}
 		HPAL MN 6 A_FaceTarget;
-		HPAL O 6 A_CustomMeleeAttack(random(20,60),"Paladin/Melee","Paladin/Swing");
+		HPAL O 6 A_CustomMeleeAttack(random(24,72),"Paladin/Melee","Paladin/Swing");
 		Goto See;
 	Missile:
-		TNT1 A 0 {
-			A_RemoveChildren(1,RMVF_EVERYTHING);
-		}
-		TNT1 A 0 A_JumpIfCloser(256, "GrenadeOrPlasma"); // always grenade when close
-		TNT1 A 0 A_Jump(128, "Grenade"); // else 50/50
-		Goto ShieldBlast;
-	GrenadeOrPlasma:
-		TNT1 A 0 A_Jump(180, "Grenade");
-		Goto Plasma;
+		TNT1 A 0 A_Jump(100,"RaiseShield","Plasma","BigRocket");
 	Grenade:
 		HPAL II 8 A_FaceTarget;
-		HPAL J 8 Bright Light("DMR_RifleFire") A_LobProjectile("NobleVanguardGrenade",32,16);
+		HPAL J 10 Bright Light("DMR_RifleFire") {
+			A_LobProjectile("NobleVanguardGrenade",32,16);
+		}
+		HPAL I 8 A_FaceTarget;
+		HPAL J 10 Bright Light("DMR_RifleFire") {
+			A_LobProjectile("NobleVanguardGrenade",32,16);
+		}
+		HPAL I 8 A_FaceTarget;
+		HPAL J 10 Bright Light("DMR_RifleFire") {
+			A_LobProjectile("NobleVanguardGrenade",32,16);
+		}
 		HPAL I 8;
-		Goto See;
+		Goto See;		
 	Plasma:
 		HPAL II 8 A_FaceTarget;
 		HPAL J 8 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("DMR_HellRune",32,16);
+		HPAL I 6 A_FaceTarget;
+		HPAL J 8 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("DMR_HellRune",32,16);
 		Goto See;
+	BigRocket:
+        TNT1 A 0 A_PlaySound("heavyweapon/load");
+		HPAL III 10 A_FaceTarget;
+		HPAL J 10 Bright Light("DMR_RifleFire") {
+			A_LobProjectile("DMR_Rocket",32,16);
+		}
+		HPAL I 10 A_FaceTarget;
+		HPAL J 10 Bright Light("DMR_RifleFire") {
+			A_LobProjectile("DMR_Rocket",32,16);
+		}
+		HPAL I 10;
+		Goto See;	
 	RaiseShield:
 		TNT1 A 0 {
 			A_SpawnItemEx("NobleVanguardShieldWall",0,0,0,0,0,0,0,SXF_SETMASTER);
@@ -115,7 +128,8 @@ class NobleVanguard : DMR_BaronOfHell
 			bNoPain = true; // don't switch to the default pain state when we are in this one
 			A_PlaySound("shieldwall/death");
 		}
-		HPAL P 12 {
+		HPAL P 24 {
+			//TODO dit doet niks? fix ook voor HellWarrior
 			for (painYelp = 0;painYelp <= 5;painYelp++) {
 				A_Pain(); 
 			}
@@ -125,6 +139,9 @@ class NobleVanguard : DMR_BaronOfHell
 		}
 		Goto See;
 	Pain:
+		TNT1 A 0 {
+			A_RemoveChildren(1,RMVF_EVERYTHING);
+		}
 		HPAL P 2;
 		HPAL P 2 A_Pain;
 		TNT1 A 0 A_Jump(128, "RaiseShield");
@@ -134,8 +151,8 @@ class NobleVanguard : DMR_BaronOfHell
 		HPLX A 15 Bright {
 			A_Scream();
 			A_RemoveChildren(1,RMVF_EVERYTHING);
+			A_SpawnItemEx("NobleVanguardDroppedShield",0,0,25,6,0,0,60);
 		}
-		TNT1 A 0 A_SpawnItemEx("NobleVanguardDroppedShield",0,0,25,6,0,0,60,SXF_SETMASTER);
 		HPLX BCD 5 Bright {
 			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
 		}
