@@ -62,18 +62,18 @@ class NoblePraetorian : DMR_BaronOfHell
 	RocketBurst:
         TNT1 A 0 A_PlaySound("heavyweapon/load");
 		BRU2 EEE 10 A_FaceTarget;
-		BRU2 F 8 Bright Light("DMR_RifleFire") {
+		BRU2 F 7 Bright Light("DMR_RifleFire") {
 			A_SpawnProjectile("DMR_SmallRocket",43,16);
 		}
 		BRU2 E 2 A_FaceTarget;
-		BRU2 F 8 Bright Light("DMR_RifleFire") {
+		BRU2 F 7 Bright Light("DMR_RifleFire") {
 			A_SpawnProjectile("DMR_SmallRocket",43,16);
 		}
 		BRU2 E 2 A_FaceTarget;
-		BRU2 F 8 Bright Light("DMR_RifleFire") {
+		BRU2 F 7 Bright Light("DMR_RifleFire") {
 			A_SpawnProjectile("DMR_SmallRocket",43,16);
 		}
-		BRU2 E 8;
+		BRU2 E 10;
 		Goto See;
 	Plasma:
 		BRU2 EE 8 A_FaceTarget;
