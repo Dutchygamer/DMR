@@ -832,14 +832,20 @@ monster/haddth                dshaddth
 monster/hadexp                dshadexp
 monster/hadtel                dshadtel
 monster/hadwlk                dshadwlk
-monster/helsit                dshelsit
-monster/helac1                dshelac1
-monster/helac2                dshelac2
-$random monster/helact 	      { monster/helac1 monster/helac2 }
-monster/helpai                dshelpai
-monster/heldth                dsheldth
 monster/heltel                dsheltel
-caco/melee                    dsdembit
+
+
+emperoroverlord/sight			dshelsit
+//$random emperoroverlord/active	{ emperoroverlord/active1 emperoroverlord/active2 }
+//emperoroverlord/active1			dshelac1
+//emperoroverlord/active2			dshelac2
+emperoroverlord/active			DSOVLACT
+emperoroverlord/pain			dshelpai
+emperoroverlord/death			dsheldth
+emperoroverlord/breath			dshelsit
+$rolloff emperoroverlord/breath 500 1500
+emperoroverlord/lasercharge		DSCHAOFI
+$rolloff emperoroverlord/lasercharge 1000 2500
 
 
 // Supreme Fiend

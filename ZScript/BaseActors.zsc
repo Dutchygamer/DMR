@@ -178,6 +178,12 @@ Class DMR_MonsterBase : Actor
 		bFLOAT = true;
 		bFLOORCLIP = false;
 	}	
+	
+	// monster moves with given speed in given angle
+	void A_Dash(double speed, double angle)
+	{
+		Thrust(speed,angle);
+	}
 }
 
 
