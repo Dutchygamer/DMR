@@ -16,7 +16,7 @@ class DMR_SpiderMastermind : DMR_MonsterBase
 		Radius 96;
 		Height 100;
 		Mass 1000;
-		Speed 14;
+		Speed 16;
 		PainChance 40;
 		SeeSound "spider/sight";
 		PainSound "spider/pain";
@@ -46,7 +46,7 @@ class DMR_SpiderMastermind : DMR_MonsterBase
 		Loop;
 	Missile:
 		SPID A 20 BRIGHT A_FaceTarget;
-		SPID GGHH 2 Bright Light("DMR_RifleFire") {
+		SPID GHGH 2 Bright Light("DMR_RifleFire") {
 			A_FaceTarget();
 			A_Playsound("MamaSpider/Fire", CHAN_WEAPON);				
 			A_SpawnProjectile("SpiderSlowBullet",41,0,frandom(-12,12),CMF_OFFSETPITCH,frandom(-1,1));
@@ -74,5 +74,6 @@ class SpiderSlowBullet : DMR_SlowBullet
 	Default
 	{
 		DamageFunction(random(8,24));
+		Decal "BigBulletChip";
 	}
 }

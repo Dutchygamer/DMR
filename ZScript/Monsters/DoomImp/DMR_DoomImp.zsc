@@ -79,6 +79,7 @@ Class DMR_DoomImpBall : DMR_Projectile
 		Alpha 1;
 		SeeSound "imp/attack";
 		DeathSound "imp/shotx";
+		Decal "DImpScorch";
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States

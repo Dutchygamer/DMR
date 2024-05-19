@@ -1,13 +1,16 @@
+//
+// basically we use the default DECALDEF entries from GZDoom where fitting and declare our own when needed
+//
 
-/***** Bullet Chips *****/
+// *** bullets ***
 
 decal BigBulletChip1
 {
 	pic CHIP1
 	translucent 0.85
 	shade "00 00 00"
-	x-scale 0.5
-	y-scale 0.5
+	x-scale 0.8
+	y-scale 0.8
 	randomflipx
 	randomflipy
 }
@@ -17,8 +20,8 @@ decal BigBulletChip2
 	pic CHIP2
 	translucent 0.85
 	shade "00 00 00"
-	x-scale 0.5
-	y-scale 0.5
+	x-scale 0.8
+	y-scale 0.8
 	randomflipx
 	randomflipy
 }
@@ -28,8 +31,8 @@ decal BigBulletChip3
 	pic CHIP3
 	translucent 0.85
 	shade "00 00 00"
-	x-scale 0.5
-	y-scale 0.5
+	x-scale 0.8
+	y-scale 0.8
 	randomflipx
 	randomflipy
 }
@@ -39,8 +42,8 @@ decal BigBulletChip4
 	pic CHIP4
 	translucent 0.85
 	shade "00 00 00"
-	x-scale 0.5
-	y-scale 0.5
+	x-scale 0.8
+	y-scale 0.8
 	randomflipx
 	randomflipy
 }
@@ -50,8 +53,8 @@ decal BigBulletChip5
 	pic CHIP5
 	translucent 0.85
 	shade "00 00 00"
-	x-scale 0.5
-	y-scale 0.5
+	x-scale 0.8
+	y-scale 0.8
 	randomflipx
 	randomflipy
 }
@@ -64,3 +67,276 @@ decalgroup BigBulletChip
 	BigBulletChip4	1
 	BigBulletChip5	1
 }
+
+
+// *** rockets / grenades ***
+
+decal MediumScorch
+{
+	pic SCORCH1
+	shade "00 00 00"
+	x-scale 0.62
+	y-scale 0.62
+	randomflipx
+	randomflipy
+}
+
+decal HugeScorch
+{
+	pic SCORCH1
+	shade "00 00 00"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+
+// *** mancubus ***
+
+decal MancubusScorch1
+{
+	pic CBALSCR1
+	shade "00 00 00"
+	x-scale 0.7
+	y-scale 0.7
+	randomflipx
+	randomflipy
+}
+
+decal MancubusScorch2
+{
+	pic CBALSCR2
+	shade "00 00 00"
+	x-scale 0.7
+	y-scale 0.7
+	randomflipx
+	randomflipy
+}
+
+decalgroup MancubusScorch
+{
+	MancubusScorch1	1
+	MancubusScorch2	1
+}
+
+
+// *** red laser ***
+
+decal RedLaserScorch1
+{
+	pic CBALSCR1
+	shade "00 00 00"
+	randomflipx
+	randomflipy
+}
+
+decal RedLaserScorch2
+{
+	pic CBALSCR1
+	shade "00 00 00"
+	randomflipx
+	randomflipy
+}
+
+decalgroup RedLaserScorch
+{
+	RedLaserScorch1	1
+	RedLaserScorch2	1
+}
+
+decal RedLaserLightning1
+{
+	pic BFGSCRC1
+	shade "FF 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	fullbright
+	randomflipx
+	animator GoAway2
+	lowerdecal RedLaserScorch
+}
+
+decal RedLaserLightning2
+{
+	pic BFGSCRC1
+	shade "FF 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	fullbright
+	randomflipy
+	animator GoAway2
+	lowerdecal RedLaserScorch
+}
+
+decalgroup RedLaserLightning
+{
+	RedLaserLightning1	1
+	RedLaserLightning2	1
+}
+
+
+// *** core defender obelisk laser ***
+
+decal BigRedLaserScorch1
+{
+	pic CBALSCR1
+	shade "00 00 00"
+	x-scale 2.3
+	y-scale 2.3
+	randomflipx
+	randomflipy
+}
+
+decal BigRedLaserScorch2
+{
+	pic CBALSCR2
+	shade "00 00 00"
+	x-scale 2.3
+	y-scale 2.3
+	randomflipx
+	randomflipy
+}
+
+decalgroup BigRedLaserScorch
+{
+	BigRedLaserScorch1	1
+	BigRedLaserScorch2	1
+}
+
+decal BigRedLaserLightning1
+{
+	pic BFGSCRC1
+	shade "FF 00 00"
+	fullbright
+	randomflipx
+	animator GoAway2
+	lowerdecal BigRedLaserScorch
+}
+
+decal BigRedLaserLightning2
+{
+	pic BFGSCRC1
+	shade "FF 00 00"
+	fullbright
+	randomflipy
+	animator GoAway2
+	lowerdecal BigRedLaserScorch
+}
+
+decalgroup BigRedLaserLightning
+{
+	BigRedLaserLightning1	1
+	BigRedLaserLightning2	1
+}
+
+
+// *** emperor overlord breath laser ***
+
+decal BigBlueLaserScorch1
+{
+	pic CBALSCR1
+	shade "00 00 00"
+	x-scale 2.3
+	y-scale 2.3
+	randomflipx
+	randomflipy
+}
+
+decal BigBlueLaserScorch2
+{
+	pic CBALSCR2
+	shade "00 00 00"
+	x-scale 2.3
+	y-scale 2.3
+	randomflipx
+	randomflipy
+}
+
+decalgroup BigBlueLaserScorch
+{
+	BigBlueLaserScorch1	1
+	BigBlueLaserScorch2	1
+}
+
+decal BigBlueLaserLightning1
+{
+	pic BFGSCRC1
+	shade "00 00 FF"
+	fullbright
+	randomflipx
+	animator GoAway2
+	lowerdecal BigBlueLaserScorch
+}
+
+decal BigBlueLaserLightning2
+{
+	pic BFGSCRC1
+	shade "00 00 FF"
+	fullbright
+	randomflipy
+	animator GoAway2
+	lowerdecal BigBlueLaserScorch
+}
+
+decalgroup BigBlueLaserLightning
+{
+	BigBlueLaserLightning1	1
+	BigBlueLaserLightning2	1
+}
+
+
+// *** hell rune ***
+
+decal HellRuneScorch1
+{
+	pic CBALSCR1
+	shade "C0 00 C0"
+	randomflipx
+	randomflipy
+}
+
+decal HellRuneScorch2
+{
+	pic CBALSCR1
+	shade "C0 00 C0"
+	randomflipx
+	randomflipy
+}
+
+decalgroup HellRuneScorch
+{
+	HellRuneScorch1	1
+	HellRuneScorch2	1
+}
+
+decal HellRuneLightning1
+{
+	pic BFGLITE1
+	shade "FF 00 FF"
+	x-scale 0.7
+	y-scale 0.7
+	fullbright
+	randomflipx
+	animator GoAway2
+	lowerdecal HellRuneScorch
+}
+
+decal HellRuneLightning2
+{
+	pic BFGLITE2
+	shade "FF 00 FF"
+	x-scale 0.7
+	y-scale 0.7
+	fullbright
+	randomflipy
+	animator GoAway2
+	lowerdecal HellRuneScorch
+}
+
+decalgroup HellRuneLightning
+{
+	HellRuneLightning1	1
+	HellRuneLightning2	1
+}
+

@@ -32,6 +32,7 @@ class DMR_Rocket : DMR_Projectile
 		+EXTREMEDEATH;
 		SeeSound "largerocket/launch";
 		DeathSound "weapons/rocklx";
+		Decal "BigScorch";
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States
@@ -78,6 +79,7 @@ class DMR_SmallRocket : DMR_Rocket
 		DamageFunction(random(20,60));
 		SeeSound "smallrocket/launch";
 		Scale 0.8;
+		Decal "MediumScorch";
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States
@@ -404,6 +406,7 @@ class DMR_ZombiePlasma : DMR_Projectile
 		Alpha 0.75;
 		SeeSound "weapons/plasmaf";
 		DeathSound "weapons/plasmax";
+		Decal "PlasmaScorch";
 	}
 	states
 	{
@@ -434,7 +437,7 @@ class DMR_HellRune : DMR_Projectile
 		+SEEKERMISSILE
 		SeeSound "Paladin/Shoot";
 		DeathSound "weapons/hellrune";
-		Decal "BaronScorch";
+		Decal "HellRuneLightning";
 	}
 	States
 	{

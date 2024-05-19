@@ -98,6 +98,7 @@ class DMR_RevenantTracer : DMR_Projectile
 		SeeSound "skeleton/attack";
 		DeathSound "skeleton/tracex";
 		RenderStyle "Add";
+		Decal "RevenantScorch";
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States

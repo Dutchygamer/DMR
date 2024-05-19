@@ -163,6 +163,7 @@ class DraugrClusterMissile : DMR_Rocket
 		+SEEKERMISSILE;
 		SeeSound "draugr/cluster";
 		DeathSound "";
+		Decal "Scorch";
 	}
 	States
 	{

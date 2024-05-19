@@ -137,6 +137,7 @@ class TiberiumFlechette : DMR_SmallRocket
 		SeeSound "Thamuz/TibShard";
 		DeathSound "Thamuz/TibExpl";
 		Scale 0.9;
+		Decal "BFGLightning";
 		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
 	}
 	States
@@ -196,8 +197,8 @@ class TiberiumBlueFlechette : TiberiumFlechette
 		+FORCERADIUSDMG;
 		SeeSound "Thamuz/BTibShard";
 		DeathSound "Thamuz/BTibExpl";
-		Decal "BFGLightning";
 		Scale 1.2;
+		Decal "BFGLightning";
 		DMR_Projectile.ParticleColors "#0055ab", "#0067cd", "#003e7d", "#004e9c";
 	}
 	States

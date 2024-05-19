@@ -79,6 +79,7 @@ class SmallRedLaser : DMR_LaserBase
 		Translation "112:127=176:191";
 		MissileType "SmallRedLaserTrail";
 		MissileHeight 10;
+		Decal "RedLaserLightning";
 	}
 }
 

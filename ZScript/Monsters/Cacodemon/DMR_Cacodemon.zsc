@@ -83,8 +83,10 @@ class DMR_CacodemonBall : DMR_Projectile
 		+RANDOMIZE
 		RenderStyle "Add";
 		Alpha 1;
+		Decal "CacoScorch";
 		SeeSound "caco/attack";
  		DeathSound "caco/shotx";
+		Decal "CacoScorch";
 		DMR_Projectile.ParticleColors "#9f009a", "#d70000", "#ff903b", "#ffff00";
 	}
 	States

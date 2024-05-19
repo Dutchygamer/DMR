@@ -155,6 +155,7 @@ class FormerCyborgGrenade : NobleVanguardGrenade
 	Default
 	{
 		Scale 0.75;
+		Decal "MediumScorch";
 	}
 	States
 	{	

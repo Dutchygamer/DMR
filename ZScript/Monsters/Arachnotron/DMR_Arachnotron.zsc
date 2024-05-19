@@ -76,6 +76,7 @@ class DMR_ArachnotronPlasma : DMR_ZombiePlasma
 		Alpha 0.75;
 		SeeSound "baby/attack";
 		DeathSound "baby/shotx";
+		Decal "ArachnotronScorch";
 	}
 	states
 	{

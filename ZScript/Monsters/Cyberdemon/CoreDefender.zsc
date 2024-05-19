@@ -93,7 +93,10 @@ class CoreDefender : DMR_Cyberdemon
 			A_FaceTarget();
 			A_CustomRailgun(0,-42,"","",RGF_SILENT|RGF_NOPIERCING|RGF_FULLBRIGHT,0,0,"",0,0,0,0, 12, 0, "CoreDefenderTargettingLaser3", 10);
 		}
-		ROB4 F 6 Bright Light("DMR_LaserFireBig") A_SpawnProjectile("CoreDefenderObeliskLaser",64,-42,0);
+		ROB4 F 6 Bright Light("DMR_LaserFireBig") {
+			A_RemoveChildren(1,RMVF_EVERYTHING,"CoreDefenderLaserCharge");
+			A_SpawnProjectile("CoreDefenderObeliskLaser",64,-42,0);
+		}
 		ROB4 G 6;
 		Goto See;
 	ClusterMissile:
@@ -151,6 +154,7 @@ class CoreDefenderClusterMissile : DMR_Rocket
 		SeeSound "coredefender/cluster";
 		DeathSound "";
 		Scale 1.2;
+		Decal "MediumScorch";
 	}
 	States
 	{
@@ -198,7 +202,8 @@ class CoreDefenderClusterSubProjectile : NobleVanguardGrenade
 		DamageFunction(random(10,30));
 		WallBounceFactor 0.4;
 		Scale 0.5;
-		SeeSound "";		
+		SeeSound "";
+		Decal "MediumScorch";		
 	}
 	
 	States
@@ -246,6 +251,7 @@ class CoreDefenderObeliskLaser : DMR_LaserBase
 		MissileType "CoreDefenderObeliskLaserTrail";
 		MissileHeight 10;
 		SeeSound "coredefender/laserfire";
+		Decal "BigRedLaserLightning";
 	}
 	States
 	{

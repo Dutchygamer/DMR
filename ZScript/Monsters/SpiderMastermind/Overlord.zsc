@@ -281,6 +281,7 @@ class OverlordBreathLaser : DMR_LaserBase
 		SeeSound "coredefender/laserfire";
 		Scale 0.8;
 		Translation "112:127=192:207";
+		Decal "BigBlueLaserLightning";
 	}
 	States
 	{
