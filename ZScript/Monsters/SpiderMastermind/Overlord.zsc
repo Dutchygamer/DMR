@@ -125,7 +125,7 @@ class Overlord : DMR_SpiderMastermind
 		}
 		OVER G 10 Bright {
 			A_FaceTarget();
-			A_PlaySound("emperoroverlord/lasercharge", CHAN_WEAPON);
+			A_PlaySound("emperoroverlord/lasercharge",CHAN_WEAPON,1.0,0,ATTN_NONE);
 			A_SpawnItemEx("OverlordBreathLaserCharge",0,0,0,0,0,0,0,SXF_SETMASTER);
 		}
 		OVER GGGGHHHHIIII 2 Bright {
@@ -133,6 +133,7 @@ class Overlord : DMR_SpiderMastermind
 		}
 		TNT1 A 0 {		
 			A_RemoveChildren(1,RMVF_EVERYTHING,"OverlordBreathLaserCharge");
+			A_PlaySound("emperoroverlord/laserfire",CHAN_WEAPON,1.0,0,ATTN_NONE);
 		}
 		OVER IIIIIIIIIIII 1 Bright {
 			// shoot in the direction you targetted last, not adjusting for the target moving
@@ -233,8 +234,6 @@ class OverlordBigMouthBall : DMR_Rocket
 {
 	Default
 	{
-		//RenderStyle "Add";
-		//Alpha 1;
 		Decal "CacoScorch";
 		SeeSound "monster/hadsit";
 		DeathSound "monster/hadexp";
@@ -278,7 +277,6 @@ class OverlordBreathLaser : DMR_LaserBase
 		Alpha 0.5;
 		MissileType "OverlordBreathLaserTrail";
 		MissileHeight 10;
-		SeeSound "coredefender/laserfire";
 		Scale 0.8;
 		Translation "112:127=192:207";
 		Decal "BigBlueLaserLightning";
