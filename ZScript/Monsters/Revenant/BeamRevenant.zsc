@@ -77,12 +77,14 @@ class SmallRedLaser : DMR_LaserBase
 	{
 		DamageFunction(random(10,30));
 		Translation "112:127=176:191";
-		MissileType "SmallRedLaserTrail";
+		MissileType "DMR_LaserTrailBase";
 		MissileHeight 10;
+		Seesound "BeamRevenant/Fire";
 		Decal "RedLaserLightning";
 	}
 }
 
+//TODO unused
 class SmallRedLaserTrail : DMR_LaserTrailBase { }
 
 //TODO unused

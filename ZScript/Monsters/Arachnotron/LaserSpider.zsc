@@ -80,6 +80,7 @@ class OpiliotronPlasma : DMR_ArachnotronPlasma
 		DamageFunction(random(4,12));
 		Scale 0.4;
 		SeeSound "";
+		Decal "RedPlasmaScorch";
 	}
 	states
 	{

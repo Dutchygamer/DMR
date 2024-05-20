@@ -85,8 +85,8 @@ decal HugeScorch
 {
 	pic SCORCH1
 	shade "00 00 00"
-	x-scale 0.75
-	y-scale 0.75
+	x-scale 0.8
+	y-scale 0.8
 	randomflipx
 	randomflipy
 }
@@ -176,6 +176,38 @@ decalgroup RedLaserLightning
 }
 
 
+// *** blue BFG / blue tib shard ***
+
+decal BlueBFGLightning1
+{
+	pic BFGLITE1
+	shade "80 80 ff"
+	fullbright
+	randomflipx
+	animator GoAway2
+	lowerdecal BFGScorch
+}
+
+decal BlueBFGLightning2
+{
+	pic BFGLITE2
+	shade "80 80 ff"
+	fullbright
+	randomflipy
+	animator GoAway2
+	lowerdecal BFGScorch
+}
+
+decalgroup BlueBFGLightning
+{
+	BlueBFGLightning1	1
+	BlueBFGLightning2	1
+}
+
+
+
+
+
 // *** core defender obelisk laser ***
 
 decal BigRedLaserScorch1
@@ -211,7 +243,7 @@ decal BigRedLaserLightning1
 	fullbright
 	randomflipx
 	animator GoAway2
-	lowerdecal BigRedLaserScorch
+	lowerdecal HugeScorch //BigRedLaserScorch
 }
 
 decal BigRedLaserLightning2
@@ -221,7 +253,7 @@ decal BigRedLaserLightning2
 	fullbright
 	randomflipy
 	animator GoAway2
-	lowerdecal BigRedLaserScorch
+	lowerdecal HugeScorch //BigRedLaserScorch
 }
 
 decalgroup BigRedLaserLightning
@@ -235,22 +267,22 @@ decalgroup BigRedLaserLightning
 
 decal BigBlueLaserScorch1
 {
-	pic CBALSCR1
-	shade "00 00 00"
-	x-scale 2.3
-	y-scale 2.3
+	pic BFGSCRC1
+	shade "00 00 FF"
+	fullbright
 	randomflipx
-	randomflipy
+	animator GoAway2
+	lowerdecal HugeScorch
 }
 
 decal BigBlueLaserScorch2
 {
-	pic CBALSCR2
-	shade "00 00 00"
-	x-scale 2.3
-	y-scale 2.3
-	randomflipx
+	pic BFGSCRC1
+	shade "00 00 FF"
+	fullbright
 	randomflipy
+	animator GoAway2
+	lowerdecal HugeScorch
 }
 
 decalgroup BigBlueLaserScorch
@@ -261,8 +293,8 @@ decalgroup BigBlueLaserScorch
 
 decal BigBlueLaserLightning1
 {
-	pic BFGSCRC1
-	shade "00 00 FF"
+	pic BFGLITE1
+	shade "80 80 ff"
 	fullbright
 	randomflipx
 	animator GoAway2
@@ -271,10 +303,10 @@ decal BigBlueLaserLightning1
 
 decal BigBlueLaserLightning2
 {
-	pic BFGSCRC1
-	shade "00 00 FF"
+	pic BFGLITE2
+	shade "80 80 ff"
 	fullbright
-	randomflipy
+	randomflipx
 	animator GoAway2
 	lowerdecal BigBlueLaserScorch
 }
@@ -286,57 +318,80 @@ decalgroup BigBlueLaserLightning
 }
 
 
-// *** hell rune ***
+// *** red plasma ***
 
-decal HellRuneScorch1
+decal RedPlasmaScorchLower1
 {
-	pic CBALSCR1
-	shade "C0 00 C0"
+	pic BFGSCRC1
+	shade "00 00 00"
+	x-scale 0.3
+	y-scale 0.3
 	randomflipx
 	randomflipy
 }
 
-decal HellRuneScorch2
+decal RedPlasmaScorch1
 {
-	pic CBALSCR1
-	shade "C0 00 C0"
+	pic LASBA0
+	add 1.0
+	x-scale 0.3
+	y-scale 0.3
+	animator GoAway
+	lowerdecal RedPlasmaScorchLower1
+}
+
+decal RedPlasmaScorchLower2
+{
+	pic BFGSCRC1
+	shade "00 00 00"
+	x-scale 0.3
+	y-scale 0.3
 	randomflipx
 	randomflipy
+}
+
+decal RedPlasmaScorch2
+{
+	pic LASBA0
+	add 1.0
+	x-scale 0.3
+	y-scale 0.3
+	animator GoAway
+	lowerdecal RedPlasmaScorchLower2
+}
+
+decalgroup RedPlasmaScorch
+{
+	RedPlasmaScorch1	1
+	RedPlasmaScorch2	1
+}
+
+
+// *** hell rune ***
+
+decal HellRuneScorch1
+{
+	pic PLRNA0
+	add 1.0
+	x-scale 0.8
+	y-scale 0.8
+	animator GoAway
+	lowerdecal RedPlasmaScorchLower1
+}
+
+decal HellRuneScorch2
+{
+	pic PLRNB0
+	add 1.0
+	x-scale 0.8
+	y-scale 0.8
+	animator GoAway
+	lowerdecal RedPlasmaScorchLower2
 }
 
 decalgroup HellRuneScorch
 {
 	HellRuneScorch1	1
 	HellRuneScorch2	1
-}
-
-decal HellRuneLightning1
-{
-	pic BFGLITE1
-	shade "FF 00 FF"
-	x-scale 0.7
-	y-scale 0.7
-	fullbright
-	randomflipx
-	animator GoAway2
-	lowerdecal HellRuneScorch
-}
-
-decal HellRuneLightning2
-{
-	pic BFGLITE2
-	shade "FF 00 FF"
-	x-scale 0.7
-	y-scale 0.7
-	fullbright
-	randomflipy
-	animator GoAway2
-	lowerdecal HellRuneScorch
-}
-
-decalgroup HellRuneLightning
-{
-	HellRuneLightning1	1
-	HellRuneLightning2	1
 }
 

@@ -198,7 +198,7 @@ class TiberiumBlueFlechette : TiberiumFlechette
 		SeeSound "Thamuz/BTibShard";
 		DeathSound "Thamuz/BTibExpl";
 		Scale 1.2;
-		Decal "BFGLightning";
+		Decal "BlueBFGLightning";
 		DMR_Projectile.ParticleColors "#0055ab", "#0067cd", "#003e7d", "#004e9c";
 	}
 	States

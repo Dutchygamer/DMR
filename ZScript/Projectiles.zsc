@@ -355,8 +355,7 @@ class DMR_LaserBase : DMR_FastProjectile
 		DamageType "Disintegrate";
 		MissileType "LaserTrailBase";
 		MissileHeight 10;
-		seesound "BeamRevenant/Fire";
-		decal "RailScorchLower";
+		decal "RedLaserLightning";
 		Scale 0.5;
 	}
 	States
@@ -437,7 +436,7 @@ class DMR_HellRune : DMR_Projectile
 		+SEEKERMISSILE
 		SeeSound "Paladin/Shoot";
 		DeathSound "weapons/hellrune";
-		Decal "HellRuneLightning";
+		Decal "HellRuneScorch";
 	}
 	States
 	{
@@ -497,7 +496,7 @@ class DMR_HellRuneExplosive : DMR_HellRune
 }
 
 // gas clouds
-class DMR_GasCloudBase : DMR_Projectile //actor
+class DMR_GasCloudBase : DMR_Projectile
 {
 	Default
 	{
@@ -728,7 +727,6 @@ class DMR_SlowBullet : DMR_Projectile
 		Height 3;
 		Speed 60;
 		DamageFunction(random(6,16));
-		//Scale 0.2;
 		Renderstyle "Add";
 		Decal "BulletChip";
 		+BLOODSPLATTER;
