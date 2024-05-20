@@ -13,6 +13,7 @@ class DMR_SpiderMastermind : DMR_MonsterBase
 		BloodColor "Purple"; //TODO recolour sprites to use purple blood
 		Health 3000;
 		// no gibhealth cause it already gibs
+		Species "DMR_BigSpooder";
 		Radius 96;
 		Height 100;
 		Mass 1000;

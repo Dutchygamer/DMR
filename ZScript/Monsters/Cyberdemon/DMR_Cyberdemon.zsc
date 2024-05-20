@@ -12,6 +12,7 @@ class DMR_Cyberdemon : DMR_MonsterBase
 		Tag "Cyberdemon";
 		Health 4000;
 		// no gibhealth cause it already gibs
+		Species "DMR_Cybbie";
 		Radius 40;
 		Height 110;
 		Mass 1000;
