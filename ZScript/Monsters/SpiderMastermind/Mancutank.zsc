@@ -28,6 +28,7 @@ class Mancutank : DMR_SpiderMastermind
 		ActiveSound "MancuTank/active";
 		Obituary "%o was wrecked by a Catastrophe.";
 		BloodColor "Red";
+		+MISSILEMORE;
 	}
 	
 	States
@@ -44,7 +45,7 @@ class Mancutank : DMR_SpiderMastermind
 		Goto IncendiaryRockets;
 	Chainguns:
 		BS1T A 18 Bright A_FaceTarget;	
-		BS1T BBAA 2 Bright Light("DMR_RifleFire") {
+		BS1T BABA 2 Bright Light("DMR_RifleFire") {
 			A_FaceTarget();
 			A_Playsound("MamaSpider/Fire", CHAN_WEAPON);				
 			// fire from left gun
