@@ -554,7 +554,7 @@ monster/incatk dsincatk
 monster/inchit dsinchit
 monster/incexp dsincexp
 
-draugr/cluster samshot1
+draugr/cluster CLUSFIR
 
 // Dusk Warrior (old)
 hknight/sight           kgtsit
@@ -695,17 +695,17 @@ cyber/pain 	DSCYBPN
 
 
 // Core Defender
-coredefender/sight 		laugh
+coredefender/sight 		CORESIT
 coredefender/pain 		inqpain
 coredefender/death 		inqdeath
 coredefender/step 		step2
 
-coredefender/cluster 		samshot1
+coredefender/cluster 		CLUSFIR
 $rolloff coredefender/cluster 500 1500
-coredefender/lasercharge 	lsrchrg
-$rolloff coredefender/lasercharge 1000 2500
-coredefender/laserfire 		obelray1
-$rolloff coredefender/laserfire 500 1500
+coredefender/lasercharge 	CORECHR
+//$rolloff coredefender/lasercharge 1000 2500
+coredefender/laserfire 		CORELFIR
+$rolloff coredefender/laserfire 1500 5000 //500 1500
 
 inqv1 inqact1
 inqv2 inqact2
