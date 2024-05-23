@@ -119,6 +119,7 @@ $rolloff cyborgcommando/bfg/fire 500 1500
 $volume cyborgcommando/bfg/fire 0.8
 
 cyborgcommando/bfg/loop 	CCYBLP
+$limit cyborgcommando/bfg/loop 3
 
 cyborgcommando/bfg/explode 	CCYBEX
 $rolloff cyborgcommando/bfg/explode 600 1600

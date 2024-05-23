@@ -350,6 +350,7 @@ class DMR_LaserBase : DMR_FastProjectile
 		+DONTREFLECT;
 		-CANNOTPUSH;
 		+NODAMAGETHRUST;
+		+BLOODLESSIMPACT;
 		RenderStyle "Add";
 		Alpha 0.75;
 		DamageType "Disintegrate";
