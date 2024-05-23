@@ -136,7 +136,8 @@ class Overlord : DMR_SpiderMastermind
 			A_PlaySound("emperoroverlord/laserfire",CHAN_WEAPON,1.0,0,ATTN_NONE);
 		}
 		OVER IIIIIIIIIIII 1 Bright {
-			// shoot in the direction you targetted last, not adjusting for the target moving
+			// only partially adjust aim
+			A_FaceTarget(0.75,3);
 			A_SpawnProjectile("OverlordBreathLaser",43,0,breathAngle,CMF_AIMDIRECTION,pitch);
 			if (inverseBreath) {
 				breathAngle -= 1;
@@ -280,6 +281,9 @@ class OverlordBreathLaser : DMR_LaserBase
 		Scale 0.8;
 		Translation "112:127=192:207";
 		Decal "BigBlueLaserLightning";
+		// this is just for this weapon
+		+EXTREMEDEATH;
+		+FORCERADIUSDMG;
 	}
 	States
 	{
