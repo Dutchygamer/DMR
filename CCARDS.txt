@@ -1,12 +1,14 @@
 // This lump can be added to any wad/pk3 file to add or remove cards from the game and alter how the engine effects certain actors.
 
-// don't use / effect any of the following monsters
+//TODO okay dus als je een nieuw deck maakt op deze manier heeft ie ook echt geen enkele card en moet je ze handmatig adden
+// alleen als je dit niet doet gebruikt ie de MODIFIED deck en dan kan je alleen de commands doen
+//newdeck DMR_CCDECK_NAME
+//deckdescription DMR_CCDECK_DESCRIPTION
+//deckgraphic DECK00
 
+removecard CCard_AnnoyingDevil
+removecard CCard_MirrorCurseMonster
+removecard CCard_DisableInfight
+removecard CCard_ChainResurrections
 
-newdeck DMR_TEST
-deckdescription DMR_TEST
-deckgraphic DECK05
-useallenchantments
-addcard CCard_RabbitCurseMonster
-nodifficultyscaling
-allowdupicatemonstercards
+removecard CCard_SpookyScarySkeleton
