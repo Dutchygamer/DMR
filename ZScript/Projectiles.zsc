@@ -128,6 +128,7 @@ Class DMR_GrenadeBase : DMR_Projectile
 		BounceType "Doom";
 		BounceFactor 0.45;
 		WallBounceFactor 0.45;
+		BounceCount 10; // in case it starts bouncing like a madman
 		Gravity 0.5;
 		SeeSound "Paladin/Grenade";
 		BounceSound "Paladin/Bounce";
