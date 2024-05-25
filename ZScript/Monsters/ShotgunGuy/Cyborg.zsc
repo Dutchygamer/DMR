@@ -18,8 +18,8 @@ class FormerCyborg : DMR_ShotgunGuy
 	{
 		Tag "Former Cyborg";
 		obituary "%o felt the pain of fighting a Former Cyborg.";
-		health 500;
-		painchance 50;
+		health 450;
+		painchance 40;
 		SeeSound "cyborg/sight";
 		PainSound "cyborg/pain";
 		DeathSound "cyborg/death";

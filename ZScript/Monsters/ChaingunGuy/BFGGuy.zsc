@@ -17,9 +17,10 @@ class FormerBFGCommando : DMR_ChaingunGuy
 	{
 		Tag "Former BFG Commando";
 		obituary "%o was vaporized by a Former BFG Commando.";
-		health 150;
-		painchance 100;
+		health 250;
+		painchance 50;
 		Scale 1.1;
+		Speed 6;
 		dropitem "Cell", 256, 20;
 		dropitem "Cell", 128, 20;
 		dropitem "BFG9000", 10;
