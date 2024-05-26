@@ -129,8 +129,7 @@ class NobleVanguard : DMR_BaronOfHell
 			A_PlaySound("shieldwall/death");
 		}
 		HPAL P 24 {
-			//TODO dit doet niks? fix ook voor HellWarrior
-			for (painYelp = 0;painYelp <= 5;painYelp++) {
+			if (random(1,5) == 5) {
 				A_Pain(); 
 			}
 		}

@@ -78,7 +78,7 @@ Class HellServant : DMR_HellKnight
 			A_PlaySound("shieldwall/death");
 		}
 		HWAR J 24 {
-			for (painYelp = 0;painYelp <= 5;painYelp++) {
+			if (random(1,5) == 5) {
 				A_Pain(); 
 			}
 		}
