@@ -24,7 +24,6 @@
 
 #include "GLDefs/Monsters/BaronOfHell/BruiserDemon.gl"
 #include "GLDefs/Monsters/BaronOfHell/Apprentice.gl"
-#include "GLDefs/Monsters/BaronOfHell/CyBruiser.gl"
 #include "GLDefs/Monsters/BaronOfHell/Paladin.gl"
 
 #include "GLDefs/Monsters/Revenant/DMR_Revenant.gl"

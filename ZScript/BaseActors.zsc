@@ -215,11 +215,7 @@ Mixin Class DMR_BerserkingMonster
 			SetStateLabel("CriticalDamage"); 
 		}
 		if (criticalDamaged && health > 0 && !IsFrozen())
-		{		
-			//TODO maak configurabel
-			// zou je domweg kunnen doen door de class als een string door te geven (ala "string laser")
-			// zie SpiderMasterSpark
-			//A_SpawnItemEx("TerminatorBerserkingSmokeCloud",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+		{	
 			A_SpawnItemEx("DMR_StencilledGhostAfterImage",-1,0,0,-0.2,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION|SXF_TRANSFERSTENCILCOL); 			
 		}
   	}

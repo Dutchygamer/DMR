@@ -105,13 +105,3 @@ class NoblePraetorian : DMR_BaronOfHell
 		Goto See;
 	}
 }
-
-//TODO unused
-class NoblePraetorianHellRune : DMR_HellRune
-{  
-	Default
-	{
-		DamageFunction(random(20,60));
-		Speed 18;
-	}
-}

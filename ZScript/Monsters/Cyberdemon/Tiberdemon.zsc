@@ -74,11 +74,11 @@ class Tiberdemon : DMR_Cyberdemon
 	Flechette:
 		DCYB E 8 A_FaceTarget;
 		DCYB FF 3 A_SpawnProjectile("TiberiumFlechette",56,-25,random(-2,2));
-		DCYB F 6 A_FaceTarget;
+		DCYB E 6 A_FaceTarget;
 		DCYB FF 3 A_SpawnProjectile("TiberiumFlechette",56,-25,random(-2,2));
-		DCYB F 6 A_FaceTarget;
+		DCYB E 6 A_FaceTarget;
 		DCYB FF 3 A_SpawnProjectile("TiberiumFlechette",56,-25,random(-2,2));
-		DCYB F 6 A_FaceTarget;
+		DCYB E 6 A_FaceTarget;
 		Goto See;
 	BFGBall:
 		TNT1 A 0 {
@@ -256,6 +256,7 @@ class TiberiumGasRocket : DMR_Rocket
 		Speed 25;
 		Scale 1.2;
 		+SEEKERMISSILE;
+		SeeSound "coredefender/cluster";
 		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
 	}
 	States

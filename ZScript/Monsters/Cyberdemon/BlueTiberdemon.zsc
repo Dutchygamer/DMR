@@ -97,13 +97,13 @@ class BlueTiberdemon : DMR_Cyberdemon
 	Flechette:
 		CARD C 8 A_FaceTarget;
 		CARD DD 3 A_SpawnProjectile("TiberiumFlechette",72,-25,random(-2,2));
-		CARD D 5 A_FaceTarget;
+		CARD C 5 A_FaceTarget;
 		CARD DD 3 A_SpawnProjectile("TiberiumFlechette",72,-25,random(-2,2));
-		CARD D 5 A_FaceTarget;
+		CARD C 5 A_FaceTarget;
 		CARD DD 3 A_SpawnProjectile("TiberiumFlechette",72,-25,random(-2,2));
-		CARD D 5 A_FaceTarget;
+		CARD C 5 A_FaceTarget;
 		CARD DD 3 A_SpawnProjectile("TiberiumFlechette",72,-25,random(-2,2));
-		CARD D 5 A_FaceTarget;
+		CARD C 5 A_FaceTarget;
 		Goto See;
 	BFGBall:
 		TNT1 A 0 {
