@@ -57,6 +57,13 @@ class NobleAnnihilator : DMR_BaronOfHell
 		Loop;
 	Melee:
 	Missile: 
+		// when critically damaged fire more shots
+        TNT1 A 0 {
+			if (criticalDamaged)
+				attackloop = -2;
+			else
+				attackloop = 0;
+		}		
 		TNT1 A 0 A_Jump(72, "Plasma");
 		TNT1 A 0 A_Jump(256, "Rockets", "RocketBurst");
 	Rockets:
@@ -78,7 +85,6 @@ class NobleAnnihilator : DMR_BaronOfHell
 	RocketBurst:
         TNT1 A 0 {
 			A_PlaySound("heavyweapon/load");			
-			attackloop = 0;
 		}
 		BRU3 EE 10 A_FaceTarget;
 	RocketBurstLoop:
@@ -95,7 +101,6 @@ class NobleAnnihilator : DMR_BaronOfHell
 		Goto See;
 	Plasma:
 		BRU3 EE 8 A_FaceTarget;
-        TNT1 A 0 { attackloop = 0; }
 	PlasmaLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 4,"PlasmaEnd");
 		BRU3 F 6 Bright Light("DMR_HellRuneFire") {
@@ -114,12 +119,6 @@ class NobleAnnihilator : DMR_BaronOfHell
 		BRU3 E 6 A_Jump(128, "Grenades");
 		Goto See;
 	Grenades:
-        TNT1 A 0 {
-			if (criticalDamaged)
-				attackloop = -2;
-			else
-				attackloop = 0;
-		}		
 		BRU3 GS 10 {
 			A_Facetarget();
 			A_PlaySound("heavyweapon/load");
@@ -140,37 +139,42 @@ class NobleAnnihilator : DMR_BaronOfHell
 	GrenadesEnd:
 		BRU3 SG 8 A_Facetarget;
 		TNT1 A 0 {
-			// when berserk, continue with this state
+			// when not berserking stop attacking
 			if (!criticalDamaged) { SetStateLabel("See"); }
+			// when berserking small chance to stop attacking
+			if (criticalDamaged && random(1,10) == 10) { SetStateLabel("See"); }
 		}
-		TNT1 A 0 {
-			// 90% chance to keep attacking if target is in LoS
-			if (random(1,10) != 10 && A_JumpIfTargetInLOS("Null",360,JLOSF_DEADNOJUMP)) { 
-				SetStateLabel("Missile");
-			}
-		}
-		Goto See;
+		// otherwise switch to different attack if target is still in LoS
+		TNT1 A 0 A_MonsterRefire(0,"See");
+		Goto Missile;
 	CriticalDamage:
-		TNT1 A 0 { bNOPAIN = true; }
-		BRU3 A 10 Light("TerminatorGoBerserk") {
-			A_PlaySound("kurpraetorian/pain", 7);
+		TNT1 A 0 { 
+			bNOPAIN = true; 
+			criticalDamaged = true;
+			A_SetSpeed(speed*1.2);
 		}
-		TNT1 A 0 {
-			A_PlaySound("kurpraetorian/sight", 7);
+		BRU3 J 10 Light("TerminatorGoBerserk") {
+			A_StartSound("kurpraetorian/pain",CHAN_VOICE);
+			A_StartSound("kurpraetorian/sight",CHAN_VOICE,CHANF_OVERLAP);
 		}
 		BRU3 AAAAAAAAAAAAAAAAAAAA 1 {
-			A_SpawnItemEx("TerminatorGoneBerserkSmokeCloud",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("TerminatorGoneBerserkSmokeCloud",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("TerminatorGoneBerserkSmokeCloud",-5,0,50,frandom(-1,0),frandom(-1,1),frandom(0,1)); 			
+			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,50,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,50,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			if (random(1,4) == 1){
+				A_SpawnItemEx("DMR_BossDeathExplosion",random(8,-8),0,random(20,40));				
+			}
 		}
-		BRU3 A 10 Light("TerminatorGoBerserk");
-		TNT1 A 0 {
-			criticalDamaged = true;
-			bNOPAIN = false;
+		BRU3 G 10 Light("TerminatorGoBerserk") {
+			A_StartSound("kurpraetorian/sight",CHAN_VOICE);
+			A_FaceTarget();
 		}
-		Goto See;
+		BRU3 G 10 A_FaceTarget;
+		TNT1 A 0 { 
+			bNOPAIN = false; 
+			attackloop = -2;
+		}
+		Goto Grenades;
 	Pain:
 		BRU3 J 2;
 		BRU3 J 4 A_Pain;

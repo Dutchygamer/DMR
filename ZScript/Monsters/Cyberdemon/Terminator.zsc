@@ -65,61 +65,50 @@ class Terminator : DMR_Cyberdemon
 		}
 		Loop;	
 	Missile:
-		TNT1 A 0 A_Jump(256, "Rockets", "RocketBurst", "Flamethrower");
-		Goto See;
-	Rockets:
-		TERM E 6 A_FaceTarget;
-		TERM F 10 Bright Light("DMR_RifleFire") {
-			A_SpawnProjectile("DMR_Rocket",56,25,0);
-		}
-		TERM E 8 A_FaceTarget;
-		TERM F 10 Bright Light("DMR_RifleFire") {
-			A_SpawnProjectile("DMR_Rocket",56,25,0);
-		}
-		TERM E 8 A_FaceTarget;
-		TERM F 10 Bright Light("DMR_RifleFire") {
-			A_SpawnProjectile("DMR_Rocket",56,25,0);
-		}
-		TNT1 A 0 {
-			// when berserk, continue with this state
-			if (!criticalDamaged) { SetStateLabel("See"); }
-		}
-		TNT1 A 0 {
-			// 90% chance to keep attacking if target is in LoS
-			if (random(1,10) > 3 && A_JumpIfTargetInLOS("Null",360,JLOSF_DEADNOJUMP)) { 
-				SetStateLabel("Missile");
-			}
-		}
-		TNT1 A 0 A_Jump(64, "See", "RocketBurst"); // 25% chance to stop firing or switch to other rockets attack
-		Goto Rockets+1;
-	RocketBurst:
-		TERM E 12 {
-			A_FaceTarget();
-			A_PlaySound("heavyweapon/load");
-		}
-		TERM FFF 5 Bright Light("DMR_RifleFire") {
-			A_FaceTarget();
-			A_SpawnProjectile("TerminatorWeaveRocket",56,25,0);
-		}
-		TNT1 A 0 {
-			// when berserk, continue with this state
-			if (!criticalDamaged) { SetStateLabel("See"); }
-		}
-		TNT1 A 0 {
-			// 90% chance to keep attacking if target is in LoS
-			if (random(1,10) > 3 && A_JumpIfTargetInLOS("Null",360,JLOSF_DEADNOJUMP)) { 
-				SetStateLabel("Missile");
-			}
-		}
-		TNT1 A 0 A_Jump(64, "See", "Rockets"); // 25% chance to stop firing or switch to other rockets attack
-		Goto RocketBurst;
-	Grenades:
+		// when critically damaged fire more shots
         TNT1 A 0 {
 			if (criticalDamaged)
 				attackloop = -2;
 			else
 				attackloop = 0;
-		}		
+		}	
+		TNT1 A 0 A_Jump(256, "Rockets", "RocketBurst", "Flamethrower");
+		Goto See;
+	Rockets:
+		TERM E 6 A_FaceTarget;
+	RocketsLoop:
+		TNT1 A 0 A_JumpIf(attackloop >= 3,"RocketsEnd");
+		TERM F 10 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("DMR_Rocket",56,25,0);
+			attackloop++;
+		}
+		TERM E 8 A_FaceTarget;
+		Loop;
+	RocketsEnd:
+		TNT1 A 0 {
+			// when not berserking stop attacking
+			if (!criticalDamaged) { SetStateLabel("See"); }
+			// when berserking small chance to stop attacking
+			if (criticalDamaged && random(1,10) == 10) { SetStateLabel("See"); }
+		}
+		// otherwise switch to different attack if target is still in LoS
+		TNT1 A 0 A_MonsterRefire(0,"See");
+		TERM E 8 A_FaceTarget;
+		Goto Missile;
+	RocketBurst:
+		TERM E 12 {
+			A_FaceTarget();
+			A_PlaySound("heavyweapon/load");
+		}
+	RocketBurstLoop:
+		TNT1 A 0 A_JumpIf(attackloop >= 3,"RocketsEnd"); // as we use same attack frames we can re-use RocketsEnd here
+		TERM F 5 Bright Light("DMR_RifleFire") {
+			A_FaceTarget();
+			A_SpawnProjectile("TerminatorWeaveRocket",56,25,0);
+			attackloop++;
+		}
+		Loop;
+	Grenades:	
 		TERM GGG 6 {
 			A_Facetarget();
 			A_PlaySound("heavyweapon/load");
@@ -174,12 +163,14 @@ class Terminator : DMR_Cyberdemon
 		TERM G 12 A_MonsterRefire(10,"See");
 		Goto Flamethrower;
 	CriticalDamage:
-		TNT1 A 0 { bNOPAIN = true; }
-		TERM A 10 Light("TerminatorGoBerserk") {
-			A_PlaySound("terminator/pain", 7);
+		TNT1 A 0 { 
+			bNOPAIN = true; 
+			criticalDamaged = true;
+			A_SetSpeed(speed*1.2);
 		}
-		TNT1 A 0 {
-			A_PlaySound("terminator/sight", 7);
+		TERM L 10 Light("TerminatorGoBerserk") {
+			A_StartSound("terminator/pain",CHAN_VOICE);
+			A_StartSound("terminator/sight",CHAN_VOICE,CHANF_OVERLAP);
 		}
 		TERM AAAAAAAAAAAAAAAAAAAA 1 {
 			A_SpawnItemEx("TerminatorGoneBerserkSmokeCloud",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
@@ -187,13 +178,20 @@ class Terminator : DMR_Cyberdemon
 			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			if (random(1,4) == 1){
+				A_SpawnItemEx("DMR_BossDeathExplosion",random(8,-8),0,random(20,40));				
+			}
 		}
-		TERM A 10 Light("TerminatorGoBerserk");
+		TERM G 10 Light("TerminatorGoBerserk") {
+			A_StartSound("terminator/sight",CHAN_VOICE);
+			A_FaceTarget();
+		}
+		TERM G 10 A_FaceTarget;
 		TNT1 A 0 {
-			criticalDamaged = true;
 			bNOPAIN = false;
+			attackloop = -2;
 		}
-		Goto See;
+		Goto Grenades;
 	Pain:
 		TERM L 10 A_Pain;
 		Goto See;
