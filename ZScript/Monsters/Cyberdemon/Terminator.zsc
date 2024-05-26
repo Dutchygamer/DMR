@@ -165,8 +165,9 @@ class Terminator : DMR_Cyberdemon
 	CriticalDamage:
 		TNT1 A 0 { 
 			bNOPAIN = true; 
-			criticalDamaged = true;
+			bQUICKTORETALIATE = true;
 			A_SetSpeed(speed*1.2);
+			criticalDamaged = true;
 		}
 		TERM L 10 Light("TerminatorGoBerserk") {
 			A_StartSound("terminator/pain",CHAN_VOICE);
