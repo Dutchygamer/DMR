@@ -21,7 +21,7 @@ class FormerPyroTechnician : DMR_ChaingunGuy
 		Health 200;
 		PainChance 50;
 		DamageFactor "Fire", 0.5;
-		dropitem "Cell", 256, 20;
+		Dropitem "Cell", 256, 20;
 		+DOHARMSPECIES; // zombies aren't fire-proof
 		+MISSILEMORE;
 	}
@@ -35,13 +35,16 @@ class FormerPyroTechnician : DMR_ChaingunGuy
 		PYRZ AABBCCDD 3 A_Chase;
 		Loop;
 	Missile:
+		TNT1 A 0 { attackloop = 0; }
 		TNT1 A 0 A_Jump(128, "Flamethrower", "FatBalls");
 	Fireballs:
 		PYRZ E 10 A_FaceTarget;
-		TNT1 A 0 { attackloop = 0; }
 	FireballLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 4,"FireballEnd");
-		PYRZ F 6 Bright Light("DMR_RifleFire") A_SpawnProjectile("PyroTechnicianBall",32);
+		PYRZ F 6 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("PyroTechnicianBall",32);
+			attackloop++;
+		}
 		PYRZ E 5 A_FaceTarget;
 		TNT1 A 0 A_MonsterRefire(32,"FireballEnd");
 		Loop;
@@ -63,8 +66,7 @@ class FormerPyroTechnician : DMR_ChaingunGuy
 		}
 		PYRZ E 10 A_FaceTarget;
 		TNT1 A 0 { 
-			attackloop = 0; 
-			A_PlaySound ("flamethrower/fire", CHAN_WEAPON);	
+			A_PlaySound("flamethrower/fire",CHAN_WEAPON);	
 		}
 	FlamethrowerLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 12,"FlamethrowerEnd");
