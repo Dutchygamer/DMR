@@ -1,21 +1,33 @@
 
 //laser big
+
+// obsolete
 pointlight DMR_LaserCharge1
 {
     color 0.6 0.1 0.1
     size 64
 }
 
+// obsolete
 pointlight DMR_LaserCharge2
 {
     color 0.8 0.05 0.05
     size 88
 }
 
+// obsolete
 pointlight DMR_LaserCharge3
 {
     color 1.0 0.0 0.0
     size 88
+}
+
+
+pointlight DMR_LaserCharge
+{
+    color 1.0 0.0 0.0
+    size 80
+    offset 0 40 0
 }
 
 flickerlight DMR_LaserFireBig
@@ -85,19 +97,45 @@ object CoreDefenderObeliskLaser
     frame BFE1F { light DMR_LaserImpactBig_X5 }
 }
 
+
+
+flickerlight DMR_LaserTargetter1
+{
+    color 0.6 0.1 0.1
+    size 64
+    secondarySize 72
+    chance 0.3
+}
+
+flickerlight DMR_LaserTargetter2
+{
+    color 0.8 0.05 0.05
+    size 72
+    secondarySize 80
+    chance 0.3
+}
+
+flickerlight DMR_LaserTargetter3
+{
+    color 1.0 0.0 0.0
+    size 80
+    secondarySize 84
+    chance 0.3
+}
+
 object CoreDefenderLaserTargetter1
 {
-	frame LASBA { light DMR_LaserCharge1 }
+	frame LASBA { light DMR_LaserTargetter1 }
 }
 
 object CoreDefenderLaserTargetter2
 {
-	frame LASBA { light DMR_LaserCharge2 }
+	frame LASBA { light DMR_LaserTargetter2 }
 }
 
 object CoreDefenderLaserTargetter3
 {
-	frame LASBA { light DMR_LaserCharge3 }
+	frame LASBA { light DMR_LaserTargetter3 }
 }
 
 
