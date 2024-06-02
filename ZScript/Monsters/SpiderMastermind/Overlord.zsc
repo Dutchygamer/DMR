@@ -60,8 +60,9 @@ class Overlord : DMR_SpiderMastermind
 		}
 		goto See;
 	Missile:
-		TNT1 A 0 A_Jump(160,"MouthBalls","BigMouthBalls","HandBalls");
-		Goto BeamAttack;		
+		TNT1 A 0 A_Jump(80,"BeamAttack");
+		TNT1 A 0 A_Jump(256,"MouthBalls", "BigMouthBalls","HandBalls");
+		Goto See;		
 	MouthBalls:
 		OVER DE 4 A_FaceTarget;
 		OVER FFF 4 bright {
@@ -329,7 +330,7 @@ class OverlordBreathLaserCharge : DMR_ProjectileTrail
 	States
 	{
 	Spawn:
-		LFX1 SSTTUUVVWW 1 Bright {
+		LFX1 SSTTUUVVWW 1 Bright Light("DMR_BlueLaserCharge") {
 			A_Warp(AAPTR_MASTER,10,0,43,0,WARPF_NOCHECKPOSITION);
 			if (Scale.x < 1.2) { 
 				A_SetScale(Scale.X+0.08); 

@@ -50,41 +50,24 @@ class FormerCyborgCommando : FormerCyborg
 		TNT1 A 0 A_PlaySound("cyborgcommando/step");
 		Loop;
 	Missile:
+		TNT1 A 0 {		
+			attackloop = 0;
+		}
 		TNT1 A 0 A_Jump(96,"BFG");
 		TNT1 A 0 A_Jump(256,"Plasma", "ChargedPlasma");
 		Stop;
 	Plasma:
 		MRBL E 8 A_FaceTarget;
+	PlasmaLoop:
+		TNT1 A 0 A_JumpIf(attackloop >= 6,"PlasmaEnd");
 		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
 			A_PlaySound ("cyborgcommando/fire", CHAN_WEAPON);
 			A_SpawnProjectile("FormerCyborgCommandoPlasma",36);
 		}
 		MRBL E 2 A_FaceTarget;
-		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
-			A_PlaySound ("cyborgcommando/fire", CHAN_WEAPON);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",36);
-		}
-		MRBL E 2 A_FaceTarget;
-		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
-			A_PlaySound ("cyborgcommando/fire", CHAN_WEAPON);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",36);
-		}
-		MRBL E 2 A_FaceTarget;
-		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
-			A_PlaySound ("cyborgcommando/fire", CHAN_WEAPON);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",36);
-		}
-		MRBL E 2 A_FaceTarget;
-		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
-			A_PlaySound ("cyborgcommando/fire", CHAN_WEAPON);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",36);
-		}
-		MRBL E 2 A_FaceTarget;
-		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
-			A_PlaySound ("cyborgcommando/fire", CHAN_WEAPON);
-			A_SpawnProjectile("FormerCyborgCommandoPlasma",34);
-		}
-		MRBL E 2 A_FaceTarget;
+		Loop;
+	PlasmaEnd:
+		MRBL E 2;
 		Goto See;
 	ChargedPlasma:
 		TNT1 A 0 {
