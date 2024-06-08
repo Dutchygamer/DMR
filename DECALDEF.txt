@@ -395,3 +395,23 @@ decalgroup HellRuneScorch
 	HellRuneScorch2	1
 }
 
+
+// ************************************
+// *** assign decals to hitscanners ***
+// ************************************
+
+generator DMR_Zombieman			BulletChip
+generator FormerAssaultTrooper	BulletChip
+generator FormerInfiltrator		BulletChip
+generator FormerSpecOpsGunner	BulletChip
+
+generator DMR_ShotgunGuy		BulletChip
+generator FormerStaffSargeant	BulletChip
+generator FormerQuartermaster	BulletChip
+generator FormerAssaultSargeant	BulletChip
+generator FormerCyborg			BulletChip
+
+generator DMR_ChaingunGuy		BulletChip
+generator FormerGunnerCommando	BulletChip
+
+generator Solifutron			BulletChip
