@@ -25,9 +25,9 @@ class Draugr : DMR_Revenant
 		DeathSound "skeleton/death";
 		ActiveSound "skeleton/active";
 		MeleeSound "skeleton/melee";
-		Speed 8;
+		//Speed 8;
 		PainChance 70;
-		MeleeThreshold 0;
+		//MeleeThreshold 0;
 	}
 	
 	States 
@@ -39,51 +39,59 @@ class Draugr : DMR_Revenant
 		SKE2 AABBCCDDEEFF 2 A_Chase;
 		Loop;
 	Melee:
-		TNT1 A 0 A_Jump(128, "Flamethrower"); //chance to use flamethrower for melee
 		SKE2 J 0 A_FaceTarget;
 		SKE2 J 6 A_SkelWhoosh;
 		SKE2 K 6 A_FaceTarget;
-		SKE2 L 6 A_CustomMeleeAttack(random(12,36),"skeleton/melee");
+		SKE2 L 6 A_CustomMeleeAttack(random(16,48),"skeleton/melee");
+		TNT1 A 0 {
+			// toast your target if still within range
+			if (target && Distance3D(target) < 180) SetStateLabel("Flamethrower");
+		}
 		Goto See;
 	Missile:
-		TNT1 A 0 A_Jump(256, "ClusterRocket", "Flamethrower");
+		TNT1 A 0 A_Jump(128,"ClusterRocket","Flamethrower");
 		Goto See;
 	HERocket:
-		TNT1 A 0 A_Jump(128, "HomingRocket");
-	FastRocket:
-		SKE2 G 15 A_FaceTarget;
-		SKE2 H 5 Bright Light("DMR_RifleFire") A_SpawnProjectile("DraugrTracer", 64, -14);
-		SKE2 I 15 A_FaceTarget;
-		Goto See;
-	HomingRocket:
-		SKE2 G 15 A_FaceTarget;
-		SKE2 H 5 Bright Light("DMR_RifleFire") A_SpawnProjectile("DraugrHomingTracer", 64, -14);
-		SKE2 I 15 A_FaceTarget;
+		SKE2 GG 6 Bright {
+			targetLock = false;
+			A_FaceTarget();
+		}
+		SKE2 G 6 {
+			if (target && CheckSight(target)) {
+				targetLock = true;
+			}
+			A_FaceTarget();
+		}
+		SKE2 H 8 Bright Light("DMR_RifleFire") {
+			if (targetLock) { A_SpawnProjectile("DraugrHomingTracer",64,-14); }
+			else { A_SpawnProjectile("DraugrTracer",64,-14); }
+		}
+		SKE2 I 10;
 		Goto See;
 	ClusterRocket:
 		TNT1 A 0 {
 			// cluster missiles suck at close range, so use normal rocket instead
 			if (target && Distance3D(target) < 300) SetStateLabel("HERocket");
 		}
-		SKE2 G 15 Bright A_FaceTarget;
-		SKE2 H 5 Bright Light("DMR_RifleFire") A_SpawnProjectile("DraugrClusterMissile", 64, -14);
-		SKE2 I 15 A_FaceTarget;
+		SKE2 GG 7 Bright A_FaceTarget;
+		SKE2 H 8 Bright Light("DMR_RifleFire") A_SpawnProjectile("DraugrClusterMissile",64,-14);
+		SKE2 I 10;
 		Goto See;
 	Flamethrower:
 		TNT1 A 0 {
 			if (target && Distance3D(target) > 300) SetStateLabel("HERocket");
 		}
-		SKE2 GG 10 Bright A_FaceTarget;
+		SKE2 GG 7 Bright A_FaceTarget;
 		TNT1 A 0 { 
 			attackloop = 0; 
 			A_PlaySound("flamethrower/fire", CHAN_WEAPON);
 		}
 	FlamethrowerLoop:
-		TNT1 A 0 A_JumpIf(attackloop >= 12,"FlamethrowerEnd");
+		TNT1 A 0 A_JumpIf(attackloop >= 24,"FlamethrowerEnd");
 		SKE2 H 1 Bright Light("DMR_RifleFire") {
 			A_FaceTarget();
 			attackloop++;
-			A_SpawnProjectile("DMR_FlamethrowerBall", 64, -14, random(-3,3));
+			A_SpawnProjectile("DMR_FlamethrowerBall",64,-14,random(-3,3));
 		}
 		Loop;
 	FlamethrowerEnd:
@@ -116,6 +124,16 @@ class DraugrTracer : DMR_SmallRocket
 	}
 	States
 	{
+	Spawn:
+		FBRS A 1 Bright {
+			A_SpawnItemEx("DMR_FireballTrail",-30,0,1,frandom(-1,0),frandom(-1,1),frandom(-1,0));
+			A_SpawnItemEx("DMR_SmokeCloud",-30,0,1,frandom(-1,0));
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-30,-26),frandom(-6,6),frandom(-5,5),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
+		}
+		Loop;
 	Death:
 		TNT1 A 0 {
 			A_SetRenderStyle(1.0,STYLE_Add);

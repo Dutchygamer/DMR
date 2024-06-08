@@ -138,6 +138,8 @@ Class DMR_MonsterBase : Actor
 	
 	int attackLoop;
 	int fxLoop;
+	
+	bool targetLock;
 
 	// check if the monster damaging us is part of the Species2
 	// if so, treat it like it is the same species (unless DONTHARMSPECIES is false)
@@ -216,7 +218,7 @@ Mixin Class DMR_BerserkingMonster
 		}
 		if (criticalDamaged && health > 0 && !IsFrozen())
 		{	
-			A_SpawnItemEx("DMR_StencilledGhostAfterImage",-1,0,0,-0.2,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION|SXF_TRANSFERSTENCILCOL); 			
+			A_SpawnItemEx("DMR_StencilledGhostAfterImage",-1,0,0,-0.2,0,0.5,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION|SXF_TRANSFERSTENCILCOL);
 		}
   	}
 	
