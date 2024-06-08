@@ -228,7 +228,7 @@ Class DMR_FlamethrowerBall : DMR_Projectile
 	{
 		Radius 4;
 		Height 4;
-		Speed 20; //13;
+		Speed 20;
 		RenderStyle "Add";
 		DamageType "Fire";
 		Alpha 0.67;
@@ -237,15 +237,18 @@ Class DMR_FlamethrowerBall : DMR_Projectile
 		+BRIGHT
 		+NODAMAGETHRUST;
 		+DONTSPLASH;
-		VSpeed 0.5;
+		+ROLLSPRITE;
 	}
 	int dmgtic;
+	bool fire;
 	
 	States
 	{
 	Spawn:
 		FRFX AABBCCDDEEFFGGHHIIJJKK 1 {
+			A_ScaleVelocity(0.98);
 			A_SetScale(Scale.X + 0.03);
+			
 			// only deal damage X amount of tics instead of every tick
 			dmgtic++;
 			if(dmgtic >= 3)
@@ -255,14 +258,28 @@ Class DMR_FlamethrowerBall : DMR_Projectile
 			}		
 		}
 		FRFX LLMMNNOO 1 {
+			// fall down towards end
+			if (vel.z != 0 && vel.y != 0) { 
+				A_ChangeVelocity(0,0,1);
+			}
 			A_SetScale(Scale.X + 0.03);
 		}
 		Stop;
 	}
 	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		A_SetRoll(random(0,360));
+	}
+	
 	override void Tick()
 	{
-		GravityTick();
+		Super.Tick();
+		//if(vel.x == 0 && vel.y == 0 && fire == false && random(1,4) == 1) {
+		//	A_SpawnProjectile("DMR_BurningFire",1,0,0,CMF_TRACKOWNER);
+		//	fire = true;
+		//}
 	}
 }
 

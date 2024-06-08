@@ -52,7 +52,7 @@ class Hellhound : DMR_Demon
 			A_PlaySound ("flamethrower/fire", CHAN_WEAPON);	
 		}
 	MissileLoop:
-		TNT1 A 0 A_JumpIf(attackloop >= 12,"See");
+		TNT1 A 0 A_JumpIf(attackloop >= 24,"See");
 		HDOG H 1 Bright {
 			A_FaceTarget();
 			attackloop++;

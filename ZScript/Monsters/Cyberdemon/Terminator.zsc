@@ -149,7 +149,7 @@ class Terminator : DMR_Cyberdemon
 			A_PlaySound ("flamethrower/fire", CHAN_WEAPON);
 		}
 	FlamethrowerLoop:
-		TNT1 A 0 A_JumpIf(attackloop >= 12,"FlamethrowerEnd");
+		TNT1 A 0 A_JumpIf(attackloop >= 30,"FlamethrowerEnd");
 		TERM K 1 Bright {
 			A_FaceTarget();
 			attackloop++;
