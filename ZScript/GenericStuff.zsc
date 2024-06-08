@@ -44,8 +44,8 @@ class DMR_StencilledGhostAfterImage : DMR_GhostAfterImage
 	Spawn:
 		TNT1 A 3;
 		"----" A 1 {
-			A_FadeOut(0.05);
-			A_SetScale(Scale.X+0.01);
+			A_FadeOut(frandom(0.01, 0.005));
+			A_SetScale(Scale.X+frandom(0.01, 0.02));
 		}
 		Wait;
 	}
