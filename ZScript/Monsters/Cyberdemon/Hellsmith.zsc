@@ -37,16 +37,10 @@ class Forgemaster : DMR_Cyberdemon
 		BSMT AB 10 A_Look;
 		Loop;
 	See: 
-		BSMT A 3 {
-			A_Chase();
-			A_Playsound ("forgemaster/move");
-		}
-		BSMT ABB 3 A_Chase;
-		BSMT C 3 {
-			A_Chase();
-			A_Playsound ("forgemaster/move");
-		}
-		BSMT CDD 3 A_Chase;
+		BSMT AABB 3 A_Chase();
+		TNT1 A 0 A_Playsound("forgemaster/move");
+		BSMT CCDD 3 A_Chase();
+		TNT1 A 0 A_Playsound("forgemaster/move");
 		Loop;
 	Missile:
 		//TNT1 A 0 A_Jump(256, "Charge", "Balls", "Clustershot");

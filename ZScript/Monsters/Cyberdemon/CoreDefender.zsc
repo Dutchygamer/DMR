@@ -42,18 +42,13 @@ class CoreDefender : DMR_Cyberdemon
 		ROB4 A 10 A_Look;
 		Loop;
 	See:
-		ROB4 BB 3 A_Chase;
-		ROB4 C 3 {
-			A_Chase();
-			A_PlaySound("Terminator/step");
-		}
-		ROB4 CDDEE 3 A_Chase;
-		ROB4 D 3 {
-			A_Chase();
-			A_PlaySound("Terminator/step");
-		}
-		ROB4 DCC 3 A_Chase;
-		Goto See;
+		ROB4 BBCC 3 A_Chase();
+		TNT1 A 0 A_Playsound("Terminator/step");
+		ROB4 DDEE 3 A_Chase();
+		TNT1 A 0 A_Playsound("Terminator/step");
+		ROB4 DDCC 3 A_Chase();
+		TNT1 A 0 A_Playsound("Terminator/step");
+		Loop;
 	Missile:
 		TNT1 A 0 A_Jump(80,"ObeliskLaser");
 		TNT1 A 0 A_Jump(256,"Plasma", "Rockets","ClusterMissile");

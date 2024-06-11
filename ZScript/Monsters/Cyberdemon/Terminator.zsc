@@ -45,24 +45,16 @@ class Terminator : DMR_Cyberdemon
 		TERM AB 10 A_Look;
 		Loop;
 	See:
-		TERM A 3 {
-			A_SetBerserkerTics(3,2);
-			A_Chase();
-			A_Playsound("Terminator/step");
-		}
-		TERM ABB 3 {		
+		TERM AABB 3 {		
 			A_SetBerserkerTics(3,2);
 			A_Chase();
 		}
-		TERM C 3 {
-			A_SetBerserkerTics(3,2);
-			A_Chase();
-			A_Playsound("Terminator/step");
-		}
-		TERM CDD 3 {		
+		TNT1 A 0 A_Playsound("Terminator/step");
+		TERM CCDD 3 {		
 			A_SetBerserkerTics(3,2);
 			A_Chase();
 		}
+		TNT1 A 0 A_Playsound("Terminator/step");
 		Loop;	
 	Missile:
 		// when critically damaged fire more shots

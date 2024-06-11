@@ -37,10 +37,10 @@ class FireborneArchon : DMR_Cyberdemon
 		PYRO AB 10 A_Look;
 		Loop;
 	See:
-		PYRO A 3 A_Hoof;
-		PYRO ABBCC 3 A_Chase;
-		PYRO D 3 A_Hoof;
-		PYRO D 3 A_Chase;
+		PYRO AABB 3 A_Chase();
+		TNT1 A 0 A_Playsound("cyber/hoof");
+		PYRO CCDD 3 A_Chase();
+		TNT1 A 0 A_Playsound("cyber/hoof");
 		Loop;
 	Missile:
 		TNT1 A 0 A_Jump(72,"Comet","Spam");
