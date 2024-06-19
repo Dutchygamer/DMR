@@ -12,7 +12,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class FusionSpider : DMR_Arachnotron
+class Fusiotron : DMR_Arachnotron
 {
 	Default
 	{

@@ -11,12 +11,12 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class Mygalotron : DMR_Arachnotron
+class Widowtron : DMR_Arachnotron
 {
 	Default
 	{		
-		Tag "Widotron";
-		Obituary "%o got wasted by a Widotron.";
+		Tag "Widowtron";
+		Obituary "%o got wasted by a Widowtron.";
 		Health 850;
 		Speed 16;
 		Scale 1.1;
@@ -85,27 +85,5 @@ class DMR_AracknightPlasma : DMR_ArachnotronPlasma
 		//}
 		FS03 HIJG 5 Bright;
 		Stop;
-	}
-}
-
-
-
-//TODO unused
-class MygalotronBall : DMR_HellRune
-{  
-	Default
-	{
-		DamageFunction(random(8,24));
-		Speed 20;
-		Scale 0.8;
-	}
-}
-
-class MygalotronExplosiveBall : DMR_HellRuneExplosive
-{  
-	Default
-	{
-		Speed 16;
-		DamageFunction(random(20,60));
 	}
 }

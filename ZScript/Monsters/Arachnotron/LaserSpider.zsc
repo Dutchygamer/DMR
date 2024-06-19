@@ -12,13 +12,13 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class Opiliotron : DMR_Arachnotron
+class Weavotron : DMR_Arachnotron
 {
 	Default
 	{
-		Tag "Weavetron";
+		Tag "Weavotron";
 		Health 550;
-		Obituary "%o was tagged by an Weavetron.";
+		Obituary "%o was tagged by an Weavotron.";
 	}
 	States
 	{
@@ -45,7 +45,7 @@ class Opiliotron : DMR_Arachnotron
 		RSPI G 20 A_FaceTarget;
 		RSPI H 4 Bright Light("DMR_LaserFire") {
 			A_PlaySound("baby/attack", CHAN_WEAPON);
-			A_SpawnProjectile("OpiliotronPlasma",20,0);
+			A_SpawnProjectile("WeavotronPlasma",20,0);
 		}
 		RSPI G 4 Bright;
 		RSPI G 1 Bright A_SpidRefire;
@@ -54,7 +54,7 @@ class Opiliotron : DMR_Arachnotron
 		RSPI G 20 A_FaceTarget;
 		RSPI H 3 Bright Light("DMR_LaserFire") {
 			A_PlaySound("baby/attack", CHAN_WEAPON);
-			A_SpawnProjectile("OpiliotronPlasma",20,0,random(-2,2));
+			A_SpawnProjectile("WeavotronPlasma",20,0,random(-2,2));
 		}
 		RSPI G 3 Bright;
 		RSPI G 1 Bright A_SpidRefire;
@@ -80,7 +80,7 @@ class Opiliotron : DMR_Arachnotron
 }
 
 
-class OpiliotronPlasma : DMR_ArachnotronPlasma
+class WeavotronPlasma : DMR_ArachnotronPlasma
 {
 	Default
 	{

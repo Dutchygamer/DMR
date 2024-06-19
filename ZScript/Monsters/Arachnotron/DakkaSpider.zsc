@@ -11,7 +11,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class Solifutron : DMR_Arachnotron
+class Arachnogunner : DMR_Arachnotron
 {
 	Default
 	{

@@ -1,30 +1,10 @@
-object MygalotronBall
+object DMR_AracknightPlasma
 {
-	frame ARAXA { light DMR_HellRuneStart }
-    frame ARAXB { light DMR_HellRuneStart }
-	frame PLRNA { light DMR_HellRune }
-    frame PLRNB { light DMR_HellRune }
+	frame FS03A { light DMR_HellRune }
+    frame FS03B { light DMR_HellRune }
 	
-    frame PLRXA { light DMR_HellRune_X3 }
-    frame PLRXB { light DMR_HellRune_X3 }
-    frame PLRXC { light DMR_HellRune_X2 }
-    frame PLRXD { light DMR_HellRune_X2 }
-    frame PLRXE { light DMR_HellRune_X1 }
-    frame PLRXF { light DMR_HellRune_X1 }
-}
-
-
-object MygalotronExplosiveBall
-{
-	frame ARAXA { light DMR_HellRuneStart }
-    frame ARAXB { light DMR_HellRuneStart }
-	frame PLRNA { light DMR_HellRune }
-    frame PLRNB { light DMR_HellRune }
-	
-    frame PLRXH { light DMR_HellRune_X3 }
-    frame PLRXI { light DMR_HellRune_X3 }
-    frame PLRXJ { light DMR_HellRune_X2 }
-    frame PLRXK { light DMR_HellRune_X2 }
-    frame PLRXL { light DMR_HellRune_X1 }
-    frame PLRXM { light DMR_HellRune_X1 }
+    frame FS03H { light DMR_HellRune_X1 }
+	frame FS03I { light DMR_HellRune_X2 }
+	frame FS03J { light DMR_HellRune_X2 }
+	frame FS03G { light DMR_HellRune_X3 }
 }

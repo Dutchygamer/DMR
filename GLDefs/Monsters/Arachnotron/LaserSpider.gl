@@ -1,5 +1,5 @@
 
-object OpiliotronPlasma
+object WeavotronPlasma
 {
     frame LASBA { light DMR_LaserTrail }
 
