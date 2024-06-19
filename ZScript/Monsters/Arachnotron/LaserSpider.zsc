@@ -16,11 +16,11 @@ class Opiliotron : DMR_Arachnotron
 {
 	Default
 	{
-		Tag "Opiliotron";
-		Health 450;
-		Obituary "%o was tagged by an Opiliotron.";
+		Tag "Weavetron";
+		Health 550;
+		Obituary "%o was tagged by an Weavetron.";
 	}
-	states
+	States
 	{
 	Spawn:
 		RSPI AB 10 A_Look;
@@ -33,24 +33,32 @@ class Opiliotron : DMR_Arachnotron
 		RSPI DEEFF 3 A_Chase;
 		Goto See+1;
 	Missile:
-		TNT1 A 0 A_Jump(96, "Laser");
-		Goto Plasma;
+		TNT1 A 0 A_Jump(96,"Plasma");
 	Laser:
+		//TNT1 A 0 A_Jump(64,2);
+		TNT1 A 0 A_JumpIfCloser(400,"PlasmaClose");
 		RSPI G 20 A_FaceTarget;
 		RSPI H 10 Bright Light("DMR_LaserFire") A_SpawnProjectile("SmallRedLaser",20,0,random(-2,2));
-		RSPI G 10;
+		RSPI G 6;
 		Goto See+1;
 	Plasma:
 		RSPI G 20 A_FaceTarget;
-		RSPI H 10 Bright Light("DMR_LaserFire") {
+		RSPI H 4 Bright Light("DMR_LaserFire") {
 			A_PlaySound("baby/attack", CHAN_WEAPON);
 			A_SpawnProjectile("OpiliotronPlasma",20,0);
-			A_SpawnProjectile("OpiliotronPlasma",20,0,-2);
-			A_SpawnProjectile("OpiliotronPlasma",20,0,2);
 		}
-		RSPI G 4 bright;
-		RSPI G 1 bright A_SpidRefire;
+		RSPI G 4 Bright;
+		RSPI G 1 Bright A_SpidRefire;
 		Goto Plasma+1;
+	PlasmaClose: // up close start spamming plasma in a random arc
+		RSPI G 20 A_FaceTarget;
+		RSPI H 3 Bright Light("DMR_LaserFire") {
+			A_PlaySound("baby/attack", CHAN_WEAPON);
+			A_SpawnProjectile("OpiliotronPlasma",20,0,random(-2,2));
+		}
+		RSPI G 3 Bright;
+		RSPI G 1 Bright A_SpidRefire;
+		Goto PlasmaClose+1;
 	Pain:
 		RSPI I 3;
 		RSPI I 3 A_Pain;

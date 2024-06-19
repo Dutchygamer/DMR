@@ -91,6 +91,7 @@ version "4.2.1"
 #include "ZScript/Monsters/Arachnotron/DakkaSpider.zsc"
 #include "ZScript/Monsters/Arachnotron/AracKnight.zsc"
 #include "ZScript/Monsters/Arachnotron/LaserSpider.zsc"
+#include "ZScript/Monsters/Arachnotron/FusionSpider.zsc"
 
 #include "ZScript/Monsters/Cacodemon/_Replacer.zsc"
 #include "ZScript/Monsters/Cacodemon/DMR_Cacodemon.zsc"

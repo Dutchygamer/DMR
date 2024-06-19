@@ -15,11 +15,11 @@ class Solifutron : DMR_Arachnotron
 {
 	Default
 	{
-		Tag "Solifutron";
-		obituary "%o was pumped full of lead by a Solifutron.";
-		health 550;
+		Tag "Arachnogunner";
+		Health 550;
+		Obituary "%o was pumped full of lead by a Arachnogunner.";
 	}
-	states
+	States
 	{
 	Spawn:
 		CSPI AB 10 A_Look;

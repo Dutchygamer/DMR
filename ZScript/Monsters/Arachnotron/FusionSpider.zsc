@@ -1,0 +1,74 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Tormentor667, Captain Toenail
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by Tormentor667, Captain Toenail)
+//	GLDEFs: 	Dreadopp
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class FusionSpider : DMR_Arachnotron
+{
+	Default
+	{
+		Tag "Fusiotron";
+		Obituary "%o was ensnared by a Fusiotron.";
+		Health 700;
+	}
+	States
+	{
+	Spawn:
+		FSPI AB 10 A_Look;
+		Loop;
+	See:
+		FSPI A 20;
+		FSPI A 3 A_BabyMetal;
+		FSPI ABBCC 3 A_Chase;
+		FSPI D 3 A_BabyMetal;
+		FSPI DEEFF 3 A_Chase;
+		Goto See+1;
+	Missile:
+		TNT1 A 0 A_Jump(128, "Spam");
+		Goto LargePlasma;
+	LargePlasma:
+		FSPI A 20 Bright A_FaceTarget;
+		FSPI G 4 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("DMR_HellRuneExplosive",20);
+		FSPI H 4 Bright;
+		TNT1 A 0 A_Jump(48, "Spam"); // small chance to switch to spam attack
+		FSPI A 8 Bright A_SpidRefire;
+		Goto LargePlasma+1;
+	Spam:
+		FSPI A 20 Bright A_FaceTarget;
+		FSPI G 4 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("DMR_HellRuneSmall",21,0,frandom(-0.5,0.5));
+		FSPI H 4 Bright A_FaceTarget;
+		FSPI G 4 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("DMR_HellRuneSmall",21,0,frandom(-0.5,0.5));
+		FSPI H 4 Bright A_FaceTarget;
+		FSPI G 4 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("DMR_HellRuneSmall",21,0,frandom(-0.5,0.5));
+		FSPI H 4 Bright A_FaceTarget;
+		TNT1 A 0 A_Jump(48, "LargePlasma"); // small chance to switch to large plasma attack
+		FSPI A 6 Bright A_SpidRefire;
+		Goto Spam+1;
+	Pain:
+		FSPI I 3;
+		FSPI I 3 A_Pain;
+		Goto See+1;
+	Death:
+		FSPI J 20 A_Scream;
+		FSPI K 7 {
+			A_NoBlocking();
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(10,-10),0,random(20,30));
+		}
+		FSPI LMNO 7;
+		FSPI P -1 A_BossDeath;
+		Stop;
+    Raise:
+		FSPI P 5;
+		FSPI ONMLKJ 5;
+		Goto See+1;
+	}
+}

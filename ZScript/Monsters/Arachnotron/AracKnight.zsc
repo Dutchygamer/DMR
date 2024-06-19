@@ -15,12 +15,12 @@ class Mygalotron : DMR_Arachnotron
 {
 	Default
 	{		
-		Tag "Mygalotron";
-		Obituary "%o got wasted by a Mygalotron.";
-		Health 750;
-		Speed 10;
+		Tag "Widotron";
+		Obituary "%o got wasted by a Widotron.";
+		Health 850;
+		Speed 16;
 		Scale 1.1;
-		Painchance 64;
+		PainChance 50;
 	}
 	states
 	{
@@ -35,26 +35,11 @@ class Mygalotron : DMR_Arachnotron
 		ARAC DEEFF 3 A_Chase;
 		Goto See+1;
 	Missile:
-		TNT1 A 0 A_Jump(128, "Spam");
-		Goto LargePlasma;
-	LargePlasma:
-		ARAC A 20 Bright A_FaceTarget;
-		ARAC G 5 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("DMR_HellRuneExplosive",21,0,0,0,0);
-		ARAC H 5 Bright;
-		TNT1 A 0 A_Jump(48, "Spam"); //small chance to switch to spam attack
-		ARAC A 8 Bright A_SpidRefire;
-		Goto LargePlasma+1;
-	Spam:
-		ARAC A 20 Bright A_FaceTarget;
-		ARAC G 3 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("MygalotronBall",21,0,frandom(-0.5,0.5),0,0);
-		ARAC H 3 Bright A_FaceTarget;
-		ARAC G 3 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("MygalotronBall",21,0,frandom(-0.5,0.5),0,0);
-		ARAC H 3 Bright A_FaceTarget;
-		ARAC G 3 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("MygalotronBall",21,0,frandom(-0.5,0.5),0,0);
-		ARAC H 3 Bright A_FaceTarget;
-		TNT1 A 0 A_Jump(48, "LargePlasma"); //small chance to switch to large plasma attack
-		ARAC A 6 Bright A_SpidRefire;
-		Goto Spam+1;
+		ARAC A 20 bright A_FaceTarget;
+		ARAC G 2 bright Light("DMR_ArachnotronFire") A_SpawnProjectile("DMR_AracknightPlasma",22);
+		ARAC H 2 bright;
+		ARAC H 1 bright A_SpidRefire;
+		goto Missile+1;
 	Pain:
 		ARAC I 3;
 		ARAC I 3 A_Pain;
@@ -74,6 +59,36 @@ class Mygalotron : DMR_Arachnotron
 		Goto See+1;
 	}
 }
+
+class DMR_AracknightPlasma : DMR_ArachnotronPlasma
+{
+	Default
+	{
+		Speed 35;
+		DamageFunction(random(10,30));
+		RenderStyle "Add";
+		Alpha 0.75;
+		SeeSound "baby/attack";
+		DeathSound "baby/shotx";
+		Decal "ArachnotronScorch";
+	}
+	states
+	{
+	Spawn:
+		FS03 AAABBB 2 Bright  {
+			//A_SpawnItemEx("DMR_ArachnotronPlasmaTrail",frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5));
+		}
+		Loop;
+	Death:
+		//TNT1 A 0 {
+		//	A_SpawnItemEx("DMR_PlasmaImpactFlare");
+		//}
+		FS03 HIJG 5 Bright;
+		Stop;
+	}
+}
+
+
 
 //TODO unused
 class MygalotronBall : DMR_HellRune

@@ -5,6 +5,7 @@ Class ArachnotronReplacer: RandomSpawner replaces Arachnotron
 		DropItem "DMR_Arachnotron", 255, 100;
 		DropItem "Solifutron", 255, 25;
 		DropItem "Opiliotron", 255, 20;
+		DropItem "FusionSpider", 255, 15;
 		DropItem "Mygalotron", 255, 8;
 	}
 }
