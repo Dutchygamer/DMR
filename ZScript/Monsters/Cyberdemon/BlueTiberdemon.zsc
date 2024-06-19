@@ -12,12 +12,12 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class BlueTiberdemon : DMR_Cyberdemon
+class InfusedTyrant : DMR_Cyberdemon
 {
 	Default
 	{
 		Translation "112:127=192:207";
-		Tag "Cybifera"; // Cyberdemon + Vinifera
+		Tag "Infused Tyrant";
 		Health 5000;
 		PainChance 5;
 		DropItem "RocketBox", 256, 5;
@@ -26,13 +26,13 @@ class BlueTiberdemon : DMR_Cyberdemon
 		DropItem "CellPack", 128, 100;
 		Scale 1.05;
 		Bloodcolor "blue";
-		SeeSound "TiberDemon/sight";
+		SeeSound "tyrant/sight";
 		PainSound "cyber/Pain";
-		DeathSound "TiberDemon/death";
+		DeathSound "tyrant/death";
 		ActiveSound "cyber/active";
 		Obituary "%o was destroyed by a Cybifera.";
 		DamageFactor "ToxinCloud", 0.0;
-		+NODROPOFF; //don't yeet yourself off platforms	
+		+NODROPOFF; // don't yeet yourself off platforms	
 		+MISSILEMORE;
 	}
 	States 
@@ -107,7 +107,7 @@ class BlueTiberdemon : DMR_Cyberdemon
 		Goto See;
 	BFGBall:
 		TNT1 A 0 {
-			A_PlaySound ("Thamuz/BTibShard/Charge", CHAN_WEAPON);
+			A_PlaySound ("tibshard/blue/charge", CHAN_WEAPON);
 			bNOPAIN = true;
 		}
 		CARD C 12 Light("DMR_BlueBFGCharge_X1") A_FaceTarget;

@@ -372,6 +372,8 @@ comet/launch cometlnc
 comet/explosion cometexp
 dragonfam/attack dfattack
 
+comet/explosion			cometexp
+
 // Satyr
 satyr/sight dssatsit
 satyr/death dssatdth
@@ -733,37 +735,20 @@ termact2		dsteact2
 
 
 // TibCyber
-TiberDemon/sight			TBCYBSIT
-TiberDemon/death			TBCYBDTH
-TiberDemon/cannon			TBCYBCNN
+tyrant/sight			TBCYBSIT
+tyrant/death			TBCYBDTH
+tyrant/cannon			TBCYBCNN
 
-Apocalypse/cast			apocast
+tibshard/green/fire			TSRHDATK
+$rolloff tibshard/green/fire 300 1300
+tibshard/green/explode			TSHRDDTH
 
-Thamuz/Attack			nakrula2
-Thamuz/death			nakruld1
-Thamuz/Pain				nakrulh1
-$random Thamuz/Idlesight	{ Thamuz/Idle1 Thamuz/Idle2 }
-Thamuz/Idle1			nakruls1
-Thamuz/Idle2			nakruls2
-Thamuz/death2			megad1
-
-Thamuz/TibShard			TSRHDATK
-$rolloff Thamuz/TibShard 300 1300
-Thamuz/TibExpl			TSHRDDTH
-
-Thamuz/BTibShard/Charge	BTIBCHRG
-$rolloff Thamuz/BTibShard/Charge 500 1500
-Thamuz/BTibShard		BSHRDATK
-$rolloff Thamuz/BTibShard 500 1500
-Thamuz/BTibExpl			BSHRDDTH
-$rolloff Thamuz/BTibExpl 600 1600
-
-q2weapon/bfgball			bfg_fire
-q2weapon/bfgballexplo		bfg__x1b
-q2weapon/rocketlauncherfire	rocklf1a
-q2weapon/rocketexplo		q2roklx1
-h2necromancer/magiccast		h2ncmagh
-comet/explosion			cometexp
+tibshard/blue/charge		BTIBCHRG
+$rolloff tibshard/blue/charge 500 1500
+tibshard/blue/fire			BSHRDATK
+$rolloff tibshard/blue/fire 500 1500
+tibshard/blue/explode		BSHRDDTH
+$rolloff tibshard/blue/explode 600 1600
 
 
 //Annihilator

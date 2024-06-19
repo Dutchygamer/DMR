@@ -48,7 +48,7 @@ class Ravager : DMR_PainElemental
 		Goto See;
 	BFG:	
 		TNT1 A 0 {
-			A_PlaySound ("Thamuz/BTibShard/Charge", CHAN_WEAPON);
+			A_PlaySound ("tibshard/blue/charge", CHAN_WEAPON);
 			bNOPAIN = true;
 		}
 		SENT DDDDDDDDDD 1 Light("DMR_BlueBFGCharge_X1") {

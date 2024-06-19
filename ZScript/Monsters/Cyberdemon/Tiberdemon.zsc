@@ -12,22 +12,22 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class Tiberdemon : DMR_Cyberdemon
+class Tyrant : DMR_Cyberdemon
 {
 	Default
 	{
-		Tag "Cyparius"; // Cyberdemon + Riparius
+		Tag "Tyrant";
 		Health 5000;
 		DropItem "RocketBox", 256, 5;
 		DropItem "RocketBox", 128, 5;
 		DropItem "Cell", 128, 20;
 		Scale 1.05;
 		Bloodcolor "green";
-		SeeSound "TiberDemon/sight";
+		SeeSound "tyrant/sight";
 		PainSound "cyber/Pain";
-		DeathSound "TiberDemon/death";
+		DeathSound "tyrant/death";
 		ActiveSound "cyber/active"	;
-		Obituary "%o fell before a Cyparius.";
+		Obituary "%o fell before a Tyrant.";
 		DamageFactor "ToxinCloud", 0.0;
 	}
 	States
@@ -82,7 +82,7 @@ class Tiberdemon : DMR_Cyberdemon
 		Goto See;
 	BFGBall:
 		TNT1 A 0 {
-			A_PlaySound ("Thamuz/BTibShard/Charge", CHAN_WEAPON);
+			A_PlaySound ("tibshard/blue/charge", CHAN_WEAPON);
 			bNOPAIN = true;
 		}
 		DCYB E 12 Light("DMR_BlueBFGCharge_X1") A_FaceTarget;
@@ -135,8 +135,8 @@ class TiberiumFlechette : DMR_SmallRocket
 	{
 		Speed 25;
 		DamageFunction(random(16,48));
-		SeeSound "Thamuz/TibShard";
-		DeathSound "Thamuz/TibExpl";
+		SeeSound "tibshard/green/fire";
+		DeathSound "tibshard/green/explode";
 		Scale 0.9;
 		Decal "BFGLightning";
 		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
@@ -196,8 +196,8 @@ class TiberiumBlueFlechette : TiberiumFlechette
 		DamageFunction (400); // don't use the default formula, just don't get hit by it ;o
 		+EXTREMEDEATH;
 		+FORCERADIUSDMG;
-		SeeSound "Thamuz/BTibShard";
-		DeathSound "Thamuz/BTibExpl";
+		SeeSound "tibshard/blue/fire";
+		DeathSound "tibshard/blue/explode";
 		Scale 1.2;
 		Decal "BlueBFGLightning";
 		DMR_Projectile.ParticleColors "#0055ab", "#0067cd", "#003e7d", "#004e9c";

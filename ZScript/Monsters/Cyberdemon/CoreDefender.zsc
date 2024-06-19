@@ -43,11 +43,11 @@ class CoreDefender : DMR_Cyberdemon
 		Loop;
 	See:
 		ROB4 BBCC 3 A_Chase();
-		TNT1 A 0 A_Playsound("Terminator/step");
+		TNT1 A 0 A_Playsound("kurcenturion/step");
 		ROB4 DDEE 3 A_Chase();
-		TNT1 A 0 A_Playsound("Terminator/step");
+		TNT1 A 0 A_Playsound("kurcenturion/step");
 		ROB4 DDCC 3 A_Chase();
-		TNT1 A 0 A_Playsound("Terminator/step");
+		TNT1 A 0 A_Playsound("kurcenturion/step");
 		Loop;
 	Missile:
 		TNT1 A 0 A_Jump(80,"ObeliskLaser");
@@ -58,9 +58,9 @@ class CoreDefender : DMR_Cyberdemon
 		ROB4 FFFF 8 Bright Light("DMR_LaserFire") {
 			A_FaceTarget();
 			A_PlaySound("baby/attack", CHAN_WEAPON);
-			A_SpawnProjectile("OpiliotronPlasma",64,-42,0);
-			A_SpawnProjectile("OpiliotronPlasma",64,-42,-2);
-			A_SpawnProjectile("OpiliotronPlasma",64,-42,2);
+			A_SpawnProjectile("WeavotronPlasma",64,-42,0);
+			A_SpawnProjectile("WeavotronPlasma",64,-42,-2);
+			A_SpawnProjectile("WeavotronPlasma",64,-42,2);
 		}
 		ROB4 G 6;
 		Goto See;
@@ -199,7 +199,7 @@ class CoreDefenderClusterMissile : DMR_Rocket
 }
 
 // cluster missile sub-projectile
-class CoreDefenderClusterSubProjectile : NobleVanguardGrenade
+class CoreDefenderClusterSubProjectile : DMR_FiredGrenade
 {
 	Default
 	{

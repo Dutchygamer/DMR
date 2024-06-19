@@ -36,8 +36,8 @@
    
    pre: CyberDemon   type: cyberdemon         filter: "DMR_Cyberdemon"; 
    pre: CyberDemon   type: cyberdemon         filter: "Terminator"; 
-   pre: CyberDemon   type: cyberdemon         filter: "Tiberdemon"; 
-   pre: CyberDemon   type: cyberdemon         filter: "BlueTiberdemon"; 
+   pre: CyberDemon   type: cyberdemon         filter: "Tyrant"; 
+   pre: CyberDemon   type: cyberdemon         filter: "InfusedTyrant"; 
    pre: CyberDemon   type: cyberdemon         filter: "FireborneArchon"; 
    pre: CyberDemon   type: cyberdemon         filter: "CoreDefender"; 
    pre: CyberDemon   type: cyberdemon         filter: "Forgemaster"; 

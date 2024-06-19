@@ -1,7 +1,0 @@
-PulseLight TerminatorGoBerserk
-{
-    color 1.0 0.1 0.1
-    size 80
-    secondarySize 250
-	Interval 2.0
-}
