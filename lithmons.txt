@@ -1,6 +1,122 @@
 // Documentation: https://github.com/marrub--/Lithium/blob/master/pk7/lithmons.txt
 
 "full" {
+   pre: Arachnotron   type: arachnotron   filter: "DMR_Arachnotron";
+   pre: Arachnotron   type: arachnotron   filter: "Solifutron";
+   pre: Arachnotron   type: arachnotron   filter: "Opiliotron";  
+   pre: Arachnotron   type: arachnotron   filter: "FusionSpider";
+   pre: Arachnotron   type: arachnotron   filter: "Mygalotron"; 
+   
+   pre: Archvile   type: archvile   filter: "DMR_Archvile"; 
+   pre: Archvile   type: archvile   filter: "Intoxicanter"; 
+   pre: Archvile   type: archvile   filter: "Diabolist"; 
+   pre: Archvile   type: archvile   filter: "Summoner"; 
+   
+   pre: BaronOfHell   type: baron   filter: "DMR_BaronOfHell"; 
+   pre: BaronOfHell   type: baron   filter: "FireborneNoble"; 
+   pre: BaronOfHell   type: baron   filter: "CyberBaronOfHell"; 
+   pre: BaronOfHell   type: baron   filter: "NoblePraetorian"; 
+   pre: BaronOfHell   type: baron   filter: "NobleAnnihilator"; 
+   pre: BaronOfHell   type: baron   filter: "NobleVanguard"; 
+   pre: BaronOfHell   type: baron   filter: "Hellsmith"; 
+   
+   pre: Cacodemon   type: cacodemon   filter: "DMR_Cacodemon"; 
+   pre: Cacodemon   type: cacodemon   filter: "Infernal"; 
+   pre: Cacodemon   type: cacodemon   filter: "Witherer"; 
+   pre: Cacodemon   type: cacodemon   filter: "Cacofiend"; 
+   
+   pre: ChaingunGuy   type: zombiecg         filter: "DMR_ChaingunGuy"; 
+   pre: ChaingunGuy   type: zombiecg         filter: "FormerGunnerCommando"; 
+   pre: ChaingunGuy   type: zombiecg         filter: "FormerPyroTechnician"; 
+   pre: ChaingunGuy   type: zombiecg         filter: "FormerRocketeer"; 
+   pre: ChaingunGuy   type: zombiecg         filter: "FormerPlasmaCommando"; 
+   pre: ChaingunGuy   type: zombiecg         filter: "FormerViralAgent"; 
+   pre: ChaingunGuy   type: zombiecg         filter: "FormerBFGCommando"; 
+   pre: ChaingunGuy   type: hellknight         filter: "FormerCyborgCommando"; 
+   
+   pre: CyberDemon   type: cyberdemon         filter: "DMR_Cyberdemon"; 
+   pre: CyberDemon   type: cyberdemon         filter: "Terminator"; 
+   pre: CyberDemon   type: cyberdemon         filter: "Tiberdemon"; 
+   pre: CyberDemon   type: cyberdemon         filter: "BlueTiberdemon"; 
+   pre: CyberDemon   type: cyberdemon         filter: "FireborneArchon"; 
+   pre: CyberDemon   type: cyberdemon         filter: "CoreDefender"; 
+   pre: CyberDemon   type: cyberdemon         filter: "Forgemaster"; 
+   
+   pre: Demon   type: demon         filter: "DMR_Demon"; 
+   pre: Demon   type: demon         filter: "Bloodfiend"; 
+   pre: Demon   type: demon         filter: "DMR_Mauler"; 
+   pre: Demon   type: demon         filter: "MaulerFiend"; 
+   pre: Demon   type: demon         filter: "Hellhound"; 
+   
+   pre: HellKnight   type: hellknight         filter: "DMR_HellKnight"; 
+   pre: HellKnight   type: hellknight         filter: "Afrit"; 
+   pre: HellKnight   type: hellknight         filter: "Satyr"; 
+   pre: HellKnight   type: hellknight         filter: "HellServant"; 
+   pre: HellKnight   type: hellknight         filter: "CyberHellKnight"; 
+   
+   pre: Imp   type: imp         filter: "DMR_DoomImp"; 
+   pre: Imp   type: imp         filter: "Catharsi"; 
+   pre: Imp   type: imp         filter: "Boggart"; 
+   pre: Imp   type: imp         filter: "Netherling"; 
+   pre: Imp   type: imp         filter: "Phaser"; 
+   pre: Imp   type: imp         filter: "Vulgar"; 
+   
+   pre: LostSoul   type: lostsoul         filter: "DMR_LostSoul"; 
+   pre: LostSoul   type: lostsoul         filter: "ViralOne"; 
+   pre: LostSoul   type: lostsoul         filter: "ForgottenOne"; 
+   pre: LostSoul   type: lostsoul         filter: "Gorer"; 
+   pre: LostSoul   type: lostsoul         filter: "RavagerSpawn"; 
+   
+   pre: Mancubus      type: mancubus    filter: "DMR_Fatso";
    pre: Mancubus      type: mancubus    filter: "Corpulent";
-   pre: Mancubus      type: mancubus    filter: "Hectebus";   
+   pre: Mancubus      type: mancubus    filter: "Hectebus";  
+   pre: Mancubus      type: mancubus    filter: "ZombiePlasmaTank";
+   pre: Mancubus      type: mancubus    filter: "ZombieRocketTank"; 
+   
+   pre: PainElemental   type: painelemental         filter: "DMR_PainElemental"; 
+   pre: PainElemental   type: painelemental         filter: "TorturedElemental"; 
+   pre: PainElemental   type: painelemental         filter: "Ravager";
+   pre: PainElemental   type: painelemental         filter: "ToxinElemental";
+   pre: PainElemental   type: painelemental         filter: "InfernoElemental";
+   pre: PainElemental   type: painelemental         filter: "ThunderElemental";
+   
+   pre: Revenant   type: revenant         filter: "DMR_Revenant";
+   pre: Revenant   type: revenant         filter: "Dybbuk";
+   pre: Revenant   type: revenant         filter: "Hollow";
+   pre: Revenant   type: revenant         filter: "Ghoul";
+   pre: Revenant   type: revenant         filter: "Draugr";
+   pre: Revenant   type: revenant         filter: "DuskKnight";
+   
+   pre: ShotgunGuy   type: zombiesg         filter: "DMR_ShotgunGuy";
+   pre: ShotgunGuy   type: zombiesg         filter: "FormerStaffSargeant";
+   pre: ShotgunGuy   type: zombiesg         filter: "FormerAssaultSargeant";
+   pre: ShotgunGuy   type: zombiesg         filter: "FormerQuartermaster";
+   pre: ShotgunGuy   type: hellknight         filter: "FormerCyborg";
+   pre: ShotgunGuy   type: zombiesg         filter: "SuicideGuyExplosive";
+   pre: ShotgunGuy   type: zombiesg         filter: "SuicideGuyOmniscient";
+   
+   pre: Spectre   type: demon         filter: "DMR_Spectre";
+   pre: Spectre   type: demon         filter: "SpectralFiend";
+   pre: Spectre   type: demon         filter: "DMR_Nightmare";
+   pre: Spectre   type: demon         filter: "SlimeWorm";
+   
+   pre: SpiderDemon   type: mastermind         filter: "DMR_SpiderMastermind";
+   pre: SpiderDemon   type: mastermind         filter: "Mancutank";
+   pre: SpiderDemon   type: mastermind         filter: "Overlord";
+   
+   pre: ZombieMan   type: zombie         filter: "DMR_Zombieman";
+   pre: ZombieMan   type: zombie         filter: "FormerSpecOpsGunner";
+   pre: ZombieMan   type: zombie         filter: "FormerPlasmagunner";
+   pre: ZombieMan   type: zombie         filter: "FormerAssaultTrooper";
+   pre: ZombieMan   type: zombie         filter: "FormerInfiltrator";
+   
+   pre: ZombieMan   type: zombiecg         filter: "AlienFighter";
+   pre: Cacodemon   type: cacodemon         filter: "DMR_AstralCaco";
+   pre: BaronOfHell   type: hellknight         filter: "Belphegor";
+   pre: CyberDemon   type: angel         filter: "Babel";
+   pre: ZombieMan   type: zombiecg         filter: "EvilMarine";
+   pre: ChaingunGuy   type: arachnotron         filter: "DMR_FormerCaptain";
+   pre: Demon   type: demon         filter: "DMR_NightmareDemon";
+   pre: BaronOfHell   type: baron         filter: "DMR_Annihilator";
+   pre: BaronOfHell   type: hellknight         filter: "SuperAfrit";
 }
