@@ -99,11 +99,12 @@ class Tiberdemon : DMR_Cyberdemon
 		}
 		Goto See;
 	ChemicalMissile:
-		DCYB E 18 {
+		DCYB E 10 {
 			A_FaceTarget();
 			A_PlaySound("heavyweapon/load");
 		}
-		DCYB F 12 Bright Light("DMR_RifleFire") {
+		DCYB EE 10 A_FaceTarget;
+		DCYB F 10 Bright Light("DMR_RifleFire") {
 			A_SpawnProjectile("TiberiumGasRocket",56,-25,0);
 		}
 		Goto See;
