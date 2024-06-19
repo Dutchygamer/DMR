@@ -1,5 +1,5 @@
 
-object NobleVanguardHellRune
+object KurLegionaryHellRune
 {
 	frame ARAXA { light DMR_HellRuneStart }
     frame ARAXB { light DMR_HellRuneStart }
@@ -12,22 +12,4 @@ object NobleVanguardHellRune
     frame PLRXD { light DMR_HellRune_X2 }
     frame PLRXE { light DMR_HellRune_X1 }
     frame PLRXF { light DMR_HellRune_X1 }
-}
-
-
-flickerlight DMR_NobleVanguardGrenade
-{
-    color 0.5 0.3 0.0
-    size 72
-    secondarySize 80
-    chance 0.3
-}
-
-object NobleVanguardGrenade
-{
-    frame SGRNA { light DMR_NobleVanguardGrenade }
-
-    frame MISLB { light DMR_SmallRocket_X1 }
-    frame MISLC { light DMR_SmallRocket_X2 }
-    frame MISLD { light DMR_SmallRocket_X3 }
 }

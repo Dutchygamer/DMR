@@ -12,7 +12,7 @@
 //  Sprites:	Dutchygamer (modification of original sprites)
 //======================================================================
 
-class NoblePraetorian : DMR_BaronOfHell
+class KurTriarii : DMR_BaronOfHell
 {
 	Default
 	{

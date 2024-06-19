@@ -14,7 +14,7 @@
 //	DustedPandemonic for improvements to the ShieldWall logic
 //======================================================================
 
-class NobleVanguard : DMR_BaronOfHell
+class KurLegionary : DMR_BaronOfHell
 {
 	Default
 	{
@@ -66,15 +66,15 @@ class NobleVanguard : DMR_BaronOfHell
 	Grenade:
 		HPAL II 8 A_FaceTarget;
 		HPAL J 10 Bright Light("DMR_RifleFire") {
-			A_LobProjectile("NobleVanguardGrenade",32,16);
+			A_LobProjectile("DMR_FiredGrenade",32,16);
 		}
 		HPAL I 8 A_FaceTarget;
 		HPAL J 10 Bright Light("DMR_RifleFire") {
-			A_LobProjectile("NobleVanguardGrenade",32,16);
+			A_LobProjectile("DMR_FiredGrenade",32,16);
 		}
 		HPAL I 8 A_FaceTarget;
 		HPAL J 10 Bright Light("DMR_RifleFire") {
-			A_LobProjectile("NobleVanguardGrenade",32,16);
+			A_LobProjectile("DMR_FiredGrenade",32,16);
 		}
 		HPAL I 8;
 		Goto See;		
@@ -98,7 +98,7 @@ class NobleVanguard : DMR_BaronOfHell
 		Goto See;	
 	RaiseShield:
 		TNT1 A 0 {
-			A_SpawnItemEx("NobleVanguardShieldWall",0,0,0,0,0,0,0,SXF_SETMASTER);
+			A_SpawnItemEx("KurLegionaryShieldWall",0,0,0,0,0,0,0,SXF_SETMASTER);
 		}
 		HPAL KKKKK random(4,6) A_FaceTarget;
 		TNT1 A 0 A_Jump(128, "ShieldBlast", "SeeShield");
@@ -109,16 +109,16 @@ class NobleVanguard : DMR_BaronOfHell
 		Goto See;
 	ShieldBlast:
 		TNT1 A 0 {
-			A_SpawnItemEx("NobleVanguardShieldWall",0,0,0,0,0,0,0,SXF_SETMASTER);			
+			A_SpawnItemEx("KurLegionaryShieldWall",0,0,0,0,0,0,0,SXF_SETMASTER);			
 		}
 		HPAL K 4 A_FaceTarget;
 		HPAL KKKKK 4 {
 			A_FaceTarget();
 			A_SpawnItemEx("DMR_PlasmaRuneTrail",0,frandom(-1,1),frandom(27,28),0,0,0,0,SXF_SETMASTER);
 		}
-		HPAL L 4 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("NobleVanguardHellRune",28,0);
-		HPAL L 4 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("NobleVanguardHellRune",28,0,-10);
-		HPAL L 4 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("NobleVanguardHellRune",28,0,10);
+		HPAL L 4 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("KurLegionaryHellRune",28,0);
+		HPAL L 4 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("KurLegionaryHellRune",28,0,-10);
+		HPAL L 4 Bright Light("DMR_HellRuneFire") A_SpawnProjectile("KurLegionaryHellRune",28,0,10);
 		TNT1 A 0 {
 			A_RemoveChildren(1,RMVF_EVERYTHING);
 		}
@@ -150,7 +150,7 @@ class NobleVanguard : DMR_BaronOfHell
 		HPLX A 15 Bright {
 			A_Scream();
 			A_RemoveChildren(1,RMVF_EVERYTHING);
-			A_SpawnItemEx("NobleVanguardDroppedShield",0,0,25,6,0,0,60);
+			A_SpawnItemEx("KurLegionaryDroppedShield",0,0,25,6,0,0,60);
 		}
 		HPLX BCD 5 Bright {
 			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
@@ -167,58 +167,7 @@ class NobleVanguard : DMR_BaronOfHell
 	} 
 }
 
-class NobleVanguardGrenade : DMR_GrenadeBase
-{
-	Default
-	{
-		+EXTREMEDEATH;
-		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
-		Decal "BigScorch";
-	}
-	
-	States
-	{
-	Spawn:
-		TNT1 A 0 NoDelay {
-			grenadeTimer = random(0,10);
-		}
-		SGRN A 1 {
-			A_SpawnItemEx("DMR_SmokeCloud",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			grenadeTimer++;
-		}
-		Wait;
-	// on ground, not hit anything, waiting for timer to run out
-	Death:
-		SGRN A 1 {		
-			A_SpawnItemEx("DMR_SmokeCloud",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			// detonate if timer runs out
-			if (grenadeTimer >= 80) { SetStateLabel("XDeath"); }
-			grenadeTimer++;
-		}
-		Wait;
-	// actual explosion
-	XDeath:
-		TNT1 A 0 {
-			bNoGravity = true;
-			A_Stop();
-			A_SetRenderStyle(1.0,STYLE_Add);
-			A_PlaySound("weapons/rocklx",2);
-			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
-				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
-			}
-			for (fxLoop = 0;fxLoop<=50;fxLoop++)
-			{
-				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,9),0,frandom(-7,7),frandom(0,7),0,frandom(-7,7),0,0,-0.1,1,-1,-0.6);
-			}
-		}
-		MISL B 8 Bright A_Explode(96,96);
-		MISL C 6 Bright;
-		MISL D 4 Bright;
-		Stop;
-	}
-}
-
-Class NobleVanguardShieldWall : DMR_ShieldWall
+Class KurLegionaryShieldWall : DMR_ShieldWall
 {
 	Default
 	{
@@ -226,7 +175,7 @@ Class NobleVanguardShieldWall : DMR_ShieldWall
 	}
 }
 
-Class NobleVanguardHellRune : DMR_HellRuneSmall
+Class KurLegionaryHellRune : DMR_HellRuneSmall
 {	
 	Default
 	{
@@ -235,7 +184,7 @@ Class NobleVanguardHellRune : DMR_HellRuneSmall
 	}
 }
 
-Class NobleVanguardDroppedShield : DMR_DroppedShield
+Class KurLegionaryDroppedShield : DMR_DroppedShield
 {
 	States
 	{
