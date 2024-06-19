@@ -19,17 +19,18 @@ Class SuperAfrit : Afrit
 	Default
 	{
 		Tag "Afrit Lord";
-		Health 1300;
-		Speed 12;
+		Health 2200;
+		Speed 10;
 		PainChance 25;
 		Translation "168:191=208:223"; // recolour red parts to orange
-		SeeSound "baron/sight";
-		PainSound "baron/pain";
-		DeathSound "baron/death";
-		ActiveSound "baron/active";
+		SeeSound "superbaron/scream";
+		PainSound "superbaron/pain";
+		DeathSound "superbaron/death";
+		ActiveSound "superbaron/act";
 		Obituary "%o was torched by an afrit lord.";
 		HitObituary "%o was reduced to ashes by the afrit lord.";
 		Scale 1.2;
+		+MISSILEMORE;
 	}
 	States
 	{
