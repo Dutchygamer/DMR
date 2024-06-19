@@ -77,14 +77,14 @@ class Mancutank : DMR_SpiderMastermind
 		Goto See;
 	Grenades:
 		BS1T A 16 A_FaceTarget;	
-		BS1T C 3 Bright Light("DMR_RifleFire") A_LobProjectile("NobleVanguardGrenade",75,-49,random(-2,2));
-		BS1T C 3 Bright Light("DMR_RifleFire") A_LobProjectile("NobleVanguardGrenade",75,49,random(-2,2));
+		BS1T C 3 Bright Light("DMR_RifleFire") A_LobProjectile("DMR_FiredGrenade",75,-49,random(-2,2));
+		BS1T C 3 Bright Light("DMR_RifleFire") A_LobProjectile("DMR_FiredGrenade",75,49,random(-2,2));
 		BS1T A 4 A_FaceTarget;
-		BS1T D 3 Bright Light("DMR_RifleFire") A_LobProjectile("NobleVanguardGrenade",68,-49,random(-2,2));
-		BS1T D 3 Bright Light("DMR_RifleFire") A_LobProjectile("NobleVanguardGrenade",68,49,random(-2,2));
+		BS1T D 3 Bright Light("DMR_RifleFire") A_LobProjectile("DMR_FiredGrenade",68,-49,random(-2,2));
+		BS1T D 3 Bright Light("DMR_RifleFire") A_LobProjectile("DMR_FiredGrenade",68,49,random(-2,2));
 		BS1T A 4 A_FaceTarget;
-		BS1T E 3 Bright Light("DMR_RifleFire") A_LobProjectile("NobleVanguardGrenade",57,-49,random(-2,2));
-		BS1T E 3 Bright Light("DMR_RifleFire") A_LobProjectile("NobleVanguardGrenade",57,49,random(-2,2));
+		BS1T E 3 Bright Light("DMR_RifleFire") A_LobProjectile("DMR_FiredGrenade",57,-49,random(-2,2));
+		BS1T E 3 Bright Light("DMR_RifleFire") A_LobProjectile("DMR_FiredGrenade",57,49,random(-2,2));
 		Goto See;
 	Pain:
 		BS1W A 3;

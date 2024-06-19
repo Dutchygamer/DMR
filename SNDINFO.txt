@@ -720,14 +720,14 @@ $RANDOM coredefender/active { inqv1 inqv2 inqv3 inqv4 inqv5 inqv6 inqv7 inqv8 }
 
 
 // Terminator
-terminator/sight 	tsight
-terminator/pain 	tpain1
-terminator/death 	tdeath
+kurcenturion/sight 	tsight
+kurcenturion/pain 	tpain1
+kurcenturion/death 	tdeath
 
-$random Terminator/step { terstep1 terstep2 }
+$random kurcenturion/step { terstep1 terstep2 }
 terstep1		 dststep1
 terstep2		 dststep2
-$random Terminator/termact { termact1 termact2 }
+$random kurcenturion/termact { termact1 termact2 }
 termact1		dsteract
 termact2		dsteact2
 
@@ -868,4 +868,7 @@ bomb/beep DSBEEEP
 alienfighter/sight 		DSGSSIT
 alienfighter/death 		DSGSDTH
 alienfighter/fire 		TESFIR
+
+
+dmrannihilator/shot dstshot2
 

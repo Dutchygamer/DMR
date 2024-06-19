@@ -47,6 +47,7 @@ class DMR_XLSmokeCloud : DMR_SmokeCloud
 	}
 }
 
+
 // smoke with longer duration
 class DMR_SmokeLongCloud : DMR_SmokeCloud
 {
@@ -85,3 +86,21 @@ class DMR_XLSmokeLongCloud : DMR_SmokeLongCloud
 	}
 }
 
+
+// berserking monster smoke
+class GoneBerserkSmokeCloud : DMR_SmokeCloud
+{
+	Default
+	{
+		Scale 0.55;
+		Alpha 0.45;
+	}
+	States
+	{
+	Spawn:
+		SMOK AB 3;
+		SMOK CDEFGH 12;
+		SMOK IJ 3;
+		Stop;
+	}
+}

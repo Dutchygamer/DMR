@@ -225,7 +225,7 @@ Class DMR_CyberDeathExplosionSpawner : DMR_FXBase
 	}
 }
 
-Class DMR_TerminatorDeathExplosionSpawner : DMR_FXBase
+Class DMR_KurCenturionDeathExplosionSpawner : DMR_FXBase
 {
 	Default
 	{

@@ -13,23 +13,24 @@
 
 // Meant to replace Eviternity's Annihilator
 // relies on Eviternity's sprite replacements to display properly, so don't use in other mapsets as it will just use the (mismatching) vanilla Baron sprites
-// compared to the NobleAnnihilator this one is more in line with how it is in the mapset instead of the powerhouse the other one is
+// compared to the KurPraetorian this one is more in line with how it is in the mapset instead of the powerhouse the other one is
 class DMR_Annihilator : DMR_BaronOfHell
 {
 	Default
 	{
-		Tag "Kur Annihilator Prototype";
+		Tag "Prototype Kur Praetorian";
 		Health 1300;
 		PainChance 20;
 		Speed 10;
 		DropItem "RocketAmmo", 256, 1;
 		DropItem "RocketAmmo", 128, 1;
 		DropItem "RocketAmmo", 128, 1;
-		Obituary "%o underestimated the firepower of a kur annihilator prototype.";
-		HitObituary "%o was smashed by a kur annihilator prototype.";
+		Obituary "%o underestimated the firepower of a prototype Kur Praetorian.";
+		HitObituary "%o was smashed by a prototype Kur Praetorian.";
 		+MISSILEMORE;
-		SeeSound "monster/brusit";
-		DeathSound "monster/brudth";
+		SeeSound "kurpraetorian/sight";
+		PainSound "kurpraetorian/pain";
+		DeathSound "kurpraetorian/death";
 		Scale 1.05;
 	}
 	int boolet;
@@ -41,9 +42,9 @@ class DMR_Annihilator : DMR_BaronOfHell
 		Loop;
 	See:
 		BOSS AABB 3 A_Chase;
-		TNT1 A 0 A_PlaySound("noblebaron/step");
+		TNT1 A 0 A_PlaySound("cynihilator/step");
 		BOSS CCDD 3 A_Chase;
-		TNT1 A 0 A_PlaySound("noblebaron/step");
+		TNT1 A 0 A_PlaySound("cynihilator/step");
 		Loop;
 	Missile: 
 		TNT1 A 0 A_Jump(72, "Plasma");
@@ -92,7 +93,7 @@ class DMR_Annihilator : DMR_BaronOfHell
         TNT1 A 0 A_PlaySound("heavyweapon/load");
 		BOSS GS 8 A_Facetarget;
 		BOSS HIHIHI 5 Bright Light("DMR_RifleFire") {
-			A_Playsound("Terminator/tershotB");
+			A_Playsound("dmrannihilator/shot");
 			for (boolet = 0;boolet<=2;boolet++) {
 				A_SpawnProjectile("DMR_SlowBullet",43,-16,frandom(-10,10),CMF_OFFSETPITCH,frandom(-5,5));
 			}	

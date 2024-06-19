@@ -2,10 +2,10 @@
 
 "full" {
    pre: Arachnotron   type: arachnotron   filter: "DMR_Arachnotron";
-   pre: Arachnotron   type: arachnotron   filter: "Solifutron";
-   pre: Arachnotron   type: arachnotron   filter: "Opiliotron";  
-   pre: Arachnotron   type: arachnotron   filter: "FusionSpider";
-   pre: Arachnotron   type: arachnotron   filter: "Mygalotron"; 
+   pre: Arachnotron   type: arachnotron   filter: "Arachnogunner";
+   pre: Arachnotron   type: arachnotron   filter: "Weavotron";  
+   pre: Arachnotron   type: arachnotron   filter: "Fusiotron";
+   pre: Arachnotron   type: arachnotron   filter: "Widowtron"; 
    
    pre: Archvile   type: archvile   filter: "DMR_Archvile"; 
    pre: Archvile   type: archvile   filter: "Intoxicanter"; 

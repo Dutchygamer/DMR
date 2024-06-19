@@ -414,4 +414,4 @@ generator FormerCyborg			BulletChip
 generator DMR_ChaingunGuy		BulletChip
 generator FormerGunnerCommando	BulletChip
 
-generator Solifutron			BulletChip
+generator Arachnogunner			BulletChip

@@ -150,7 +150,7 @@ class FormerCyborg : DMR_ShotgunGuy
 	}
 }
 
-class FormerCyborgGrenade : NobleVanguardGrenade
+class FormerCyborgGrenade : DMR_FiredGrenade
 {
 	Default
 	{

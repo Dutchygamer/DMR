@@ -152,6 +152,57 @@ class DMR_ThrownGrenade : DMR_GrenadeBase
 	}
 }
 
+class DMR_FiredGrenade : DMR_GrenadeBase
+{
+	Default
+	{
+		+EXTREMEDEATH;
+		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
+		Decal "BigScorch";
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			grenadeTimer = random(0,10);
+		}
+		SGRN A 1 {
+			A_SpawnItemEx("DMR_SmokeCloud",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			grenadeTimer++;
+		}
+		Wait;
+	// on ground, not hit anything, waiting for timer to run out
+	Death:
+		SGRN A 1 {		
+			A_SpawnItemEx("DMR_SmokeCloud",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			// detonate if timer runs out
+			if (grenadeTimer >= 80) { SetStateLabel("XDeath"); }
+			grenadeTimer++;
+		}
+		Wait;
+	// actual explosion
+	XDeath:
+		TNT1 A 0 {
+			bNoGravity = true;
+			A_Stop();
+			A_SetRenderStyle(1.0,STYLE_Add);
+			A_PlaySound("weapons/rocklx",2);
+			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
+				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
+			}
+			for (fxLoop = 0;fxLoop<=50;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,9),0,frandom(-7,7),frandom(0,7),0,frandom(-7,7),0,0,-0.1,1,-1,-0.6);
+			}
+		}
+		MISL B 8 Bright A_Explode(96,96);
+		MISL C 6 Bright;
+		MISL D 4 Bright;
+		Stop;
+	}
+}
+
 // cluster missile
 //TODO obsolete
 class DMR_ClusterSubProjectile : DMR_Projectile
