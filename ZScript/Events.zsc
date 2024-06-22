@@ -77,3 +77,42 @@ class DMR_EffectHandler : EventHandler
 		}
 	}
 }
+
+//TODO bij init zegt ie dat dit waar is, maar bij monster death zegt ie dat het false is?
+// okay, als het geen STatic maar normale EventHandler is werkt het wel...
+Class DMR_DemolitionistHandler : EventHandler //StaticEventHandler
+{
+	bool robuttDetected;
+
+	override void OnRegister()
+	{
+		// setup the global variables
+		let g = DMR_GlobalVariables.Get();
+	
+		// loop through all Actors
+		foreach (cls : AllActorClasses)
+		{
+			// if we find the Demolitionist player, mark as being detected and then break out of the loop
+			if ( cls.GetClassName() == "Demolitionist" )
+			{
+				robuttDetected = true;
+			}
+			if ( robuttDetected ) break;
+		}
+		
+		// set the result into our global variables
+		if (g && robuttDetected)
+		{
+			g.RobuttDetected = true;
+			Console.Printf("boopus marisa!" ..g.RobuttDetected);
+		}
+		
+	}
+
+	//override void WorldLoaded( WorldEvent e )
+	//{
+	//	// get rid of ourselves if not needed
+	//	if ( !robuttDetected && !bDestroyed )
+	//		Destroy();
+	//}
+}

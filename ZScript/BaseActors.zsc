@@ -186,6 +186,29 @@ Class DMR_MonsterBase : Actor
 	{
 		Thrust(speed,angle);
 	}
+	
+	// for Project: Demolitionist
+	virtual clearscope string GetLoreTag()
+	{
+		let loretag = "";
+		return loretag;
+	}
+	
+		
+	// additional actions upon death
+	override void Die(Actor source, Actor inflictor, int dmgflags, Name MeansOfDeath)
+	{
+		let g = DMR_GlobalVariables.Get();
+		// when killed by player, we are playing with Project: Demolitionist and we have a lore tag, add the monster lore to the library
+		if (source is "PlayerPawn" && g && g.RobuttDetected && GetLoreTag() != "")
+		{
+			//TODO en als je Demolitionist niet inlaadt dan klapt ie hiero...
+			// dacht dat je het zo kon oplossen?
+			SWWMLoreLibrary.Add(players[0],GetLoreTag());
+		}
+		
+		super.Die(source, inflictor, dmgflags, MeansOfDeath);
+	}	
 }
 
 

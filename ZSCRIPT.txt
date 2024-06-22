@@ -1,4 +1,4 @@
-version "4.2.1"
+version "4.10"
 
 /*
   First learning Decorate, and then even ZScript?  The things I do for fun...  
@@ -18,6 +18,7 @@ version "4.2.1"
 #include "ZScript/Smoke.zsc"
 #include "ZScript/Explosions.zsc"
 #include "ZScript/Events.zsc"
+#include "ZScript/Thinkers.zsc"
 #include "ZScript/Flares.zsc"
 #include "ZScript/Lightning.zsc"
 #include "ZScript/FXSpawners.zsc"

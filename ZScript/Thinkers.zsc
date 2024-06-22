@@ -1,0 +1,38 @@
+Class DMR_GlobalVariables : Thinker
+{
+	bool RobuttDetected;
+
+	DMR_GlobalVariables Init()
+	{
+		ChangeStatNum(STAT_STATIC);
+		return self;
+	}
+
+	static DMR_GlobalVariables Get()
+	{	
+		//let it = DMR_GlobalVariables(ThinkerIterator.Create("DMR_GlobalVariables",STAT_STATIC).Next());
+		//return it;
+	
+		//let it = ThinkerIterator.Create('DMR_GlobalVariables', STAT_STATIC);
+		//return it;
+	
+		let it = ThinkerIterator.Create('DMR_GlobalVariables', STAT_STATIC);
+		DMR_GlobalVariables cur, prev = null;
+
+		while ((cur = DMR_GlobalVariables(it.Next())) != null)
+		{
+			if (prev != null)
+			{
+				prev.Destroy();
+			}
+			prev = cur;
+		}
+
+		if (prev == null)
+		{
+			prev = new('DMR_GlobalVariables').Init();
+		} 
+
+		return prev;
+	}
+}
