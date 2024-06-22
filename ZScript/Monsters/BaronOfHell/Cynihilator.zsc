@@ -199,10 +199,4 @@ class KurPraetorian : DMR_BaronOfHell
 		BRU3 RQPONMLK 8;
 		Goto See;
 	}
-
-	override string GetLoreTag()
-	{
-		let loretag = "FORMERCYBORG";
-		return loretag;
-	}
 }

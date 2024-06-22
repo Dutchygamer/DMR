@@ -148,6 +148,12 @@ class FormerCyborg : DMR_ShotgunGuy
 			A_SetTics(normalTics);
 		}
 	}
+
+	override string GetLoreTag()
+	{
+		let loretag = "FORMERCYBORG";
+		return loretag;
+	}
 }
 
 class FormerCyborgGrenade : DMR_FiredGrenade

@@ -202,9 +202,8 @@ Class DMR_MonsterBase : Actor
 		// when killed by player, we are playing with Project: Demolitionist and we have a lore tag, add the monster lore to the library
 		if (source is "PlayerPawn" && g && g.RobuttDetected && GetLoreTag() != "")
 		{
-			//TODO en als je Demolitionist niet inlaadt dan klapt ie hiero...
-			// dacht dat je het zo kon oplossen?
-			SWWMLoreLibrary.Add(players[0],GetLoreTag());
+			//TODO for now disabled until I can get this working without breaking it for non-Demolitionist runs
+			//SWWMLoreLibrary.Add(players[0],GetLoreTag());
 		}
 		
 		super.Die(source, inflictor, dmgflags, MeansOfDeath);

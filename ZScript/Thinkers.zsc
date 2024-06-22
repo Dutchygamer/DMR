@@ -10,12 +10,6 @@ Class DMR_GlobalVariables : Thinker
 
 	static DMR_GlobalVariables Get()
 	{	
-		//let it = DMR_GlobalVariables(ThinkerIterator.Create("DMR_GlobalVariables",STAT_STATIC).Next());
-		//return it;
-	
-		//let it = ThinkerIterator.Create('DMR_GlobalVariables', STAT_STATIC);
-		//return it;
-	
 		let it = ThinkerIterator.Create('DMR_GlobalVariables', STAT_STATIC);
 		DMR_GlobalVariables cur, prev = null;
 

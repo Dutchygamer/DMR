@@ -104,7 +104,7 @@ Class DMR_DemolitionistHandler : EventHandler //StaticEventHandler
 		if (g && robuttDetected)
 		{
 			g.RobuttDetected = true;
-			Console.Printf("boopus marisa!" ..g.RobuttDetected);
+			//Console.Printf("boopus marisa!" ..g.RobuttDetected);
 		}
 		
 	}
