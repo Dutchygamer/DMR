@@ -59,8 +59,8 @@ class CyberBaronOfHell : DMR_BaronOfHell
 		CBOS F 10 Bright Light("DMR_RifleFire") {
 			A_SpawnProjectile("DMR_SmallRocket",27,16);
 		}
-		CBOS E 10 A_FaceTarget;
 		TNT1 A 0 Bright A_Jump(96, "See");
+		CBOS E 10 A_FaceTarget;
 		CBOS F 10 Bright Light("DMR_RifleFire") {
 			A_SpawnProjectile("DMR_SmallRocket",27,16);
 		}

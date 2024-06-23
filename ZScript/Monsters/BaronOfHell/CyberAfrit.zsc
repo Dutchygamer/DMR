@@ -1,0 +1,90 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	DustedPandomic
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (edits by General Roasterock)
+//	GLDEFs: 	n/a
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios
+//	ZScript:	Dutchygamer
+//	DustedPandomic for the fix to prevent certain Boom/ZDoom map things from breaking with flying enemies (the first block in the 'See' state)
+//======================================================================
+
+Class CyberAfrit : DMR_BaronOfHell
+{
+	Default
+	{
+		Tag "Cyber Afrit";
+		Health 1250;
+		PainChance 40;
+		bloodcolor "orange";
+		+BRIGHT;
+		Obituary "%o was scorched by an Cyber Afrit";
+		HitObituary "%o found the Cyber Afrit too hot to handle.";
+	}
+	States
+	{
+	Spawn:
+		MCRD AB 10 A_Look;
+		Loop;
+	See:
+		TNT1 A 0 A_BeginFloat();
+		MCRD AABB 3 A_Chase;
+		Loop;
+	Melee:
+		MCRD EF 8 A_FaceTarget;
+		MCRD G 8 A_CustomComboAttack("AfritBall",44,random(20,60),"baron/melee");
+		Goto See;
+	Missile:
+		TNT1 A 0 A_Jump(128,"Comet","Rocket");
+		Goto Ball;
+	Ball:
+		MCRD EF 8 A_FaceTarget;
+		MCRD G 4 A_SpawnProjectile("AfritBall",44);
+		MCRD G 4 {
+			if (random(1,2) == 1)
+				A_SpawnProjectile("AfritBall",44,0,-2);
+			else
+				A_SpawnProjectile("AfritBall",44,0,2);
+		}
+		Goto See;
+	Comet:
+		MCRD EF 10 A_FaceTarget;
+		MCRD G 5 A_SpawnProjectile("AfritComet",44);
+		MCRD G 5 {
+			A_SpawnProjectile("AfritBall",44,0,-2);
+			A_SpawnProjectile("AfritBall",44,0,2);
+		}
+		Goto See;
+	Rocket:
+		MCRD CC 10 A_FaceTarget;
+		MCRD D 10 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("DMR_SmallRocket",44);
+		}
+		TNT1 A 0 Bright A_Jump(96, "See");
+		MCRD C 10 A_FaceTarget;
+		MCRD D 10 Bright Light("DMR_RifleFire") {
+			A_SpawnProjectile("DMR_SmallRocket",44);
+		}
+		Goto See;
+	Pain:
+		MCRD H 4;
+		MCRD H 4 A_Pain;
+		Goto See;
+	Death:
+	XDeath:
+		TNT1 A 0 A_NoGravity;
+		MCRD I 6 A_Scream;
+		TNT1 A 0 A_PlaySound("dragonfam/attack");
+		MCRD J 5 A_NoBlocking;
+		MCRD K 4 {
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		}
+		MCRD LMNO 4;
+		TNT1 A -1 A_BossDeath;
+		Stop;
+	}
+}

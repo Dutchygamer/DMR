@@ -1,10 +1,10 @@
 //======================================================================
 //  Original credits
 //======================================================================
-//  DECORATE: 	Maelstrom
-//	Sounds:		Id Software, Monolith Games
-//  Sprites: 	Id Software (edits by Eriance, Maelstrom)
-//	GLDEFs: 	Dreadopp, Sandypaper (Brightmaps)
+//  DECORATE: 	Eriance
+//	Sounds:		Id Software, Eriance
+//  Sprites: 	Id Software, Midway, Eriance (edits by Eriance)
+//	GLDEFs: 	Ghastly Dragon, Sandypaper (Brightmaps)
 //======================================================================
 //  Additional credits
 //======================================================================
@@ -34,12 +34,12 @@ class FireborneArchon : DMR_Cyberdemon
 	States
 	{
 	Spawn:
-		PYRO AB 10 A_Look;
+		BOS4 AB 10 A_Look;
 		Loop;
 	See:
-		PYRO AABB 3 A_Chase();
+		BOS4 AABB 3 A_Chase();
 		TNT1 A 0 A_Playsound("cyber/hoof");
-		PYRO CCDD 3 A_Chase();
+		BOS4 CCDD 3 A_Chase();
 		TNT1 A 0 A_Playsound("cyber/hoof");
 		Loop;
 	Missile:
@@ -47,82 +47,82 @@ class FireborneArchon : DMR_Cyberdemon
 		TNT1 A 0 A_Jump(128,"RapidFire","TwinBall");
 	Ball:
 		// ball 1
-		PYRO EF 6 Bright A_FaceTarget;
-		PYRO G 4 Bright {
+		BOS4 EF 6 Bright A_FaceTarget;
+		BOS4 G 4 Bright {
 			A_SpawnProjectile("FireborneArchonBall",56);
 		}
-		PYRO H 4 Bright;
+		BOS4 H 4 Bright;
 		// ball 2
-		PYRO IJ 6 Bright A_FaceTarget;	
-		PYRO K 4 Bright {
+		BOS4 IJ 6 Bright A_FaceTarget;	
+		BOS4 K 4 Bright {
 			A_SpawnProjectile("FireborneArchonBall",56);
 		}
-		PYRO L 4 Bright;
+		BOS4 L 4 Bright;
 		// ball 3
-		PYRO EF 6 Bright A_FaceTarget;
-		PYRO G 4 Bright {
+		BOS4 EF 6 Bright A_FaceTarget;
+		BOS4 G 4 Bright {
 			A_SpawnProjectile("FireborneArchonBall",56);
 		}
-		PYRO H 4 Bright;
+		BOS4 H 4 Bright;
 		TNT1 A 0 Bright A_Jump(96, "See");		
 		// optional ball 4
-		PYRO IJ 6 Bright A_FaceTarget;	
-		PYRO K 4 Bright {
+		BOS4 IJ 6 Bright A_FaceTarget;	
+		BOS4 K 4 Bright {
 			A_SpawnProjectile("FireborneArchonBall",56);
 		}
-		PYRO L 4 Bright;
+		BOS4 L 4 Bright;
 		Goto See;
 	TwinBall:
-		PYRO EEF 8 Bright A_FaceTarget;
-		PYRO G 6 Bright {
+		BOS4 EEF 8 Bright A_FaceTarget;
+		BOS4 G 6 Bright {
 			A_SpawnProjectile("FireborneArchonBall",56);
 			A_SpawnProjectile("FireborneArchonBall",56,0,-4);
 		}
-		PYRO H 6 Bright;
+		BOS4 H 6 Bright;
 		TNT1 A 0 Bright A_Jump(96, "See");	
-		PYRO IJ 8 Bright A_FaceTarget;	
-		PYRO K 6 Bright {
+		BOS4 IJ 8 Bright A_FaceTarget;	
+		BOS4 K 6 Bright {
 			A_SpawnProjectile("FireborneArchonBall",56);
 			A_SpawnProjectile("FireborneArchonBall",56,0,4);
 		}
-		PYRO L 6 Bright;
+		BOS4 L 6 Bright;
 		Goto See;
 	Spam:
 		TNT1 A 0 { 
 			spamBallAngle = -20; 
 		}
-		PYRO MN 10 Bright A_FaceTarget;
-		PYRO OOOOOOOO 1 Bright {
+		BOS4 MN 10 Bright A_FaceTarget;
+		BOS4 OOOOOOOO 1 Bright {
 			A_SpawnProjectile("AfritBall",56,0,spamBallAngle);
 			spamBallAngle += 5;
 		}
-		PYRO P 6 Bright;
+		BOS4 P 6 Bright;
 		Goto See;
 	RapidFire:
-		PYRO E 8 Bright A_FaceTarget;
+		BOS4 E 8 Bright A_FaceTarget;
 		TNT1 A 0 { attackloop = 0; }
 	RapidFireLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 8,"See");
-		PYRO EF 3 Bright A_FaceTarget;
-		PYRO G 3 Bright {
+		BOS4 EF 3 Bright A_FaceTarget;
+		BOS4 G 3 Bright {
 			A_SpawnProjectile("FireborneArchonSmallBall",56);
 			attackloop++;
 		}
-		PYRO H 3 Bright;
-		PYRO IJ 3 Bright A_FaceTarget;	
-		PYRO K 3 Bright {
+		BOS4 H 3 Bright;
+		BOS4 IJ 3 Bright A_FaceTarget;	
+		BOS4 K 3 Bright {
 			A_SpawnProjectile("FireborneArchonSmallBall",56);
 			attackloop++;
 		}
-		PYRO L 3 Bright;
+		BOS4 L 3 Bright;
 		Loop;
 	Comet:
 		TNT1 A 0 {
 			if (target && Distance3D(target) > 300) SetStateLabel("Ball");
 		}
 		TNTA A 0 A_PlaySound("pyro/see");
-		PYRO MN 12 Bright A_FaceTarget;
-		PYRO O 8 Bright {
+		BOS4 MN 12 Bright A_FaceTarget;
+		BOS4 O 8 Bright {
 			A_SpawnProjectile("FireborneArchonCometSpawner",56,0,0);
 			A_SpawnProjectile("FireborneArchonCometSpawner",56,0,60);
 			A_SpawnProjectile("FireborneArchonCometSpawner",56,0,120);
@@ -130,20 +130,25 @@ class FireborneArchon : DMR_Cyberdemon
 			A_SpawnProjectile("FireborneArchonCometSpawner",56,0,240);
 			A_SpawnProjectile("FireborneArchonCometSpawner",56,0,300);
 		}
-		PYRO P 6 Bright;
+		BOS4 P 6 Bright;
 		Goto See;
 	Pain:
-		PYRO Q 10 A_Pain;
+		BOS4 Q 10 A_Pain;
 		Goto See;
 	Death:
-		PYRO R 10 Bright;
-		PYRO S 10 Bright A_Scream;
-		PYRO TUV 10;
-		PYRO W 6;
-		PYRO X 6 A_NoBlocking;
-		PYRO Y 6;
-		PYRO Z 50;
-		PYRO Z -1 A_BossDeath;
+		BOS4 R 10 Bright;
+		BOS4 S 10 Bright A_Scream;
+		BOS4 TUV 10;
+		BOS4 W 6;
+		BOS4 X 6 {
+			A_NoBlocking();
+			A_SpawnProjectile("FireborneArchonDeathSoul",86,0,0,2,-90);
+		}
+		BOS4 Y 6;
+		BOS4 Z 6;
+		BOS4 [ 6;
+		TNT1 A 50;
+		TNT1 A -1 A_BossDeath;
 		Stop;
 	}
 }
@@ -293,6 +298,28 @@ class FireborneArchonFallingComet : AfritComet
 		}
 		COMT D 3 Bright A_Explode(20,80);
 		COMT EFGHI 3 Bright;
+		Stop;
+	}
+}
+
+
+Class FireborneArchonDeathSoul : Actor
+{
+	Default
+	{
+		Radius 1;
+		Height 1;
+		Speed 3;
+		RenderStyle "Add";
+		Alpha 0.80;
+		Projectile;
+		+ClientSideOnly
+	}
+
+	States
+	{
+	Spawn:
+		BFX1 ABCD 6 Bright;
 		Stop;
 	}
 }

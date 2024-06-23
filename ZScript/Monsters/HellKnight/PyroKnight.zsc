@@ -1,0 +1,82 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Maelstrom
+//	Sounds:		Id Software, Monolith Games
+//  Sprites: 	Id Software (edits by Eriance, Maelstrom)
+//	GLDEFs: 	Dreadopp, Sandypaper (Brightmaps)
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class FireborneKnight : DMR_HellKnight
+{
+	Default
+	{
+		Tag "Fireborne Knight";
+		Health 850;
+		PainChance 50;
+		Obituary "%o was torched by a Fireborne Knight";
+		HitObituary "%o was cooked my a Fireborne Knight";
+		bloodcolor "orange";
+		+MISSILEMORE;
+		//SeeSound "pyro/see";
+		//PainSound "pyro/pain";
+		//DeathSound "pyro/death";
+		//ActiveSound "pyro/idle";
+	}
+	
+	int spamBallAngle;
+	
+	States
+	{
+	Spawn:
+		PYRO AB 10 A_Look;
+		Loop;
+	See:
+		PYRO AABBCCDD 3 A_Chase();
+		Loop;
+	Melee:
+		PYRO EF 6 Bright A_FaceTarget;
+		PYRO G 6 Bright A_CustomComboAttack("AfritBall",39,random(22,66),"baron/melee");
+		Goto See;
+	Missile: 
+		TNT1 A 0 A_Jump(128,"Comet"); //,"Spam","FireWaves");		
+	Balls:
+		PYRO EF 8 Bright A_FaceTarget;
+		PYRO G 8 Bright A_SpawnProjectile("AfritBall",39);
+		//PYRO H 8;
+		TNT1 A 0 Bright A_Jump(96, "See");
+		PYRO IJ 8 Bright A_FaceTarget;
+		PYRO K 8 Bright A_SpawnProjectile("AfritBall",39);
+		//PYRO L 8;
+		Goto See;
+	Comet:
+		PYRO EEF 8 Bright A_FaceTarget;
+		PYRO G 8 Bright A_SpawnProjectile("AfritComet",39);
+		//PYRO H 8;
+		TNT1 A 0 Bright A_Jump(96, "See");
+		PYRO IJ 8 Bright A_FaceTarget;
+		PYRO K 8 Bright A_SpawnProjectile("AfritComet",39);
+		//PYRO L 8;
+		Goto See;
+	Pain:
+		PYRO Q 10 A_Pain;
+		Goto See;
+	Death:
+	XDeath:
+		PYRO R 8;
+		PYRO S 8 A_Scream;
+		PYRO T 8;
+		PYRO U 8 A_NoBlocking;
+		PYRO VWXY 8;
+		PYRO Z -1;
+		Stop;
+	Raise:
+		PYRO Z 8;
+		PYRO YXWVUTSR 8;
+		Stop;
+	}
+}
