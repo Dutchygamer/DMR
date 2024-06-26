@@ -8,8 +8,8 @@ class DMR_ResCounter : Inventory
 	}
 }
 
-// ghostly afterimages
-class DMR_GhostAfterImage : Actor
+// after images
+class DMR_TranslucentAfterImage : Actor
 {   
 	Default
 	{
@@ -26,12 +26,20 @@ class DMR_GhostAfterImage : Actor
 	}
 }
 
+class DMR_SubtractAfterImage : DMR_TranslucentAfterImage
+{   
+	Default
+	{
+		RenderStyle "Subtract";
+	}
+}
+
 //======================================================================
 //  Original credits
 //======================================================================
 //	ZScript: 	DustedPandemonic, modified by Dutchygamer
 //======================================================================
-class DMR_StencilledGhostAfterImage : DMR_GhostAfterImage
+class DMR_BerzerkAfterImage : DMR_TranslucentAfterImage
 {   
 	Default
 	{

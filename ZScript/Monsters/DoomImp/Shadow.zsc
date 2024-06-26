@@ -38,22 +38,22 @@ class DMR_Shadow : DMR_DoomImp
 		SHDW A 15;
 		SHDW AAA 1 A_Chase;
 		SHDW A 1 {
-			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_SpawnItemEx("DMR_TranslucentAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
 			A_Chase();
 		}
 		SHDW BBB 1 A_Chase;
 		SHDW B 1 {
-			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_SpawnItemEx("DMR_TranslucentAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
 			A_Chase();
 		}
 		SHDW CCC 1 A_Chase;
 		SHDW C 1 {
-			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_SpawnItemEx("DMR_TranslucentAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
 			A_Chase();
 		}
 		SHDW DDD 1 A_Chase;
 		SHDW D 1 {
-			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_SpawnItemEx("DMR_TranslucentAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
 			A_Chase();
 		}
 		Goto See+1;

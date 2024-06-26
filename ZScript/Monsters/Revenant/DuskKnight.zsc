@@ -94,7 +94,7 @@ class DuskKnightTracer : DMR_RevenantTracer
 	Spawn:
 		FX15 ABC 2 Bright {
 			A_SeekerMissile(1,8,SMF_PRECISE); 
-			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_SpawnItemEx("DMR_TranslucentAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
 			for (fxLoop = 0;fxLoop<=2;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);

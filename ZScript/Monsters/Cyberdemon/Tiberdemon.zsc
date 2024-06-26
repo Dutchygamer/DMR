@@ -37,19 +37,19 @@ class Tyrant : DMR_Cyberdemon
 		Loop;
 	See:
 		DCYB A 3 {		
-			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_SpawnItemEx("DMR_TranslucentAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
 			A_Hoof();
 		}
 		DCYB ABBCC 3 {
-			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_SpawnItemEx("DMR_TranslucentAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
 			A_Chase();
 		}
 		DCYB D 3 {
-			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_SpawnItemEx("DMR_TranslucentAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
 			A_Metal();
 		}
 		DCYB D 3 {
-			A_SpawnItemEx("DMR_GhostAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_SpawnItemEx("DMR_TranslucentAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
 			A_Chase();
 		}
 		Loop;

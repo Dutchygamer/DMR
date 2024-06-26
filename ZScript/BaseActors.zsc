@@ -240,7 +240,7 @@ Mixin Class DMR_BerserkingMonster
 		}
 		if (criticalDamaged && health > 0 && !IsFrozen())
 		{	
-			A_SpawnItemEx("DMR_StencilledGhostAfterImage",-1,0,0,-0.2,0,0.5,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION|SXF_TRANSFERSTENCILCOL);
+			A_SpawnItemEx("DMR_BerzerkAfterImage",-1,0,0,-0.2,0,0.5,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION|SXF_TRANSFERSTENCILCOL);
 		}
   	}
 	
