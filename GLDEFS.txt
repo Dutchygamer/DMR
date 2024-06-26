@@ -21,6 +21,7 @@
 #include "GLDefs/Monsters/HellKnight/DMR_HellKnight.gl"
 #include "GLDefs/Monsters/HellKnight/HellWarrior.gl"
 #include "GLDefs/Monsters/HellKnight/Afrit.gl"
+#include "GLDefs/Monsters/HellKnight/PyroKnight.gl"
 
 #include "GLDefs/Monsters/BaronOfHell/BruiserDemon.gl"
 #include "GLDefs/Monsters/BaronOfHell/Apprentice.gl"

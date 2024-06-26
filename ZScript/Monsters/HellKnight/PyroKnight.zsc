@@ -47,20 +47,16 @@ class FireborneKnight : DMR_HellKnight
 	Balls:
 		PYRO EF 8 Bright A_FaceTarget;
 		PYRO G 8 Bright A_SpawnProjectile("AfritBall",39);
-		//PYRO H 8;
 		TNT1 A 0 Bright A_Jump(96, "See");
 		PYRO IJ 8 Bright A_FaceTarget;
 		PYRO K 8 Bright A_SpawnProjectile("AfritBall",39);
-		//PYRO L 8;
 		Goto See;
 	Comet:
 		PYRO EEF 8 Bright A_FaceTarget;
 		PYRO G 8 Bright A_SpawnProjectile("AfritComet",39);
-		//PYRO H 8;
 		TNT1 A 0 Bright A_Jump(96, "See");
 		PYRO IJ 8 Bright A_FaceTarget;
 		PYRO K 8 Bright A_SpawnProjectile("AfritComet",39);
-		//PYRO L 8;
 		Goto See;
 	Pain:
 		PYRO Q 10 A_Pain;
@@ -71,7 +67,11 @@ class FireborneKnight : DMR_HellKnight
 		PYRO S 8 A_Scream;
 		PYRO T 8;
 		PYRO U 8 A_NoBlocking;
-		PYRO VWXY 8;
+		PYRO VWXY 8 {
+			for (fxLoop = 0;fxLoop <= 2;fxLoop++) {
+				A_SpawnItemEx("DMR_AshCloud",random(-5,5),random(-2,2),random(24,56),frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.2,0.5));
+			}
+		}
 		PYRO Z -1;
 		Stop;
 	Raise:

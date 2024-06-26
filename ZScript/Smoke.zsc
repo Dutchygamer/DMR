@@ -104,3 +104,25 @@ class GoneBerserkSmokeCloud : DMR_SmokeCloud
 		Stop;
 	}
 }
+
+
+
+class DMR_AshCloud : DMR_SmokeCloud
+{
+	Default
+	{
+		Scale 0.5;
+		Gravity 0.3;
+		Alpha 0.3;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 1 NoDelay A_SetRoll(random(0,360));
+		SMOK AB 2;
+		SMOK CDEFGH 6;
+		SMOK CDEFGH 6;
+		SMOK IJ 2;
+		Stop;
+	}
+}

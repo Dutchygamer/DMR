@@ -95,8 +95,18 @@ class FireborneNoble : DMR_BaronOfHell
 	XDeath:
 		BRUD A 6 Bright A_Scream;
 		BRUD BCDEFG 4 Bright;
-		BRUD H 4 Bright A_Fall;
-		BRUD IJKLMNOPQRSTUV 4 Bright;
+		BRUD H 4 Bright {
+			A_Fall();
+			for (fxLoop = 0;fxLoop <= 2;fxLoop++) {
+				A_SpawnItemEx("DMR_AshCloud",random(-5,5),random(-2,2),random(24,56),frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.2,0.5));
+			}
+		}
+		BRUD IJKLMNOPQ 4 Bright {
+			for (fxLoop = 0;fxLoop <= 2;fxLoop++) {
+				A_SpawnItemEx("DMR_AshCloud",random(-5,5),random(-2,2),random(24,56),frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.2,0.5));
+			}
+		}
+		BRUD RSTUV 4;
 		BRUD W -1 A_BossDeath;
 		Stop;
 	Raise: 

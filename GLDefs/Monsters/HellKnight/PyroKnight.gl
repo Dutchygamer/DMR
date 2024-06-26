@@ -1,0 +1,21 @@
+object FireborneKnight
+{
+    frame PYROA { light DMR_BruiserDemon }
+    frame PYROB { light DMR_BruiserDemon }
+    frame PYROC { light DMR_BruiserDemon }
+    frame PYROD { light DMR_BruiserDemon }
+    frame PYROE { light DMR_BruiserDemon }
+    frame PYROF { light DMR_BruiserDemon }
+    frame PYROG { light DMR_BruiserDemon }
+    frame PYROH { light DMR_BruiserDemon }
+    frame PYROI { light DMR_BruiserDemon }
+    frame PYROJ { light DMR_BruiserDemon }
+    frame PYROK { light DMR_BruiserDemon }
+    frame PYROL { light DMR_BruiserDemon }
+    frame PYROM { light DMR_BruiserDemon }
+    frame PYRON { light DMR_BruiserDemon }
+    frame PYROO { light DMR_BruiserDemon }
+    frame PYROP { light DMR_BruiserDemon }
+    frame PYROQ { light DMR_BruiserDemon }
+	// all other frames have no light
+}

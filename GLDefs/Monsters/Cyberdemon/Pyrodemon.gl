@@ -1,6 +1,6 @@
-flickerlight DMR_FireborneArchon
+/*flickerlight DMR_FireborneArchon
 {
-    color 0.8 0.5 0.1
+    color 0.3 0.8 0.1
     size 80
     secondarySize 90
     chance 0.3
@@ -8,30 +8,30 @@ flickerlight DMR_FireborneArchon
 
 object FireborneArchon
 {
-    frame PYROA { light DMR_BruiserDemon }
-    frame PYROB { light DMR_BruiserDemon }
-    frame PYROC { light DMR_BruiserDemon }
-    frame PYROD { light DMR_BruiserDemon }
-    frame PYROE { light DMR_BruiserDemon }
-    frame PYROF { light DMR_BruiserDemon }
-    frame PYROG { light DMR_BruiserDemon }
-    frame PYROH { light DMR_BruiserDemon }
-    frame PYROI { light DMR_BruiserDemon }
-    frame PYROJ { light DMR_BruiserDemon }
-    frame PYROK { light DMR_BruiserDemon }
-    frame PYROL { light DMR_BruiserDemon }
-    frame PYROM { light DMR_BruiserDemon }
-    frame PYRON { light DMR_BruiserDemon }
-    frame PYROO { light DMR_BruiserDemon }
-    frame PYROP { light DMR_BruiserDemon }
-    frame PYROQ { light DMR_BruiserDemon }
+    frame BOS4A { light DMR_FireborneArchon }
+    frame BOS4B { light DMR_FireborneArchon }
+    frame BOS4C { light DMR_FireborneArchon }
+    frame BOS4D { light DMR_FireborneArchon }
+    frame BOS4E { light DMR_FireborneArchon }
+    frame BOS4F { light DMR_FireborneArchon }
+    frame BOS4G { light DMR_FireborneArchon }
+    frame BOS4H { light DMR_FireborneArchon }
+    frame BOS4I { light DMR_FireborneArchon }
+    frame BOS4J { light DMR_FireborneArchon }
+    frame BOS4K { light DMR_FireborneArchon }
+    frame BOS4L { light DMR_FireborneArchon }
+    frame BOS4M { light DMR_FireborneArchon }
+    frame BOS4N { light DMR_FireborneArchon }
+    frame BOS4O { light DMR_FireborneArchon }
+    frame BOS4P { light DMR_FireborneArchon }
+    frame BOS4Q { light DMR_FireborneArchon }
 	// all other frames have no light
-}
+}*/
 
 
 flickerlight DMR_FireborneArchonBall
 {
-    color 1.0 0.7 0.0
+    color 0.0 1.0 0.0
     size 78
     secondarySize 86
     chance 0.3
@@ -39,7 +39,7 @@ flickerlight DMR_FireborneArchonBall
 
 flickerlight DMR_FireborneArchonBall_X1
 {
-    color 1.0 0.6 0.1
+    color 0.1 0.9 0.1
     size 90
     secondarySize 100
     chance 0.3
@@ -47,7 +47,7 @@ flickerlight DMR_FireborneArchonBall_X1
 
 flickerlight DMR_FireborneArchonBall_X2
 {
-    color 0.65 0.3 0.0
+    color 0.05 0.6 0.05
     size 100
     secondarySize 110
     chance 0.3
@@ -55,7 +55,7 @@ flickerlight DMR_FireborneArchonBall_X2
 
 flickerlight DMR_FireborneArchonBall_X3
 {
-    color 0.3 0.1 0.0
+    color 0.0 0.3 0.0
     size 110
     secondarySize 120
     chance 0.3
@@ -63,22 +63,21 @@ flickerlight DMR_FireborneArchonBall_X3
 
 object FireborneArchonBall
 {
-    frame COMTA { light DMR_FireborneArchonBall }
-    frame COMTB { light DMR_FireborneArchonBall }
-    frame COMTC { light DMR_FireborneArchonBall }
+    frame ARCBA { light DMR_FireborneArchonBall }
+    frame ARCBB { light DMR_FireborneArchonBall }
+    frame ARCBC { light DMR_FireborneArchonBall }
 
-    frame COMTD { light DMR_FireborneArchonBall_X1 }
-    frame COMTE { light DMR_FireborneArchonBall_X1 }
-    frame COMTF { light DMR_FireborneArchonBall_X2 }
-    frame COMTG { light DMR_FireborneArchonBall_X2 }
-    frame COMTH { light DMR_FireborneArchonBall_X2 }
-    frame COMTI { light DMR_FireborneArchonBall_X3 }
+    frame ARCBJ { light DMR_FireborneArchonBall_X1 }
+    frame ARCBK { light DMR_FireborneArchonBall_X1 }
+    frame ARCBL { light DMR_FireborneArchonBall_X2 }
+    frame ARCBM { light DMR_FireborneArchonBall_X2 }
+    frame ARCBN { light DMR_FireborneArchonBall_X3 }
 }
 
 
 flickerlight DMR_FireborneArchonSmallBall
 {
-    color 1.0 0.7 0.0
+    color 0.0 1.0 0.0
     size 72
     secondarySize 80
     chance 0.3
@@ -86,7 +85,7 @@ flickerlight DMR_FireborneArchonSmallBall
 
 flickerlight DMR_FireborneArchonSmallBall_X1
 {
-    color 1.0 0.6 0.1
+    color 0.1 0.9 0.1
     size 80
     secondarySize 85
     chance 0.3
@@ -94,7 +93,7 @@ flickerlight DMR_FireborneArchonSmallBall_X1
 
 flickerlight DMR_FireborneArchonSmallBall_X2
 {
-    color 0.65 0.3 0.0
+    color 0.05 0.6 0.05
     size 85
     secondarySize 90
     chance 0.3
@@ -102,7 +101,7 @@ flickerlight DMR_FireborneArchonSmallBall_X2
 
 flickerlight DMR_FireborneArchonSmallBall_X3
 {
-    color 0.3 0.1 0.0
+    color 0.0 0.3 0.0
     size 90
     secondarySize 95
     chance 0.3
@@ -110,14 +109,14 @@ flickerlight DMR_FireborneArchonSmallBall_X3
 
 object FireborneArchonSmallBall
 {
-    frame COMTA { light DMR_FireborneArchonSmallBall }
-    frame COMTB { light DMR_FireborneArchonSmallBall }
-    frame COMTC { light DMR_FireborneArchonSmallBall }
+    frame ARCBA { light DMR_FireborneArchonSmallBall }
+    frame ARCBB { light DMR_FireborneArchonSmallBall }
+    frame ARCBC { light DMR_FireborneArchonSmallBall }
 
-    frame COMTD { light DMR_FireborneArchonSmallBall_X1 }
-    frame COMTE { light DMR_FireborneArchonSmallBall_X1 }
-    frame COMTF { light DMR_FireborneArchonSmallBall_X2 }
-    frame COMTG { light DMR_FireborneArchonSmallBall_X2 }
-    frame COMTH { light DMR_FireborneArchonSmallBall_X2 }
-    frame COMTI { light DMR_FireborneArchonSmallBall_X3 }
+    frame ARCBD { light DMR_FireborneArchonSmallBall_X1 }
+    frame ARCBE { light DMR_FireborneArchonSmallBall_X1 }
+    frame ARCBF { light DMR_FireborneArchonSmallBall_X2 }
+    frame ARCBG { light DMR_FireborneArchonSmallBall_X2 }
+    frame ARCBH { light DMR_FireborneArchonSmallBall_X2 }
+    frame ARCBI { light DMR_FireborneArchonSmallBall_X3 }
 }
