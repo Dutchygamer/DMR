@@ -10,7 +10,7 @@ Class DMR_FireballImpactSpawner : DMR_FXBase
 	States
 	{
 	Spawn:
-		TNT1 A 0;
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAA 0
 		{			
 			A_SpawnItemEx("DMR_FireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
@@ -30,7 +30,7 @@ Class DMR_MediumFireballImpactSpawner : DMR_FXBase
 	States
 	{
 	Spawn:
-		TNT1 A 0;
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAAA 0
 		{			
 			A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
@@ -50,7 +50,7 @@ Class DMR_MediumFireballLargeImpactSpawner : DMR_FXBase
 	States
 	{
 	Spawn:
-		TNT1 A 0;
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAAAAA 0
 		{			
 			A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
@@ -70,7 +70,7 @@ Class DMR_LargeFireballImpactSpawner : DMR_FXBase
 	States
 	{
 	Spawn:
-		TNT1 A 0;
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAAAA 0
 		{			
 			A_SpawnItemEx("DMR_LargeFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
@@ -91,7 +91,7 @@ Class DMR_GreenFireballImpactSpawner : DMR_FXBase
 	States
 	{
 	Spawn:
-		TNT1 A 0;
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAA 0
 		{			
 			A_SpawnItemEx("DMR_GreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
@@ -111,7 +111,7 @@ Class DMR_MediumGreenFireballImpactSpawner : DMR_FXBase
 	States
 	{
 	Spawn:
-		TNT1 A 0;
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAAA 0
 		{			
 			A_SpawnItemEx("DMR_MediumGreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
@@ -131,7 +131,7 @@ Class DMR_LargeGreenFireballImpactSpawner : DMR_FXBase
 	States
 	{
 	Spawn:
-		TNT1 A 0;
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAAAA 0
 		{			
 			A_SpawnItemEx("DMR_LargeGreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
@@ -152,7 +152,7 @@ Class DMR_PurpleFireballImpactSpawner : DMR_FXBase
 	States
 	{
 	Spawn:
-		TNT1 A 0;
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAA 0
 		{			
 			A_SpawnItemEx("DMR_PurpleFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
@@ -173,7 +173,7 @@ Class DMR_GasBallImpactSpawner : DMR_FXBase
 	States
 	{
 	Spawn:
-		TNT1 A 0;
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAAA 0
 		{			
 			A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
@@ -193,7 +193,7 @@ Class DMR_LargeGasBallImpactSpawner : DMR_FXBase
 	States
 	{
 	Spawn:
-		TNT1 A 0;
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAAAA 0
 		{			
 			A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
@@ -216,6 +216,7 @@ Class DMR_CyberDeathExplosionSpawner : DMR_FXBase
 	States
 	{
 	Spawn:
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAA 1 
 		{
 			A_SpawnItemEx("DMR_BossDeathExplosion",random(0,60),0,random(20,120),0,0,0,random(0,360));
@@ -235,6 +236,7 @@ Class DMR_KurCenturionDeathExplosionSpawner : DMR_FXBase
 	States
 	{
 	Spawn:
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAA 1 
 		{
 			// Term is a bit shorter then a Cybbie
@@ -255,6 +257,7 @@ Class DMR_CybiferaDeathExplosionSpawner : DMR_FXBase
 	States
 	{
 	Spawn:
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAA 1 
 		{
 			// 'Fera doesn't have legs so spawn explosions higher then Cybbie
@@ -270,6 +273,7 @@ Class DMR_MastermindDeathExplosionSpawner : DMR_CyberDeathExplosionSpawner
 	States
 	{
 	Spawn:
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAA 1 
 		{
 			A_SpawnItemEx("DMR_BossDeathExplosion",random(0,80),0,random(20,70),0,0,0,random(0,360));
@@ -285,6 +289,7 @@ Class DMR_TankDeathExplosionSpawner : DMR_CyberDeathExplosionSpawner
 	States
 	{
 	Spawn:
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AA 1 
 		{
 			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(0,40),0,random(20,40),0,0,0,random(0,360));
