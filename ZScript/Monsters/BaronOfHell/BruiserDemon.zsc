@@ -36,7 +36,10 @@ class FireborneNoble : DMR_BaronOfHell
 		BRUS AB 10 Bright A_Look;
 		Loop;
 	See:
-		BRUS AABBCCDD 3 Bright A_Chase;
+		BRUS AABBCCDD 3 Bright {
+			A_Chase();
+			A_SpawnItemEx("FireborneNobleWalkFire",0,0,0,0,0,0,0,0,64);
+		}
 		Loop;
 	Melee:
 		BRUS EF 6 Bright A_FaceTarget;
@@ -215,5 +218,39 @@ class FireborneNobleFloorFire : DMR_Projectile
 		}
 		XXBF ABCDEFGHIJKLMNOPQRST random(1,2) Bright;
 	 	Stop;
+	}
+}
+
+//======================================================================
+//  Original credits
+//======================================================================
+//  Zscript: 	DustedPandomic
+//======================================================================
+Class FireborneNobleWalkFire : Actor
+{
+	Default
+	{
+		+NOCLIP;
+		+DROPOFF;
+		+RANDOMIZE;
+		+NOINTERACTION;
+		RenderStyle "Add";
+		Alpha 0.67;
+		YScale 0.8;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
+		TNT1 A 8;
+		FRTF ABC 3 Bright;
+		TNT1 AAA 0 {
+			if (Translation)
+				A_SpawnItemEx("FireborneNobleWalkFire",0,0,0,frandom(0,2),0,0,random(0,360),SXF_TRANSFERTRANSLATION,220);
+			else
+				A_SpawnItemEx("FireborneNobleWalkFire",0,0,0,frandom(0,2),0,0,random(0,360),0,220);
+		}
+		FRTF DEFGHIJKLMNO 3 Bright;
+		Stop;
 	}
 }

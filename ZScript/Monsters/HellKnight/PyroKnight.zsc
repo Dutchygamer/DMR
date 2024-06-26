@@ -36,7 +36,10 @@ class FireborneKnight : DMR_HellKnight
 		PYRO AB 10 A_Look;
 		Loop;
 	See:
-		PYRO AABBCCDD 3 A_Chase();
+		PYRO AABBCCDD 3 {
+			A_Chase();
+			A_SpawnItemEx("FireborneNobleWalkFire",0,0,0,0,0,0,0,0,64);
+		}
 		Loop;
 	Melee:
 		PYRO EF 6 Bright A_FaceTarget;
