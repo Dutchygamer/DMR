@@ -37,9 +37,19 @@ class Phaser : DMR_DoomImp
 		Loop;
     StealthedSee:
 		// do perform a melee attack when you happen to be next to your target, but don't throw a fireball
-        DIMP AABBCCDD 2 A_Chase("Melee", null);
-        DIMP AABBCCDD 2 A_Chase("Melee", null, CHF_FASTCHASE);
-		TNT1 A 0 A_Jump(42,"See");
+        DIMP AABBCCDD 2 {
+			A_Chase("Melee", null);			
+			A_SpawnItemEx("DMR_SubtractAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION);
+		}
+        DIMP AABBCCDD 2 {
+			A_Chase("Melee", null, CHF_FASTCHASE);			
+			A_SpawnItemEx("DMR_SubtractAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION);
+		}
+    StealthedSeeLoop:
+        DIMP AABBCCDD 2 {
+			A_Chase();
+			A_SpawnItemEx("DMR_SubtractAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION);
+		}
         Loop;
 	Melee:
 	Missile:
@@ -58,7 +68,8 @@ class Phaser : DMR_DoomImp
 			isStealthed = true;
 			A_PlaySound("phaser/teleport");
 		}
-		DIMP EEEEE 1 { //to 0.5 alpha in total
+		DIMP EEEEE 1 { // to 0.5 alpha in total			
+			//A_SpawnItemEx("DMR_SubtractAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION);
 			A_SetRenderStyle(Alpha-0.1,STYLE_Subtract);
 		}
 		TNT1 A 0 A_Chase(null,null, CHF_FASTCHASE);

@@ -40,9 +40,19 @@ class FormerInfiltrator : DMR_Zombieman
 		TNT1 A 0 A_Jump(64,"GoStealthed");
 		Loop;
     StealthedSee:
-        ZHRT AABBCCDD 2 A_Chase(null,null);
-        ZHRT AABBCCDD 2 A_Chase(null,null, CHF_FASTCHASE);
-		TNT1 A 0 A_Jump(64,"See");
+        ZHRT AABBCCDD 2 {
+			A_Chase(null,null);			
+			A_SpawnItemEx("InfiltratorAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION,128);
+		}
+        ZHRT AABBCCDD 2 {
+			A_Chase(null,null, CHF_FASTCHASE);			
+			A_SpawnItemEx("InfiltratorAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION,128);
+		}
+    StealthedSeeLoop:
+        ZHRT AABBCCDD 2 {
+			A_Chase();			
+			A_SpawnItemEx("InfiltratorAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION,128);
+		}
         Loop;
 	Missile:
 		TNT1 A 0 {
@@ -62,7 +72,8 @@ class FormerInfiltrator : DMR_Zombieman
 			isStealthed = true;
 			A_PlaySound("Infiltrator/stealth");
 		}
-		ZHRT EEEEE 1 { // to 0.0 alpha in total
+		ZHRT EEEEE 1 { // to 0.0 alpha in total		
+			//A_SpawnItemEx("DMR_SubtractAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION);
 			A_SetRenderStyle(Alpha-0.2,STYLE_Translucent);
 		}
 		TNT1 A 0 A_Chase(null,null, CHF_FASTCHASE);
@@ -156,5 +167,14 @@ class InfiltratorZombiemanGrenade : DMR_ThrownGrenade
 		}
 		FVUL DEF 4;
 		Stop;
+	}
+}
+
+
+class InfiltratorAfterImage : DMR_SubtractAfterImage
+{   
+	Default
+	{
+		Alpha 0.1;
 	}
 }
