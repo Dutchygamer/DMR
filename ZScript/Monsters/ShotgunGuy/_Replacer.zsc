@@ -5,6 +5,7 @@ Class ShotgunGuyReplacer: RandomSpawner replaces Shotgunguy
 		DropItem "DMR_ShotgunGuy", 255, 100;
 		DropItem "FormerStaffSargeant", 255, 20;
 		DropItem "FormerAssaultSargeant", 255, 20;
+		DropItem "FormerSpecOpsSargeant", 255, 10;
 		DropItem "FormerQuartermaster", 255, 8;
 		DropItem "FormerCyborg", 255, 8;
 	}
