@@ -66,18 +66,33 @@ class DMR_FastProjectile : FastProjectile
 
 
 //======================================================================
+//
+//======================================================================
+
+// base class for all 'fancy' effects which can be toggled by the option
+class DMR_FXBase : Actor
+{
+	Default
+	{
+		+FORCEXYBILLBOARD;
+	}
+}
+
+
+//======================================================================
 //  Original credits
 //======================================================================
 //	ZScript: 	DustedPandemonic, modified by Dutchygamer
 //======================================================================
 
-class DMR_Particle : Actor
+// base class for all effects which can not be toggled by the option
+// also supports particles for this reason
+class DMR_ComplexFXBase : Actor
 {
 	Default
 	{
-		Projectile;
 		+FORCEXYBILLBOARD;
-		DMR_Particle.ParticleColors "000000", "000000", "FFFFFF", "FFFFFF";
+		DMR_ComplexFXBase.ParticleColors "000000", "000000", "FFFFFF", "FFFFFF";
 	}
 	
 	int fxLoop;
@@ -104,17 +119,6 @@ class DMR_Particle : Actor
 	}
 }
 
-
-//======================================================================
-
-// base class so we can do some creativity for all 'fancy' effects
-class DMR_FXBase : Actor
-{
-	Default
-	{
-		+FORCEXYBILLBOARD;
-	}
-}
 
 //======================================================================
 //  Original credits
