@@ -46,7 +46,7 @@ class FormerSpecOpsSargeant : DMR_ShotgunGuy
 			A_Chase(null,null);			
 			A_SpawnItemEx("SpecOpsAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION,128);
 		}
-        ZSP2 AABBCCDD 2 {
+        ZSP1 AABBCCDD 2 {
 			A_Chase(null,null, CHF_FASTCHASE);			
 			A_SpawnItemEx("SpecOpsAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION,128);
 		}
