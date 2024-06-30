@@ -33,7 +33,7 @@ Class Summoner : DMR_Archvile
 		ACOL AABBAABBAABB 2 A_VileChase;
 		Loop;
 	Missile:
-		TNT1 A 0 A_Jump(72, "SpawnAttack");
+		TNT1 A 0 A_Jump(72,"SpawnAttack");
 		Goto VileAttack;
 	SpawnAttack:
 		TNT1 A 0 {
@@ -50,7 +50,12 @@ Class Summoner : DMR_Archvile
 		ACOL EE 8 BRIGHT Light("DMR_ArchvileCharge_X3") A_FaceTarget;
 		ACOL EEE 8 BRIGHT Light("DMR_ArchvileCharge_X4") A_FaceTarget;
 		ACOL E 8 BRIGHT Light("DMR_ArchvileCharge_X5") A_FaceTarget;
-		ACOL F 8 BRIGHT Light("DMR_ArchvileCharge_X6") A_VileAttack("vile/stop",50,30,70,1.0);
+		ACOL F 8 BRIGHT Light("DMR_ArchvileCharge_X6") {
+			A_VileAttack("vile/stop",50,30,70,1.0);
+			if (target && CheckSight(target)) {
+				A_VileTarget("SummonerFireBlast");
+			}
+		}
 		ACOL F 20 BRIGHT Light("DMR_ArchvileCharge_X7");
 		Goto See;
 	Heal:
@@ -69,7 +74,7 @@ Class Summoner : DMR_Archvile
 		ACOL I 5 Bright;
 		ACOL J 5 Bright A_NoBlocking ;
 		ACOL KLM 5 Bright;
-		ACOL N 5 A_SpawnProjectile("SummonerGhost",54,0,0,0);
+		ACOL N 5 A_SpawnProjectile("SummonerGhost",54);
 		ACOL O 5;
 		ACOL P -1;
 		Stop;
@@ -120,18 +125,60 @@ class SummonerBallRandomizer : RandomSpawner
 
 class SummonerFire : DMR_ArchvileFire
 {
+	Default
+	{
+		DMR_ComplexFXBase.ParticleColors "#710071", "#870087", "#c300c3", "#c800c8";
+	}
+	
 	States
 	{
 	Spawn:
-		FIRE A 2 BRIGHT A_StartFire;
-		FIRE BAB 2 BRIGHT A_Fire;
-		FIRE C 2 BRIGHT A_FireCrackle;
-		FIRE BCBCDCDCDEDED 2 BRIGHT A_Fire;
-		FIRE E 2 BRIGHT A_FireCrackle;
-		FIRE FEFEFGHGHGH 2 BRIGHT A_Fire;
+		TNT1 A 1 NoDelay A_StartFire;
+		XXBF RSR 2 A_Fire;
+		TNT1 A 0 {
+			A_StartSound("vile/firecrkl",1,CHANF_LOOPING);
+			fxloop = 200;
+		}		
+		XXBF QRQRPQPOPNPNPNMLKJIHGFEDCBA 2 {
+			fxloop -= 4;
+			A_Fire();
+			// don't bother with the Y offset / speed as we turn spawn in a random angle anyway
+			A_SpawnItemEx("DMR_PurpleFireballTrail",frandom(-10,10),0,frandom(0,10),frandom(-1,1),0,frandom(3,5),random(0,360),0,fxloop);
+			A_SpawnItemEx("DMR_LargePurpleFireballTrail",frandom(-10,10),0,frandom(0,10),frandom(-1,1),0,frandom(3,5),random(0,360),0,fxloop);
+			A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+		}
 		Stop;
 	}
 }
+
+class SummonerFireBlast : DMR_ArchvileFireBlast
+{
+	Default
+	{
+		DMR_ComplexFXBase.ParticleColors "#710071", "#870087", "#c300c3", "#c800c8";
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			if (tracer) SetOrigin(tracer.pos,false);
+			A_StartSound("Vile/Explode",1);
+			for (fxcircle = 0;fxcircle<=360;fxcircle = fxcircle+15) {
+				A_SpawnItemEx("DMR_PurpleFireballTrail",0,0,6,10,0,0,fxcircle);
+			}
+			for(fxloop = 0;fxloop<=35;fxloop++) {
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(14,20),frandom(16,20),random(0,360),0,0,frandom(5,7),frandom(8,12),0,frandom(-1,1),0,0,0,1,-1,-0.75);
+			}
+		}
+		VIBL KKKLLLMMMNNNOOO 1 {
+			A_SpawnItemEx("DMR_LargePurpleFireballTrail",frandom(2,18),0,6,-2,0,frandom(3,7),random(0,360));
+			A_FadeOut(0.03);
+		}
+		Stop;
+	}
+}
+
 
 Class RadiusResurrect : CustomInventory
 {

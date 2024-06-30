@@ -42,7 +42,12 @@ class Diabolist : DMR_Archvile
 		DIAB G 10 BRIGHT A_FaceTarget;
 		DIAB H 8 BRIGHT A_VileTarget("DiabolistFire");
 		DIAB IJKLMN 8 BRIGHT A_FaceTarget;
-		DIAB O 8 BRIGHT A_VileAttack("vile/stop",20,75,110,1.0,"Fire");
+		DIAB O 8 BRIGHT {
+			A_VileAttack("vile/stop",20,75,110,1.0,"Fire");
+			if (target && CheckSight(target)) {
+				A_VileTarget("DiabolistFireBlast");
+			}
+		}
 		DIAB P 20 BRIGHT;
 		Goto See;
 	Flamebeam:
@@ -92,34 +97,61 @@ class Diabolist : DMR_Archvile
 
 class DiabolistFire : DMR_ArchvileFire
 {
+	Default
+	{
+		DMR_ComplexFXBase.ParticleColors "#df0f0f", "#ff1b1b", "#ff6f00", "#ff664b";
+	}
+	
 	States
 	{
-	Spawn:	
-		HLFR A 2 BRIGHT  A_StartFire;
-		HLFR BAB 2 BRIGHT  A_Fire;
-		HLFR C 2 BRIGHT  A_FireCrackle;
-		HLFR BCBCDCDCDEDED 2 BRIGHT  A_Fire;
-		HLFR E 2 BRIGHT  A_FireCrackle;
-		HLFR FEFEFGHGHGH 2 BRIGHT  A_Fire;
-		/*
-		HLFR A 2 Bright A_StartFire;
-		HLFR BAB 2 Bright A_Fire;
-		HLFR C 2 Bright A_FireCrackle;
-		HLFR BCBCDCDCDEDED 2 Bright {
+	Spawn:
+		TNT1 A 1 NoDelay A_StartFire;
+		XXBF RSR 2 A_Fire;
+		TNT1 A 0 {
+			A_StartSound("vile/firecrkl",1,CHANF_LOOPING);
+			fxloop = 200;
+		}		
+		XXBF QRQRPQPOPNPNPNMLKJIHGFEDCBA 2 {
+			fxloop -= 4;
 			A_Fire();
-			A_Explode(2,32);
+			// don't bother with the Y offset / speed as we turn spawn in a random angle anyway
+			A_SpawnItemEx("DMR_FireballTrail",frandom(-10,10),0,frandom(0,10),frandom(-1,1),0,frandom(3,5),random(0,360),0,fxloop);
+			A_SpawnItemEx("DMR_LargeFireballTrail",frandom(-10,10),0,frandom(0,10),frandom(-1,1),0,frandom(3,5),random(0,360),0,fxloop);
+			A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
 		}
-		HLFR E 2 Bright {
-			A_FireCrackle();
-			A_Explode(2,32);
-		}
-		HLFR FEFEFGHGHGHGH 2 Bright {
-			A_Fire();
-			A_Explode(2,32);
-		}*/
-		stop;
+		Stop;
 	}
 }
+
+class DiabolistFireBlast : DMR_ArchvileFireBlast
+{
+	Default
+	{
+		DMR_ComplexFXBase.ParticleColors "#df0f0f", "#ff1b1b", "#ff6f00", "#ff664b";
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			if (tracer) SetOrigin(tracer.pos,false);
+			A_StartSound("Vile/Explode",1);
+			for (fxcircle = 0;fxcircle<=360;fxcircle = fxcircle+15) {
+				A_SpawnItemEx("DMR_FireballTrail",0,0,6,10,0,0,fxcircle);
+			}
+			for (fxloop = 0;fxloop<=35;fxloop++) {
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(14,20),frandom(16,20),random(0,360),0,0,frandom(5,7),frandom(8,12),0,frandom(-1,1),0,0,0,1,-1,-0.75);
+			}
+			A_SpawnItemEx("DMR_BurningFire",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_ORIGINATOR|SXF_TRANSFERPOINTERS);
+		}
+		VIBL AAABBBCCCDDDEEE 1 {
+			A_SpawnItemEx("DMR_LargeFireballTrail",frandom(2,18),0,6,-2,0,frandom(3,7),random(0,360));
+			A_FadeOut(0.03);
+		}
+		Stop;
+	}
+}
+
 
 class DiabolistBeam : DMR_FastProjectile
 {	

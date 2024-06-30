@@ -1,7 +1,7 @@
 //======================================================================
 //  Additional credits
 //======================================================================
-//	ZScript:	Dutchygamer
+//	ZScript:	DustedPandemonic (new vile attack), modified by Dutchygamer
 //======================================================================
 
 Class DMR_Archvile : DMR_MonsterBase 
@@ -42,7 +42,12 @@ Class DMR_Archvile : DMR_MonsterBase
 		VILE G 10 BRIGHT A_FaceTarget;
 		VILE H 8 BRIGHT A_VileTarget("DMR_ArchvileFire");
 		VILE IJKLMN 8 BRIGHT A_FaceTarget;
-		VILE O 8 BRIGHT A_VileAttack;
+		VILE O 8 BRIGHT {
+			A_VileAttack();
+			if (target && CheckSight(target)) {
+				A_VileTarget("DMR_ArchvileFireBlast");
+			}
+		}
 		VILE P 20 BRIGHT;
 		Goto See;
 	Heal:
@@ -62,24 +67,90 @@ Class DMR_Archvile : DMR_MonsterBase
 	}
 }
 
-class DMR_ArchvileFire : Actor
+//======================================================================
+//  Original credits
+//======================================================================
+//	ZScript: 	DustedPandemonic, modified by Dutchygamer
+//======================================================================
+class DMR_ArchvileFire : DMR_ComplexFXBase
 {
 	Default
 	{
 		+NOBLOCKMAP; 
 		+NOGRAVITY;
+		-FORCEXYBILLBOARD;
+		+FORCEYBILLBOARD;
+		+BRIGHT;
 		RenderStyle "Add";
 		Alpha 1;
+		XScale 2;
+		YScale 1.5;
+		DMR_ComplexFXBase.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
+	
 	States
 	{
 	Spawn:
-		FIRE A 2 BRIGHT  A_StartFire;
-		FIRE BAB 2 BRIGHT  A_Fire;
-		FIRE C 2 BRIGHT  A_FireCrackle;
-		FIRE BCBCDCDCDEDED 2 BRIGHT  A_Fire;
-		FIRE E 2 BRIGHT  A_FireCrackle;
-		FIRE FEFEFGHGHGH 2 BRIGHT  A_Fire;
+		TNT1 A 1 NoDelay A_StartFire;
+		XXBF RSR 2 A_Fire;
+		TNT1 A 0 {
+			A_StartSound("vile/firecrkl",1,CHANF_LOOPING);
+			fxloop = 200;
+		}		
+		XXBF QRQRPQPOPNPNPNMLKJIHGFEDCBA 2 {
+			fxloop -= 4;
+			A_Fire();
+			// don't bother with the Y offset / speed as we turn spawn in a random angle anyway
+			A_SpawnItemEx("DMR_FireballTrail",frandom(-10,10),0,frandom(0,10),frandom(-1,1),0,frandom(3,5),random(0,360),0,fxloop);
+			A_SpawnItemEx("DMR_LargeFireballTrail",frandom(-10,10),0,frandom(0,10),frandom(-1,1),0,frandom(3,5),random(0,360),0,fxloop);
+			A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+		}
+		Stop;
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (target && target.target && tracer)
+		{
+			if (tracer != target.target)
+			{
+				tracer = target.target;
+			}
+		}
+	}
+}
+
+//======================================================================
+//  Original credits
+//======================================================================
+//	ZScript: 	DustedPandemonic, modified by Dutchygamer
+//======================================================================
+class DMR_ArchvileFireBlast : DMR_ArchvileFire
+{
+	Default
+	{
+		Scale 1.5;
+	}
+	int fxcircle;
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			if (tracer) SetOrigin(tracer.pos,false);
+			A_StartSound("Vile/Explode",1);
+			for (fxcircle = 0;fxcircle<=360;fxcircle = fxcircle+15) {
+				A_SpawnItemEx("DMR_FireballTrail",0,0,6,10,0,0,fxcircle);
+			}
+			for(fxloop = 0;fxloop<=35;fxloop++) {
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(14,20),frandom(16,20),random(0,360),0,0,frandom(5,7),frandom(8,12),0,frandom(-1,1),0,0,0,1,-1,-0.75);
+			}
+		}
+		VIBL AAABBBCCCDDDEEE 1 {
+			A_SpawnItemEx("DMR_LargeFireballTrail",frandom(2,18),0,6,-2,0,frandom(3,7),random(0,360));
+			A_FadeOut(0.03);
+		}
 		Stop;
 	}
 }

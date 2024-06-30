@@ -127,6 +127,14 @@ class DMR_PurpleFireballTrail : DMR_ProjectileTrail
 	}
 }
 
+class DMR_LargePurpleFireballTrail : DMR_PurpleFireballTrail
+{
+	Default
+	{
+		Scale 0.55;
+	}
+}
+
 // gas trail
 class DMR_GasTrail : DMR_ProjectileTrail
 {   
