@@ -63,6 +63,7 @@ class FormerCyborgCommando : FormerCyborg
 		MRBL F 3 BRIGHT Light("DMR_SmallBFGFire") {
 			A_PlaySound ("cyborgcommando/fire", CHAN_WEAPON);
 			A_SpawnProjectile("FormerCyborgCommandoPlasma",36);
+			attackloop++;
 		}
 		MRBL E 2 A_FaceTarget;
 		Loop;
