@@ -38,7 +38,7 @@ class ToxinElemental : DMR_PainElemental
 		Goto See;
 	ToxinFire:
 		PLEM DE 5 A_FaceTarget;
-		PLEM F 5 Bright A_SpawnProjectile("ToxinElementalGasBall",24,0,0,0,0);
+		PLEM F 5 Bright A_SpawnProjectile("ToxinElementalGasBall",24);
 		Goto See;
 	Pain:
 		PLEM G 6;
@@ -50,6 +50,7 @@ class ToxinElemental : DMR_PainElemental
 		PLEM JK 8 BRIGHT;
 		PLEM L 8 BRIGHT A_PainDie("ViralOne");
 		TNT1 A 0 {
+			A_SpawnItemEx("ToxinElementalExplosion",0,0,5);
 			A_PlaySound("gas/explode");
 			A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-1,1),frandom(-1,1));
 			A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-1,1),frandom(-1,1));
@@ -74,13 +75,8 @@ class ToxinElementalGasBall : WithererGasBall
 	States
 	{
 	Death:
-		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
-				A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_GasBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-			}
-		}
 		HECF C 4 Bright {		
+			A_SpawnItemEx("DMR_GasBallImpactSpawner");
 			A_Explode(16,64);
 			A_PlaySound("gas/explode");	
 			A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
@@ -89,5 +85,28 @@ class ToxinElementalGasBall : WithererGasBall
 		}
 		HECF DE 4 Bright;
 		stop;
+	}
+}
+
+Class ToxinElementalExplosion : DMR_ComplexFXBase
+{
+	Default
+	{
+		+NOINTERACTION;
+		DMR_ComplexFXBase.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 1 NoDelay
+		{	
+			A_SpawnItemEx("DMR_LargeGasBallImpactSpawner");
+			for (fxLoop = 0;fxLoop<=25;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
+			}
+		}
+		Stop;		
 	}
 }
