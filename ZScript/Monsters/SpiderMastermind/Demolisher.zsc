@@ -1,0 +1,113 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Eriance
+//	Sounds:		Id Software, Midway
+//  Sprites: 	Id Software (edits by Eriance)
+//	GLDEFs: 	Ghastly Dragon, SandyPaper (Brightmaps)
+//======================================================================
+//  Additional credits
+//======================================================================
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class Demolisher : DMR_SpiderMastermind
+{
+	Default
+	{
+		Tag "Demolisher";
+		Health 4000;
+		//PainChance 35;
+		//dropitem "CellPack", 256, 100;
+		dropitem "CellPack", 128, 100;
+		//SeeSound "MancuTank/sight";
+		//PainSound "MancuTank/pain";
+		//DeathSound "MancuTank/death";
+		//ActiveSound "MancuTank/active";
+		Obituary "%o was destroyed by a Demolisher.";
+	}
+	
+	States
+	{
+	Spawn:
+		DEMO AB 10 A_Look;
+		Loop;
+	See:
+		DEMO A 3 A_Metal;
+		DEMO ABB 3 A_Chase;
+		DEMO C 3 A_Metal;
+		DEMO CDD 3 A_Chase;
+		DEMO E 3 A_Metal;
+		DEMO EFF 3 A_Chase;
+		Loop;
+	Missile:
+		TNT1 A 0 A_Jump(128,"BFG");
+		Goto Chainguns;
+	Chainguns:
+		DEMO A 20 BRIGHT A_FaceTarget;
+		DEMO GHGH 2 Bright Light("DMR_RifleFire") {
+			A_FaceTarget();
+			A_Playsound("MamaSpider/Fire", CHAN_WEAPON);
+			A_SpawnProjectile("SpiderSlowBullet",21,13,frandom(-12,12),CMF_OFFSETPITCH,frandom(-1,1));
+			A_SpawnProjectile("SpiderSlowBullet",21,-13,frandom(-12,12),CMF_OFFSETPITCH,frandom(-1,1));
+		}
+		TNT1 A 0 A_MonsterRefire(10,"See");
+		Goto Chainguns+1;	
+	BFG:
+		TNT1 A 0 {
+			A_PlaySound("bfg/charge",CHAN_WEAPON);
+		}
+		DEMO TTTTTT 3 Light("DMR_BFGCharge_X1") {
+			A_FaceTarget();	A_SpawnItemEx("FormerCyborgCommandoPlasmaTrail",random(-1,1),random(-1,1),32,frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		DEMO U 5 Bright Light("DMR_SmallBFGFire") {
+			A_PlaySound("cyborgcommando/fire2", CHAN_WEAPON);
+			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",32);
+		}
+		DEMO T 4 A_FaceTarget;
+		DEMO U 5 Bright Light("DMR_SmallBFGFire") {
+			A_PlaySound("cyborgcommando/fire2", CHAN_WEAPON);
+			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",32);
+		}
+		DEMO T 4 A_FaceTarget;
+		DEMO U 5 Bright Light("DMR_SmallBFGFire") {
+			A_PlaySound("cyborgcommando/fire2", CHAN_WEAPON);
+			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",32);
+		}
+		TNT1 A 0 A_Jump(128,"See");
+		TNT1 A 0 {
+			A_PlaySound("bfg/charge",CHAN_WEAPON);
+		}
+		DEMO TTTTTT 3 Light("DMR_BFGCharge_X1") {
+			A_FaceTarget();	A_SpawnItemEx("FormerCyborgCommandoPlasmaTrail",random(-1,1),random(-1,1),32,frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		DEMO U 5 Bright Light("DMR_SmallBFGFire") {
+			A_PlaySound("cyborgcommando/fire2", CHAN_WEAPON);
+			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",32);
+		}
+		DEMO T 4 A_FaceTarget;
+		DEMO U 5 Bright Light("DMR_SmallBFGFire") {
+			A_PlaySound("cyborgcommando/fire2", CHAN_WEAPON);
+			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",32);
+		}
+		DEMO T 4 A_FaceTarget;
+		DEMO U 5 Bright Light("DMR_SmallBFGFire") {
+			A_PlaySound("cyborgcommando/fire2", CHAN_WEAPON);
+			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",32);
+		}
+		Goto See;	
+	Pain:
+		DEMO I 3;
+		DEMO I 3 A_Pain;
+		Goto See;
+	Death:
+		DEMO J 20 A_Scream;
+		DEMO K 10 A_NoBlocking();
+		DEMO LMNOPQR 6 Bright {
+			A_SpawnItemEx("DMR_MastermindDeathExplosionSpawner");		
+		}
+		DEMO S 50;
+		DEMO S -1 A_BossDeath;
+		Stop;
+	}
+}
