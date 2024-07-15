@@ -46,6 +46,8 @@ class FormerViralAgent : DMR_MonsterBase
 		ZOMW AABBCCDD 3 A_Chase;
 		Loop;
 	Missile:
+		TNT1 A 0 A_Jump(96, "Grenade");
+	Dart:
 		ZOMW E 20 A_FaceTarget;
 		ZOMW F 4 {
 			A_PlaySound("virus/fire",CHAN_WEAPON);
@@ -53,6 +55,17 @@ class FormerViralAgent : DMR_MonsterBase
 		}
 		ZOMW E 20;
 		goto See;
+	Grenade:
+		ZOMW A 0 {
+			A_PlaySound("handgrenade/prime", CHAN_WEAPON);
+		}
+		ZOMW EEE 8 A_FaceTarget;
+		ZOMW F 5 {
+			A_PlaySound("handgrenade/throw", CHAN_WEAPON);
+			A_SpawnProjectile("VirusGrenade",32,0,random(9,-9),CMF_OFFSETPITCH,random(-2,2));
+		}
+		ZOMW E 4;
+		Goto See;
 	Pain:
 		ZOMW G 3;
 		ZOMW G 3 A_Pain;
@@ -222,5 +235,42 @@ class VirusDebuffEffect : PowerDamage
 			owner.translation = default.translation;
 		}
 		Destroy();
+	}
+}
+
+class VirusGrenade : SpecOpsGrenade
+{
+	Default
+	{
+		DamageFactor "ToxinCloud", 0.0;
+		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
+	}
+	States
+	{
+	//Spawn:
+	//	THR2 A 4;
+	//	THR2 B 1 Bright;
+	//	Loop;
+	Death:
+		TNT1 A 0 {
+			bNoGravity = true;
+			A_Stop();
+			A_SetRenderStyle(1.0,STYLE_Add);
+			A_SetScale(2.5);
+			A_PlaySound("gas/explode");	
+			A_SpawnItemEx("DMR_GasBallImpactSpawner");
+			for (fxLoop = 0;fxLoop<=30;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
+			}
+		}	
+		FVUL C 4 {
+			A_Explode(10,48);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+		}
+		FVUL DEF 4;
+		Stop;
 	}
 }
