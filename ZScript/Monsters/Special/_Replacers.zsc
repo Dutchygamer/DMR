@@ -4,8 +4,11 @@ Class SSReplacer_Nazi : RandomSpawner
 {
 	Default
 	{
-		DropItem "EvilMarine", 255, 100;
-		DropItem "FormerCyborgCommando", 255, 4;
+		DropItem "SSGuard", 255, 100;
+		DropItem "SSTrooper", 255, 60;
+		DropItem "SSOfficer", 255, 60;
+		DropItem "SSSupersoldat", 255, 40;
+		DropItem "SSUbersoldat", 255, 10;
 	}
 }
 

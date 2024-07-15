@@ -155,6 +155,13 @@ version "4.10"
 #include "ZScript/Monsters/SpiderMastermind/DMR_SpiderMastermind.zsc"
 #include "ZScript/Monsters/SpiderMastermind/Overlord.zsc"
 #include "ZScript/Monsters/SpiderMastermind/Mancutank.zsc"
+#include "ZScript/Monsters/SpiderMastermind/Demolisher.zsc"
+
+#include "ZScript/Monsters/WolfensteinSS/SSGuard.zsc"
+#include "ZScript/Monsters/WolfensteinSS/SSTrooper.zsc"
+#include "ZScript/Monsters/WolfensteinSS/SSOfficer.zsc"
+#include "ZScript/Monsters/WolfensteinSS/SSSupersoldat.zsc"
+#include "ZScript/Monsters/WolfensteinSS/SSUbersoldat.zsc"
 
 #include "ZScript/Monsters/Special/_Replacers.zsc"
 #include "ZScript/Monsters/Special/SuperAfrit.zsc"

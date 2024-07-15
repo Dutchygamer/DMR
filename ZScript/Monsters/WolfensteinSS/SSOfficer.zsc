@@ -1,0 +1,55 @@
+class SSOfficer : SSGuard
+{
+	Default
+	{
+		Tag "SS Officer";	
+		Health 70;
+		Speed 10;
+		PainChance 100;
+		SeeSound "wolfss/sight";
+		PainSound "wolfss/pain";
+		DeathSound "wolfss/death";
+		ActiveSound "wolfss/active";
+		AttackSound "wolfss/attack";
+		Obituary "$OB_WOLFSS";
+		DropItem "Clip", 256, 5;
+	}
+	States
+	{
+	Spawn:
+		SSWV AB 10 A_Look;
+		Loop;
+	See:
+		SSWV AABBCCDD 3 A_Chase;
+		Loop;
+	Missile:
+		SSWV E 6 A_FaceTarget;
+		SSWV F 4 BRIGHT Light("DMR_RifleFire") {
+			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			A_PlaySound("grunt/attack", CHAN_WEAPON );
+		}
+		Goto See;
+	Pain:
+		SSWV H 3;
+		SSWV H 3 A_Pain;
+		Goto See;
+	Death:
+		SSWV I 5;
+		SSWV J 5 A_Scream;
+		SSWV K 5 A_NoBlocking;
+		SSWV L 5;
+		SSWV M -1;
+		Stop;
+	XDeath:
+		SSWV N 5 ;
+		SSWV O 5 A_XScream;
+		SSWV P 5 A_NoBlocking;
+		SSWV QRSTU 5;
+		SSWV V -1;
+		Stop;
+	Raise:
+		SSWV M 5;
+		SSWV LKJI 5;
+		Goto See ;
+	}
+}
