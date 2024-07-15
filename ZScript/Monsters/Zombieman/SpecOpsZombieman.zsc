@@ -173,42 +173,6 @@ class SpecOpsGrenade : DMR_ThrownGrenade
 	}
 }
 
-class SpecOpsGasGrenade : SpecOpsGrenade
-{
-	Default
-	{
-		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
-	}
-	States
-	{
-	//Spawn:
-	//	THR2 A 4;
-	//	THR2 B 1 Bright;
-	//	Loop;
-	Death:
-		TNT1 A 0 {
-			bNoGravity = true;
-			A_Stop();
-			A_SetRenderStyle(1.0,STYLE_Add);
-			A_SetScale(2.5);
-			A_PlaySound("gas/explode");	
-			A_SpawnItemEx("DMR_GasBallImpactSpawner");
-			for (fxLoop = 0;fxLoop<=30;fxLoop++)
-			{
-				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
-			}
-		}	
-		FVUL C 4 {
-			A_Explode(10,48);
-			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
-		}
-		FVUL DEF 4;
-		Stop;
-	}
-}
-
 class SpecOpsAfterImage : DMR_SubtractAfterImage
 {   
 	Default
