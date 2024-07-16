@@ -1,4 +1,18 @@
-class SSTrooper : SSGuard
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	n/a
+//	Sounds:		Id Software
+//  Sprites: 	Id Software (modified by ???)
+//	GLDEFs: 	n/a
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class SSTrooper : DMR_NaziBase
 {
 	Default
 	{
@@ -10,35 +24,36 @@ class SSTrooper : SSGuard
 		PainSound "wolfss/pain";
 		DeathSound "wolfss/death";
 		ActiveSound "wolfss/active";
-		AttackSound "wolfss/attack";
-		Obituary "$OB_WOLFSS";
+		//AttackSound "wolfss/attack";
+		Obituary "%o was hunted down by a SS Trooper.";
 		DropItem "Clip", 256, 5;
+		DropItem "Clip", 128, 5;
 	}
 	States
 	{
 	Spawn:
-		SSWV AB 10 A_Look;
+		SSWI AA 10 A_Look;
 		Loop;
 	See:
 		SSWV AABBCCDD 3 A_Chase;
 		Loop;
 	Missile:
-		SSWV E 10 A_FaceTarget;
-		SSWV F 5 BRIGHT Light("DMR_RifleFire") {
+		SSWV F 10 A_FaceTarget;
+		SSWV G 5 BRIGHT Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			A_PlaySound("grunt/attack", CHAN_WEAPON );
 		}
 		SSWV F 4 A_FaceTarget;
-		SSWV F 5 BRIGHT Light("DMR_RifleFire") {
+		SSWV G 5 BRIGHT Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			A_PlaySound("grunt/attack", CHAN_WEAPON );
 		}
 		SSWV F 4 A_FaceTarget;
-		SSWV F 5 BRIGHT Light("DMR_RifleFire") {
+		SSWV G 5 BRIGHT Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			A_PlaySound("grunt/attack", CHAN_WEAPON );
 		}
-		SSWV E 10 A_CPosRefire;
+		SSWV F 10 A_CPosRefire;
 		Goto Missile+1;
 	Pain:
 		SSWV H 3;

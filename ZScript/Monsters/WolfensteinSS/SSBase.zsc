@@ -1,0 +1,21 @@
+// basic setup for nazis, so I don't have to duplicate this everywhere
+class DMR_NaziBase : DMR_MonsterBase
+{
+	Default
+	{
+		Tag "SS";
+		Gibhealth -20; // all lower tier monsters (zombies -> imp) have 20 gibhealth
+		Species "WolfensteinSS"; // use 'WolfensteinSS' to maintain Project: Demolitionist anti-Nazi shenenigens 
+		Radius 20;
+		Height 56;
+		Mass 100;
+		Speed 10;
+		PainChance 170;
+		SeeSound "wolfss/sight";
+		PainSound "wolfss/pain";
+		DeathSound "wolfss/death";
+		ActiveSound "wolfss/active";
+		//AttackSound "wolfss/attack";
+		+DOHARMSPECIES; // Nazis aren't friendly-fire proof
+	}
+}
