@@ -30,6 +30,7 @@ class FormerCyborgCommando : FormerCyborg
 		+MISSILEMORE;
 		+MISSILEEVENMORE;
 		+DONTHARMCLASS; // don't kill yourself with your explosives
+		+BOSS; // for extra funsies
 		DMR_MonsterBase.Species2 "WolfSSReplacer";
 	}
  	States
