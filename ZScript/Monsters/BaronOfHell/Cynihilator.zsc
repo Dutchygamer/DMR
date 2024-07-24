@@ -27,6 +27,7 @@ class KurPraetorian : DMR_BaronOfHell
 		Obituary "%o underestimated the firepower of a Kur Praetorian.";
 		+MISSILEMORE;
 		+MISSILEEVENMORE;
+		+BOSS; // for extra funsies
 		SeeSound "kurpraetorian/sight";
 		PainSound "kurpraetorian/pain";
 		DeathSound "kurpraetorian/death";
@@ -188,7 +189,6 @@ class KurPraetorian : DMR_BaronOfHell
 		}
 		TNT1 A 0 {
 			A_NoBlocking();
-			//A_SpawnItemEx("DMR_MonsterDeathFinalExplosion");
 		}
 		BRU3 NNNOOOPPPQQQ 3 Bright {
 			A_SpawnItemEx("DMR_BossDeathExplosion",random(8,-8),0,random(20,40));

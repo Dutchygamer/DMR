@@ -33,7 +33,7 @@ class CoreDefender : DMR_Cyberdemon
 		ActiveSound "coredefender/active";
 		DeathSound "coredefender/death";
 		PainSound "coredefender/pain";
-		Obituary "%o was made a slave to the system.";		
+		Obituary "The Core Defender turned %o into a slave to the system.";		
 	}
 	
     States
@@ -257,6 +257,7 @@ class CoreDefenderObeliskLaser : DMR_LaserBase
 		MissileHeight 10;
 		SeeSound "coredefender/laserfire";
 		Decal "BigRedLaserLightning";
+		DMR_FastProjectile.ParticleColors "#ff0000", "#d20000", "#b90000", "#ff0f0f";
 	}
 	States
 	{
@@ -267,6 +268,10 @@ class CoreDefenderObeliskLaser : DMR_LaserBase
 		BFE1 A 8 Bright {
 			A_Explode(108,48);
 			A_SpawnItemEx("DMR_LaserImpactFlareBig");
+			for (fxLoop = 0;fxLoop<=120;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
+			}
 		}
 		BFE1 BCDEF 8 Bright;
 		Stop;

@@ -27,6 +27,7 @@ class SSUbersoldat : DMR_NaziBase
 		ActiveSound "wolfss/active";
 		//AttackSound "wolfss/attack";
 		Obituary "%o didn't like the results of German Superscience.";
+		+BOSS; // for extra funsies
 		DropItem "Clip", 256, 5;
 		DropItem "Clip", 256, 5;
 		DropItem "Clip", 256, 5;
