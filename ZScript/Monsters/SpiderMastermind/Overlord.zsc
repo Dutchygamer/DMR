@@ -285,6 +285,7 @@ class OverlordBreathLaser : DMR_LaserBase
 		// this is just for this weapon
 		+EXTREMEDEATH;
 		+FORCERADIUSDMG;
+		DMR_FastProjectile.ParticleColors "#0000ff", "#0000d2", "#0000b9", "#0f0fff";
 	}
 	States
 	{
@@ -295,6 +296,10 @@ class OverlordBreathLaser : DMR_LaserBase
 		BFE1 A 6 Bright Light("DMR_BlueLaserImpactBig_X1") {
 			A_Explode(20,64,0,0,48);
 			A_SpawnItemEx("DMR_BlueLaserImpactFlareBig");
+			for (fxLoop = 0;fxLoop<=30;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
+			}
 		}
 		BFE1 BCDEF 6 Bright;
 		Stop;

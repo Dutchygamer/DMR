@@ -117,7 +117,7 @@ class IntoxicanterFire : DMR_ArchvileFire
 		XXBF QRQRPQPOPNPNPNMLKJIHGFEDCBA 2 {
 			fxloop -= 4;
 			A_Fire();
-			// don't bother with the Y offset / speed as we turn spawn in a random angle anyway
+			// don't bother with the Y offset / speed as we spawn in a random angle anyway
 			A_SpawnItemEx("DMR_GasTrail",frandom(-10,10),0,frandom(0,10),frandom(-1,1),0,frandom(3,5),random(0,360),0,fxloop);
 			A_SpawnItemEx("DMR_LargeGreenFireballTrail",frandom(-10,10),0,frandom(0,10),frandom(-1,1),0,frandom(3,5),random(0,360),0,fxloop);
 			A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);

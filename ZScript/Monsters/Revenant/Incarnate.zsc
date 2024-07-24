@@ -127,12 +127,19 @@ Class GhoulDeathExplosion : DMR_BossDeathExplosion
 	{
 		+NOINTERACTION;
 		Renderstyle "Add";
+		DMR_Projectile.ParticleColors "#ff0000", "#d20000", "#b90000", "#ff0f0f";
 	}
 	
 	States
 	{
 	Spawn:
 		TNT1 A 0 NoDelay A_PlaySound("weapons/rocklx", CHAN_WEAPON);
+		TNT1 A 0 {
+			for (fxLoop = 0;fxLoop<=50;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
+			}
+		}
 		MISL B 8 Bright Light("DMR_RedRocket_X1");
 		MISL C 6 Bright Light("DMR_RedRocket_X2");
 		MISL D 4 Bright Light("DMR_RedRocket_X3");

@@ -114,7 +114,7 @@ class DiabolistFire : DMR_ArchvileFire
 		XXBF QRQRPQPOPNPNPNMLKJIHGFEDCBA 2 {
 			fxloop -= 4;
 			A_Fire();
-			// don't bother with the Y offset / speed as we turn spawn in a random angle anyway
+			// don't bother with the Y offset / speed as we spawn in a random angle anyway
 			A_SpawnItemEx("DMR_FireballTrail",frandom(-10,10),0,frandom(0,10),frandom(-1,1),0,frandom(3,5),random(0,360),0,fxloop);
 			A_SpawnItemEx("DMR_LargeFireballTrail",frandom(-10,10),0,frandom(0,10),frandom(-1,1),0,frandom(3,5),random(0,360),0,fxloop);
 			A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
@@ -169,13 +169,22 @@ class DiabolistBeam : DMR_FastProjectile
 		MissileHeight 8;
 		Seesound "weapons/firmfi";
 		DeathSound "weapons/firex4";
+		DMR_FastProjectile.ParticleColors "#df0f0f", "#ff1b1b", "#ff6f00", "#ff664b";
 	}
 	States
 	{
 	Spawn:
-		VBAL AB 3 Bright;
+		VBAL AB 3 Bright {
+			A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+		}
 		Loop;
 	Death:
+		TNT1 A 0 {	
+			for (fxLoop = 0;fxLoop<=5;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
+			}
+		}
 		CBAL CDEFG 3 Bright;
 		Stop;
 	}
@@ -210,26 +219,33 @@ class DiabolistBall : DMR_SmallRocket
 		//ALPHA 0.67;
 		SeeSound "pyro/flame";
 		DeathSound "pyro/flamepoof";
+		DMR_Projectile.ParticleColors "#df0f0f", "#ff1b1b", "#ff6f00", "#ff664b";
 	}
 	States
 	{
 	Spawn: 
 		SEF1 AABBCC 2 {
 			A_SpawnItemEx("DMR_LargeFireballTrail",-5,0,0,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,-0.5)); 
+			for (fxLoop = 0;fxLoop<=3;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 		}
 		loop;
 	Death:
 		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
-				A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_MediumFireballLargeImpactSpawner");
+			for (fxLoop = 0;fxLoop<=35;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
+			A_Explode(64,64);
 		}
-		TNT1 A 0 A_Explode(64,64);
 		SEF1 DEFGH 4;
 		Stop;
 	}
 }
+
 
 //TODO below is unused currently
 class DiabolistFloorTracer: actor

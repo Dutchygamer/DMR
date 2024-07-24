@@ -129,15 +129,17 @@ class FireborneNobleSpamBall : DMR_DoomImpBall
 	States
 	{
 	Spawn:
-		BRB2 AB 6 BRIGHT {
+		BRB2 AAABBB 2 BRIGHT {
 			A_SpawnItemEx("DMR_FireballTrail",-7,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1));
+			A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
 		}
 		Loop;
 	Death:		
 		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 3;fxLoop++) {
-				A_SpawnItemEx("DMR_FireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_FireballImpactSpawner");
+			for (fxLoop = 0;fxLoop<=20;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
 		}
 		BRB2 CDEFGHI 3 Bright;
