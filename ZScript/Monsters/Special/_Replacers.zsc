@@ -39,3 +39,21 @@ Class SSReplacer_Nod : RandomSpawner
 		DropItem "FormerCyborgCommando", 255, 10;
 	}
 }
+
+Class SSReplacer_All : RandomSpawner
+{
+	Default
+	{
+		DropItem "SSGuard", 255, 100;
+		DropItem "SSTrooper", 255, 60;
+		DropItem "SSOfficer", 255, 60;
+		DropItem "SSSupersoldat", 255, 40;
+		DropItem "SSUbersoldat", 255, 10;
+		
+		DropItem "AlienFighter", 255, 25;
+		DropItem "EvilMarine", 255, 10;
+		
+		DropItem "FormerCyborg", 255, 100;
+		DropItem "FormerCyborgCommando", 255, 4;
+	}
+}

@@ -25,6 +25,8 @@ class DMR_ReplacerHandler : EventHandler
 				// "DMR - Nod"
 				else if (dmr_replace_ss == 13)
 					{ a.Replacement = 'SSReplacer_Nod'; break; }
+				else if (dmr_replace_ss == 99)
+					{ a.Replacement = 'SSReplacer_All'; break; }
 			case 'CommanderKeen':
 				// "Scythe 2"
 				if (dmr_replace_keen == 1)

@@ -33,9 +33,10 @@ OptionValue "dmr_replace_ss_options"
 	1, "Scythe 2"
 	2, "Epic 2"
 	3, "Resurgence"
-	11, "DMR - Nazis (WiP)"
+	11, "DMR - SS"
 	12, "DMR - Cyborgs"
-	13, "DMR - Nod"
+	//13, "DMR - Nod"
+	99, "DMR - All of above"
 }
 
 OptionValue "dmr_replace_keen_options"
