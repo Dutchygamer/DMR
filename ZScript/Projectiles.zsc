@@ -169,6 +169,10 @@ class DMR_FiredGrenade : DMR_GrenadeBase
 		}
 		SGRN A 1 {
 			A_SpawnItemEx("DMR_SmokeCloud",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			for (fxLoop = 0;fxLoop<=3;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-35,-30),frandom(-6,6),frandom(-6,6),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 			grenadeTimer++;
 		}
 		Wait;
@@ -176,6 +180,10 @@ class DMR_FiredGrenade : DMR_GrenadeBase
 	Death:
 		SGRN A 1 {		
 			A_SpawnItemEx("DMR_SmokeCloud",-20,0,4,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-35,-30),frandom(-6,6),frandom(-6,6),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
 			// detonate if timer runs out
 			if (grenadeTimer >= 80) { SetStateLabel("XDeath"); }
 			grenadeTimer++;
