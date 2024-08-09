@@ -25,7 +25,8 @@ class DMR_Mauler : DMR_Demon
 		ActiveSound "cypinky/active";
 		Obituary "%o was gored by a Mauler";
 		HitObituary "A mauler ate %o's heart out." ;
-		MeleeThreshold 64;
+		MeleeThreshold 128; // don't charge in min range
+		MaxTargetRange 400; // don't charge at max range
 	}
 	States
 	{
@@ -43,9 +44,6 @@ class DMR_Mauler : DMR_Demon
 		SRG2 G 8 Fast A_CustomMeleeAttack(random(8,24));
 		Goto See;
 	Missile:
-		SRG2 E 0 A_JumpIfCloser(360, "Charge"); //only do the lunge if closer then this, but further away then MeleeThreshold
-		Goto See;
-	Charge:
 		SRG2 E 10 A_FaceTarget;
 		TNT1 A 0 {
 			A_PlaySound("cypinky/melee", CHAN_VOICE);

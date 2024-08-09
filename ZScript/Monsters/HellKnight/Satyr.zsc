@@ -26,7 +26,8 @@ class Satyr : DMR_HellKnight
 		ActiveSound "knight/active";
 		Obituary "%o was mauled by a Satyr.";
 		HitObituary "%o was mauled by a Satyr.";
-		MeleeThreshold 100;
+		MeleeThreshold 128; // don't charge in min range
+		MaxTargetRange 400; // don't charge at max range
 	}
 	States
 	{
@@ -37,9 +38,6 @@ class Satyr : DMR_HellKnight
 		STYR AABBCCDD 3 A_Chase;
 		Loop;
 	Missile:
-		TNT1 A 0 A_JumpIfCloser(480, "Charge"); //only do the lunge if closer then this, but further away then MeleeThreshold
-		Goto See;
-	Charge:
 		STYR XXXXXX 2 A_FaceTarget;
 		TNT1 A 0 {
 			A_PlaySound("satyr/sight", CHAN_VOICE);

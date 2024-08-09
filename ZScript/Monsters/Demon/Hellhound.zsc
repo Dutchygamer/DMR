@@ -28,6 +28,7 @@ class Hellhound : DMR_Demon
 		Obituary "%o burned alive by a Hellhound.";
 		HitObituary "A Hellhound has torn %o apart.";
 		DamageFactor "Fire", 0.5;
+		MaxTargetRange 400; // don't fire projectiles at range
 	}
 	
 	States

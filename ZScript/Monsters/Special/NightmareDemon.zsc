@@ -30,6 +30,7 @@ class DMR_NightmareDemon : DMR_Demon
 		Obituary "%o was crushed by a Nightmare Demon.";
 		HitObituary "%o was crushed by a Nightmare Demon.";
 		MeleeThreshold 64;
+		MaxTargetRange 400; // don't charge at max range
 	}
 	States
 	{
@@ -45,9 +46,6 @@ class DMR_NightmareDemon : DMR_Demon
 		DOGS G 8 Fast A_CustomMeleeAttack(random(8,24));
 		Goto See;
 	Missile:
-		DOGS E 0 A_JumpIfCloser(360, "Charge"); //only do the lunge if closer then this, but further away then MeleeThreshold
-		Goto See;
-	Charge:
 		DOGS E 10 A_FaceTarget;
 		TNT1 A 0 {
 			A_PlaySound("dog/attack", CHAN_VOICE);

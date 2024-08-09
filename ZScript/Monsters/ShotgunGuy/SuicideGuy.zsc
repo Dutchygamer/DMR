@@ -31,6 +31,7 @@ class SuicideGuyExplosive : DMR_MonsterBase
 		+DONTHARMCLASS;
 		+AMBUSH; // for maximum annoyance, and less aaaaaaaaahh when they can't see you but did hear you
 		Species "DMR_Aaaaaaaaaaaah";
+		MaxTargetRange 400; // don't charge at max range
 	}
  	States
 	{
@@ -42,9 +43,6 @@ class SuicideGuyExplosive : DMR_MonsterBase
 		TNT1 A 0 A_PlaySound("kamikaze/scream");
 		Loop;
 	Missile:
-		BMBE E 0 A_JumpIfCloser(360, "Charge"); //only do the lunge if closer then this, but further away then MeleeThreshold
-		Goto See;
-	Charge:
 		BMBE A 10 A_FaceTarget;
 		TNT1 A 0 {
 			A_FaceTarget();
