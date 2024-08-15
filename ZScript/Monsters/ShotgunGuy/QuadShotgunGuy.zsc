@@ -75,7 +75,7 @@ class FormerQuartermaster : DMR_ShotgunGuy
 	QuadShot:
 		QSZM E 20 {
 			A_FaceTarget();
-			A_PlaySound("QuadShotgunZombie/Reload3");
+			A_PlaySound("quadshotgun/reload/3");
 		}
 		QSZM F 10 Bright Light("DMR_RifleFire") {
 			A_PlaySound("quadshotgun/fire/quad", CHAN_WEAPON);
