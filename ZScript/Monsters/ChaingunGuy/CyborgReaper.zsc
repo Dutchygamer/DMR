@@ -1,0 +1,187 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	TheMightyHeracross
+//	Sounds:		Id Software
+//  Sprites: 	Rougue, id, Collin Portratz, RBCSkins (zirron the insect, TheMightyHeracross, Xim)
+//	GLDEFs: 	n/a
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class CyborgReaper : FormerCyborg
+{
+	Default
+	{
+		Tag "Cyborg Reaper";
+		obituary "%o fought the Cyborg Reaper and lost.";
+		health 800;
+		painchance 30;
+		SeeSound "cyborg/sight";
+		PainSound "cyborg/pain";
+		DeathSound "cyborg/death";
+		ActiveSound "cyborg/active";
+		Scale 1.1;
+		DropItem "Cell", 256, 20;
+		DropItem "Cell", 128, 20;
+		DropItem "Cell", 64, 20;
+		DropItem "RocketAmmo", 64, 1;
+		-MISSILEMORE;
+		+MISSILEEVENMORE;
+		+DONTHARMCLASS; // don't kill yourself with your explosives
+	}
+	
+ 	States
+	{
+	Spawn:
+		SREB AA 10 A_Look;
+		Loop;
+	See:
+		// heavier cyborgs are faster
+		SREB AABB 3 {
+			A_SetCyborgTics(3,8);
+			A_Chase();
+		}
+		TNT1 A 0 A_PlaySound("cyborg/step");
+		SREB CCDD 3 {
+			A_SetCyborgTics(3,8);
+			A_Chase();
+		}
+		TNT1 A 0 A_PlaySound("cyborg/step");
+		Loop;
+	Missile:
+		TNT1 A 0 A_Jump(96, "Grenade");
+	TibRifle:
+		SREB E 10 {
+			A_FaceTarget();
+			attackloop = random(0,3);
+		}
+		SREB FE 6 Bright Light("DMR_RifleFire") {
+			A_FaceTarget();
+			A_SpawnProjectile("TiberiumShard",35);
+		}
+		TNT1 A 0 {
+			attackloop++;
+		}
+		// always stop firing after 6 loops
+		TNT1 A 0 A_JumpIf(attackloop >= 6,"TibRifleEnd");
+		// random chance to stop firing prematurely
+		RAVW E 4 A_MonsterRefire(40,"TibRifleEnd");
+		Goto TibRifle+1;
+	TibRifleEnd:
+		SREB E 10;
+		Goto See;
+	Grenade:
+		TNT1 A 0 A_JumpIfCloser(96, "TibRifle"); // don't grenade yourself when standing in front of the target
+		TNT1 A 0 {
+			A_PlaySound("heavyweapon/load", CHAN_WEAPON);
+		}
+		SREB EEE 8 A_FaceTarget;
+		SREB F 5 Bright Light("DMR_RifleFire") A_SpawnProjectile("DraugrClusterMissile",35);
+		SREB E 4;
+		Goto See;
+	CriticalDamage: 
+		TNT1 A 0 { bNOPAIN = true; }
+		SREB G 4;
+		SREB G 4 A_PlaySound("cyborg/pain", 7);
+		SREB G 4 {
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		}
+		TNT1 A 0 { 
+			criticalDamaged = true;
+			bNOPAIN = false; 
+		}
+		Goto See;
+	Pain:
+		SREB G 3;
+		SREB G 3 A_Pain;
+		Goto See;
+	Death:
+		SREB G 10 A_Scream;
+		SREB GGG 5 {
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		}
+		SREB HI 5;
+		SREB J 5 A_NoBlocking;
+		SREB KLMN 5;
+		SREB O -1;
+		Stop;
+	XDeath:
+		SREB G 10 A_Scream;
+		SREB GGG 5 {
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		}
+		SREB P 5;
+		SREB Q 5 A_XScream;
+		SREB R 5 A_NoBlocking;
+		SREB STUV 5;
+		SREB W -1;
+		Stop;
+	Raise:
+		// when rezzed you get your legs back
+		TNT1 A 0 {			
+			criticalDamaged = false;
+		}
+		MRBL NMLKJIH 5;
+		Goto See;
+	}
+	
+	override void Tick()
+  	{
+		Super.Tick();
+		if (!criticalDamaged && health > 0 && health < 100 && bNOPAIN == false) 
+		{ 
+			SetStateLabel("CriticalDamage"); 
+		}
+		if (criticalDamaged && health > 0 && !IsFrozen() && random(0,3) == 3)
+		{
+			A_SpawnItemEx("FormerCyborgCriticalDamagedSmokeCloud",-5,0,45,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+		}
+  	}
+}
+
+
+class TiberiumShard : DMR_DoomImpBall
+{
+	Default
+	{
+		Speed 20;
+		DamageFunction(random(10,30));
+		SeeSound "tibshard/green/fire";
+		DeathSound "tibshard/green/explode";
+		Scale 0.35;
+		RenderStyle "Normal";
+		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
+	}
+	States
+	{
+	Spawn:
+		TSRD A 1 Bright {
+			A_SpawnItemEx("TiberiumShardTrail",-25,0,0); 			A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-30,-26),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+		}
+		Loop;
+	Death:
+		TNT1 A 0 {
+			A_SetRenderStyle(1.0, STYLE_Add);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_Explode(16,48);
+			for (fxLoop = 0;fxLoop<=30;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
+			}
+		}
+		TSDE ABCDEFG 3 Bright;
+		Stop;
+	}
+}
+
+class TiberiumShardTrail : TiberiumFlechetteTrail
+{   
+	Default
+	{
+		Scale 0.2;
+	}
+}

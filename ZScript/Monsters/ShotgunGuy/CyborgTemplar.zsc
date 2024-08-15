@@ -1,0 +1,154 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	TheMightyHeracross
+//	Sounds:		Id Software
+//  Sprites: 	Rougue, id, Collin Portratz, RBCSkins (zirron the insect, TheMightyHeracross, Xim)
+//	GLDEFs: 	n/a
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class CyborgTemplar : FormerCyborg
+{
+	Default
+	{
+		Tag "Cyborg Templar";
+		obituary "%o could not topple the Cyborg Templar in time.";
+		health 450;
+		painchance 40;
+		SeeSound "cyborg/sight";
+		PainSound "cyborg/pain";
+		DeathSound "cyborg/death";
+		ActiveSound "cyborg/active";
+		Scale 1.1;
+		DropItem "Shell", 256, 4;
+		DropItem "Shell", 128, 4;
+		DropItem "Shell", 128, 4;
+		DropItem "Shell", 64, 4;
+		DropItem "RocketAmmo", 64, 1;
+		+MISSILEMORE;
+		+DONTHARMCLASS; // don't kill yourself with your explosives
+	}
+	
+ 	States
+	{
+	Spawn:
+		GREB AA 10 A_Look;
+		Loop;
+	See:
+		GREB AABB 4 {
+			A_SetCyborgTics(4,8);
+			A_Chase();
+		}
+		TNT1 A 0 A_PlaySound("cyborg/step");
+		GREB CCDD 4 {
+			A_SetCyborgTics(4,8);
+			A_Chase();
+		}
+		TNT1 A 0 A_PlaySound("cyborg/step");
+		Loop;
+	Missile:
+		TNT1 A 0 A_Jump(96, "Grenade", "FullAuto");
+	Shotgun:
+		GREB E 10 A_FaceTarget;
+		GREB FE 5 Bright Light("DMR_RifleFire") {
+			A_FaceTarget();
+			A_PlaySound("autoshotgun/fire", CHAN_WEAPON);
+			A_CustomBulletAttack(22.5,7.1,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		}
+		GREB E 10;
+		Goto See;
+	FullAuto:
+		GREB E 15 {
+			A_FaceTarget();
+			A_PlaySound("quadshotgun/reload/3");
+			attackloop = random(0,2);
+		}
+		GREB FE 4 Bright Light("DMR_RifleFire") {
+			A_FaceTarget();
+			A_PlaySound("autoshotgun/fire", CHAN_WEAPON);
+			A_CustomBulletAttack(22.5,7.1,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+		}
+		TNT1 A 0 {
+			attackloop++;
+		}
+		// always stop firing after 6 loops
+		TNT1 A 0 A_JumpIf(attackloop >= 6,"FullAutoEnd");
+		// random chance to stop firing prematurely
+		GREB E 4 A_MonsterRefire(40,"FullAutoEnd");
+		Goto FullAuto+1;
+	FullAutoEnd:
+		GREB E 12;
+		Goto See;
+	Grenade:
+		TNT1 A 0 A_JumpIfCloser(96, "Shotgun"); // don't grenade yourself when standing in front of the target
+		TNT1 A 0 {
+			A_PlaySound("heavyweapon/load", CHAN_WEAPON);
+		}
+		GREB EEE 8 A_FaceTarget;
+		GREB F 5 Bright Light("DMR_RifleFire") A_LobProjectile("FormerCyborgGrenade",35);
+		GREB E 4;
+		Goto See;
+	CriticalDamage: 
+		TNT1 A 0 { bNOPAIN = true; }
+		GREB G 4;
+		GREB G 4 A_PlaySound("cyborg/pain", 7);
+		GREB G 4 {
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		}
+		TNT1 A 0 { 
+			criticalDamaged = true;
+			bNOPAIN = false; 
+		}
+		Goto See;
+	Pain:
+		GREB G 3;
+		GREB G 3 A_Pain;
+		Goto See;
+	Death:
+		GREB G 10 A_Scream;
+		GREB GGG 5 {
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		}
+		GREB HI 5;
+		GREB J 5 A_NoBlocking;
+		GREB KLM 5;
+		GREB N -1;
+		Stop;
+	XDeath:
+		GREB G 10 A_Scream;
+		GREB GGG 5 {
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+		}
+		GREB O 5;
+		GREB P 5 A_XScream;
+		GREB Q 5 A_NoBlocking;
+		GREB RSTU 5;
+		GREB V -1;
+		Stop;
+	Raise:
+		// when rezzed you get your legs back
+		TNT1 A 0 {			
+			criticalDamaged = false;
+		}
+		MRBL NMLKJIH 5;
+		Goto See;
+	}
+	
+	override void Tick()
+  	{
+		Super.Tick();
+		if (!criticalDamaged && health > 0 && health < 75 && bNOPAIN == false) 
+		{ 
+			SetStateLabel("CriticalDamage"); 
+		}
+		if (criticalDamaged && health > 0 && !IsFrozen() && random(0,3) == 3)
+		{
+			A_SpawnItemEx("FormerCyborgCriticalDamagedSmokeCloud",-5,0,45,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+		}
+  	}
+}
