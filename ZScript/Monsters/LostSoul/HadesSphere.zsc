@@ -46,7 +46,7 @@ class HadesSphere : DMR_LostSoul
 		HADE EFGH 4;
 	SeeLoop:
 		TNT1 A 0 A_JumpIf(lifetime < 1,"Death"); // have a limited lifetime
-		HADE A 2 A_Playsound("monster/hadwlk");
+		HADE A 2 A_StartSound("monster/hadwlk");
 		HADE ABBCCDD 2 A_Chase;
 		TNT1 A 0 {
 			lifetime -= 1;
@@ -61,7 +61,7 @@ class HadesSphere : DMR_LostSoul
 		Goto Missile+1;
 	TeleportOut:
 		HADE H 2 {
-			A_Playsound("monster/hadtel");
+			A_StartSound("monster/hadtel");
 			A_UnSetSolid();
 			A_UnSetShootable();
 		}
@@ -71,7 +71,7 @@ class HadesSphere : DMR_LostSoul
 		TNT1 A 0 A_Jump(96, "TeleportIn");
 		Loop;
 	TeleportIn:
-		HADE L 2 Bright A_Playsound("monster/hadtel");
+		HADE L 2 Bright A_StartSound("monster/hadtel");
 		HADE KJIEFG 2;
 		TNT1 A 0 {
 			A_SetSolid();
@@ -81,7 +81,7 @@ class HadesSphere : DMR_LostSoul
 	Melee:
 		TNT1 A 0 {
 			A_SetInvulnerable();
-			A_Playsound("monster/hadsit");
+			A_StartSound("monster/hadsit");
 		}
 		HADE HGFE 4;
 		TNT1 A 0 {

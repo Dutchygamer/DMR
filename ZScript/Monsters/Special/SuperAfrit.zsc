@@ -75,7 +75,7 @@ Class SuperAfrit : Afrit
 	XDeath:
 		TNT1 A 0 A_NoGravity;
 		FRIT I 6 A_Scream;
-		TNT1 A 0 A_PlaySound("dragonfam/attack");
+		TNT1 A 0 A_StartSound("dragonfam/attack");
 		FRIT J 5 A_NoBlocking;
 		FRIT KLMNOPQR 4;
 		Stop;

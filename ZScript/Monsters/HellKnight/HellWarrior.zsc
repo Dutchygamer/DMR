@@ -75,7 +75,7 @@ Class HellServant : DMR_HellKnight
 	Pain.DMR_ShieldBroken: // upon suffering a broken shield, stay in this painstate for a bit
 		TNT1 A 0 {
 			bNoPain = true; // don't switch to the default pain state when we are in this one
-			A_PlaySound("shieldwall/death");
+			A_StartSound("shieldwall/death");
 		}
 		HWAR J 24 {
 			if (random(1,5) == 5) {

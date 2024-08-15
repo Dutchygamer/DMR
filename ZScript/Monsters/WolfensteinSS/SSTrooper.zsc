@@ -41,17 +41,17 @@ class SSTrooper : DMR_NaziBase
 		SSWV F 10 A_FaceTarget;
 		SSWV G 5 BRIGHT Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("grunt/attack", CHAN_WEAPON );
+			A_StartSound("grunt/attack", CHAN_WEAPON );
 		}
 		SSWV F 4 A_FaceTarget;
 		SSWV G 5 BRIGHT Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("grunt/attack", CHAN_WEAPON );
+			A_StartSound("grunt/attack", CHAN_WEAPON );
 		}
 		SSWV F 4 A_FaceTarget;
 		SSWV G 5 BRIGHT Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("grunt/attack", CHAN_WEAPON );
+			A_StartSound("grunt/attack", CHAN_WEAPON );
 		}
 		SSWV F 10 A_CPosRefire;
 		Goto Missile+1;

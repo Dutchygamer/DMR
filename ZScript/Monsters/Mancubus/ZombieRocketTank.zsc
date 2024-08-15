@@ -25,13 +25,13 @@ class ZombieRocketTank : DMR_ZombieTankBase
         ZMTK AB 15 A_Look;
         Loop;
     See:
-        ZMTK A 0 A_PlaySound ("ZombieTank/Run");
+        ZMTK A 0 A_StartSound ("ZombieTank/Run");
         ZMTK AABBCCAABBCC 4 A_Chase;
         Loop;
     Missile:
         ZMTK A 20 {
 			A_FaceTarget();
-			A_PlaySound("heavyweapon/load");
+			A_StartSound("heavyweapon/load");
 		}
         ZMTK D 5 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",54,-29,0);
         ZMTK E 5 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",54,32,7);

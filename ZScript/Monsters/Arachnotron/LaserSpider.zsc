@@ -44,7 +44,7 @@ class Weavotron : DMR_Arachnotron
 	Plasma:
 		RSPI G 20 A_FaceTarget;
 		RSPI H 4 Bright Light("DMR_LaserFire") {
-			A_PlaySound("baby/attack", CHAN_WEAPON);
+			A_StartSound("baby/attack", CHAN_WEAPON);
 			A_SpawnProjectile("WeavotronPlasma",20,0);
 		}
 		RSPI G 4 Bright;
@@ -53,7 +53,7 @@ class Weavotron : DMR_Arachnotron
 	PlasmaClose: // up close start spamming plasma in a random arc
 		RSPI G 20 A_FaceTarget;
 		RSPI H 3 Bright Light("DMR_LaserFire") {
-			A_PlaySound("baby/attack", CHAN_WEAPON);
+			A_StartSound("baby/attack", CHAN_WEAPON);
 			A_SpawnProjectile("WeavotronPlasma",20,0,random(-2,2));
 		}
 		RSPI G 3 Bright;

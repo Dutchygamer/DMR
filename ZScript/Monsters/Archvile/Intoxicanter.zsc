@@ -68,7 +68,7 @@ class Intoxicanter : DMR_Archvile
 		VIL2 KLMN 6 A_FaceTarget;
 		TNT1 A 0 { 
 			attackloop = 0;
-			A_PlaySound ("CacoLich/Spray", CHAN_WEAPON);		
+			A_StartSound ("CacoLich/Spray", CHAN_WEAPON);		
 		}
 	ToxinSprayLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 6,"See");

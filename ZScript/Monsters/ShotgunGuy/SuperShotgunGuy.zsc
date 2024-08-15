@@ -51,7 +51,7 @@ class FormerStaffSargeant : DMR_ShotgunGuy
 	SingleShot:
 		GPOS E 10 A_FaceTarget;
 		GPOS F 10 Bright Light("DMR_RifleFire") {
-			A_PlaySound("quadshotgun/fire/single", CHAN_WEAPON);
+			A_StartSound("quadshotgun/fire/single", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,7.1,5,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired++; // expend a single shot
 		}
@@ -60,19 +60,19 @@ class FormerStaffSargeant : DMR_ShotgunGuy
 	SuperShot:
 		GPOS EE 10 A_FaceTarget;
 		GPOS F 10 Bright Light("DMR_RifleFire") {
-			A_PlaySound("weapons/sshotf", CHAN_WEAPON);
+			A_StartSound("weapons/sshotf", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,7.1,10,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			shotsFired += 2; // expend 2 shots
 		}
 		GPOS E 10;
 		Goto See;
 	Reload:
-		GPOS E 14 A_PlaySound("weapons/sshoto");
-		GPOS A 15 A_PlaySound("weapons/sshotl");
+		GPOS E 14 A_StartSound("weapons/sshoto");
+		GPOS A 15 A_StartSound("weapons/sshotl");
 		TNT1 A 0 {
 			shotsFired = 0; // all 2 shots loaded again
 		}
-		GPOS E 7 A_PlaySound("weapons/sshotc");
+		GPOS E 7 A_StartSound("weapons/sshotc");
 		Goto See;
 	Pain:
 		GPOS G 3;

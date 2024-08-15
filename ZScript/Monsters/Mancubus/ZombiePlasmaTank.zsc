@@ -25,32 +25,32 @@ class ZombiePlasmaTank : DMR_ZombieTankBase
         ZPTK AB 15 A_Look;
         Loop;
     See:
-        TNT1 A 0 A_PlaySound ("ZombieTank/Run");
+        TNT1 A 0 A_StartSound ("ZombieTank/Run");
         ZPTK AABBCCAABBCC 4 A_Chase;
         Loop;
     Missile:
         ZPTK A 20 {
 			A_FaceTarget();
-			A_PlaySound("heavyweapon/load");
+			A_StartSound("heavyweapon/load");
 		}
         ZPTK D 5 Bright Light("DMR_PlasmaFire") {
-			A_PlaySound("weapons/plasmaf");
+			A_StartSound("weapons/plasmaf");
 			A_SpawnProjectile("ZombiePlasmaTankPlasma",60,32,0);
 			A_SpawnProjectile("ZombiePlasmaTankPlasma",50,32,-5);
 		}
         ZPTK E 5 Bright Light("DMR_PlasmaFire") {
-			A_PlaySound("weapons/plasmaf");
+			A_StartSound("weapons/plasmaf");
 			A_SpawnProjectile("ZombiePlasmaTankPlasma",60,-29,0);
 			A_SpawnProjectile("ZombiePlasmaTankPlasma",50,-29,5);
 		}
         ZPTK A 10 A_FaceTarget;
         ZPTK D 5 Bright Light("DMR_PlasmaFire") {
-			A_PlaySound("weapons/plasmaf");
+			A_StartSound("weapons/plasmaf");
 			A_SpawnProjectile("ZombiePlasmaTankPlasma",60,32,0);
 			A_SpawnProjectile("ZombiePlasmaTankPlasma",50,32,5);
 		}
         ZPTK E 5 Bright Light("DMR_PlasmaFire") {
-			A_PlaySound("weapons/plasmaf");
+			A_StartSound("weapons/plasmaf");
 			A_SpawnProjectile("ZombiePlasmaTankPlasma",60,-29,0);
 			A_SpawnProjectile("ZombiePlasmaTankPlasma",50,-29,-5);
 		}

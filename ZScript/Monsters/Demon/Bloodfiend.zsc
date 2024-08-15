@@ -42,7 +42,7 @@ class Bloodfiend : DMR_Demon
 	Missile:
 		SAR2 GF 8 Fast A_FaceTarget;
 		SAR2 E 8 Fast {
-			A_PlaySound("Weapons/bloodf", CHAN_WEAPON);
+			A_StartSound("Weapons/bloodf", CHAN_WEAPON);
 			A_LobProjectile("BloodfiendShot",28,0,frandom(-1,-2));
 			A_LobProjectile("BloodfiendShot",28,0,frandom(1,2));
 		}

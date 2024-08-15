@@ -42,9 +42,9 @@ class DMR_Annihilator : DMR_BaronOfHell
 		Loop;
 	See:
 		BOSS AABB 3 A_Chase;
-		TNT1 A 0 A_PlaySound("cynihilator/step");
+		TNT1 A 0 A_StartSound("cynihilator/step");
 		BOSS CCDD 3 A_Chase;
-		TNT1 A 0 A_PlaySound("cynihilator/step");
+		TNT1 A 0 A_StartSound("cynihilator/step");
 		Loop;
 	Missile: 
 		TNT1 A 0 A_Jump(72, "Plasma");
@@ -66,7 +66,7 @@ class DMR_Annihilator : DMR_BaronOfHell
 		BOSS E 8;
 		Goto See;
 	RocketBurst:
-        TNT1 A 0 A_PlaySound("heavyweapon/load");
+        TNT1 A 0 A_StartSound("heavyweapon/load");
 		BOSS EEE 10 A_FaceTarget;
 		BOSS F 8 Bright Light("DMR_RifleFire") {
 			A_SpawnProjectile("DMR_SmallRocket",43,16);
@@ -90,10 +90,10 @@ class DMR_Annihilator : DMR_BaronOfHell
 		TNT1 A 0 A_Jump(128, "Shotcannon");
 		Goto See;
 	Shotcannon:
-        TNT1 A 0 A_PlaySound("heavyweapon/load");
+        TNT1 A 0 A_StartSound("heavyweapon/load");
 		BOSS GS 8 A_Facetarget;
 		BOSS HIHIHI 5 Bright Light("DMR_RifleFire") {
-			A_Playsound("dmrannihilator/shot");
+			A_StartSound("dmrannihilator/shot");
 			for (boolet = 0;boolet<=2;boolet++) {
 				A_SpawnProjectile("DMR_SlowBullet",43,-16,frandom(-10,10),CMF_OFFSETPITCH,frandom(-5,5));
 			}	

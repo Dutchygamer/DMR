@@ -49,12 +49,12 @@ class KurPraetorian : DMR_BaronOfHell
 			A_SetBerserkerTics(3,2);
 			A_Chase();
 		}
-		TNT1 A 0 A_PlaySound("cynihilator/step");
+		TNT1 A 0 A_StartSound("cynihilator/step");
 		BRU3 CCDD 3 {
 			A_SetBerserkerTics(3,2);
 			A_Chase();
 		}
-		TNT1 A 0 A_PlaySound("cynihilator/step");
+		TNT1 A 0 A_StartSound("cynihilator/step");
 		Loop;
 	Melee:
 	Missile: 
@@ -85,7 +85,7 @@ class KurPraetorian : DMR_BaronOfHell
 		Goto See;
 	RocketBurst:
         TNT1 A 0 {
-			A_PlaySound("heavyweapon/load");			
+			A_StartSound("heavyweapon/load");			
 		}
 		BRU3 EE 10 A_FaceTarget;
 	RocketBurstLoop:
@@ -122,7 +122,7 @@ class KurPraetorian : DMR_BaronOfHell
 	Grenades:
 		BRU3 GS 10 {
 			A_Facetarget();
-			A_PlaySound("heavyweapon/load");
+			A_StartSound("heavyweapon/load");
 		}
 	GrenadesLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 6,"GrenadesEnd");

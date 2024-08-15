@@ -37,7 +37,7 @@ class Mancutank : DMR_SpiderMastermind
 		BS1W AC 10 A_Look;
 		Loop;
 	See:
-		TNT1 A 0 A_PlaySound("Mancutank/Tank",CHAN_7,1,True);		
+		TNT1 A 0 A_StartSound("Mancutank/Tank",CHAN_7,1,True);		
 		BS1W ABBCCDD 3 A_Chase;
 		Goto See+1;
 	Missile:
@@ -47,7 +47,7 @@ class Mancutank : DMR_SpiderMastermind
 		BS1T A 18 Bright A_FaceTarget;	
 		BS1T BABA 2 Bright Light("DMR_RifleFire") {
 			A_FaceTarget();
-			A_Playsound("MamaSpider/Fire", CHAN_WEAPON);
+			A_StartSound("MamaSpider/Fire", CHAN_WEAPON);
 			A_SpawnProjectile("SpiderSlowBullet",53,32,frandom(-12,12),CMF_OFFSETPITCH,frandom(-1,1));
 			A_SpawnProjectile("SpiderSlowBullet",53,-32,frandom(-12,12),CMF_OFFSETPITCH,frandom(-1,1));
 		}

@@ -38,7 +38,7 @@ Class DMR_ChaingunGuy : DMR_MonsterBase
 		CPOS E 10 A_FaceTarget;
 		CPOS FE 4 Bright Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+			A_StartSound("Chaingunner/Fire", CHAN_WEAPON );
 		}
 		CPOS F 1 A_CPosRefire;
 		Goto Missile+1;

@@ -40,7 +40,7 @@ class Satyr : DMR_HellKnight
 	Missile:
 		STYR XXXXXX 2 A_FaceTarget;
 		TNT1 A 0 {
-			A_PlaySound("satyr/sight", CHAN_VOICE);
+			A_StartSound("satyr/sight", CHAN_VOICE);
 			A_FaceTarget();
 			A_Recoil(-3);
 		}

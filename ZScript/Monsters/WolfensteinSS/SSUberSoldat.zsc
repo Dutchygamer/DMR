@@ -58,18 +58,18 @@ class SSUbersoldat : DMR_NaziBase
 		DTKN F 4 Bright Light("DMR_RifleFire") {
 			A_SpawnProjectile("DMR_SmallRocket",62,-18);
 			A_CustomBulletAttack(22.5,0,2,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+			A_StartSound("Chaingunner/Fire", CHAN_WEAPON );
 			attackloop++;
 		}
 		DTKN G 4 Bright Light("DMR_RifleFire") {
 			A_SpawnProjectile("DMR_SmallRocket",62,18);
 			A_CustomBulletAttack(22.5,0,2,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+			A_StartSound("Chaingunner/Fire", CHAN_WEAPON );
 			attackloop++;
 		}
 		DTKN H 4 Bright Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,2,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+			A_StartSound("Chaingunner/Fire", CHAN_WEAPON );
 		}
 		DTKN H 1 A_CPosRefire;
 		Loop;
@@ -80,18 +80,18 @@ class SSUbersoldat : DMR_NaziBase
 		DTKN F 4 Bright Light("DMR_RifleFire") {
 			A_LobProjectile("FormerCyborgGrenade",62,-18);
 			A_CustomBulletAttack(22.5,0,2,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+			A_StartSound("Chaingunner/Fire", CHAN_WEAPON );
 			attackloop++;
 		}
 		DTKN G 4 Bright Light("DMR_RifleFire") {
 			A_LobProjectile("FormerCyborgGrenade",62,18);
 			A_CustomBulletAttack(22.5,0,2,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+			A_StartSound("Chaingunner/Fire", CHAN_WEAPON );
 			attackloop++;
 		}
 		DTKN H 4 Bright Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,2,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+			A_StartSound("Chaingunner/Fire", CHAN_WEAPON );
 		}
 		DTKN H 1 A_CPosRefire;
 		Loop;

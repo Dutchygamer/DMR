@@ -82,7 +82,7 @@ class Ghoul : DMR_Revenant
 		INCA Q -1;
 		Stop;
 	XDeath:
-		INCX A 5 Bright A_Playsound("monster/incexp");
+		INCX A 5 Bright A_StartSound("monster/incexp");
 		INCX BC 5 Bright;
 		INCX D 5 Bright {			
 			A_SpawnItemEx("GhoulDeathExplosion",0,0,56);
@@ -133,7 +133,7 @@ Class GhoulDeathExplosion : DMR_BossDeathExplosion
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay A_PlaySound("weapons/rocklx", CHAN_WEAPON);
+		TNT1 A 0 NoDelay A_StartSound("weapons/rocklx", CHAN_WEAPON);
 		TNT1 A 0 {
 			for (fxLoop = 0;fxLoop<=50;fxLoop++)
 			{

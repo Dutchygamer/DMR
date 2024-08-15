@@ -47,7 +47,7 @@ class Demolisher : DMR_SpiderMastermind
 		DEMO A 20 BRIGHT A_FaceTarget;
 		DEMO GHGH 2 Bright Light("DMR_RifleFire") {
 			A_FaceTarget();
-			A_Playsound("MamaSpider/Fire", CHAN_WEAPON);
+			A_StartSound("MamaSpider/Fire", CHAN_WEAPON);
 			A_SpawnProjectile("SpiderSlowBullet",21,13,frandom(-12,12),CMF_OFFSETPITCH,frandom(-1,1));
 			A_SpawnProjectile("SpiderSlowBullet",21,-13,frandom(-12,12),CMF_OFFSETPITCH,frandom(-1,1));
 		}
@@ -55,44 +55,44 @@ class Demolisher : DMR_SpiderMastermind
 		Goto Chainguns+1;	
 	BFG:
 		TNT1 A 0 {
-			A_PlaySound("bfg/charge",CHAN_WEAPON);
+			A_StartSound("bfg/charge",CHAN_WEAPON);
 		}
 		DEMO TTTTTT 3 Light("DMR_BFGCharge_X1") {
 			A_FaceTarget();	A_SpawnItemEx("FormerCyborgCommandoPlasmaTrail",random(-1,1),random(-1,1),32,frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
 		DEMO U 5 Bright Light("DMR_SmallBFGFire") {
-			A_PlaySound("cyborgcommando/fire2", CHAN_WEAPON);
+			A_StartSound("cyborgcommando/fire2", CHAN_WEAPON);
 			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",32);
 		}
 		DEMO T 4 A_FaceTarget;
 		DEMO U 5 Bright Light("DMR_SmallBFGFire") {
-			A_PlaySound("cyborgcommando/fire2", CHAN_WEAPON);
+			A_StartSound("cyborgcommando/fire2", CHAN_WEAPON);
 			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",32);
 		}
 		DEMO T 4 A_FaceTarget;
 		DEMO U 5 Bright Light("DMR_SmallBFGFire") {
-			A_PlaySound("cyborgcommando/fire2", CHAN_WEAPON);
+			A_StartSound("cyborgcommando/fire2", CHAN_WEAPON);
 			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",32);
 		}
 		TNT1 A 0 A_Jump(128,"See");
 		TNT1 A 0 {
-			A_PlaySound("bfg/charge",CHAN_WEAPON);
+			A_StartSound("bfg/charge",CHAN_WEAPON);
 		}
 		DEMO TTTTTT 3 Light("DMR_BFGCharge_X1") {
 			A_FaceTarget();	A_SpawnItemEx("FormerCyborgCommandoPlasmaTrail",random(-1,1),random(-1,1),32,frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
 		DEMO U 5 Bright Light("DMR_SmallBFGFire") {
-			A_PlaySound("cyborgcommando/fire2", CHAN_WEAPON);
+			A_StartSound("cyborgcommando/fire2", CHAN_WEAPON);
 			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",32);
 		}
 		DEMO T 4 A_FaceTarget;
 		DEMO U 5 Bright Light("DMR_SmallBFGFire") {
-			A_PlaySound("cyborgcommando/fire2", CHAN_WEAPON);
+			A_StartSound("cyborgcommando/fire2", CHAN_WEAPON);
 			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",32);
 		}
 		DEMO T 4 A_FaceTarget;
 		DEMO U 5 Bright Light("DMR_SmallBFGFire") {
-			A_PlaySound("cyborgcommando/fire2", CHAN_WEAPON);
+			A_StartSound("cyborgcommando/fire2", CHAN_WEAPON);
 			A_SpawnProjectile("FormerCyborgCommandoChargedPlasma",32);
 		}
 		Goto See;	

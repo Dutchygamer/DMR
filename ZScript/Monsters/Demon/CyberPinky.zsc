@@ -34,9 +34,9 @@ class DMR_Mauler : DMR_Demon
 		SRG2 AB 10 A_Look;
 		Loop;
 	See:
-		TNT1 A 0 A_PlaySound("cypinky/step");
+		TNT1 A 0 A_StartSound("cypinky/step");
 		SRG2 AABB 2 Fast A_Chase; 
-		TNT1 C 0 A_PlaySound("cypinky/step");
+		TNT1 C 0 A_StartSound("cypinky/step");
 		SRG2 CCDD 2 Fast A_Chase;
 		Loop;
 	Melee:
@@ -46,7 +46,7 @@ class DMR_Mauler : DMR_Demon
 	Missile:
 		SRG2 E 10 A_FaceTarget;
 		TNT1 A 0 {
-			A_PlaySound("cypinky/melee", CHAN_VOICE);
+			A_StartSound("cypinky/melee", CHAN_VOICE);
 			A_FaceTarget();
 			A_Recoil(-3);
 		}
@@ -56,13 +56,13 @@ class DMR_Mauler : DMR_Demon
 			A_FaceTarget(1.5,180);
 			A_Recoil(-3);
 		}
-		TNT1 A 0 A_PlaySound("cypinky/step");
+		TNT1 A 0 A_StartSound("cypinky/step");
 		SRG2 CCCDDD 1 {
 			if (target && Distance3D(target) < 80 || vel.x == 0 && vel.y == 0) { SetStateLabel("Ram"); }
 			A_FaceTarget(1.5,180);
 			A_Recoil(-3);
 		}
-		TNT1 A 0 A_PlaySound("cypinky/step");
+		TNT1 A 0 A_StartSound("cypinky/step");
 		Loop;
 	Ram:
 		SRG2 E 2 A_FaceTarget(30,180);

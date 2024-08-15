@@ -42,7 +42,7 @@ class DMR_AstralCaco : DMR_Cacodemon
 		Goto See;
 	Missile: 
 		KEEN A 1 A_FaceTarget;
-		KEEN E 1 A_PlaySound("baby/active");
+		KEEN E 1 A_StartSound("baby/active");
 		KEEN EEEEEEE 1 A_Chase;
 		KEEN F 5 A_FaceTarget;
 		KEEN G 3 {

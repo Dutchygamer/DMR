@@ -39,12 +39,12 @@ class FormerGunnerCommando : DMR_ChaingunGuy
 		TNT1 A 0 A_JumpIf(attackloop >= 8,"MissileLoopFast");
 		DPOS F 4 Bright Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+			A_StartSound("Chaingunner/Fire", CHAN_WEAPON );
 			attackloop++;
 		}
 		DPOS F 4 Bright Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+			A_StartSound("Chaingunner/Fire", CHAN_WEAPON );
 			attackloop++;
 		}
 		DPOS F 1 A_CPosRefire;
@@ -53,11 +53,11 @@ class FormerGunnerCommando : DMR_ChaingunGuy
 	MissileLoopFast:
 		DPOS F 2 Bright Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+			A_StartSound("Chaingunner/Fire", CHAN_WEAPON );
 		}
 		DPOS F 2 Bright Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("Chaingunner/Fire", CHAN_WEAPON );
+			A_StartSound("Chaingunner/Fire", CHAN_WEAPON );
 		}
 		DPOS F 1 A_CPosRefire;
 		Loop;

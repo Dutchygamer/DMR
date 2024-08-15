@@ -11,6 +11,7 @@
 //======================================================================
 //	ZScript:	Dutchygamer
 //======================================================================
+//TODO zou nu ComplexFXBase moeten kunnen gebruiken?
 class DMR_BossDeathExplosion : DMR_Projectile
 {
 	Default
@@ -24,7 +25,7 @@ class DMR_BossDeathExplosion : DMR_Projectile
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay A_PlaySound("boss/deathexplosion");
+		TNT1 A 0 NoDelay A_StartSound("boss/deathexplosion");
 		TNT1 A 0 {
 			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
 				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
@@ -50,7 +51,7 @@ class DMR_MonsterDeathExplosion : DMR_BossDeathExplosion
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay A_PlaySound("weapons/rocklx",1);
+		TNT1 A 0 NoDelay A_StartSound("weapons/rocklx",1);
 		TNT1 A 0 {
 			for (fxLoop = 0;fxLoop <= 8;fxLoop++) {
 				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
@@ -77,7 +78,7 @@ class DMR_BossDeathFinalExplosion : DMR_BossDeathExplosion
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay A_PlaySound("boss/deathexplosion/final",1);
+		TNT1 A 0 NoDelay A_StartSound("boss/deathexplosion/final",1);
 		TNT1 A 0 {
 			A_QuakeEx(6,6,6,15,0,800,0,QF_SCALEDOWN,0,0,0,500);
 			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
@@ -107,7 +108,7 @@ class DMR_MonsterDeathFinalExplosion : DMR_BossDeathFinalExplosion
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay A_PlaySound("ZombieTank/explode",1);
+		TNT1 A 0 NoDelay A_StartSound("ZombieTank/explode",1);
 		TNT1 A 0 {
 			A_QuakeEx(2,2,2,8,0,400,0,QF_SCALEDOWN,0,0,0,200);
 			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {

@@ -66,7 +66,7 @@ class Phaser : DMR_DoomImp
 		}
 		DIMP E 5 {
 			isStealthed = true;
-			A_PlaySound("phaser/teleport");
+			A_StartSound("phaser/teleport");
 		}
 		DIMP EEEEE 1 { // to 0.5 alpha in total			
 			//A_SpawnItemEx("DMR_SubtractAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION);

@@ -78,7 +78,7 @@ Class CyberAfrit : DMR_BaronOfHell
 	XDeath:
 		TNT1 A 0 A_NoGravity;
 		MCRD I 6 A_Scream;
-		TNT1 A 0 A_PlaySound("dragonfam/attack");
+		TNT1 A 0 A_StartSound("dragonfam/attack");
 		MCRD J 5 A_NoBlocking;
 		MCRD K 4 {
 			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));

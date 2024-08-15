@@ -50,18 +50,18 @@ class FormerViralAgent : DMR_MonsterBase
 	Dart:
 		ZOMW E 20 A_FaceTarget;
 		ZOMW F 4 {
-			A_PlaySound("virus/fire",CHAN_WEAPON);
+			A_StartSound("virus/fire",CHAN_WEAPON);
 			A_SpawnProjectile("VirusDart",32);
 		}
 		ZOMW E 20;
 		goto See;
 	Grenade:
 		ZOMW A 0 {
-			A_PlaySound("handgrenade/prime", CHAN_WEAPON);
+			A_StartSound("handgrenade/prime", CHAN_WEAPON);
 		}
 		ZOMW EEE 8 A_FaceTarget;
 		ZOMW F 5 {
-			A_PlaySound("handgrenade/throw", CHAN_WEAPON);
+			A_StartSound("handgrenade/throw", CHAN_WEAPON);
 			A_SpawnProjectile("VirusGrenade",32,0,random(9,-9),CMF_OFFSETPITCH,random(-2,2));
 		}
 		ZOMW E 4;
@@ -133,7 +133,7 @@ Class VirusDart : DMR_SlowBullet
 					
 					// number and size of gas clouds depends on original health
 					// always spawn at least one medium gas clouds				
-					target.A_PlaySound("gas/explode");				target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0);
+					target.A_StartSound("gas/explode");				target.A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0);
 					
 					if (targetMaxHealth >= 100)
 					{
@@ -257,7 +257,7 @@ class VirusGrenade : SpecOpsGrenade
 			A_Stop();
 			A_SetRenderStyle(1.0,STYLE_Add);
 			A_SetScale(2.5);
-			A_PlaySound("gas/explode");	
+			A_StartSound("gas/explode");	
 			A_SpawnItemEx("DMR_GasBallImpactSpawner");
 			for (fxLoop = 0;fxLoop<=30;fxLoop++)
 			{

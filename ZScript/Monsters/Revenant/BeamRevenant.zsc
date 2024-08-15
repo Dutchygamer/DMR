@@ -46,7 +46,7 @@ class Dybbuk : DMR_Revenant
 	Ball:
 		RASK J 20 Bright A_FaceTarget;
 		RASK KKK 8 Bright Light("DMR_LaserFire") {
-			A_PlaySound("baby/attack", CHAN_WEAPON);
+			A_StartSound("baby/attack", CHAN_WEAPON);
 			A_SpawnProjectile("WeavotronPlasma",65,13);
 		}
 		RASK K 15 A_FaceTarget;

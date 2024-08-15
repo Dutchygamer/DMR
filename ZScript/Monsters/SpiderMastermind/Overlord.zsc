@@ -80,7 +80,7 @@ class Overlord : DMR_SpiderMastermind
 		OVER ED 4;
 		goto See;		
 	BigMouthBalls:
-		TNT1 A 0 A_PlaySound("ChaosImp/ElectricFire",1);
+		TNT1 A 0 A_StartSound("ChaosImp/ElectricFire",1);
 		OVER GH 6 A_FaceTarget;
 		OVER III 5 bright {
 			A_FaceTarget();
@@ -111,7 +111,7 @@ class Overlord : DMR_SpiderMastermind
 		goto See;		
 	BeamAttack:
 		TNT1 A 0 {
-			A_PlaySound("emperoroverlord/breath", CHAN_VOICE);
+			A_StartSound("emperoroverlord/breath", CHAN_VOICE);
 			bNOPAIN = true;
 			if (randompick(1,2) == 1) {
 				inverseBreath = false;
@@ -126,7 +126,7 @@ class Overlord : DMR_SpiderMastermind
 		}
 		OVER G 10 Bright {
 			A_FaceTarget();
-			A_PlaySound("emperoroverlord/lasercharge",CHAN_WEAPON,1.0,0,ATTN_NONE);
+			A_StartSound("emperoroverlord/lasercharge",CHAN_WEAPON,1.0,0,ATTN_NONE);
 			A_SpawnItemEx("OverlordBreathLaserCharge",0,0,0,0,0,0,0,SXF_SETMASTER);
 		}
 		OVER GGGGHHHHIIII 2 Bright {
@@ -134,7 +134,7 @@ class Overlord : DMR_SpiderMastermind
 		}
 		TNT1 A 0 {		
 			A_RemoveChildren(1,RMVF_EVERYTHING,"OverlordBreathLaserCharge");
-			A_PlaySound("emperoroverlord/laserfire",CHAN_WEAPON,1.0,0,ATTN_NONE);
+			A_StartSound("emperoroverlord/laserfire",CHAN_WEAPON,1.0,0,ATTN_NONE);
 		}
 		OVER IIIIIIIIIIII 1 Bright {
 			// only partially adjust aim

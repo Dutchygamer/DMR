@@ -48,7 +48,7 @@ class DMR_NightmareDemon : DMR_Demon
 	Missile:
 		DOGS E 10 A_FaceTarget;
 		TNT1 A 0 {
-			A_PlaySound("dog/attack", CHAN_VOICE);
+			A_StartSound("dog/attack", CHAN_VOICE);
 			A_FaceTarget();
 			A_Recoil(-3);
 		}

@@ -37,7 +37,7 @@ Class DMR_ShotgunGuy : DMR_MonsterBase
 		SPOS E 10 A_FaceTarget;
 		SPOS F 10 BRIGHT Light("DMR_RifleFire") {
 			A_CustomBulletAttack(22.5,0,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			A_PlaySound("shotguy/attack", CHAN_WEAPON);
+			A_StartSound("shotguy/attack", CHAN_WEAPON);
 		}
 		SPOS E 10;
 		Goto See;

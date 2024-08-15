@@ -48,7 +48,7 @@ class SlimeWorm : DMR_Demon
 	Missile:
 		WORM EE 6 A_FaceTarget;
 		WORM F 8 {
-			A_PlaySound ("Weapons/bloodf", CHAN_WEAPON);
+			A_StartSound ("Weapons/bloodf", CHAN_WEAPON);
 			A_LobProjectile("SlimeBall1",40,0,frandom(-8,8));
 			A_LobProjectile("SlimeBall2",40,0,frandom(-8,8));
 			A_LobProjectile("SlimeBall3",40,0,frandom(-8,8));

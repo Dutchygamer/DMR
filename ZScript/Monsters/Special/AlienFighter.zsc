@@ -46,12 +46,12 @@ class AlienFighter : DMR_MonsterBase
 		GMAN EF 5 A_FaceTarget;
 		GMAN G 4 BRIGHT Light("DMR_PlasmaFire") {
 			A_FaceTarget();
-			A_PlaySound("alienfighter/fire", CHAN_WEAPON);			A_CustomRailgun(random(8,24),4,"","",RGF_SILENT|RGF_NOPIERCING|RGF_FULLBRIGHT,1,25,"",0,0,0,0,7.5,0,"TeslaRayParticle");
+			A_StartSound("alienfighter/fire", CHAN_WEAPON);			A_CustomRailgun(random(8,24),4,"","",RGF_SILENT|RGF_NOPIERCING|RGF_FULLBRIGHT,1,25,"",0,0,0,0,7.5,0,"TeslaRayParticle");
 		}
 		GMAN F 4 A_FaceTarget;
 		GMAN G 4 BRIGHT Light("DMR_PlasmaFire") {
 			A_FaceTarget();
-			A_PlaySound("alienfighter/fire", CHAN_WEAPON);			A_CustomRailgun(random(8,24),4,"","",RGF_SILENT|RGF_NOPIERCING|RGF_FULLBRIGHT,1,25,"",0,0,0,0,7.5,0,"TeslaRayParticle");
+			A_StartSound("alienfighter/fire", CHAN_WEAPON);			A_CustomRailgun(random(8,24),4,"","",RGF_SILENT|RGF_NOPIERCING|RGF_FULLBRIGHT,1,25,"",0,0,0,0,7.5,0,"TeslaRayParticle");
 		}
 		GMAN FE 5 A_FaceTarget;
 		Goto See;

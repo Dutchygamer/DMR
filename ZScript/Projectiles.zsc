@@ -195,7 +195,7 @@ class DMR_FiredGrenade : DMR_GrenadeBase
 			bNoGravity = true;
 			A_Stop();
 			A_SetRenderStyle(1.0,STYLE_Add);
-			A_PlaySound("weapons/rocklx",2);
+			A_StartSound("weapons/rocklx",2);
 			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
 				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
 			}

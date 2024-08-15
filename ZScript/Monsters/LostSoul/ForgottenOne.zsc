@@ -44,7 +44,7 @@ class ForgottenOne : DMR_LostSoul
 		TNT1 A 0 {
 			bNOPAIN = true;
 			canSudoku = 1;
-			A_PlaySound("skull/melee",1);
+			A_StartSound("skull/melee",1);
 		}
 		FRGO CDCDCDCDCDCDCDCDCDCD 2 Light("DMR_ForgottenOneSudoku"){
 			A_FaceTarget();
@@ -52,7 +52,7 @@ class ForgottenOne : DMR_LostSoul
 			A_SpawnItemEx("DMR_LargeFireballTrail",frandom(-6,-8),frandom(-4,4),frandom(-4,4),frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 		}
 		TNT1 A 0  {
-			A_PlaySound("skull/melee",2);
+			A_StartSound("skull/melee",2);
 			A_SkullAttack(50);
 		}
 		FRGO CD 4 Light("DMR_ForgottenOneSudoku");
