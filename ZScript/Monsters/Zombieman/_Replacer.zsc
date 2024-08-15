@@ -7,5 +7,6 @@ Class ZombiemanReplacer: RandomSpawner replaces Zombieman
 		//DropItem "FormerInfiltrator", 255, 10;
 		DropItem "FormerSpecOpsGunner", 255, 10;
 		DropItem "FormerPlasmagunner", 255, 8;
+		DropItem "FormerCyborg", 255, 6;
 	}
 }
