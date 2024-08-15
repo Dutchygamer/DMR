@@ -44,7 +44,7 @@ class Forgemaster : DMR_Cyberdemon
 		Loop;
 	Missile:
 		//TNT1 A 0 A_Jump(256, "Charge", "Balls", "Clustershot");
-		TNT1 A 0 A_Jump(256,"Balls","Clustershot");
+		TNT1 A 0 A_Jump(256,"Balls");//TODO temp disabled ,"Clustershot");
 		Goto See;
 	/*Charge:
 		BSMT O 1 A_Playsound ("forgemaster/dash");
@@ -75,7 +75,7 @@ class Forgemaster : DMR_Cyberdemon
 			A_SpawnProjectile("ForgemasterBall",52,0,0);
 			A_SpawnProjectile("ForgemasterBall",52,0,-8);
 		}
-		TNT1 A 0 A_Jump (80,"ClusterShot"); //low chance to use the clustershot afterwards
+		//TNT1 A 0 A_Jump (80,"ClusterShot"); //low chance to use the clustershot afterwards
 		Goto See;
 	//Melee:
 	ClusterShot:
