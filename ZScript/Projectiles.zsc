@@ -827,17 +827,6 @@ class DMR_BurningFire : Actor
 		TNT1 A 0 {
 			lifetime = lifetime-2;
 		}
-		Loop;
-		//TNT1 A 0 A_JumpIf(lifetime < 1,"Death");
-		//CFCF ABCDE 2 Bright A_Explode(2,48,0);
-		//TNT1 A 0 {
-		//	lifetime -= 1;
-		//}
-		//CFCF FGHIJ 2 Bright A_Explode(2,48,0);
-		//TNT1 A 0 {
-		//	lifetime -= 1;
-		//}
-		//Loop;
 	Death:
 		CFCF KLMOP 2 Bright;
 		Stop;

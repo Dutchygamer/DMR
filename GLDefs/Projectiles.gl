@@ -506,3 +506,24 @@ object DMR_HellRuneExplosive
     frame PLRXM { light DMR_HellRune_X1 }
 }
 
+
+object DMR_BurningFire
+{
+    frame CFCFA { light DMR_FlamethrowerBall_X1 }
+	frame CFCFB { light DMR_FlamethrowerBall_X1 }
+	frame CFCFC { light DMR_FlamethrowerBall_X1 }
+	frame CFCFD { light DMR_FlamethrowerBall_X2 }
+	frame CFCFE { light DMR_FlamethrowerBall_X2 }
+	frame CFCFF { light DMR_FlamethrowerBall_X2 }
+	frame CFCFG { light DMR_FlamethrowerBall_X1 }
+	frame CFCFH { light DMR_FlamethrowerBall_X1 }
+	frame CFCFI { light DMR_FlamethrowerBall_X1 }
+	frame CFCFJ { light DMR_FlamethrowerBall_X2 }
+	frame CFCFK { light DMR_FlamethrowerBall_X2 }
+	
+	frame CFCFL { light DMR_FlamethrowerBall_X2 }
+	frame CFCFM { light DMR_FlamethrowerBall_X2 }
+	frame CFCFN { light DMR_FlamethrowerBall_X3 }
+	frame CFCFO { light DMR_FlamethrowerBall_X3 }
+	frame CFCFP { light DMR_FlamethrowerBall_X3 }
+}
