@@ -56,13 +56,19 @@ class Dybbuk : DMR_Revenant
 		RASK L 5 A_Pain;
 		Goto See;
 	Death:
-	XDeath:
 		RASK LM 7;
 		RASK N 7 A_Scream;
 		RASK O 7 A_NoBlocking;
 		RASK P 7;
 		RASK Q -1;
 		Stop;
+	XDeath: //temp for now
+		SKEL R 5;
+		SKEL S 5 A_XScream;
+		SKEL T 5 A_NoBlocking;
+		SKEL UVWX 5;
+		SKEL Y -1;
+		stop;
 	Raise:
 		RASK Q 5;
 		RASK PONML 5;
@@ -75,7 +81,7 @@ class SmallRedLaser : DMR_LaserBase
 {
 	Default
 	{
-		DamageFunction(random(10,30));
+		DamageFunction(random(12,36));
 		Translation "112:127=176:191";
 		MissileType "DMR_LaserTrailBase";
 		MissileHeight 10;

@@ -30,7 +30,6 @@ Class DMR_Revenant : DMR_MonsterBase
 		MeleeSound "skeleton/melee";
 		HitObituary "$OB_UNDEADHIT";
 		Obituary "$OB_UNDEAD";
-		+MISSILEMORE;
 		+DONTHARMSPECIES;
 		+NOINFIGHTSPECIES;
 	}

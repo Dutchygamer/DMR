@@ -24,6 +24,7 @@ class DuskKnight : DMR_Revenant
 		PainSound "DuskWarrior/Pain";
 		DeathSound "DuskWarrior/Death";
 		ActiveSound ""; //TODO for now //"hknight/active";
+		+MISSILEMORE;
 	}
 	States
 	{
@@ -66,13 +67,19 @@ class DuskKnight : DMR_Revenant
 		XNIG K 5 A_Pain;
 		Goto See;
 	Death:
-	XDeath:
 		XNIG LM 7;
 		XNIG N 7 A_Scream;
 		XNIG O 7 A_NoBlocking;
 		XNIG PQ 7;
 		XNIG R -1;
 		Stop;
+	XDeath: //temp for now
+		SKEL R 5;
+		SKEL S 5 A_XScream;
+		SKEL T 5 A_NoBlocking;
+		SKEL UVWX 5;
+		SKEL Y -1;
+		stop;
 	Raise:
 		XNIG R 5;
 		XNIG QPONLM 5;
@@ -119,15 +126,16 @@ class DuskKnightFastTracer : DuskKnightTracer
 {
 	Default
 	{		
-		Speed 18;
+		DamageFunction(random(18,52));
+		Speed 20; //18;
 		Scale 1.2;
-		//Translation "16:31=192:207","32:47=192:207","176:191=192:207","168:175=192:199"; // recolour the red axe to blue
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	States
 	{
 	Spawn:
 		FX15 ABC 2 Bright {
+			A_SpawnItemEx("DMR_FireballTrail",-8,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
 			for (fxLoop = 0;fxLoop<=2;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);

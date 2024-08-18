@@ -26,6 +26,7 @@ class Ghoul : DMR_Revenant
 		ActiveSound "monster/incact";
 		AttackSound "monster/incatk";
 		Speed 12;
+		+MISSILEMORE;
 	}
 	States
 	{

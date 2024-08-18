@@ -25,9 +25,8 @@ class Draugr : DMR_Revenant
 		DeathSound "skeleton/death";
 		ActiveSound "skeleton/active";
 		MeleeSound "skeleton/melee";
-		//Speed 8;
 		PainChance 70;
-		//MeleeThreshold 0;
+		+MISSILEMORE;
 	}
 	
 	States 
@@ -102,13 +101,19 @@ class Draugr : DMR_Revenant
 		SKE2 M 5 A_Pain;
 		Goto See;
 	Death:
-	XDeath:
 		SKE2 N 7;
 		SKE2 O 7 A_Scream;
 		SKE2 P 7 A_NoBlocking;
 		SKE2 QR 7;
 		SKE2 S -1;
 		Stop;
+	XDeath: //temp for now
+		SKEL R 5;
+		SKEL S 5 A_XScream;
+		SKEL T 5 A_NoBlocking;
+		SKEL UVWX 5;
+		SKEL Y -1;
+		stop;
 	Raise:
 		SKE2 SRQPON 5;
 		Goto See;
