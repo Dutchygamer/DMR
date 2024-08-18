@@ -22,7 +22,7 @@ class Phaser : DMR_DoomImp
 		ActiveSound "phaser/active";
 		Obituary "%o was incinerated by a Phaser.";
 		HitObituary "%o was scratched by a Phaser.";	
-		+NODROPOFF; // don't yeet yourself off platforms	
+		//+NODROPOFF; // don't yeet yourself off platforms	
 	}
 	bool isStealthed;
 	
@@ -36,17 +36,14 @@ class Phaser : DMR_DoomImp
 		TNT1 A 0 A_Jump(64,"GoStealthed");
 		Loop;
     StealthedSee:
-		// do perform a melee attack when you happen to be next to your target, but don't throw a fireball
-        DIMP AABBCCDD 2 {
-			A_Chase("Melee", null);			
-			A_SpawnItemEx("DMR_SubtractAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION);
-		}
-        DIMP AABBCCDD 2 {
-			A_Chase("Melee", null, CHF_FASTCHASE);			
+        DIMP AABBCCDDAABBCCDD 1 {
+			A_Chase(null, null);
+			// chance to dash left or right	
+			if(random(1,4) == 4) A_DashSideways(8);
 			A_SpawnItemEx("DMR_SubtractAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION);
 		}
     StealthedSeeLoop:
-        DIMP AABBCCDD 2 {
+        DIMP AABBCCDD 1 {
 			A_Chase();
 			A_SpawnItemEx("DMR_SubtractAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION);
 		}
@@ -69,7 +66,6 @@ class Phaser : DMR_DoomImp
 			A_StartSound("phaser/teleport");
 		}
 		DIMP EEEEE 1 { // to 0.5 alpha in total			
-			//A_SpawnItemEx("DMR_SubtractAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME|SXF_TRANSFERTRANSLATION);
 			A_SetRenderStyle(Alpha-0.1,STYLE_Subtract);
 		}
 		TNT1 A 0 A_Chase(null,null, CHF_FASTCHASE);

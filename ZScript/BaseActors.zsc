@@ -213,6 +213,11 @@ Class DMR_MonsterBase : Actor
 	{
 		Thrust(speed,angle);
 	}
+	// moster moves sideways with given speed
+	void A_DashSideways(double speed)
+	{
+		Thrust(speed,angle+randompick(64,192));
+	}
 	
 	// for Project: Demolitionist
 	virtual clearscope string GetLoreTag()
