@@ -66,8 +66,6 @@ class DMR_AracknightPlasma : DMR_ArachnotronPlasma
 	{
 		Speed 35;
 		DamageFunction(random(10,30));
-		RenderStyle "Add";
-		Alpha 0.75;
 		SeeSound "baby/attack";
 		DeathSound "baby/shotx";
 		Decal "ArachnotronScorch";
@@ -86,7 +84,7 @@ class DMR_AracknightPlasma : DMR_ArachnotronPlasma
 		Loop;
 	Death:
 		TNT1 A 0 {
-			//A_SpawnItemEx("DMR_PlasmaImpactFlare");			
+			A_SpawnItemEx("DMR_PurplePlasmaImpactFlare");			
 			for (fxLoop = 0;fxLoop<=30;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
