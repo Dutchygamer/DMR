@@ -22,7 +22,6 @@ class Phaser : DMR_DoomImp
 		ActiveSound "phaser/active";
 		Obituary "%o was incinerated by a Phaser.";
 		HitObituary "%o was scratched by a Phaser.";	
-		//+NODROPOFF; // don't yeet yourself off platforms	
 	}
 	bool isStealthed;
 	

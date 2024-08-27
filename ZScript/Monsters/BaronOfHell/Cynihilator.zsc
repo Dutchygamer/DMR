@@ -127,12 +127,12 @@ class KurPraetorian : DMR_BaronOfHell
 	GrenadesLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 6,"GrenadesEnd");
 		BRU3 H 6 Bright Light("DMR_RifleFire") {
-			A_LobProjectile("FormerCyborgGrenade",40,-10, frandom(-5,5));
+			A_LobProjectile("CyborgAcolyteGrenade",40,-10, frandom(-5,5));
 			attackloop++;
 		}
 		BRU3 S 6 A_Facetarget;
 		BRU3 I 6 Bright Light("DMR_RifleFire") {
-			A_LobProjectile("FormerCyborgGrenade",40,-10, frandom(-5,5));
+			A_LobProjectile("CyborgAcolyteGrenade",40,-10, frandom(-5,5));
 			attackloop++;
 		}
 		BRU3 S 6 A_Facetarget;

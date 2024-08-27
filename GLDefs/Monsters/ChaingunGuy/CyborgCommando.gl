@@ -57,7 +57,7 @@ flickerlight DMR_SmallBFGBall_X5
     chance 0.3
 }
 
-object FormerCyborgCommandoPlasma
+object CyborgCommandoPlasma
 {
     frame BFS1A { light DMR_SmallBFGBall }
     frame BFS1B { light DMR_SmallBFGBall }
@@ -70,7 +70,7 @@ object FormerCyborgCommandoPlasma
 }
 
 
-object FormerCyborgCommandoChargedPlasma
+object CyborgCommandoChargedPlasma
 {
     frame TBBLA { light DMR_BFGBall }
     frame TBBLB { light DMR_BFGBall }
@@ -92,7 +92,7 @@ object FormerCyborgCommandoChargedPlasma
 }
 
 
-object FormerCyborgCommandoBFG
+object CyborgCommandoBFG
 {
     frame TBBLA { light DMR_BFGBall }
     frame TBBLB { light DMR_BFGBall }

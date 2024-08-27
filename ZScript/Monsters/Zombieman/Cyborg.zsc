@@ -12,7 +12,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class FormerCyborg : DMR_Zombieman
+class CyborgAcolyte : DMR_Zombieman
 {
 	Default
 	{
@@ -37,10 +37,14 @@ class FormerCyborg : DMR_Zombieman
 	}
 	
 	bool criticalDamaged;
+	int legsThreshold;
 	
  	States
 	{
 	Spawn:
+		TNT1 A 0 NoDelay {
+			legsThreshold = 50;
+		}
 		RAVW AA 10 A_Look;
 		Loop;
 	See:
@@ -84,7 +88,7 @@ class FormerCyborg : DMR_Zombieman
 			A_StartSound("heavyweapon/load", CHAN_WEAPON);
 		}
 		RAVW EEE 8 A_FaceTarget;
-		RAVW F 5 Bright Light("DMR_RifleFire") A_LobProjectile("FormerCyborgGrenade",32);
+		RAVW F 5 Bright Light("DMR_RifleFire") A_LobProjectile("CyborgAcolyteGrenade",32);
 		RAVW E 4;
 		Goto See;
 	CriticalDamage: 
@@ -136,13 +140,13 @@ class FormerCyborg : DMR_Zombieman
 	override void Tick()
   	{
 		Super.Tick();
-		if (!criticalDamaged && health > 0 && health < 50 && bNOPAIN == false) 
+		if (!criticalDamaged && health > 0 && health < legsThreshold && bNOPAIN == false) 
 		{ 
 			SetStateLabel("CriticalDamage"); 
 		}
 		if (criticalDamaged && health > 0 && !IsFrozen() && random(0,3) == 3)
 		{
-			A_SpawnItemEx("FormerCyborgCriticalDamagedSmokeCloud",-5,0,45,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("CyborgCriticalDamagedSmokeCloud",-5,0,45,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 		}
   	}
 	
@@ -164,7 +168,7 @@ class FormerCyborg : DMR_Zombieman
 	}
 }
 
-class FormerCyborgGrenade : DMR_FiredGrenade
+class CyborgAcolyteGrenade : DMR_FiredGrenade
 {
 	Default
 	{
@@ -195,7 +199,7 @@ class FormerCyborgGrenade : DMR_FiredGrenade
 	}
 }
 
-class FormerCyborgCriticalDamagedSmokeCloud : DMR_SmokeCloud
+class CyborgCriticalDamagedSmokeCloud : DMR_SmokeCloud
 {
 	Default
 	{

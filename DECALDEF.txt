@@ -404,12 +404,14 @@ generator DMR_Zombieman			BulletChip
 generator FormerAssaultTrooper	BulletChip
 generator FormerInfiltrator		BulletChip
 generator FormerSpecOpsGunner	BulletChip
+generator CyborgAcolyte			BulletChip
 
 generator DMR_ShotgunGuy		BulletChip
 generator FormerStaffSargeant	BulletChip
 generator FormerQuartermaster	BulletChip
 generator FormerAssaultSargeant	BulletChip
-generator FormerCyborg			BulletChip
+generator FormerSpecOpsSargeant	BulletChip
+generator CyborgTemplar			BulletChip
 
 generator DMR_ChaingunGuy		BulletChip
 generator FormerGunnerCommando	BulletChip

@@ -16,8 +16,10 @@ Class SSReplacer_Cyborgs : RandomSpawner
 {
 	Default
 	{
-		DropItem "FormerCyborg", 255, 100;
-		DropItem "FormerCyborgCommando", 255, 4;
+		DropItem "CyborgAcolyte", 255, 100;
+		DropItem "CyborgTemplar", 255, 50;
+		DropItem "CyborgReaper", 255, 25;
+		DropItem "CyborgCommando", 255, 10;
 	}
 }
 
@@ -34,9 +36,11 @@ Class SSReplacer_Nod : RandomSpawner
 		// black hand
 		DropItem "FormerPyroTechnician", 255, 50;
 		// cyborg
-		DropItem "FormerCyborg", 255, 25;
+		DropItem "CyborgAcolyte", 255, 25;
+		// cyborg reaper
+		DropItem "CyborgReaper", 255, 10;
 		// cyborg commando
-		DropItem "FormerCyborgCommando", 255, 10;
+		DropItem "CyborgCommando", 255, 5;
 	}
 }
 
@@ -53,7 +57,9 @@ Class SSReplacer_All : RandomSpawner
 		DropItem "AlienFighter", 255, 25;
 		DropItem "EvilMarine", 255, 10;
 		
-		DropItem "FormerCyborg", 255, 100;
-		DropItem "FormerCyborgCommando", 255, 4;
+		DropItem "CyborgAcolyte", 255, 100;
+		DropItem "CyborgTemplar", 255, 50;
+		DropItem "CyborgReaper", 255, 25;
+		DropItem "CyborgCommando", 255, 4;
 	}
 }

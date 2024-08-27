@@ -12,7 +12,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class CyborgTemplar : FormerCyborg
+class CyborgTemplar : CyborgAcolyte
 {
 	Default
 	{
@@ -37,6 +37,9 @@ class CyborgTemplar : FormerCyborg
  	States
 	{
 	Spawn:
+		TNT1 A 0 NoDelay {
+			legsThreshold = 75;
+		}
 		GREB AA 10 A_Look;
 		Loop;
 	See:
@@ -90,7 +93,7 @@ class CyborgTemplar : FormerCyborg
 			A_StartSound("heavyweapon/load", CHAN_WEAPON);
 		}
 		GREB EEE 8 A_FaceTarget;
-		GREB F 5 Bright Light("DMR_RifleFire") A_LobProjectile("FormerCyborgGrenade",35);
+		GREB F 5 Bright Light("DMR_RifleFire") A_LobProjectile("CyborgAcolyteGrenade",35);
 		GREB E 4;
 		Goto See;
 	CriticalDamage: 
@@ -138,17 +141,4 @@ class CyborgTemplar : FormerCyborg
 		MRBL NMLKJIH 5;
 		Goto See;
 	}
-	
-	override void Tick()
-  	{
-		Super.Tick();
-		if (!criticalDamaged && health > 0 && health < 75 && bNOPAIN == false) 
-		{ 
-			SetStateLabel("CriticalDamage"); 
-		}
-		if (criticalDamaged && health > 0 && !IsFrozen() && random(0,3) == 3)
-		{
-			A_SpawnItemEx("FormerCyborgCriticalDamagedSmokeCloud",-5,0,45,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-		}
-  	}
 }

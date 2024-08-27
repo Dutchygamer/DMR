@@ -127,7 +127,7 @@ class DuskKnightFastTracer : DuskKnightTracer
 	Default
 	{		
 		DamageFunction(random(18,52));
-		Speed 20; //18;
+		Speed 20;
 		Scale 1.2;
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}

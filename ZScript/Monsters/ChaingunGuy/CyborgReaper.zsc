@@ -12,7 +12,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-class CyborgReaper : FormerCyborg
+class CyborgReaper : CyborgAcolyte
 {
 	Default
 	{
@@ -37,6 +37,9 @@ class CyborgReaper : FormerCyborg
  	States
 	{
 	Spawn:
+		TNT1 A 0 NoDelay {
+			legsThreshold = 100;
+		}
 		SREB AA 10 A_Look;
 		Loop;
 	See:
@@ -128,19 +131,6 @@ class CyborgReaper : FormerCyborg
 		MRBL NMLKJIH 5;
 		Goto See;
 	}
-	
-	override void Tick()
-  	{
-		Super.Tick();
-		if (!criticalDamaged && health > 0 && health < 100 && bNOPAIN == false) 
-		{ 
-			SetStateLabel("CriticalDamage"); 
-		}
-		if (criticalDamaged && health > 0 && !IsFrozen() && random(0,3) == 3)
-		{
-			A_SpawnItemEx("FormerCyborgCriticalDamagedSmokeCloud",-5,0,45,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-		}
-  	}
 }
 
 

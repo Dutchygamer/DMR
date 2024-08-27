@@ -83,7 +83,7 @@ class FormerSpecOpsSargeant : DMR_ShotgunGuy
 		}
 		ZSP1 EEE 8 A_FaceTarget;
 		ZSP1 F 5 {
-			A_LobProjectile("FormerCyborgGrenade",32);
+			A_LobProjectile("CyborgAcolyteGrenade",32);
 		}
 		ZSP1 E 4;
 		Goto See;
