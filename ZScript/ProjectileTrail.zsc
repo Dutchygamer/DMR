@@ -42,7 +42,6 @@ class DMR_FireballTrail : DMR_ProjectileTrail
 		FFX1 ABCDEF 1 Bright {
 			A_SetTics(user_tic);
 			A_FadeOut(0.15);
-			//A_SetScale(Scale.X-0.01);
 		}
 		Stop;
 	}

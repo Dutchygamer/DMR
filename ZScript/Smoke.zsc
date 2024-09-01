@@ -10,7 +10,13 @@ class DMR_SmokeCloud : DMR_ProjectileTrail
 	States
 	{
 	Spawn:
-		SMOK ABCDEFGHIJ 2;
+		TNT1 A 0 NoDelay {
+			user_tic = random(2,3);
+		}
+		SMOK ABCDEFGHIJ 2 {		
+			A_SetTics(user_tic);
+			A_FadeOut(0.05);
+		}
 		Stop;
 	}
 }
@@ -54,10 +60,21 @@ class DMR_SmokeLongCloud : DMR_SmokeCloud
 	States
 	{
 	Spawn:
-		TNT1 A 1 NoDelay A_SetRoll(random(0,360));
-		SMOK AB 2;
-		SMOK CDEFGH 8;
-		SMOK IJ 2;
+		TNT1 A 0 NoDelay {
+			user_tic = random(2,3);
+		}
+		SMOK AB 2 {		
+			A_SetTics(user_tic);
+			A_FadeOut(0.05);
+		}
+		SMOK CDEFGH 2 {		
+			A_SetTics(user_tic*3);
+			A_FadeOut(0.05);
+		}
+		SMOK IJ 2 {		
+			A_SetTics(user_tic);
+			A_FadeOut(0.05);
+		}
 		Stop;
 	}
 }
@@ -98,9 +115,21 @@ class GoneBerserkSmokeCloud : DMR_SmokeCloud
 	States
 	{
 	Spawn:
-		SMOK AB 3;
-		SMOK CDEFGH 12;
-		SMOK IJ 3;
+		TNT1 A 0 NoDelay {
+			user_tic = random(2,4);
+		}
+		SMOK AB 3 {		
+			A_SetTics(user_tic);
+			A_FadeOut(0.05);
+		}
+		SMOK CDEFGH 12 {		
+			A_SetTics(user_tic*3);
+			A_FadeOut(0.05);
+		}
+		SMOK IJ 3 {		
+			A_SetTics(user_tic);
+			A_FadeOut(0.05);
+		}
 		Stop;
 	}
 }
@@ -114,15 +143,26 @@ class DMR_AshCloud : DMR_SmokeCloud
 		Scale 0.5;
 		Gravity 0.3;
 		Alpha 0.3;
+		+GRAVITY;
 	}
 	States
 	{
 	Spawn:
-		TNT1 A 1 NoDelay A_SetRoll(random(0,360));
-		SMOK AB 2;
-		SMOK CDEFGH 6;
-		SMOK CDEFGH 6;
-		SMOK IJ 2;
+		TNT1 A 0 NoDelay {
+			user_tic = random(2,3);
+		}
+		SMOK AB 2 {		
+			A_SetTics(user_tic);
+			A_FadeOut(0.03);
+		}
+		SMOK CDEFGHCDEFGH 6 {		
+			A_SetTics(user_tic*2);
+			A_FadeOut(0.03);
+		}
+		SMOK IJ 2 {		
+			A_SetTics(user_tic);
+			A_FadeOut(0.03);
+		}
 		Stop;
 	}
 }

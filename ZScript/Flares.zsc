@@ -228,19 +228,3 @@ class DMR_MediumBFGImpactFlare : DMR_FlareBase
 		Loop;
 	}
 }
-
-
-
-//TODO obsolete
-class DMR_PlasmaRuneImpactFlare : DMR_PlasmaImpactFlare
-{
-	States
-	{
-	Spawn:
-		BFOF D 1 Bright {
-			A_FadeOut();
-			A_SetScale(Scale.X-0.01);
-		}
-		Loop;
-	}
-}
