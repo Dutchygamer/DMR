@@ -1,12 +1,16 @@
 
-// projectile impact spawners
-Class DMR_FireballImpactSpawner : DMR_FXBase
+Class DMR_FXSpawner : DMR_FXBase
 {
 	Default
 	{
 		+NOINTERACTION;
 	}
-	
+}
+
+
+// projectile impact spawners
+Class DMR_FireballImpactSpawner : DMR_FXSpawner
+{
 	States
 	{
 	Spawn:
@@ -20,13 +24,8 @@ Class DMR_FireballImpactSpawner : DMR_FXBase
 	}
 }
 
-Class DMR_MediumFireballImpactSpawner : DMR_FXBase
+Class DMR_MediumFireballImpactSpawner : DMR_FXSpawner
 {
-	Default
-	{
-		+NOINTERACTION;
-	}
-	
 	States
 	{
 	Spawn:
@@ -40,13 +39,8 @@ Class DMR_MediumFireballImpactSpawner : DMR_FXBase
 	}
 }
 
-Class DMR_MediumFireballLargeImpactSpawner : DMR_FXBase
+Class DMR_MediumFireballLargeImpactSpawner : DMR_FXSpawner
 {
-	Default
-	{
-		+NOINTERACTION;
-	}
-	
 	States
 	{
 	Spawn:
@@ -60,13 +54,8 @@ Class DMR_MediumFireballLargeImpactSpawner : DMR_FXBase
 	}
 }
 
-Class DMR_LargeFireballImpactSpawner : DMR_FXBase
+Class DMR_LargeFireballImpactSpawner : DMR_FXSpawner
 {
-	Default
-	{
-		+NOINTERACTION;
-	}
-	
 	States
 	{
 	Spawn:
@@ -81,13 +70,8 @@ Class DMR_LargeFireballImpactSpawner : DMR_FXBase
 }
 
 
-Class DMR_GreenFireballImpactSpawner : DMR_FXBase
+Class DMR_GreenFireballImpactSpawner : DMR_FXSpawner
 {
-	Default
-	{
-		+NOINTERACTION;
-	}
-	
 	States
 	{
 	Spawn:
@@ -101,13 +85,8 @@ Class DMR_GreenFireballImpactSpawner : DMR_FXBase
 	}
 }
 
-Class DMR_MediumGreenFireballImpactSpawner : DMR_FXBase
+Class DMR_MediumGreenFireballImpactSpawner : DMR_FXSpawner
 {
-	Default
-	{
-		+NOINTERACTION;
-	}
-	
 	States
 	{
 	Spawn:
@@ -121,13 +100,8 @@ Class DMR_MediumGreenFireballImpactSpawner : DMR_FXBase
 	}
 }
 
-Class DMR_LargeGreenFireballImpactSpawner : DMR_FXBase
+Class DMR_LargeGreenFireballImpactSpawner : DMR_FXSpawner
 {
-	Default
-	{
-		+NOINTERACTION;
-	}
-	
 	States
 	{
 	Spawn:
@@ -142,13 +116,8 @@ Class DMR_LargeGreenFireballImpactSpawner : DMR_FXBase
 }
 
 
-Class DMR_PurpleFireballImpactSpawner : DMR_FXBase
+Class DMR_PurpleFireballImpactSpawner : DMR_FXSpawner
 {
-	Default
-	{
-		+NOINTERACTION;
-	}
-	
 	States
 	{
 	Spawn:
@@ -163,13 +132,8 @@ Class DMR_PurpleFireballImpactSpawner : DMR_FXBase
 }
 
 
-Class DMR_GasBallImpactSpawner : DMR_FXBase
+Class DMR_GasBallImpactSpawner : DMR_FXSpawner
 {
-	Default
-	{
-		+NOINTERACTION;
-	}
-	
 	States
 	{
 	Spawn:
@@ -183,13 +147,8 @@ Class DMR_GasBallImpactSpawner : DMR_FXBase
 	}
 }
 
-Class DMR_LargeGasBallImpactSpawner : DMR_FXBase
+Class DMR_LargeGasBallImpactSpawner : DMR_FXSpawner
 {
-	Default
-	{
-		+NOINTERACTION;
-	}
-	
 	States
 	{
 	Spawn:
@@ -206,13 +165,8 @@ Class DMR_LargeGasBallImpactSpawner : DMR_FXBase
 //-----------------------------------
 
 // monster death explosion spawners
-Class DMR_CyberDeathExplosionSpawner : DMR_FXBase
+Class DMR_CyberDeathExplosionSpawner : DMR_FXSpawner
 {
-	Default
-	{
-		+NOINTERACTION;
-	}
-	
 	States
 	{
 	Spawn:
@@ -226,13 +180,8 @@ Class DMR_CyberDeathExplosionSpawner : DMR_FXBase
 	}
 }
 
-Class DMR_KurCenturionDeathExplosionSpawner : DMR_FXBase
+Class DMR_KurCenturionDeathExplosionSpawner : DMR_FXSpawner
 {
-	Default
-	{
-		+NOINTERACTION;
-	}
-	
 	States
 	{
 	Spawn:
@@ -247,13 +196,8 @@ Class DMR_KurCenturionDeathExplosionSpawner : DMR_FXBase
 	}
 }
 
-Class DMR_CybiferaDeathExplosionSpawner : DMR_FXBase
+Class DMR_CybiferaDeathExplosionSpawner : DMR_FXSpawner
 {
-	Default
-	{
-		+NOINTERACTION;
-	}
-	
 	States
 	{
 	Spawn:
@@ -268,7 +212,7 @@ Class DMR_CybiferaDeathExplosionSpawner : DMR_FXBase
 	}
 }
 
-Class DMR_MastermindDeathExplosionSpawner : DMR_CyberDeathExplosionSpawner
+Class DMR_MastermindDeathExplosionSpawner : DMR_FXSpawner
 {
 	States
 	{
@@ -284,7 +228,7 @@ Class DMR_MastermindDeathExplosionSpawner : DMR_CyberDeathExplosionSpawner
 }
 
 
-Class DMR_TankDeathExplosionSpawner : DMR_CyberDeathExplosionSpawner
+Class DMR_TankDeathExplosionSpawner : DMR_FXSpawner
 {
 	States
 	{
