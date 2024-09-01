@@ -176,6 +176,7 @@ version "4.10"
 #include "ZScript/Monsters/Special/AstralCaco.zsc"
 #include "ZScript/Monsters/Special/NightmareDemon.zsc"
 #include "ZScript/Monsters/Special/FormerCaptain.zsc"
+#include "ZScript/Monsters/Special/ShadowBanned.zsc"
 
 
 //#include "ZScript/CC/debugcard.zsc"

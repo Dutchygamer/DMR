@@ -1,0 +1,40 @@
+// my 'creative' solution to fixing CorruptionCard's ShadowClone without having to rip open that mod to nuke it from orbit
+// spawns a harmless player clone who just wanders around
+Class DMR_ShadowBanned : Actor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay 
+		{
+			A_SpawnItemEx("DMR_TeleportFog",0,0,32);
+		}
+		TNT1 A 1 A_SpawnItemEx("DMR_FunnyShadowClone");
+		Stop;
+	}
+}
+
+Class DMR_FunnyShadowClone : Actor
+{
+	Default
+	{
+		Monster;
+		Speed 5;
+		Alpha 0.1;
+		+NODAMAGE;
+		+THRUACTORS;
+		+NEVERTARGET;
+		-SOLID;
+		-COUNTKILL;
+		Renderstyle "Stencil";
+		Stencilcolor "Black";
+	}
+	States
+	{
+		Spawn:
+			PLAY ABCDABCD 4 A_FadeIn(0.12);
+		Chase:
+			PLAY ABCD 4 A_Wander;
+			loop;
+	}
+}
