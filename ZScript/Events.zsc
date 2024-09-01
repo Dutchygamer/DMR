@@ -51,7 +51,7 @@ class DMR_ReplacerHandler : EventHandler
 			case 'BossBelphegor'					: a.Replacement = 'Belphegor'; break;
 			case 'CyberdemonLord'					: a.Replacement = 'Babel'; break;
 			
-			// Eviternity
+			// Eviternity mapset
 			case 'AstralCaco'						: a.Replacement = 'DMR_AstralCaco'; break;
 			case 'Annihilator'						: a.Replacement = 'DMR_Annihilator'; break;
 			case 'FormerCaptain'					: a.Replacement = 'DMR_FormerCaptain'; break;
@@ -59,6 +59,7 @@ class DMR_ReplacerHandler : EventHandler
 			
 			// Corruption Cards mod
 			case 'CCards_Actor_PilotedMechPlasma'	: a.Replacement = 'DMR_ArachnotronPlasma'; break;
+			case 'CCards_Actor_ShadowClone'			: a.Replacement = 'DMR_ShadowBanned'; break;
 		}
 		
 		// hacky revert / overwrite of SWWM's teleporter replacer as in some instances this can cause massive lag when triggered rapidly
@@ -67,15 +68,42 @@ class DMR_ReplacerHandler : EventHandler
 	}
 }
 
+//======================================================================
+//  Original credits
+//======================================================================
+//	ZScript: 	DustedPandemonic, modified by Dutchygamer
+//======================================================================
 class DMR_EffectHandler : EventHandler
 {
-	override void WorldThingSpawned(WorldEvent a)
+	override void WorldThingSpawned(WorldEvent e)
 	{
-		// if fancy effects are disabled, nuke them when they spawn
+		// if fancy effects are disabled, nuke them when they spawn unless flagged as always display
 		// this is a generic catch-all instead of having to do every time we spawn, thus eating up more CPU
-		if (dmr_fancydoom == false && a.thing && a.thing is "DMR_FXBase")
+		if (dmr_fancydoom == false && e.thing && e.thing is "DMR_FXBase" && DMR_FXBase(e.thing).bAlwaysDisplay == false)
 		{
-			a.thing.Destroy();
+			e.thing.Destroy();
+		}
+	}
+	
+	//TODO doet weinig?
+	// option to switch the fancy effects on / off with a console command
+	override void NetworkProcess(ConsoleEvent e)
+	{
+		// if not the right command do nothing here
+		if (e.name != "DMR_ClearEffects" || !e.isManual)
+			return;
+		
+		// if fancy effects enabled, disable them
+		if (dmr_fancydoom)
+		{
+			CVar.GetCVar("dmr_fancydoom").setint(0);
+			Console.Printf("DMR: Fancy effects disabled");
+		}
+		// if fancy effects disabled, enable them
+		else
+		{
+			CVar.GetCVar("dmr_fancydoom").setint(1);
+			Console.Printf("DMR: Fancy effects enabled");
 		}
 	}
 }
