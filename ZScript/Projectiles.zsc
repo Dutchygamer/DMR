@@ -50,9 +50,7 @@ class DMR_Rocket : DMR_Projectile
 	Death:
 		TNT1 A 0 {
 			A_SetRenderStyle(1.0,STYLE_Add);
-			for (fxLoop = 0;fxLoop <= 14;fxLoop++) {
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-			}
+			A_SpawnItemEx("DMR_LargeFireballImpactSpawner");
 			for (fxLoop = 0;fxLoop<=70;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
@@ -98,9 +96,7 @@ class DMR_SmallRocket : DMR_Rocket
 		TNT1 A 0 {
 			A_SetRenderStyle(1.0,STYLE_Add);
 			A_SetScale(1.0);
-			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
-				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
-			}
+			A_SpawnItemEx("DMR_MediumFireballImpactSpawner");
 			for (fxLoop = 0;fxLoop<=50;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,9),0,frandom(-7,7),frandom(0,7),0,frandom(-7,7),0,0,-0.1,1,-1,-0.6);
@@ -196,9 +192,7 @@ class DMR_FiredGrenade : DMR_GrenadeBase
 			A_Stop();
 			A_SetRenderStyle(1.0,STYLE_Add);
 			A_StartSound("weapons/rocklx",2);
-			for (fxLoop = 0;fxLoop <= 10;fxLoop++) {
-				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
-			}
+			A_SpawnItemEx("DMR_MediumFireballImpactSpawner");
 			for (fxLoop = 0;fxLoop<=50;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,9),0,frandom(-7,7),frandom(0,7),0,frandom(-7,7),0,0,-0.1,1,-1,-0.6);
@@ -211,70 +205,6 @@ class DMR_FiredGrenade : DMR_GrenadeBase
 	}
 }
 
-// cluster missile
-//TODO obsolete
-class DMR_ClusterSubProjectile : DMR_Projectile
-{
-	Default
-	{
-		Radius 9;
-		Height 7;
-		Speed 10;
-		DamageFunction(random(10,30));
-		+RANDOMIZE
-		+SEEKERMISSILE;
-		SeeSound "smallrocket/launch";
-		DeathSound "skeleton/tracex";
-		Scale 0.5;
-	}
-	int fuelLevel;
-	
-	States
-	{
-	Spawn:
-		TNT1 A 0 NoDelay {
-			fuelLevel = random(75,100); // set fuel lifetime
-		}
-		TNT1 A 0 A_Jump(128,"Homing"); 
-	NonHoming:
-		TNT1 A 0 A_JumpIf(fuelLevel < 1,"Death");
-		HMIS A 1 Bright {
-			If (fuelLevel > 20) { // stop fire exhaust if fuel is running low 
-				A_SpawnItemEx("DMR_FireballTrail",-25,0,0,frandom(-1,0),frandom(-1,1),frandom(-1,0));
-			}
-			fuelLevel--;
-		}
-		HMIS A 1 BRIGHT A_Weave(random(1,2), random(1,2), frandom(0.5,1.5), frandom(0.5,1.5));
-		Loop;
-	Homing:
-		TNT1 A 0 A_JumpIf(fuelLevel < 1,"Death");
-		HMIS A 1 Bright { 
-			A_SeekerMissile(2,8,SMF_PRECISE); 
-			If (fuelLevel > 20) { // stop fire exhaust if fuel is running low 
-				A_SpawnItemEx("DMR_FireballTrail",-25,0,0,frandom(-1,0),frandom(-1,1),frandom(-1,0));
-			}
-			A_SpawnItemEx("DMR_SmokeCloud",-25,0,0,frandom(-1,0));
-			fuelLevel--;
-		}
-		HMIS A 1 BRIGHT A_Weave(random(1,2), random(1,2), frandom(0.5,1.5), frandom(0.5,1.5));
-		Loop;
-	Death:
-		TNT1 A 0 {
-			A_Stop();
-			A_SetRenderStyle(1.0,STYLE_Add);
-			A_SetScale(0.65);
-		}
-		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 3;fxLoop++) {
-				A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-5,5),frandom(-5,5),frandom(-1,5));
-			}
-		}
-		MISL B 8 Bright;
-		MISL C 6 Bright;
-		MISL D 4 Bright;
-		Stop;
-	}
-}
 
 //======================================================================
 //  Original credits
@@ -370,47 +300,6 @@ class DMR_FlamethrowerBallLarge : DMR_FlamethrowerBall
 	}
 }
 
-//unused
-class DMR_FlamethrowerExplode : Actor
-{
-	Default
-	{
-		SeeSound "dragonfam/attack";
-		Radius 8;
-		Height 8;
-		Gravity 0;
-		Speed 0;
-		Scale 0.7;
-		+DONTSPLASH;
-	}
-	States
-	{
-	Spawn:
-		NKXP B 2 Bright;
-		NKXP C 2 Bright;
-		NKXP D 2 Bright A_Explode(20, 96); //(15, 64)
-		NKXP EFGHIJKLMNOPQRSTUV 2 Bright;
-		Stop;
-	}
-}
-
-//unused
-class DMR_FlamethrowerExplodeLarge : DMR_FlamethrowerExplode
-{
-	Default
-	{
-		Scale 1.1;
-	}
-	States
-	{
-	Spawn:
-		NKXP B 2 Bright;
-		NKXP C 2 Bright;
-		NKXP D 2 Bright A_Explode(30, 128); //(25, 96)
-		NKXP EFGHIJKLMNOPQRSTUV 2 Bright;
-		Stop;
-	}
-}
 
 // laser
 class DMR_LaserBase : DMR_FastProjectile
@@ -517,6 +406,7 @@ class DMR_ZombiePlasma : DMR_Projectile
 	}
 }
 
+
 // hell rune
 class DMR_HellRune : DMR_Projectile
 {  
@@ -605,6 +495,7 @@ class DMR_HellRuneExplosive : DMR_HellRune
 		Stop;
 	}
 }
+
 
 // gas clouds
 class DMR_GasCloudBase : DMR_Projectile
@@ -747,6 +638,7 @@ class DMR_SmallGasCloud : DMR_GasCloudBase
 	}
 }
 
+
 class DMR_MediumIceCloud : DMR_MediumGasCloud
 {
 	Default
@@ -782,6 +674,7 @@ class DMR_MediumIceCloud : DMR_MediumGasCloud
 		Stop;
 	}
 }
+
 
 // fire field
 class DMR_BurningFire : Actor
@@ -832,6 +725,7 @@ class DMR_BurningFire : Actor
 		Stop;
 	}
 }
+
 
 // a visible alternative to hitscan attacks
 class DMR_SlowBullet : DMR_Projectile

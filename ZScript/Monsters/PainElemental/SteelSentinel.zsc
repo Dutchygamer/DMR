@@ -52,11 +52,15 @@ class Ravager : DMR_PainElemental
 			bNOPAIN = true;
 		}
 		SENT DDDDDDDDDD 1 Light("DMR_BlueBFGCharge_X1") {
-			A_FaceTarget();	A_SpawnItemEx("DMR_BlueGasDebris",random(-1,1),random(-1,1),random(23,25),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_FaceTarget();	
+			//TODO Gravity?
+			A_SpawnItemEx("DMR_BlueGasTrail",random(-1,1),random(-1,1),random(23,25),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
 		SENT EEEEEEEEEEEEEEE 1 BRIGHT Light("DMR_BlueBFGCharge_X2") {
 			A_FaceTarget();
-			A_SpawnItemEx("TiberiumBlueLightningBolt",0,0,24);	A_SpawnItemEx("DMR_BlueGasDebris",random(-1,1),random(-1,1),random(23,25),frandom(-1,1),frandom(-2,2),frandom(-1,-0.5));
+			A_SpawnItemEx("TiberiumBlueLightningBolt",0,0,24);	
+			//TODO Gravity?
+			A_SpawnItemEx("DMR_BlueGasTrail",random(-1,1),random(-1,1),random(23,25),frandom(-1,1),frandom(-2,2),frandom(-1,-0.5));
 		}
 		SENT F 12 BRIGHT Light("DMR_BlueBFGFire") {
 			A_FaceTarget();

@@ -168,7 +168,7 @@ class CyborgCommandoPlasma : DMR_ZombiePlasma
 {
 	Default
 	{		
-		SeeSound "cyborgcommando/fire";
+		//SeeSound "cyborgcommando/fire";
 		Scale 0.2;
 		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
 	}
@@ -218,9 +218,12 @@ class CyborgCommandoChargedPlasma : DMR_Rocket
 {
 	Default
 	{
+		DamageFunction(random(40,120));
 		Speed 40; //30;
 		+RANDOMIZE;
 		+EXTREMEDEATH;
+		+FORCERADIUSDMG;
+		+DONTREFLECT;
 		RenderStyle "Add";
 		Alpha 0.9;
 		Scale 0.45;
@@ -281,13 +284,14 @@ class CyborgCommandoBFG : DMR_Projectile
 	{
 		Radius 13;
 		Height 8;
-		Speed 15;
+		Speed 18;
 		DamageFunction(200); // don't use the default formula, just don't get hit by it ;o
 		+RANDOMIZE;
 		+EXTREMEDEATH;
 		+FORCERADIUSDMG;
 		+NODAMAGETHRUST;
 		+BRIGHT;
+		+DONTREFLECT;
 		RenderStyle "Add";
 		Alpha 0.9;
 		Decal "BFGLightning";

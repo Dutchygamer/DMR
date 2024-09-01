@@ -160,9 +160,10 @@ class KurPraetorian : DMR_BaronOfHell
 			A_StartSound("kurpraetorian/sight",CHAN_VOICE,CHANF_OVERLAP);
 		}
 		BRU3 AAAAAAAAAAAAAAAAAAAA 1 {
-			A_SpawnItemEx("GoneBerserkSmokeCloud",-5,0,50,frandom(-1,0),frandom(-1,1),frandom(0,1)); 			
-			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,50,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-			A_SpawnItemEx("DMR_FireBouncingDebris",-5,0,50,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("GoneBerserkSmokeCloud",-5,0,50,frandom(-1,0),frandom(-1,1),frandom(0,1)); 	
+			//TODO gravity?
+			A_SpawnItemEx("DMR_FireballTrail",-5,0,50,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			A_SpawnItemEx("DMR_MediumFireballTrail",-5,0,50,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
 			if (random(1,4) == 1){
 				A_SpawnItemEx("DMR_BossDeathExplosion",random(8,-8),0,random(20,40));				
 			}

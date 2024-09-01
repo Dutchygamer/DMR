@@ -114,10 +114,7 @@ class BelphegorBall : DMR_BaronBall
 		Loop;
 	Death:
 		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
-				A_SpawnItemEx("DMR_MediumGreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_MediumGreenFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-			}
+			A_SpawnItemEx("DMR_MediumGreenFireballImpactSpawner");
 		}
 		BAL7 C 6 Bright A_Explode(64,96);
 		BAL7 DE 6 Bright;

@@ -140,10 +140,7 @@ class HellsmithBall : DMR_BaronBall
 		loop;
 	Death:
 		TNT1 A 0 {
-			for (fxLoop = 0;fxLoop <= 4;fxLoop++) {
-				A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-				A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-			}
+			A_SpawnItemEx("DMR_MediumFireballImpactSpawner");
 		}
 		HBAL EFGHI 3 Bright;
 		stop;

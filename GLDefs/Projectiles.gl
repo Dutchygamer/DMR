@@ -261,17 +261,6 @@ object DMR_FiredGrenade
 }
 
 
-// cluster missile
-Object DMR_ClusterSubProjectile
-{
-	Frame HMISA { Light DMR_RevenantTracer }
-
-	Frame FBXPA { Light DMR_RevenantTracer_X1 }
-	Frame FBXPB { Light DMR_RevenantTracer_X2 }
-	Frame FBXPC { Light DMR_RevenantTracer_X3 }
-}
-
-
 // Zombies
 flickerlight DMR_RifleFire
 {

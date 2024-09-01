@@ -286,9 +286,7 @@ class TiberiumGasRocket : DMR_Rocket
 					ball.vel.z = ball.vel.z+frandom(6,12);
 				}
 			}
-			for (fxLoop = 0;fxLoop <= 14;fxLoop++) {
-				A_SpawnItemEx("DMR_MediumGreenFireBouncingDebris",random(-2,2),random(-2,2),random(-2,2),frandom(-8,8),frandom(-8,8),frandom(-2,8)); 
-			}
+			A_SpawnItemEx("DMR_LargeGreenFireballImpactSpawner");
 			for (fxLoop = 0;fxLoop<=70;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);

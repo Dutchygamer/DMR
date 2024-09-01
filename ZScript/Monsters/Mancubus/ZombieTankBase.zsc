@@ -23,14 +23,21 @@ class DMR_ZombieTankBase : DMR_Fatso
 }
 
 // huhuhuh, what a mess!
-class ZombieTankPilotGore : DMR_BouncingDebris
+class ZombieTankPilotGore : DMR_FXBase
 {
 	Default
 	{
-		Renderstyle "Normal";
-		Alpha 1;
+		Height 5;
+		Radius 10;
+		Bouncetype "Doom";
 		BounceFactor 0.5;
-		-ROLLSPRITE;
+		Gravity 0.75;
+		RenderStyle "Normal";
+		Alpha 1;
+		Projectile;
+		-NOGRAVITY;
+		+THRUACTORS;
+		+DMR_FXBASE.ALWAYSDISPLAY;
 	}
 	States
 	{
