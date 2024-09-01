@@ -128,7 +128,7 @@ Class GhoulDeathExplosion : DMR_BossDeathExplosion
 	{
 		+NOINTERACTION;
 		Renderstyle "Add";
-		DMR_Projectile.ParticleColors "#ff0000", "#d20000", "#b90000", "#ff0f0f";
+		DMR_ComplexFXBase.ParticleColors "#ff0000", "#d20000", "#b90000", "#ff0f0f";
 	}
 	
 	States

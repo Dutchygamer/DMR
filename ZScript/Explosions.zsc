@@ -1,6 +1,6 @@
 // EXPLOOOOOOOOOSIONS
 // these should not be used by any projectile; they acts like the main definition and copy/paste example
-// inherits from DMR_Projectile (instead of DMR_FXBase) so we can use particles and they don't get removed by the fancy effects config
+// inherits from DMR_ComplexFXBase (instead of DMR_FXBase) so we can use particles and they don't get removed by the fancy effects config
 
 //======================================================================
 //  Original credits
@@ -11,15 +11,14 @@
 //======================================================================
 //	ZScript:	Dutchygamer
 //======================================================================
-//TODO zou nu ComplexFXBase moeten kunnen gebruiken?
-class DMR_BossDeathExplosion : DMR_Projectile
+class DMR_BossDeathExplosion : DMR_ComplexFXBase
 {
 	Default
 	{
 		+NOINTERACTION;
 		+BRIGHT;
 		Renderstyle "Add";
-		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
+		DMR_ComplexFXBase.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
 	
 	States
@@ -35,8 +34,8 @@ class DMR_BossDeathExplosion : DMR_Projectile
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
 			}
 		}
-		XPL0 ABCDE 1 Light("DMR_Rocket_X1");
-		XPL0 FGHIJ 1 Light("DMR_Rocket_X2");
+		XPL0 ABCDE 2 Light("DMR_Rocket_X1");
+		XPL0 FGHIJ 2 Light("DMR_Rocket_X2");
 		XPL0 KLMNO 1 Light("DMR_Rocket_X3") A_FadeOut(0.15);
 		Stop;
 	}
@@ -61,8 +60,8 @@ class DMR_MonsterDeathExplosion : DMR_BossDeathExplosion
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
 			}
 		}
-		XPL0 ABCDE 1 Light("DMR_SmallRocket_X1");
-		XPL0 FGHIJ 1 Light("DMR_SmallRocket_X2");
+		XPL0 ABCDE 2 Light("DMR_SmallRocket_X1");
+		XPL0 FGHIJ 2 Light("DMR_SmallRocket_X2");
 		XPL0 KLMNO 1 Light("DMR_SmallRocket_X3") A_FadeOut(0.15);
 		Stop;
 	}
@@ -89,9 +88,6 @@ class DMR_BossDeathFinalExplosion : DMR_BossDeathExplosion
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
 			}
 		}
-		//GRNE ABCDEFG 4 Light("DMR_LargeRocket_X1");
-		//GRNE HIJK 4 Light("DMR_LargeRocket_X2");
-		//GRNE LMN 4 Light("DMR_LargeRocket_X2");
 		GRNE ABCDE 2 Light("DMR_LargeRocket_X1");
 		GRNE FGHIJ 3 Light("DMR_LargeRocket_X2");
 		GRNE KLMN 3 Light("DMR_LargeRocket_X2");
@@ -119,9 +115,6 @@ class DMR_MonsterDeathFinalExplosion : DMR_BossDeathFinalExplosion
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
 			}
 		}
-		//GRNE ABCDEFG 2 Light("DMR_Rocket_X1");
-		//GRNE HIJK 2 Light("DMR_Rocket_X2");
-		//GRNE LMN 2 Light("DMR_Rocket_X2");
 		GRNE ABCDE 1 Light("DMR_Rocket_X1");
 		GRNE FGHIJ 2 Light("DMR_Rocket_X2");
 		GRNE KLMN 2 Light("DMR_Rocket_X2");
