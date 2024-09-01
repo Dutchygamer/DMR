@@ -89,15 +89,21 @@ class DMR_FastProjectile : FastProjectile
 
 
 //======================================================================
-//
+//  Original credits
+//======================================================================
+//	ZScript: 	DustedPandemonic, modified by Dutchygamer
 //======================================================================
 
 // base class for all 'fancy' effects which can be toggled by the option
+// use +DMR_FXBASE.ALWAYSDISPLAY to overule this toggle behaviour
 class DMR_FXBase : Actor
 {
+	private int dmrfxflags;
+	flagdef AlwaysDisplay: dmrfxflags, 0;
 	Default
 	{
 		+FORCEXYBILLBOARD;
+		+NOTELEPORT;
 	}
 }
 
@@ -110,11 +116,11 @@ class DMR_FXBase : Actor
 
 // base class for all effects which can not be toggled by the option
 // also supports particles for this reason
-class DMR_ComplexFXBase : Actor
+class DMR_ComplexFXBase : DMR_FXBase
 {
 	Default
 	{
-		+FORCEXYBILLBOARD;
+		+DMR_FXBASE.ALWAYSDISPLAY;
 		DMR_ComplexFXBase.ParticleColors "000000", "000000", "FFFFFF", "FFFFFF";
 	}
 	
