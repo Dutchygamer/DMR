@@ -3,9 +3,7 @@
 ///////////////////////
 //these should not be used by any projectile; they acts like the main definition and copy/paste example
 
-//=======================
-// non-blocking FX trail
-//=======================
+//======================================================================
 class DMR_ProjectileTrail : DMR_FXBase
 {
 	Default
@@ -16,15 +14,8 @@ class DMR_ProjectileTrail : DMR_FXBase
 		+ROLLSPRITE;
 		RenderStyle "Add";
 	}
-	States
-	{
-	Spawn:
-		FFX1 ABCDEFABCDEF 1 Bright {
-			A_FadeOut(0.06);
-			A_SetScale(Scale.X-0.01);
-		}
-		Stop;
-	}
+	
+	int user_tic;
 	
 	override void PostBeginPlay()
 	{
@@ -32,6 +23,7 @@ class DMR_ProjectileTrail : DMR_FXBase
 		A_SetRoll(random(0,360));
 	}
 }
+
 
 // fire trail
 class DMR_FireballTrail : DMR_ProjectileTrail
@@ -43,9 +35,14 @@ class DMR_FireballTrail : DMR_ProjectileTrail
 	States
 	{
 	Spawn:
-		FFX1 ABCDEFABCDEF 1 Bright {
-			A_FadeOut(0.06);
-			A_SetScale(Scale.X-0.01);
+		TNT1 A 2;
+		TNT1 A 0 {
+			user_tic = random(2,3);
+		}
+		FFX1 ABCDEF 1 Bright {
+			A_SetTics(user_tic);
+			A_FadeOut(0.15);
+			//A_SetScale(Scale.X-0.01);
 		}
 		Stop;
 	}
@@ -93,6 +90,14 @@ class DMR_GreenFireballTrail : DMR_ProjectileTrail
 	}
 }
 
+class DMR_SmallGreenFireballTrail : DMR_GreenFireballTrail
+{
+	Default
+	{
+		Scale 0.25;
+	}
+}
+
 class DMR_MediumGreenFireballTrail : DMR_GreenFireballTrail
 {
 	Default
@@ -124,6 +129,22 @@ class DMR_PurpleFireballTrail : DMR_ProjectileTrail
 			A_SetScale(Scale.X-0.01);
 		}
 		Stop;
+	}
+}
+
+class DMR_SmallPurpleFireballTrail : DMR_PurpleFireballTrail
+{
+	Default
+	{
+		Scale 0.25;
+	}
+}
+
+class DMR_MediumPurpleFireballTrail : DMR_PurpleFireballTrail
+{
+	Default
+	{
+		Scale 0.45;
 	}
 }
 
@@ -164,6 +185,23 @@ class DMR_SmallGasTrail : DMR_ProjectileTrail
 	{
 	Spawn:
 		GAS2 ABCDEFGHIJKLMN 2 {
+			A_FadeOut(0.01);
+		}
+		Stop;
+	}
+}
+
+class DMR_BlueGasTrail : DMR_ProjectileTrail
+{   
+	Default
+	{
+		ALPHA 0.4;
+		Scale 0.8;
+	}
+	States
+	{
+	Spawn:
+		GAS2 ABCDEFGHIJKLMN 3 {
 			A_FadeOut(0.01);
 		}
 		Stop;

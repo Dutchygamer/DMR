@@ -167,6 +167,5 @@ class DMR_TeleportFog : Actor
 	{
 		Super.PostBeginPlay ();
 		A_StartSound ("misc/teleport", CHAN_BODY);
-	}
-	
+	}	
 }

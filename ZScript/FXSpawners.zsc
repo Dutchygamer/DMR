@@ -9,37 +9,8 @@ Class DMR_FXSpawner : DMR_FXBase
 
 
 // projectile impact spawners
+// Imp, Revenant etc
 Class DMR_FireballImpactSpawner : DMR_FXSpawner
-{
-	States
-	{
-	Spawn:
-		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
-		TNT1 AAA 0
-		{			
-			A_SpawnItemEx("DMR_FireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-			A_SpawnItemEx("DMR_FireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-		}
-		Stop;		
-	}
-}
-
-Class DMR_MediumFireballImpactSpawner : DMR_FXSpawner
-{
-	States
-	{
-	Spawn:
-		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
-		TNT1 AAAA 0
-		{			
-			A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
-		}
-		Stop;		
-	}
-}
-
-Class DMR_MediumFireballLargeImpactSpawner : DMR_FXSpawner
 {
 	States
 	{
@@ -47,87 +18,168 @@ Class DMR_MediumFireballLargeImpactSpawner : DMR_FXSpawner
 		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
 		TNT1 AAAAAA 0
 		{			
-			A_SpawnItemEx("DMR_MediumFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-			A_SpawnItemEx("DMR_MediumFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_SmallFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+		}
+		TNT1 AA 0
+		{			
+			A_SpawnItemEx("DMR_FireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
 		Stop;		
 	}
 }
 
+// Knight, Caco etc
+Class DMR_MediumFireballImpactSpawner : DMR_FXSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
+		TNT1 AAAAAAAA 0
+		{			
+			A_SpawnItemEx("DMR_SmallFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+		}
+		TNT1 AAAA 0
+		{			
+			A_SpawnItemEx("DMR_FireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		TNT1 AA 0
+		{			
+			A_SpawnItemEx("DMR_MediumFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		Stop;		
+	}
+}
+
+// Fatso etc
 Class DMR_LargeFireballImpactSpawner : DMR_FXSpawner
 {
 	States
 	{
 	Spawn:
 		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
+		TNT1 AAAAAAAAAA 0
+		{			
+			A_SpawnItemEx("DMR_FireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+		}
 		TNT1 AAAAA 0
 		{			
-			A_SpawnItemEx("DMR_LargeFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-			A_SpawnItemEx("DMR_LargeFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_MediumFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		TNT1 AAA 0
+		{			
+			A_SpawnItemEx("DMR_LargeFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		Stop;		
+	}
+}
+
+// Big boss final death
+Class DMR_HugeFireballImpactSpawner : DMR_FXSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
+		TNT1 AAAAAAAAAAAA 0
+		{			
+			A_SpawnItemEx("DMR_MediumFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+		}
+		TNT1 AAAAAA 0
+		{			
+			A_SpawnItemEx("DMR_LargeFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		TNT1 AAAA 0
+		{			
+			A_SpawnItemEx("DMR_LargeFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
 		Stop;		
 	}
 }
 
 
+// Imp, Revenant etc
 Class DMR_GreenFireballImpactSpawner : DMR_FXSpawner
 {
 	States
 	{
 	Spawn:
 		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
-		TNT1 AAA 0
+		TNT1 AAAAAA 0
 		{			
-			A_SpawnItemEx("DMR_GreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-			A_SpawnItemEx("DMR_GreenFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_SmallGreenFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
 		}
-		Stop;		
+		TNT1 AA 0
+		{			
+			A_SpawnItemEx("DMR_GreenFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		Stop;
 	}
 }
 
+// Knight, Caco etc
 Class DMR_MediumGreenFireballImpactSpawner : DMR_FXSpawner
 {
 	States
 	{
 	Spawn:
 		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
+		TNT1 AAAAAAAA 0
+		{			
+			A_SpawnItemEx("DMR_SmallGreenFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+		}
 		TNT1 AAAA 0
 		{			
-			A_SpawnItemEx("DMR_MediumGreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-			A_SpawnItemEx("DMR_MediumGreenFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_GreenFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		TNT1 AA 0
+		{			
+			A_SpawnItemEx("DMR_MediumGreenFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
 		Stop;		
 	}
 }
 
+// Fatso etc
 Class DMR_LargeGreenFireballImpactSpawner : DMR_FXSpawner
 {
 	States
 	{
 	Spawn:
 		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
+		TNT1 AAAAAAAAAA 0
+		{			
+			A_SpawnItemEx("DMR_GreenFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+		}
 		TNT1 AAAAA 0
 		{			
-			A_SpawnItemEx("DMR_LargeGreenFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-			A_SpawnItemEx("DMR_LargeGreenFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_MediumGreenFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
-		Stop;		
+		TNT1 AAA 0
+		{			
+			A_SpawnItemEx("DMR_LargeGreenFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		Stop;	
 	}
 }
 
 
+// Imp, Revenant etc
 Class DMR_PurpleFireballImpactSpawner : DMR_FXSpawner
 {
 	States
 	{
 	Spawn:
 		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
-		TNT1 AAA 0
+		TNT1 AAAAAA 0
 		{			
-			A_SpawnItemEx("DMR_PurpleFireDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-			A_SpawnItemEx("DMR_PurpleFireBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_SmallPurpleFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
 		}
-		Stop;		
+		TNT1 AA 0
+		{			
+			A_SpawnItemEx("DMR_PurpleFireballTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		Stop;	
 	}
 }
 
@@ -138,12 +190,15 @@ Class DMR_GasBallImpactSpawner : DMR_FXSpawner
 	{
 	Spawn:
 		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
-		TNT1 AAAA 0
+		TNT1 AAAAAA 0
 		{			
-			A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-			A_SpawnItemEx("DMR_GasBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_SmallGasTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
 		}
-		Stop;		
+		TNT1 AA 0
+		{			
+			A_SpawnItemEx("DMR_GasTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		Stop;
 	}
 }
 
@@ -153,12 +208,19 @@ Class DMR_LargeGasBallImpactSpawner : DMR_FXSpawner
 	{
 	Spawn:
 		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
+		TNT1 AAAAAAAAAA 0
+		{			
+			A_SpawnItemEx("DMR_SmallGasTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
+		}
 		TNT1 AAAAA 0
 		{			
-			A_SpawnItemEx("DMR_GasDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2)); 
-			A_SpawnItemEx("DMR_GasBouncingDebris",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+			A_SpawnItemEx("DMR_GasTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
 		}
-		Stop;		
+		TNT1 AAA 0
+		{			
+			A_SpawnItemEx("DMR_GasTrail",random(-1,1),random(-1,1),random(-1,1),frandom(-2,2),frandom(-2,2),frandom(-1,2));
+		}
+		Stop;	
 	}
 }
 

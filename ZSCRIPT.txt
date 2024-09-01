@@ -1,20 +1,9 @@
 version "4.10"
 
-/*
-  First learning Decorate, and then even ZScript?  The things I do for fun...  
-  Blame Guncaster for switching some stuff to ZScript.
-  At least ZScript looks very similar to Decorate.
-  Then again I'm only inherting existing stuff and tweaking it.  
-  Looking at how some stuff is done in Guncaster makes my respect for the GC crew increase even more.
-  Even as a developer in RL that code gives me a headache.
-*/
-
 #include "ZScript/BaseActors.zsc"
 #include "ZScript/Projectiles.zsc"
 #include "ZScript/GenericStuff.zsc"
 #include "ZScript/ProjectileTrail.zsc"
-#include "ZScript/BouncingDebris.zsc"
-#include "ZScript/Debris.zsc"
 #include "ZScript/Smoke.zsc"
 #include "ZScript/Explosions.zsc"
 #include "ZScript/Events.zsc"
