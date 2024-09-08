@@ -16,14 +16,16 @@ Class Summoner : DMR_Archvile
 {
 	Default
 	{
-		Tag "Summoner";
-		Obituary "%o was unsummoned by a Summoner.";
+		Tag "Runecaster";
+		Obituary "%o was enchanted by a Runecaster.";
 		Health 800;
 		SeeSound "monster/acosit";
 		PainSound "monster/acopai";
 		DeathSound "monster/acodth";
 		ActiveSound "monster/acoact";
 	}
+	int hasSpawner;
+	int spawnCount;
 	States 
 	{ 
 	Spawn: 
@@ -33,16 +35,59 @@ Class Summoner : DMR_Archvile
 		ACOL AABBAABBAABB 2 A_VileChase;
 		Loop;
 	Missile:
-		TNT1 A 0 A_Jump(72,"SpawnAttack");
+		TNT1 A 0 A_Jump(72,"SpawnBall");
 		Goto VileAttack;
-	SpawnAttack:
-		TNT1 A 0 {
-			if (target && Distance3D(target) > 448) SetStateLabel("VileAttack");
+	RedoSpawnBall:
+		// when spawner is in bad pos, nuke it and reset flag
+		TNT1 A 0 {			
+			hasSpawner = 0;
+			A_RemoveMaster(RMVF_EVERYTHING);
 		}
+	SpawnBall:
+		// when we have a spawner active, try spawning something
+		TNT1 A 0 A_JumpIf(hasSpawner,"TrySpawn");
+		// if not throw out a spawner
 		ACOL D 8 Bright Light("DMR_ArchvileRes") A_FaceTarget;
 		ACOL E 5 Bright Light("DMR_ArchvileRes") A_FaceTarget;
-		ACOL F 3 Bright Light("DMR_ArchvileRes") A_SpawnProjectile("SummonerBall",34,0,0,0);	
+		ACOL F 3 Bright Light("DMR_ArchvileRes") {
+			A_SpawnItemEx("SummonerBall",0,0,36,frandom(15,20),0,frandom(4,8),0,SXF_ISMASTER);
+			hasSpawner = 1;
+		}
 		Goto See;
+	TrySpawn:
+		// check if spawn is in valid pos by checking if we fit at the pos
+		TNT1 A 0 A_Warp(AAPTR_MASTER,0,0,8,0,WARPF_TESTONLY,"SpawnContinue");
+		// if not redo the spawn 
+		ACOL C 30 A_Pain;
+		Goto RedoSpawnBall;	
+	SpawnContinue:	
+		ACOL D 8 Bright Light("DMR_ArchvileRes");// A_FaceTarget;
+		ACOL E 5 Bright Light("DMR_ArchvileRes");// A_FaceTarget;
+		ACOL F 3 Bright Light("DMR_ArchvileRes") {
+			//TODO hoe spawn je iets op master zn pos?
+			//A_SpawnItemEx("TerminatorTeleportBall",0,-24,46,frandom(15,20),0,frandom(4,8),0,SXF_ISMASTER);
+			spawnCount++;
+		}
+		TNT1 A 0 {
+			if (spawnCount >= 5) SetStateLabel("RemoveSpawn");
+		}
+		Goto See;
+	RemoveSpawn:
+		TNT1 A 0 {			
+			hasSpawner = 0;
+			A_RemoveMaster(RMVF_EVERYTHING);
+			//TODO geef no-spawn debuff effect dat iets van 30s duurt oid
+		}
+		ACOL C 30 A_Pain;
+		Goto See;	
+	//SpawnAttack:
+	//	TNT1 A 0 {
+	//		if (target && Distance3D(target) > 448) SetStateLabel("VileAttack");
+	//	}
+	//	ACOL D 8 Bright Light("DMR_ArchvileRes") A_FaceTarget;
+	//	ACOL E 5 Bright Light("DMR_ArchvileRes") A_FaceTarget;
+	//	ACOL F 3 Bright Light("DMR_ArchvileRes") A_SpawnProjectile("SummonerBall",34,0,0,0);	
+	//	Goto See;
 	VileAttack:
 		ACOL D 0 BRIGHT A_VileStart;
 		ACOL D 10 BRIGHT Light("DMR_ArchvileCharge_X1") A_FaceTarget;
@@ -66,7 +111,7 @@ Class Summoner : DMR_Archvile
 	Pain: 
 		ACOL C 2;
 		ACOL C 2 A_Pain;
-		TNT1 A 0 A_Jump(128, "SpawnAttack"); // chance to summon reinforcements
+		//TNT1 A 0 A_Jump(128, "SpawnAttack"); // chance to summon reinforcements
 		Goto See;
 	Death: 
 		ACOL G 8 Bright A_Scream; 
@@ -85,17 +130,21 @@ class SummonerBall : DMR_Projectile
 {
 	Default
 	{
-		Radius 8;
-		Height 8;
+		Radius 28; //8;
+		Height 20; //8;
 		Speed 18;
-		Scale 0.75;
+		Scale 1.0 ;//0.75;
 		Gravity 0.6;
+		+DONTREFLECT;
+		+CANBOUNCEWATER;
 		-NOGRAVITY;
 		BounceType "Doom";
-		BounceCount 3;
+		BounceFactor 0.6;
+		//BounceCount 3;
 		Seesound "weapons/smlbrn";
 		DeathSound "vile/firecrkl";
-		ProjectileKickBack 500;
+		//ProjectileKickBack 500;
+		DMR_Projectile.ParticleColors "FF4949", "FF2424", "FF6D6D", "FF0000";
 	}
 	States
 	{
@@ -103,11 +152,23 @@ class SummonerBall : DMR_Projectile
 		BOSF ABCD 2 Bright;
 		loop;
 	Death:
-		FIRE A 3 Bright A_Explode(10, 96);
-		FIRE B 3 Bright;
-		TNT1 A 0 A_SpawnItem("SummonerBallRandomizer",0,0);
-		FIRE CDEFGH 3 Bright;
-		Stop;
+		TNT1 A 0 
+			{
+			bFLATSPRITE = true;
+			A_SetScale(3.0);
+			//A_GiveToTarget("TerminatorTeleportToken");
+			}
+		PLRN AAAAABBBBB 1 //Light("RBFGBALL")
+			{
+			for(fxloop = 0;fxloop<=2;fxloop++)
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,25,frandom(15,16),random(0,360),frandom(0,20),0,frandom(0,4),0,0,frandom(2,3),0,0,0,1,-1,-1);
+			}
+		Goto Death+1;
+	//	FIRE A 3 Bright A_Explode(10, 96);
+	//	FIRE B 3 Bright;
+	//	TNT1 A 0 A_SpawnItem("SummonerBallRandomizer",0,0);
+	//	FIRE CDEFGH 3 Bright;
+	//	Stop;
 	}
 }
 
@@ -124,6 +185,47 @@ class SummonerBallRandomizer : RandomSpawner
 }
 
 class SummonerFire : DMR_ArchvileFire
+{
+	Default
+	{
+		RenderStyle "Add";
+		+FLATSPRITE;
+		+BRIGHT;
+		Scale 9.0; //TODO temp until bigger sprite
+		DMR_ComplexFXBase.ParticleColors "#710071", "#870087", "#c300c3", "#c800c8";
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			A_StartSound("vile/firecrkl",1,CHANF_LOOPING);
+			fxloop = 200;
+			//A_StartSound("Distortion/Start",7);
+			//A_SpawnItemEx("DistortionHourHand",0,0,0,0,0,0,0,SXF_SETMASTER);
+			//A_SpawnItemEx("DistortionMinuteHand",0,0,0,0,0,0,0,SXF_SETMASTER);
+			//A_SpawnItemEx("DistortionLetterSpawner",0,0,0,0,0,0,0,SXF_SETMASTER);
+		}
+		TNT1 A 0 A_JumpIf(fxloop <= 80,"Death");
+		PLRN AAAAABBBBB 1 {
+			fxloop -= 3;
+			A_Fire();
+			// don't bother with the Y offset / speed as we spawn in a random angle anyway
+			A_SpawnItemEx("DMR_PlasmaRuneTrail",frandom(-30,30),frandom(-30,30),frandom(0,10),frandom(-1,1),0,frandom(3,5),random(0,360),0,fxloop);
+			A_SpawnItemEx("DMR_LargePurpleFireballTrail",frandom(-30,30),frandom(-30,30),frandom(0,10),frandom(-1,1),0,frandom(3,5),random(0,360),0,fxloop);
+			A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-30,30),frandom(-30,30),frandom(0,10),frandom(-1,1),0,frandom(3,5),0,0,-0.05,1,-1,-0.5);
+		}
+		Goto Spawn+1;
+	Death:
+		PLRN A 2 {
+			A_FadeOut();
+			A_Fire();
+		}
+		Wait;
+	}
+}
+
+class SummonerFireOLD : DMR_ArchvileFire
 {
 	Default
 	{
