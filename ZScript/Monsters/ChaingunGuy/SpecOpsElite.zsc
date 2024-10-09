@@ -143,10 +143,10 @@ class DMR_HeatgunBall : DMR_ZombiePlasma
 	Default
 	{		
 		Speed 40;
-		DamageFunction(random(10,30));
+		DamageFunction(random(6,8)); // use a very small range due to the stream of projectiles
 		Alpha 0.9;
-		SeeSound "imp/attack";
-		//DeathSound "weapons/plasmax";
+		Seesound "weapons/firmfi"; //"imp/attack";
+		DeathSound "weapons/firex4"; //"weapons/plasmax";
 		Decal "DImpScorch";
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
