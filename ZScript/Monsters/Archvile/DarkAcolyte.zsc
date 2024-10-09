@@ -12,7 +12,7 @@
 //	ZScript:	Dutchygamer
 //======================================================================
 
-Class Summoner : DMR_Archvile
+Class Runecaster : DMR_Archvile
 {
 	Default
 	{
@@ -25,7 +25,8 @@ Class Summoner : DMR_Archvile
 		ActiveSound "monster/acoact";
 	}
 	int hasSpawner;
-	int spawnCount;
+	//int spawnCount;
+	
 	States 
 	{ 
 	Spawn: 
@@ -35,7 +36,9 @@ Class Summoner : DMR_Archvile
 		ACOL AABBAABBAABB 2 A_VileChase;
 		Loop;
 	Missile:
-		TNT1 A 0 A_Jump(72,"SpawnBall");
+		TNT1 A 0 A_Jump(96,"SpawnBall"); //72
+		Goto VileAttack;
+	NonSpawnAttacks:
 		Goto VileAttack;
 	RedoSpawnBall:
 		// nuke spawner, reset flag and throw a new spawner
@@ -46,9 +49,17 @@ Class Summoner : DMR_Archvile
 	SpawnBall:
 		TNT1 A 0 {
 			// don't spawn a new Spawner when on cooldown
-			if (CountInv("SummonCooldown") != 0) SetStateLabel("VileAttack");
+			if (CountInv("SummonCooldown") != 0) SetStateLabel("NonSpawnAttacks");
+			// don't spawn when at the cap
+			if (CountInv("RunecasterSpawnCount") >= 10) {
+				// when we still have a spawner active nuke it first
+				if (hasSpawner) SetStateLabel("RemoveSpawn");
+				else SetStateLabel("NonSpawnAttacks");
+			}
 			// don't spawn enemies when target is far away
-			if (target && Distance3D(target) > 448) SetStateLabel("VileAttack");
+			if (target && Distance3D(target) > 448) SetStateLabel("NonSpawnAttacks");
+			// if really far away from spawner nuke it
+			if (hasSpawner && master && Distance3D(master) > 1024) SetStateLabel("RemoveSpawn");
 		}
 		// when we have a spawner active, try spawning something
 		TNT1 A 0 A_JumpIf(hasSpawner,"TrySpawn");
@@ -56,9 +67,8 @@ Class Summoner : DMR_Archvile
 		ACOL D 8 Bright Light("DMR_ArchvileRes") A_FaceTarget;
 		ACOL E 5 Bright Light("DMR_ArchvileRes") A_FaceTarget;
 		ACOL F 3 Bright Light("DMR_ArchvileRes") {
-			A_SpawnItemEx("SummonerBall",0,0,36,frandom(15,20),0,frandom(4,8),0,SXF_ISMASTER);
+			A_SpawnItemEx("RunecasterThrownSpawner",0,0,36,frandom(15,20),0,frandom(4,8),0,SXF_ISMASTER);
 			hasSpawner = 1;
-			spawnCount = 0;
 		}
 		Goto See;
 	TrySpawn:
@@ -68,16 +78,11 @@ Class Summoner : DMR_Archvile
 		ACOL C 30 A_Pain;
 		Goto RedoSpawnBall;	
 	SpawnContinue:	
-		ACOL D 8 Bright Light("DMR_ArchvileRes");
-		ACOL E 5 Bright Light("DMR_ArchvileRes");
-		ACOL F 3 Bright Light("DMR_ArchvileRes") {
+		ACOL D 8 Bright Light("RunecasterCharge_X1");
+		ACOL E 5 Bright Light("RunecasterCharge_X3");
+		ACOL F 3 Bright Light("RunecasterCharge_X7") {
 			// spawn an enemy at the spawner
-			SpawnEnemy("SummonerBallRandomizer");
-			spawnCount++;
-		}
-		// when at the max amount of spawns nuke the spawner
-		TNT1 A 0 {
-			if (spawnCount >= 5) SetStateLabel("RemoveSpawn");
+			SpawnEnemy("RunecasterRandomSpawner");
 		}
 		Goto See;
 	RemoveSpawn:
@@ -91,59 +96,90 @@ Class Summoner : DMR_Archvile
 		Goto See;
 	VileAttack:
 		ACOL D 0 BRIGHT A_VileStart;
-		ACOL D 10 BRIGHT Light("DMR_ArchvileCharge_X1") A_FaceTarget;
-		ACOL D 8 BRIGHT Light("DMR_ArchvileCharge_X2") A_VileTarget("SummonerFire");
-		ACOL EE 8 BRIGHT Light("DMR_ArchvileCharge_X3") A_FaceTarget;
-		ACOL EEE 8 BRIGHT Light("DMR_ArchvileCharge_X4") A_FaceTarget;
-		ACOL E 8 BRIGHT Light("DMR_ArchvileCharge_X5") A_FaceTarget;
-		ACOL F 8 BRIGHT Light("DMR_ArchvileCharge_X6") {
+		ACOL D 10 BRIGHT Light("RunecasterCharge_X1") A_FaceTarget;
+		ACOL D 8 BRIGHT Light("RunecasterCharge_X2") A_VileTarget("RunecasterFire");
+		ACOL EE 8 BRIGHT Light("RunecasterCharge_X3") A_FaceTarget;
+		ACOL EEE 8 BRIGHT Light("RunecasterCharge_X4") A_FaceTarget;
+		ACOL E 8 BRIGHT Light("RunecasterCharge_X5") A_FaceTarget;
+		ACOL F 8 BRIGHT Light("RunecasterCharge_X6") {
 			A_VileAttack("vile/stop",50,30,70,1.0);
 			if (target && CheckSight(target)) {
-				A_VileTarget("SummonerFireBlast");
+				A_VileTarget("RunecasterFireBlast");
 			}
 		}
-		ACOL F 20 BRIGHT Light("DMR_ArchvileCharge_X7");
+		ACOL F 20 BRIGHT Light("RunecasterCharge_X7");
 		Goto See;
 	Heal:
 		// rezz nearby corpses as well
-		TNT1 A 0 A_RadiusGive("RadiusResurrect",100,RGF_KILLED);
-		ACOL EFE 10 BRIGHT Light("DMR_ArchvileRes");
+		//TNT1 A 0 A_RadiusGive("RadiusResurrect",100,RGF_KILLED);
+		ACOL EFE 10 BRIGHT Light("RunecasterRes");
 		Goto See;
 	Pain: 
 		ACOL C 2;
 		ACOL C 2 A_Pain;
-		//TNT1 A 0 A_Jump(128, "SpawnAttack"); // chance to summon reinforcements
+		TNT1 A 0 A_Jump(128, "SpawnBall"); // chance to summon reinforcements
 		Goto See;
 	Death: 
+		TNT1 A 0 {		
+			A_RemoveMaster(RMVF_EVERYTHING);
+		}
 		ACOL G 8 Bright A_Scream; 
 		ACOL H 5 Bright;
 		ACOL I 5 Bright;
 		ACOL J 5 Bright A_NoBlocking ;
 		ACOL KLM 5 Bright;
-		ACOL N 5 A_SpawnProjectile("SummonerGhost",54);
+		ACOL N 5 A_SpawnProjectile("RunecasterGhost",54);
 		ACOL O 5;
 		ACOL P -1;
 		Stop;
 	} 
 	
-	// summon the given actor from the dropped spawner (which is the master) pos
+	// summon the given actor from the master's pos (the dropped spawner)
+	// contains some creative C/P from Doom2's SpawnShot A_SpawnFly
 	void SpawnEnemy(name enemy)
 	{
 		// safety net
-		if (master) {
-			// spawn enemy at master's pos
-			actor a = Spawn(enemy,master.pos);
-			// turn in a random angle
-			a.A_SetAngle(random(0,360));
-			// yeet them out of the way so the next enemy can spawn in the spot
-			a.Thrust(random(2,6),a.angle);
-			// focus it on our own target
-			a.target = target;
+		if (master) {		
+			// first spawn the fire as the bosscube does
+			{
+				Class<Actor> spawntype = "SpawnFire";
+				Sound snd = "brain/spawn";
+			
+				Actor fog = Spawn(spawntype, master.pos);
+				if (fog) A_StartSound(snd, CHAN_BODY);
+			}		
+		
+			// then spawn a new enemy
+			{
+				Actor newmobj = Spawn(enemy,master.pos);
+				// more safety nets
+				if (newmobj != null) {
+					// make the new monster hate what the we hate
+					newmobj.CopyFriendliness(self, false);
+					
+					// Make it act as if it was around when the player first made noise
+					// (if the player has made noise).
+					newmobj.LastHeard = newmobj.CurSector.SoundTarget;
+
+					// turn in a random angle and yeet them out of the way so the next enemy can spawn in the spot
+					newmobj.A_SetAngle(random(0,360));
+					newmobj.Thrust(random(2,6),newmobj.angle);	
+
+					// change the monster's state to the see state
+					if (newmobj.SeeState != null && newmobj.LookForPlayers (true))
+					{
+						newmobj.SetState (newmobj.SeeState);
+					}										
+				}
+			}
+			
+			// add to our cap
+			GiveInventory("RunecasterSpawnCount",1);
 		}
 	}
 }
         
-class SummonerBall : DMR_Projectile
+class RunecasterThrownSpawner : DMR_Projectile
 {
 	Default
 	{
@@ -173,7 +209,7 @@ class SummonerBall : DMR_Projectile
 			bFLATSPRITE = true;
 			A_SetScale(3.0);
 		}
-		PLRN AAAAABBBBB 1 Light("RBFGBALL") {
+		PLRN AAAAABBBBB 1 {
 			for(fxloop = 0;fxloop<=2;fxloop++) {
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,25,frandom(15,16),random(0,360),frandom(0,20),0,frandom(0,4),0,0,frandom(2,3),0,0,0,1,-1,-1);
 			}
@@ -182,7 +218,7 @@ class SummonerBall : DMR_Projectile
 	}
 }
 
-class SummonerBallRandomizer : RandomSpawner
+class RunecasterRandomSpawner : RandomSpawner
 {
 	Default
 	{
@@ -195,8 +231,44 @@ class SummonerBallRandomizer : RandomSpawner
 }
 
 Class SummonCooldown : Powerup { Default { Powerup.Duration -20; } }
+Class RunecasterSpawnCount : Inventory { Default { Inventory.MaxAmount 10; } }
 
-class SummonerFire : DMR_ArchvileFire
+
+
+//Class EcclesiarchCastEffect : Actor
+//{
+//  Default
+//  {
+//  +NOINTERACTION;
+//  +BRIGHT;
+//  }
+//  
+//  States
+//  {
+//  Spawn:
+//	TNT1 A 1 
+//		{
+//		for(int a = 0;a<2;a++)
+//			{
+//			A_SpawnParticle("00FF00",SPF_FULLBRIGHT|SPF_RELATIVE,random(25,30),frandom(15,25),0,frandom(-2,2),frandom(-2,2)+33,frandom(94,98),frandom(-1,1),frandom(-1,1),frandom(2,3),0,0,0,1,-1,-1);
+//			A_SpawnParticle("00FF00",SPF_FULLBRIGHT|SPF_RELATIVE,random(25,30),frandom(15,25),0,frandom(-2,2),frandom(-2,2)-33,frandom(94,98),frandom(-1,1),frandom(-1,1),frandom(2,3),0,0,0,1,-1,-1);
+//			}
+//		}
+//    Wait;
+//	}
+//
+//  override void Tick()
+//	{
+//	Super.Tick();
+//	A_Warp(AAPTR_MASTER,0,0,0,0,WARPF_NOCHECKPOSITION|WARPF_INTERPOLATE);
+//	}
+//}
+
+
+
+
+
+class RunecasterFire : DMR_ArchvileFire
 {
 	Default
 	{
@@ -232,7 +304,7 @@ class SummonerFire : DMR_ArchvileFire
 	}
 }
 
-class SummonerFireBlast : DMR_ArchvileFireBlast
+class RunecasterFireBlast : DMR_ArchvileFireBlast
 {
 	Default
 	{
@@ -275,7 +347,7 @@ Class RadiusResurrect : CustomInventory
 	}
 }
 
-class SummonerGhost : Actor
+class RunecasterGhost : Actor
 {   
 	Default
 	{

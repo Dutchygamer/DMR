@@ -1,14 +1,157 @@
 
-object SummonerFire
+flickerlight RunecasterFire_X1
 {
-    frame FIREA { light DMR_ArchvileFire_X1 }
-    frame FIREB { light DMR_ArchvileFire_X2 }
-    frame FIREC { light DMR_ArchvileFire_X3 }
-    frame FIRED { light DMR_ArchvileFire_X4 }
-    frame FIREE { light DMR_ArchvileFire_X5 }
-    frame FIREF { light DMR_ArchvileFire_X6 }
-    frame FIREG { light DMR_ArchvileFire_X7 }
-    frame FIREH { light DMR_ArchvileFire_X8 }
+    color 1.0 0.1 1.0
+    size 48
+    secondarySize 56
+    offset 0 8 0
+    chance 0.3
 }
 
-// Summon GLDef binding is all done within code
+flickerlight RunecasterFire_X2
+{
+    color 1.0 0.1 1.0
+    size 72
+    secondarySize 80
+    offset 0 24 0
+    chance 0.3
+}
+
+flickerlight RunecasterFire_X3
+{
+    color 1.0 0.1 1.0
+    size 90
+    secondarySize 100
+    offset 0 32 0
+    chance 0.3
+}
+
+flickerlight RunecasterFire_X4
+{
+    color 1.0 0.1 1.0
+    size 110
+    secondarySize 120
+    offset 0 40 0
+    chance 0.3
+}
+
+flickerlight RunecasterFire_X5
+{
+    color 1.0 0.1 1.0
+    size 100
+    secondarySize 110
+    offset 0 48 0
+    chance 0.3
+}
+
+flickerlight RunecasterFire_X6
+{
+    color 1.0 0.1 1.0
+    size 78
+    secondarySize 86
+    offset 0 64 0
+    chance 0.3
+}
+
+flickerlight RunecasterFire_X7
+{
+    color 1.0 0.1 1.0
+    size 72
+    secondarySize 80
+    offset 0 72 0
+    chance 0.3
+}
+
+flickerlight RunecasterFire_X8
+{
+    color 1.0 0.1 1.0
+    size 48
+    secondarySize 56
+    offset 0 80 0
+    chance 0.3
+}
+
+object RunecasterFire
+{
+    frame FIREA { light RunecasterFire_X1 }
+    frame FIREB { light RunecasterFire_X2 }
+    frame FIREC { light RunecasterFire_X3 }
+    frame FIRED { light RunecasterFire_X4 }
+    frame FIREE { light RunecasterFire_X5 }
+    frame FIREF { light RunecasterFire_X6 }
+    frame FIREG { light RunecasterFire_X7 }
+    frame FIREH { light RunecasterFire_X8 }
+}
+
+object RunecasterThrownSpawner
+{
+    frame PLRNA { light DMR_DarkImpBall_X3 }
+    frame PLRNB { light DMR_DarkImpBall_X3 }
+}
+
+
+
+flickerlight RunecasterCharge_X1
+{
+    color 1.0 0.1 1.0
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+flickerlight RunecasterCharge_X2
+{
+    color 1.0 0.1 1.0
+    size 72
+    secondarySize 80
+    chance 0.3
+}
+
+flickerlight RunecasterCharge_X3
+{
+    color 1.0 0.1 1.0
+    size 90
+    secondarySize 100
+    chance 0.3
+}
+
+flickerlight RunecasterCharge_X4
+{
+    color 1.0 0.1 1.0
+    size 100
+    secondarySize 110
+    chance 0.3
+}
+
+flickerlight RunecasterCharge_X5
+{
+    color 1.0 0.1 1.0
+    size 110
+    secondarySize 120
+    chance 0.3
+}
+
+flickerlight RunecasterCharge_X6
+{
+    color 1.0 0.1 1.0
+    size 120
+    secondarySize 130
+    chance 0.3
+}
+
+flickerlight RunecasterCharge_X7
+{
+    color 1.0 0.1 1.0
+    size 90
+    secondarySize 100
+    chance 0.3
+}
+
+
+flickerlight RunecasterRes
+{
+    color 0.6 0.05 0.6
+    size 78
+    secondarySize 86
+    chance 0.3
+}
