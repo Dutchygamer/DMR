@@ -143,7 +143,7 @@ class DMR_AshCloud : DMR_SmokeCloud
 		Scale 0.5;
 		Gravity 0.3;
 		Alpha 0.3;
-		+GRAVITY;
+		-NOGRAVITY;
 	}
 	States
 	{
