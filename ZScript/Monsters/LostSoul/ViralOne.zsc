@@ -19,6 +19,7 @@ class ViralOne : DMR_LostSoul
 		BloodColor "green";
 		Health 60;
 		Speed 12;	
+		DeathSound "gas/explode";
 		DamageFactor "ToxinCloud", 0;
 		Obituary "%o got his medicine from a Viral One";
 		+MISSILEEVENMORE
@@ -46,7 +47,6 @@ class ViralOne : DMR_LostSoul
 		TNT1 A 0 {
 			A_SpawnItemEx("ViralOneExplosion",0,0,10);
 			A_Explode(24,72);
-			A_StartSound("gas/explode");	
 			A_SpawnItemEx("DMR_MediumGasCloud",0,0,10,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,10,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,10,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
