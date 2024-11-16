@@ -396,13 +396,13 @@ kurtriarii/pain 	KUTRIPN
 kurtriarii/death 	KUTRIDTH
 cybruiser/step				HPALSTEP
 
-// Kur Triarii (aka Paladin)
+// Kur Legionary (aka Paladin)
 kurlegionary/sight 	KULGNSIT
 kurlegionary/pain 	KULGNPN
 kurlegionary/death 	KULGNDTH
 
 // Kur Praetorian (aka CyNihilator)
-cynihilator/step				KUPRAWLK
+cynihilator/step		KUPRAWLK
 kurpraetorian/sight 	KUPRASIT
 kurpraetorian/pain 		KUPRAPN
 kurpraetorian/death 	KUPRADTH
