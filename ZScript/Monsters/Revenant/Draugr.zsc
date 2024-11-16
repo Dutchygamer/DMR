@@ -144,6 +144,7 @@ class DraugrTracer : DMR_SmallRocket
 			A_SetRenderStyle(1.0,STYLE_Add);
 			A_SetScale(1.0);
 			A_SpawnItemEx("DMR_MediumFireballImpactSpawner");
+			A_QuakeEx(3,3,3,15,0,600,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:400,rollIntensity:.75);
 			for (fxLoop = 0;fxLoop<=50;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,9),0,frandom(-7,7),frandom(0,7),0,frandom(-7,7),0,0,-0.1,1,-1,-0.6);
@@ -221,6 +222,7 @@ class DraugrClusterMissile : DMR_Rocket
 			A_SetRenderStyle(1.0,STYLE_Add);	
 			A_StartSound("weapons/rocklx",2);
 			A_SpawnItemEx("DMR_MediumFireballImpactSpawner");
+			A_QuakeEx(1,1,1,12,0,300,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:100,rollIntensity:.5);
 			for (fxLoop = 0;fxLoop<=50;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,9),0,frandom(-7,7),frandom(0,7),0,frandom(-7,7),0,0,-0.1,1,-1,-0.6);

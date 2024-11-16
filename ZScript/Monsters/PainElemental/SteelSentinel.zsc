@@ -112,6 +112,7 @@ class SmallTiberiumFlechette : TiberiumFlechette
 			A_SetRenderStyle(1.0, STYLE_Add);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_Explode(32,64);
+			A_QuakeEx(3,3,3,15,0,600,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:400,rollIntensity:.75);
 			for (fxLoop = 0;fxLoop<=50;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
@@ -159,6 +160,7 @@ class SmallTiberiumBlueFlechette : TiberiumBlueFlechette
 			A_SpawnItemEx("DMR_BlueBFGImpactFlare");
 			A_SpawnItemEx("TiberiumBlueLightningBurst");
 			A_SetRenderStyle(1.0,STYLE_Add);
+			A_QuakeEx(4,4,4,15,0,800,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:500,rollIntensity:.75);
 			for (fxLoop = 0;fxLoop<=50;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,9),0,frandom(-7,7),frandom(0,7),0,frandom(-7,7),0,0,-0.1,1,-1,-0.6);

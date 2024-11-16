@@ -158,6 +158,7 @@ class TiberiumShard : DMR_DoomImpBall
 			A_SetRenderStyle(1.0, STYLE_Add);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_Explode(16,48);
+			A_QuakeEx(1,1,1,12,0,300,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:100,rollIntensity:.5);
 			for (fxLoop = 0;fxLoop<=30;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);

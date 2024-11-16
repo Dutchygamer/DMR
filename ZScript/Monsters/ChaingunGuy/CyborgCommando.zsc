@@ -249,6 +249,7 @@ class CyborgCommandoChargedPlasma : DMR_Rocket
 			A_Explode(128,128);
 			A_SpawnItemEx("DMR_MediumBFGImpactFlare");
 			A_SpawnItemEx("MediumBFGLightningBurst");
+			A_QuakeEx(4,4,4,15,0,800,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:500,rollIntensity:.75);
 			for (fxLoop = 0;fxLoop<=70;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(20,36),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
@@ -310,6 +311,7 @@ class CyborgCommandoBFG : DMR_Projectile
 			A_SpawnItemEx("CyborgCommandoBFGBallTrail",-30,0,0,frandom(-1,0),frandom(-1,1),frandom(-1,0));
 			A_SpawnItemEx("BFGLightningBolt");
 			A_Explode(8,128,0,0,64);
+			A_QuakeEx(1,1,1,6,0,300,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:100,rollIntensity:.2);
 			for (fxLoop = 0;fxLoop<=3;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-26,-13),frandom(-13,13),frandom(-13,13),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
@@ -328,6 +330,7 @@ class CyborgCommandoBFG : DMR_Projectile
 		TBBL ABC 3 {
 			A_Explode(24,128,0,0,64);
 			A_SpawnItemEx("BFGLightningBolt");
+			A_QuakeEx(3,3,3,15,0,400,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:150,rollIntensity:.4);
 			
 			deathLoop++;
 			for (fxLoop = 0;fxLoop<=5;fxLoop++)
@@ -343,6 +346,7 @@ class CyborgCommandoBFG : DMR_Projectile
 			A_Explode(128,128,0,0,64);
 			A_SpawnItemEx("DMR_BFGImpactFlare");
 			A_SpawnItemEx("BFGLightningBurst");
+			A_QuakeEx(4,4,4,15,0,800,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:500,rollIntensity:.75);
 			for (fxLoop = 0;fxLoop<=70;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(20,36),frandom(12,14),random(0,360),frandom(0,13),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
