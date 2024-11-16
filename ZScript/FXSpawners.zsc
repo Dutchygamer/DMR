@@ -140,7 +140,7 @@ Class DMR_MediumGreenFireballImpactSpawner : DMR_FXSpawner
 	}
 }
 
-// Fatso etc
+// Fatso, Rockets etc
 Class DMR_LargeGreenFireballImpactSpawner : DMR_FXSpawner
 {
 	States
