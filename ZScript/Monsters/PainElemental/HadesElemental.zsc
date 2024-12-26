@@ -34,7 +34,7 @@ class ThunderElemental : DMR_PainElemental
 		HELE AAAAAA 3 A_Chase;
 		Loop;
 	Missile: 
-		TNT1 A 0 A_Jump(128,"Balls");
+		TNT1 A 0 A_Jump(128,"Balls","ComboBalls","BigBall");
 		Goto LostSoul;
 	LostSoul:
 		HELE BC 5 A_FaceTarget;
@@ -42,12 +42,20 @@ class ThunderElemental : DMR_PainElemental
 		TNT1 A 0 A_PainAttack("Gorer");
 		Goto See;
 	Balls:
-		HELE EFG 5 Bright A_FaceTarget;
-		TNT1 A 0 {
-			A_SpawnProjectile("ThunderElementalBall",24,0,-10,0,0);
-			A_SpawnProjectile("ThunderElementalBall",24,0,0,0,0);
-			A_SpawnProjectile("ThunderElementalBall",24,0,10,0,0);
+		HELE EF 5 Bright A_FaceTarget;
+		HELE GGG 8 Bright A_SpawnProjectile("ThunderElementalBall",24);
+		Goto See;
+	ComboBalls:
+		HELE EF 8 Bright A_FaceTarget;
+		HELE G 10 Bright {
+			A_SpawnProjectile("ThunderElementalFastBall",24,0,-7);
+			A_SpawnProjectile("ThunderElementalBall",24,0,0);
+			A_SpawnProjectile("ThunderElementalFastBall",24,0,7);
 		}
+		Goto See;
+	BigBall:
+		HELE EF 10 Bright A_FaceTarget;
+		HELE G 12 Bright A_SpawnProjectile("OverlordMouthBall",24);
 		Goto See;
 	Pain:
 		HELE H 6;
@@ -65,21 +73,22 @@ class ThunderElemental : DMR_PainElemental
 	}
 }
 
-class ThunderElementalBall : DMR_CacodemonBall
+class ThunderElementalBall : OverlordHandBall
 {
 	Default
 	{
+		Speed 10;
+ 		FastSpeed 20;
 		DamageFunction(random(10,30));
-		Alpha 0.80;
-		DamageType "lightning";
 	}
-	States
+}
+
+class ThunderElementalFastBall : OverlordHandFastBall
+{
+	Default
 	{
-	Spawn:
-		HEFX AB 4 Bright;
-		Loop;
-	Death:
-		HEFX CDEFGH 3 bright;
-		Stop;
+		Speed 18;
+ 		FastSpeed 30;
+		DamageFunction(random(10,30));
 	}
 }
