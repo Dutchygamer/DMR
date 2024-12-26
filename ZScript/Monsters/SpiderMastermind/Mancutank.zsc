@@ -37,7 +37,7 @@ class Mancutank : DMR_SpiderMastermind
 		BS1W AC 10 A_Look;
 		Loop;
 	See:
-		TNT1 A 0 A_StartSound("Mancutank/Tank",CHAN_7,1,True);		
+		TNT1 A 0 A_StartSound("Mancutank/Tank",CHAN_7,CHANF_LOOPING);		
 		BS1W ABBCCDD 3 A_Chase;
 		Goto See+1;
 	Missile:

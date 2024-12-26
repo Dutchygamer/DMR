@@ -25,7 +25,7 @@ class ZombieRocketTank : DMR_ZombieTankBase
         ZMTK AB 15 A_Look;
         Loop;
     See:
-        ZMTK A 0 A_StartSound ("ZombieTank/Run");
+        TNT1 A 0 A_StartSound("ZombieTank/Run",CHAN_7,CHANF_LOOPING);
         ZMTK AABBCCAABBCC 4 A_Chase;
         Loop;
     Missile:
@@ -46,7 +46,10 @@ class ZombieRocketTank : DMR_ZombieTankBase
         Goto See;
     Death:
     XDeath:	
-		TNT1 A 0 A_FaceTarget; // else the debris won't line up 
+		TNT1 A 0 {
+			A_StopSound(CHAN_7);
+			A_FaceTarget(); // else the debris won't line up 
+		}
         ZMTK G 6;
         ZMTK H 6 {
 			A_Scream();
