@@ -71,6 +71,7 @@ class KurCenturion : DMR_Cyberdemon
 	RocketsLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 3,"RocketsEnd");
 		TERM F 10 Bright Light("DMR_RifleFire") {
+			A_SetBerserkerTics(10,5);
 			A_SpawnProjectile("DMR_Rocket",56,25,0);
 			attackloop++;
 		}
@@ -95,6 +96,7 @@ class KurCenturion : DMR_Cyberdemon
 	RocketBurstLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 3,"RocketsEnd"); // as we use same attack frames we can re-use RocketsEnd here
 		TERM F 5 Bright Light("DMR_RifleFire") {
+			A_SetBerserkerTics(5,3);
 			A_FaceTarget();
 			A_SpawnProjectile("KurCenturionWeaveRocket",56,25,0);
 			attackloop++;
@@ -109,11 +111,13 @@ class KurCenturion : DMR_Cyberdemon
 	GrenadesLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 6,"GrenadesEnd");
 		TERM H 4 Bright Light("DMR_RifleFire") {
+			A_SetBerserkerTics(4,2);
 			A_LobProjectile("DMR_FiredGrenade",56,-24, frandom(-5,5));
 			attackloop++;
 		}
 		TERM G 3 A_Facetarget;
 		TERM I 4 Bright Light("DMR_RifleFire") {
+			A_SetBerserkerTics(4,2);
 			A_LobProjectile("DMR_FiredGrenade",56,-24, frandom(-5,5));
 			attackloop++;
 		}
