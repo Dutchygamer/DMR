@@ -115,6 +115,7 @@ class DMR_ShieldWall : Actor
 {	
 	Default
 	{
+		Tag "Shield";
 		Radius 30; // just a tad wider then a hellknight is
 		Height 64; // same height
 		Health 125; // the damage the shield can take
