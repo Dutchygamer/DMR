@@ -26,6 +26,7 @@ class SSSupersoldat : DMR_NaziBase
 		DeathSound "wolfss/death";
 		ActiveSound "wolfss/active";
 		//AttackSound "wolfss/attack";
+		Mass 500;
 		Obituary "%o was torn to pieces by a SS Supersoldat.";
 		DropItem "Shell", 256, 4;
 		DropItem "Shell", 128, 4;
