@@ -18,6 +18,7 @@ class FireborneKnight : DMR_HellKnight
 		Tag "Fireborne Knight";
 		Health 850;
 		PainChance 50;
+		Speed 10;
 		Obituary "%o was torched by a Fireborne Knight";
 		HitObituary "%o was cooked my a Fireborne Knight";
 		bloodcolor "orange";
@@ -26,10 +27,7 @@ class FireborneKnight : DMR_HellKnight
 		//PainSound "pyro/pain";
 		//DeathSound "pyro/death";
 		//ActiveSound "pyro/idle";
-	}
-	
-	int spamBallAngle;
-	
+	}	
 	States
 	{
 	Spawn:
@@ -46,20 +44,36 @@ class FireborneKnight : DMR_HellKnight
 		PYRO G 6 Bright A_CustomComboAttack("AfritBall",39,random(22,66),"baron/melee");
 		Goto See;
 	Missile: 
-		TNT1 A 0 A_Jump(128,"Comet"); //,"Spam","FireWaves");		
+		TNT1 A 0 A_Jump(128,"Comet","Flamebeam");
 	Balls:
 		PYRO EF 8 Bright A_FaceTarget;
-		PYRO G 8 Bright A_SpawnProjectile("AfritBall",39);
+		PYRO G 4 Bright A_SpawnProjectile("AfritBall",39);
+		PYRO H 4 Bright A_FaceTarget;
 		TNT1 A 0 Bright A_Jump(96, "See");
 		PYRO IJ 8 Bright A_FaceTarget;
-		PYRO K 8 Bright A_SpawnProjectile("AfritBall",39);
+		PYRO K 4 Bright A_SpawnProjectile("AfritBall",39);
+		PYRO L 4 Bright A_FaceTarget;
 		Goto See;
 	Comet:
-		PYRO EEF 8 Bright A_FaceTarget;
-		PYRO G 8 Bright A_SpawnProjectile("AfritComet",39);
-		TNT1 A 0 Bright A_Jump(96, "See");
-		PYRO IJ 8 Bright A_FaceTarget;
-		PYRO K 8 Bright A_SpawnProjectile("AfritComet",39);
+		PYRO MMN 8 Bright A_FaceTarget;
+		PYRO O 8 Bright A_SpawnProjectile("AfritComet",39);
+		PYRO P 8 Bright A_FaceTarget;
+		Goto See;
+	Flamebeam:
+		PYRO EEEEEEFFFFFF 2 Bright { 
+			A_FaceTarget();
+			A_SpawnItemEx("DMR_FireballTrail",0,30,52,frandom(-1,1),frandom(-1,1),frandom(0,4));
+		}
+		PYRO G 4 Bright A_SpawnProjectile("DiabolistBeam",39);
+		PYRO G 4 Bright A_SpawnProjectile("DiabolistBeam",39,-5);
+		PYRO H 4 Bright A_FaceTarget;
+		PYRO IIIIIIJJJJJJ 2 Bright { 
+			A_FaceTarget();
+			A_SpawnItemEx("DMR_FireballTrail",0,-30,52,frandom(-1,1),frandom(-1,1),frandom(0,4));
+		}
+		PYRO K 4 Bright A_SpawnProjectile("DiabolistBeam",39);
+		PYRO K 4 Bright A_SpawnProjectile("DiabolistBeam",39,5);
+		PYRO L 4 Bright A_FaceTarget;
 		Goto See;
 	Pain:
 		PYRO Q 10 A_Pain;
