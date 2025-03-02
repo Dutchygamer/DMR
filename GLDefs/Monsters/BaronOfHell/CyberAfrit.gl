@@ -1,0 +1,29 @@
+
+FlickerLight DMR_Afrit
+{
+	Color 0.7 0.4 0.0
+	Size 50
+	SecondarySize 60
+    chance 0.3
+	Offset 0 24 0
+}
+
+Object CyberAfrit
+{
+	Frame MCRD { Light DMR_Afrit }
+}
+
+
+object CyberAfritComet
+{
+    frame COMTA { light DMR_HellWarriorBall }
+    frame COMTB { light DMR_HellWarriorBall }
+    frame COMTC { light DMR_HellWarriorBall }
+
+    frame COMTD { light DMR_HellWarriorBall_X1 }
+    frame COMTE { light DMR_HellWarriorBall_X2 }
+    frame COMTF { light DMR_HellWarriorBall_X2 }
+    frame COMTG { light DMR_HellWarriorBall_X2 }
+    frame COMTH { light DMR_HellWarriorBall_X3 }
+    frame COMTI { light DMR_HellWarriorBall_X3 }
+}

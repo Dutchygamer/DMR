@@ -20,6 +20,7 @@ Class CyberAfrit : DMR_BaronOfHell
 		Tag "Cyber Afrit";
 		Health 1250;
 		PainChance 40;
+		Speed 10;
 		bloodcolor "orange";
 		+BRIGHT;
 		Obituary "%o was scorched by an Cyber Afrit";
@@ -62,12 +63,12 @@ Class CyberAfrit : DMR_BaronOfHell
 	Rocket:
 		MCRD CC 10 A_FaceTarget;
 		MCRD D 10 Bright Light("DMR_RifleFire") {
-			A_SpawnProjectile("DMR_SmallRocket",44);
+			A_SpawnProjectile("CyberAfritComet",44);
 		}
 		TNT1 A 0 Bright A_Jump(96, "See");
 		MCRD C 10 A_FaceTarget;
 		MCRD D 10 Bright Light("DMR_RifleFire") {
-			A_SpawnProjectile("DMR_SmallRocket",44);
+			A_SpawnProjectile("CyberAfritComet",44);
 		}
 		Goto See;
 	Pain:
@@ -86,5 +87,16 @@ Class CyberAfrit : DMR_BaronOfHell
 		MCRD LMNO 4;
 		TNT1 A -1 A_BossDeath;
 		Stop;
+	}
+}
+
+
+class CyberAfritComet : AfritComet
+{
+	Default
+	{
+		Speed 30;
+		FastSpeed 40;
+		SeeSound "smallrocket/launch";
 	}
 }
