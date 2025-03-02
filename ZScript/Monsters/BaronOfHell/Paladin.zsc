@@ -64,7 +64,7 @@ class KurLegionary : DMR_BaronOfHell
 	Missile:
 		TNT1 A 0 A_Jump(100,"RaiseShield","Plasma","BigRocket");
 	Grenade:
-		HPAL II 8 A_FaceTarget;
+		HPAL I 10 A_FaceTarget;
 		HPAL J 10 Bright Light("DMR_RifleFire") {
 			A_LobProjectile("DMR_FiredGrenade",32,16);
 		}

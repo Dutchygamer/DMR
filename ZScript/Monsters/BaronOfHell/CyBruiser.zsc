@@ -45,7 +45,7 @@ class KurTriarii : DMR_BaronOfHell
 		TNT1 A 0 A_Jump(72, "Plasma");
 		TNT1 A 0 A_Jump(256, "Rockets", "RocketBurst");
 	Rockets:
-		BRU2 EE 8 A_FaceTarget;
+		BRU2 E 10 A_FaceTarget;
 		BRU2 F 10 Bright Light("DMR_RifleFire") {
 			A_SpawnProjectile("DMR_SmallRocket",43,16);
 		}
