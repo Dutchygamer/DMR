@@ -67,7 +67,7 @@ class CoreDefender : DMR_Cyberdemon
 	ObeliskLaser:
 		TNT1 A 0 {
 			bNOPAIN = true; 
-			A_StartSound("coredefender/lasercharge",CHAN_WEAPON,1.0,0,ATTN_NONE);
+			A_StartSound("coredefender/lasercharge",CHAN_WEAPON,CHANF_DEFAULT,1.0,ATTN_NONE);
 			A_SpawnItemEx("CoreDefenderLaserCharge",0,0,0,0,0,0,0,SXF_SETMASTER);
 			A_VileTarget("CoreDefenderLaserTargetter1");
 		}
