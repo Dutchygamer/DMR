@@ -87,8 +87,6 @@ flickerlight DMR_LaserImpactBig_X5
 
 object CoreDefenderObeliskLaser
 {
-	frame TNT1A { light DMR_LaserTrailBig }
-	
 	frame BFE1A { light DMR_LaserImpactBig_X1 }
     frame BFE1B { light DMR_LaserImpactBig_X2 }
     frame BFE1C { light DMR_LaserImpactBig_X3 }

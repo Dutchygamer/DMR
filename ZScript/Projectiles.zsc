@@ -305,6 +305,75 @@ class DMR_FlamethrowerBallLarge : DMR_FlamethrowerBall
 
 
 // laser
+class DMR_LaserProjectile : DMR_FastProjectile
+{
+	Default
+	{
+		Radius 6;
+		Height 6;
+		Speed 100;
+		DamageFunction(random(12,36));
+		Translation "112:127=176:191";
+		//this defines a laser
+		+RANDOMIZE;
+		+DONTSPLASH;
+		+DONTREFLECT;
+		-CANNOTPUSH;
+		+NODAMAGETHRUST;
+		+BLOODLESSIMPACT;
+		RenderStyle "Add";
+		Alpha 0.75;
+		DamageType "Disintegrate";
+		MissileType "DMR_LaserProjectileTrail";
+		MissileHeight 10;
+		Seesound "BeamRevenant/Fire";
+		Decal "RedLaserLightning";
+		DMR_FastProjectile.ParticleColors "#ff0000", "#d20000", "#b90000", "#ff0f0f";
+	}
+	States
+	{
+	Spawn:
+		TRCR A 1 Light("DMR_LaserTrail") {
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-20,-18),frandom(-3,3),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
+		}
+		Loop;
+	Death:
+		TNT1 A 0 {
+			A_SetScale(0.5);
+			A_SpawnItemEx("DMR_LaserImpactFlare");
+			for (fxLoop = 0;fxLoop<=10;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
+			}
+		}
+		BFE1 ABCDEF 5 Bright;
+		Stop;
+	}
+}
+
+class DMR_LaserProjectileTrail : Actor
+{
+	Default
+	{
+		RenderStyle "Add";
+		Alpha 0.8;
+		+NOINTERACTION;
+		+NOGRAVITY;
+		+DONTSPLASH;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_ChangeVelocity(vel.x/100,vel.y/100,vel.z/100,CVF_REPLACE);
+		TRCR A 1 Bright A_FadeOut(0.2);
+		Wait;
+	}
+}
+
+//TODO obsolete
 class DMR_LaserBase : DMR_FastProjectile
 {
 	Default
@@ -336,6 +405,7 @@ class DMR_LaserBase : DMR_FastProjectile
 		Loop;
 	Death:
 		TNT1 A 0 {
+			A_SetScale(0.5);
 			for (fxLoop = 0;fxLoop<=10;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
@@ -346,6 +416,7 @@ class DMR_LaserBase : DMR_FastProjectile
 	}
 }
 
+//TODO obsolete
 class DMR_LaserTrailBase : Actor
 {
 	Default

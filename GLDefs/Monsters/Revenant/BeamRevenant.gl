@@ -37,10 +37,8 @@ flickerlight DMR_LaserImpact_X3
     chance 0.3
 }
 
-object SmallRedLaser
+object DMR_LaserProjectile
 {
-	frame TNT1A { light DMR_LaserTrail }
-	
 	frame BFE1A { light DMR_LaserImpact_X1 }
     frame BFE1B { light DMR_LaserImpact_X2 }
     frame BFE1C { light DMR_LaserImpact_X2 }

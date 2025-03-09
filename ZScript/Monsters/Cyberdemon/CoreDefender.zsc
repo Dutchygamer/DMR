@@ -244,17 +244,15 @@ class CoreDefenderClusterSubProjectile : DMR_FiredGrenade
 	}
 }
 
-class CoreDefenderObeliskLaser : DMR_LaserBase
+class CoreDefenderObeliskLaser : DMR_LaserProjectile
 {
 	Default
 	{
+		Speed 125;
 		DamageFunction(random(100,300));
-		// this is just for this weapon
 		+EXTREMEDEATH;
 		+FORCERADIUSDMG;
-		RenderStyle "Add";
-		Alpha 0.75;
-		Translation "112:127=176:191";
+		Scale 1.2;
 		MissileType "CoreDefenderObeliskLaserTrail";
 		MissileHeight 10;
 		SeeSound "coredefender/laserfire";
@@ -264,7 +262,12 @@ class CoreDefenderObeliskLaser : DMR_LaserBase
 	States
 	{
 	Spawn:
-		TNT1 A 1;
+		TRCR A 1 Light("DMR_LaserTrailBig") {
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-20,-18),frandom(-3,3),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
+		}
 		Loop;
 	Death:
 		BFE1 A 8 Bright {
@@ -281,20 +284,14 @@ class CoreDefenderObeliskLaser : DMR_LaserBase
 	}
 }
 
-class CoreDefenderObeliskLaserTrail : DMR_LaserTrailBase
+class CoreDefenderObeliskLaserTrail : DMR_LaserProjectileTrail
 {
-	Default
-	{
-		Scale 0.4;
-	}
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay A_SpawnItemEx("DMR_LaserFlareBig",0,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1));
-		LASB A 1 Bright;
-	SpawnLoop:
-		LASB A 1 Bright A_FadeOut(0.1);
-		Loop;
+		TNT1 A 0 NoDelay A_ChangeVelocity(vel.x/100,vel.y/100,vel.z/100,CVF_REPLACE);
+		TRCR A 1 Bright A_FadeOut(0.1);
+		Wait;
 	}
 }
 

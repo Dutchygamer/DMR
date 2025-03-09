@@ -376,7 +376,7 @@ flickerlight DMR_RedPlasmaBall_X3
     chance 0.3
 }
 
-flickerlight DMR_RedPlasmaall_X4
+flickerlight DMR_RedPlasmaBall_X4
 {
     color 0.2 0.0 0.0
     size 70

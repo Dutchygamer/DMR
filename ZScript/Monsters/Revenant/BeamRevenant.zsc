@@ -40,7 +40,7 @@ class Dybbuk : DMR_Revenant
 		Goto Ball;
 	Laser:
 		RASK J 20 Bright A_FaceTarget;
-		RASK K 5 Bright Light("DMR_LaserFire") A_SpawnProjectile("SmallRedLaser",65,13,random(-2,2));
+		RASK K 5 Bright Light("DMR_LaserFire") A_SpawnProjectile("DMR_LaserProjectile",65,13,random(-2,2));
 		RASK K 15 A_FaceTarget;
 		Goto See;
 	Ball:
@@ -76,6 +76,7 @@ class Dybbuk : DMR_Revenant
 	}
 }
 
+//TODO obsolete
 // laser projectile
 class SmallRedLaser : DMR_LaserBase
 {

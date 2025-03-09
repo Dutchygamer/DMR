@@ -65,6 +65,23 @@ class DMR_BlueLaserFlareBig : DMR_FlareBase
 	}
 }
 
+class DMR_LaserImpactFlare : DMR_FlareBase
+{
+	Default
+	{
+		Alpha 0.75;
+		Scale 0.5;
+	}
+	States
+	{
+	Spawn:
+		BFOF A 1 Bright {
+			A_FadeOut(0.05);
+		}
+		Loop;
+	}
+}
+
 class DMR_LaserImpactFlareBig : DMR_FlareBase
 {
 	Default
