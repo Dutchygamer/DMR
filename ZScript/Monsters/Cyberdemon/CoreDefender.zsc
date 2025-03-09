@@ -51,18 +51,26 @@ class CoreDefender : DMR_Cyberdemon
 		Loop;
 	Missile:
 		TNT1 A 0 A_Jump(80,"ObeliskLaser");
-		TNT1 A 0 A_Jump(256,"Plasma", "Rockets","ClusterMissile");
+		TNT1 A 0 A_Jump(256,"SmallLaser", "Rockets","ClusterMissile");
 		Goto See;
-	Plasma:		
-		ROB4 C 6 A_FaceTarget;
-		ROB4 FFFF 8 Bright Light("DMR_LaserFire") {
+	SmallLaser:		
+        TNT1 A 0 {
+			attackloop = 0;
+		}	
+		ROB4 CCC 4 A_FaceTarget;
+	SmallLaserLoop:
+		TNT1 A 0 A_JumpIf(attackloop >= 4,"SmallLaserEnd");
+		ROB4 FF 5 Bright Light("DMR_LaserFire") {
 			A_FaceTarget();
-			A_StartSound("baby/attack", CHAN_WEAPON);
-			A_SpawnProjectile("WeavotronPlasma",64,-42,0);
-			A_SpawnProjectile("WeavotronPlasma",64,-42,-2);
-			A_SpawnProjectile("WeavotronPlasma",64,-42,2);
+			A_SpawnProjectile("DMR_LaserProjectile",64,-42);
 		}
-		ROB4 G 6;
+		TNT1 A 0 {		
+			attackloop++;
+		}
+		TNT1 A 0 A_MonsterRefire(0,"SmallLaserEnd");
+		Goto SmallLaserLoop;
+	SmallLaserEnd:
+		ROB4 G 10;
 		Goto See;
 	ObeliskLaser:
 		TNT1 A 0 {
@@ -102,6 +110,9 @@ class CoreDefender : DMR_Cyberdemon
 		Goto See;
 	ClusterMissile:
 		TNT1 A 0 A_JumpIfCloser(350, "Rockets"); // use dumbfire rockets when target is nearby
+		TNT1 A 0 {
+			A_StartSound("heavyweapon/load");
+		}
 		ROB4 AAA 6 A_FaceTarget;
 		ROB4 J 8 Bright Light("DMR_RifleFire") A_SpawnProjectile("CoreDefenderClusterMissile",100,24,0);
 		ROB4 J 8 Bright Light("DMR_RifleFire") A_SpawnProjectile("CoreDefenderClusterMissile",100,-24,0);
