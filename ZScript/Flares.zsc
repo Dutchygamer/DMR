@@ -13,6 +13,133 @@ class DMR_FlareBase : DMR_FXBase
 	}
 }
 
+// plasma
+class DMR_PlasmaImpactFlare : DMR_FlareBase
+{
+	Default
+	{
+		Scale 0.6;
+	}
+	States
+	{
+	Spawn:
+		BFOF B 1 Bright {
+			A_FadeOut();
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}
+
+class DMR_ArachnotronPlasmaImpactFlare : DMR_PlasmaImpactFlare
+{
+	States
+	{
+	Spawn:
+		BFOF B 1 Bright {
+			A_FadeOut();
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}
+
+class DMR_RedPlasmaImpactFlare : DMR_PlasmaImpactFlare
+{
+	States
+	{
+	Spawn:
+		BFOF A 1 Bright {
+			A_FadeOut();
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}
+
+class DMR_PurplePlasmaImpactFlare : DMR_PlasmaImpactFlare
+{
+	States
+	{
+	Spawn:
+		BFOF D 1 Bright {
+			A_FadeOut();
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}
+
+
+// BFG
+class DMR_BFGImpactFlare : DMR_FlareBase
+{
+	Default
+	{
+		Alpha 0.75;
+		Scale 3.0;
+	}
+	States
+	{
+	Spawn:
+		BFOF C 1 Bright {
+			A_FadeOut();
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}
+
+class DMR_BlueBFGImpactFlare : DMR_BFGImpactFlare
+{
+	States
+	{
+	Spawn:
+		BFOF B 1 Bright {
+			A_FadeOut();
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}
+
+class DMR_SmallBFGImpactFlare : DMR_FlareBase
+{
+	Default
+	{
+		Alpha 0.75;
+		Scale 0.6;
+	}
+	States
+	{
+	Spawn:
+		BFOF C 1 Bright {
+			A_FadeOut();
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}
+
+class DMR_MediumBFGImpactFlare : DMR_FlareBase
+{
+	Default
+	{
+		Alpha 0.75;
+		Scale 1.5;
+	}
+	States
+	{
+	Spawn:
+		BFOF C 1 Bright {
+			A_FadeOut();
+			A_SetScale(Scale.X-0.01);
+		}
+		Loop;
+	}
+}
+
+
 // lasers
 class DMR_LaserFlare : DMR_FlareBase
 {
@@ -82,13 +209,8 @@ class DMR_LaserImpactFlare : DMR_FlareBase
 	}
 }
 
-class DMR_LaserImpactFlareBig : DMR_FlareBase
+class DMR_LaserImpactFlareBig : DMR_BFGImpactFlare
 {
-	Default
-	{
-		Alpha 0.75;
-		Scale 1.5;
-	}
 	States
 	{
 	Spawn:
@@ -99,148 +221,13 @@ class DMR_LaserImpactFlareBig : DMR_FlareBase
 	}
 }
 
-class DMR_BlueLaserImpactFlareBig : DMR_FlareBase
+class DMR_BlueLaserImpactFlareBig : DMR_BFGImpactFlare
 {
-	Default
-	{
-		Alpha 0.75;
-		Scale 1.5;
-	}
 	States
 	{
 	Spawn:
 		BFOF B 1 Bright {
 			A_FadeOut(0.05);
-		}
-		Loop;
-	}
-}
-
-// plasma
-class DMR_PlasmaImpactFlare : DMR_FlareBase
-{
-	Default
-	{
-		Scale 0.6;
-	}
-	States
-	{
-	Spawn:
-		BFOF B 1 Bright {
-			A_FadeOut();
-			A_SetScale(Scale.X-0.01);
-		}
-		Loop;
-	}
-}
-
-class DMR_ArachnotronPlasmaImpactFlare : DMR_PlasmaImpactFlare
-{
-	States
-	{
-	Spawn:
-		BFOF B 1 Bright {
-			A_FadeOut();
-			A_SetScale(Scale.X-0.01);
-		}
-		Loop;
-	}
-}
-
-class DMR_RedPlasmaImpactFlare : DMR_PlasmaImpactFlare
-{
-	States
-	{
-	Spawn:
-		BFOF A 1 Bright {
-			A_FadeOut();
-			A_SetScale(Scale.X-0.01);
-		}
-		Loop;
-	}
-}
-
-class DMR_PurplePlasmaImpactFlare : DMR_PlasmaImpactFlare
-{
-	States
-	{
-	Spawn:
-		BFOF D 1 Bright {
-			A_FadeOut();
-			A_SetScale(Scale.X-0.01);
-		}
-		Loop;
-	}
-}
-
-// BFG
-class DMR_BFGImpactFlare : DMR_FlareBase
-{
-	Default
-	{
-		Alpha 0.75;
-		Scale 3.0;
-	}
-	States
-	{
-	Spawn:
-		BFOF C 1 Bright {
-			A_FadeOut();
-			A_SetScale(Scale.X-0.01);
-		}
-		Loop;
-	}
-}
-
-class DMR_BlueBFGImpactFlare : DMR_FlareBase
-{
-	Default
-	{
-		Alpha 0.75;
-		Scale 3.0;
-	}
-	States
-	{
-	Spawn:
-		BFOF B 1 Bright {
-			A_FadeOut();
-			A_SetScale(Scale.X-0.01);
-		}
-		Loop;
-	}
-}
-
-class DMR_SmallBFGImpactFlare : DMR_FlareBase
-{
-	Default
-	{
-		Alpha 0.75;
-		Scale 0.6;
-	}
-	States
-	{
-	Spawn:
-		BFOF C 1 Bright {
-			A_FadeOut();
-			A_SetScale(Scale.X-0.01);
-		}
-		Loop;
-	}
-}
-
-class DMR_MediumBFGImpactFlare : DMR_FlareBase
-{
-	Default
-	{
-		Alpha 0.75;
-		Scale 1.5;
-	}
-	States
-	{
-	Spawn:
-		BFOF C 1 Bright {
-			A_FadeOut();
-			A_SetScale(Scale.X-0.01);
 		}
 		Loop;
 	}
