@@ -313,7 +313,6 @@ class DMR_LaserProjectile : DMR_FastProjectile
 		Height 6;
 		Speed 100;
 		DamageFunction(random(12,36));
-		Translation "112:127=176:191";
 		//this defines a laser
 		+RANDOMIZE;
 		+DONTSPLASH;
@@ -349,7 +348,7 @@ class DMR_LaserProjectile : DMR_FastProjectile
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
 			}
 		}
-		BFE1 ABCDEF 5 Bright;
+		BFE2 ABCDEF 5 Bright;
 		Stop;
 	}
 }

@@ -283,7 +283,7 @@ class CoreDefenderObeliskLaser : DMR_LaserProjectile
 		}
 		Loop;
 	Death:
-		BFE1 A 8 Bright {
+		BFE2 A 8 Bright {
 			A_SetRoll(0);
 			A_SetScale(1.5);
 			A_Explode(108,48);
@@ -300,7 +300,7 @@ class CoreDefenderObeliskLaser : DMR_LaserProjectile
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(36,48),frandom(24,28),random(0,360),frandom(0,13),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
 			}
 		}
-		BFE1 BCDEF 8 Bright;
+		BFE2 BCDEF 8 Bright;
 		Stop;
 	}
 }

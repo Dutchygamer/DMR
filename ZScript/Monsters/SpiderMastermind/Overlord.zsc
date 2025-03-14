@@ -295,7 +295,7 @@ class OverlordBreathLaser : DMR_LaserBase
 		TNT1 A 1 A_Explode(2,48);
 		Loop;
 	Death:
-		BFE1 A 6 Bright Light("DMR_BlueLaserImpactBig_X1") {
+		BFE3 A 6 Bright Light("DMR_BlueLaserImpactBig_X1") {
 			A_Explode(20,64,0,0,48);
 			A_SpawnItemEx("DMR_BlueLaserImpactFlareBig");
 			A_QuakeEx(1,1,1,12,0,300,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:100,rollIntensity:.5);
@@ -304,7 +304,7 @@ class OverlordBreathLaser : DMR_LaserBase
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
 			}
 		}
-		BFE1 BCDEF 6 Bright;
+		BFE3 BCDEF 6 Bright;
 		Stop;
 	}
 }
