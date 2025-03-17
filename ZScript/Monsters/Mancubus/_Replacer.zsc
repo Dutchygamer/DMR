@@ -4,9 +4,9 @@ Class FatsoReplacer: RandomSpawner replaces Fatso
 	{
 		DropItem "DMR_Fatso", 255, 100;
 		DropItem "Hectebus", 255, 20;
-		DropItem "Corpulent", 255, 12;
 		DropItem "ZombiePlasmaTank", 255, 12;
-		DropItem "ZombieRocketTank", 255, 8;
+		DropItem "ZombieRocketTank", 255, 10;
+		DropItem "Corpulent", 255, 8;
 	}
 }
 
