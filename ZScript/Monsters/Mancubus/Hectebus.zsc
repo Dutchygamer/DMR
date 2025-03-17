@@ -36,21 +36,26 @@ class Hectebus : DMR_Fatso
 		TNT1 A 0 A_Jump(128,"SpreadShot");
 		Goto RapidFire;
 	RapidFire:
-		TNT1 A 0 A_StartSound("corpulent/attack");
-		FAT2 G 20 A_FaceTarget;
+		FAT2 G 20 {
+			A_FaceTarget();
+			A_StartSound("corpulent/attack");
+		}
 		FAT2 H 6 Bright {
+			A_FaceTarget();
 			A_StartSound("deathknight/missile", CHAN_WEAPON);
 			A_SpawnProjectile("HectebusBall",18,-34,15);
 			A_SpawnProjectile("HectebusBall",18,34,0);
 		}
 		FAT2 IG 5 A_FaceTarget;
 		FAT2 H 6 Bright {
+			A_FaceTarget();
 			A_StartSound("deathknight/missile", CHAN_WEAPON);
 			A_SpawnProjectile("HectebusBall",18,-34,0);
 			A_SpawnProjectile("HectebusBall",18,34,-15);
 		}
 		FAT2 IG 5 A_FaceTarget;
 		FAT2 H 6 Bright {
+			A_FaceTarget();
 			A_StartSound("deathknight/missile", CHAN_WEAPON);
 			A_SpawnProjectile("HectebusBall",18,-34,7.5);
 			A_SpawnProjectile("HectebusBall",18,34,-7.5);
@@ -58,9 +63,12 @@ class Hectebus : DMR_Fatso
 		FAT2 IG 5 A_FaceTarget;
 		Goto See;
 	SpreadShot:
-		TNT1 A 0 A_StartSound("corpulent/attack");
-		FAT2 G 20 A_FaceTarget;
+		FAT2 G 20 {
+			A_FaceTarget();
+			A_StartSound("corpulent/attack");
+		}
 		FAT2 H 10 Bright {
+			A_FaceTarget();
 			A_StartSound("deathknight/missile", CHAN_WEAPON);
 			A_SpawnProjectile("HectebusBall",18,-34,8);
 			A_SpawnProjectile("HectebusBall",18,34,0);
