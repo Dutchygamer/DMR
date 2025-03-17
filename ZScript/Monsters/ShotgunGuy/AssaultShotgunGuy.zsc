@@ -17,7 +17,6 @@ class FormerAssaultSargeant : DMR_ShotgunGuy
 	{
 		Tag "Former Assault Sargeant";
 		Health 50;
-		PainChance 155;
 		Obituary "%o was shredded by a Former Assault Sargeant.";
 		DropItem "Shell", 256, 4;
 		DropItem "Shell", 128, 4;
@@ -37,38 +36,28 @@ class FormerAssaultSargeant : DMR_ShotgunGuy
 		Loop;
 	Missile:
 		ASGZ E 10 A_FaceTarget;
-        ASGZ F 10 Bright Light("DMR_RifleFire") {
+	MissileLoop:
+		TNT1 A 0 { // reload when we have expended 6 shots
+			if (shotsFired >= 6) { SetStateLabel("Reload"); }
+		}
+		ASGZ E 10 A_FaceTarget;
+        ASGZ F 7 Bright Light("DMR_RifleFire") {
 			A_StartSound("autoshotgun/fire", CHAN_WEAPON);
 			A_CustomBulletAttack(22.5,4,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			shotsFired++; // expend a single shot
+			shotsFired++;
 		}
-        ASGZ E 5;
-		TNT1 A 0 { // reload when we have expended 6 shots
-			if (shotsFired >= 6) { SetStateLabel("Reload"); }
-		}	
-        ASGZ F 10 Bright Light("DMR_RifleFire") {
-			A_StartSound("autoshotgun/fire", CHAN_WEAPON);
-			A_CustomBulletAttack(22.5,0,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			shotsFired++; // expend a single shot
-		}
-        ASGZ E 5;
-		TNT1 A 0 { // reload when we have expended 6 shots
-			if (shotsFired >= 6) { SetStateLabel("Reload"); }
-		}	
-        ASGZ F 10 Bright Light("DMR_RifleFire") {
-			A_StartSound("autoshotgun/fire", CHAN_WEAPON);
-			A_CustomBulletAttack(22.5,0,3,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
-			shotsFired++; // expend a single shot
-		}
+		TNT1 A 0 A_MonsterRefire(32,"MissileEnd");
+		Loop;
+	MissileEnd:
         ASGZ E 10;
 		Goto See;
 	Reload:
-		ASGZ E 14 A_StartSound("autoshotgun/reload");
-		ASGZ A 15;
-		TNT1 A 0 {
+		ASGZ E 12 A_StartSound("autoshotgun/reload");
+		ASGZ A 12;
+		ASGZ E 12 {
+			A_StartSound("autoshotgun/reload");
 			shotsFired = 0; // all 6 shots loaded again
 		}
-		ASGZ E 7 A_StartSound("autoshotgun/reload");
 		Goto See;
 	Pain:
         ASGZ G 3;
