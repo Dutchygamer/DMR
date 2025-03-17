@@ -265,7 +265,7 @@ class VirusGrenade : SpecOpsGrenade
 			}
 		}	
 		FVUL C 4 {
-			A_Explode(24,48);
+			A_Explode(24,48,damagetype:"VirusPoison");
 			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
