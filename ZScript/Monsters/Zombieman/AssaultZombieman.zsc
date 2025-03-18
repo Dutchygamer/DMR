@@ -18,7 +18,6 @@ class FormerAssaultTrooper : DMR_Zombieman
 		Tag "Former Assault Trooper";
 		OBITUARY "%o was tagged by a Former Assault Trooper.";
 		Health 35;
-		PainChance 185;
 		+MISSILEMORE
 		DropItem "Clip", 256, 5;
 		DropItem "Clip", 256, 5;
