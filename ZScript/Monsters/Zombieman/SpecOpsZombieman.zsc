@@ -20,7 +20,7 @@ class FormerSpecOpsGunner : DMR_Zombieman
 		OBITUARY "%o was gunned down by a Former SpecOps Gunner.";
 		Health 90;
 		Speed 12;
-		PainChance 140;
+		PainChance 80;
 		DamageFactor "ZombieGrenade", 0.5; // take less damage from own grenades
 		+MISSILEMORE
 		+DOHARMSPECIES; // zombies aren't grenade-proof
@@ -83,7 +83,6 @@ class FormerSpecOpsGunner : DMR_Zombieman
 		ZSP2 EEE 8 A_FaceTarget;
 		ZSP2 F 5 {
 			A_StartSound("handgrenade/throw", CHAN_WEAPON);
-			//A_SpawnProjectile("SpecOpsGrenade",32,0,random(9,-9),CMF_OFFSETPITCH,random(-2,2));
 			A_LobProjectile("SpecOpsGrenade",32,0,random(9,-9));
 		}
 		ZSP2 E 4;
