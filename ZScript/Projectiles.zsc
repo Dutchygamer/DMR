@@ -219,7 +219,7 @@ Class DMR_FlamethrowerBall : DMR_Projectile
 	Default
 	{
 		Radius 4;
-		Height 4;
+		Height 6;
 		Speed 20;
 		RenderStyle "Add";
 		DamageType "Fire";
@@ -268,10 +268,10 @@ Class DMR_FlamethrowerBall : DMR_Projectile
 	override void Tick()
 	{
 		Super.Tick();
-		//if(vel.x == 0 && vel.y == 0 && fire == false && random(1,4) == 1) {
-		//	A_SpawnProjectile("DMR_BurningFire",1,0,0,CMF_TRACKOWNER);
-		//	fire = true;
-		//}
+		if (vel.x == 0 && vel.y == 0 && fire == false && random(1,4) == 1) {
+			A_SpawnProjectile("DMR_BurningFire",1,0,0,CMF_TRACKOWNER);
+			fire = true;
+		}
 	}
 }
 
@@ -300,6 +300,21 @@ class DMR_FlamethrowerBallLarge : DMR_FlamethrowerBall
 			A_SetScale(Scale.X + 0.03);
 		}
 		Stop;
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		A_SetRoll(random(0,360));
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (vel.x == 0 && vel.y == 0 && fire == false && random(1,2) == 1) {
+			A_SpawnProjectile("DMR_BurningFire",1,0,0,CMF_TRACKOWNER);
+			fire = true;
+		}
 	}
 }
 
