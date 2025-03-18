@@ -57,7 +57,7 @@ class Hellhound : DMR_Demon
 		HDOG H 1 Bright {
 			A_FaceTarget();
 			attackloop++;
-			A_SpawnProjectile("DMR_FlamethrowerBall",28,0,random(-3,3));
+			A_SpawnProjectile("DMR_FlamethrowerBall",28,0,random(-3,3),CMF_OFFSETPITCH,frandom(-1,1));
 		}
 		Loop;
 	Pain:

@@ -42,7 +42,7 @@ class FormerPyroTechnician : DMR_ChaingunGuy
 	FireballLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 4,"FireballEnd");
 		PYRZ F 6 Bright Light("DMR_RifleFire") {
-			A_SpawnProjectile("PyroTechnicianBall",32);
+			A_LobProjectile("PyroTechnicianBall",32);
 			attackloop++;
 		}
 		PYRZ E 5 A_FaceTarget;
@@ -73,7 +73,7 @@ class FormerPyroTechnician : DMR_ChaingunGuy
 		PYRZ F 1 Bright {
 			A_FaceTarget();
 			attackloop++;
-			A_SpawnProjectile("DMR_FlamethrowerBall",32,0,random(-3,3));
+			A_SpawnProjectile("DMR_FlamethrowerBall",32,0,random(-3,3),CMF_OFFSETPITCH,frandom(-1,1));
 		}
 		Loop;
 	FlamethrowerEnd:
@@ -107,11 +107,13 @@ Class PyroTechnicianBall : DMR_FatShot
 {
 	Default
 	{
-		Speed 17;
+		Speed 30;
 		DamageFunction(random(14,42));
 		RenderStyle "Add";
 		Alpha 1;
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
+		Gravity 0.5;
+		-NOGRAVITY;
 	}
 	States
 	{
@@ -132,6 +134,7 @@ Class PyroTechnicianBall : DMR_FatShot
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
+			A_SpawnItemEx("DMR_BurningFire",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_ORIGINATOR|SXF_TRANSFERPOINTERS);
 		}
 		SXAL DEFGH 3 Bright;
 		Stop;
