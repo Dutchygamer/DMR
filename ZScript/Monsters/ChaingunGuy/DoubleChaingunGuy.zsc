@@ -19,7 +19,6 @@ class FormerGunnerCommando : DMR_ChaingunGuy
 		Tag "Former Gunner Commando";
 		Obituary "%o was eviscerated by a Former Gunner Commando.";
 		Health 90;
-		PainChance 150;
 		DropItem "Chaingun";
 		DropItem "Chaingun", 10;
 	}
@@ -52,11 +51,11 @@ class FormerGunnerCommando : DMR_ChaingunGuy
 	// speed up after a couple of shots
 	MissileLoopFast:
 		DPOS F 2 Bright Light("DMR_RifleFire") {
-			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			A_CustomBulletAttack(22.5,3,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			A_StartSound("Chaingunner/Fire", CHAN_WEAPON );
 		}
 		DPOS F 2 Bright Light("DMR_RifleFire") {
-			A_CustomBulletAttack(22.5,0,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
+			A_CustomBulletAttack(22.5,3,1,random(6,12),"BulletPuff",0,CBAF_NORANDOM);
 			A_StartSound("Chaingunner/Fire", CHAN_WEAPON );
 		}
 		DPOS F 1 A_CPosRefire;
