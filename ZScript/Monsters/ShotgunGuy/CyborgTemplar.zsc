@@ -71,6 +71,8 @@ class CyborgTemplar : CyborgAcolyte
 			A_StartSound("quadshotgun/reload/3");
 			attackloop = random(0,2);
 		}
+	FullAutoLoop:
+		TNT1 A 0 A_JumpIf(attackloop >= 6,"FullAutoEnd");
 		GREB FE 4 Bright Light("DMR_RifleFire") {
 			A_FaceTarget();
 			A_StartSound("autoshotgun/fire", CHAN_WEAPON);
@@ -79,11 +81,8 @@ class CyborgTemplar : CyborgAcolyte
 		TNT1 A 0 {
 			attackloop++;
 		}
-		// always stop firing after 6 loops
-		TNT1 A 0 A_JumpIf(attackloop >= 6,"FullAutoEnd");
-		// random chance to stop firing prematurely
 		GREB E 4 A_MonsterRefire(40,"FullAutoEnd");
-		Goto FullAuto+1;
+		Loop;
 	FullAutoEnd:
 		GREB E 12;
 		Goto See;
