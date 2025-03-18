@@ -29,7 +29,6 @@ Class SSReplacer_Nod : RandomSpawner
 	{
 		// light infantry
 		DropItem "FormerAssaultTrooper", 255, 100;
-		DropItem "FormerInfiltrator", 255, 100;
 		DropItem "FormerSpecOpsGunner", 255, 100;
 		// rocket infantry
 		DropItem "FormerRocketeer", 255, 50;

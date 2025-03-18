@@ -4,7 +4,6 @@ Class ZombiemanReplacer: RandomSpawner replaces Zombieman
 	{
 		DropItem "DMR_Zombieman", 255, 100;
 		DropItem "FormerAssaultTrooper", 255, 30;
-		//DropItem "FormerInfiltrator", 255, 10;
 		DropItem "FormerSpecOpsGunner", 255, 10;
 		DropItem "FormerPlasmagunner", 255, 8;
 		DropItem "CyborgAcolyte", 255, 6;

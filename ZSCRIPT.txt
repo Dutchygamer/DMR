@@ -18,7 +18,6 @@ version "4.10"
 #include "ZScript/Monsters/Zombieman/AssaultZombieman.zsc"
 #include "ZScript/Monsters/Zombieman/PlasmaZombieman.zsc"
 #include "ZScript/Monsters/Zombieman/SpecOpsZombieman.zsc"
-#include "ZScript/Monsters/Zombieman/AssassinZombieman.zsc"
 #include "ZScript/Monsters/Zombieman/Cyborg.zsc"
 
 #include "ZScript/Monsters/ShotgunGuy/_Replacer.zsc"

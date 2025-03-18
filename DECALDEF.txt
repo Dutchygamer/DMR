@@ -402,7 +402,6 @@ decalgroup HellRuneScorch
 
 generator DMR_Zombieman			BulletChip
 generator FormerAssaultTrooper	BulletChip
-generator FormerInfiltrator		BulletChip
 generator FormerSpecOpsGunner	BulletChip
 generator CyborgAcolyte			BulletChip
 
