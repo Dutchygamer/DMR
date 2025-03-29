@@ -127,7 +127,7 @@ class Overlord : DMR_SpiderMastermind
 		}
 		OVER G 10 Bright {
 			A_FaceTarget();
-			A_StartSound("emperoroverlord/lasercharge",CHAN_WEAPON,1.0,0,ATTN_NONE);
+			A_StartSound("emperoroverlord/lasercharge",CHAN_WEAPON,CHANF_DEFAULT,1.0,0,ATTN_NONE);
 			A_SpawnItemEx("OverlordBreathLaserCharge",0,0,0,0,0,0,0,SXF_SETMASTER);
 		}
 		OVER GGGGHHHHIIII 2 Bright {
@@ -135,7 +135,7 @@ class Overlord : DMR_SpiderMastermind
 		}
 		TNT1 A 0 {		
 			A_RemoveChildren(1,RMVF_EVERYTHING,"OverlordBreathLaserCharge");
-			A_StartSound("emperoroverlord/laserfire",CHAN_WEAPON,1.0,0,ATTN_NONE);
+			A_StartSound("emperoroverlord/laserfire",CHAN_WEAPON,CHANF_DEFAULT,1.0,0,ATTN_NONE);
 		}
 		OVER IIIIIIIIIIII 1 Bright {
 			// only partially adjust aim
