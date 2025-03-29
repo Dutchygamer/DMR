@@ -88,7 +88,7 @@ class Tyrant : DMR_Cyberdemon
 		DCYB E 12 Light("DMR_BlueBFGCharge_X1") A_FaceTarget;
 		DCYB EEEEEEEEEEEE 1 BRIGHT Light("DMR_BlueBFGCharge_X2") {
 			A_FaceTarget();
-			A_SpawnItemEx("TiberiumBlueLightningBolt",0,-25,56);
+			A_SpawnItemEx("BlueLightningBolt",0,-25,56);
 		}
 		DCYB F 6 Bright Light("DMR_BlueBFGFire") {
 			A_FaceTarget();
@@ -208,8 +208,8 @@ class TiberiumBlueFlechette : TiberiumFlechette
 	Spawn:
 		BSRD A 1 Bright {
 			A_SpawnItemEx("TiberiumBlueFlechetteTrail",-20,0,1);
-			A_SpawnItemEx("TiberiumBlueLightningBolt",frandom(0,-20));
-			A_SpawnItemEx("TiberiumBlueLightningBolt",frandom(0,-20));
+			A_SpawnItemEx("BlueLightningBolt",frandom(0,-20));
+			A_SpawnItemEx("BlueLightningBolt",frandom(0,-20));
 			for (fxLoop = 0;fxLoop<=3;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-35,-30),frandom(-6,6),frandom(-6,6),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
@@ -221,7 +221,7 @@ class TiberiumBlueFlechette : TiberiumFlechette
 			A_SetScale(1.5);
 			A_Explode(196,196);
 			A_SpawnItemEx("DMR_BlueBFGImpactFlare");
-			A_SpawnItemEx("TiberiumBlueLightningBurst");
+			A_SpawnItemEx("BlueLightningBurst");
 			A_SetRenderStyle(1.0,STYLE_Add);
 			A_QuakeEx(9,9,9,40,0,1800,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:1200,rollIntensity:1.);
 			for (fxLoop = 0;fxLoop<=70;fxLoop++)

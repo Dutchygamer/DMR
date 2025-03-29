@@ -489,7 +489,7 @@ class DMR_ZombiePlasma : DMR_Projectile
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
 			}
 		}
-		PLSS ABCDE 5 Bright;
+		PLSE ABCDE 5 Bright;
 		Stop;
 	}
 }

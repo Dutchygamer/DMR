@@ -91,7 +91,7 @@ class InfusedTyrant : DMR_Cyberdemon
 		CARD C 12 Light("DMR_BlueBFGCharge_X1") A_FaceTarget;
 		CARD CCCCCCCCCCCC 1 BRIGHT Light("DMR_BlueBFGCharge_X2") {
 			A_FaceTarget();
-			A_SpawnItemEx("TiberiumBlueLightningBolt",0,-25,72);
+			A_SpawnItemEx("BlueLightningBolt",0,-25,72);
 		}
 		CARD D 6 Bright Light("DMR_BlueBFGFire") {
 			A_FaceTarget();
