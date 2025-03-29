@@ -204,6 +204,34 @@ decalgroup BlueBFGLightning
 	BlueBFGLightning2	1
 }
 
+// *** yellow BFG ***
+
+decal YellowBFGLightning1
+{
+	pic BFGLITE1
+	shade "ff ff 80"
+	fullbright
+	randomflipx
+	animator GoAway2
+	lowerdecal BFGScorch
+}
+
+decal YellowBFGLightning2
+{
+	pic BFGLITE2
+	shade "ff ff 80"
+	fullbright
+	randomflipy
+	animator GoAway2
+	lowerdecal BFGScorch
+}
+
+decalgroup YellowBFGLightning
+{
+	YellowBFGLightning1	1
+	YellowBFGLightning2	1
+}
+
 
 
 

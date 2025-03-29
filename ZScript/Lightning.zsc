@@ -12,8 +12,8 @@ class DMR_LightningBase : DMR_FXBase
 	}
 }
 
-
-Class BFGLightningBolt : DMR_LightningBase
+// --- green ---
+Class GreenLightningBolt : DMR_LightningBase
 {
 	Default
 	{
@@ -34,7 +34,7 @@ Class BFGLightningBolt : DMR_LightningBase
 	}
 }
 
-Class BFGLightningBurst : DMR_LightningBase
+Class GreenLightningBurst : DMR_LightningBase
 {
 	States
 	{
@@ -47,7 +47,8 @@ Class BFGLightningBurst : DMR_LightningBase
 	}
 }
 
-Class MediumBFGLightningBurst : DMR_LightningBase
+//TODO obsolete
+Class MediumBFGLightningBurst : GreenLightningBurst
 {
 	States
 	{
@@ -61,7 +62,8 @@ Class MediumBFGLightningBurst : DMR_LightningBase
 }
 
 
-Class TiberiumBlueLightningBolt : BFGLightningBolt
+// --- blue ---
+Class BlueLightningBolt : GreenLightningBolt
 {
 	Default
 	{
@@ -81,7 +83,7 @@ Class TiberiumBlueLightningBolt : BFGLightningBolt
 	}
 }
 
-Class TiberiumBlueLightningBurst : BFGLightningBurst
+Class BlueLightningBurst : GreenLightningBurst
 {
 	States
 	{
@@ -90,6 +92,49 @@ Class TiberiumBlueLightningBurst : BFGLightningBurst
 			A_SetRoll(random(0,360));
 		}
 		SHCK BBBBBB 1 A_SetScale(frandom(0.6,0.8));
+		Stop;
+	}
+}
+
+
+// --- yellow ---
+Class YellowLightningBolt : GreenLightningBolt
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			A_SetRoll(random(0,360));
+			A_SetAngle(random(0,360));
+			A_SetPitch(random(0,360));
+		}
+		SHCK EE 1 A_SetScale(Scale.X+0.1,Scale.Y+0.3);
+		Stop;
+	}
+}
+
+Class YellowLightningBurst : DMR_LightningBase
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			A_SetRoll(random(0,360));
+		}
+		SHCK FFFFFF 1 A_SetScale(frandom(0.6,0.8));
+		Stop;
+	}
+}
+
+Class MediumYellowLightningBurst : YellowLightningBurst
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			A_SetRoll(random(0,360));
+		}
+		SHCK FFFFFF 1 A_SetScale(frandom(0.35,0.5));
 		Stop;
 	}
 }

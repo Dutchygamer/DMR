@@ -1,57 +1,57 @@
 
 // Zombies
-flickerlight DMR_SmallBFGFire
+flickerlight DMR_YellowPlasmaFire
 {
-    color 0.5 1.0 0.5
+    color 1.0 1.0 0.5
     size 48
     secondarySize 56
     offset 0 40 0
     chance 0.3
 }
 
-flickerlight DMR_SmallBFGBall
+flickerlight DMR_YellowPlasmaBall
 {
-    color 0.5 1.0 0.5
+    color 1.0 1.0 0.5
     size 48
     secondarySize 56
     chance 0.3
 }
 
-flickerlight DMR_SmallBFGBall_X1
+flickerlight DMR_YellowPlasmaBall_X1
 {
-    color 0.5 1.0 0.5
+    color 1.0 1.0 0.5
     size 55
     secondarySize 60
     chance 0.3
 }
 
-flickerlight DMR_SmallBFGBall_X2
+flickerlight DMR_YellowPlasmaBall_X2
 {
-    color 0.6 1.0 0.6
+    color 1.0 1.0 0.6
     size 60
     secondarySize 65
     chance 0.3
 }
 
-flickerlight DMR_SmallBFGBall_X3
+flickerlight DMR_YellowPlasmaBall_X3
 {
-    color 0.7 1.0 0.7
+    color 1.0 1.0 0.7
     size 65
     secondarySize 70
     chance 0.3
 }
 
-flickerlight DMR_SmallBFGBall_X4
+flickerlight DMR_YellowPlasmaBall_X4
 {
-    color 0.4 0.7 0.4
+    color 0.7 0.7 0.4
     size 70
     secondarySize 75
     chance 0.3
 }
 
-flickerlight DMR_SmallBFGBall_X5
+flickerlight DMR_YellowPlasmaBall_X5
 {
-    color 0.1 0.3 0.1
+    color 0.3 0.3 0.1
     size 70
     secondarySize 75
     chance 0.3
@@ -59,56 +59,138 @@ flickerlight DMR_SmallBFGBall_X5
 
 object CyborgCommandoPlasma
 {
-    frame BFS1A { light DMR_SmallBFGBall }
-    frame BFS1B { light DMR_SmallBFGBall }
+    frame YPLSA { light DMR_YellowPlasmaBall }
+    frame YPLSB { light DMR_YellowPlasmaBall }
 
-    frame BFE1A { light DMR_SmallBFGBall_X1 }
-    frame BFE1B { light DMR_SmallBFGBall_X2 }
-    frame BFE1C { light DMR_SmallBFGBall_X3 }
-    frame BFE1D { light DMR_SmallBFGBall_X4 }
-    frame BFE1E { light DMR_SmallBFGBall_X5 }
+    frame YPLEA { light DMR_YellowPlasmaBall_X1 }
+    frame YPLEB { light DMR_YellowPlasmaBall_X2 }
+    frame YPLEC { light DMR_YellowPlasmaBall_X3 }
+    frame YPLED { light DMR_YellowPlasmaBall_X4 }
+    frame YPLEE { light DMR_YellowPlasmaBall_X5 }
+}
+
+
+flickerlight DMR_YellowBFGCharge_X1
+{
+    color 1.0 1.0 0.5
+    size 48
+    secondarySize 56
+    offset 0 40 0
+    chance 0.3
+}
+
+flickerlight DMR_YellowBFGCharge_X2
+{
+    color 1.0 1.0 0.5
+    size 64
+    secondarySize 72
+    offset 0 40 0
+    chance 0.3
+}
+
+
+flickerlight DMR_YellowBFGFire
+{
+    color 1.0 1.0 0.5
+    size 72
+    secondarySize 86
+    offset 0 40 0
+    chance 0.3
+}
+
+
+flickerlight DMR_YellowBFGBall
+{
+    color 1.0 1.0 0.5
+    size 96
+    secondarySize 112
+    chance 0.3
+}
+
+flickerlight DMR_YellowBFGBall_X1
+{
+    color 1.0 1.0 0.5
+    size 110
+    secondarySize 120
+    chance 0.3
+}
+
+flickerlight DMR_YellowBFGBall_X2
+{
+	Color 1.0 1.0 0.6
+    size 120
+    secondarySize 130
+    chance 0.3
+}
+
+flickerlight DMR_YellowBFGBall_X3
+{
+	Color 1.0 1.0 0.7
+    size 130
+    secondarySize 140
+    chance 0.3
+}
+
+flickerlight DMR_YellowBFGBall_X4
+{
+	Color 0.7 0.7 0.4
+    size 85
+    secondarySize 90
+    chance 0.3
+}
+
+flickerlight DMR_YellowBFGBall_X5
+{
+    Color 0.3 0.3 0.1
+    size 80
+    secondarySize 85
+    chance 0.3
 }
 
 
 object CyborgCommandoChargedPlasma
 {
-    frame TBBLA { light DMR_BFGBall }
-    frame TBBLB { light DMR_BFGBall }
-    frame TBBLC { light DMR_BFGBall }
+    frame TBBLA { light DMR_YellowBFGBall }
+    frame TBBLB { light DMR_YellowBFGBall }
+    frame TBBLC { light DMR_YellowBFGBall }
 
-    frame CBTSK { light DMR_BFGBall_X1 }
-    frame CBTSL { light DMR_BFGBall_X2 }
-    frame CBTSM { light DMR_BFGBall_X2 }
-    frame CBTSN { light DMR_BFGBall_X2 }
-    frame CBTSO { light DMR_BFGBall_X3 }
-    frame CBTSP { light DMR_BFGBall_X3 }
-    frame CBTSQ { light DMR_BFGBall_X3 }
-    frame CBTSR { light DMR_BFGBall_X3 }
-    frame CBTSS { light DMR_BFGBall_X4 }
-    frame CBTST { light DMR_BFGBall_X4 }
-    frame CBTSU { light DMR_BFGBall_X4 }
-    frame CBTSV { light DMR_BFGBall_X5 }
-    frame CBTSW { light DMR_BFGBall_X5 }
+    frame TBLEA { light DMR_YellowBFGBall_X1 }
+    frame TBLEB { light DMR_YellowBFGBall_X2 }
+    frame TBLEC { light DMR_YellowBFGBall_X2 }
+    frame TBLED { light DMR_YellowBFGBall_X2 }
+    frame TBLEE { light DMR_YellowBFGBall_X3 }
+    frame TBLEF { light DMR_YellowBFGBall_X3 }
+    frame TBLEG { light DMR_YellowBFGBall_X3 }
+    frame TBLEH { light DMR_YellowBFGBall_X3 }
+    frame TBLEI { light DMR_YellowBFGBall_X4 }
+    frame TBLEJ { light DMR_YellowBFGBall_X4 }
+    frame TBLEK { light DMR_YellowBFGBall_X4 }
+    frame TBLEL { light DMR_YellowBFGBall_X4 }
+    frame TBLEM { light DMR_YellowBFGBall_X5 }
+    frame TBLEN { light DMR_YellowBFGBall_X5 }
+    frame TBLEO { light DMR_YellowBFGBall_X5 }
 }
 
 
 object CyborgCommandoBFG
 {
-    frame TBBLA { light DMR_BFGBall }
-    frame TBBLB { light DMR_BFGBall }
-    frame TBBLC { light DMR_BFGBall }
+    frame TBBLA { light DMR_YellowBFGBall }
+    frame TBBLB { light DMR_YellowBFGBall }
+    frame TBBLC { light DMR_YellowBFGBall }
 
-    frame CBTSK { light DMR_BFGBall_X1 }
-    frame CBTSL { light DMR_BFGBall_X2 }
-    frame CBTSM { light DMR_BFGBall_X2 }
-    frame CBTSN { light DMR_BFGBall_X2 }
-    frame CBTSO { light DMR_BFGBall_X3 }
-    frame CBTSP { light DMR_BFGBall_X3 }
-    frame CBTSQ { light DMR_BFGBall_X3 }
-    frame CBTSR { light DMR_BFGBall_X3 }
-    frame CBTSS { light DMR_BFGBall_X4 }
-    frame CBTST { light DMR_BFGBall_X4 }
-    frame CBTSU { light DMR_BFGBall_X4 }
-    frame CBTSV { light DMR_BFGBall_X5 }
-    frame CBTSW { light DMR_BFGBall_X5 }
+    frame TBLEA { light DMR_YellowBFGBall_X1 }
+    frame TBLEB { light DMR_YellowBFGBall_X2 }
+    frame TBLEC { light DMR_YellowBFGBall_X2 }
+    frame TBLED { light DMR_YellowBFGBall_X2 }
+    frame TBLEE { light DMR_YellowBFGBall_X3 }
+    frame TBLEF { light DMR_YellowBFGBall_X3 }
+    frame TBLEG { light DMR_YellowBFGBall_X3 }
+    frame TBLEH { light DMR_YellowBFGBall_X3 }
+    frame TBLEI { light DMR_YellowBFGBall_X4 }
+    frame TBLEJ { light DMR_YellowBFGBall_X4 }
+    frame TBLEK { light DMR_YellowBFGBall_X4 }
+    frame TBLEL { light DMR_YellowBFGBall_X4 }
+    frame TBLEM { light DMR_YellowBFGBall_X5 }
+    frame TBLEN { light DMR_YellowBFGBall_X5 }
+    frame TBLEO { light DMR_YellowBFGBall_X5 }
 }
