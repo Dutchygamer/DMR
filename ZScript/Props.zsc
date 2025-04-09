@@ -1,0 +1,87 @@
+Class BarrelReplacer: RandomSpawner replaces ExplosiveBarrel
+{
+	Default
+	{
+		DropItem "DMR_ExplosiveBarrel", 255, 100;
+	}
+}
+
+// ye olde explosive barrel
+class DMR_ExplosiveBarrel : Actor
+{
+	Default
+	{
+		Tag "Explosive Barrel";
+		Health 20;
+		Radius 10;
+		Height 42;
+		+SOLID
+		+SHOOTABLE
+		+NOBLOOD
+		+ACTIVATEMCROSS
+		+DONTGIB
+		+NOICEDEATH
+		+OLDRADIUSDMG
+		DeathSound "barrel/break";
+		Obituary "$OB_BARREL";
+		DMR_ExplosiveBarrel.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
+	}
+	
+	int fxLoop;
+	
+	array<color> ParticleColor;
+	color pcolor1;
+	color pcolor2;
+	color pcolor3;
+	color pcolor4;
+	property ParticleColors: pcolor1, pcolor2, pcolor3, pcolor4;
+	
+	override void BeginPlay()
+	{
+		Super.BeginPlay();
+		ParticleColor.Push(pcolor1);
+		ParticleColor.Push(pcolor2);
+		ParticleColor.Push(pcolor3);
+		ParticleColor.Push(pcolor4);
+	}
+	
+	virtual color GetParticleColor()
+	{
+		return ParticleColor[random(0,ParticleColor.Size()-1)];
+	}
+	
+	States
+	{
+	Spawn:
+		BAR1 AB 6;
+		Loop;
+	Death:
+		BEXP A 5 BRIGHT;
+		BEXP B 5 BRIGHT A_Scream;
+		BEXP C 5 BRIGHT;
+		TNT1 A 0 {
+			A_SpawnItemEx("DMR_LargeFireballImpactSpawner");
+			A_QuakeEx(4,4,4,15,0,800,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:500,rollIntensity:.75);
+			for (fxLoop = 0;fxLoop<=70;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
+			}
+			A_StartSound("barrel/explode",CHAN_VOICE);
+		}
+		BEXP D 10 BRIGHT A_Explode(128,128);
+		BEXP E 10 BRIGHT;
+		TNT1 A 1050 BRIGHT A_BarrelDestroy;
+		TNT1 A 5 A_Respawn;
+		Wait;
+	}
+}
+
+// ye olde explosive barrel but pushable - for CorruptionCard
+class DMR_ExplosiveBarrelCorruptionCards : DMR_ExplosiveBarrel
+{
+	Default
+	{
+		+PUSHABLE;
+		deathsound "corruptioncards/barrelexplosion";
+	}
+}

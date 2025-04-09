@@ -1,6 +1,7 @@
 #include "GLdefs/Projectiles.gl"
 //#include "GLdefs/Explosions.gl"
 #include "GLdefs/GenericStuff.gl"
+#include "GLdefs/Props.gl"
 
 #include "GLDefs/Monsters/ChaingunGuy/BFGGuy.gl"
 #include "GLDefs/Monsters/ChaingunGuy/PyroGuy.gl"

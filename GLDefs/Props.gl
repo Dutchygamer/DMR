@@ -1,0 +1,30 @@
+flickerlight DMR_ExplosiveBarrel
+{
+    color 0.0 0.1 0.0
+    size 25
+    secondarySize 30
+    chance 0.3
+	offset 0 36 0
+	DontLightSelf 0
+}
+
+
+object DMR_ExplosiveBarrel 
+{
+    frame BAR1A { light DMR_ExplosiveBarrel }
+    frame BAR1B { light DMR_ExplosiveBarrel }
+
+    frame BEXPC { light DMR_Rocket_X1 }
+    frame BEXPD { light DMR_Rocket_X2 }
+    frame BEXPE { light DMR_Rocket_X3 }
+}
+
+object DMR_ExplosiveBarrelCorruptionCards 
+{
+    frame BAR1A { light DMR_ExplosiveBarrel }
+    frame BAR1B { light DMR_ExplosiveBarrel }
+
+    frame BEXPC { light DMR_Rocket_X1 }
+    frame BEXPD { light DMR_Rocket_X2 }
+    frame BEXPE { light DMR_Rocket_X3 }
+}
