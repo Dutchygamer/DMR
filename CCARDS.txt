@@ -9,6 +9,8 @@
 
 // Player effect cards
 removecard CCard_AnnoyingDevil
+removecard CCard_BonusHealthDrain
+removecard CCard_BoilingBlood
 
 // World effect cards
 removecard CCard_HauntedHouse
@@ -18,6 +20,8 @@ removecard CCard_ShadowChase
 removecard CCard_DisableInfight
 removecard CCard_ChainResurrections
 removecard CCard_DoubleOrNothing
+
+removecard CCard_MonsterDisguise
 
 // Totems
 
