@@ -2,9 +2,9 @@ class DMR_ReplacerHandler : EventHandler
 {
 	override void CheckReplacement(ReplaceEvent a)
 	{
-		// replace CommanderKeen and/or WolfensteinSS with a specific monster/random spawner, depending on the setting
 		switch (a.Replacee.GetClassName()) 
 		{
+			// replace CommanderKeen and/or WolfensteinSS with a specific monster/random spawner, depending on the setting
 			case 'WolfensteinSS':
 				// "Scythe 2"
 				if (dmr_replace_ss == 1)
@@ -41,12 +41,9 @@ class DMR_ReplacerHandler : EventHandler
 				// "DMR"
 				else if (dmr_replace_keen == 11)
 					{ a.Replacement = 'SuperAfrit'; break; }
-		}		
-		
-		// mapset / mod custom actor replacers
-		// if a mapset replaces WolfensteinSS and/or CommanderKeen, it should not be done here
-		switch (a.Replacee.GetClassName()) 
-		{
+					
+			// mapset / mod custom actor replacers
+			// if a mapset replaces WolfensteinSS and/or CommanderKeen, it should not be done here but above
 			// BD Hell on Earth mapset
 			case 'BossBelphegor'					: a.Replacement = 'Belphegor'; break;
 			case 'CyberdemonLord'					: a.Replacement = 'Babel'; break;
@@ -61,7 +58,7 @@ class DMR_ReplacerHandler : EventHandler
 			case 'CCards_Actor_PilotedMechPlasma'	: a.Replacement = 'DMR_ArachnotronPlasma'; break;
 			case 'CCards_Actor_ShadowClone'			: a.Replacement = 'DMR_ShadowBanned'; break;
 			case 'CCards_Actor_CardExplosiveBarrel'	: a.Replacement = 'DMR_ExplosiveBarrelCorruptionCards'; break;
-		}
+		}		
 		
 		// hacky revert / overwrite of SWWM's teleporter replacer as in some instances this can cause massive lag when triggered rapidly
 		// works under the impression that because this mod gets loaded after SWWM, this replacer will be used instead of SWWM's
