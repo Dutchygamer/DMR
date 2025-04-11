@@ -165,7 +165,7 @@ class Overlord : DMR_SpiderMastermind
 		}
 		TNT1 A 0 A_NoBlocking;
 		OVER NO 8 Bright {
-			A_SpawnItemEx("DMR_BossDeathExplosion",random(-20,20),0,random(20,60),0,0,0,random(0,360));
+			//A_SpawnItemEx("DMR_BossDeathExplosion",random(-20,20),0,random(20,60),0,0,0,random(0,360));
 		}
 		TNT1 A 0 {
 			for (fxLoop = 0;fxLoop <= 5;fxLoop++) {
@@ -295,7 +295,7 @@ class OverlordBreathLaser : DMR_LaserBase
 		TNT1 A 1 A_Explode(2,48);
 		Loop;
 	Death:
-		BFE3 A 6 Bright Light("DMR_BlueLaserImpactBig_X1") {
+		BFE5 A 6 Bright Light("DMR_BlueLaserImpactBig_X1") {
 			A_Explode(20,64,0,0,48);
 			A_SpawnItemEx("DMR_BlueLaserImpactFlareBig");
 			A_QuakeEx(1,1,1,12,0,300,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:100,rollIntensity:.5);
@@ -304,7 +304,7 @@ class OverlordBreathLaser : DMR_LaserBase
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
 			}
 		}
-		BFE3 BCDEF 6 Bright;
+		BFE5 BCDEF 6 Bright;
 		Stop;
 	}
 }
@@ -365,6 +365,7 @@ class OverlordHandBall : DMR_CacodemonBall
 	{
 	Spawn:
 		HEFX AB 4 {
+			//A_SpawnItemEx("DMR_LightningBallTrail",-5,0,2,frandom(-0.5,0.5),frandom(-2.5,2.5),frandom(-2.5,2.5));
 			for (fxLoop = 0;fxLoop<=2;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
@@ -373,7 +374,6 @@ class OverlordHandBall : DMR_CacodemonBall
 		Loop;
 	Death:
 		TNT1 A 0 {	
-			//A_SpawnItemEx("DMR_FireballImpactSpawner");
 			for (fxLoop = 0;fxLoop<=20;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
@@ -399,13 +399,13 @@ class OverlordHandFastBall : OverlordHandBall
 	States
 	{
 	Spawn:
-		AFX1 ABC 2 {			
+		AFX1 ABC 2 {	
+			//A_SpawnItemEx("DMR_LightningBallTrail",-5,0,2,frandom(-0.5,0.5),frandom(-2.5,2.5),frandom(-2.5,2.5));		
 			A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
 		}
 		loop;
 	Death:
-		TNT1 A 0 {	
-			//A_SpawnItemEx("DMR_FireballImpactSpawner");
+		TNT1 A 0 {
 			for (fxLoop = 0;fxLoop<=20;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
