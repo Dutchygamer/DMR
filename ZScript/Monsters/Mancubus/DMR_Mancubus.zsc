@@ -116,14 +116,15 @@ class DMR_FatShot : DMR_Projectile
 	Death:
 		TNT1 A 0 {
 			A_SpawnItemEx("DMR_LargeFireballImpactSpawner");
+			A_SetScale(1.5);
 			for (fxLoop = 0;fxLoop<=30;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
 		}
-		MISL B 8 Bright;
-		MISL C 6 Bright;
-		MISL D 4 Bright;
+		XPL1 ABCD 1 Light("DMR_MacubusBall_X1");
+		XPL1 EFGHI 1 Light("DMR_MacubusBall_X2");
+		XPL1 JKLM 1 Light("DMR_MacubusBall_X3") A_FadeOut(0.15);
 		Stop;
 	}
 }

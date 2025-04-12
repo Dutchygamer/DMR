@@ -34,9 +34,4 @@ object DMR_FatShot
 {
     frame MANFA { light DMR_MacubusBall }
     frame MANFB { light DMR_MacubusBall }
-
-    frame MISLA { light DMR_MacubusBall_X1 }
-    frame MISLB { light DMR_MacubusBall_X2 }
-    frame MISLC { light DMR_MacubusBall_X2 }
-    frame MISLD { light DMR_MacubusBall_X3 }
 }
