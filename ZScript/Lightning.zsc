@@ -63,6 +63,7 @@ Class MediumBFGLightningBurst : GreenLightningBurst
 
 
 // --- blue ---
+// bit different scaling
 Class BlueLightningBolt : GreenLightningBolt
 {
 	Default
@@ -113,7 +114,7 @@ Class YellowLightningBolt : GreenLightningBolt
 	}
 }
 
-Class YellowLightningBurst : DMR_LightningBase
+Class YellowLightningBurst : GreenLightningBurst
 {
 	States
 	{

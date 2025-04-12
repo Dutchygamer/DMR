@@ -141,9 +141,9 @@ Class GhoulDeathExplosion : DMR_BossDeathExplosion
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
 			}
 		}
-		MISL B 8 Bright Light("DMR_RedRocket_X1");
-		MISL C 6 Bright Light("DMR_RedRocket_X2");
-		MISL D 4 Bright Light("DMR_RedRocket_X3");
+		XPL0 ABCDE 2 Light("DMR_Rocket_X1");
+		XPL0 FGHIJ 2 Light("DMR_Rocket_X2");
+		XPL0 KLMNO 1 Light("DMR_Rocket_X3") A_FadeOut(0.15);
 		Stop;
 	}
 }

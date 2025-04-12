@@ -56,10 +56,11 @@ class DMR_Rocket : DMR_Projectile
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
 			}
+			A_Explode(128,128);
 		}
-		MISL B 8 Bright A_Explode(128,128);
-		MISL C 6 Bright;
-		MISL D 4 Bright;
+		XPL2 ABCDEF 1 Bright Light("DMR_Rocket_X1");
+		XPL2 GHIJKL 1 Bright Light("DMR_Rocket_X2");
+		XPL2 MNOPQ 1 Bright Light("DMR_Rocket_X3") A_FadeOut(0.15);
 		Stop;
 	}
 }
@@ -103,10 +104,11 @@ class DMR_SmallRocket : DMR_Rocket
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,9),0,frandom(-7,7),frandom(0,7),0,frandom(-7,7),0,0,-0.1,1,-1,-0.6);
 			}
+			A_Explode(72,72);
 		}
-		MISL B 8 Bright A_Explode(72,72);
-		MISL C 6 Bright;
-		MISL D 4 Bright;
+		XPL2 ABCDEF 1 Bright Light("DMR_Rocket_X1");
+		XPL2 GHIJKL 1 Bright Light("DMR_Rocket_X2");
+		XPL2 MNOPQ 1 Bright Light("DMR_Rocket_X3") A_FadeOut(0.15);
 		Stop;
 	}
 }
@@ -200,10 +202,11 @@ class DMR_FiredGrenade : DMR_GrenadeBase
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,9),0,frandom(-7,7),frandom(0,7),0,frandom(-7,7),0,0,-0.1,1,-1,-0.6);
 			}
+			A_Explode(96,96);
 		}
-		MISL B 8 Bright A_Explode(96,96);
-		MISL C 6 Bright;
-		MISL D 4 Bright;
+		XPL2 ABCDEF 1 Bright Light("DMR_Rocket_X1");
+		XPL2 GHIJKL 1 Bright Light("DMR_Rocket_X2");
+		XPL2 MNOPQ 1 Bright Light("DMR_Rocket_X3") A_FadeOut(0.15);
 		Stop;
 	}
 }

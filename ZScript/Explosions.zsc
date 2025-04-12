@@ -36,6 +36,9 @@ class DMR_BossDeathExplosion : DMR_ComplexFXBase
 		XPL0 ABCDE 2 Light("DMR_Rocket_X1");
 		XPL0 FGHIJ 2 Light("DMR_Rocket_X2");
 		XPL0 KLMNO 1 Light("DMR_Rocket_X3") A_FadeOut(0.15);
+		//XPL1 ABCD 2 Light("DMR_Rocket_X1");
+		//XPL1 EFGHI 2 Light("DMR_Rocket_X2");
+		//XPL1 JKLM 1 Light("DMR_Rocket_X3") A_FadeOut(0.15);
 		Stop;
 	}
 }
@@ -61,6 +64,9 @@ class DMR_MonsterDeathExplosion : DMR_BossDeathExplosion
 		XPL0 ABCDE 2 Light("DMR_SmallRocket_X1");
 		XPL0 FGHIJ 2 Light("DMR_SmallRocket_X2");
 		XPL0 KLMNO 1 Light("DMR_SmallRocket_X3") A_FadeOut(0.15);
+		//XPL1 ABCD 2 Light("DMR_SmallRocket_X1");
+		//XPL1 EFGHI 2 Light("DMR_SmallRocket_X2");
+		//XPL1 JKLM 1 Light("DMR_SmallRocket_X3") A_FadeOut(0.15);
 		Stop;
 	}
 }
