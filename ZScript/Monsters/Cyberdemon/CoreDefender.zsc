@@ -196,7 +196,7 @@ class CoreDefenderClusterMissile : DMR_Rocket
 			A_Stop();
 			A_SetRenderStyle(1.0,STYLE_Add);	
 			A_SetScale(0.75);
-			A_StartSound("weapons/rocklx",2);
+			A_StartSound("largerocket/explode",2);
 			A_SpawnItemEx("DMR_MediumFireballImpactSpawner");
 			A_QuakeEx(3,3,3,15,0,600,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:400,rollIntensity:.75);
 			for (fxLoop = 0;fxLoop<=50;fxLoop++)

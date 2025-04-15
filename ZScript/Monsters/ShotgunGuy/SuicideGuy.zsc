@@ -67,7 +67,7 @@ class SuicideGuyExplosive : DMR_MonsterBase
 	XDeath:
 		BMBE M 5 bright {
 			A_Explode (50, 128, XF_NOTMISSILE);
-			A_StartSound ("weapons/rocklx");	
+			A_StartSound ("grenade/explode");	
 			A_SpawnItemEx("DMR_MediumFireballImpactSpawner");
 			A_QuakeEx(3,3,3,15,0,600,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:400,rollIntensity:.75);
 		}

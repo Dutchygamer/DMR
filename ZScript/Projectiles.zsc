@@ -31,7 +31,7 @@ class DMR_Rocket : DMR_Projectile
 		+RANDOMIZE
 		+EXTREMEDEATH;
 		SeeSound "largerocket/launch";
-		DeathSound "weapons/rocklx";
+		DeathSound "largerocket/explode";
 		Decal "BigScorch";
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
@@ -78,6 +78,7 @@ class DMR_SmallRocket : DMR_Rocket
 		Height 7;
 		DamageFunction(random(20,60));
 		SeeSound "smallrocket/launch";
+		DeathSound "smallrocket/explode";
 		Scale 0.8;
 		Decal "MediumScorch";
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
@@ -97,7 +98,6 @@ class DMR_SmallRocket : DMR_Rocket
 	Death:
 		TNT1 A 0 {
 			A_SetRenderStyle(1.0,STYLE_Add);
-			A_SetScale(1.0);
 			A_SpawnItemEx("DMR_MediumFireballImpactSpawner");
 			A_QuakeEx(3,3,3,15,0,600,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:400,rollIntensity:.75);
 			for (fxLoop = 0;fxLoop<=50;fxLoop++)
@@ -195,7 +195,8 @@ class DMR_FiredGrenade : DMR_GrenadeBase
 			bNoGravity = true;
 			A_Stop();
 			A_SetRenderStyle(1.0,STYLE_Add);
-			A_StartSound("weapons/rocklx",2);
+			A_SetScale(0.8);
+			A_StartSound("grenade/explode",2);
 			A_SpawnItemEx("DMR_MediumFireballImpactSpawner");
 			A_QuakeEx(3,3,3,15,0,600,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:400,rollIntensity:.75);
 			for (fxLoop = 0;fxLoop<=50;fxLoop++)

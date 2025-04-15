@@ -222,7 +222,7 @@ class DraugrClusterMissile : DMR_Rocket
 			A_Stop();
 			A_SetRenderStyle(1.0,STYLE_Add);	
 			A_SetScale(0.65);
-			A_StartSound("weapons/rocklx",2);
+			A_StartSound("largerocket/explode",2);
 			A_SpawnItemEx("DMR_MediumFireballImpactSpawner");
 			A_QuakeEx(1,1,1,12,0,300,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:100,rollIntensity:.5);
 			for (fxLoop = 0;fxLoop<=50;fxLoop++)

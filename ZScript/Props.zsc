@@ -82,6 +82,6 @@ class DMR_ExplosiveBarrelCorruptionCards : DMR_ExplosiveBarrel
 	Default
 	{
 		+PUSHABLE;
-		deathsound "corruptioncards/barrelexplosion";
+		//deathsound "corruptioncards/barrelexplosion";
 	}
 }

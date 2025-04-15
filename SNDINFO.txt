@@ -5,15 +5,30 @@
 // Small Rocket
 smallrocket/launch SMRCKL
 $rolloff smallrocket/launch 300 1300
+smallrocket/explode SMRCKX
+$rolloff smallrocket/explode 300 1300
+$limit smallrocket/explode 0
+
 
 // Rocket
 largerocket/launch LGRCKL
 $rolloff largerocket/launch 500 1500
+largerocket/explode LGRCKX
+$rolloff largerocket/explode 500 1500
+$limit largerocket/explode 0
+
 
 // thrown grenade
 handgrenade/prime ZSPCG
 handgrenade/throw DNWRT
 handgrenade/bounce BOUNCE2
+
+
+// fired grenade
+grenade/explode	GRNDX
+$rolloff grenade/explode 300 1300
+$limit grenade/explode 0
+
 
 // BFG
 bfg/charge BFGCHR
@@ -23,21 +38,38 @@ $rolloff bfg/fire 500 1500
 weapons/bfgx DSRXPLOD
 $rolloff weapons/bfgx 600 1600
 
+
 // heavy weapon prep
 heavyweapon/load HVYWPLD
 $rolloff heavyweapon/load 300 1300
 
+
+// flammenwerfer
 flamethrower/fire flamtnk1
 
+
 // explosions
+$Random boss/explosion { boss/explosion1 boss/explosion2 boss/explosion3 boss/explosion4 }
+boss/explosion1 DTHEX1
+boss/explosion2 DTHEX2
+boss/explosion3 DTHEX3
+boss/explosion4 DTHEX4
+//$limit boss/explosion 3
+
 boss/deathexplosion 		inqdthxp
 boss/deathexplosion/final 	inqbigxp
 $rolloff boss/deathexplosion/final 600 1600
 
+
+// barrel
 barrel/break 		SHLDHIT
 $volume  barrel/break 0.3
 barrel/explode 		BRLEXP
 $limit barrel/explode 3
+
+
+
+
 
 //////////////////////////////
 // Zombieman variant sounds //
@@ -593,6 +625,10 @@ weapons/scorch                dsscorch
 /////////////////////////////
 // Mancubus variant sounds //
 /////////////////////////////
+
+
+fatso/ballx	FATSOBX
+
 
 // Hectebus (formerly Corpulent)
 corpulent/see                  dsma2sit

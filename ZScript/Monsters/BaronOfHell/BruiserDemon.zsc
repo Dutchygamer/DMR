@@ -178,7 +178,7 @@ class FireborneNobleFireSpawner : DMR_Projectile
 		RenderStyle "Add";
 		//DamageType "fire";
 		SeeSound "flamebringer/firefx";
-		DeathSound "weapons/rocklx";		
+		DeathSound "fatso/ballx";		
 	}
 	int fuelLevel;
 	

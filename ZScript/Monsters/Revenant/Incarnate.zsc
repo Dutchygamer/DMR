@@ -134,7 +134,7 @@ Class GhoulDeathExplosion : DMR_BossDeathExplosion
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay A_StartSound("weapons/rocklx", CHAN_WEAPON);
+		TNT1 A 0 NoDelay A_StartSound("boss/explosion", CHAN_WEAPON);
 		TNT1 A 0 {
 			for (fxLoop = 0;fxLoop<=50;fxLoop++)
 			{
