@@ -20,7 +20,7 @@ class KurCenturion : DMR_Cyberdemon
 	{
 		Tag "Kur Centurion";
 		Health 5000;
-		PainChance 15;
+		PainChance 10;
 		DropItem "RocketBox", 256, 5;
 		DropItem "Cell", 128, 20;
 		DropItem "Cell", 128, 20;

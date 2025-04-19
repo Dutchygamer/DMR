@@ -18,7 +18,7 @@ class CoreDefender : DMR_Cyberdemon
 	{
 		Tag "Core defender";
 		Health 7000;
-		PainChance 5;
+		PainChance 8;
 		DropItem "RocketBox", 256, 5;
 		DropItem "RocketBox", 256, 5;
 		DropItem "CellPack", 256, 100;

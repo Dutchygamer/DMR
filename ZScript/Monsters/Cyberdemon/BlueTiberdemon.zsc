@@ -19,7 +19,7 @@ class InfusedTyrant : DMR_Cyberdemon
 		Translation "112:127=192:207";
 		Tag "Infused Tyrant";
 		Health 5000;
-		PainChance 5;
+		PainChance 8;
 		DropItem "RocketBox", 256, 5;
 		DropItem "RocketBox", 256, 5;
 		DropItem "CellPack", 256, 100;
