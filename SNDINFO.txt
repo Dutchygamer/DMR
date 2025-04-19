@@ -113,7 +113,9 @@ $Random cyborg/active { cyborg/active1 cyborg/active2 cyborg/active3 }
 cyborg/active1 	CYBACT1
 cyborg/active2 	CYBACT2
 cyborg/active3 	CYBACT3
-cyborg/death 	CYBDTH
+$Random cyborg/death { cyborg/death1 cyborg/death2 }
+cyborg/death1 	CYBDTH
+cyborg/death2	CYBDTH2
 
 cyborg/step				CYKNIWLK
 $pitchset cyborg/step 1.5
