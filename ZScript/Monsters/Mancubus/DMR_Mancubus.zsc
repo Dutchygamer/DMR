@@ -96,7 +96,7 @@ class DMR_FatShot : DMR_Projectile
 		RenderStyle "Add";
 		Alpha 1;
 		SeeSound "fatso/attack";
-		DeathSound "fatso/shotx";
+		DeathSound "fatso/shotx"; // "fatso/ballx";
 		Decal "MancubusScorch";
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
 	}
