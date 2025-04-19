@@ -112,6 +112,7 @@ class AfritComet : DMR_BaronBall
 		SeeSound "comet/launch";
 		DeathSound "comet/explosion";
 		DMR_Projectile.ParticleColors "#df660f", "#ff7e1b", "#ffff00", "#ffe74b";
+		+ROLLSPRITE;
 		Decal "MediumScorch";
 	}
 	States
@@ -124,6 +125,7 @@ class AfritComet : DMR_BaronBall
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
 			}
+			A_SetRoll(roll+random(10,15));
 		}
 		Loop;
 	Death:
@@ -139,6 +141,12 @@ class AfritComet : DMR_BaronBall
 		COMT D 3 Bright A_Explode(40,80);
 		COMT EFGHI 3 Bright;
 		Stop;
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		A_SetRoll(random(0,360));
 	}
 }
 
