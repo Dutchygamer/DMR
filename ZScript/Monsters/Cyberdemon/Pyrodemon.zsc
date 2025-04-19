@@ -29,6 +29,7 @@ class FireborneArchon : DMR_Cyberdemon
 		ActiveSound "pyro/idle";
 	}
 	
+	//TODO obsolete
 	int spamBallAngle;
 	
 	States
@@ -37,49 +38,55 @@ class FireborneArchon : DMR_Cyberdemon
 		BOS4 AB 10 A_Look;
 		Loop;
 	See:
-		BOS4 AABB 3 A_Chase();
+		BOS4 AABB 3 {
+			A_Chase();
+			A_SpawnItemEx("FireborneNobleWalkFire",0,0,0,0,0,0,0,0,64);
+		}
 		TNT1 A 0 A_StartSound("cyber/hoof");
-		BOS4 CCDD 3 A_Chase();
+		BOS4 CCDD 3 {
+			A_Chase();
+			A_SpawnItemEx("FireborneNobleWalkFire",0,0,0,0,0,0,0,0,64);
+		}
 		TNT1 A 0 A_StartSound("cyber/hoof");
 		Loop;
 	Missile:
-		TNT1 A 0 A_Jump(72,"Comet","Spam");
-		TNT1 A 0 A_Jump(128,"RapidFire","TwinBall");
-	Ball:
-		// ball 1
+		TNT1 A 0 {
+			attackloop = 0;
+		}
+		TNT1 A 0 A_Jump(72,"CometOfDoom", "CeilingComets");
+		TNT1 A 0 A_Jump(128,"Rockets");
+	Balls:
+		BOS4 E 4 Bright A_FaceTarget;
+	BallsLoop:
 		BOS4 EF 6 Bright A_FaceTarget;
-		BOS4 G 4 Bright {
-			A_SpawnProjectile("FireborneArchonBall",56);
+		BOS4 GG 3 A_SpawnProjectile("FireborneArchonComet",56,0,frandom(-4,4),CMF_OFFSETPITCH,frandom(-1,1));
+		BOS4 G 3 A_SpawnProjectile("FireborneArchonFastComet",56,0,frandom(-4,4),CMF_OFFSETPITCH,frandom(-1,1));
+		TNT1 A 0 {
+			if (A_MonsterRefire(128,"See")) {
+				SetStateLabel("See");
+			}
 		}
 		BOS4 H 4 Bright;
-		// ball 2
-		BOS4 IJ 6 Bright A_FaceTarget;	
-		BOS4 K 4 Bright {
-			A_SpawnProjectile("FireborneArchonBall",56);
+		BOS4 IJ 6 Bright A_FaceTarget;
+		BOS4 KK 3 A_SpawnProjectile("FireborneArchonComet",56,0,frandom(-4,4),CMF_OFFSETPITCH,frandom(-1,1));
+		BOS4 K 3 {
+			A_SpawnProjectile("FireborneArchonFastComet",56,0,frandom(-4,4),CMF_OFFSETPITCH,frandom(-1,1));
+			attackloop++;
+		}
+		TNT1 A 0 {
+			if (attackloop >= 2 || A_MonsterRefire(128,"See")) {
+				SetStateLabel("See");
+			}
 		}
 		BOS4 L 4 Bright;
-		// ball 3
+		Loop;
+	Rockets:
 		BOS4 EF 6 Bright A_FaceTarget;
-		BOS4 G 4 Bright {
-			A_SpawnProjectile("FireborneArchonBall",56);
-		}
-		BOS4 H 4 Bright;
-		TNT1 A 0 Bright A_Jump(96, "See");		
-		// optional ball 4
-		BOS4 IJ 6 Bright A_FaceTarget;	
-		BOS4 K 4 Bright {
-			A_SpawnProjectile("FireborneArchonBall",56);
-		}
-		BOS4 L 4 Bright;
-		Goto See;
-	TwinBall:
-		BOS4 EEF 8 Bright A_FaceTarget;
 		BOS4 G 6 Bright {
 			A_SpawnProjectile("FireborneArchonBall",56);
 			A_SpawnProjectile("FireborneArchonBall",56,0,-4);
 		}
 		BOS4 H 6 Bright;
-		TNT1 A 0 Bright A_Jump(96, "See");	
 		BOS4 IJ 8 Bright A_FaceTarget;	
 		BOS4 K 6 Bright {
 			A_SpawnProjectile("FireborneArchonBall",56);
@@ -87,6 +94,36 @@ class FireborneArchon : DMR_Cyberdemon
 		}
 		BOS4 L 6 Bright;
 		Goto See;
+	CometOfDoom:
+		TNT1 A 0 {
+			bNOPAIN = true; 
+			A_StartSound("pyro/see");
+			A_SpawnItemEx("FireborneArchonCometOfDoomCharge",0,0,0,0,0,0,0,SXF_SETMASTER);
+		}
+		BOS4 NMMMM 5 Bright Light("DMR_FireborneArchonCometOfDoomCharge_X1") A_FaceTarget;
+		BOS4 MMMM 5 Bright Light("DMR_FireborneArchonCometOfDoomCharge_X2") A_FaceTarget;
+		BOS4 NN 5 Bright Light("DMR_FireborneArchonCometOfDoom") A_FaceTarget;
+		BOS4 O 10 Bright {
+			A_RemoveChildren(1,RMVF_EVERYTHING,"FireborneArchonCometOfDoomCharge");
+			A_SpawnProjectile("FireborneArchonCometOfDoom",128);
+			bNOPAIN = false;
+		}
+		BOS4 P 10 Bright;
+		Goto See;
+	CeilingComets:
+		TNT1 A 0 {
+			if (target && Distance3D(target) > 600) SetStateLabel("Rockets");
+		}
+		TNTA A 0 A_StartSound("pyro/see");
+		BOS4 MN 12 Bright A_FaceTarget;
+		BOS4 O 8 Bright {
+			A_SpawnProjectile("FireborneArchonCometSpawner",56,-10,10);
+			A_SpawnProjectile("FireborneArchonCometSpawner",56,10,-10);
+		}
+		BOS4 P 6 Bright;
+		Goto See;
+		
+	//TODO obsolete
 	Spam:
 		TNT1 A 0 { 
 			spamBallAngle = -20; 
@@ -98,6 +135,7 @@ class FireborneArchon : DMR_Cyberdemon
 		}
 		BOS4 P 6 Bright;
 		Goto See;
+	//TODO obsolete
 	RapidFire:
 		BOS4 E 8 Bright A_FaceTarget;
 		TNT1 A 0 { attackloop = 0; }
@@ -116,6 +154,7 @@ class FireborneArchon : DMR_Cyberdemon
 		}
 		BOS4 L 3 Bright;
 		Loop;
+	//TODO obsolete
 	Comet:
 		TNT1 A 0 {
 			if (target && Distance3D(target) > 300) SetStateLabel("Ball");
@@ -132,6 +171,7 @@ class FireborneArchon : DMR_Cyberdemon
 		}
 		BOS4 P 6 Bright;
 		Goto See;
+	
 	Pain:
 		BOS4 Q 10 A_Pain;
 		Goto See;
@@ -154,6 +194,67 @@ class FireborneArchon : DMR_Cyberdemon
 	}
 }
 
+// small attacks
+class FireborneArchonComet : AfritComet
+{
+	Default
+	{	
+		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
+	}
+
+	States
+	{
+	Spawn:
+		GCOM AABBCC 2 Bright { 
+			A_SpawnItemEx("FireborneArchonCometTrail",-15,0,0);
+			A_SpawnItemEx("DMR_MediumGreenFireballTrail",-7,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
+			A_SetRoll(roll+random(10,15));
+		}
+		Loop;
+	Death:
+		TNT1 A 0 {
+			A_SetScale(1);
+			A_SpawnItemEx("DMR_MediumGreenFireballImpactSpawner");
+			A_QuakeEx(3,3,3,15,0,600,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:400,rollIntensity:.75);
+			for (fxLoop = 0;fxLoop<=35;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
+			}
+		}
+		GCOM D 3 Bright A_Explode(40,80);
+		GCOM EFGHI 3 Bright;
+		Stop;
+	}
+}
+
+class FireborneArchonFastComet : FireborneArchonComet
+{
+	Default
+	{
+		Speed 30;
+		FastSpeed 40;
+	}
+}
+
+class FireborneArchonCometTrail : DMR_ProjectileTrail
+{
+	Default
+	{
+		ALPHA 0.4;
+	}
+	States
+	{
+	Spawn:
+		FRTB JKLMNOPQR 1 Bright;
+		Stop;
+	}
+}
+
+// rocket
 class FireborneArchonBall : DMR_Rocket
 {
 	Default
@@ -164,23 +265,24 @@ class FireborneArchonBall : DMR_Rocket
 		SeeSound "pyro/flame";
 		DeathSound "pyro/flamepoof";
 		Scale 1.2;
+		+ROLLSPRITE;
 		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
 	}
 	States
 	{
 	Spawn:
-		ARCB AABBCC 2 BRIGHT {
+		GCOM AABBCC 2 BRIGHT {
+			A_SpawnItemEx("FireborneArchonCometTrail",-15,0,0);
 			A_SpawnItemEx("DMR_LargeGreenFireballTrail",-5,0,3,frandom(-1,0),frandom(-1,1),frandom(0,1));
-			//A_SpawnItemEx("FireborneArchonBallTail",0,0,0,0,0,0);
 			for (fxLoop = 0;fxLoop<=3;fxLoop++)
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
 			}
+			A_SetRoll(roll+random(5,10));
 		}
 		Loop;
 	Death:
 		TNT1 A 0 {
-			A_SetRenderStyle(1.0,STYLE_Add);
 			A_SpawnItemEx("DMR_LargeGreenFireballImpactSpawner");
 			A_QuakeEx(4,4,4,15,0,800,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:500,rollIntensity:.75);
 			for (fxLoop = 0;fxLoop<=70;fxLoop++)
@@ -188,12 +290,192 @@ class FireborneArchonBall : DMR_Rocket
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
 		}		
-		ARCB J 6 Bright A_Explode(96,128);
-		ARCB KLMN 5 Bright;
+		GCOM D 3 Bright A_Explode(96,128);
+		GCOM EFGHI 3 Bright;
+		Stop;
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		A_SetRoll(random(0,360));
+	}
+}
+
+
+// big comet
+class FireborneArchonCometOfDoom : DMR_Rocket
+{
+	Default
+	{
+		Radius 16;
+		Height 20;
+		Speed 25;
+		DamageFunction (100); // don't use the default formula, just don't get hit by it ;o
+		SeeSound "pyro/flame";
+		DeathSound "pyro/flamepoof";
+		Scale 3.0;
+		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
+		+ROLLSPRITE;
+		Decal "HugeScorch";
+	}
+	States
+	{
+	Spawn:
+		GCOM AABBCC 2 Bright { 
+			A_SpawnItemEx("FireborneArchonCometOfDoomTrail",-15,0,0);
+			A_SpawnItemEx("DMR_LargeGreenFireballTrail",-7,0,0,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
+			for (fxLoop = 0;fxLoop<=4;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
+			A_SetRoll(roll+random(3,5));
+		}
+		Loop;
+	Death:
+		TNT1 A 0 {
+			A_SetRenderStyle(1.0,STYLE_Add);
+			A_Explode(256,256);
+			A_SpawnItemEx("DMR_LargeGreenFireballImpactSpawner");
+			A_QuakeEx(9,9,9,40,0,1800,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:1200,rollIntensity:1.);
+			for (fxLoop = 0;fxLoop<=120;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
+			}
+		}
+		ARCB JKLMN 5 Bright;
+		//GCOM DEFGHI 3 Bright;
 		Stop;
 	}
 }
 
+class FireborneArchonCometOfDoomTrail : DMR_ProjectileTrail
+{
+	Default
+	{
+		-ROLLSPRITE;
+		Scale 2.5;
+		Alpha 0.75;
+	}
+	States
+	{
+	Spawn:
+		ARCB ABC 2 Bright {
+			A_FadeOut(0.15);
+		}
+		Stop;
+	}
+}
+
+class FireborneArchonCometOfDoomCharge : DMR_ProjectileTrail
+{
+	Default
+	{
+		RenderStyle "Normal";
+	}
+	States
+	{
+	Spawn:
+		GCOM ABC 1 Bright {
+			A_Warp(AAPTR_MASTER,10,0,128,0,WARPF_NOCHECKPOSITION);
+			if (Scale.x < 2.5) { 
+				A_SetScale(Scale.X+0.08); 
+			}	
+		}
+		Loop;
+	}
+}
+
+// ceiling comets
+class FireborneArchonCometSpawner : DMR_Projectile
+{
+	Default
+	{
+		Renderstyle "Add";
+		Speed 20;
+		+CEILINGHUGGER;
+		+THRUACTORS;
+		+SEEKERMISSILE;
+		+BRIGHT;
+	}
+	
+	int fuelLevel;	
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			fuelLevel = random(75,100); // set fuel lifetime
+		}
+	SpawnLoop:
+		ZAP5 AABBCCDD 1 {
+			if (fuelLevel < 1) {
+				SetStateLabel("Death");
+			}
+			fuelLevel--;
+			
+			A_Weave(3,0,3.0,0.0);
+			A_SeekerMissile(2,4);
+			
+			if (fuelLevel % 3 == 1) {
+				A_SpawnItemEx("FireborneArchonFallingComet",frandom(0,80),0,frandom(-8,-4),frandom(0,1),0,frandom(-40,-35),random(0,360),SXF_ORIGINATOR|SXF_TRANSFERPOINTERS);			
+			}			
+		}
+		Loop;
+	Death:
+		Stop;
+	}
+}
+
+class FireborneArchonFallingComet : FireborneArchonComet
+{
+	Default
+	{
+		DamageFunction(random(10,30));		
+	}
+	States
+	{
+	Death:
+		TNT1 A 0 {
+			A_SpawnItemEx("DMR_MediumGreenFireballImpactSpawner");
+			A_QuakeEx(3,3,3,15,0,600,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:400,rollIntensity:.75);
+			for (fxLoop = 0;fxLoop<=35;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
+			}
+		}
+		GCOM D 3 Bright A_Explode(20,80);
+		GCOM EFGHI 3 Bright;
+		Stop;
+	}
+}
+
+
+Class FireborneArchonDeathSoul : Actor
+{
+	Default
+	{
+		Radius 1;
+		Height 1;
+		Speed 3;
+		RenderStyle "Add";
+		Alpha 0.80;
+		Projectile;
+		+ClientSideOnly
+	}
+
+	States
+	{
+	Spawn:
+		BFX1 ABCD 6 Bright;
+		Stop;
+	}
+}
+
+
+
+
+//TODO obsolete
 class FireborneArchonBallTail : DMR_ProjectileTrail
 {
 	Default
@@ -208,7 +490,7 @@ class FireborneArchonBallTail : DMR_ProjectileTrail
 	}
 }
 
-
+//TODO obsolete
 class FireborneArchonSmallBall : DMR_SmallRocket
 {
 	Default
@@ -241,96 +523,6 @@ class FireborneArchonSmallBall : DMR_SmallRocket
 		}		
 		ARCB D 3 Bright A_Explode(72,96);
 		ARCB EFGHI 3 Bright;
-		Stop;
-	}
-}
-
-class FireborneArchonCometSpawner : DMR_Projectile
-{
-	Default
-	{
-		Speed 15;
-		+CEILINGHUGGER;
-		+THRUACTORS;
-	}
-	
-	int fuelLevel;	
-	
-	States
-	{
-	Spawn:
-		TNT1 A 0 NoDelay {
-			fuelLevel = random(75,100); // set fuel lifetime
-		}
-	SpawnLoop:
-		TNT1 A 1 {
-			if (fuelLevel < 1) {
-				SetStateLabel("Death");
-			}
-			fuelLevel--;
-			
-			A_Wander();
-			
-			if (fuelLevel % 10 == 1) {
-				A_SpawnProjectile("FireborneArchonFallingComet",-24,random(0,128),random(0,360),2,random(1,89));
-			}			
-		}
-		Loop;
-	Death:
-		Stop;
-	}
-}
-
-class FireborneArchonFallingComet : AfritComet
-{
-	Default
-	{
-		Speed 0;
-		DamageFunction(random(10,30));
-		-NoGravity;
-		-Float;
-		+SpawnCeiling;
-	}
-	States
-	{
-	Spawn:
-		GCOM AABBCC 2 Bright { 
-			A_SpawnItemEx("AfritCometTrail",0,0,0);
-			A_SpawnItemEx("DMR_MediumGreenFireballTrail",0,0,2,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
-		}
-		Loop;
-	Death:
-		TNT1 A 0 {
-			A_SetScale(1);
-		}
-		TNT1 A 0 {
-			A_SpawnItemEx("DMR_MediumGreenFireballImpactSpawner");
-			A_QuakeEx(3,3,3,15,0,600,"",QF_RELATIVE|QF_SCALEDOWN|QF_3D,falloff:400,rollIntensity:.75);
-		}
-		GCOM D 3 Bright A_Explode(20,80);
-		GCOM EFGHI 3 Bright;
-		Stop;
-	}
-}
-
-
-Class FireborneArchonDeathSoul : Actor
-{
-	Default
-	{
-		Radius 1;
-		Height 1;
-		Speed 3;
-		RenderStyle "Add";
-		Alpha 0.80;
-		Projectile;
-		+ClientSideOnly
-	}
-
-	States
-	{
-	Spawn:
-		BFX1 ABCD 6 Bright;
 		Stop;
 	}
 }

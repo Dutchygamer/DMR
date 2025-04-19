@@ -1,32 +1,44 @@
-/*flickerlight DMR_FireborneArchon
+object FireborneArchonComet
 {
-    color 0.3 0.8 0.1
-    size 80
-    secondarySize 90
-    chance 0.3
+    frame GCOMA { light DMR_BaronBall }
+    frame GCOMB { light DMR_BaronBall }
+    frame GCOMC { light DMR_BaronBall }
+
+    frame GCOMD { light DMR_BaronBall_X1 }
+    frame GCOME { light DMR_BaronBall_X2 }
+    frame GCOMF { light DMR_BaronBall_X2 }
+    frame GCOMG { light DMR_BaronBall_X2 }
+    frame GCOMH { light DMR_BaronBall_X3 }
+    frame GCOMI { light DMR_BaronBall_X3 }
 }
 
-object FireborneArchon
+object FireborneArchonFastComet
 {
-    frame BOS4A { light DMR_FireborneArchon }
-    frame BOS4B { light DMR_FireborneArchon }
-    frame BOS4C { light DMR_FireborneArchon }
-    frame BOS4D { light DMR_FireborneArchon }
-    frame BOS4E { light DMR_FireborneArchon }
-    frame BOS4F { light DMR_FireborneArchon }
-    frame BOS4G { light DMR_FireborneArchon }
-    frame BOS4H { light DMR_FireborneArchon }
-    frame BOS4I { light DMR_FireborneArchon }
-    frame BOS4J { light DMR_FireborneArchon }
-    frame BOS4K { light DMR_FireborneArchon }
-    frame BOS4L { light DMR_FireborneArchon }
-    frame BOS4M { light DMR_FireborneArchon }
-    frame BOS4N { light DMR_FireborneArchon }
-    frame BOS4O { light DMR_FireborneArchon }
-    frame BOS4P { light DMR_FireborneArchon }
-    frame BOS4Q { light DMR_FireborneArchon }
-	// all other frames have no light
-}*/
+    frame GCOMA { light DMR_BaronBall }
+    frame GCOMB { light DMR_BaronBall }
+    frame GCOMC { light DMR_BaronBall }
+
+    frame GCOMD { light DMR_BaronBall_X1 }
+    frame GCOME { light DMR_BaronBall_X2 }
+    frame GCOMF { light DMR_BaronBall_X2 }
+    frame GCOMG { light DMR_BaronBall_X2 }
+    frame GCOMH { light DMR_BaronBall_X3 }
+    frame GCOMI { light DMR_BaronBall_X3 }
+}
+
+object FireborneArchonFallingComet
+{
+    frame GCOMA { light DMR_BaronBall }
+    frame GCOMB { light DMR_BaronBall }
+    frame GCOMC { light DMR_BaronBall }
+
+    frame GCOMD { light DMR_BaronBall_X1 }
+    frame GCOME { light DMR_BaronBall_X2 }
+    frame GCOMF { light DMR_BaronBall_X2 }
+    frame GCOMG { light DMR_BaronBall_X2 }
+    frame GCOMH { light DMR_BaronBall_X3 }
+    frame GCOMI { light DMR_BaronBall_X3 }
+}
 
 
 flickerlight DMR_FireborneArchonBall
@@ -63,18 +75,114 @@ flickerlight DMR_FireborneArchonBall_X3
 
 object FireborneArchonBall
 {
-    frame ARCBA { light DMR_FireborneArchonBall }
-    frame ARCBB { light DMR_FireborneArchonBall }
-    frame ARCBC { light DMR_FireborneArchonBall }
+    frame GCOMA { light DMR_FireborneArchonBall }
+    frame GCOMB { light DMR_FireborneArchonBall }
+    frame GCOMC { light DMR_FireborneArchonBall }
 
-    frame ARCBJ { light DMR_FireborneArchonBall_X1 }
-    frame ARCBK { light DMR_FireborneArchonBall_X1 }
-    frame ARCBL { light DMR_FireborneArchonBall_X2 }
-    frame ARCBM { light DMR_FireborneArchonBall_X2 }
-    frame ARCBN { light DMR_FireborneArchonBall_X3 }
+    frame GCOMD { light DMR_FireborneArchonBall_X1 }
+    frame GCOME { light DMR_FireborneArchonBall_X2 }
+    frame GCOMF { light DMR_FireborneArchonBall_X2 }
+    frame GCOMG { light DMR_FireborneArchonBall_X2 }
+    frame GCOMH { light DMR_FireborneArchonBall_X3 }
+    frame GCOMI { light DMR_FireborneArchonBall_X3 }
 }
 
 
+flickerlight DMR_FireborneArchonCometOfDoomCharge_X1
+{
+    color 0.0 1.0 0.0
+    size 72
+    secondarySize 86
+    chance 0.3
+}
+
+flickerlight DMR_FireborneArchonCometOfDoomCharge_X2
+{
+    color 0.0 1.0 0.0
+    size 86
+    secondarySize 96
+    chance 0.3
+}
+
+flickerlight DMR_FireborneArchonCometOfDoom
+{
+    color 0.0 1.0 0.0
+    size 96
+    secondarySize 112
+    chance 0.3
+}
+
+flickerlight DMR_FireborneArchonCometOfDoom_X1
+{
+    color 0.1 0.9 0.1
+    size 120
+    secondarySize 130
+    chance 0.3
+}
+
+flickerlight DMR_FireborneArchonCometOfDoom_X2
+{
+    color 0.05 0.6 0.05
+    size 130
+    secondarySize 140
+    chance 0.3
+}
+
+flickerlight DMR_FireborneArchonCometOfDoom_X3
+{
+    color 0.0 0.3 0.0
+    size 140
+    secondarySize 150
+    chance 0.3
+}
+
+object FireborneArchonCometOfDoom
+{
+    frame GCOMA { light DMR_FireborneArchonCometOfDoom }
+    frame GCOMB { light DMR_FireborneArchonCometOfDoom }
+    frame GCOMC { light DMR_FireborneArchonCometOfDoom }
+
+    frame ARCBJ { light DMR_FireborneArchonCometOfDoom_X1 }
+    frame ARCBK { light DMR_FireborneArchonCometOfDoom_X1 }
+    frame ARCBL { light DMR_FireborneArchonCometOfDoom_X2 }
+    frame ARCBM { light DMR_FireborneArchonCometOfDoom_X2 }
+    frame ARCBN { light DMR_FireborneArchonCometOfDoom_X3 }
+}
+
+
+//TODO obsolete
+/*flickerlight DMR_FireborneArchon
+{
+    color 0.3 0.8 0.1
+    size 80
+    secondarySize 90
+    chance 0.3
+}
+
+object FireborneArchon
+{
+    frame BOS4A { light DMR_FireborneArchon }
+    frame BOS4B { light DMR_FireborneArchon }
+    frame BOS4C { light DMR_FireborneArchon }
+    frame BOS4D { light DMR_FireborneArchon }
+    frame BOS4E { light DMR_FireborneArchon }
+    frame BOS4F { light DMR_FireborneArchon }
+    frame BOS4G { light DMR_FireborneArchon }
+    frame BOS4H { light DMR_FireborneArchon }
+    frame BOS4I { light DMR_FireborneArchon }
+    frame BOS4J { light DMR_FireborneArchon }
+    frame BOS4K { light DMR_FireborneArchon }
+    frame BOS4L { light DMR_FireborneArchon }
+    frame BOS4M { light DMR_FireborneArchon }
+    frame BOS4N { light DMR_FireborneArchon }
+    frame BOS4O { light DMR_FireborneArchon }
+    frame BOS4P { light DMR_FireborneArchon }
+    frame BOS4Q { light DMR_FireborneArchon }
+	// all other frames have no light
+}*/
+
+//TODO obsolete
+/*
 flickerlight DMR_FireborneArchonSmallBall
 {
     color 0.0 1.0 0.0
@@ -120,3 +228,4 @@ object FireborneArchonSmallBall
     frame ARCBH { light DMR_FireborneArchonSmallBall_X2 }
     frame ARCBI { light DMR_FireborneArchonSmallBall_X3 }
 }
+*/
