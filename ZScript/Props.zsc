@@ -66,7 +66,7 @@ class DMR_ExplosiveBarrel : Actor
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,11),0,frandom(-8,8),frandom(0,8),0,frandom(-8,8),0,0,-0.1,1,-1,-0.6);
 			}
-			A_StartSound("barrel/explode",CHAN_VOICE);
+			A_StartSound("barrel/explosion",CHAN_VOICE);
 		}
 		BEXP D 10 BRIGHT A_Explode(128,128);
 		BEXP E 10 BRIGHT;

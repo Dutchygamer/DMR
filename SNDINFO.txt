@@ -59,13 +59,18 @@ boss/explosion4 DTHEX4
 boss/deathexplosion 		inqdthxp
 boss/deathexplosion/final 	inqbigxp
 $rolloff boss/deathexplosion/final 600 1600
+$limit boss/deathexplosion/final 0
 
 
 // barrel
 barrel/break 		SHLDHIT
 $volume  barrel/break 0.3
-barrel/explode 		BRLEXP
-$limit barrel/explode 3
+$Random barrel/explosion { barrel/explosion1 barrel/explosion2 barrel/explosion3 }
+barrel/explosion1 		BRLEXP1
+barrel/explosion3 		BRLEXP2
+barrel/explosion2 		BRLEXP2
+$limit barrel/explosion 3
+$rolloff barrel/explosion 300 1300
 
 
 
