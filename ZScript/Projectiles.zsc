@@ -218,7 +218,7 @@ class DMR_FiredGrenade : DMR_GrenadeBase
 //======================================================================
 //	ZScript: 	DustedPandemonic, modified by Dutchygamer
 //======================================================================
-Class DMR_FlamethrowerBall : DMR_Projectile
+Class DMR_SprayProjectile : DMR_Projectile
 {
 	Default
 	{
@@ -226,24 +226,36 @@ Class DMR_FlamethrowerBall : DMR_Projectile
 		Height 6;
 		Speed 20;
 		RenderStyle "Add";
-		DamageType "Fire";
 		Alpha 0.67;
 		Scale 0.4;
 		+THRUACTORS;
-		+BRIGHT
 		+NODAMAGETHRUST;
 		+DONTSPLASH;
 		+ROLLSPRITE;
+		+BLOODLESSIMPACT;
 	}
 	int dmgtic;
+}
+
+Class DMR_FlamethrowerBall : DMR_SprayProjectile
+{
+	Default
+	{
+		Speed 22;
+		DamageType "Fire";
+		Alpha 0.8;
+		Scale 0.2;
+		+BRIGHT
+	}
 	bool fire;
 	
 	States
 	{
 	Spawn:
-		FRFX AABBCCDDEEFFGGHHIIJJKK 1 {
+		FRFX AAABBBCCCDDDEEEFFFGGG 1 Light("DMR_ImpBall") {
 			A_ScaleVelocity(0.98);
-			A_SetScale(Scale.X + 0.03);
+			A_SetScale(Scale.X + 0.02);
+			A_FadeOut(0.01);
 			
 			// only deal damage X amount of tics instead of every tick
 			dmgtic++;
@@ -253,12 +265,9 @@ Class DMR_FlamethrowerBall : DMR_Projectile
 				dmgtic = 0;
 			}		
 		}
-		FRFX LLMMNNOO 1 {
-			// fall down towards end
-			if (vel.z != 0 && vel.y != 0) { 
-				A_ChangeVelocity(0,0,1);
-			}
-			A_SetScale(Scale.X + 0.03);
+		FRFX HHHIIIJJJ 1 Light("DMR_ImpBall") {
+			A_SetScale(Scale.X + 0.01);
+			A_FadeOut(0.08);
 		}
 		Stop;
 	}
@@ -273,49 +282,6 @@ Class DMR_FlamethrowerBall : DMR_Projectile
 	{
 		Super.Tick();
 		if (vel.x == 0 && vel.y == 0 && fire == false && random(1,4) == 1) {
-			A_SpawnProjectile("DMR_BurningFire",1,0,0,CMF_TRACKOWNER);
-			fire = true;
-		}
-	}
-}
-
-class DMR_FlamethrowerBallLarge : DMR_FlamethrowerBall
-{
-	Default
-	{
-		Radius 6;
-		Height 6;
-		Scale 0.7; //1;
-	}
-	States
-	{
-	Spawn:
-		FRFX AABBCCDDEEFFGGHHIIJJKK 1 {
-			A_SetScale(Scale.X + 0.03);
-			// only deal damage X amount of tics instead of every tick
-			dmgtic++;
-			if(dmgtic >= 3)
-			{
-				A_Explode(3,64,0,0,64);
-				dmgtic = 0;
-			}		
-		}
-		FRFX LLMMNNOO 1 {
-			A_SetScale(Scale.X + 0.03);
-		}
-		Stop;
-	}
-	
-	override void PostBeginPlay()
-	{
-		Super.PostBeginPlay();
-		A_SetRoll(random(0,360));
-	}
-	
-	override void Tick()
-	{
-		Super.Tick();
-		if (vel.x == 0 && vel.y == 0 && fire == false && random(1,2) == 1) {
 			A_SpawnProjectile("DMR_BurningFire",1,0,0,CMF_TRACKOWNER);
 			fire = true;
 		}
@@ -598,7 +564,7 @@ class DMR_GasCloudBase : DMR_Projectile
 		Height 6;
 		Projectile;
 		DamageType "ToxinCloud";
-		RENDERSTYLE "translucent";
+		RENDERSTYLE "Translucent";
 		ALPHA 0.50;
 		// tags for the gascloud itself
 		+THRUACTORS;
