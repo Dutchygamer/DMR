@@ -137,25 +137,26 @@ class KurCenturion : DMR_Cyberdemon
 	Flamethrower:
 		TNT1 A 0 {
 			// switch to grenades if target is too far away
-			if(target && Distance3D(target) > 300) SetStateLabel("Grenades");
+			if(target && Distance3D(target) > 600) SetStateLabel("Grenades");
 		}
 		TERM G 12 Bright A_FaceTarget;
 		TNT1 A 0 { 
 			attackloop = 0; 
-			A_StartSound ("flamethrower/fire", CHAN_WEAPON);
+			A_StartSound ("flamethrower/fire",CHAN_WEAPON,CHANF_OVERLAP,volume:1.0,attenuation:1.0,pitch:0.8);
+			A_StartSound ("flamethrower/fire",CHAN_WEAPON,CHANF_OVERLAP,volume:0.3,attenuation:0.7,pitch:0.7);
 		}
 	FlamethrowerLoop:
-		TNT1 A 0 A_JumpIf(attackloop >= 30,"FlamethrowerEnd");
+		TNT1 A 0 A_JumpIf(attackloop >= 45,"FlamethrowerEnd");
 		TERM K 1 Bright {
 			A_FaceTarget();
 			attackloop++;
-			A_SpawnProjectile("DMR_FlamethrowerBallLarge",56,-24,random(-3,3));
+			A_SpawnProjectile("KurCenturionFlamethrowerBall",56,-24,random(-3,3),CMF_OFFSETPITCH,frandom(-1,1));
 		}
 		Loop;
 	FlamethrowerEnd:
-		TNT1 A 0 A_Jump(128, "Rockets", "Grenades"); // large chance to switch to a different weapon
-		TERM G 12 A_MonsterRefire(10,"See");
-		Goto Flamethrower;
+		// switch to different attack if target is still in LoS
+		TERM G 12 A_MonsterRefire(0,"See");
+		Goto Missile;
 	CriticalDamage:
 		TNT1 A 0 { 
 			bNOPAIN = true; 
@@ -165,7 +166,7 @@ class KurCenturion : DMR_Cyberdemon
 		}
 		TERM L 10 Light("MonsterGoBerserk") {
 			A_StartSound("kurcenturion/pain",CHAN_VOICE);
-			A_StartSound("kurcenturion/sight",CHAN_VOICE,CHANF_OVERLAP);
+			A_StartSound("kurcenturion/sight",CHAN_VOICE,CHANF_OVERLAP,pitch:0.7);
 		}
 		TERM AAAAAAAAAAAAAAAAAAAA 1 {
 			A_SpawnItemEx("GoneBerserkSmokeCloud",-5,0,70,frandom(-1,0),frandom(-1,1),frandom(0,1)); 
@@ -179,6 +180,7 @@ class KurCenturion : DMR_Cyberdemon
 		}
 		TERM G 10 Light("MonsterGoBerserk") {
 			A_StartSound("kurcenturion/sight",CHAN_VOICE);
+			A_StartSound("kurcenturion/sight",CHAN_VOICE,CHANF_OVERLAP,volume:0.5,pitch:0.7);
 			A_FaceTarget();
 		}
 		TERM G 10 A_FaceTarget;
@@ -257,6 +259,57 @@ class KurCenturionWeaveRocket : DMR_SmallRocket
 		Super.Tick();
 	}
 }
+
+
+class KurCenturionFlamethrowerBall : DMR_FlamethrowerBall
+{
+	Default
+	{
+		Radius 6;
+		Height 9;
+		Scale 0.7;
+		Speed 35;
+	}
+	States
+	{
+	Spawn:
+		FRFX AAABBBCCCDDDEEEFFFGGG 1 Light("DMR_HellWarriorBall") {
+			A_ScaleVelocity(0.98);
+			A_SetScale(Scale.X + 0.02);
+			A_FadeOut(0.01);
+			
+			// only deal damage X amount of tics instead of every tick
+			dmgtic++;
+			if(dmgtic >= 3)
+			{
+				A_Explode(8,48,0,0,40);
+				dmgtic = 0;
+			}		
+		}
+		FRFX HHHIIIJJJ 1 Light("DMR_HellWarriorBall") {
+			A_SetScale(Scale.X + 0.01);
+			A_FadeOut(0.08);
+		}
+		Stop;
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		A_SetRoll(random(0,360));
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (vel.x == 0 && vel.y == 0 && fire == false && random(1,2) == 1) {
+			A_SpawnProjectile("DMR_BurningFire",1,0,0,CMF_TRACKOWNER);
+			fire = true;
+		}
+	}
+}
+
+
 
 class KurCenturionArm : DMR_DroppedShield
 {
