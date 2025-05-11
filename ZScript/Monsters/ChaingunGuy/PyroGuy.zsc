@@ -107,7 +107,7 @@ Class PyroTechnicianBall : DMR_FatShot
 {
 	Default
 	{
-		Speed 30;
+		Speed 35;
 		DamageFunction(random(14,42));
 		RenderStyle "Add";
 		Alpha 1;

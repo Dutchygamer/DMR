@@ -600,7 +600,10 @@ monster/incatk dsincatk
 monster/inchit dsinchit
 monster/incexp dsincexp
 
-draugr/cluster CLUSFIR
+draugr/clustermissile/launch 		CLUSFIR
+$rolloff draugr/clustermissile/launch 300 1300
+$pitchset draugr/clustermissile/launch 1.1
+
 
 // Dusk Warrior (old)
 hknight/sight           kgtsit
@@ -750,8 +753,12 @@ coredefender/pain 		inqpain
 coredefender/death 		inqdeath
 coredefender/step 		step2
 
-coredefender/cluster 		CLUSFIR
-$rolloff coredefender/cluster 500 1500
+coredefender/clustermissile/launch 		CLUSFIR
+$rolloff coredefender/clustermissile/launch 500 1500
+coredefender/clustermissile/cluster 		SHLDHIT
+$pitchset coredefender/clustermissile/cluster 1.5
+
+
 coredefender/lasercharge 	CORECHR
 //$rolloff coredefender/lasercharge 1000 2500
 coredefender/laserfire 		CORELFIR
