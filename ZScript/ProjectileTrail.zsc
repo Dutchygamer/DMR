@@ -162,6 +162,7 @@ class DMR_GasTrail : DMR_ProjectileTrail
 	{
 		ALPHA 0.4;
 		Scale 0.8;
+		RenderStyle "Translucent";
 	}
 	States
 	{
@@ -173,7 +174,7 @@ class DMR_GasTrail : DMR_ProjectileTrail
 	}
 }
 
-class DMR_SmallGasTrail : DMR_ProjectileTrail
+class DMR_SmallGasTrail : DMR_GasTrail
 {   
 	Default
 	{
@@ -190,13 +191,8 @@ class DMR_SmallGasTrail : DMR_ProjectileTrail
 	}
 }
 
-class DMR_BlueGasTrail : DMR_ProjectileTrail
-{   
-	Default
-	{
-		ALPHA 0.4;
-		Scale 0.8;
-	}
+class DMR_BlueGasTrail : DMR_GasTrail
+{
 	States
 	{
 	Spawn:

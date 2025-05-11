@@ -63,7 +63,7 @@ class Witherer : DMR_Cacodemon
 		CALI G 1 Light("DMR_WithererSpray") {
 			A_FaceTarget();
 			attackloop++;
-			A_SpawnProjectile("CacolichToxinSpray",26,0,random(-4,4));
+			A_SpawnProjectile("CacolichToxinSpray",26,0,random(-3,3),CMF_OFFSETPITCH,frandom(-1,1));
 		}
 		Loop;
 	Pain: 
@@ -177,21 +177,27 @@ class WithererGasBall : DMR_CacodemonBall
 	}
 }
 
-class CacolichToxinSpray : DMR_FlamethrowerBall
+class CacolichToxinSpray : DMR_SprayProjectile
 {
 	Default
 	{
-		Speed 10;
+		Speed 15; //10;
 		DamageType "ToxinCloud";
 		RenderStyle "Translucent";
 		Alpha 0.5;
-		-BRIGHT;
+		+CANBOUNCEWATER;
+		BounceType "Doom";
+		BounceFactor 0.5;
+		WallBounceFactor 0.9;
+		BounceCount 10; // in case it starts bouncing like a madman
 	}
 	States
 	{
 	Spawn:
 		GAS2 AABBCCDDEEFFGGHHIIJJKKLLMMNN 1 {
+			A_ScaleVelocity(0.98);
 			A_SetScale(Scale.X + 0.03);
+			
 			// only deal damage X amount of tics instead of every tick
 			dmgtic++;
 			if(dmgtic >= 3)
@@ -202,7 +208,14 @@ class CacolichToxinSpray : DMR_FlamethrowerBall
 		}
 		GAS2 KKLLMMNN 1 {
 			A_SetScale(Scale.X + 0.03);
+			A_FadeOut(0.08);
 		}
 		Stop;
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		A_SetRoll(random(0,360));
 	}
 }
