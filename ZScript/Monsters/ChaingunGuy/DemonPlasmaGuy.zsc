@@ -59,7 +59,8 @@ class FormerPlasmaCommando : DMR_ChaingunGuy
 		PNGZ P 5 A_XScream;
 		PNGZ Q 5 A_NoBlocking;
 		PNGZ RSTU 5;
-		PNGZ V -1;
+		POSS T 5;
+		POSS U -1;
 		Stop;
 	Raise:
 		PNGZ KJIH 5;
