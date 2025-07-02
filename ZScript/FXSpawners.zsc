@@ -274,6 +274,21 @@ Class DMR_CybiferaDeathExplosionSpawner : DMR_FXSpawner
 	}
 }
 
+Class DMR_FireborneArchonDeathExplosionSpawner : DMR_FXSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_CheckSightOrRange(2000,"Null");
+		TNT1 AAA 1 
+		{
+			A_SpawnItemEx("DMR_LargeGreenFireballImpactSpawner",random(15,45),0,random(35,100),0,0,0,random(0,360));
+			A_SetTics(random(1,6));
+		}
+		Stop;
+	}
+}
+
 Class DMR_MastermindDeathExplosionSpawner : DMR_FXSpawner
 {
 	States
