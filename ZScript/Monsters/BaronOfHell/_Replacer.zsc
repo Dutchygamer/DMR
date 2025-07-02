@@ -5,7 +5,7 @@ Class BaronOfHellReplacer: RandomSpawner replaces BaronOfHell
 		DropItem "DMR_BaronOfHell", 255, 100;
 		DropItem "CyberBaronOfHell", 255, 20;
 		DropItem "FireborneNoble", 255, 15;
-		DropItem "Hellsmith", 255, 15;
+		//DropItem "Hellsmith", 255, 15;
 		DropItem "CyberAfrit", 255, 15;
 		DropItem "KurTriarii", 255, 10;
 		DropItem "KurLegionary", 255, 10;
