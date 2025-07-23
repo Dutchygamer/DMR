@@ -49,7 +49,7 @@ Class Runecaster : DMR_Archvile
 	SpawnBall:
 		TNT1 A 0 {
 			// don't spawn a new Spawner when on cooldown
-			if (CountInv("SummonCooldown") != 0) SetStateLabel("NonSpawnAttacks");
+			if (CountInv("DMR_SummonCooldown") != 0) SetStateLabel("NonSpawnAttacks");
 			// don't spawn when at the cap
 			if (CountInv("RunecasterSpawnCount") >= 10) {
 				// when we still have a spawner active nuke it first
@@ -90,7 +90,7 @@ Class Runecaster : DMR_Archvile
 		TNT1 A 0 {			
 			hasSpawner = 0;
 			A_RemoveMaster(RMVF_EVERYTHING);
-			A_GiveInventory("SummonCooldown");
+			A_GiveInventory("DMR_SummonCooldown");
 		}
 		ACOL C 30 A_Pain;
 		Goto See;
@@ -111,7 +111,7 @@ Class Runecaster : DMR_Archvile
 		Goto See;
 	Heal:
 		// rezz nearby corpses as well
-		//TNT1 A 0 A_RadiusGive("RadiusResurrect",100,RGF_KILLED);
+		//TNT1 A 0 A_RadiusGive("DMR_RadiusResurrect",100,RGF_KILLED);
 		ACOL EFE 10 BRIGHT Light("RunecasterRes");
 		Goto See;
 	Pain: 
@@ -230,7 +230,7 @@ class RunecasterRandomSpawner : RandomSpawner
 	}
 }
 
-Class SummonCooldown : Powerup { Default { Powerup.Duration -20; } }
+Class DMR_SummonCooldown : Powerup { Default { Powerup.Duration -20; } }
 Class RunecasterSpawnCount : Inventory { Default { Inventory.MaxAmount 10; } }
 
 
@@ -333,7 +333,7 @@ class RunecasterFireBlast : DMR_ArchvileFireBlast
 }
 
 
-Class RadiusResurrect : CustomInventory
+Class DMR_RadiusResurrect : CustomInventory
 {
 	Default
 	{
