@@ -36,7 +36,10 @@ class DMR_AstralCaco : DMR_Cacodemon
 		KEEN A 10 A_Look;
 		Loop;
 	See:
-		KEEN A 3 A_Chase;
+		KEEN A 3 {
+			A_SpawnItemEx("DMR_TranslucentAfterImage",0,0,0,0,0,0,0,SXF_TRANSFERSCALE|SXF_TRANSFERSPRITEFRAME);
+			A_Chase();
+		}
 		Loop;
 	Melee:
 		Goto See;
