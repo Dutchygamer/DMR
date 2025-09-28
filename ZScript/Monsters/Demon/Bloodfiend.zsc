@@ -17,12 +17,7 @@ class Bloodfiend : DMR_Demon
 	{
 		Tag "Blood Fiend";
 		Health 190;
-		PainChance 150;		
-		SeeSound "monster/sg2sit";
-		AttackSound "monster/sg2atk";
-		PainSound "monster/pain";
-		DeathSound "monster/death";
-		ActiveSound "monster/sg2act";
+		PainChance 150;
 		Obituary "%o died from the toxic blood of a Blood Fiend.";
 		HitObituary "%o was eaten by a Blood Fiend.";
 		MaxTargetRange 400; // don't fire projectiles at range

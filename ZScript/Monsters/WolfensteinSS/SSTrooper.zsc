@@ -20,11 +20,10 @@ class SSTrooper : DMR_NaziBase
 		Health 80;
 		Speed 12;
 		PainChance 100;
-		SeeSound "wolfss/sight";
-		PainSound "wolfss/pain";
-		DeathSound "wolfss/death";
-		ActiveSound "wolfss/active";
-		//AttackSound "wolfss/attack";
+		SeeSound "wolfsstrooper/sight";
+		PainSound "wolfsstrooper/pain";
+		DeathSound "wolfsstrooper/death";
+		ActiveSound "wolfsstrooper/active";
 		Obituary "%o was hunted down by a SS Trooper.";
 		DropItem "Clip", 256, 5;
 		DropItem "Clip", 128, 5;

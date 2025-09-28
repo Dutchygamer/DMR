@@ -21,11 +21,10 @@ class SSOfficer : DMR_NaziBase
 		Speed 10;
 		PainChance 100;
 		Scale 1.1; // sprites are shorter then Doom monsters
-		SeeSound "wolfss/sight";
-		PainSound "wolfss/pain";
-		DeathSound "wolfss/death";
-		ActiveSound "wolfss/active";
-		//AttackSound "wolfss/attack";
+		SeeSound "wolfssguard/sight";
+		PainSound "wolfssguard/pain";
+		DeathSound "wolfssguard/death";
+		ActiveSound "wolfssguard/active";
 		Obituary "A SS Officer caught %o between the eyes.";
 		DropItem "Clip", 256, 5;
 	}

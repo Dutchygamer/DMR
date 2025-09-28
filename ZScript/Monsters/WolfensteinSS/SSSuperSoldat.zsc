@@ -21,11 +21,10 @@ class SSSupersoldat : DMR_NaziBase
 		Speed 12;
 		PainChance 40;
 		Scale 1.1;
-		SeeSound "wolfss/sight";
-		PainSound "wolfss/pain";
-		DeathSound "wolfss/death";
-		ActiveSound "wolfss/active";
-		//AttackSound "wolfss/attack";
+		SeeSound "wolfsupersoldat/sight";
+		PainSound "wolfsupersoldat/pain";
+		DeathSound "wolfsupersoldat/death";
+		ActiveSound "wolfsupersoldat/active";
 		Mass 500;
 		Obituary "%o was torn to pieces by a SS Supersoldat.";
 		DropItem "Shell", 256, 4;

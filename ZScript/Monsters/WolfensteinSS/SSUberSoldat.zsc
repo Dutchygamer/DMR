@@ -21,11 +21,10 @@ class SSUbersoldat : DMR_NaziBase
 		Speed 12;
 		PainChance 20;
 		Scale 1.25;
-		SeeSound "wolfss/sight";
-		PainSound "wolfss/pain";
-		DeathSound "wolfss/death";
-		ActiveSound "wolfss/active";
-		//AttackSound "wolfss/attack";
+		SeeSound "wolfubersoldat/sight";
+		PainSound "wolfubersoldat/pain";
+		DeathSound "wolfubersoldat/death";
+		ActiveSound "wolfubersoldat/active";
 		Mass 500;
 		Obituary "%o didn't like the results of German Superscience.";
 		+BOSS; // for extra funsies

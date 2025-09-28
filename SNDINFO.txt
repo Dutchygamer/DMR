@@ -237,6 +237,23 @@ vulgar/death1                  dsvuldt1
 vulgar/death2                  dsvuldt2
 vulgar/fire                     dsstmdr1
 
+// Netherling
+$random netherling/sight		{ netherling/sight1  netherling/sight2 }
+netherling/sight1			dsimpsi1
+$pitchset netherling/sight1 0.8
+netherling/sight2			dsimpsi2
+$pitchset netherling/sight2 0.8
+netherling/active			dsimpact
+$pitchset netherling/active 0.8
+netherling/pain			        dsimppai
+$pitchset netherling/pain 0.8
+$random netherling/death		{ netherling/death1  netherling/death2 }
+netherling/death1			dsimpdt1
+$pitchset netherling/death1 0.8
+netherling/death2			dsimpdt2
+$pitchset netherling/death2 0.8
+
+
 //TODO unused
 // Hellion
 monster/hlnsit                  dshlnsit
@@ -300,8 +317,6 @@ cyfiend/step2	CYFNSTP2
 cyfiend/pain	CYFNPAIN
 
 // blood fiend
-monster/sg2sit dssg2sit
-monster/sg2atk dssg2atk
 weapons/bloodf dsbloodf
 weapons/bloodx dsbloodx
 
@@ -901,8 +916,50 @@ prox/beep		  DSIGPRXB
 bomb/beep DSBEEEP
 
 
-// Special //
+///////////////////////////////////
+// Wolfenstein SS variant sounds //
+///////////////////////////////////
 
+// nazi trooper
+wolfsstrooper/sight		DSSSSIT
+wolfsstrooper/pain		DSPOPAIN
+wolfsstrooper/death		DSSSDTH
+wolfsstrooper/active	DSPOSACT
+
+// nazi guard
+wolfssguard/sight		DSSSSIT
+$pitchset wolfssguard/sight 1.05
+wolfssguard/pain		DSPOPAIN
+$pitchset wolfssguard/pain 1.05
+wolfssguard/death		DSSSDTH
+$pitchset wolfssguard/death 1.05
+wolfssguard/active		DSPOSACT
+$pitchset wolfssguard/active 1.05
+
+// nazi supersoldat
+wolfsupersoldat/sight	DSSSSIT
+$pitchset wolfsupersoldat/sight 0.9
+wolfsupersoldat/pain	DSPOPAIN
+$pitchset wolfsupersoldat/pain 0.9
+wolfsupersoldat/death	DSSSDTH
+$pitchset wolfsupersoldat/death 0.9
+wolfsupersoldat/active	DSPOSACT
+$pitchset wolfsupersoldat/active 0.9
+
+// nazi ubersoldat
+wolfubersoldat/sight	DSSSSIT
+$pitchset wolfubersoldat/sight 0.75
+wolfubersoldat/pain		DSPOPAIN
+$pitchset wolfubersoldat/pain 0.75
+wolfubersoldat/death	DSSSDTH
+$pitchset wolfubersoldat/death 0.75
+wolfubersoldat/active	DSPOSACT
+$pitchset wolfubersoldat/active 0.75
+
+
+/////////////////////////////
+// Special monsters sounds //
+/////////////////////////////
 
 alienfighter/sight 		DSGSSIT
 alienfighter/death 		DSGSDTH
