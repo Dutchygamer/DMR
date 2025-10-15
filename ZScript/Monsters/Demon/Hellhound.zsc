@@ -40,26 +40,16 @@ class Hellhound : DMR_Demon
 		HDOG AABBCCDDEEFF 2 Fast A_Chase;
 		Loop;
 	Melee:
-		HDOG GH 8 Fast A_FaceTarget;
-		HDOG I 8 Fast A_CustomMeleeAttack(random(8,24),"hellhound/melee/hit");
+		HDOG GH 6 Fast A_FaceTarget;
+		HDOG I 6 Fast A_CustomMeleeAttack(random(8,24),"hellhound/melee/hit");
 		Goto See;
 	Missile:
 		TNT1 A 0 {
 			if(target && Distance3D(target) > 300) SetStateLabel("See");
 		}
-		HDOG G 10 A_FaceTarget;
-		TNT1 A 0 { 
-			attackloop = 0; 
-			A_StartSound ("flamethrower/fire", CHAN_WEAPON);	
-		}
-	MissileLoop:
-		TNT1 A 0 A_JumpIf(attackloop >= 24,"See");
-		HDOG H 1 Bright {
-			A_FaceTarget();
-			attackloop++;
-			A_SpawnProjectile("DMR_FlamethrowerBall",28,0,random(-3,3),CMF_OFFSETPITCH,frandom(-1,1));
-		}
-		Loop;
+		HDOG GG 8 Fast A_FaceTarget;
+		HDOG H 8 Fast Bright Light("DMR_RifleFire") A_LobProjectile("HellhoundBall",28,0,random(-2,2));
+		Goto See;
 	Pain:
 		HDOG J 2 Fast;
 		HDOG J 2 Fast A_Pain;
@@ -76,5 +66,13 @@ class Hellhound : DMR_Demon
 	Raise:
 		HDOG QPONMLK 5;
 		Goto See;
+	}
+}
+
+Class HellhoundBall : PyroTechnicianBall
+{
+	Default
+	{
+		Speed 20;
 	}
 }

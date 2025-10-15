@@ -1,0 +1,12 @@
+object HellhoundBall 
+{
+    frame SXALA { light DMR_ImpBall }
+    frame SXALB { light DMR_ImpBall }
+	frame SXALC { light DMR_ImpBall }
+
+    frame SXALD { light DMR_ImpBall_X1 }
+    frame SXALE { light DMR_ImpBall_X2 }
+    frame SXALF { light DMR_ImpBall_X2 }
+    frame SXALG { light DMR_ImpBall_X2 }
+    frame SXALH { light DMR_ImpBall_X3 }
+}

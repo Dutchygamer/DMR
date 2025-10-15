@@ -14,6 +14,8 @@
 #include "GLDefs/Monsters/DoomImp/Catharsi.gl"
 #include "GLDefs/Monsters/DoomImp/Vulgar.gl"
 
+#include "GLDefs/Monsters/Demon/Hellhound.gl"
+
 #include "GLDefs/Monsters/Cacodemon/DMR_Cacodemon.gl"
 #include "GLDefs/Monsters/Cacodemon/Infernal.gl"
 #include "GLDefs/Monsters/Cacodemon/Cacolich.gl"
