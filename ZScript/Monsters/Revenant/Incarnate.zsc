@@ -24,7 +24,6 @@ class Ghoul : DMR_Revenant
 		SeeSound "monster/incsit";
 		DeathSound "monster/incdth";
 		ActiveSound "monster/incact";
-		AttackSound "monster/incatk";
 		Speed 12;
 		+MISSILEMORE;
 	}

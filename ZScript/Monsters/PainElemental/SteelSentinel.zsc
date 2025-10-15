@@ -76,7 +76,7 @@ class Ravager : DMR_PainElemental
 	Death:
 		SENT B 6 BRIGHT;
 		SENT GGGG 4 BRIGHT {
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(-12,12),0,random(-12,12));
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(-12,12),0,random(20,30));
 		}
 		SENT H 6 BRIGHT A_Scream;
 		SENT IJ 6 BRIGHT;

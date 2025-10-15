@@ -61,7 +61,7 @@ class RavagerSpawn : DMR_FlyingMonsterBase
 		GARD KL 6 BRIGHT;
 		GARD M 6 Bright A_Scream;
 		GARD N 6 Bright {
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(-12,12),0,random(-12,12));
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(-12,12),0,random(8,15));
 		}
 		GARD O 6 Bright A_NoBlocking;
 		GARD PQ 6 Bright;
