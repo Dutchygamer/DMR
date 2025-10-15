@@ -43,8 +43,8 @@ class MaulerFiend : DMR_Demon
 		CYFN CCDD 2 Fast A_Chase;
 		Loop;
 	Melee:
-		CYFN EF 8 Fast A_FaceTarget;
-		CYFN G 8 Fast A_CustomMeleeAttack(random(8,24));
+		CYFN EF 4 Fast A_FaceTarget;
+		CYFN G 6 Fast A_CustomMeleeAttack(random(8,24));
 		Goto See;		
 	Missile:
 		TNT1 A 0 A_Jump(128, "Charge");

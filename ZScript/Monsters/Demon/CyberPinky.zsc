@@ -40,8 +40,8 @@ class DMR_Mauler : DMR_Demon
 		SRG2 CCDD 2 Fast A_Chase;
 		Loop;
 	Melee:
-		SRG2 EF 8 Fast A_FaceTarget;
-		SRG2 G 8 Fast A_CustomMeleeAttack(random(8,24));
+		SRG2 EF 6 Fast A_FaceTarget;
+		SRG2 G 6 Fast A_CustomMeleeAttack(random(8,24));
 		Goto See;
 	Missile:
 		SRG2 E 10 A_FaceTarget;
