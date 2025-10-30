@@ -22,7 +22,6 @@ class FormerQuartermaster : DMR_ShotgunGuy
 		Obituary "%o was pink-misted by a Former Quartermaster.";
 		DropItem "Shell", 256, 4;
 		DropItem "Shell", 128, 4;
-		DropItem "Shell", 64, 4;
 	}
 	int shotsFired;
 	

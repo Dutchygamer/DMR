@@ -29,8 +29,6 @@ class SSSupersoldat : DMR_NaziBase
 		Obituary "%o was torn to pieces by a SS Supersoldat.";
 		DropItem "Shell", 256, 4;
 		DropItem "Shell", 128, 4;
-		DropItem "Shell", 128, 4;
-		DropItem "Shell", 64, 4;
 	}
 	States
 	{

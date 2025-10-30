@@ -21,7 +21,7 @@ class FormerStaffSargeant : DMR_ShotgunGuy
 		OBITUARY "%o was blown open by a Former Staff Sargeant.";
 		Scale 0.9;
 		DropItem "Shell", 256, 4;
-		DropItem "Shell", 128, 4;
+		DropItem "Shell", 64, 4;
 		DropItem "SuperShotgun", 10;
 	}
 	int shotsFired;

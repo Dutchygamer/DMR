@@ -28,8 +28,6 @@ class CyborgAcolyte : DMR_Zombieman
 		Scale 1.05;
 		DropItem "Clip", 256, 5;
 		DropItem "Clip", 128, 5;
-		DropItem "Clip", 128, 5;
-		DropItem "Clip", 64, 5;
 		DropItem "RocketAmmo", 64, 1;
 		+MISSILEMORE;
 		+DONTHARMCLASS; // don't kill yourself with your explosives

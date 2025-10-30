@@ -25,8 +25,8 @@ class FormerSpecOpsGunner : DMR_Zombieman
 		+MISSILEMORE
 		+DOHARMSPECIES; // zombies aren't grenade-proof
 		DropItem "Clip", 256, 5;
-		DropItem "Clip", 128, 5;
 		DropItem "Clip", 64, 5;
+		DropItem "RocketAmmo", 64, 1;
 	}
 	bool isStealthed;
 	

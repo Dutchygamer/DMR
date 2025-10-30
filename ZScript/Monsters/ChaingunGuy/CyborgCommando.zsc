@@ -27,7 +27,9 @@ class CyborgCommando : CyborgAcolyte
 		ActiveSound "cyborg/active";
 		Scale 1.2;
 		dropitem "CellPack", 256, 100;
-		dropitem "CellPack", 128, 100;
+		DropItem "Cell", 128, 20;
+		DropItem "Cell", 128, 20;
+		DropItem "Cell", 128, 20;
 		+MISSILEMORE;
 		+MISSILEEVENMORE;
 		+DONTHARMCLASS; // don't kill yourself with your explosives

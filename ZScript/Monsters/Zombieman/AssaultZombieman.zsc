@@ -20,7 +20,7 @@ class FormerAssaultTrooper : DMR_Zombieman
 		Health 35;
 		+MISSILEMORE
 		DropItem "Clip", 256, 5;
-		DropItem "Clip", 256, 5;
+		DropItem "Clip", 64, 5;
 	}
  	States
 	{

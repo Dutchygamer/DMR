@@ -27,8 +27,6 @@ class CyborgTemplar : CyborgAcolyte
 		Scale 1.1;
 		DropItem "Shell", 256, 4;
 		DropItem "Shell", 128, 4;
-		DropItem "Shell", 128, 4;
-		DropItem "Shell", 64, 4;
 		DropItem "RocketAmmo", 64, 1;
 		+MISSILEMORE;
 		+DONTHARMCLASS; // don't kill yourself with your explosives

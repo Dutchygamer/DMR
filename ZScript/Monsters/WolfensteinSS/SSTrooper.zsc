@@ -26,7 +26,7 @@ class SSTrooper : DMR_NaziBase
 		ActiveSound "wolfsstrooper/active";
 		Obituary "%o was hunted down by a SS Trooper.";
 		DropItem "Clip", 256, 5;
-		DropItem "Clip", 128, 5;
+		DropItem "Clip", 64, 5;
 	}
 	States
 	{

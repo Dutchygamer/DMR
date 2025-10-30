@@ -24,9 +24,7 @@ class FormerSpecOpsElite : DMR_ChaingunGuy
 		DamageFactor "ZombieGrenade", 0.5; // take less damage from own grenades
 		+MISSILEMORE
 		+DOHARMSPECIES; // zombies aren't grenade-proof
-		DropItem "Clip", 256, 5;
-		DropItem "Clip", 128, 5;
-		DropItem "Clip", 64, 5;
+		Dropitem "Cell", 256, 20;
 		DropItem "RocketAmmo", 64, 1;
 	}
 	bool isStealthed;

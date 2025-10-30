@@ -27,7 +27,6 @@ class CyborgReaper : CyborgAcolyte
 		Scale 1.1;
 		DropItem "Cell", 256, 20;
 		DropItem "Cell", 128, 20;
-		DropItem "Cell", 64, 20;
 		DropItem "RocketAmmo", 64, 1;
 		-MISSILEMORE;
 		+MISSILEEVENMORE;

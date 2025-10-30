@@ -20,7 +20,8 @@ class FormerGunnerCommando : DMR_ChaingunGuy
 		Obituary "%o was eviscerated by a Former Gunner Commando.";
 		Health 90;
 		DropItem "Chaingun";
-		DropItem "Chaingun", 10;
+		DropItem "Clip", 128, 5;
+		DropItem "Clip", 128, 5;
 	}
  	States
 	{

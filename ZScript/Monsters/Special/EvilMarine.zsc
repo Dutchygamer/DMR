@@ -29,7 +29,8 @@ class EvilMarine : DMR_MonsterBase
 		DeathSound "grunt/death";
 		ActiveSound "grunt/active";
 		OBITUARY "%o was defeated by a corrupted marine.";
-		DropItem "CellPack", 256, 100;
+		DropItem "Cell", 256, 20;
+		DropItem "Cell", 64, 20;
 		DropItem "PlasmaRifle", 10;
 		+DONTHARMSPECIES;
 		+NOINFIGHTSPECIES;
