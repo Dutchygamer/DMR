@@ -147,7 +147,7 @@ class KurCenturion : DMR_Cyberdemon
 		}
 	FlamethrowerLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 45,"FlamethrowerEnd");
-		TERM K 1 Bright {
+		TERM K 1 Bright Light("DMR_RifleFire") {
 			A_FaceTarget();
 			attackloop++;
 			A_SpawnProjectile("KurCenturionFlamethrowerBall",56,-24,random(-3,3),CMF_OFFSETPITCH,frandom(-1,1));
