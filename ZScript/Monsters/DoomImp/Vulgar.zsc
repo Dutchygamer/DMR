@@ -118,7 +118,7 @@ class VulgarGasBall : DMR_DoomImpBall
 		Scale 0.7;
 		DamageType "ToxinCloud";
 		Seesound "vulgar/fire";
-		DeathSound "weapons/bloodx";
+		DeathSound "gas/explode";
 		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
 	}
 	States
@@ -139,7 +139,6 @@ class VulgarGasBall : DMR_DoomImpBall
 		}
 		HECF C 4 Bright {
 			A_Explode(10,48);
-			A_StartSound("gas/explode");	
 			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);

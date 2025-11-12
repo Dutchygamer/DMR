@@ -107,7 +107,7 @@ class WithererBall : DMR_CacodemonBall
 		DamageType "ToxinCloud";
 		Scale 1.5;
 		ALPHA 0.67;
-		Seesound "vulgar/fire";
+		SeeSound "imp/attack";
 		DeathSound "weapons/bloodx";
 		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
 	}
@@ -143,7 +143,7 @@ class WithererGasBall : DMR_CacodemonBall
 		DamageType "ToxinCloud";
 		Scale 0.9;
 		Seesound "vulgar/fire";
-		DeathSound "weapons/bloodx";
+		DeathSound "gas/explode";
 		DMR_Projectile.ParticleColors "#00d423", "#19ed3c", "#a9ffb7", "#b8ffc4";
 	}
 	States
@@ -167,7 +167,6 @@ class WithererGasBall : DMR_CacodemonBall
 		}
 		HECF C 4 Bright {
 			A_Explode(16,64);
-			A_StartSound("gas/explode");	
 			A_SpawnItemEx("DMR_LargeGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
 			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
@@ -181,7 +180,7 @@ class CacolichToxinSpray : DMR_SprayProjectile
 {
 	Default
 	{
-		Speed 15; //10;
+		Speed 15;
 		DamageType "ToxinCloud";
 		RenderStyle "Translucent";
 		Alpha 0.5;
