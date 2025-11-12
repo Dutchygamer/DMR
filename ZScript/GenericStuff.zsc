@@ -124,10 +124,11 @@ class DMR_ShieldWall : Actor
 		+NOBLOOD;
 		+SHOOTABLE;
 		+NOGRAVITY;
-		+NODAMAGETHRUST;
+		+DONTTHRUST;
 		+NOTELEPORT;
 		+DONTRIP;
 		+THRUSPECIES;
+		+SOLID;
 		Species "DMR_ShieldWall"; //so the shield projectiles can pass through the shield
 	}
 	States
