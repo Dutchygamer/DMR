@@ -5,7 +5,7 @@ Class ChaingunGuyReplacer: RandomSpawner replaces Chaingunguy
 		DropItem "DMR_ChaingunGuy", 255, 100;
 		DropItem "FormerGunnerCommando", 255, 20;
 		DropItem "FormerRocketeer", 255, 20;
-		DropItem "FormerPyroTechnician", 255, 10;
+		DropItem "FormerChemWarrior", 255, 10;
 		DropItem "FormerViralAgent", 255, 10;
 		DropItem "FormerPlasmaCommando", 255, 10;
 		DropItem "FormerSpecOpsElite", 255, 10;

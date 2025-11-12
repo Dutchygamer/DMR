@@ -1,0 +1,145 @@
+//======================================================================
+//  Original credits
+//======================================================================
+//  DECORATE: 	Scalliano, Eriance
+//	Sounds:		Eriance, Raven Software, 3d Realms
+//  Sprites: 	Id Software, Eriance, 3D Realms (edits by ItsNatureToDie, neoworm, Captain Toenail, Xim, Ghastly_dragon, scalliano)
+//	GLDEFs: 	Keksdose
+//======================================================================
+//  Additional credits
+//======================================================================
+//	Sounds:		Westwood Studios	
+//	ZScript:	Dutchygamer
+//======================================================================
+
+class FormerChemWarrior : DMR_ChaingunGuy
+{
+	Default
+	{
+		Tag "Former Chem Warrior";
+		Obituary "%o was dissolved by a Former Chem Warrior.";
+		Health 220;
+		PainChance 60;
+		DamageFactor "ToxinCloud", 0.0;
+		Dropitem "Cell", 256, 20;
+		DropItem "Cell", 64, 20;
+		+DOHARMSPECIES; // zombies aren't fire-proof
+		+MISSILEMORE;
+	}
+	
+ 	States
+	{
+	Spawn:
+		PYRZ AB 10 A_Look;
+		Loop;
+	See:
+		PYRZ AABBCCDD 3 A_Chase;
+		Loop;
+	Missile:
+		TNT1 A 0 { attackloop = 0; }
+		TNT1 A 0 A_Jump(128, "ToxinSpray", "FatBalls");
+	Fireballs:
+		PYRZ E 10 A_FaceTarget;
+	FireballLoop:
+		TNT1 A 0 A_JumpIf(attackloop >= 6,"FireballEnd");
+		PYRZ F 6 Bright Light("DMR_WithererSpray") {
+			A_LobProjectile("ChemWarriorBall",32,0,frandom(-3,3));
+			attackloop++;
+		}
+		PYRZ E 5 A_FaceTarget;
+		TNT1 A 0 A_MonsterRefire(32,"FireballEnd");
+		Loop;
+	FireballEnd:
+		PYRZ E 10;
+		goto See;
+	FatBalls:
+		PYRZ E 20 A_FaceTarget;
+		PYRZ F 6 Bright Light("DMR_WithererSpray") A_SpawnProjectile("WithererGasBall",32);
+		PYRZ E 8 A_FaceTarget;
+		PYRZ F 6 Bright Light("DMR_WithererSpray") A_SpawnProjectile("WithererGasBall",32,0,5.625);
+		PYRZ E 8 A_FaceTarget;
+		PYRZ F 6 Bright Light("DMR_WithererSpray") A_SpawnProjectile("WithererGasBall",32,0,-5.625);
+		PYRZ E 10;
+		goto See;
+	ToxinSpray:
+		TNT1 A 0 {
+			if(target && Distance3D(target) > 300) SetStateLabel("Fireballs");
+		}
+		PYRZ E 10 A_FaceTarget;
+		TNT1 A 0 { 
+			A_StartSound ("CacoLich/Spray", CHAN_WEAPON);
+		}
+	ToxinSprayLoop:
+		TNT1 A 0 A_JumpIf(attackloop >= 9,"ToxinSprayEnd");
+		PYRZ F 1 Bright Light("DMR_WithererSpray") {
+			A_FaceTarget();
+			attackloop++;
+			A_SpawnProjectile("CacolichToxinSpray",32,0,random(-3,3),CMF_OFFSETPITCH,frandom(-1,1));
+		}
+		Loop;
+	ToxinSprayEnd:
+		PYRZ E 5;	
+		Goto See;
+	Pain:
+		PYRZ G 3;
+		PYRZ G 3 A_Pain;
+		Goto See;
+	Death:
+		PYRZ H 5;
+		PYRZ I 5 A_Scream;
+		PYRZ J 5 A_NoBlocking;
+		PYRZ KLM 5;
+		PYRZ N -1;
+		Stop;
+	XDeath:
+		PYRZ O 5;
+		PYRZ P 5 A_XScream;
+		PYRZ Q 5 A_NoBlocking;
+		PYRZ RS 5;
+		PYRZ T -1;
+		Stop;
+	Raise:
+		PYRZ NMLKJIH 5;
+		Goto See;
+	}
+}
+
+Class ChemWarriorBall : VulgarGasBall
+{
+	Default
+	{
+		Speed 35;
+		FastSpeed 35;
+		DamageFunction(random(14,42));
+		Gravity 0.5;
+		-NOGRAVITY;
+	}
+	States
+	{
+	Spawn: 
+		HECF AABB 2 {
+			A_SpawnItemEx("DMR_GasTrail",-5,0,0,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,-0.5)); 
+			for (fxLoop = 0;fxLoop<=2;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-12,-6),frandom(-4,4),frandom(-4,4),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
+			}
+		}
+		loop;
+	Death:
+		TNT1 A 0 {
+			A_SpawnItemEx("DMR_GasBallImpactSpawner");
+			for (fxLoop = 0;fxLoop<=35;fxLoop++)
+			{
+				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
+			}
+		}
+		HECF C 4 Bright {
+			A_Explode(16,64);
+			A_SpawnItemEx("DMR_MediumGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+			A_SpawnItemEx("DMR_SmallGasCloud",0,0,5,frandom(-1,1),frandom(-1,1),0,0,SXF_ORIGINATOR);
+		}
+		HECF DE 4 Bright;
+		stop;
+	}
+}
