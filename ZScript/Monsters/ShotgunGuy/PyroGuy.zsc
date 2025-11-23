@@ -18,8 +18,8 @@ class FormerPyroTechnician : DMR_ShotgunGuy
 	{
 		Tag "Former Pyro Technician";
 		Obituary "%o was flambeed by a Former Pyro Technician.";
-		Health 150;
-		PainChance 100;
+		Health 125;
+		PainChance 130;
 		DamageFactor "Fire", 0.5;
 		Dropitem "Cell", 256, 20;
 		+DOHARMSPECIES; // zombies aren't fire-proof
