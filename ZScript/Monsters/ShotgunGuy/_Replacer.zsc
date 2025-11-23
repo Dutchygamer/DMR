@@ -6,7 +6,7 @@ Class ShotgunGuyReplacer: RandomSpawner replaces Shotgunguy
 		DropItem "FormerStaffSargeant", 255, 20;
 		DropItem "FormerAssaultSargeant", 255, 20;
 		DropItem "FormerSpecOpsSargeant", 255, 10;
-		DropItem "FormerPyroTechnician", 255, 10;
+		DropItem "FormerPyroTechnician", 255, 8;
 		DropItem "FormerQuartermaster", 255, 8;
 		DropItem "CyborgTemplar", 255, 8;
 	}
