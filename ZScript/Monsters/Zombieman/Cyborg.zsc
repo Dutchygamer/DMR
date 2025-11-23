@@ -19,7 +19,7 @@ class CyborgAcolyte : DMR_Zombieman
 		Tag "Cyborg Acolyte";
 		obituary "%o felt the pain of fighting a Cyborg Acolyte.";
 		health 300;
-		painchance 60;
+		painchance 100;
 		SeeSound "cyborg/sight";
 		PainSound "cyborg/pain";
 		DeathSound "cyborg/death";

@@ -19,7 +19,7 @@ class FormerChemWarrior : DMR_ChaingunGuy
 		Tag "Former Chem Warrior";
 		Obituary "%o was dissolved by a Former Chem Warrior.";
 		Health 220;
-		PainChance 60;
+		PainChance 70;
 		DamageFactor "ToxinCloud", 0.0;
 		Dropitem "Cell", 256, 20;
 		DropItem "Cell", 64, 20;

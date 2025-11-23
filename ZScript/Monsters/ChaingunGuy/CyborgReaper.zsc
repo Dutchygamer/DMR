@@ -19,7 +19,7 @@ class CyborgReaper : CyborgAcolyte
 		Tag "Cyborg Reaper";
 		obituary "%o fought the Cyborg Reaper and lost.";
 		health 800;
-		painchance 30;
+		painchance 60;
 		SeeSound "cyborg/sight";
 		PainSound "cyborg/pain";
 		DeathSound "cyborg/death";

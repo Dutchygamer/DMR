@@ -19,7 +19,7 @@ class CyborgTemplar : CyborgAcolyte
 		Tag "Cyborg Templar";
 		obituary "%o could not topple the Cyborg Templar in time.";
 		health 450;
-		painchance 40;
+		painchance 80;
 		SeeSound "cyborg/sight";
 		PainSound "cyborg/pain";
 		DeathSound "cyborg/death";
