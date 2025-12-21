@@ -23,7 +23,6 @@ class FormerPyroTechnician : DMR_ShotgunGuy
 		DamageFactor "Fire", 0.5;
 		Dropitem "Cell", 256, 20;
 		+DOHARMSPECIES; // zombies aren't fire-proof
-		+MISSILEMORE;
 	}
 	
  	States
@@ -61,7 +60,7 @@ class FormerPyroTechnician : DMR_ShotgunGuy
 		}
 	FlamethrowerLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 12,"FlamethrowerEnd");
-		FLMZ F 1 Bright Light("DMR_RifleFire") {
+		FLMZ F 2 Bright Light("DMR_RifleFire") {
 			A_FaceTarget();
 			attackloop++;
 			A_SpawnProjectile("DMR_FlamethrowerBall",32,0,random(-3,3),CMF_OFFSETPITCH,frandom(-1,1));

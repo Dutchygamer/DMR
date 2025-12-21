@@ -87,7 +87,7 @@ class Draugr : DMR_Revenant
 		}
 	FlamethrowerLoop:
 		TNT1 A 0 A_JumpIf(attackloop >= 24,"FlamethrowerEnd");
-		SKE2 H 1 Bright Light("DMR_RifleFire") {
+		SKE2 H 2 Bright Light("DMR_RifleFire") {
 			A_FaceTarget();
 			attackloop++;
 			A_SpawnProjectile("DMR_FlamethrowerBall",64,-14,random(-3,3));
