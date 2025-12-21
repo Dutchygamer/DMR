@@ -59,8 +59,8 @@ class Witherer : DMR_Cacodemon
 			A_StartSound ("CacoLich/Spray", CHAN_WEAPON);		
 		}
 	ToxinSprayLoop:
-		TNT1 A 0 A_JumpIf(attackloop >= 9,"See");
-		CALI G 1 Light("DMR_WithererSpray") {
+		TNT1 A 0 A_JumpIf(attackloop >= 12,"See");
+		CALI G 2 Light("DMR_WithererSpray") {
 			A_FaceTarget();
 			attackloop++;
 			A_SpawnProjectile("CacolichToxinSpray",26,0,random(-3,3),CMF_OFFSETPITCH,frandom(-1,1));
