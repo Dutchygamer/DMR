@@ -187,7 +187,7 @@ class CyborgAcolyteGrenade : DMR_FiredGrenade
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,9),0,frandom(-7,7),frandom(0,7),0,frandom(-7,7),0,0,-0.1,1,-1,-0.6);
 			}
-			A_Explode(72,64);
+			A_Explode(72,96);
 		}
 		XPL2 ABCDEF 1 Bright Light("DMR_Rocket_X1");
 		XPL2 GHIJKL 1 Bright Light("DMR_Rocket_X2");

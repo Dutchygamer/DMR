@@ -161,7 +161,7 @@ class SpecOpsGrenade : DMR_ThrownGrenade
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(12,14),random(0,360),frandom(0,6),0,frandom(-4,4),frandom(0,6),0,frandom(-6,6),0,0,-0.1,1,-1,-0.6);
 			}
-			A_Explode(32,64);
+			A_Explode(32,96);
 		}	
 		XPL2 ABCDEF 1 Bright Light("DMR_Rocket_X1");
 		XPL2 GHIJKL 1 Bright Light("DMR_Rocket_X2");

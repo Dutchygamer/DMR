@@ -38,7 +38,7 @@ class DMR_Rocket : DMR_Projectile
 	States
 	{
 	Spawn:
-		MIS1 A 1 Bright {
+		MISL E 1 Bright {
 			A_SpawnItemEx("DMR_MediumFireballTrail",-35,0,2,frandom(-1,0),frandom(-1,1),frandom(-1,0));
 			A_SpawnItemEx("DMR_MediumSmokeCloud",-35,0,2,frandom(-1,0));
 			for (fxLoop = 0;fxLoop<=3;fxLoop++)
@@ -104,7 +104,7 @@ class DMR_SmallRocket : DMR_Rocket
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,9),0,frandom(-7,7),frandom(0,7),0,frandom(-7,7),0,0,-0.1,1,-1,-0.6);
 			}
-			A_Explode(72,72);
+			A_Explode(72,96);
 		}
 		XPL2 ABCDEF 1 Bright Light("DMR_Rocket_X1");
 		XPL2 GHIJKL 1 Bright Light("DMR_Rocket_X2");
@@ -203,7 +203,7 @@ class DMR_FiredGrenade : DMR_GrenadeBase
 			{
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(18,24),frandom(12,14),random(0,360),frandom(0,9),0,frandom(-7,7),frandom(0,7),0,frandom(-7,7),0,0,-0.1,1,-1,-0.6);
 			}
-			A_Explode(96,96);
+			A_Explode(96,128);
 		}
 		XPL2 ABCDEF 1 Bright Light("DMR_Rocket_X1");
 		XPL2 GHIJKL 1 Bright Light("DMR_Rocket_X2");
