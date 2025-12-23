@@ -25,6 +25,9 @@ Class CyberAfrit : DMR_BaronOfHell
 		+BRIGHT;
 		Obituary "%o was scorched by an Cyber Afrit";
 		HitObituary "%o found the Cyber Afrit too hot to handle.";
+		SeeSound "cybaron/sight";
+		PainSound "cybaron/pain";
+		DeathSound "cybaron/death";
 	}
 	States
 	{
