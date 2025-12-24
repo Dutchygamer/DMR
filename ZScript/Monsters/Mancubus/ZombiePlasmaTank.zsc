@@ -31,23 +31,32 @@ class ZombiePlasmaTank : DMR_ZombieTankBase
     Missile:
         ZPTK A 20 {
 			A_FaceTarget();
-			A_StartSound("heavyweapon/load");
+			A_StartSound("heavyweapon/load");			
+			attackloop = 0;
 		}
-        ZPTK D 5 Bright Light("DMR_PlasmaFire") {
-			A_StartSound("weapons/plasmaf");
+	MissileLoop:
+		TNT1 A 0 A_JumpIf(attackloop >= 3,"MissileEnd");
+        ZPTK D 4 Bright Light("DMR_PlasmaFire") {
 			A_FaceTarget();
-			A_SpawnProjectile("DMR_ZombiePlasma",60,32,0);
-			A_SpawnProjectile("DMR_ZombiePlasma",50,32,-5);
+			A_SpawnProjectile("DMR_ZombiePlasma",59,-29,0);
 		}
-        ZPTK E 5 Bright Light("DMR_PlasmaFire") {
-			A_StartSound("weapons/plasmaf");
+        ZPTK D 4 Bright Light("DMR_PlasmaFire") {
 			A_FaceTarget();
-			A_SpawnProjectile("DMR_ZombiePlasma",60,-29,0);
-			A_SpawnProjectile("DMR_ZombiePlasma",50,-29,5);
+			A_SpawnProjectile("DMR_ZombiePlasma",47,-29,5);
+		}
+        ZPTK E 4 Bright Light("DMR_PlasmaFire") {
+			A_FaceTarget();
+			A_SpawnProjectile("DMR_ZombiePlasma",59,32,0);
+		}
+        ZPTK E 4 Bright Light("DMR_PlasmaFire") {
+			A_FaceTarget();
+			A_SpawnProjectile("DMR_ZombiePlasma",47,32,-5);
+			attackloop++;
 		}
         ZPTK A 10 A_FaceTarget;
-		TNT1 A 0 A_MonsterRefire(25, "See");
-		Goto Missile+1;
+		Loop;
+	MissileEnd:
+		Goto See;
     Pain:
         ZPTK F 3;
         ZPTK F 3 A_Pain;
