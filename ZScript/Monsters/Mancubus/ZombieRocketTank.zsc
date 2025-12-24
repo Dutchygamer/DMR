@@ -33,11 +33,23 @@ class ZombieRocketTank : DMR_ZombieTankBase
 			A_FaceTarget();
 			A_StartSound("heavyweapon/load");
 		}
-        ZMTK D 5 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",54,-29,0);
-        ZMTK E 5 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",54,32,7);
+        ZMTK D 5 Bright Light("DMR_RifleFire") {
+			A_FaceTarget();
+			A_SpawnProjectile("DMR_SmallRocket",54,-29,0);
+		}
+        ZMTK E 5 Bright Light("DMR_RifleFire") {
+			A_FaceTarget();
+			A_SpawnProjectile("DMR_SmallRocket",54,32,7);
+		}
         ZMTK A 10 A_FaceTarget;
-        ZMTK D 5 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",54,-29,-7);
-        ZMTK E 5 Bright Light("DMR_RifleFire") A_SpawnProjectile("DMR_SmallRocket",54,32,0);
+        ZMTK D 5 Bright Light("DMR_RifleFire") {
+			A_FaceTarget();
+			A_SpawnProjectile("DMR_SmallRocket",54,-29,-7);
+		}
+        ZMTK E 5 Bright Light("DMR_RifleFire") {
+			A_FaceTarget();
+			A_SpawnProjectile("DMR_SmallRocket",54,32,0);
+		}
         ZMTK A 10 A_FaceTarget;
         Goto See;
     Pain:
