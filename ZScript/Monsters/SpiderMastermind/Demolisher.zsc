@@ -24,7 +24,7 @@ class Demolisher : DMR_SpiderMastermind
 		//PainSound "MancuTank/pain";
 		//DeathSound "MancuTank/death";
 		//ActiveSound "MancuTank/active";
-		Obituary "%o was destroyed by a Demolisher.";
+		Obituary "%o was crushed by a Demolisher.";
 	}
 	
 	States
