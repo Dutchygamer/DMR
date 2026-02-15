@@ -60,9 +60,12 @@ Class Belphegor : DMR_BaronOfHell
 		}
 	ChargeLoop:
 		BOS3 AAABBBCCCDDD 1 {
-			if (target && Distance3D(target) < 80 || vel.x == 0 && vel.y == 0) { SetStateLabel("Ram"); }
+			if (target && Distance3D(target) < 80 || vel.x == 0 && vel.y == 0) {
+				return ResolveState("Ram");
+			}
 			A_FaceTarget(1.5,180);
 			A_Recoil(-3);
+			return ResolveState(null);
 		}
 		Loop;
 	Ram:

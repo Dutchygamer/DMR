@@ -44,7 +44,10 @@ class Draugr : DMR_Revenant
 		SKE2 L 6 A_CustomMeleeAttack(random(16,48),"skeleton/melee");
 		TNT1 A 0 {
 			// toast your target if still within range
-			if (target && Distance3D(target) < 180) SetStateLabel("Flamethrower");
+			if (target && Distance3D(target) < 180) {
+				return ResolveState("Flamethrower");
+			}
+			return ResolveState(null);
 		}
 		Goto See;
 	Missile:
@@ -70,7 +73,10 @@ class Draugr : DMR_Revenant
 	ClusterRocket:
 		TNT1 A 0 {
 			// cluster missiles suck at close range, so use normal rocket instead
-			if (target && Distance3D(target) < 300) SetStateLabel("HERocket");
+			if (target && Distance3D(target) < 300) {
+				return ResolveState("HERocket");
+			}
+			return ResolveState(null);
 		}
 		SKE2 GG 7 Bright A_FaceTarget;
 		SKE2 H 8 Bright Light("DMR_RifleFire") A_SpawnProjectile("DraugrClusterMissile",64,-14);
@@ -78,7 +84,10 @@ class Draugr : DMR_Revenant
 		Goto See;
 	Flamethrower:
 		TNT1 A 0 {
-			if (target && Distance3D(target) > 300) SetStateLabel("HERocket");
+			if (target && Distance3D(target) > 300) {
+				return ResolveState("HERocket");
+			}
+			return ResolveState(null);
 		}
 		SKE2 GG 7 Bright A_FaceTarget;
 		TNT1 A 0 { 

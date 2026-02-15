@@ -58,7 +58,10 @@ class Phaser : DMR_DoomImp
         Goto See;
 	GoStealthed:
 		TNT1 A 0 {
-			if (isStealthed) { SetStateLabel("See"); }
+			if (isStealthed) {
+				return ResolveState("See");
+			}
+			return ResolveState(null);
 		}
 		DIMP E 5 {
 			isStealthed = true;

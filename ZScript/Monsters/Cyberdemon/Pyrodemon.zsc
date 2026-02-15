@@ -60,8 +60,9 @@ class FireborneArchon : DMR_Cyberdemon
 		BOS4 G 3 A_SpawnProjectile("FireborneArchonFastComet",56,0,frandom(-4,4),CMF_OFFSETPITCH,frandom(-1,1));
 		TNT1 A 0 {
 			if (A_MonsterRefire(128,"See")) {
-				SetStateLabel("See");
+				return ResolveState("See");
 			}
+			return ResolveState(null);
 		}
 		BOS4 H 4 Bright;
 		BOS4 IJ 6 Bright A_FaceTarget;
@@ -72,8 +73,9 @@ class FireborneArchon : DMR_Cyberdemon
 		}
 		TNT1 A 0 {
 			if (attackloop >= 2 || A_MonsterRefire(128,"See")) {
-				SetStateLabel("See");
+				return ResolveState("See");
 			}
+			return ResolveState(null);
 		}
 		BOS4 L 4 Bright;
 		Loop;
@@ -109,7 +111,10 @@ class FireborneArchon : DMR_Cyberdemon
 		Goto See;
 	CeilingComets:
 		TNT1 A 0 {
-			if (target && Distance3D(target) > 600) SetStateLabel("Rockets");
+			if (target && Distance3D(target) > 900) {
+				return ResolveState("Rockets");
+			}
+			return ResolveState(null);
 		}
 		TNTA A 0 A_StartSound("pyro/see");
 		BOS4 MN 12 Bright A_FaceTarget;
@@ -363,16 +368,20 @@ class FireborneArchonCometSpawner : DMR_Projectile
 	SpawnLoop:
 		ZAP5 AABBCCDD 1 {
 			if (fuelLevel < 1) {
-				SetStateLabel("Death");
+				return ResolveState("Death");
 			}
-			fuelLevel--;
-			
-			A_Weave(3,0,3.0,0.0);
-			A_SeekerMissile(2,4);
-			
-			if (fuelLevel % 3 == 1) {
-				A_SpawnItemEx("FireborneArchonFallingComet",frandom(0,80),0,frandom(-8,-4),frandom(0,1),0,frandom(-40,-35),random(0,360),SXF_ORIGINATOR|SXF_TRANSFERPOINTERS);			
-			}			
+			else
+			{
+				fuelLevel--;
+				
+				A_Weave(3,0,3.0,0.0);
+				A_SeekerMissile(2,4);
+				
+				if (fuelLevel % 3 == 1) {
+					A_SpawnItemEx("FireborneArchonFallingComet",frandom(0,80),0,frandom(-8,-4),frandom(0,1),0,frandom(-40,-35),random(0,360),SXF_ORIGINATOR|SXF_TRANSFERPOINTERS);			
+				}	
+			}
+			return ResolveState(null);		
 		}
 		Loop;
 	Death:

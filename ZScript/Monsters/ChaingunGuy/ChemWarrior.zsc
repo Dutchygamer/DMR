@@ -63,7 +63,10 @@ class FormerChemWarrior : DMR_ChaingunGuy
 		goto See;
 	ToxinSpray:
 		TNT1 A 0 {
-			if(target && Distance3D(target) > 300) SetStateLabel("Fireballs");
+			if (target && Distance3D(target) > 300) {
+				return ResolveState("Fireballs");
+			}
+			return ResolveState(null);
 		}
 		PYRZ E 10 A_FaceTarget;
 		TNT1 A 0 { 

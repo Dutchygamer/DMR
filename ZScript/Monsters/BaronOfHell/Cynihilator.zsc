@@ -149,9 +149,14 @@ class KurPraetorian : DMR_BaronOfHell
 		BRU3 UG 8 A_Facetarget;
 		TNT1 A 0 {
 			// when not berserking stop attacking
-			if (!criticalDamaged) { SetStateLabel("See"); }
+			if (!criticalDamaged) {
+				return ResolveState("See");
+			}
 			// when berserking small chance to stop attacking
-			if (criticalDamaged && random(1,10) == 10) { SetStateLabel("See"); }
+			if (criticalDamaged && random(1,10) == 10) { 
+				return ResolveState("See");
+			}
+			return ResolveState(null);
 		}
 		// otherwise switch to different attack if target is still in LoS
 		TNT1 A 0 A_MonsterRefire(0,"See");

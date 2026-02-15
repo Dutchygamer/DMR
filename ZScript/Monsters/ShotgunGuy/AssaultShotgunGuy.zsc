@@ -30,7 +30,10 @@ class FormerAssaultSargeant : DMR_ShotgunGuy
 		Loop;
 	See:
 		TNT1 A 0 {
-			if (shotsFired >= 6) { SetStateLabel("Reload"); }
+			if (shotsFired >= 6) {
+				return ResolveState("Reload");
+			}
+			return ResolveState(null);
 		}	
         ASGZ AABBCCDD 4 A_Chase;
 		Loop;
@@ -38,7 +41,10 @@ class FormerAssaultSargeant : DMR_ShotgunGuy
 		ASGZ E 10 A_FaceTarget;
 	MissileLoop:
 		TNT1 A 0 { // reload when we have expended 6 shots
-			if (shotsFired >= 6) { SetStateLabel("Reload"); }
+			if (shotsFired >= 6) {
+				return ResolveState("Reload");
+			}
+			return ResolveState(null);
 		}
 		ASGZ E 10 A_FaceTarget;
         ASGZ F 7 Bright Light("DMR_RifleFire") {

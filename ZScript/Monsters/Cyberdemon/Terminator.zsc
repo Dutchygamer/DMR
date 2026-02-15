@@ -80,9 +80,14 @@ class KurCenturion : DMR_Cyberdemon
 	RocketsEnd:
 		TNT1 A 0 {
 			// when not berserking stop attacking
-			if (!criticalDamaged) { SetStateLabel("See"); }
+			if (!criticalDamaged) {
+				return ResolveState("See");
+			}
 			// when berserking small chance to stop attacking
-			if (criticalDamaged && random(1,10) == 10) { SetStateLabel("See"); }
+			if (criticalDamaged && random(1,10) == 10) { 
+				return ResolveState("See");
+			}
+			return ResolveState(null);
 		}
 		// otherwise switch to different attack if target is still in LoS
 		TNT1 A 0 A_MonsterRefire(0,"See");
@@ -127,9 +132,14 @@ class KurCenturion : DMR_Cyberdemon
 		TERM G 8;
 		TNT1 A 0 {
 			// when not berserking stop attacking
-			if (!criticalDamaged) { SetStateLabel("See"); }
+			if (!criticalDamaged) {
+				return ResolveState("See");
+			}
 			// when berserking small chance to stop attacking
-			if (criticalDamaged && random(1,10) == 10) { SetStateLabel("See"); }
+			if (criticalDamaged && random(1,10) == 10) { 
+				return ResolveState("See");
+			}
+			return ResolveState(null);
 		}
 		// otherwise switch to different attack if target is still in LoS
 		TNT1 A 0 A_MonsterRefire(0,"See");
@@ -137,7 +147,10 @@ class KurCenturion : DMR_Cyberdemon
 	Flamethrower:
 		TNT1 A 0 {
 			// switch to grenades if target is too far away
-			if(target && Distance3D(target) > 600) SetStateLabel("Grenades");
+			if (target && Distance3D(target) > 600) {
+				return ResolveState("Grenades");
+			}
+			return ResolveState(null);
 		}
 		TERM G 12 Bright A_FaceTarget;
 		TNT1 A 0 { 

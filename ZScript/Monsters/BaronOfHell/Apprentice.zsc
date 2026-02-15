@@ -59,7 +59,10 @@ class Hellsmith : DMR_BaronOfHell
 		Goto See;
 	Charge:
 		TNT1 A 0 {
-			if (target && Distance3D(target) > 360) SetStateLabel("Balls");
+			if (target && Distance3D(target) > 360) {
+				return ResolveState("Balls");
+			}
+			return ResolveState(null);
 		}
 		SMT1 JJJJJJ 2 A_FaceTarget;
 		TNT1 A 0 {
@@ -69,9 +72,12 @@ class Hellsmith : DMR_BaronOfHell
 		}
 	ChargeLoop:
 		SMT1 AAABBBCCCDDD 1 {
-			if (target && Distance3D(target) < 80 || vel.x == 0 && vel.y == 0) { SetStateLabel("Ram"); }
+			if (target && Distance3D(target) < 80 || vel.x == 0 && vel.y == 0) {
+				return ResolveState("Ram");
+			}
 			A_FaceTarget(1.5,180);
 			A_Recoil(-3);
+			return ResolveState(null);
 		}
 		Loop;
 	Ram:

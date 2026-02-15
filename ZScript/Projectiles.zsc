@@ -185,8 +185,11 @@ class DMR_FiredGrenade : DMR_GrenadeBase
 				A_SpawnParticle(GetParticleColor(),SPF_FULLBRIGHT|SPF_RELATIVE,random(10,18),frandom(8,10),0,frandom(-35,-30),frandom(-6,6),frandom(-6,6),frandom(-1,1),0,frandom(-1,1),0,0,-0.05,1,-1,-0.5);
 			}
 			// detonate if timer runs out
-			if (grenadeTimer >= 80) { SetStateLabel("XDeath"); }
+			if (grenadeTimer >= 80) { 
+				return ResolveState("XDeath");
+			}
 			grenadeTimer++;
+			return ResolveState(null);
 		}
 		Wait;
 	// actual explosion

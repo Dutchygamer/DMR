@@ -54,7 +54,10 @@ class Ghoul : DMR_Revenant
 	RapidBalls:
 		TNT1 A 0 {
 			// rapid balls fire straight forward from too high at start, so use homing tracer instead
-			if (target && Distance3D(target) < 300) SetStateLabel("Homing");
+			if (target && Distance3D(target) < 300) {
+				return ResolveState("Homing");
+			}
+			return ResolveState(null);
 		}
 		INCA JJ 10 Bright A_FaceTarget;
 		TNT1 A 0 { attackloop = 0; }

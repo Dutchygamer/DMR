@@ -64,8 +64,9 @@ class Forgemaster : DMR_Cyberdemon
 		}
 		TNT1 A 0 {
 			if (A_MonsterRefire(128,"See")) {
-				SetStateLabel("See");
+				return ResolveState("See");
 			}
+			return ResolveState(null);
 		}
 		BSMT B 5;
 		BSMT J 5 A_FaceTarget;
@@ -81,8 +82,9 @@ class Forgemaster : DMR_Cyberdemon
 		}
 		TNT1 A 0 {
 			if (attackloop >= 2 || A_MonsterRefire(128,"See")) {
-				SetStateLabel("See");
+				return ResolveState("See");
 			}
+			return ResolveState(null);
 		}
 		BSMT B 5;
 		Loop;
@@ -278,10 +280,16 @@ class ForgemasterClusterBallCluster : Actor
 	Spawn:	
 		TNT1 A 1 {			
 			// stop if timer runs out
-			if (lifetime >= 50) { SetStateLabel("Death"); }
-			lifetime++;
-			A_CStaffMissileSlither();
-			A_SpawnItem("ForgemasterClusterBallClusterTrail",0,0);
+			if (lifetime >= 50) {
+				return ResolveState("Death");
+			}
+			else
+			{
+				lifetime++;
+				A_CStaffMissileSlither();
+				A_SpawnItem("ForgemasterClusterBallClusterTrail",0,0);
+			}
+			return ResolveState(null);
 		}
 		Loop;
 	Death:

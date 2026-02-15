@@ -63,7 +63,10 @@ class FormerSpecOpsElite : DMR_ChaingunGuy
         TNT1 A 0 {
 			// when fired three shots we force the grenade to discharge the build-up heat
 			//TODO of maak variable tot een zeker moment waarbij je of moet schieten of moet dischargen na laatste schot
-			if (overheat >= 3) { SetStateLabel("Grenade"); }
+			if (overheat >= 3) {
+				return ResolveState("Grenade");
+			}
+			return ResolveState(null);
 		}
 		ZSP3 E 10 A_FaceTarget;	
 		ZSP3 FFFF 2 BRIGHT Light("DMR_RifleFire") {
@@ -88,7 +91,10 @@ class FormerSpecOpsElite : DMR_ChaingunGuy
 		Goto See;
 	GoStealthed:
 		TNT1 A 0 {
-			if (isStealthed) { SetStateLabel("See"); }
+			if (isStealthed) {
+				return ResolveState("See");
+			}
+			return ResolveState(null);
 		}
 		ZSP3 E 5 {
 			isStealthed = true;

@@ -111,6 +111,7 @@ class DiabolistFire : DMR_ArchvileFire
 			A_StartSound("vile/firecrkl",1,CHANF_LOOPING);
 			fxloop = 200;
 		}		
+		//TODO andere sprite / kleur
 		XXBF QRQRPQPOPNPNPNMLKJIHGFEDCBA 2 {
 			fxloop -= 4;
 			A_Fire();
@@ -223,7 +224,7 @@ class DiabolistBall : DMR_SmallRocket
 	States
 	{
 	Spawn: 
-		SEF1 AABBCC 2 {
+		SEF1 AABBCC 2 BRIGHT {
 			A_SpawnItemEx("DMR_LargeFireballTrail",-5,0,0,frandom(-0.5,0),frandom(-0.5,0.5),frandom(0,-0.5)); 
 			for (fxLoop = 0;fxLoop<=3;fxLoop++)
 			{
@@ -241,7 +242,7 @@ class DiabolistBall : DMR_SmallRocket
 			}
 			A_Explode(64,64);
 		}
-		SEF1 DEFGH 4;
+		SEF1 DEFGH 4 BRIGHT;
 		Stop;
 	}
 }

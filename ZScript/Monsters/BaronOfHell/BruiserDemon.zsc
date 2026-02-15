@@ -96,7 +96,10 @@ class FireborneNoble : DMR_BaronOfHell
 	//TODO obsolete
 	FireWaves:
 		TNT1 A 0 {
-			if (target && Distance3D(target) > 300) SetStateLabel("Comet");
+			if (target && Distance3D(target) > 300) {
+				return ResolveState("Comet");
+			}
+			return ResolveState(null);
 		}
 		BRUS KKK 8 Bright A_FaceTarget;
 		BRUS L 8 Bright A_FaceTarget;
@@ -191,11 +194,13 @@ class FireborneNobleFireSpawner : DMR_Projectile
 	SpawnLoop:
   		TNT1 A 1 Bright {
 			if (fuelLevel < 1) {
-				SetStateLabel("Death");
+				return ResolveState("Death");
 			}
-			fuelLevel--;
-			
-			A_SpawnProjectile("FireborneNobleFloorFire",0,0,0,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+			else {
+				fuelLevel--;
+				A_SpawnProjectile("FireborneNobleFloorFire",0,0,0,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+			}
+			return ResolveState(null);
 		}
 		Loop;
 	Death:

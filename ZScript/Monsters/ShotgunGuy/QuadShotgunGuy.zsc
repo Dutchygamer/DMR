@@ -32,19 +32,28 @@ class FormerQuartermaster : DMR_ShotgunGuy
 		Loop;
 	See:
 		TNT1 A 0 {
-			if (shotsFired >= 4) { SetStateLabel("Reload"); }
+			if (shotsFired >= 4) {
+				return ResolveState("Reload");
+			}
+			return ResolveState(null);
 		}	
 		QSZM AABBCCDD 3 A_Chase;
 		Loop;
 	Missile:
 		TNT1 A 0 { // if we are not fully loaded, use either single or super shot
-			if (shotsFired != 0) { SetStateLabel("SingleOrSuperShot"); }
+			if (shotsFired != 0) {
+				return ResolveState("SingleOrSuperShot");
+			}
+			return ResolveState(null);
 		}
 		TNT1 A 0 A_JumpIfCloser(350, "CloseShot");
 		Goto SingleShot;
 	SingleOrSuperShot:
 		TNT1 A 0 { // if we only have one shot left, use single shot
-			if (shotsFired >= 3) { SetStateLabel("SingleShot"); }
+			if (shotsFired >= 3) {
+				return ResolveState("SingleShot");
+			}
+			return ResolveState(null);
 		}
 		TNT1 A 0 A_JumpIfCloser(350, "SuperShot");
 		Goto SingleShot;
@@ -53,7 +62,10 @@ class FormerQuartermaster : DMR_ShotgunGuy
 		Goto SuperShot;
 	SingleShot:
 		TNT1 A 0 { // reload when we have expended 4 shots
-			if (shotsFired >= 4) { SetStateLabel("Reload"); }
+			if (shotsFired >= 4) {
+				return ResolveState("Reload");
+			}
+			return ResolveState(null);
 		}
 		QSZM E 10 A_FaceTarget;
 		QSZM F 8 Bright Light("DMR_RifleFire") {
@@ -66,7 +78,10 @@ class FormerQuartermaster : DMR_ShotgunGuy
 		Goto See;
 	SuperShot:
 		TNT1 A 0 { // reload when we have expended 4 shots
-			if (shotsFired >= 4) { SetStateLabel("Reload"); }
+			if (shotsFired >= 4) {
+				return ResolveState("Reload");
+			}
+			return ResolveState(null);
 		}
 		QSZM E 15 A_FaceTarget;
 		QSZM F 10 Bright Light("DMR_RifleFire") {

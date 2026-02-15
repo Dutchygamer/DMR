@@ -45,7 +45,10 @@ class Hellhound : DMR_Demon
 		Goto See;
 	Missile:
 		TNT1 A 0 {
-			if(target && Distance3D(target) > 300) SetStateLabel("See");
+			if (target && Distance3D(target) > 300) {
+				return ResolveState("See");
+			}
+			return ResolveState(null);
 		}
 		HDOG GG 8 Fast A_FaceTarget;
 		HDOG H 8 Fast Bright Light("DMR_RifleFire") A_LobProjectile("HellhoundBall",28,0,random(-2,2));

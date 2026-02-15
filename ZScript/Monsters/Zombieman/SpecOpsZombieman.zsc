@@ -89,7 +89,10 @@ class FormerSpecOpsGunner : DMR_Zombieman
 		Goto See;
 	GoStealthed:
 		TNT1 A 0 {
-			if (isStealthed) { SetStateLabel("See"); }
+			if (isStealthed) {
+				return ResolveState("See");
+			}
+			return ResolveState(null);
 		}
 		ZSP2 E 5 {
 			isStealthed = true;
