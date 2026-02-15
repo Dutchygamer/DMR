@@ -43,9 +43,51 @@ class Forgemaster : DMR_Cyberdemon
 		TNT1 A 0 A_StartSound("forgemaster/move");
 		Loop;
 	Missile:
+		TNT1 A 0 {
+			attackloop = 0;		
+		}
 		//TNT1 A 0 A_Jump(256, "Charge", "Balls", "Clustershot");
-		TNT1 A 0 A_Jump(256,"Balls");//TODO temp disabled ,"Clustershot");
-		Goto See;
+		//TNT1 A 0 A_Jump(256,"Balls");//TODO temp disabled ,"Clustershot");
+		//Goto See;
+	Fireballs:
+		BSMT EE 4 A_FaceTarget;
+	FireballsLoop:
+		BSMT E 5 A_FaceTarget;
+		BSMT H 5 A_StartSound("forgemaster/swing", CHAN_WEAPON);
+		BSMT II 3 {
+			//A_StartSound("weapons/hellfi", CHAN_WEAPON);
+			A_SpawnProjectile("AfritComet",52,0,frandom(-4,4),CMF_OFFSETPITCH,frandom(-1,1));
+		}
+		BSMT I 3 {
+			//A_StartSound("weapons/hellfi", CHAN_WEAPON);
+			A_SpawnProjectile("CyberAfritComet",52,0,frandom(-4,4),CMF_OFFSETPITCH,frandom(-1,1));
+		}
+		TNT1 A 0 {
+			if (A_MonsterRefire(128,"See")) {
+				SetStateLabel("See");
+			}
+		}
+		BSMT B 5;
+		BSMT J 5 A_FaceTarget;
+		BSMT M 5 A_StartSound("forgemaster/swing", CHAN_WEAPON);
+		BSMT NN 3 {
+			//A_StartSound("weapons/hellfi", CHAN_WEAPON);
+			A_SpawnProjectile("AfritComet",52,0,frandom(-4,4),CMF_OFFSETPITCH,frandom(-1,1));
+		}
+		BSMT N 3 {
+			//A_StartSound("weapons/hellfi", CHAN_WEAPON);
+			A_SpawnProjectile("CyberAfritComet",52,0,frandom(-4,4),CMF_OFFSETPITCH,frandom(-1,1));
+			attackloop++;
+		}
+		TNT1 A 0 {
+			if (attackloop >= 2 || A_MonsterRefire(128,"See")) {
+				SetStateLabel("See");
+			}
+		}
+		BSMT B 5;
+		Loop;
+		
+		
 	/*Charge:
 		BSMT O 1 A_StartSound ("forgemaster/dash");
 		BSMT OOOOOOOO 4 {
@@ -107,7 +149,7 @@ class Forgemaster : DMR_Cyberdemon
 		BSMT P 10;
 		BSMT Q 6 {
 			A_Scream();
-			A_SpawnItemEx("ForgemasterDroppedHammer", 0, -45, 110, 6, 0, 0, 30, SXF_SETMASTER);
+			A_SpawnItemEx("ForgemasterDroppedHammer",0,-45,110,6,0,0,30,SXF_SETMASTER);
 		}
 		BSMT RST 6;
 		BSMT U 6 A_NoBlocking;
