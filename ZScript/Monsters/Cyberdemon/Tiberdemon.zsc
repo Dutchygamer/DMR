@@ -265,7 +265,7 @@ class TiberiumGasRocket : DMR_Rocket
 	States
 	{
 	Spawn:
-		MIS1 AAA 1 Bright {
+		MISL AAA 1 Bright {
 			A_SpawnItemEx("DMR_MediumGreenFireballTrail",-35,0,2,frandom(-1,0),frandom(-1,1),frandom(-1,0));
 			A_SpawnItemEx("DMR_GasTrail",-35,0,2,frandom(-1,0));
 			for (fxLoop = 0;fxLoop<=3;fxLoop++)
