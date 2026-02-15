@@ -192,7 +192,35 @@ Class KurLegionaryDroppedShield : DMR_DroppedShield
 		HPLS ABCDEFGH 3;
 		Loop;
 	Death:
+		TNT1 A 0 {
+			if (GetCVar("dmr_shieldarmor")) { 
+				A_DropItem("KurLegionaryShieldBonus"); 
+				return ResolveState("DeathEnd");
+			}
+			else {			
+				return ResolveState(null);
+			}
+		}
+	DeathLoop:
 		HPLS I -1;
 		Loop;
+	DeathEnd:
+		HPLS A 0;
+		Stop;
+	}
+}
+
+class KurLegionaryShieldBonus : DMR_ShieldArmor
+{
+	Default
+	{
+		Armor.SaveAmount 25;
+		Inventory.PickupMessage "Salvaged some armor from a Kur Legionary's shield!";
+	}
+	States
+	{
+	Spawn:
+		HPLS I -1;
+		Stop;
 	}
 }

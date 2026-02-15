@@ -11,6 +11,9 @@ OptionMenu "dmr_options"
 	Option "Additional projectile particles", "dmr_fancydoom", "OnOff"
 	StaticText "Show additional effects. Disable for better performance.", white
 	StaticText " "
+	Option "Dropped shields give armor", "dmr_shieldarmor", "OnOff"
+	StaticText "Hell Servant and Kur Legionary's dropped shield can be picked up for armor.", white
+	StaticText " "
 	StaticText "CommanderKeen / WolfensteinSS compatibility"
 	StaticText "Replace CommanderKeen and/or WolfensteinSS.", white
 	StaticText "Vanilla keeps them unmodified.", white
@@ -19,12 +22,12 @@ OptionMenu "dmr_options"
 	StaticText " "
 	Option "Wolfenstein SS replacer", "dmr_replace_ss", "dmr_replace_ss_options"
 	Option "Commander Keen replacer", "dmr_replace_keen", "dmr_replace_keen_options"
-	StaticText " "
-	StaticText "Guncaster Patch Options"
-	StaticText "The following options only effect the Guncaster patch", white
-	StaticText " "
-	Option "Additional boss loot", "dmr_generousbosses", "OnOff"
-	StaticText "Bosses drop additional loot on death.", white
+	//StaticText " "
+	//StaticText "Guncaster Patch Options"
+	//StaticText "The following options only effect the Guncaster patch", white
+	//StaticText " "
+	//Option "Additional boss loot", "dmr_generousbosses", "OnOff"
+	//StaticText "Bosses drop additional loot on death.", white
 }
 
 OptionValue "dmr_replace_ss_options"

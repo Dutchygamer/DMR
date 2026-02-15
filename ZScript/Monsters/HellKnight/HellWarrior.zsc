@@ -191,7 +191,35 @@ class HellServantDroppedShield : DMR_DroppedShield
 		HWSH ABCDEFGH 3;
 		Loop;
 	Death:
+		TNT1 A 0 {
+			if (GetCVar("dmr_shieldarmor")) { 
+				A_DropItem("HellServantShieldBonus"); 
+				return ResolveState("DeathEnd");
+			}
+			else {			
+				return ResolveState(null);
+			}
+		}
+	DeathLoop:
 		HWSH I -1;
 		Loop;
+	DeathEnd:
+		TNT1 A 0;
+		Stop;
+	}
+}
+
+class HellServantShieldBonus : DMR_ShieldArmor
+{
+	Default
+	{
+		Armor.SaveAmount 15;
+		Inventory.PickupMessage "Salvaged some armor from a Hell Servant's shield!";
+	}
+	States
+	{
+	Spawn:
+		HWSH I -1;
+		Stop;
 	}
 }

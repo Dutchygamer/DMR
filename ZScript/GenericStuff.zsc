@@ -82,6 +82,23 @@ Class DMR_DroppedShield: Actor
 	}
 }
 
+// dropped shield armor bonus
+class DMR_ShieldArmor : BasicArmorBonus
+{
+	Default
+	{
+		Radius 12;
+		Height 16;
+		Inventory.PickupSound "Armor/Pickup";
+		Inventory.Icon "BON2A0";
+		Armor.SavePercent 33.335;
+		Armor.SaveAmount 1;
+		Armor.MaxSaveAmount 200;
+		+INVENTORY.ALWAYSPICKUP;
+	}
+}
+
+
 // monster ram impact 'projectile'
 class DMR_RamImpactor : Actor
 {

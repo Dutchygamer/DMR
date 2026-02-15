@@ -8,3 +8,6 @@ server int dmr_generousbosses = 0;
 server int dmr_replace_ss = 0;
 // replace CommanderKeen with a specific monster for special mapsets that replace these
 server int dmr_replace_keen = 0;
+
+// can dropped shields be picked up as an armor bonus yes / no
+server int dmr_shieldarmor = 0;
