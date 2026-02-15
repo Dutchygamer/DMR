@@ -205,6 +205,7 @@ class KurPraetorian : DMR_BaronOfHell
 		BRU3 T -1 A_BossDeath;
 		Stop;
 	Raise: 
+		TNT1 A 0 { criticalDamaged = false; } // don't stay beserk when resurrected plz
 		BRU3 RQPONMLK 8;
 		Goto See;
 	}
