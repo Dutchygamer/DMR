@@ -153,7 +153,7 @@ class KurLegionary : DMR_BaronOfHell
 			A_SpawnItemEx("KurLegionaryDroppedShield",0,0,25,6,0,0,60);
 		}
 		HPLX BCD 5 Bright {
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(-8,8),random(-8,8),random(20,40));
 		}
 		HPLX E 5 Bright A_NoBlocking;
 		HPLX FGH 5 Bright;

@@ -132,7 +132,7 @@ class CyborgCommando : CyborgAcolyte
 		MRBL G 4;
 		MRBL G 4 A_StartSound("cyborg/pain", 7);
 		MRBL G 4 {
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",0,0,20);
 		}
 		TNT1 A 0 { 
 			criticalDamaged = true;
@@ -147,7 +147,7 @@ class CyborgCommando : CyborgAcolyte
 	XDeath:
 		MRBL G 10 A_Scream;
 		MRBL GGGHI 5 {
-			A_SpawnItemEx("DMR_BossDeathExplosion",random(8,-8),0,random(20,40));
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(-6,6),random(-6,6),random(15,30));
 		}
 		MRBL J 5 {
 			A_NoBlocking();

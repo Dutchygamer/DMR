@@ -93,7 +93,7 @@ class CyborgAcolyte : DMR_Zombieman
 		RAVW G 4;
 		RAVW G 4 A_StartSound("cyborg/pain", 7);
 		RAVW G 4 {
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",0,0,20);
 		}
 		TNT1 A 0 { 
 			criticalDamaged = true;
@@ -107,7 +107,7 @@ class CyborgAcolyte : DMR_Zombieman
 	Death:
 		RAVW G 10 A_Scream;
 		RAVW GGG 5 {
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(-6,6),random(-6,6),random(15,30));
 		}
 		RAVW HI 5;
 		RAVW J 5 A_NoBlocking;
@@ -117,7 +117,7 @@ class CyborgAcolyte : DMR_Zombieman
 	XDeath:
 		RAVW G 10 A_Scream;
 		RAVW GGG 5 {
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(-6,6),random(-6,6),random(15,30));
 		}
 		RAVW N 5;
 		RAVW O 5 A_XScream;

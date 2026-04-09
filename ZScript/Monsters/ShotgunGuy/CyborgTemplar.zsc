@@ -98,7 +98,7 @@ class CyborgTemplar : CyborgAcolyte
 		GREB G 4;
 		GREB G 4 A_StartSound("cyborg/pain", 7);
 		GREB G 4 {
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",0,0,20);
 		}
 		TNT1 A 0 { 
 			criticalDamaged = true;
@@ -112,7 +112,7 @@ class CyborgTemplar : CyborgAcolyte
 	Death:
 		GREB G 10 A_Scream;
 		GREB GGG 5 {
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(-6,6),random(-6,6),random(15,30));
 		}
 		GREB HI 5;
 		GREB J 5 A_NoBlocking;
@@ -122,7 +122,7 @@ class CyborgTemplar : CyborgAcolyte
 	XDeath:
 		GREB G 10 A_Scream;
 		GREB GGG 5 {
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(-6,6),random(-6,6),random(15,30));
 		}
 		GREB O 5;
 		GREB P 5 A_XScream;

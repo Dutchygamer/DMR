@@ -93,14 +93,14 @@ class DMR_Annihilator : DMR_BaronOfHell
 	XDeath:
 		BOSS K 20 Bright A_Scream;
 		BOSS LLLL 5 Bright {
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(-8,8),random(-8,8),random(20,40));
 		}
 		BOSS M 5 Bright{
 			A_NoBlocking();
 			A_SpawnItemEx("DMR_MonsterDeathFinalExplosion");
 		}
 		BOSS NOPQ 5 Bright {
-			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(8,-8),0,random(20,40));
+			A_SpawnItemEx("DMR_MonsterDeathExplosion",random(-8,8),random(-8,8),random(20,40));
 		}
 		BOSS R -1 A_KeenDie; // the important one for Eviternity
 		Stop;
