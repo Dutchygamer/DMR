@@ -106,8 +106,8 @@ class FireborneNoble : DMR_BaronOfHell
 		BRUS M 8 Bright A_SpawnProjectile("FireborneNobleFireSpawner",16);
 		Goto See;
 	Pain:
-		BRUS H 2 Bright;
-		BRUS H 2 Bright A_Pain;
+		BRUS N 2 Bright;
+		BRUS N 2 Bright A_Pain;
 		Goto See;
 	Death:
 	XDeath:
