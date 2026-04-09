@@ -74,6 +74,10 @@ $rolloff barrel/explosion 300 1300
 
 
 
+// armor pickup
+Armor/Pickup	DSITEMUP
+
+
 
 
 //////////////////////////////
