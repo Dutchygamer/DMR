@@ -153,7 +153,7 @@ Class Runecaster : DMR_Archvile
 		if (master) {		
 			// first spawn the fire as the bosscube does
 			{
-				Class<Actor> spawntype = "SpawnFire";
+				Class<Actor> spawntype = "DMR_SpawnFire";
 				Sound snd = "brain/spawn";
 			
 				Actor fog = Spawn(spawntype, master.pos);

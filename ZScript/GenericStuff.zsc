@@ -188,3 +188,22 @@ class DMR_TeleportFog : Actor
 		A_StartSound ("misc/teleport", CHAN_BODY);
 	}	
 }
+
+// basically carbon copy of the original SpawnFire so we can fix a very funny sprite conflict in Scythe 2
+class DMR_SpawnFire : Actor
+{
+	Default
+	{
+		Height 78;
+		+NOBLOCKMAP
+		+NOGRAVITY
+		+ZDOOMTRANS
+		RenderStyle "Add";
+	}
+	States
+	{
+	Spawn:
+		FIRE ABCDEFGH 4 Bright A_Fire;
+		Stop;
+	}
+}
